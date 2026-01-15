@@ -1,0 +1,351 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 自定义基础样式 */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* 自定义滚动条 */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-blue-500/50 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-blue-500;
+  }
+}
+
+/* 自定义组件样式 */
+@layer components {
+  /* 主按钮样式 */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 
+           bg-gradient-to-r from-primary-600 to-primary-700 
+           text-white font-medium rounded-xl
+           shadow-lg shadow-primary-500/30
+           hover:from-primary-700 hover:to-primary-800
+           hover:shadow-xl hover:shadow-primary-500/40
+           transform hover:-translate-y-0.5
+           transition-all duration-300 ease-out;
+  }
+
+  /* 次要按钮样式 */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3
+           bg-white text-primary-700 font-medium rounded-xl
+           border-2 border-primary-200
+           hover:bg-primary-50 hover:border-primary-300
+           transform hover:-translate-y-0.5
+           transition-all duration-300 ease-out;
+  }
+
+  /* 金色强调按钮 */
+  .btn-accent {
+    @apply inline-flex items-center justify-center px-6 py-3
+           bg-gradient-to-r from-accent-500 to-accent-600
+           text-white font-medium rounded-xl
+           shadow-lg shadow-accent-500/30
+           hover:from-accent-600 hover:to-accent-700
+           hover:shadow-xl hover:shadow-accent-500/40
+           transform hover:-translate-y-0.5
+           transition-all duration-300 ease-out;
+  }
+
+  /* 卡片样式 */
+  .card {
+    @apply bg-white rounded-2xl shadow-lg shadow-slate-200/50
+           border border-slate-100
+           hover:shadow-xl hover:shadow-slate-200/70
+           transition-all duration-300;
+  }
+
+  /* 玻璃态效果 */
+  .glass {
+    @apply bg-white/80 backdrop-blur-xl border border-white/20;
+  }
+
+  /* 科技感玻璃态卡片 */
+  .tech-card {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl;
+    transition: all 0.3s ease;
+  }
+
+  .tech-card:hover {
+    @apply border-blue-500/50;
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.4);
+  }
+
+  /* 霓虹发光文字 */
+  .neon-text {
+    background: linear-gradient(90deg, #00d4ff, #3b82f6, #a855f7, #22d3ee);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 3s ease infinite;
+  }
+
+  /* 扫描线动画 */
+  @keyframes scan {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+  }
+
+  /* 脉冲发光动画 */
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(59, 130, 246, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.8), 0 0 60px rgba(59, 130, 246, 0.5);
+    }
+  }
+
+  /* 渐变移动动画 */
+  @keyframes gradient-shift {
+    0% {
+      background-position: 0% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
+
+  /* 发光边框动画 */
+  @keyframes border-glow {
+    0%, 100% {
+      border-color: rgba(59, 130, 246, 0.3);
+      box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+    }
+    50% {
+      border-color: rgba(59, 130, 246, 0.6);
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+    }
+  }
+
+  .scan-line {
+    animation: scan 3s linear infinite;
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .border-glow {
+    animation: border-glow 3s ease-in-out infinite;
+  }
+
+
+  /* 渐变文字 */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-600 via-primary-500 to-accent-500 
+           bg-clip-text text-transparent;
+  }
+
+  /* 金色渐变文字 */
+  .gradient-text-gold {
+    @apply bg-gradient-to-r from-accent-400 via-accent-500 to-accent-600
+           bg-clip-text text-transparent;
+  }
+
+  /* 章节标题 */
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-slate-900;
+  }
+
+  /* 章节副标题 */
+  .section-subtitle {
+    @apply text-lg text-slate-600 max-w-2xl mx-auto;
+  }
+}
+
+/* 自定义工具类 */
+@layer utilities {
+  /* 文字阴影 */
+  .text-shadow {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  /* 动画延迟 */
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+
+  /* 悬浮效果 */
+  .hover-lift {
+    @apply transform hover:-translate-y-1 transition-transform duration-300;
+  }
+
+  /* 光晕效果 */
+  .glow-primary {
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.3);
+  }
+
+  .glow-accent {
+    box-shadow: 0 0 40px rgba(251, 191, 36, 0.3);
+  }
+
+  /* LaTeX 公式渲染样式 */
+  .math-formula {
+    @apply inline-block px-2 py-1 bg-gray-50 border border-gray-200 rounded;
+    font-family: 'KaTeX_Math', 'Times New Roman', serif;
+  }
+
+  .math-block {
+    @apply block my-4 p-4 bg-gray-50 border border-gray-200 rounded-lg;
+    font-family: 'KaTeX_Math', 'Times New Roman', serif;
+    text-align: center;
+  }
+}
+
+/* 动画关键帧 */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* 页面过渡动画 */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-exit {
+  opacity: 1;
+}
+
+.page-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+/* ============================================
+   生物模块样式 - 深色科技主题
+   ============================================ */
+
+/* 生物模块卡片样式 - 自然风格 */
+.card-bio {
+  @apply bg-white/90 backdrop-blur-sm border border-green-200/60 rounded-3xl p-6;
+  @apply shadow-md shadow-green-100/50;
+  @apply transition-all duration-300;
+  /* 柔和的内部阴影 */
+  box-shadow: 0 4px 20px rgba(34, 197, 94, 0.08), 
+              0 1px 3px rgba(0, 0, 0, 0.05),
+              inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.card-bio:hover {
+  @apply border-green-300/80 shadow-lg shadow-green-200/40;
+  transform: translateY(-2px);
+}
+
+/* 生物模块按钮样式 - 自然风格 */
+.btn-bio {
+  @apply bg-gradient-to-r from-green-500 to-emerald-500 text-white;
+  @apply px-6 py-3 rounded-2xl font-medium;
+  @apply shadow-md shadow-green-500/30;
+  @apply hover:from-green-600 hover:to-emerald-600;
+  @apply hover:shadow-lg hover:shadow-green-500/40;
+  @apply transition-all duration-300;
+  /* 柔和的内部高光 */
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 
+              0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+.btn-bio-blue {
+  @apply bg-gradient-to-r from-teal-400 to-cyan-400 text-white;
+  @apply px-6 py-3 rounded-2xl font-medium;
+  @apply shadow-md shadow-teal-400/30;
+  @apply hover:from-teal-500 hover:to-cyan-500;
+  @apply hover:shadow-lg hover:shadow-teal-400/40;
+  @apply transition-all duration-300;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 
+              0 4px 12px rgba(20, 184, 166, 0.3);
+}
+
+.btn-bio-outline {
+  @apply border-2 border-green-400/60 text-green-700 bg-white/50;
+  @apply px-6 py-3 rounded-2xl font-medium;
+  @apply hover:bg-green-50 hover:border-green-500;
+  @apply shadow-sm hover:shadow-md;
+  @apply transition-all duration-300;
+}
+
+/* 生物模块渐变文字 - 自然风格 */
+.text-gradient-shineray {
+  @apply bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600;
+  @apply bg-clip-text text-transparent;
+}
+
+/* 生物模块玻璃态效果（浅色主题） */
+.glass {
+  @apply bg-white/80 backdrop-blur-md border border-green-200/50 rounded-2xl;
+  box-shadow: 0 4px 20px rgba(34, 197, 94, 0.08);
+}

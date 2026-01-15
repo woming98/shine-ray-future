@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --shine-primary: #0ea5e9;
+  --ray-accent: #f59e0b;
+  --bg-dark: #0f172a;
+  --bg-darker: #020617;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  min-height: 100vh;
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e293b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #0ea5e9, #0284c7);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #38bdf8, #0ea5e9);
+}
+
+/* 文本选择样式 */
+::selection {
+  background: rgba(14, 165, 233, 0.3);
+  color: #fff;
+}
+
+/* 动画效果 */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* 玻璃态效果 */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-dark {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 霓虹光效 */
+.neon-glow {
+  box-shadow: 
+    0 0 5px var(--shine-primary),
+    0 0 10px var(--shine-primary),
+    0 0 20px var(--shine-primary);
+}
+
+.neon-text {
+  text-shadow: 
+    0 0 5px var(--shine-primary),
+    0 0 10px var(--shine-primary);
+}
+
+/* 卡片悬浮效果 */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(14, 165, 233, 0.2);
+}
+
+/* 物理主题颜色渐变 */
+.physics-gradient-force {
+  background: linear-gradient(135deg, #ef4444, #f97316);
+}
+
+.physics-gradient-wave {
+  background: linear-gradient(135deg, #8b5cf6, #a855f7);
+}
+
+.physics-gradient-electricity {
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+}
+
+.physics-gradient-nuclear {
+  background: linear-gradient(135deg, #10b981, #34d399);
+}
+
+.physics-gradient-space {
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+}
+
+.physics-gradient-atomic {
+  background: linear-gradient(135deg, #ec4899, #f472b6);
+}
+
+.physics-gradient-energy {
+  background: linear-gradient(135deg, #f97316, #fb923c);
+}
+
+.physics-gradient-temp {
+  background: linear-gradient(135deg, #06b6d4, #22d3ee);
+}
+
+/* 响应式文字大小 */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* 公式显示样式 */
+.formula {
+  font-family: 'JetBrains Mono', monospace;
+  background: rgba(14, 165, 233, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border-left: 3px solid #0ea5e9;
+}
+
+/* 进度条动画 */
+.progress-bar {
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* 粒子背景效果 */
+.particles-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+}
+

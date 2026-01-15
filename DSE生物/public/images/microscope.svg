@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 550" width="400" height="550">
+  <defs>
+    <!-- Gradients for realistic 3D effect -->
+    <linearGradient id="metalGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2a2a2a"/>
+      <stop offset="30%" style="stop-color:#5a5a5a"/>
+      <stop offset="50%" style="stop-color:#8a8a8a"/>
+      <stop offset="70%" style="stop-color:#5a5a5a"/>
+      <stop offset="100%" style="stop-color:#2a2a2a"/>
+    </linearGradient>
+    
+    <linearGradient id="metalVertical" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6a6a6a"/>
+      <stop offset="50%" style="stop-color:#4a4a4a"/>
+      <stop offset="100%" style="stop-color:#3a3a3a"/>
+    </linearGradient>
+    
+    <linearGradient id="blackMetal" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a1a"/>
+      <stop offset="30%" style="stop-color:#3a3a3a"/>
+      <stop offset="50%" style="stop-color:#4a4a4a"/>
+      <stop offset="70%" style="stop-color:#3a3a3a"/>
+      <stop offset="100%" style="stop-color:#1a1a1a"/>
+    </linearGradient>
+    
+    <linearGradient id="chromeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#c0c0c0"/>
+      <stop offset="25%" style="stop-color:#e8e8e8"/>
+      <stop offset="50%" style="stop-color:#ffffff"/>
+      <stop offset="75%" style="stop-color:#e8e8e8"/>
+      <stop offset="100%" style="stop-color:#c0c0c0"/>
+    </linearGradient>
+    
+    <linearGradient id="lensGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a8d8ff"/>
+      <stop offset="50%" style="stop-color:#e0f0ff"/>
+      <stop offset="100%" style="stop-color:#c8e8ff"/>
+    </linearGradient>
+    
+    <linearGradient id="goldKnob" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8B7355"/>
+      <stop offset="30%" style="stop-color:#C4A67A"/>
+      <stop offset="50%" style="stop-color:#DFC089"/>
+      <stop offset="70%" style="stop-color:#C4A67A"/>
+      <stop offset="100%" style="stop-color:#8B7355"/>
+    </linearGradient>
+    
+    <linearGradient id="stageGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a4a4a"/>
+      <stop offset="100%" style="stop-color:#2a2a2a"/>
+    </linearGradient>
+    
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="3" dy="3" stdDeviation="4" flood-opacity="0.3"/>
+    </filter>
+    
+    <filter id="innerShadow">
+      <feOffset dx="0" dy="2"/>
+      <feGaussianBlur stdDeviation="2" result="offset-blur"/>
+      <feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse"/>
+      <feFlood flood-color="black" flood-opacity="0.3" result="color"/>
+      <feComposite operator="in" in="color" in2="inverse" result="shadow"/>
+      <feComposite operator="over" in="shadow" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  
+  <!-- Base -->
+  <ellipse cx="200" cy="520" rx="140" ry="25" fill="url(#blackMetal)" filter="url(#shadow)"/>
+  <ellipse cx="200" cy="515" rx="130" ry="20" fill="url(#metalGradient)"/>
+  <ellipse cx="200" cy="510" rx="120" ry="15" fill="#3a3a3a"/>
+  
+  <!-- Base pillar -->
+  <rect x="175" y="440" width="50" height="75" rx="3" fill="url(#blackMetal)" filter="url(#shadow)"/>
+  
+  <!-- Arm - curved support -->
+  <path d="M 200 440 
+           Q 200 380 240 350 
+           L 250 350 
+           L 250 180 
+           Q 250 160 230 160
+           L 200 160
+           L 200 440" 
+        fill="url(#blackMetal)" filter="url(#shadow)"/>
+  
+  <!-- Arm highlight -->
+  <path d="M 235 350 L 245 350 L 245 180 Q 245 165 230 165" 
+        fill="none" stroke="#5a5a5a" stroke-width="2"/>
+  
+  <!-- Stage -->
+  <rect x="100" y="320" width="160" height="12" rx="2" fill="url(#stageGradient)" filter="url(#shadow)"/>
+  <rect x="105" y="318" width="150" height="8" rx="1" fill="#4a4a4a"/>
+  <!-- Stage hole -->
+  <ellipse cx="180" cy="324" rx="25" ry="4" fill="#1a1a1a"/>
+  <!-- Stage clips -->
+  <rect x="120" y="314" width="25" height="6" rx="1" fill="url(#chromeGradient)"/>
+  <rect x="215" y="314" width="25" height="6" rx="1" fill="url(#chromeGradient)"/>
+  
+  <!-- Sub-stage components -->
+  <!-- Condenser housing -->
+  <rect x="155" y="340" width="50" height="30" rx="3" fill="url(#blackMetal)"/>
+  <ellipse cx="180" cy="345" rx="20" ry="5" fill="url(#lensGradient)"/>
+  
+  <!-- Diaphragm lever -->
+  <rect x="130" y="355" width="30" height="5" rx="2" fill="url(#chromeGradient)"/>
+  <circle cx="130" cy="357" r="6" fill="url(#goldKnob)"/>
+  
+  <!-- Light source housing -->
+  <rect x="160" y="380" width="40" height="50" rx="5" fill="url(#blackMetal)"/>
+  <ellipse cx="180" cy="390" rx="15" ry="8" fill="#fff8dc" opacity="0.9"/>
+  <ellipse cx="180" cy="390" rx="10" ry="5" fill="#fffacd"/>
+  
+  <!-- Body tube -->
+  <rect x="175" y="90" width="50" height="75" rx="5" fill="url(#blackMetal)" filter="url(#shadow)"/>
+  <rect x="180" y="95" width="40" height="65" rx="3" fill="url(#metalVertical)"/>
+  
+  <!-- Eyepiece -->
+  <rect x="170" y="30" width="60" height="65" rx="8" fill="url(#blackMetal)" filter="url(#shadow)"/>
+  <ellipse cx="200" cy="35" rx="25" ry="8" fill="url(#metalGradient)"/>
+  <ellipse cx="200" cy="32" rx="20" ry="6" fill="url(#lensGradient)"/>
+  <ellipse cx="200" cy="30" rx="15" ry="4" fill="#e0f4ff"/>
+  <!-- Eyepiece rings -->
+  <ellipse cx="200" cy="50" rx="28" ry="5" fill="none" stroke="#4a4a4a" stroke-width="2"/>
+  <ellipse cx="200" cy="70" rx="26" ry="4" fill="none" stroke="#4a4a4a" stroke-width="2"/>
+  
+  <!-- Nosepiece (revolving) -->
+  <ellipse cx="195" cy="175" rx="40" ry="15" fill="url(#blackMetal)" filter="url(#shadow)"/>
+  <ellipse cx="195" cy="172" rx="35" ry="12" fill="url(#metalGradient)"/>
+  <!-- Nosepiece ridges -->
+  <ellipse cx="195" cy="175" rx="38" ry="14" fill="none" stroke="#3a3a3a" stroke-width="1"/>
+  
+  <!-- Objectives -->
+  <!-- 4x objective (red ring) -->
+  <rect x="150" y="185" width="18" height="40" rx="3" fill="url(#blackMetal)"/>
+  <rect x="152" y="220" width="14" height="3" rx="1" fill="#d32f2f"/>
+  <ellipse cx="159" cy="228" rx="7" ry="3" fill="url(#lensGradient)"/>
+  
+  <!-- 10x objective (yellow ring) -->
+  <rect x="172" y="185" width="20" height="55" rx="3" fill="url(#blackMetal)"/>
+  <rect x="174" y="235" width="16" height="3" rx="1" fill="#ffc107"/>
+  <ellipse cx="182" cy="243" rx="8" ry="3" fill="url(#lensGradient)"/>
+  
+  <!-- 40x objective (blue ring) - active -->
+  <rect x="196" y="185" width="22" height="75" rx="3" fill="url(#blackMetal)" filter="url(#shadow)"/>
+  <rect x="198" y="255" width="18" height="3" rx="1" fill="#1976d2"/>
+  <ellipse cx="207" cy="263" rx="9" ry="3" fill="url(#lensGradient)"/>
+  
+  <!-- 100x objective (white ring) -->
+  <rect x="222" y="185" width="16" height="35" rx="3" fill="url(#blackMetal)"/>
+  <rect x="224" y="215" width="12" height="3" rx="1" fill="#ffffff"/>
+  <ellipse cx="230" cy="223" rx="6" ry="2" fill="url(#lensGradient)"/>
+  
+  <!-- Coarse adjustment knob (large) -->
+  <ellipse cx="280" cy="260" rx="30" ry="45" fill="url(#blackMetal)" filter="url(#shadow)"/>
+  <ellipse cx="280" cy="260" rx="25" ry="38" fill="url(#goldKnob)"/>
+  <!-- Knob ridges -->
+  <line x1="280" y1="220" x2="280" y2="300" stroke="#8B7355" stroke-width="1"/>
+  <line x1="260" y1="260" x2="300" y2="260" stroke="#8B7355" stroke-width="1"/>
+  
+  <!-- Fine adjustment knob (small) -->
+  <ellipse cx="280" cy="340" rx="20" ry="30" fill="url(#blackMetal)" filter="url(#shadow)"/>
+  <ellipse cx="280" cy="340" rx="16" ry="24" fill="url(#chromeGradient)"/>
+  <!-- Fine knob ridges -->
+  <line x1="280" y1="318" x2="280" y2="362" stroke="#a0a0a0" stroke-width="1"/>
+  
+  <!-- Focus indicator marks on arm -->
+  <line x1="255" y1="280" x2="265" y2="280" stroke="#4a4a4a" stroke-width="1"/>
+  <line x1="255" y1="290" x2="265" y2="290" stroke="#4a4a4a" stroke-width="1"/>
+  <line x1="255" y1="300" x2="265" y2="300" stroke="#4a4a4a" stroke-width="1"/>
+  
+  <!-- Microscope brand area (decorative) -->
+  <rect x="182" y="110" width="36" height="12" rx="2" fill="#2a2a2a"/>
+  <text x="200" y="119" text-anchor="middle" fill="#888" font-size="6" font-family="Arial">SHINERAY</text>
+</svg>

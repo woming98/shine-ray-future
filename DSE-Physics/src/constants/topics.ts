@@ -1,0 +1,150 @@
+import { PhysicsTopic } from '../types';
+
+// HKDSE 物理八大主题
+export const PHYSICS_TOPICS: Omit<PhysicsTopic, 'chapters' | 'progress'>[] = [
+  {
+    id: 'temperature-gas',
+    name: 'Temperature and Gas',
+    nameCN: '温度与气体',
+    icon: '🌡️',
+    color: 'physics-temp',
+    gradient: 'physics-gradient-temp',
+    description: '探索温度、热传递和气体定律的奥秘',
+  },
+  {
+    id: 'force-motion',
+    name: 'Force and Motion',
+    nameCN: '力学与运动',
+    icon: '🚀',
+    color: 'physics-force',
+    gradient: 'physics-gradient-force',
+    description: '理解力与运动的关系，掌握牛顿定律',
+  },
+  {
+    id: 'wave-motion',
+    name: 'Wave Motion',
+    nameCN: '波动',
+    icon: '🌊',
+    color: 'physics-wave',
+    gradient: 'physics-gradient-wave',
+    description: '学习波的特性、反射、折射与干涉',
+  },
+  {
+    id: 'electricity-magnetism',
+    name: 'Electricity and Magnetism',
+    nameCN: '电与磁',
+    icon: '⚡',
+    color: 'physics-electricity',
+    gradient: 'physics-gradient-electricity',
+    description: '电路、电磁感应和电磁波的应用',
+  },
+  {
+    id: 'radioactivity-nuclear',
+    name: 'Radioactivity and Nuclear Energy',
+    nameCN: '放射性与核能',
+    icon: '☢️',
+    color: 'physics-nuclear',
+    gradient: 'physics-gradient-nuclear',
+    description: '原子核结构、放射性衰变和核能',
+  },
+  {
+    id: 'astronomy-space',
+    name: 'Astronomy and Space Science',
+    nameCN: '天文与太空科学',
+    icon: '🌌',
+    color: 'physics-space',
+    gradient: 'physics-gradient-space',
+    description: '宇宙的奥秘、恒星演化和太空探索',
+  },
+  {
+    id: 'atomic-world',
+    name: 'Atomic World',
+    nameCN: '原子世界',
+    icon: '⚛️',
+    color: 'physics-atomic',
+    gradient: 'physics-gradient-atomic',
+    description: '原子结构、量子理论基础',
+  },
+  {
+    id: 'energy-use',
+    name: 'Energy and Use of Energy',
+    nameCN: '能量及能量的使用',
+    icon: '💡',
+    color: 'physics-energy',
+    gradient: 'physics-gradient-energy',
+    description: '能量转换、效率和可持续发展',
+  },
+];
+
+// 成就列表
+export const ACHIEVEMENTS = [
+  {
+    id: 'first-lesson',
+    title: 'First Step',
+    titleCN: '初次探索',
+    description: '完成第一个学习章节',
+    icon: '🎯',
+    category: 'learning' as const,
+    requirement: 1,
+  },
+  {
+    id: 'week-streak',
+    title: 'Weekly Warrior',
+    titleCN: '周学习达人',
+    description: '连续学习7天',
+    icon: '🔥',
+    category: 'challenge' as const,
+    requirement: 7,
+  },
+  {
+    id: 'formula-master',
+    title: 'Formula Master',
+    titleCN: '公式大师',
+    description: '掌握50个物理公式',
+    icon: '📐',
+    category: 'learning' as const,
+    requirement: 50,
+  },
+  {
+    id: 'problem-solver',
+    title: 'Problem Solver',
+    titleCN: '解题高手',
+    description: '完成100道练习题',
+    icon: '✨',
+    category: 'practice' as const,
+    requirement: 100,
+  },
+  {
+    id: 'perfect-score',
+    title: 'Perfect Score',
+    titleCN: '满分达成',
+    description: '在测验中获得满分',
+    icon: '🏆',
+    category: 'challenge' as const,
+    requirement: 1,
+  },
+  {
+    id: 'topic-complete',
+    title: 'Topic Master',
+    titleCN: '主题精通',
+    description: '完成一个完整主题的学习',
+    icon: '🎓',
+    category: 'learning' as const,
+    requirement: 1,
+  },
+];
+
+// 学习等级配置
+export const LEVEL_CONFIG = {
+  experiencePerLevel: 1000,
+  maxLevel: 50,
+  levelTitles: [
+    { min: 1, max: 5, title: '物理新手', titleEN: 'Physics Novice' },
+    { min: 6, max: 10, title: '物理学徒', titleEN: 'Physics Apprentice' },
+    { min: 11, max: 20, title: '物理探索者', titleEN: 'Physics Explorer' },
+    { min: 21, max: 30, title: '物理学者', titleEN: 'Physics Scholar' },
+    { min: 31, max: 40, title: '物理专家', titleEN: 'Physics Expert' },
+    { min: 41, max: 50, title: '物理大师', titleEN: 'Physics Master' },
+  ],
+};
+

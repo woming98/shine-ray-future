@@ -1,0 +1,1 @@
+import{c as t,p as a}from"./middleware-dtXbDlhF.js";const l=t()(a((e,s)=>({user:{id:"demo-user",name:"学习者",email:"student@shineray.edu",level:5,experience:2350,streak:7,joinedAt:new Date("2025-01-01")},setUser:r=>e({user:r}),getUser:()=>s().user,getAllProgress:()=>({physics:0,math:0,biology:0})}),{name:"global-user-storage"}));export{l as u};
