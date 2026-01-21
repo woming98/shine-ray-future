@@ -8,6 +8,8 @@ import { useState } from 'react';
 import Dashboard from './pages/Dashboard';
 import TopicPage from './pages/TopicPage';
 import QuizPage from './pages/QuizPage';
+import ExercisePage from './pages/ExercisePage';
+import ForceMotionQuizPage from './pages/ForceMotionQuizPage';
 import AchievementsPage from './pages/AchievementsPage';
 import WrongAnswersPage from './pages/WrongAnswersPage';
 import { useStore } from './store/useStore';
@@ -161,6 +163,20 @@ function SimplePhysicsLayout({ children }: { children: React.ReactNode }) {
                   <h3 className="text-xs text-blue-400 uppercase tracking-wider mb-3 px-2 font-semibold">練習</h3>
                   <nav className="space-y-1">
                     <button
+                      onClick={() => { navigate('/subjects/physics/exercise'); setSidebarOpen(false); }}
+                      className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-blue-200 hover:text-white hover:bg-blue-500/20 transition-all duration-200 border border-transparent hover:border-blue-500/30"
+                    >
+                      <span>📚</span>
+                      <span>Exercise</span>
+                    </button>
+                    <button
+                      onClick={() => { navigate('/subjects/physics/force-motion-quiz'); setSidebarOpen(false); }}
+                      className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-blue-200 hover:text-white hover:bg-blue-500/20 transition-all duration-200 border border-transparent hover:border-blue-500/30"
+                    >
+                      <span>🎯</span>
+                      <span>Quiz</span>
+                    </button>
+                    <button
                       onClick={() => { navigate('/subjects/physics/quiz'); setSidebarOpen(false); }}
                       className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-blue-200 hover:text-white hover:bg-blue-500/20 transition-all duration-200 border border-transparent hover:border-blue-500/30"
                     >
@@ -213,6 +229,9 @@ export default function PhysicsModule() {
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/topic/:topicId" element={<TopicPage />} />
+        <Route path="/exercise" element={<ExercisePage />} />
+        <Route path="/exercise/:sectionId" element={<ExercisePage />} />
+        <Route path="/force-motion-quiz" element={<ForceMotionQuizPage />} />
         <Route path="/quiz" element={<QuizPage />} />
         <Route path="/mock-exam" element={<QuizPage />} />
         <Route path="/achievements" element={<AchievementsPage />} />

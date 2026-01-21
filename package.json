@@ -23,12 +23,14 @@
     "react-i18next": "^13.5.0",
     "react-router-dom": "^6.20.0",
     "recharts": "^2.10.3",
-    "zustand": "^5.0.10"
+    "zustand": "^5.0.10",
+    "katex": "^0.16.9"
   },
   "devDependencies": {
     "@types/papaparse": "^5.5.2",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
+    "@types/katex": "^0.16.7",
     "@vitejs/plugin-react": "^4.2.0",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.31",

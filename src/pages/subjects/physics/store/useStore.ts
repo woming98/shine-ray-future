@@ -37,6 +37,23 @@ interface AppState {
   toggleSidebar: () => void;
   currentTopic: string | null;
   setCurrentTopic: (topicId: string | null) => void;
+  
+  // 练习进度追踪（按 topicId 和 sectionId 维度）
+  exerciseProgress: Record<string, {
+    attemptedIds: string[];    // 已作答的题目 ID 集合（点过 Check Answer）
+    correctIds: string[];      // 已答对的题目 ID 集合
+    wrongEverIds: string[];    // 曾经答错过的题目 ID 集合（用于总结）
+    hasLaunched: boolean;      // 是否已触发升空动画
+  }>;
+  markExerciseAttempt: (topicId: string, sectionId: string, exerciseId: string, isCorrect: boolean) => void;
+  getExerciseProgress: (topicId: string, sectionId: string) => { 
+    attemptedIds: string[]; 
+    correctIds: string[]; 
+    wrongEverIds: string[]; 
+    hasLaunched: boolean 
+  };
+  setLaunched: (topicId: string, sectionId: string) => void;
+  resetExerciseProgress: (topicId: string, sectionId: string) => void;
 }
 
 export const useStore = create<AppState>()(
@@ -195,6 +212,92 @@ export const useStore = create<AppState>()(
       toggleSidebar: () => set({ sidebarOpen: !get().sidebarOpen }),
       currentTopic: null,
       setCurrentTopic: (topicId) => set({ currentTopic: topicId }),
+      
+      // 练习进度追踪
+      exerciseProgress: {},
+      markExerciseAttempt: (topicId, sectionId, exerciseId, isCorrect) => {
+        const key = `${topicId}-${sectionId}`;
+        const stored = get().exerciseProgress[key];
+        const current = stored || { 
+          attemptedIds: [], 
+          correctIds: [], 
+          wrongEverIds: [], 
+          hasLaunched: false 
+        };
+        
+        // 确保所有字段都存在（兼容旧数据）
+        const currentAttemptedIds = current.attemptedIds || [];
+        const currentCorrectIds = current.correctIds || [];
+        const currentWrongEverIds = current.wrongEverIds || [];
+        
+        // 记录已作答（如果还没记录过）
+        const attemptedIds = currentAttemptedIds.includes(exerciseId)
+          ? currentAttemptedIds
+          : [...currentAttemptedIds, exerciseId];
+        
+        // 如果答对，记录到 correctIds（如果还没记录过）
+        const correctIds = isCorrect && !currentCorrectIds.includes(exerciseId)
+          ? [...currentCorrectIds, exerciseId]
+          : currentCorrectIds;
+        
+        // 如果答错，记录到 wrongEverIds（如果还没记录过）
+        const wrongEverIds = !isCorrect && !currentWrongEverIds.includes(exerciseId)
+          ? [...currentWrongEverIds, exerciseId]
+          : currentWrongEverIds;
+        
+        set({
+          exerciseProgress: {
+            ...get().exerciseProgress,
+            [key]: {
+              attemptedIds,
+              correctIds,
+              wrongEverIds,
+              hasLaunched: current.hasLaunched || false,
+            },
+          },
+        });
+      },
+      getExerciseProgress: (topicId, sectionId) => {
+        const key = `${topicId}-${sectionId}`;
+        const stored = get().exerciseProgress[key];
+        
+        // 确保返回的对象总是包含所有必需的字段
+        // 兼容旧数据格式（可能只有 correctIds 和 hasLaunched）
+        return {
+          attemptedIds: stored?.attemptedIds || [],
+          correctIds: stored?.correctIds || [],
+          wrongEverIds: stored?.wrongEverIds || [],
+          hasLaunched: stored?.hasLaunched || false,
+        };
+      },
+      setLaunched: (topicId, sectionId) => {
+        const key = `${topicId}-${sectionId}`;
+        const stored = get().exerciseProgress[key];
+        const current = stored || { 
+          attemptedIds: [], 
+          correctIds: [], 
+          wrongEverIds: [], 
+          hasLaunched: false 
+        };
+        
+        set({
+          exerciseProgress: {
+            ...get().exerciseProgress,
+            [key]: {
+              attemptedIds: current.attemptedIds || [],
+              correctIds: current.correctIds || [],
+              wrongEverIds: current.wrongEverIds || [],
+              hasLaunched: true,
+            },
+          },
+        });
+      },
+      resetExerciseProgress: (topicId, sectionId) => {
+        const key = `${topicId}-${sectionId}`;
+        const current = get().exerciseProgress;
+        const { [key]: _, ...rest } = current;
+        set({ exerciseProgress: rest });
+      },
     }),
     {
       name: 'dse-physics-storage',
@@ -205,6 +308,7 @@ export const useStore = create<AppState>()(
         wrongAnswers: state.wrongAnswers,
         stats: state.stats,
         dailyStudy: state.dailyStudy,
+        exerciseProgress: state.exerciseProgress,
       }),
     }
   )

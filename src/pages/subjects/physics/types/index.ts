@@ -59,9 +59,17 @@ export interface Exercise {
   options?: string[];
   answer: string;
   explanation: string;
+  /**
+   * 答案/解析附图（可选）
+   * - 用于展示“标准答案的补充图片”，例如参考图、关键步骤示意图
+   * - 注意：解析文本中的图片 Markdown 会被忽略（方案C），因此附图请放在这里
+   */
+  answerImagePaths?: string[];
   difficulty: 1 | 2 | 3 | 4 | 5;
   points: number;
   hints: string[];
+  sectionId?: string;
+  imagePaths?: string[];
 }
 
 // 模拟实验
@@ -182,4 +190,3 @@ export interface DailyStudy {
   exercisesCompleted: number;
   topicsStudied: string[];
 }
-

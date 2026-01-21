@@ -14,7 +14,7 @@ import {
   Lightbulb,
   ArrowLeft,
   Clock,
-  Target,
+  Award,
 } from 'lucide-react';
 import { PHYSICS_TOPICS } from '../constants/topics';
 import { FORCE_MOTION_CHAPTERS, FORCE_MOTION_FORMULAS } from '../constants/forceMotion';
@@ -23,8 +23,10 @@ import { Button } from '../components/UI/Button';
 import { Card } from '../components/UI/Card';
 import { ProgressRing } from '../components/UI/ProgressRing';
 import { Chapter, Formula } from '../types';
+import ExercisePage from './ExercisePage';
+import ForceMotionQuizPage from './ForceMotionQuizPage';
 
-type TabType = 'theory' | 'simulation' | 'calculator' | 'exercises';
+type TabType = 'theory' | 'simulation' | 'calculator' | 'exercise' | 'quiz';
 
 export default function TopicPage() {
   const { topicId } = useParams<{ topicId: string }>();
@@ -60,12 +62,20 @@ export default function TopicPage() {
   const currentChapter = chapters.find((c) => c.id === activeChapter);
   const topicProgress = getTopicProgress(topicId || '');
 
-  const tabs = [
-    { id: 'theory', label: '理论学习', icon: BookOpen },
-    { id: 'simulation', label: '互动模拟', icon: FlaskConical },
-    { id: 'calculator', label: '公式计算', icon: Calculator },
-    { id: 'exercises', label: '练习题', icon: FileQuestion },
-  ];
+  // 根据主题决定显示的标签页
+  const tabs = topicId === 'force-motion' 
+    ? [
+        { id: 'theory', label: '理论学习', icon: BookOpen },
+        { id: 'simulation', label: '互动模拟', icon: FlaskConical },
+        { id: 'calculator', label: '公式计算', icon: Calculator },
+        { id: 'exercise', label: 'Exercise', icon: FileQuestion },
+        { id: 'quiz', label: 'Quiz', icon: Award },
+      ]
+    : [
+        { id: 'theory', label: '理论学习', icon: BookOpen },
+        { id: 'simulation', label: '互动模拟', icon: FlaskConical },
+        { id: 'calculator', label: '公式计算', icon: Calculator },
+      ];
 
   return (
     <motion.div
@@ -226,8 +236,11 @@ export default function TopicPage() {
                 setExpandedFormula={setExpandedFormula}
               />
             )}
-            {activeTab === 'exercises' && (
-              <ExercisesTab chapter={currentChapter} topicId={topicId || ''} />
+            {activeTab === 'exercise' && topicId === 'force-motion' && (
+              <ExerciseTab />
+            )}
+            {activeTab === 'quiz' && topicId === 'force-motion' && (
+              <QuizTab />
             )}
           </AnimatePresence>
         </div>
@@ -853,233 +866,30 @@ function CalculatorTab({
   );
 }
 
-// 练习题标签页
-function ExercisesTab({ chapter, topicId }: { chapter?: Chapter; topicId: string }) {
-  const [currentExercise, setCurrentExercise] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
-  const [showResult, setShowResult] = useState(false);
-  const [showHint, setShowHint] = useState(false);
-  const { addWrongAnswer } = useStore();
-
-  if (!chapter || chapter.exercises.length === 0) {
-    return (
-      <Card hover={false} className="p-8 text-center">
-        <FileQuestion className="w-12 h-12 text-blue-300 mx-auto mb-4" />
-        <p className="text-blue-300">本章节暂无练习题</p>
-      </Card>
-    );
-  }
-
-  const exercise = chapter.exercises[currentExercise];
-  const isCorrect = selectedAnswer === exercise.answer;
-
-  const handleSubmit = () => {
-    setShowResult(true);
-    if (!isCorrect && selectedAnswer) {
-      addWrongAnswer({
-        exerciseId: exercise.id,
-        topicId,
-        chapterId: chapter.id,
-        userAnswer: selectedAnswer,
-        correctAnswer: exercise.answer,
-        attempts: 1,
-        mastered: false,
-      });
-    }
-  };
-
-  const handleNext = () => {
-    if (currentExercise < chapter.exercises.length - 1) {
-      setCurrentExercise(currentExercise + 1);
-      setSelectedAnswer(null);
-      setShowResult(false);
-      setShowHint(false);
-    }
-  };
-
+// Exercise 标签页 - 嵌入 ExercisePage 内容
+function ExerciseTab() {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
-      className="space-y-6"
+      className="h-full"
     >
-      <Card hover={false} className="p-6">
-        {/* 进度指示 */}
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-2">
-            <Target className="w-5 h-5 text-primary-400" />
-            <span className="text-blue-100 font-medium">
-              第 {currentExercise + 1} / {chapter.exercises.length} 题
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span
-              className={`px-2 py-1 rounded text-xs font-medium ${
-                exercise.difficulty <= 2
-                  ? 'bg-green-500/20 text-green-400'
-                  : exercise.difficulty <= 3
-                  ? 'bg-yellow-500/20 text-yellow-400'
-                  : 'bg-red-500/20 text-red-400'
-              }`}
-            >
-              难度 {'★'.repeat(exercise.difficulty)}
-            </span>
-            <span className="text-blue-300 text-sm">{exercise.points} 分</span>
-          </div>
-        </div>
-
-        {/* 题目 */}
-        <div className="mb-6">
-          <h3 className="text-lg text-blue-100 leading-relaxed">{exercise.question}</h3>
-        </div>
-
-        {/* 选项 */}
-        {exercise.type === 'multiple_choice' && exercise.options && (
-          <div className="space-y-3 mb-6">
-            {exercise.options.map((option, index) => {
-              const isSelected = selectedAnswer === option;
-              const showCorrect = showResult && option === exercise.answer;
-              const showWrong = showResult && isSelected && !isCorrect;
-
-              return (
-                <button
-                  key={index}
-                  onClick={() => !showResult && setSelectedAnswer(option)}
-                  disabled={showResult}
-                  className={`w-full p-4 rounded-xl text-left transition-all flex items-center gap-3 ${
-                    showCorrect
-                      ? 'bg-green-500/20 border-2 border-green-500'
-                      : showWrong
-                      ? 'bg-red-500/20 border-2 border-red-500'
-                      : isSelected
-                      ? 'bg-primary-500/20 border-2 border-primary-500'
-                      : 'bg-slate-800/50/5 border-2 border-transparent hover:bg-slate-800/50/10'
-                  }`}
-                >
-                  <div
-                    className={`w-8 h-8 rounded-lg flex items-center justify-center font-medium ${
-                      showCorrect
-                        ? 'bg-green-500 text-blue-100'
-                        : showWrong
-                        ? 'bg-red-500 text-blue-100'
-                        : isSelected
-                        ? 'bg-primary-500 text-blue-100'
-                        : 'bg-slate-800/50/10 text-blue-200'
-                    }`}
-                  >
-                    {String.fromCharCode(65 + index)}
-                  </div>
-                  <span className={showCorrect || isSelected ? 'text-blue-100' : 'text-blue-200'}>
-                    {option}
-                  </span>
-                  {showCorrect && <Check className="w-5 h-5 text-green-400 ml-auto" />}
-                </button>
-              );
-            })}
-          </div>
-        )}
-
-        {/* 计算题输入 */}
-        {exercise.type === 'calculation' && (
-          <div className="mb-6">
-            <textarea
-              placeholder="请输入你的答案和计算过程..."
-              value={selectedAnswer || ''}
-              onChange={(e) => setSelectedAnswer(e.target.value)}
-              disabled={showResult}
-              className="w-full h-32 bg-slate-800/50/5 border border-white/20 rounded-xl p-4 text-blue-100 placeholder-slate-500 focus:outline-none focus:border-primary-500 resize-none"
-            />
-          </div>
-        )}
-
-        {/* 提示 */}
-        {!showResult && exercise.hints.length > 0 && (
-          <div className="mb-6">
-            <button
-              onClick={() => setShowHint(!showHint)}
-              className="text-accent-400 text-sm flex items-center gap-1 hover:text-accent-300"
-            >
-              <Lightbulb className="w-4 h-4" />
-              {showHint ? '隐藏提示' : '显示提示'}
-            </button>
-            {showHint && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                className="mt-2 p-3 bg-accent-500/10 rounded-lg"
-              >
-                <ul className="space-y-1">
-                  {exercise.hints.map((hint, i) => (
-                    <li key={i} className="text-accent-300 text-sm flex items-start gap-2">
-                      <span>💡</span> {hint}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            )}
-          </div>
-        )}
-
-        {/* 结果解释 */}
-        {showResult && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className={`p-4 rounded-xl mb-6 ${
-              isCorrect ? 'bg-green-500/10 border border-green-500/30' : 'bg-red-500/10 border border-red-500/30'
-            }`}
-          >
-            <p className={`font-medium mb-2 ${isCorrect ? 'text-green-400' : 'text-red-400'}`}>
-              {isCorrect ? '🎉 回答正确！' : '❌ 回答错误'}
-            </p>
-            <p className="text-blue-200 text-sm">
-              <span className="font-medium">解析：</span> {exercise.explanation}
-            </p>
-          </motion.div>
-        )}
-
-        {/* 操作按钮 */}
-        <div className="flex items-center justify-between">
-          <div className="text-blue-300 text-sm">
-            {exercise.type === 'multiple_choice' ? '单选题' : '计算题'}
-          </div>
-          <div className="flex gap-3">
-            {!showResult ? (
-              <Button onClick={handleSubmit} disabled={!selectedAnswer}>
-                提交答案
-              </Button>
-            ) : (
-              <Button onClick={handleNext}>
-                {currentExercise < chapter.exercises.length - 1 ? '下一题' : '完成'}
-              </Button>
-            )}
-          </div>
-        </div>
-      </Card>
-
-      {/* 题目导航 */}
-      <div className="flex flex-wrap gap-2">
-        {chapter.exercises.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => {
-              setCurrentExercise(index);
-              setSelectedAnswer(null);
-              setShowResult(false);
-              setShowHint(false);
-            }}
-            className={`w-10 h-10 rounded-lg font-medium transition-colors ${
-              currentExercise === index
-                ? 'bg-primary-500 text-blue-100'
-                : 'bg-slate-800/50/10 text-blue-300 hover:bg-slate-800/50/20'
-            }`}
-          >
-            {index + 1}
-          </button>
-        ))}
-      </div>
+      <ExercisePage embedded={true} />
     </motion.div>
   );
 }
 
+// Quiz 标签页 - 嵌入 ForceMotionQuizPage 内容
+function QuizTab() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      className="h-full"
+    >
+      <ForceMotionQuizPage embedded={true} />
+    </motion.div>
+  );
+}

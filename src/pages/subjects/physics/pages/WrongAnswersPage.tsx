@@ -32,6 +32,14 @@ export default function WrongAnswersPage() {
   // 统计数据
   const totalWrong = wrongAnswers.length;
   const masteredCount = wrongAnswers.filter((wa) => wa.mastered).length;
+
+  const isImageOption = (option: string): boolean => {
+    if (option.startsWith('/') || option.startsWith('./')) {
+      return true;
+    }
+    const imageExtensions = ['.png', '.jpg', '.jpeg', '.svg', '.gif', '.webp'];
+    return imageExtensions.some((ext) => option.toLowerCase().includes(ext));
+  };
   const unmasteredCount = totalWrong - masteredCount;
 
   // 获取主题名称
@@ -240,14 +248,34 @@ export default function WrongAnswersPage() {
                         <X className="w-4 h-4" />
                         你的答案
                       </p>
-                      <p className="text-blue-100">{wrongAnswer.userAnswer}</p>
+                      {isImageOption(wrongAnswer.userAnswer) ? (
+                        <div className="flex items-center justify-center">
+                          <img
+                            src={wrongAnswer.userAnswer}
+                            alt="Your answer"
+                            className="max-w-full max-h-40 h-auto rounded-lg shadow-lg"
+                          />
+                        </div>
+                      ) : (
+                        <p className="text-blue-100">{wrongAnswer.userAnswer}</p>
+                      )}
                     </div>
                     <div className="p-3 bg-green-500/10 border border-green-500/30 rounded-xl">
                       <p className="text-green-400 text-sm mb-1 flex items-center gap-1">
                         <Check className="w-4 h-4" />
                         正确答案
                       </p>
-                      <p className="text-blue-100">{wrongAnswer.correctAnswer}</p>
+                      {isImageOption(wrongAnswer.correctAnswer) ? (
+                        <div className="flex items-center justify-center">
+                          <img
+                            src={wrongAnswer.correctAnswer}
+                            alt="Correct answer"
+                            className="max-w-full max-h-40 h-auto rounded-lg shadow-lg"
+                          />
+                        </div>
+                      ) : (
+                        <p className="text-blue-100">{wrongAnswer.correctAnswer}</p>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -313,4 +341,3 @@ export default function WrongAnswersPage() {
     </motion.div>
   );
 }
-
