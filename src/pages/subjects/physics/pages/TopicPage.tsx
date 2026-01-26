@@ -18,6 +18,8 @@ import {
 } from 'lucide-react';
 import { PHYSICS_TOPICS } from '../constants/topics';
 import { FORCE_MOTION_CHAPTERS, FORCE_MOTION_FORMULAS } from '../constants/forceMotion';
+import { ELECTRICITY_MAGNETISM_EXERCISES } from '../constants/electricityMagnetism';
+import { ELECTRICITY_MAGNETISM_SECTIONS } from '../constants/electricityMagnetismSections';
 import { useStore } from '../store/useStore';
 import { Button } from '../components/UI/Button';
 import { Card } from '../components/UI/Card';
@@ -63,19 +65,27 @@ export default function TopicPage() {
   const topicProgress = getTopicProgress(topicId || '');
 
   // 根据主题决定显示的标签页
-  const tabs = topicId === 'force-motion' 
-    ? [
-        { id: 'theory', label: '理论学习', icon: BookOpen },
-        { id: 'simulation', label: '互动模拟', icon: FlaskConical },
-        { id: 'calculator', label: '公式计算', icon: Calculator },
-        { id: 'exercise', label: 'Exercise', icon: FileQuestion },
-        { id: 'quiz', label: 'Quiz', icon: Award },
-      ]
-    : [
-        { id: 'theory', label: '理论学习', icon: BookOpen },
-        { id: 'simulation', label: '互动模拟', icon: FlaskConical },
-        { id: 'calculator', label: '公式计算', icon: Calculator },
-      ];
+  const tabs =
+    topicId === 'force-motion'
+      ? [
+          { id: 'theory', label: '理论学习', icon: BookOpen },
+          { id: 'simulation', label: '互动模拟', icon: FlaskConical },
+          { id: 'calculator', label: '公式计算', icon: Calculator },
+          { id: 'exercise', label: 'Exercise', icon: FileQuestion },
+          { id: 'quiz', label: 'Quiz', icon: Award },
+        ]
+      : topicId === 'electricity-magnetism'
+        ? [
+            { id: 'theory', label: '理论学习', icon: BookOpen },
+            { id: 'simulation', label: '互动模拟', icon: FlaskConical },
+            { id: 'calculator', label: '公式计算', icon: Calculator },
+            { id: 'exercise', label: 'Exercise', icon: FileQuestion },
+          ]
+        : [
+            { id: 'theory', label: '理论学习', icon: BookOpen },
+            { id: 'simulation', label: '互动模拟', icon: FlaskConical },
+            { id: 'calculator', label: '公式计算', icon: Calculator },
+          ];
 
   return (
     <motion.div
@@ -236,9 +246,10 @@ export default function TopicPage() {
                 setExpandedFormula={setExpandedFormula}
               />
             )}
-            {activeTab === 'exercise' && topicId === 'force-motion' && (
-              <ExerciseTab />
-            )}
+            {activeTab === 'exercise' &&
+              (topicId === 'force-motion' || topicId === 'electricity-magnetism') && (
+                <ExerciseTab topicId={topicId} />
+              )}
             {activeTab === 'quiz' && topicId === 'force-motion' && (
               <QuizTab />
             )}
@@ -867,7 +878,27 @@ function CalculatorTab({
 }
 
 // Exercise 标签页 - 嵌入 ExercisePage 内容
-function ExerciseTab() {
+function ExerciseTab({ topicId }: { topicId: string }) {
+  if (topicId === 'electricity-magnetism') {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        className="h-full"
+      >
+        <ExercisePage
+          embedded={true}
+          topicId="electricity-magnetism"
+          chapterId="em-ch1"
+          defaultSectionId="electrostatics"
+          sections={ELECTRICITY_MAGNETISM_SECTIONS}
+          exercises={ELECTRICITY_MAGNETISM_EXERCISES}
+        />
+      </motion.div>
+    );
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}

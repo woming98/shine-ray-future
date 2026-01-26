@@ -27,16 +27,36 @@ import katex from 'katex';
 import 'katex/dist/katex.min.css';
 import { FORCE_MOTION_EXERCISES } from '../constants/forceMotion';
 import { FORCE_MOTION_SECTIONS } from '../constants/forceMotionSections';
+import { Exercise } from '../types';
 import { Card } from '../components/UI/Card';
 import { Button } from '../components/UI/Button';
 import { useStore } from '../store/useStore';
 
-interface ExercisePageProps {
-  embedded?: boolean;
+interface ExerciseSection {
+  id: string;
+  name: string;
+  nameCN: string;
+  description: string;
 }
 
-export default function ExercisePage({ embedded = false }: ExercisePageProps) {
-  const { sectionId } = useParams<{ sectionId?: string }>();
+interface ExercisePageProps {
+  embedded?: boolean;
+  topicId?: string;
+  chapterId?: string;
+  exercises?: Exercise[];
+  sections?: ExerciseSection[];
+  defaultSectionId?: string;
+}
+
+export default function ExercisePage({
+  embedded = false,
+  topicId: topicIdOverride,
+  chapterId: chapterIdOverride,
+  exercises: exercisesOverride,
+  sections: sectionsOverride,
+  defaultSectionId,
+}: ExercisePageProps) {
+  const { sectionId: sectionIdParam } = useParams<{ sectionId?: string }>();
   const navigate = useNavigate();
   const { 
     addWrongAnswer, 
@@ -47,7 +67,14 @@ export default function ExercisePage({ embedded = false }: ExercisePageProps) {
     sidebarOpen 
   } = useStore();
 
-  const [selectedSection, setSelectedSection] = useState<string | null>(sectionId || null);
+  const resolvedExercises = exercisesOverride || FORCE_MOTION_EXERCISES;
+  const resolvedSections = sectionsOverride || FORCE_MOTION_SECTIONS;
+  const resolvedTopicId = topicIdOverride || 'force-motion';
+  const resolvedChapterId = chapterIdOverride || 'fm-ch1';
+
+  const initialSelectedSection =
+    sectionIdParam || defaultSectionId || resolvedSections[0]?.id || null;
+  const [selectedSection, setSelectedSection] = useState<string | null>(initialSelectedSection);
   const [currentExerciseIndex, setCurrentExerciseIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [checked, setChecked] = useState(false);
@@ -58,9 +85,14 @@ export default function ExercisePage({ embedded = false }: ExercisePageProps) {
   const [showSummaryModal, setShowSummaryModal] = useState(false);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
 
-  // 过滤练习题（暂时所有题目都属于 position-movement，后续可以添加 sectionId 字段）
+  // 过滤练习题（按子板块 + 难度）
   const filteredExercises = useMemo(() => {
-    let exercises = FORCE_MOTION_EXERCISES;
+    let exercises = resolvedExercises;
+
+    // 按子板块过滤
+    if (selectedSection) {
+      exercises = exercises.filter((e) => e.sectionId === selectedSection);
+    }
     
     // 按难度过滤
     if (difficultyFilter !== null) {
@@ -68,7 +100,13 @@ export default function ExercisePage({ embedded = false }: ExercisePageProps) {
     }
     
     return exercises;
-  }, [difficultyFilter]);
+  }, [difficultyFilter, resolvedExercises, selectedSection]);
+
+  // 当前子板块的总题数（不受难度过滤影响）
+  const sectionExercises = useMemo(() => {
+    if (!selectedSection) return resolvedExercises;
+    return resolvedExercises.filter((e) => e.sectionId === selectedSection);
+  }, [resolvedExercises, selectedSection]);
 
   // 确保 currentExerciseIndex 在有效范围内
   useEffect(() => {
@@ -77,14 +115,14 @@ export default function ExercisePage({ embedded = false }: ExercisePageProps) {
     }
   }, [filteredExercises.length, currentExerciseIndex]);
 
-  // 获取练习进度（使用总题数，不受难度过滤影响）
-  const topicId = 'force-motion';
-  const sectionIdKey = 'position-movement'; // 当前所有题目都属于 position-movement
-  const exerciseProgress = getExerciseProgress(topicId, sectionIdKey);
+  // 获取练习进度（按 topicId + sectionId 维度）
+  const sectionIdKey =
+    selectedSection || defaultSectionId || resolvedSections[0]?.id || 'all';
+  const exerciseProgress = getExerciseProgress(resolvedTopicId, sectionIdKey);
   const correctCount = exerciseProgress.correctIds.length;
   const attemptedCount = exerciseProgress.attemptedIds.length;
   const wrongEverCount = exerciseProgress.wrongEverIds.length;
-  const totalExercises = FORCE_MOTION_EXERCISES.length; // 使用总题数
+  const totalExercises = sectionExercises.length;
   const correctRate = totalExercises > 0 ? (correctCount / totalExercises) * 100 : 0;
   const shouldLaunch = correctRate >= 95 && !exerciseProgress.hasLaunched;
   const allAttempted = attemptedCount === totalExercises && totalExercises > 0;
@@ -101,8 +139,8 @@ export default function ExercisePage({ embedded = false }: ExercisePageProps) {
     if (!isCorrect) {
       addWrongAnswer({
         exerciseId: currentExercise.id,
-        topicId: 'force-motion',
-        chapterId: 'fm-ch1',
+        topicId: resolvedTopicId,
+        chapterId: resolvedChapterId,
         userAnswer: selectedAnswer,
         correctAnswer: currentExercise.answer,
         attempts: 1,
@@ -111,14 +149,14 @@ export default function ExercisePage({ embedded = false }: ExercisePageProps) {
     }
     
     // 记录作答结果（attempted, correct, wrongEver）
-    markExerciseAttempt(topicId, sectionIdKey, currentExercise.id, isCorrect);
+    markExerciseAttempt(resolvedTopicId, sectionIdKey, currentExercise.id, isCorrect);
   };
 
   // 检测是否需要触发升空动画
   useEffect(() => {
     if (shouldLaunch && correctCount > 0) {
       setShowRocketLaunch(true);
-      setLaunched(topicId, sectionIdKey);
+      setLaunched(resolvedTopicId, sectionIdKey);
       // 3秒后隐藏动画，然后显示选择 Modal
       const timer = setTimeout(() => {
         setShowRocketLaunch(false);
@@ -126,7 +164,7 @@ export default function ExercisePage({ embedded = false }: ExercisePageProps) {
       }, 3000);
       return () => clearTimeout(timer);
     }
-  }, [shouldLaunch, correctCount, topicId, sectionIdKey, setLaunched]);
+  }, [shouldLaunch, correctCount, resolvedTopicId, sectionIdKey, setLaunched]);
 
   // 检测是否做完全部题目，自动显示总结
   useEffect(() => {
@@ -153,8 +191,10 @@ export default function ExercisePage({ embedded = false }: ExercisePageProps) {
     setDifficultyFilter(null);
     // 等待过滤更新后再跳转
     setTimeout(() => {
-      const allExercises = FORCE_MOTION_EXERCISES;
-      const newFilteredIndex = allExercises.findIndex((e) => e.id === exerciseId);
+      const baseExercises = selectedSection
+        ? resolvedExercises.filter((e) => e.sectionId === selectedSection)
+        : resolvedExercises;
+      const newFilteredIndex = baseExercises.findIndex((e) => e.id === exerciseId);
       if (newFilteredIndex >= 0) {
         setCurrentExerciseIndex(newFilteredIndex);
         // 重置题目状态
@@ -168,7 +208,7 @@ export default function ExercisePage({ embedded = false }: ExercisePageProps) {
 
   // 重置进度
   const handleReset = () => {
-    resetExerciseProgress(topicId, sectionIdKey);
+    resetExerciseProgress(resolvedTopicId, sectionIdKey);
     setShowResetConfirm(false);
     setShowSummaryModal(false);
     setShowLaunchModal(false);
@@ -775,7 +815,7 @@ export default function ExercisePage({ embedded = false }: ExercisePageProps) {
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {exerciseProgress.wrongEverIds.map((id) => {
-                      const exerciseIndex = FORCE_MOTION_EXERCISES.findIndex((e) => e.id === id);
+                      const exerciseIndex = sectionExercises.findIndex((e) => e.id === id);
                       return (
                         <button
                           key={id}
@@ -898,7 +938,7 @@ export default function ExercisePage({ embedded = false }: ExercisePageProps) {
           <h3 className="text-lg font-semibold text-blue-100">Sections</h3>
         </div>
         <div className="flex flex-wrap gap-2">
-          {FORCE_MOTION_SECTIONS.map((section) => (
+          {resolvedSections.map((section) => (
             <button
               key={section.id}
               onClick={() => setSelectedSection(section.id)}
