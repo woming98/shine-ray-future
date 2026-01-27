@@ -47,6 +47,38 @@ export default function UserCenter() {
     return searchParams.get('type') || hashParams.get('type')
   }
 
+  const exchangeCodeForSessionIfNeeded = async () => {
+    if (!supabase) return null
+    if (typeof window === 'undefined') return null
+
+    const searchParams = new URLSearchParams(window.location.search)
+    const code = searchParams.get('code')
+    if (!code) return null
+
+    setAuthLoading(true)
+    const { data, error } = await supabase.auth.exchangeCodeForSession(code)
+    setAuthLoading(false)
+
+    if (error) {
+      setAuthError('验证链接已失效，请重新登录')
+      return null
+    }
+
+    // 清理 URL 中的 code/type 参数，避免重复处理
+    searchParams.delete('code')
+    searchParams.delete('type')
+    const cleanSearch = searchParams.toString()
+    const cleanUrl = `${window.location.pathname}${cleanSearch ? `?${cleanSearch}` : ''}`
+    window.history.replaceState({}, '', cleanUrl)
+
+    if (data.session) {
+      setSession(data.session)
+      setAuthMessage('邮箱验证成功，已自动登录')
+    }
+
+    return data.session ?? null
+  }
+
   const applyAuthRedirectState = (currentSession: Session | null) => {
     const authType = getAuthTypeFromUrl()
     if (authType === 'recovery') {
@@ -74,11 +106,21 @@ export default function UserCenter() {
 
     let mounted = true
 
-    supabase.auth.getSession().then(({ data }) => {
+    const initSession = async () => {
+      const exchangedSession = await exchangeCodeForSessionIfNeeded()
+      if (!mounted) return
+      if (exchangedSession) {
+        applyAuthRedirectState(exchangedSession)
+        return
+      }
+
+      const { data } = await supabase.auth.getSession()
       if (!mounted) return
       setSession(data.session)
       applyAuthRedirectState(data.session)
-    })
+    }
+
+    initSession()
 
     const { data } = supabase.auth.onAuthStateChange((event, nextSession) => {
       setSession(nextSession)
