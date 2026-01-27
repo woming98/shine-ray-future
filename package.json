@@ -12,6 +12,7 @@
     "import:top50": "tsx scripts/importTop50FromCsv.ts"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.49.1",
     "chart.js": "^4.5.1",
     "framer-motion": "^10.16.4",
     "i18next": "^23.7.6",

@@ -30,6 +30,15 @@
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-blue-500;
   }
+
+  /* KaTeX 深色主题适配 */
+  .katex {
+    color: rgb(219, 234, 254); /* blue-100 */
+  }
+  
+  .katex .katex-mathml {
+    display: none;
+  }
 }
 
 /* 自定义组件样式 */

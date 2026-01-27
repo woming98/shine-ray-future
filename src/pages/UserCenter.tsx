@@ -1,4 +1,5 @@
-import { useState, useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+import type { Session } from '@supabase/supabase-js'
 import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
@@ -7,6 +8,7 @@ import {
 } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import LearningDashboard from '../components/LearningDashboard'
+import { isSupabaseConfigured, supabase } from '../supabase'
 import { useStore as usePhysicsStore } from '../pages/subjects/physics/store/useStore'
 import { useMathStore } from '../pages/subjects/math/store/useStore'
 import { useEnglishStore } from '../pages/subjects/english/store/useStore'
@@ -18,9 +20,24 @@ import { useEnglishStore } from '../pages/subjects/english/store/useStore'
 export default function UserCenter() {
   const { t } = useTranslation()
   const navigate = useNavigate()
-  const [isLoggedIn, setIsLoggedIn] = useState(true) // 默认登录状态，方便测试仪表板
+  const [session, setSession] = useState<Session | null>(null)
   const [activeTab, setActiveTab] = useState<'login' | 'register'>('login')
   const [showPassword, setShowPassword] = useState(false)
+  const [authLoading, setAuthLoading] = useState(false)
+  const [authError, setAuthError] = useState<string | null>(null)
+  const [authMessage, setAuthMessage] = useState<string | null>(null)
+  const [recoveryMode, setRecoveryMode] = useState(false)
+
+  const [loginEmail, setLoginEmail] = useState('')
+  const [loginPassword, setLoginPassword] = useState('')
+  const [registerName, setRegisterName] = useState('')
+  const [registerEmail, setRegisterEmail] = useState('')
+  const [registerPhone, setRegisterPhone] = useState('')
+  const [registerPassword, setRegisterPassword] = useState('')
+  const [recoveryPassword, setRecoveryPassword] = useState('')
+  const [recoveryConfirmPassword, setRecoveryConfirmPassword] = useState('')
+
+  const isLoggedIn = Boolean(session)
   
   // 获取物理模块的学习数据
   const physicsStore = usePhysicsStore()
@@ -29,16 +46,168 @@ export default function UserCenter() {
   // 获取英文模块的学习数据
   const englishStore = useEnglishStore()
 
-  // 模拟登录
-  const handleLogin = (e: React.FormEvent) => {
+  useEffect(() => {
+    if (!isSupabaseConfigured || !supabase) return
+
+    let mounted = true
+
+    supabase.auth.getSession().then(({ data }) => {
+      if (!mounted) return
+      setSession(data.session)
+      if (window.location.hash.includes('type=recovery')) {
+        setRecoveryMode(true)
+      }
+    })
+
+    const { data } = supabase.auth.onAuthStateChange((event, nextSession) => {
+      setSession(nextSession)
+      if (event === 'PASSWORD_RECOVERY') {
+        setRecoveryMode(true)
+        setAuthMessage('请输入新密码')
+      }
+      if (event === 'SIGNED_OUT') {
+        setRecoveryMode(false)
+      }
+    })
+
+    return () => {
+      mounted = false
+      data.subscription.unsubscribe()
+    }
+  }, [])
+
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
-    setIsLoggedIn(true)
+    setAuthError(null)
+    setAuthMessage(null)
+
+    if (!isSupabaseConfigured || !supabase) {
+      setAuthError('请先配置 Supabase 环境变量')
+      return
+    }
+
+    setAuthLoading(true)
+    const { error } = await supabase.auth.signInWithPassword({
+      email: loginEmail,
+      password: loginPassword,
+    })
+    setAuthLoading(false)
+
+    if (error) {
+      setAuthError(error.message)
+      return
+    }
+
+    setAuthMessage('登录成功')
   }
 
-  // 模拟注册
-  const handleRegister = (e: React.FormEvent) => {
+  const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault()
-    setIsLoggedIn(true)
+    setAuthError(null)
+    setAuthMessage(null)
+
+    if (!isSupabaseConfigured || !supabase) {
+      setAuthError('请先配置 Supabase 环境变量')
+      return
+    }
+
+    setAuthLoading(true)
+    const { data, error } = await supabase.auth.signUp({
+      email: registerEmail,
+      password: registerPassword,
+      options: {
+        data: {
+          name: registerName,
+          phone: registerPhone,
+        },
+      },
+    })
+    setAuthLoading(false)
+
+    if (error) {
+      setAuthError(error.message)
+      return
+    }
+
+    if (!data.session) {
+      setAuthMessage('请前往邮箱完成验证后再登录')
+    } else {
+      setAuthMessage('注册成功')
+    }
+  }
+
+  const handleSendPasswordReset = async () => {
+    setAuthError(null)
+    setAuthMessage(null)
+
+    if (!isSupabaseConfigured || !supabase) {
+      setAuthError('请先配置 Supabase 环境变量')
+      return
+    }
+
+    if (!loginEmail) {
+      setAuthError('请先填写邮箱地址')
+      return
+    }
+
+    setAuthLoading(true)
+    const { error } = await supabase.auth.resetPasswordForEmail(loginEmail, {
+      redirectTo: `${window.location.origin}/user`,
+    })
+    setAuthLoading(false)
+
+    if (error) {
+      setAuthError(error.message)
+      return
+    }
+
+    setAuthMessage('已发送重置邮件，请查收邮箱')
+  }
+
+  const handleUpdatePassword = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setAuthError(null)
+    setAuthMessage(null)
+
+    if (!isSupabaseConfigured || !supabase) {
+      setAuthError('请先配置 Supabase 环境变量')
+      return
+    }
+
+    if (recoveryPassword.length < 6) {
+      setAuthError('密码至少需要 6 位')
+      return
+    }
+
+    if (recoveryPassword !== recoveryConfirmPassword) {
+      setAuthError('两次输入的密码不一致')
+      return
+    }
+
+    setAuthLoading(true)
+    const { error } = await supabase.auth.updateUser({ password: recoveryPassword })
+    setAuthLoading(false)
+
+    if (error) {
+      setAuthError(error.message)
+      return
+    }
+
+    setAuthMessage('密码已更新，请重新登录')
+    setRecoveryMode(false)
+    setRecoveryPassword('')
+    setRecoveryConfirmPassword('')
+    await supabase.auth.signOut()
+  }
+
+  const handleLogout = async () => {
+    if (!isSupabaseConfigured || !supabase) return
+    setAuthLoading(true)
+    await supabase.auth.signOut()
+    setAuthLoading(false)
+    setAuthError(null)
+    setAuthMessage(null)
+    setRecoveryMode(false)
   }
 
 
@@ -164,6 +333,15 @@ export default function UserCenter() {
             <p className="text-primary-200">
               {isLoggedIn ? '管理您的学习进度和收藏' : '登录以保存您的测试记录和收藏'}
             </p>
+            {isLoggedIn && isSupabaseConfigured && (
+              <button
+                onClick={handleLogout}
+                disabled={authLoading}
+                className="mt-4 inline-flex items-center justify-center px-4 py-2 rounded-lg bg-white/10 text-white border border-white/20 hover:bg-white/20 transition disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                退出登录
+              </button>
+            )}
           </motion.div>
         </div>
       </section>
@@ -172,7 +350,87 @@ export default function UserCenter() {
       <section className="py-12">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatePresence mode="wait">
-            {!isLoggedIn ? (
+            {recoveryMode ? (
+              <motion.div
+                key="recovery"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="max-w-md mx-auto"
+              >
+                <div className="card p-8">
+                  <h2 className="text-2xl font-bold text-slate-900 mb-6 text-center">
+                    重设密码
+                  </h2>
+                  <form onSubmit={handleUpdatePassword} className="space-y-4">
+                    <div>
+                      <label className="block text-sm font-medium text-slate-700 mb-2">
+                        新密码
+                      </label>
+                      <div className="relative">
+                        <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+                        <input
+                          type={showPassword ? 'text' : 'password'}
+                          className="w-full pl-12 pr-12 py-3 border border-slate-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-200"
+                          placeholder="请输入新密码（至少6位）"
+                          value={recoveryPassword}
+                          onChange={(e) => setRecoveryPassword(e.target.value)}
+                          disabled={authLoading}
+                        />
+                        <button
+                          type="button"
+                          onClick={() => setShowPassword(!showPassword)}
+                          className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                        >
+                          {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                        </button>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-slate-700 mb-2">
+                        确认新密码
+                      </label>
+                      <div className="relative">
+                        <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+                        <input
+                          type={showPassword ? 'text' : 'password'}
+                          className="w-full pl-12 pr-12 py-3 border border-slate-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-200"
+                          placeholder="请再次输入新密码"
+                          value={recoveryConfirmPassword}
+                          onChange={(e) => setRecoveryConfirmPassword(e.target.value)}
+                          disabled={authLoading}
+                        />
+                        <button
+                          type="button"
+                          onClick={() => setShowPassword(!showPassword)}
+                          className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                        >
+                          {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                        </button>
+                      </div>
+                    </div>
+
+                    <button
+                      type="submit"
+                      className="w-full btn-primary disabled:opacity-60 disabled:cursor-not-allowed"
+                      disabled={authLoading}
+                    >
+                      {authLoading ? '处理中...' : '更新密码'}
+                      <ArrowRight className="w-5 h-5 ml-2" />
+                    </button>
+
+                    {authError && (
+                      <p className="text-sm text-red-500 text-center">{authError}</p>
+                    )}
+
+                    {authMessage && (
+                      <p className="text-sm text-emerald-600 text-center">{authMessage}</p>
+                    )}
+                  </form>
+                </div>
+              </motion.div>
+            ) : !isLoggedIn ? (
               /* 登录/注册表单 */
               <motion.div
                 key="auth"
@@ -184,7 +442,11 @@ export default function UserCenter() {
                 {/* 标签切换 */}
                 <div className="flex bg-slate-100 rounded-xl p-1 mb-8">
                   <button
-                    onClick={() => setActiveTab('login')}
+                    onClick={() => {
+                      setActiveTab('login')
+                      setAuthError(null)
+                      setAuthMessage(null)
+                    }}
                     className={`flex-1 py-3 rounded-lg font-medium transition-all ${
                       activeTab === 'login'
                         ? 'bg-white text-primary-600 shadow-sm'
@@ -194,7 +456,11 @@ export default function UserCenter() {
                     {t('nav.login')}
                   </button>
                   <button
-                    onClick={() => setActiveTab('register')}
+                    onClick={() => {
+                      setActiveTab('register')
+                      setAuthError(null)
+                      setAuthMessage(null)
+                    }}
                     className={`flex-1 py-3 rounded-lg font-medium transition-all ${
                       activeTab === 'register'
                         ? 'bg-white text-primary-600 shadow-sm'
@@ -226,6 +492,9 @@ export default function UserCenter() {
                             type="email"
                             className="w-full pl-12 pr-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-200"
                             placeholder="请输入邮箱"
+                            value={loginEmail}
+                            onChange={(e) => setLoginEmail(e.target.value)}
+                            disabled={!isSupabaseConfigured || authLoading}
                           />
                         </div>
                       </div>
@@ -240,6 +509,9 @@ export default function UserCenter() {
                             type={showPassword ? 'text' : 'password'}
                             className="w-full pl-12 pr-12 py-3 border border-slate-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-200"
                             placeholder="请输入密码"
+                            value={loginPassword}
+                            onChange={(e) => setLoginPassword(e.target.value)}
+                            disabled={!isSupabaseConfigured || authLoading}
                           />
                           <button
                             type="button"
@@ -256,18 +528,38 @@ export default function UserCenter() {
                           <input type="checkbox" className="w-4 h-4 rounded border-slate-300 text-primary-600 focus:ring-primary-500" />
                           <span className="text-sm text-slate-600">记住我</span>
                         </label>
-                        <a href="#" className="text-sm text-primary-600 hover:text-primary-700">
+                        <button
+                          type="button"
+                          onClick={handleSendPasswordReset}
+                          disabled={!isSupabaseConfigured || authLoading}
+                          className="text-sm text-primary-600 hover:text-primary-700 disabled:opacity-60 disabled:cursor-not-allowed"
+                        >
                           忘记密码？
-                        </a>
+                        </button>
                       </div>
 
                       <button
                         type="submit"
-                        className="w-full btn-primary"
+                        className="w-full btn-primary disabled:opacity-60 disabled:cursor-not-allowed"
+                        disabled={!isSupabaseConfigured || authLoading}
                       >
-                        登录
+                        {authLoading ? '处理中...' : '登录'}
                         <ArrowRight className="w-5 h-5 ml-2" />
                       </button>
+
+                      {!isSupabaseConfigured && (
+                        <p className="text-sm text-amber-600 text-center">
+                          需要先配置 Supabase（VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY）
+                        </p>
+                      )}
+
+                      {authError && (
+                        <p className="text-sm text-red-500 text-center">{authError}</p>
+                      )}
+
+                      {authMessage && (
+                        <p className="text-sm text-emerald-600 text-center">{authMessage}</p>
+                      )}
                     </form>
 
                     {/* 社交登录 */}
@@ -324,6 +616,9 @@ export default function UserCenter() {
                             type="text"
                             className="w-full pl-12 pr-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-200"
                             placeholder="请输入姓名"
+                            value={registerName}
+                            onChange={(e) => setRegisterName(e.target.value)}
+                            disabled={!isSupabaseConfigured || authLoading}
                           />
                         </div>
                       </div>
@@ -338,6 +633,9 @@ export default function UserCenter() {
                             type="email"
                             className="w-full pl-12 pr-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-200"
                             placeholder="请输入邮箱"
+                            value={registerEmail}
+                            onChange={(e) => setRegisterEmail(e.target.value)}
+                            disabled={!isSupabaseConfigured || authLoading}
                           />
                         </div>
                       </div>
@@ -352,6 +650,9 @@ export default function UserCenter() {
                             type="tel"
                             className="w-full pl-12 pr-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-200"
                             placeholder="请输入手机号码"
+                            value={registerPhone}
+                            onChange={(e) => setRegisterPhone(e.target.value)}
+                            disabled={!isSupabaseConfigured || authLoading}
                           />
                         </div>
                       </div>
@@ -366,6 +667,9 @@ export default function UserCenter() {
                             type={showPassword ? 'text' : 'password'}
                             className="w-full pl-12 pr-12 py-3 border border-slate-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-200"
                             placeholder="请设置密码（至少6位）"
+                            value={registerPassword}
+                            onChange={(e) => setRegisterPassword(e.target.value)}
+                            disabled={!isSupabaseConfigured || authLoading}
                           />
                           <button
                             type="button"
@@ -386,11 +690,26 @@ export default function UserCenter() {
 
                       <button
                         type="submit"
-                        className="w-full btn-primary"
+                        className="w-full btn-primary disabled:opacity-60 disabled:cursor-not-allowed"
+                        disabled={!isSupabaseConfigured || authLoading}
                       >
-                        注册
+                        {authLoading ? '处理中...' : '注册'}
                         <ArrowRight className="w-5 h-5 ml-2" />
                       </button>
+
+                      {!isSupabaseConfigured && (
+                        <p className="text-sm text-amber-600 text-center">
+                          需要先配置 Supabase（VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY）
+                        </p>
+                      )}
+
+                      {authError && (
+                        <p className="text-sm text-red-500 text-center">{authError}</p>
+                      )}
+
+                      {authMessage && (
+                        <p className="text-sm text-emerald-600 text-center">{authMessage}</p>
+                      )}
                     </form>
                   </motion.div>
                 )}

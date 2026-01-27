@@ -7,6 +7,7 @@ import { Routes, Route } from 'react-router-dom'
 import { Suspense, lazy } from 'react'
 import Layout from './components/Layout'
 import LoadingSpinner from './components/LoadingSpinner'
+import SupabaseSync from './components/SupabaseSync'
 
 // 懒加载页面组件
 const Home = lazy(() => import('./pages/Home'))
@@ -26,7 +27,8 @@ const SubjectHub = lazy(() => import('./pages/subjects/index'))
 const EnglishModule = lazy(() => import('./pages/subjects/english/index'))
 const ChineseSubject = lazy(() => import('./pages/subjects/Chinese'))
 const M1Subject = lazy(() => import('./pages/subjects/M1'))
-const M2Subject = lazy(() => import('./pages/subjects/M2'))
+// const M2Subject = lazy(() => import('./pages/subjects/M2')) // 已迁移到新模块
+const M2Module = lazy(() => import('./pages/subjects/m2/index'))
 const PhysicsModule = lazy(() => import('./pages/subjects/physics/index'))
 const BiologyModule = lazy(() => import('./pages/subjects/biology/index'))
 const MathModule = lazy(() => import('./pages/subjects/math/index'))
@@ -42,6 +44,7 @@ const Requirements = lazy(() => import('./pages/university/Requirements'))
 function App() {
   return (
     <Suspense fallback={<LoadingSpinner />}>
+      <SupabaseSync />
       <Routes>
         <Route path="/" element={<Layout />}>
           {/* 首页 */}
@@ -64,23 +67,25 @@ function App() {
           <Route path="english-test" element={<EnglishTest />} />
           <Route path="math-test" element={<MathTest />} />
           
+          {/* 獨立學科模塊 - 放在前面确保优先匹配 */}
+          <Route path="subjects/physics/*" element={<PhysicsModule />} />
+          <Route path="subjects/biology/*" element={<BiologyModule />} />
+          <Route path="subjects/math/*" element={<MathModule />} />
+          <Route path="subjects/m2/*" element={<M2Module />} />
+          <Route path="subjects/english/*" element={<EnglishModule />} />
+          
           {/* 学科学习模块 */}
           <Route path="subjects">
             <Route index element={<SubjectHub />} />
             {/* 英文模块有自己的子路由，不需要单独的 english 路由 */}
             <Route path="chinese" element={<ChineseSubject />} />
             <Route path="m1" element={<M1Subject />} />
-            <Route path="m2" element={<M2Subject />} />
+            {/* M2 已改为模块路由，使用 subjects/m2/* */}
+            {/* <Route path="m2" element={<M2Subject />} /> */}
             <Route path="chemistry" element={<ChemistrySubject />} />
             <Route path="economics" element={<EconomicsSubject />} />
             <Route path="bafs" element={<BAFSSubject />} />
           </Route>
-          
-          {/* 獨立學科模塊 - Physics、Biology、Math 和 English 有自己的子路由 */}
-          <Route path="subjects/physics/*" element={<PhysicsModule />} />
-          <Route path="subjects/biology/*" element={<BiologyModule />} />
-          <Route path="subjects/math/*" element={<MathModule />} />
-          <Route path="subjects/english/*" element={<EnglishModule />} />
           
           {/* 升学信息模块 */}
           <Route path="university">

@@ -67,8 +67,9 @@ export default function SubjectHub() {
       color: 'from-fuchsia-500 to-pink-500',
       bgColor: 'bg-fuchsia-50',
       iconColor: 'text-fuchsia-500',
-      status: 'coming',
+      status: 'active',
       description: '數學延伸部分單元二',
+      features: ['三角函數學習中心', '歷屆試題庫', '知識點解析', '公式推導'],
     },
     {
       id: 'physics',

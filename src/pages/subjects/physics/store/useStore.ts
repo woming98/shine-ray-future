@@ -59,16 +59,8 @@ interface AppState {
 export const useStore = create<AppState>()(
   persist(
     (set, get) => ({
-      // 用户信息 - 默认模拟用户
-      user: {
-        id: 'demo-user',
-        name: '学习者',
-        email: 'student@shineray.edu',
-        level: 5,
-        experience: 2350,
-        streak: 7,
-        joinedAt: new Date('2025-01-01'),
-      },
+      // 用户信息
+      user: null,
       setUser: (user) => set({ user }),
       
       // 学习进度
@@ -151,14 +143,14 @@ export const useStore = create<AppState>()(
       
       // 学习统计
       stats: {
-        totalStudyTime: 1250,
-        topicsCompleted: 2,
-        exercisesSolved: 87,
-        averageScore: 78,
-        currentStreak: 7,
-        longestStreak: 14,
+        totalStudyTime: 0,
+        topicsCompleted: 0,
+        exercisesSolved: 0,
+        averageScore: 0,
+        currentStreak: 0,
+        longestStreak: 0,
         weeklyGoal: 300,
-        weeklyProgress: 180,
+        weeklyProgress: 0,
       },
       updateStats: (data) => {
         set({ stats: { ...get().stats, ...data } });
@@ -175,15 +167,7 @@ export const useStore = create<AppState>()(
       },
       
       // 每日学习记录
-      dailyStudy: [
-        { date: '2025-01-04', minutes: 45, exercisesCompleted: 12, topicsStudied: ['force-motion'] },
-        { date: '2025-01-05', minutes: 30, exercisesCompleted: 8, topicsStudied: ['wave-motion'] },
-        { date: '2025-01-06', minutes: 60, exercisesCompleted: 15, topicsStudied: ['force-motion', 'electricity-magnetism'] },
-        { date: '2025-01-07', minutes: 25, exercisesCompleted: 6, topicsStudied: ['temperature-gas'] },
-        { date: '2025-01-08', minutes: 40, exercisesCompleted: 10, topicsStudied: ['force-motion'] },
-        { date: '2025-01-09', minutes: 55, exercisesCompleted: 14, topicsStudied: ['wave-motion', 'force-motion'] },
-        { date: '2025-01-10', minutes: 35, exercisesCompleted: 9, topicsStudied: ['force-motion'] },
-      ],
+      dailyStudy: [],
       recordDailyStudy: (data) => {
         const today = new Date().toISOString().split('T')[0];
         const existing = get().dailyStudy.find(d => d.date === today);
@@ -313,4 +297,3 @@ export const useStore = create<AppState>()(
     }
   )
 );
-

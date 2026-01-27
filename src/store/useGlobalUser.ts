@@ -33,16 +33,8 @@ interface GlobalUserState {
 export const useGlobalUser = create<GlobalUserState>()(
   persist(
     (set, get) => ({
-      // 默认模拟用户
-      user: {
-        id: 'demo-user',
-        name: '学习者',
-        email: 'student@shineray.edu',
-        level: 5,
-        experience: 2350,
-        streak: 7,
-        joinedAt: new Date('2025-01-01'),
-      },
+      // 当前登录用户
+      user: null,
       
       setUser: (user) => set({ user }),
       
