@@ -38,6 +38,29 @@ export default function UserCenter() {
   const [recoveryConfirmPassword, setRecoveryConfirmPassword] = useState('')
 
   const isLoggedIn = Boolean(session)
+
+  const getAuthTypeFromUrl = () => {
+    if (typeof window === 'undefined') return null
+    const hash = window.location.hash.replace(/^#/, '')
+    const hashParams = new URLSearchParams(hash)
+    const searchParams = new URLSearchParams(window.location.search)
+    return searchParams.get('type') || hashParams.get('type')
+  }
+
+  const applyAuthRedirectState = (currentSession: Session | null) => {
+    const authType = getAuthTypeFromUrl()
+    if (authType === 'recovery') {
+      setRecoveryMode(true)
+      setAuthMessage('请输入新密码')
+      return
+    }
+    if (authType === 'signup' || authType === 'magiclink') {
+      if (!currentSession) {
+        setActiveTab('login')
+        setAuthMessage('邮箱验证成功，请使用刚才的密码登录')
+      }
+    }
+  }
   
   // 获取物理模块的学习数据
   const physicsStore = usePhysicsStore()
@@ -54,13 +77,12 @@ export default function UserCenter() {
     supabase.auth.getSession().then(({ data }) => {
       if (!mounted) return
       setSession(data.session)
-      if (window.location.hash.includes('type=recovery')) {
-        setRecoveryMode(true)
-      }
+      applyAuthRedirectState(data.session)
     })
 
     const { data } = supabase.auth.onAuthStateChange((event, nextSession) => {
       setSession(nextSession)
+      applyAuthRedirectState(nextSession)
       if (event === 'PASSWORD_RECOVERY') {
         setRecoveryMode(true)
         setAuthMessage('请输入新密码')
