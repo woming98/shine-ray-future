@@ -64,6 +64,8 @@ export default function ExercisePage({
     getExerciseProgress, 
     setLaunched, 
     resetExerciseProgress,
+    updateProgress,
+    progress,
     sidebarOpen 
   } = useStore();
 
@@ -126,6 +128,8 @@ export default function ExercisePage({
   const correctRate = totalExercises > 0 ? (correctCount / totalExercises) * 100 : 0;
   const shouldLaunch = correctRate >= 95 && !exerciseProgress.hasLaunched;
   const allAttempted = attemptedCount === totalExercises && totalExercises > 0;
+  const completionThreshold = 90;
+  const meetsCompletion = allAttempted && correctRate >= completionThreshold;
 
   const currentExercise = filteredExercises[currentExerciseIndex];
   const isCorrect = checked && selectedAnswer === currentExercise?.answer;
@@ -177,6 +181,45 @@ export default function ExercisePage({
     }
   }, [allAttempted, showSummaryModal, showLaunchModal]);
 
+  // 满足完成条件（全部完成且正确率 >= 90%）时记录为已完成
+  useEffect(() => {
+    if (!selectedSection || totalExercises === 0) return;
+    const existing = progress.find(
+      (p) => p.topicId === resolvedTopicId && p.chapterId === sectionIdKey
+    );
+    const nextScore = Math.round(correctRate);
+
+    if (meetsCompletion) {
+      if (!existing?.completed || existing.score !== nextScore) {
+        updateProgress(resolvedTopicId, sectionIdKey, {
+          completed: true,
+          score: nextScore,
+          lastAccessed: new Date(),
+        });
+      }
+      return;
+    }
+
+    // 未达标时在全做完的情况下更新分数（不覆盖已完成状态）
+    if (allAttempted && !existing?.completed && existing?.score !== nextScore) {
+      updateProgress(resolvedTopicId, sectionIdKey, {
+        completed: false,
+        score: nextScore,
+        lastAccessed: new Date(),
+      });
+    }
+  }, [
+    allAttempted,
+    correctRate,
+    meetsCompletion,
+    progress,
+    resolvedTopicId,
+    sectionIdKey,
+    selectedSection,
+    totalExercises,
+    updateProgress,
+  ]);
+
   // 跳转到指定题目
   const jumpToExerciseById = (exerciseId: string) => {
     // 先尝试在当前过滤结果中查找
@@ -209,6 +252,11 @@ export default function ExercisePage({
   // 重置进度
   const handleReset = () => {
     resetExerciseProgress(resolvedTopicId, sectionIdKey);
+    updateProgress(resolvedTopicId, sectionIdKey, {
+      completed: false,
+      score: 0,
+      lastAccessed: new Date(),
+    });
     setShowResetConfirm(false);
     setShowSummaryModal(false);
     setShowLaunchModal(false);

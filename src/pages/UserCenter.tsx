@@ -278,12 +278,8 @@ export default function UserCenter() {
   // 计算总进度（整合物理、数学和英文模块的进度）
   const totalProgress = useMemo(() => {
     if (!physicsStore.user) return 0
-    // 整合多个模块的进度
-    const physicsProgress = physicsStore.getTopicProgress('force-motion')
-    const mathProgress = Object.values(mathStore.topicProgress).reduce((sum, p) => sum + p, 0) / Math.max(Object.keys(mathStore.topicProgress).length, 1)
-    const englishProgress = Object.values(englishStore.skillProgress).reduce((sum, p) => sum + p, 0) / Math.max(Object.keys(englishStore.skillProgress).length, 1)
-    return Math.round((physicsProgress + mathProgress + englishProgress) / 3)
-  }, [physicsStore, mathStore, englishStore])
+    return physicsStore.getOverallProgress()
+  }, [physicsStore])
 
   // 准备学习趋势数据（过去7天，整合所有模块）
   const learningTrend = useMemo(() => {

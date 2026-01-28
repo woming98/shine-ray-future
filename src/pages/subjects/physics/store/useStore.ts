@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { User, Progress, Achievement, WrongAnswer, LearningStats, DailyStudy } from '../types';
 import { ACHIEVEMENTS } from '../constants/topics';
+import { PHYSICS_CURRICULUM, PHYSICS_TOTAL_SECTIONS } from '../constants/curriculum';
 
 interface AppState {
   // 用户信息
@@ -12,6 +13,7 @@ interface AppState {
   progress: Progress[];
   updateProgress: (topicId: string, chapterId: string, data: Partial<Progress>) => void;
   getTopicProgress: (topicId: string) => number;
+  getOverallProgress: () => number;
   
   // 成就系统
   achievements: Achievement[];
@@ -90,10 +92,24 @@ export const useStore = create<AppState>()(
         }
       },
       getTopicProgress: (topicId) => {
-        const topicProgress = get().progress.filter(p => p.topicId === topicId);
-        if (topicProgress.length === 0) return 0;
-        const completed = topicProgress.filter(p => p.completed).length;
-        return Math.round((completed / 5) * 100); // 假设每个主题5个章节
+        const topic = PHYSICS_CURRICULUM.find(t => t.id === topicId);
+        const totalSections = topic?.sections.length || 0;
+        if (totalSections === 0) return 0;
+        const validSectionIds = new Set(topic?.sections.map(section => section.id));
+        const completed = get().progress.filter(
+          p => p.topicId === topicId && p.completed && validSectionIds.has(p.chapterId)
+        ).length;
+        return Math.round((completed / totalSections) * 100);
+      },
+      getOverallProgress: () => {
+        if (PHYSICS_TOTAL_SECTIONS === 0) return 0;
+        const validSectionIds = new Set(
+          PHYSICS_CURRICULUM.flatMap(topic => topic.sections.map(section => section.id))
+        );
+        const completed = get().progress.filter(
+          p => p.completed && validSectionIds.has(p.chapterId)
+        ).length;
+        return Math.round((completed / PHYSICS_TOTAL_SECTIONS) * 100);
       },
       
       // 成就系统
