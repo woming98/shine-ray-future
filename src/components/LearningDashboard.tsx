@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { 
   Clock, Target, TrendingUp, Trophy, Flame, Star, 
   BookOpen, Zap, Play, Rocket
@@ -178,6 +179,55 @@ export default function LearningDashboard({
             </button>
           </div>
         </motion.div>
+
+        {/* 科目进度入口 */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <Link
+            to="/user/physics-progress"
+            className="group bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/20 hover:border-blue-400/60 transition-colors"
+          >
+            <div className="flex items-start justify-between">
+              <div>
+                <div className="flex items-center gap-2 text-white">
+                  <Rocket className="w-5 h-5 text-primary-400" />
+                  <span className="font-semibold">物理进度</span>
+                </div>
+                <p className="text-sm text-white/60 mt-1">8 大板块 · 42 章节</p>
+              </div>
+              <span className="text-lg font-bold text-white">{totalProgress}%</span>
+            </div>
+            <div className="mt-4 h-2 bg-white/10 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full transition-all"
+                style={{ width: `${totalProgress}%` }}
+              />
+            </div>
+          </Link>
+
+          <button
+            type="button"
+            disabled
+            className="bg-white/5 rounded-2xl p-5 border border-white/10 text-left opacity-60 cursor-not-allowed"
+          >
+            <div className="flex items-center gap-2 text-white">
+              <Target className="w-5 h-5 text-emerald-300" />
+              <span className="font-semibold">数学进度</span>
+            </div>
+            <p className="text-sm text-white/50 mt-1">即将开放</p>
+          </button>
+
+          <button
+            type="button"
+            disabled
+            className="bg-white/5 rounded-2xl p-5 border border-white/10 text-left opacity-60 cursor-not-allowed"
+          >
+            <div className="flex items-center gap-2 text-white">
+              <BookOpen className="w-5 h-5 text-yellow-300" />
+              <span className="font-semibold">英文进度</span>
+            </div>
+            <p className="text-sm text-white/50 mt-1">即将开放</p>
+          </button>
+        </div>
 
         {/* 统计卡片 */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">

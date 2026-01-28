@@ -13,6 +13,7 @@ import SupabaseSync from './components/SupabaseSync'
 const Home = lazy(() => import('./pages/Home'))
 const About = lazy(() => import('./pages/About'))
 const UserCenter = lazy(() => import('./pages/UserCenter'))
+const PhysicsProgress = lazy(() => import('./pages/PhysicsProgress'))
 
 // 插班模块
 const AdmissionHub = lazy(() => import('./pages/admission/index'))
@@ -97,6 +98,7 @@ function App() {
           {/* 其他页面 */}
           <Route path="about" element={<About />} />
           <Route path="user" element={<UserCenter />} />
+          <Route path="user/physics-progress" element={<PhysicsProgress />} />
         </Route>
       </Routes>
     </Suspense>

@@ -5,7 +5,7 @@
 
 import { useState, useMemo, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   FileQuestion,
@@ -27,6 +27,7 @@ import katex from 'katex';
 import 'katex/dist/katex.min.css';
 import { FORCE_MOTION_EXERCISES } from '../constants/forceMotion';
 import { FORCE_MOTION_SECTIONS } from '../constants/forceMotionSections';
+import { getPhysicsExerciseCatalogEntry } from '../constants/exerciseCatalog';
 import { Exercise } from '../types';
 import { Card } from '../components/UI/Card';
 import { Button } from '../components/UI/Button';
@@ -57,6 +58,7 @@ export default function ExercisePage({
   defaultSectionId,
 }: ExercisePageProps) {
   const { sectionId: sectionIdParam } = useParams<{ sectionId?: string }>();
+  const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const { 
     addWrongAnswer, 
@@ -69,13 +71,22 @@ export default function ExercisePage({
     sidebarOpen 
   } = useStore();
 
-  const resolvedExercises = exercisesOverride || FORCE_MOTION_EXERCISES;
-  const resolvedSections = sectionsOverride || FORCE_MOTION_SECTIONS;
-  const resolvedTopicId = topicIdOverride || 'force-motion';
-  const resolvedChapterId = chapterIdOverride || 'fm-ch1';
+  const topicParam = searchParams.get('topic') || undefined;
+  const catalogEntry = exercisesOverride || sectionsOverride
+    ? undefined
+    : getPhysicsExerciseCatalogEntry(topicParam || topicIdOverride);
+
+  const resolvedExercises = exercisesOverride || catalogEntry?.exercises || FORCE_MOTION_EXERCISES;
+  const resolvedSections = sectionsOverride || catalogEntry?.sections || FORCE_MOTION_SECTIONS;
+  const resolvedTopicId = topicIdOverride || catalogEntry?.topicId || 'force-motion';
+  const resolvedChapterId = chapterIdOverride || catalogEntry?.chapterId || 'fm-ch1';
 
   const initialSelectedSection =
-    sectionIdParam || defaultSectionId || resolvedSections[0]?.id || null;
+    sectionIdParam ||
+    defaultSectionId ||
+    catalogEntry?.defaultSectionId ||
+    resolvedSections[0]?.id ||
+    null;
   const [selectedSection, setSelectedSection] = useState<string | null>(initialSelectedSection);
   const [currentExerciseIndex, setCurrentExerciseIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
