@@ -1248,7 +1248,7 @@ export const ELECTRICITY_MAGNETISM_EXERCISES: Exercise[] = [
     question:
       'Three point charges $Q_1$, $Q_2$ and $Q_3$ are fixed on a straight line with $Q_2$ at the mid-point of $Q_1$ and $Q_3$. The resultant electrostatic force on each charge is zero. Which of the following can be the sign and the magnitude (in the same arbitrary units) of $Q_1$, $Q_2$ and $Q_3$?',
     options: ['+2, +1, +2', '+2, -1, +2', '$\\text{-}4$, +1, +4', '$\\text{-}4$, +1, -4'],
-    answer: '-4, +1, -4',
+    answer: '$\\text{-}4$, +1, -4',
     explanation:
       '⚠️ **Key point:** For zero net force on each charge, the outer charges must be equal in magnitude and same sign, and the middle charge must be opposite in sign with one‑quarter the magnitude.\n\n**Step 1:** Symmetry about the midpoint\nFor forces on $Q_1$ and $Q_3$ to cancel, $Q_1$ and $Q_3$ must be equal and have the same sign.\n\n**Step 2:** Balance forces on an outer charge\nThe force from the other outer charge is at twice the distance, so it is four times weaker. Thus $|Q_1| = |Q_3| = 4|Q_2|$ and $Q_2$ must have opposite sign.\n\n**Verification:** The set $(-4, +1, -4)$ satisfies these conditions, matching option D.',
     difficulty: 4,

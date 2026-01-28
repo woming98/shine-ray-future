@@ -137,7 +137,7 @@ export default function ExercisePage({
   const wrongEverCount = exerciseProgress.wrongEverIds.length;
   const totalExercises = sectionExercises.length;
   const correctRate = totalExercises > 0 ? (correctCount / totalExercises) * 100 : 0;
-  const shouldLaunch = correctRate >= 95 && !exerciseProgress.hasLaunched;
+  const shouldLaunch = allAttempted && correctRate >= 95 && !exerciseProgress.hasLaunched;
   const allAttempted = attemptedCount === totalExercises && totalExercises > 0;
   const completionThreshold = 90;
   const meetsCompletion = allAttempted && correctRate >= completionThreshold;
@@ -630,7 +630,7 @@ export default function ExercisePage({
                   />
                 </div>
                 <div className="text-xs text-blue-400 mt-1 text-right">
-                  {correctRate >= 95 ? '准备升空！' : `${Math.round(correctRate)}%`}
+                  {allAttempted && correctRate >= 95 ? '准备升空！' : `${Math.round(correctRate)}%`}
                 </div>
               </div>
             </div>
