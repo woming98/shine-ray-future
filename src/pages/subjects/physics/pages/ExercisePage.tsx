@@ -97,6 +97,7 @@ export default function ExercisePage({
   const [showLaunchModal, setShowLaunchModal] = useState(false);
   const [showSummaryModal, setShowSummaryModal] = useState(false);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
+  const [summaryDismissedMap, setSummaryDismissedMap] = useState<Record<string, boolean>>({});
 
   // 过滤练习题（按子板块 + 难度）
   const filteredExercises = useMemo(() => {
@@ -214,15 +215,32 @@ export default function ExercisePage({
   }, [shouldLaunch, correctCount, resolvedTopicId, sectionIdKey, setLaunched]);
 
   // 检测是否做完全部题目，自动显示总结
+  const summaryDismissed = summaryDismissedMap[sectionIdKey] ?? false;
+
   useEffect(() => {
-    if (allAttempted && !showSummaryModal && !showLaunchModal) {
+    if (allAttempted && !showSummaryModal && !showLaunchModal && !summaryDismissed) {
       // 延迟一下，避免与升空动画冲突
       const timer = setTimeout(() => {
         setShowSummaryModal(true);
       }, 500);
       return () => clearTimeout(timer);
     }
-  }, [allAttempted, showSummaryModal, showLaunchModal]);
+  }, [allAttempted, showSummaryModal, showLaunchModal, summaryDismissed]);
+
+  // 切换章节或未完成时，允许下次自动弹出
+  useEffect(() => {
+    if (!allAttempted) {
+      setSummaryDismissedMap((prev) => {
+        if (!prev[sectionIdKey]) return prev;
+        return { ...prev, [sectionIdKey]: false };
+      });
+    }
+  }, [allAttempted, sectionIdKey]);
+
+  const handleCloseSummary = () => {
+    setShowSummaryModal(false);
+    setSummaryDismissedMap((prev) => ({ ...prev, [sectionIdKey]: true }));
+  };
 
   // 满足完成条件（全部完成且正确率 >= 90%）时记录为已完成
   useEffect(() => {
@@ -836,7 +854,7 @@ export default function ExercisePage({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[100] flex items-center justify-center p-4"
-            onClick={() => setShowSummaryModal(false)}
+            onClick={handleCloseSummary}
           >
             <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
             <motion.div
@@ -852,7 +870,7 @@ export default function ExercisePage({
                   练习总结
                 </h2>
                 <button
-                  onClick={() => setShowSummaryModal(false)}
+                  onClick={handleCloseSummary}
                   className="text-blue-400 hover:text-blue-300 transition-colors"
                 >
                   <XCircle className="w-5 h-5" />
@@ -931,7 +949,7 @@ export default function ExercisePage({
                 <Button
                   variant="secondary"
                   className="flex-1"
-                  onClick={() => setShowSummaryModal(false)}
+                  onClick={handleCloseSummary}
                 >
                   关闭
                 </Button>
@@ -940,7 +958,7 @@ export default function ExercisePage({
                   className="flex-1"
                   onClick={() => {
                     setShowResetConfirm(true);
-                    setShowSummaryModal(false);
+                    handleCloseSummary();
                   }}
                 >
                   <RotateCcw className="w-4 h-4 mr-2" />

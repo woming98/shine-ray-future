@@ -35,6 +35,35 @@
 - [ ] 邮箱验证流程跑通（确认后自动登录进入仪表盘）
 - [ ] 线上端到端验证（注册→验证→登录→学习→刷新→进度保留）
 
+## 版本升级安全检查清单（上线前必做）
+1) 代码版本确认
+   - Vercel → Deployments 确认最新 commit 是本次版本
+   - 线上强制刷新（Cmd+Shift+R）
+2) Supabase 环境变量
+   - Vercel → Settings → Environment Variables
+   - `VITE_SUPABASE_URL` / `VITE_SUPABASE_ANON_KEY` 都存在
+   - Production / Preview / Development 环境都配置
+3) 数据库与表
+   - Supabase → Table Editor → `user_progress` 表存在
+   - 抽查 1 位学生 `user_id` 的 `payload` 是否存在
+4) RLS 与权限
+   - `user_progress` 开启 RLS
+   - 仅允许用户读写自己的 `user_id`
+5) 关键流程回归
+   - 注册 → 验证邮箱 → 登录
+   - 练习做题 → 刷新 → 进度还在
+   - 退出 → 登录同账号 → 进度仍在
+   - 切换账号 → 进度隔离正常
+6) 线上路由自测
+   - `/user`
+   - `/user/physics-progress`
+   - `/subjects/physics/exercise`
+   - `/subjects/physics/exercise/position-movement?topic=force-motion`
+   - `/subjects/physics/exercise/electrostatics?topic=electricity-magnetism`
+7) 失败回滚预案
+   - 记录上一个稳定 commit 号（Vercel 可一键 rollback）
+   - 部署失败先查 build 日志，再回滚
+
 ## 正在进行
 - [ ] 邮箱验证邮件送达问题处理（当前遇到 rate limit）
 - [ ] 若邮件送达不稳定，接入 SMTP（Resend/SendGrid/Mailgun 任一）

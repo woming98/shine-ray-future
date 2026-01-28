@@ -181,7 +181,7 @@ export default function LearningDashboard({
         </motion.div>
 
         {/* 科目进度入口 */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
           <Link
             to="/user/physics-progress"
             className="group bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/20 hover:border-blue-400/60 transition-colors"
@@ -224,6 +224,90 @@ export default function LearningDashboard({
             <div className="flex items-center gap-2 text-white">
               <BookOpen className="w-5 h-5 text-yellow-300" />
               <span className="font-semibold">英文进度</span>
+            </div>
+            <p className="text-sm text-white/50 mt-1">即将开放</p>
+          </button>
+
+          <button
+            type="button"
+            disabled
+            className="bg-white/5 rounded-2xl p-5 border border-white/10 text-left opacity-60 cursor-not-allowed"
+          >
+            <div className="flex items-center gap-2 text-white">
+              <BookOpen className="w-5 h-5 text-sky-300" />
+              <span className="font-semibold">语文进度</span>
+            </div>
+            <p className="text-sm text-white/50 mt-1">即将开放</p>
+          </button>
+
+          <button
+            type="button"
+            disabled
+            className="bg-white/5 rounded-2xl p-5 border border-white/10 text-left opacity-60 cursor-not-allowed"
+          >
+            <div className="flex items-center gap-2 text-white">
+              <Zap className="w-5 h-5 text-cyan-300" />
+              <span className="font-semibold">M1 进度</span>
+            </div>
+            <p className="text-sm text-white/50 mt-1">即将开放</p>
+          </button>
+
+          <button
+            type="button"
+            disabled
+            className="bg-white/5 rounded-2xl p-5 border border-white/10 text-left opacity-60 cursor-not-allowed"
+          >
+            <div className="flex items-center gap-2 text-white">
+              <Zap className="w-5 h-5 text-blue-300" />
+              <span className="font-semibold">M2 进度</span>
+            </div>
+            <p className="text-sm text-white/50 mt-1">即将开放</p>
+          </button>
+
+          <button
+            type="button"
+            disabled
+            className="bg-white/5 rounded-2xl p-5 border border-white/10 text-left opacity-60 cursor-not-allowed"
+          >
+            <div className="flex items-center gap-2 text-white">
+              <Trophy className="w-5 h-5 text-green-300" />
+              <span className="font-semibold">化学进度</span>
+            </div>
+            <p className="text-sm text-white/50 mt-1">即将开放</p>
+          </button>
+
+          <button
+            type="button"
+            disabled
+            className="bg-white/5 rounded-2xl p-5 border border-white/10 text-left opacity-60 cursor-not-allowed"
+          >
+            <div className="flex items-center gap-2 text-white">
+              <Star className="w-5 h-5 text-emerald-300" />
+              <span className="font-semibold">生物进度</span>
+            </div>
+            <p className="text-sm text-white/50 mt-1">即将开放</p>
+          </button>
+
+          <button
+            type="button"
+            disabled
+            className="bg-white/5 rounded-2xl p-5 border border-white/10 text-left opacity-60 cursor-not-allowed"
+          >
+            <div className="flex items-center gap-2 text-white">
+              <TrendingUp className="w-5 h-5 text-orange-300" />
+              <span className="font-semibold">经济进度</span>
+            </div>
+            <p className="text-sm text-white/50 mt-1">即将开放</p>
+          </button>
+
+          <button
+            type="button"
+            disabled
+            className="bg-white/5 rounded-2xl p-5 border border-white/10 text-left opacity-60 cursor-not-allowed"
+          >
+            <div className="flex items-center gap-2 text-white">
+              <Star className="w-5 h-5 text-purple-300" />
+              <span className="font-semibold">会计进度</span>
             </div>
             <p className="text-sm text-white/50 mt-1">即将开放</p>
           </button>
