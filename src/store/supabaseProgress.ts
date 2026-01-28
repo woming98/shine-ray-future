@@ -52,6 +52,23 @@ const buildPhysicsAchievements = () =>
     unlocked: false,
   }))
 
+const mergeAchievements = <T extends { id: string } & Record<string, any>>(
+  defaults: T[],
+  saved?: T[]
+) => {
+  const savedMap = new Map((saved || []).map((item) => [item.id, item]))
+  return defaults.map((item) => {
+    const stored = savedMap.get(item.id)
+    if (!stored) return item
+    return {
+      ...item,
+      progress: stored.progress ?? item.progress,
+      unlocked: stored.unlocked ?? item.unlocked,
+      unlockedAt: stored.unlockedAt ?? item.unlockedAt,
+    }
+  })
+}
+
 const buildMathAchievements = () =>
   MATH_ACHIEVEMENTS.map((achievement) => ({
     ...achievement,
@@ -110,12 +127,13 @@ export const applyProgressPayload = (payload: ProgressPayload) => {
   if (payload.physics) {
     usePhysicsStore.setState({
       progress: payload.physics.progress ?? [],
-      achievements: payload.physics.achievements ?? buildPhysicsAchievements(),
+      achievements: mergeAchievements(buildPhysicsAchievements(), payload.physics.achievements),
       wrongAnswers: payload.physics.wrongAnswers ?? [],
       stats: payload.physics.stats ?? usePhysicsStore.getState().stats,
       dailyStudy: payload.physics.dailyStudy ?? [],
       exerciseProgress: payload.physics.exerciseProgress ?? {},
     })
+    usePhysicsStore.getState().evaluateAchievements()
   }
 
   if (payload.math) {
@@ -164,6 +182,8 @@ export const resetProgressStores = () => {
       topicsCompleted: 0,
       exercisesSolved: 0,
       averageScore: 0,
+      correctStreak: 0,
+      bestCorrectStreak: 0,
       currentStreak: 0,
       longestStreak: 0,
       weeklyGoal: 300,

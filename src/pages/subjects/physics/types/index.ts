@@ -177,6 +177,8 @@ export interface LearningStats {
   topicsCompleted: number;
   exercisesSolved: number;
   averageScore: number;
+  correctStreak: number;
+  bestCorrectStreak: number;
   currentStreak: number;
   longestStreak: number;
   weeklyGoal: number;
@@ -187,6 +189,7 @@ export interface LearningStats {
 export interface DailyStudy {
   date: string;
   minutes: number;
+  nightMinutes?: number;
   exercisesCompleted: number;
   topicsStudied: string[];
 }

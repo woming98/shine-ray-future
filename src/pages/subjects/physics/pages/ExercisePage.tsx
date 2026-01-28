@@ -3,7 +3,7 @@
  * 支持8个子板块筛选，新的UI：先显示对错，点击展开解析
  */
 
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useCallback, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -68,6 +68,10 @@ export default function ExercisePage({
     resetExerciseProgress,
     updateProgress,
     progress,
+    stats,
+    updateStats,
+    recordDailyStudy,
+    addStudyTime,
     sidebarOpen 
   } = useStore();
 
@@ -158,11 +162,32 @@ export default function ExercisePage({
     ? exerciseProgress.answers?.[currentExercise.id] ?? null
     : null;
 
+  const studySecondsRef = useRef(0);
+  const nightSecondsRef = useRef(0);
+  const studyTimerRef = useRef<number | null>(null);
+  const questionStartRef = useRef<number>(Date.now());
+
+  const flushStudyTime = useCallback(() => {
+    const minutes = Math.floor(studySecondsRef.current / 60);
+    const nightMinutes = Math.floor(nightSecondsRef.current / 60);
+    if (minutes <= 0 && nightMinutes <= 0) return;
+    studySecondsRef.current -= minutes * 60;
+    nightSecondsRef.current -= nightMinutes * 60;
+    addStudyTime(minutes);
+    recordDailyStudy({
+      minutes,
+      nightMinutes,
+      exercisesCompleted: 0,
+      topicsStudied: [resolvedTopicId],
+    });
+  }, [addStudyTime, recordDailyStudy, resolvedTopicId]);
+
   const handleCheck = () => {
     if (!selectedAnswer || checked || !currentExercise) return;
     
     setChecked(true);
     const isCorrect = selectedAnswer === currentExercise.answer;
+    const timeSpentMs = Math.max(0, Date.now() - questionStartRef.current);
     
     if (!isCorrect) {
       addWrongAnswer({
@@ -182,8 +207,29 @@ export default function ExercisePage({
       sectionIdKey,
       currentExercise.id,
       isCorrect,
-      selectedAnswer
+      selectedAnswer,
+      timeSpentMs
     );
+
+    const nextExercisesSolved = stats.exercisesSolved + 1;
+    const nextCorrectStreak = isCorrect ? (stats.correctStreak || 0) + 1 : 0;
+    const nextBestCorrectStreak = Math.max(stats.bestCorrectStreak || 0, nextCorrectStreak);
+    const nextAverageScore = isCorrect
+      ? Math.round((stats.averageScore * stats.exercisesSolved + 100) / nextExercisesSolved)
+      : Math.round((stats.averageScore * stats.exercisesSolved) / nextExercisesSolved);
+
+    updateStats({
+      exercisesSolved: nextExercisesSolved,
+      averageScore: nextAverageScore,
+      correctStreak: nextCorrectStreak,
+      bestCorrectStreak: nextBestCorrectStreak,
+    });
+
+    recordDailyStudy({
+      minutes: 0,
+      exercisesCompleted: 1,
+      topicsStudied: [resolvedTopicId],
+    });
   };
 
   // 恢复已作答记录（用于返回时显示已选答案与对错）
@@ -199,6 +245,51 @@ export default function ExercisePage({
     setChecked(false);
     setShowExplanation(false);
   }, [currentExercise?.id, currentExerciseAnswered, currentSavedAnswer]);
+
+  useEffect(() => {
+    questionStartRef.current = Date.now();
+  }, [currentExercise?.id, sectionIdKey]);
+
+  useEffect(() => {
+    if (studyTimerRef.current) {
+      window.clearInterval(studyTimerRef.current);
+    }
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState !== 'visible') {
+        flushStudyTime();
+      }
+    };
+
+    const isNightStudy = () => {
+      const hour = new Date().getHours();
+      return hour >= 23 || hour < 2;
+    };
+
+    studyTimerRef.current = window.setInterval(() => {
+      if (document.visibilityState !== 'visible') return;
+      studySecondsRef.current += 1;
+      if (isNightStudy()) {
+        nightSecondsRef.current += 1;
+      }
+      if (studySecondsRef.current >= 60) {
+        flushStudyTime();
+      }
+      if (nightSecondsRef.current >= 60) {
+        flushStudyTime();
+      }
+    }, 1000);
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      if (studyTimerRef.current) {
+        window.clearInterval(studyTimerRef.current);
+      }
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      flushStudyTime();
+    };
+  }, [flushStudyTime]);
 
   // 检测是否需要触发升空动画
   useEffect(() => {

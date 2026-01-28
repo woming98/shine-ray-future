@@ -133,42 +133,6 @@ export default function LearningDashboard({
           </div>
           
           <div className="flex items-center gap-4">
-            {/* 总进度圆形指示器 */}
-            <div className="relative w-24 h-24">
-              <svg className="w-24 h-24 transform -rotate-90">
-                <circle
-                  cx="48"
-                  cy="48"
-                  r="40"
-                  stroke="rgba(255,255,255,0.1)"
-                  strokeWidth="8"
-                  fill="none"
-                />
-                <circle
-                  cx="48"
-                  cy="48"
-                  r="40"
-                  stroke="url(#gradient)"
-                  strokeWidth="8"
-                  fill="none"
-                  strokeDasharray={`${2 * Math.PI * 40}`}
-                  strokeDashoffset={`${2 * Math.PI * 40 * (1 - totalProgress / 100)}`}
-                  strokeLinecap="round"
-                  className="transition-all duration-500"
-                />
-                <defs>
-                  <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#3b82f6" />
-                    <stop offset="100%" stopColor="#8b5cf6" />
-                  </linearGradient>
-                </defs>
-              </svg>
-              <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <span className="text-2xl font-bold text-white">{totalProgress}%</span>
-                <span className="text-xs text-white/60">总进度</span>
-              </div>
-            </div>
-            
             {/* 继续学习按钮 */}
             <button
               onClick={onContinueLearning}

@@ -3,6 +3,7 @@ import { persist } from 'zustand/middleware';
 import { User, Progress, Achievement, WrongAnswer, LearningStats, DailyStudy } from '../types';
 import { ACHIEVEMENTS } from '../constants/topics';
 import { PHYSICS_CURRICULUM, PHYSICS_TOTAL_SECTIONS } from '../constants/curriculum';
+import { PHYSICS_ALL_EXERCISES } from '../constants/exerciseCatalog';
 
 interface AppState {
   // 用户信息
@@ -19,6 +20,7 @@ interface AppState {
   achievements: Achievement[];
   unlockAchievement: (achievementId: string) => void;
   updateAchievementProgress: (achievementId: string, progress: number) => void;
+  evaluateAchievements: () => void;
   
   // 错题本
   wrongAnswers: WrongAnswer[];
@@ -46,6 +48,7 @@ interface AppState {
     correctIds: string[];      // 已答对的题目 ID 集合
     wrongEverIds: string[];    // 曾经答错过的题目 ID 集合（用于总结）
     answers: Record<string, string>; // 记录用户作答（用于返回后恢复）
+    timeSpentById: Record<string, number>; // 记录单题作答耗时（毫秒）
     hasLaunched: boolean;      // 是否已触发升空动画
   }>;
   markExerciseAttempt: (
@@ -53,13 +56,15 @@ interface AppState {
     sectionId: string,
     exerciseId: string,
     isCorrect: boolean,
-    userAnswer: string
+    userAnswer: string,
+    timeSpentMs?: number
   ) => void;
   getExerciseProgress: (topicId: string, sectionId: string) => { 
     attemptedIds: string[]; 
     correctIds: string[]; 
     wrongEverIds: string[]; 
     answers: Record<string, string>;
+    timeSpentById: Record<string, number>;
     hasLaunched: boolean 
   };
   setLaunched: (topicId: string, sectionId: string) => void;
@@ -98,6 +103,7 @@ export const useStore = create<AppState>()(
             }],
           });
         }
+        get().evaluateAchievements();
       },
       getTopicProgress: (topicId) => {
         const topic = PHYSICS_CURRICULUM.find(t => t.id === topicId);
@@ -140,12 +146,148 @@ export const useStore = create<AppState>()(
             ? { 
                 ...a, 
                 progress,
-                unlocked: progress >= a.requirement,
-                unlockedAt: progress >= a.requirement ? new Date() : a.unlockedAt,
+                unlocked: a.unlocked || progress >= a.requirement,
+                unlockedAt: a.unlockedAt || (progress >= a.requirement ? new Date() : a.unlockedAt),
               }
             : a
         );
         set({ achievements });
+      },
+      evaluateAchievements: () => {
+        const {
+          stats,
+          progress,
+          wrongAnswers,
+          exerciseProgress,
+          dailyStudy,
+          achievements,
+          updateAchievementProgress,
+        } = get();
+
+        const hasAchievement = (id: string) => achievements.some(a => a.id === id);
+        const setProgress = (id: string, value: number) => {
+          if (!hasAchievement(id)) return;
+          updateAchievementProgress(id, value);
+        };
+
+        const completedSections = new Set(
+          progress.filter(p => p.completed).map(p => `${p.topicId}-${p.chapterId}`)
+        ).size;
+
+        const rocketLaunchCount = Object.values(exerciseProgress).filter(p => p.hasLaunched).length;
+        const wrongCount = wrongAnswers.length;
+        const perfectChapterCount = progress.filter((p) => {
+          if (!p.completed) return false;
+          const key = `${p.topicId}-${p.chapterId}`;
+          const progressEntry = exerciseProgress[key];
+          if (!progressEntry) return false;
+          return (progressEntry.wrongEverIds || []).length === 0;
+        }).length;
+        const comebackCount = Object.values(exerciseProgress).reduce((sum, entry) => {
+          const wrongSet = new Set(entry.wrongEverIds || []);
+          const correctIds = entry.correctIds || [];
+          let count = 0;
+          correctIds.forEach((id) => {
+            if (wrongSet.has(id)) count += 1;
+          });
+          return sum + count;
+        }, 0);
+        const patienceCount = Object.values(exerciseProgress).reduce((sum, entry) => {
+          const timeMap = entry.timeSpentById || {};
+          const correctIds = entry.correctIds || [];
+          let count = 0;
+          correctIds.forEach((id) => {
+            if ((timeMap[id] || 0) >= 180000) count += 1;
+          });
+          return sum + count;
+        }, 0);
+
+        const difficultyCounts: Record<number, number> = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+        const difficultyMap = new Map(PHYSICS_ALL_EXERCISES.map(exercise => [exercise.id, exercise.difficulty]));
+        Object.values(exerciseProgress).forEach((entry) => {
+          (entry.attemptedIds || []).forEach((id) => {
+            const diff = difficultyMap.get(id);
+            if (diff) {
+              difficultyCounts[diff] = (difficultyCounts[diff] || 0) + 1;
+            }
+          });
+        });
+        const minDifficultyCount = Math.min(
+          difficultyCounts[1],
+          difficultyCounts[2],
+          difficultyCounts[3],
+          difficultyCounts[4],
+          difficultyCounts[5]
+        );
+
+        const maxDailyMinutes = Math.max(0, ...(dailyStudy || []).map(d => d.minutes || 0));
+        const maxNightMinutes = Math.max(0, ...(dailyStudy || []).map(d => d.nightMinutes || 0));
+        const topicSet = new Set<string>();
+        (dailyStudy || []).forEach((day) => {
+          (day.topicsStudied || []).forEach((topic) => topicSet.add(topic));
+        });
+
+        const dateSet = new Set((dailyStudy || []).map(d => d.date).filter(Boolean));
+        const formatDate = (date: Date) => date.toISOString().split('T')[0];
+        const toDate = (dateStr: string) => new Date(`${dateStr}T00:00:00`);
+        const isNextDay = (prev: string, next: string) => {
+          const prevDate = toDate(prev);
+          const nextDate = toDate(next);
+          const diff = (nextDate.getTime() - prevDate.getTime()) / (1000 * 60 * 60 * 24);
+          return diff === 1;
+        };
+
+        let currentStreak = 0;
+        const cursor = new Date();
+        while (dateSet.has(formatDate(cursor))) {
+          currentStreak += 1;
+          cursor.setDate(cursor.getDate() - 1);
+        }
+
+        let longestStreak = 0;
+        let tempStreak = 0;
+        const sortedDates = Array.from(dateSet).sort();
+        sortedDates.forEach((dateStr, idx) => {
+          if (idx === 0) {
+            tempStreak = 1;
+          } else {
+            tempStreak = isNextDay(sortedDates[idx - 1], dateStr) ? tempStreak + 1 : 1;
+          }
+          longestStreak = Math.max(longestStreak, tempStreak);
+        });
+
+        setProgress('first-lesson', stats.exercisesSolved);
+        setProgress('warm-up', stats.exercisesSolved);
+        setProgress('problem-solver', stats.exercisesSolved);
+        setProgress('accuracy-master', stats.averageScore);
+        setProgress('study-time-5h', stats.totalStudyTime);
+        setProgress('mistake-fighter', wrongCount);
+        setProgress('chapter-clear', completedSections);
+        setProgress('rocket-launch', rocketLaunchCount);
+        setProgress('perfect-chapter', perfectChapterCount);
+        setProgress('rocket-master', rocketLaunchCount);
+        setProgress('triple-chapter', completedSections);
+        setProgress('weekly-goal', stats.weeklyProgress >= stats.weeklyGoal ? 1 : 0);
+        setProgress('daily-30', Math.max(...(dailyStudy || []).map(d => d.minutes), 0));
+        setProgress('perfect-streak-3', stats.bestCorrectStreak || 0);
+        setProgress('comeback', comebackCount);
+        setProgress('all-difficulty', minDifficultyCount);
+        setProgress('patience-scholar', patienceCount);
+        setProgress('daily-focus', maxDailyMinutes);
+        setProgress('night-owl', maxNightMinutes);
+        setProgress('topic-explorer', topicSet.size);
+        setProgress('streak-3', currentStreak);
+        setProgress('week-streak', currentStreak);
+
+        if (stats.currentStreak !== currentStreak || stats.longestStreak !== longestStreak) {
+          set({
+            stats: {
+              ...stats,
+              currentStreak,
+              longestStreak,
+            },
+          });
+        }
       },
       
       // 错题本
@@ -157,6 +299,7 @@ export const useStore = create<AppState>()(
           createdAt: new Date(),
         };
         set({ wrongAnswers: [...get().wrongAnswers, newWrong] });
+        get().evaluateAchievements();
       },
       markAsMastered: (wrongId) => {
         const wrongAnswers = get().wrongAnswers.map(w =>
@@ -171,6 +314,8 @@ export const useStore = create<AppState>()(
         topicsCompleted: 0,
         exercisesSolved: 0,
         averageScore: 0,
+        correctStreak: 0,
+        bestCorrectStreak: 0,
         currentStreak: 0,
         longestStreak: 0,
         weeklyGoal: 300,
@@ -178,6 +323,7 @@ export const useStore = create<AppState>()(
       },
       updateStats: (data) => {
         set({ stats: { ...get().stats, ...data } });
+        get().evaluateAchievements();
       },
       addStudyTime: (minutes) => {
         const { stats } = get();
@@ -188,6 +334,7 @@ export const useStore = create<AppState>()(
             weeklyProgress: stats.weeklyProgress + minutes,
           },
         });
+        get().evaluateAchievements();
       },
       
       // 每日学习记录
@@ -202,6 +349,7 @@ export const useStore = create<AppState>()(
               ? {
                   ...d,
                   minutes: d.minutes + data.minutes,
+                  nightMinutes: (d.nightMinutes || 0) + (data.nightMinutes || 0),
                   exercisesCompleted: d.exercisesCompleted + data.exercisesCompleted,
                   topicsStudied: [...new Set([...d.topicsStudied, ...data.topicsStudied])],
                 }
@@ -210,9 +358,13 @@ export const useStore = create<AppState>()(
           set({ dailyStudy });
         } else {
           set({
-            dailyStudy: [...get().dailyStudy, { date: today, ...data }],
+            dailyStudy: [
+              ...get().dailyStudy,
+              { date: today, nightMinutes: data.nightMinutes || 0, ...data },
+            ],
           });
         }
+        get().evaluateAchievements();
       },
       
       // UI状态
@@ -223,7 +375,7 @@ export const useStore = create<AppState>()(
       
       // 练习进度追踪
       exerciseProgress: {},
-      markExerciseAttempt: (topicId, sectionId, exerciseId, isCorrect, userAnswer) => {
+      markExerciseAttempt: (topicId, sectionId, exerciseId, isCorrect, userAnswer, timeSpentMs) => {
         const key = `${topicId}-${sectionId}`;
         const stored = get().exerciseProgress[key];
         const current = stored || { 
@@ -231,6 +383,7 @@ export const useStore = create<AppState>()(
           correctIds: [], 
           wrongEverIds: [], 
           answers: {},
+          timeSpentById: {},
           hasLaunched: false 
         };
         
@@ -239,6 +392,7 @@ export const useStore = create<AppState>()(
         const currentCorrectIds = current.correctIds || [];
         const currentWrongEverIds = current.wrongEverIds || [];
         const currentAnswers = current.answers || {};
+        const currentTimeSpent = current.timeSpentById || {};
         
         // 记录已作答（如果还没记录过）
         const attemptedIds = currentAttemptedIds.includes(exerciseId)
@@ -259,6 +413,14 @@ export const useStore = create<AppState>()(
           ...currentAnswers,
           [exerciseId]: userAnswer,
         };
+
+        const nextTimeSpent = typeof timeSpentMs === 'number'
+          ? Math.max(currentTimeSpent[exerciseId] || 0, timeSpentMs)
+          : currentTimeSpent[exerciseId] || 0;
+        const timeSpentById = {
+          ...currentTimeSpent,
+          [exerciseId]: nextTimeSpent,
+        };
         
         set({
           exerciseProgress: {
@@ -268,6 +430,7 @@ export const useStore = create<AppState>()(
               correctIds,
               wrongEverIds,
               answers,
+              timeSpentById,
               hasLaunched: current.hasLaunched || false,
             },
           },
@@ -284,6 +447,7 @@ export const useStore = create<AppState>()(
           correctIds: stored?.correctIds || [],
           wrongEverIds: stored?.wrongEverIds || [],
           answers: stored?.answers || {},
+          timeSpentById: stored?.timeSpentById || {},
           hasLaunched: stored?.hasLaunched || false,
         };
       },
@@ -295,6 +459,7 @@ export const useStore = create<AppState>()(
           correctIds: [], 
           wrongEverIds: [], 
           answers: {},
+          timeSpentById: {},
           hasLaunched: false 
         };
         
@@ -306,10 +471,12 @@ export const useStore = create<AppState>()(
               correctIds: current.correctIds || [],
               wrongEverIds: current.wrongEverIds || [],
               answers: current.answers || {},
+              timeSpentById: current.timeSpentById || {},
               hasLaunched: true,
             },
           },
         });
+        get().evaluateAchievements();
       },
       resetExerciseProgress: (topicId, sectionId) => {
         const key = `${topicId}-${sectionId}`;
