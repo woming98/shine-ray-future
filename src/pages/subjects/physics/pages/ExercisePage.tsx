@@ -137,13 +137,25 @@ export default function ExercisePage({
   const wrongEverCount = exerciseProgress.wrongEverIds.length;
   const totalExercises = sectionExercises.length;
   const correctRate = totalExercises > 0 ? (correctCount / totalExercises) * 100 : 0;
-  const shouldLaunch = allAttempted && correctRate >= 95 && !exerciseProgress.hasLaunched;
   const allAttempted = attemptedCount === totalExercises && totalExercises > 0;
+  const shouldLaunch = allAttempted && correctRate >= 95 && !exerciseProgress.hasLaunched;
   const completionThreshold = 90;
   const meetsCompletion = allAttempted && correctRate >= completionThreshold;
 
   const currentExercise = filteredExercises[currentExerciseIndex];
   const isCorrect = checked && selectedAnswer === currentExercise?.answer;
+  const currentExerciseAnswered = currentExercise
+    ? exerciseProgress.attemptedIds.includes(currentExercise.id)
+    : false;
+  const currentExerciseCorrect = currentExercise
+    ? exerciseProgress.correctIds.includes(currentExercise.id)
+    : false;
+  const currentExerciseWrong = currentExercise
+    ? exerciseProgress.wrongEverIds.includes(currentExercise.id) && !currentExerciseCorrect
+    : false;
+  const currentSavedAnswer = currentExercise
+    ? exerciseProgress.answers?.[currentExercise.id] ?? null
+    : null;
 
   const handleCheck = () => {
     if (!selectedAnswer || checked || !currentExercise) return;
@@ -163,9 +175,29 @@ export default function ExercisePage({
       });
     }
     
-    // 记录作答结果（attempted, correct, wrongEver）
-    markExerciseAttempt(resolvedTopicId, sectionIdKey, currentExercise.id, isCorrect);
+    // 记录作答结果（attempted, correct, wrongEver, answer）
+    markExerciseAttempt(
+      resolvedTopicId,
+      sectionIdKey,
+      currentExercise.id,
+      isCorrect,
+      selectedAnswer
+    );
   };
+
+  // 恢复已作答记录（用于返回时显示已选答案与对错）
+  useEffect(() => {
+    if (!currentExercise) return;
+    if (currentExerciseAnswered && currentSavedAnswer) {
+      setSelectedAnswer(currentSavedAnswer);
+      setChecked(true);
+      setShowExplanation(false);
+      return;
+    }
+    setSelectedAnswer(null);
+    setChecked(false);
+    setShowExplanation(false);
+  }, [currentExercise?.id, currentExerciseAnswered, currentSavedAnswer]);
 
   // 检测是否需要触发升空动画
   useEffect(() => {
@@ -1091,6 +1123,28 @@ export default function ExercisePage({
                   </Button>
                 </div>
               </div>
+              <div className="mt-3 flex flex-wrap items-center gap-2 text-xs">
+                {currentExerciseCorrect && (
+                  <span className="px-2 py-1 rounded-full bg-green-500/20 text-green-300">
+                    已答对
+                  </span>
+                )}
+                {currentExerciseWrong && (
+                  <span className="px-2 py-1 rounded-full bg-red-500/20 text-red-300">
+                    曾答错
+                  </span>
+                )}
+                {!currentExerciseCorrect && !currentExerciseWrong && currentExerciseAnswered && (
+                  <span className="px-2 py-1 rounded-full bg-blue-500/20 text-blue-200">
+                    已作答
+                  </span>
+                )}
+                {!currentExerciseAnswered && (
+                  <span className="px-2 py-1 rounded-full bg-slate-700/60 text-blue-300">
+                    未作答
+                  </span>
+                )}
+              </div>
             </div>
 
             {/* Question Card */}
@@ -1293,7 +1347,10 @@ export default function ExercisePage({
             <div className="grid grid-cols-5 sm:grid-cols-6 lg:grid-cols-5 gap-2">
               {filteredExercises.map((exercise, index) => {
                 const isCurrent = index === currentExerciseIndex;
-                const isAnswered = false; // TODO: Track answered state
+                const isAnswered = exerciseProgress.attemptedIds.includes(exercise.id);
+                const isCorrectAnswer = exerciseProgress.correctIds.includes(exercise.id);
+                const isWrongAnswer =
+                  exerciseProgress.wrongEverIds.includes(exercise.id) && !isCorrectAnswer;
 
                 return (
                   <button
@@ -1301,9 +1358,15 @@ export default function ExercisePage({
                     onClick={() => handleExerciseClick(index)}
                     className={`w-10 h-10 rounded-lg font-medium transition-all ${
                       isCurrent
-                        ? 'bg-primary-500 text-blue-100 ring-2 ring-primary-400'
+                        ? 'ring-2 ring-primary-400'
+                        : ''
+                    } ${
+                      isCorrectAnswer
+                        ? 'bg-green-500/30 text-green-200'
+                        : isWrongAnswer
+                        ? 'bg-red-500/30 text-red-200'
                         : isAnswered
-                        ? 'bg-green-500/20 text-green-400'
+                        ? 'bg-blue-500/30 text-blue-200'
                         : 'bg-slate-800/50/10 text-blue-300 hover:bg-slate-800/50/20'
                     }`}
                   >

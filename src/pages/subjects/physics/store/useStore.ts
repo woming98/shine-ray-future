@@ -45,13 +45,21 @@ interface AppState {
     attemptedIds: string[];    // 已作答的题目 ID 集合（点过 Check Answer）
     correctIds: string[];      // 已答对的题目 ID 集合
     wrongEverIds: string[];    // 曾经答错过的题目 ID 集合（用于总结）
+    answers: Record<string, string>; // 记录用户作答（用于返回后恢复）
     hasLaunched: boolean;      // 是否已触发升空动画
   }>;
-  markExerciseAttempt: (topicId: string, sectionId: string, exerciseId: string, isCorrect: boolean) => void;
+  markExerciseAttempt: (
+    topicId: string,
+    sectionId: string,
+    exerciseId: string,
+    isCorrect: boolean,
+    userAnswer: string
+  ) => void;
   getExerciseProgress: (topicId: string, sectionId: string) => { 
     attemptedIds: string[]; 
     correctIds: string[]; 
     wrongEverIds: string[]; 
+    answers: Record<string, string>;
     hasLaunched: boolean 
   };
   setLaunched: (topicId: string, sectionId: string) => void;
@@ -215,13 +223,14 @@ export const useStore = create<AppState>()(
       
       // 练习进度追踪
       exerciseProgress: {},
-      markExerciseAttempt: (topicId, sectionId, exerciseId, isCorrect) => {
+      markExerciseAttempt: (topicId, sectionId, exerciseId, isCorrect, userAnswer) => {
         const key = `${topicId}-${sectionId}`;
         const stored = get().exerciseProgress[key];
         const current = stored || { 
           attemptedIds: [], 
           correctIds: [], 
           wrongEverIds: [], 
+          answers: {},
           hasLaunched: false 
         };
         
@@ -229,6 +238,7 @@ export const useStore = create<AppState>()(
         const currentAttemptedIds = current.attemptedIds || [];
         const currentCorrectIds = current.correctIds || [];
         const currentWrongEverIds = current.wrongEverIds || [];
+        const currentAnswers = current.answers || {};
         
         // 记录已作答（如果还没记录过）
         const attemptedIds = currentAttemptedIds.includes(exerciseId)
@@ -244,6 +254,11 @@ export const useStore = create<AppState>()(
         const wrongEverIds = !isCorrect && !currentWrongEverIds.includes(exerciseId)
           ? [...currentWrongEverIds, exerciseId]
           : currentWrongEverIds;
+
+        const answers = {
+          ...currentAnswers,
+          [exerciseId]: userAnswer,
+        };
         
         set({
           exerciseProgress: {
@@ -252,6 +267,7 @@ export const useStore = create<AppState>()(
               attemptedIds,
               correctIds,
               wrongEverIds,
+              answers,
               hasLaunched: current.hasLaunched || false,
             },
           },
@@ -267,6 +283,7 @@ export const useStore = create<AppState>()(
           attemptedIds: stored?.attemptedIds || [],
           correctIds: stored?.correctIds || [],
           wrongEverIds: stored?.wrongEverIds || [],
+          answers: stored?.answers || {},
           hasLaunched: stored?.hasLaunched || false,
         };
       },
@@ -277,6 +294,7 @@ export const useStore = create<AppState>()(
           attemptedIds: [], 
           correctIds: [], 
           wrongEverIds: [], 
+          answers: {},
           hasLaunched: false 
         };
         
@@ -287,6 +305,7 @@ export const useStore = create<AppState>()(
               attemptedIds: current.attemptedIds || [],
               correctIds: current.correctIds || [],
               wrongEverIds: current.wrongEverIds || [],
+              answers: current.answers || {},
               hasLaunched: true,
             },
           },
