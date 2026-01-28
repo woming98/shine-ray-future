@@ -103,6 +103,7 @@ export default function UserCenter() {
 
   useEffect(() => {
     if (!isSupabaseConfigured || !supabase) return
+    const supabaseClient = supabase
 
     let mounted = true
 
@@ -114,7 +115,7 @@ export default function UserCenter() {
         return
       }
 
-      const { data } = await supabase.auth.getSession()
+      const { data } = await supabaseClient.auth.getSession()
       if (!mounted) return
       setSession(data.session)
       applyAuthRedirectState(data.session)
@@ -122,7 +123,7 @@ export default function UserCenter() {
 
     initSession()
 
-    const { data } = supabase.auth.onAuthStateChange((event, nextSession) => {
+    const { data } = supabaseClient.auth.onAuthStateChange((event, nextSession) => {
       setSession(nextSession)
       applyAuthRedirectState(nextSession)
       if (event === 'PASSWORD_RECOVERY') {
