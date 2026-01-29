@@ -17,4 +17,3 @@ export const ELECTRICITY_MAGNETISM_SECTIONS: ElectricityMagnetismSection[] = [
     description: 'Electric charge, Coulomb force, electric field, induction',
   },
 ];
-

@@ -25,6 +25,7 @@ import {
 } from 'lucide-react';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
+import { PHYSICS_TOPICS } from '../constants/topics';
 import { FORCE_MOTION_EXERCISES } from '../constants/forceMotion';
 import { FORCE_MOTION_SECTIONS } from '../constants/forceMotionSections';
 import { getPhysicsExerciseCatalogEntry } from '../constants/exerciseCatalog';
@@ -84,6 +85,7 @@ export default function ExercisePage({
   const resolvedSections = sectionsOverride || catalogEntry?.sections || FORCE_MOTION_SECTIONS;
   const resolvedTopicId = topicIdOverride || catalogEntry?.topicId || 'force-motion';
   const resolvedChapterId = chapterIdOverride || catalogEntry?.chapterId || 'fm-ch1';
+  const topicMeta = PHYSICS_TOPICS.find((t) => t.id === resolvedTopicId);
 
   const initialSelectedSection =
     sectionIdParam ||
@@ -1120,7 +1122,7 @@ export default function ExercisePage({
         <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="text-3xl font-display font-bold text-blue-100 mb-2">
-              Force and Motion - Exercise
+              {(topicMeta?.name || 'Physics')} - Exercise
             </h1>
             <p className="text-blue-300">Practice problems with instant feedback</p>
           </div>

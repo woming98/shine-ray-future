@@ -23,7 +23,7 @@ function BiologyLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 overflow-hidden">
       {/* 自然装饰背景 */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+      <div className="fixed inset-0 pointer-events-none overflow-hidden -z-10">
         {/* 柔和的圆形光晕效果 */}
         <motion.div
           animate={{

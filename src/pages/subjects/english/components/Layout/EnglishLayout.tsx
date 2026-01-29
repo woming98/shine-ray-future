@@ -38,7 +38,7 @@ export function EnglishLayout({ children }: EnglishLayoutProps) {
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 overflow-hidden">
       {/* 背景装饰 */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+      <div className="fixed inset-0 pointer-events-none overflow-hidden -z-10">
         <motion.div
           animate={{
             scale: [1, 1.1, 1],

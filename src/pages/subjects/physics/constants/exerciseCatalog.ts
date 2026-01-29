@@ -2,6 +2,8 @@ import { ELECTRICITY_MAGNETISM_EXERCISES } from './electricityMagnetism'
 import { ELECTRICITY_MAGNETISM_SECTIONS } from './electricityMagnetismSections'
 import { FORCE_MOTION_EXERCISES } from './forceMotion'
 import { FORCE_MOTION_SECTIONS } from './forceMotionSections'
+import { TEMPERATURE_GAS_EXERCISES } from './temperatureGas'
+import { TEMPERATURE_GAS_SECTIONS } from './temperatureGasSections'
 import { Exercise } from '../types'
 
 export interface PhysicsExerciseCatalogEntry {
@@ -18,6 +20,13 @@ export interface PhysicsExerciseCatalogEntry {
 }
 
 export const PHYSICS_EXERCISE_CATALOG: Record<string, PhysicsExerciseCatalogEntry> = {
+  'temperature-gas': {
+    topicId: 'temperature-gas',
+    chapterId: 'tg-ch1',
+    defaultSectionId: 'temp-heat-internal',
+    sections: TEMPERATURE_GAS_SECTIONS,
+    exercises: TEMPERATURE_GAS_EXERCISES,
+  },
   'force-motion': {
     topicId: 'force-motion',
     chapterId: 'fm-ch1',

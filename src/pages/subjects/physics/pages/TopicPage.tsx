@@ -20,6 +20,8 @@ import { PHYSICS_TOPICS } from '../constants/topics';
 import { FORCE_MOTION_CHAPTERS, FORCE_MOTION_FORMULAS } from '../constants/forceMotion';
 import { ELECTRICITY_MAGNETISM_EXERCISES } from '../constants/electricityMagnetism';
 import { ELECTRICITY_MAGNETISM_SECTIONS } from '../constants/electricityMagnetismSections';
+import { TEMPERATURE_GAS_EXERCISES } from '../constants/temperatureGas';
+import { TEMPERATURE_GAS_SECTIONS } from '../constants/temperatureGasSections';
 import { useStore } from '../store/useStore';
 import { Button } from '../components/UI/Button';
 import { Card } from '../components/UI/Card';
@@ -81,6 +83,13 @@ export default function TopicPage() {
             { id: 'calculator', label: '公式计算', icon: Calculator },
             { id: 'exercise', label: 'Exercise', icon: FileQuestion },
           ]
+        : topicId === 'temperature-gas'
+          ? [
+              { id: 'theory', label: '理论学习', icon: BookOpen },
+              { id: 'simulation', label: '互动模拟', icon: FlaskConical },
+              { id: 'calculator', label: '公式计算', icon: Calculator },
+              { id: 'exercise', label: 'Exercise', icon: FileQuestion },
+            ]
         : [
             { id: 'theory', label: '理论学习', icon: BookOpen },
             { id: 'simulation', label: '互动模拟', icon: FlaskConical },
@@ -247,7 +256,7 @@ export default function TopicPage() {
               />
             )}
             {activeTab === 'exercise' &&
-              (topicId === 'force-motion' || topicId === 'electricity-magnetism') && (
+              (topicId === 'force-motion' || topicId === 'electricity-magnetism' || topicId === 'temperature-gas') && (
                 <ExerciseTab topicId={topicId} />
               )}
             {activeTab === 'quiz' && topicId === 'force-motion' && (
@@ -1210,6 +1219,601 @@ function CalculatorTab({
           }
           break;
         }
+        case 'em-es-1': {
+          // F = k |Q1 Q2| / r^2  (magnitude)
+          const k = 8.99e9;
+          const F = get('F');
+          const Q1 = get('Q1');
+          const Q2 = get('Q2');
+          const r = get('r');
+
+          if (unknown === 'F') {
+            if (Q1 === undefined || Q2 === undefined || r === undefined) break;
+            requireNonZero(r, 'r');
+            setResult('F', (k * Math.abs(Q1 * Q2)) / (r * r));
+            break;
+          }
+          if (unknown === 'Q1') {
+            if (F === undefined || Q2 === undefined || r === undefined) break;
+            requireNonZero(Q2, 'Q2');
+            const magnitude = (F * r * r) / (k * Math.abs(Q2));
+            setResultPlusMinus('Q1', magnitude);
+            break;
+          }
+          if (unknown === 'Q2') {
+            if (F === undefined || Q1 === undefined || r === undefined) break;
+            requireNonZero(Q1, 'Q1');
+            const magnitude = (F * r * r) / (k * Math.abs(Q1));
+            setResultPlusMinus('Q2', magnitude);
+            break;
+          }
+          if (unknown === 'r') {
+            if (F === undefined || Q1 === undefined || Q2 === undefined) break;
+            requireNonZero(F, 'F');
+            const ratio = (k * Math.abs(Q1 * Q2)) / F;
+            if (ratio < 0) throw new Error('negative under sqrt');
+            setResult('r', Math.sqrt(ratio));
+            break;
+          }
+          break;
+        }
+        case 'em-es-2': {
+          // E = F / q
+          const E = get('E');
+          const F = get('F');
+          const q = get('q');
+
+          if (unknown === 'E') {
+            if (F === undefined || q === undefined) break;
+            requireNonZero(q, 'q');
+            setResult('E', F / q);
+            break;
+          }
+          if (unknown === 'F') {
+            if (E === undefined || q === undefined) break;
+            setResult('F', E * q);
+            break;
+          }
+          if (unknown === 'q') {
+            if (E === undefined || F === undefined) break;
+            requireNonZero(E, 'E');
+            setResult('q', F / E);
+            break;
+          }
+          break;
+        }
+        case 'em-es-3': {
+          // E = k|Q| / r^2  (magnitude)
+          const k = 8.99e9;
+          const E = get('E');
+          const Q = get('Q');
+          const r = get('r');
+
+          if (unknown === 'E') {
+            if (Q === undefined || r === undefined) break;
+            requireNonZero(r, 'r');
+            setResult('E', (k * Math.abs(Q)) / (r * r));
+            break;
+          }
+          if (unknown === 'Q') {
+            if (E === undefined || r === undefined) break;
+            const magnitude = (E * r * r) / k;
+            setResultPlusMinus('Q', magnitude);
+            break;
+          }
+          if (unknown === 'r') {
+            if (E === undefined || Q === undefined) break;
+            requireNonZero(E, 'E');
+            const ratio = (k * Math.abs(Q)) / E;
+            if (ratio < 0) throw new Error('negative under sqrt');
+            setResult('r', Math.sqrt(ratio));
+            break;
+          }
+          break;
+        }
+        case 'em-es-4': {
+          // V = W / q
+          const V = get('V');
+          const W = get('W');
+          const q = get('q');
+
+          if (unknown === 'V') {
+            if (W === undefined || q === undefined) break;
+            requireNonZero(q, 'q');
+            setResult('V', W / q);
+            break;
+          }
+          if (unknown === 'W') {
+            if (V === undefined || q === undefined) break;
+            setResult('W', V * q);
+            break;
+          }
+          if (unknown === 'q') {
+            if (V === undefined || W === undefined) break;
+            requireNonZero(V, 'V');
+            setResult('q', W / V);
+            break;
+          }
+          break;
+        }
+        case 'em-es-5': {
+          // E = V / d
+          const E = get('E');
+          const V = get('V');
+          const d = get('d');
+
+          if (unknown === 'E') {
+            if (V === undefined || d === undefined) break;
+            requireNonZero(d, 'd');
+            setResult('E', V / d);
+            break;
+          }
+          if (unknown === 'V') {
+            if (E === undefined || d === undefined) break;
+            setResult('V', E * d);
+            break;
+          }
+          if (unknown === 'd') {
+            if (E === undefined || V === undefined) break;
+            requireNonZero(E, 'E');
+            setResult('d', V / E);
+            break;
+          }
+          break;
+        }
+        case 'em-es-6': {
+          // F = qE
+          const F = get('F');
+          const q = get('q');
+          const E = get('E');
+
+          if (unknown === 'F') {
+            if (q === undefined || E === undefined) break;
+            setResult('F', q * E);
+            break;
+          }
+          if (unknown === 'q') {
+            if (F === undefined || E === undefined) break;
+            requireNonZero(E, 'E');
+            setResult('q', F / E);
+            break;
+          }
+          if (unknown === 'E') {
+            if (F === undefined || q === undefined) break;
+            requireNonZero(q, 'q');
+            setResult('E', F / q);
+            break;
+          }
+          break;
+        }
+        case 'em-cir-1': {
+          // I = Q / t
+          const I = get('I');
+          const Q = get('Q');
+          const t = get('t');
+
+          if (unknown === 'I') {
+            if (Q === undefined || t === undefined) break;
+            requireNonZero(t, 't');
+            setResult('I', Q / t);
+            break;
+          }
+          if (unknown === 'Q') {
+            if (I === undefined || t === undefined) break;
+            setResult('Q', I * t);
+            break;
+          }
+          if (unknown === 't') {
+            if (I === undefined || Q === undefined) break;
+            requireNonZero(I, 'I');
+            setResult('t', Q / I);
+            break;
+          }
+          break;
+        }
+        case 'em-cir-2': {
+          // V = IR
+          const V = get('V');
+          const I = get('I');
+          const R = get('R');
+
+          if (unknown === 'V') {
+            if (I === undefined || R === undefined) break;
+            setResult('V', I * R);
+            break;
+          }
+          if (unknown === 'I') {
+            if (V === undefined || R === undefined) break;
+            requireNonZero(R, 'R');
+            setResult('I', V / R);
+            break;
+          }
+          if (unknown === 'R') {
+            if (V === undefined || I === undefined) break;
+            requireNonZero(I, 'I');
+            setResult('R', V / I);
+            break;
+          }
+          break;
+        }
+        case 'em-cir-3': {
+          // P = VI
+          const P = get('P');
+          const V = get('V');
+          const I = get('I');
+
+          if (unknown === 'P') {
+            if (V === undefined || I === undefined) break;
+            setResult('P', V * I);
+            break;
+          }
+          if (unknown === 'V') {
+            if (P === undefined || I === undefined) break;
+            requireNonZero(I, 'I');
+            setResult('V', P / I);
+            break;
+          }
+          if (unknown === 'I') {
+            if (P === undefined || V === undefined) break;
+            requireNonZero(V, 'V');
+            setResult('I', P / V);
+            break;
+          }
+          break;
+        }
+        case 'em-cir-4': {
+          // W = Pt
+          const W = get('W');
+          const P = get('P');
+          const t = get('t');
+
+          if (unknown === 'W') {
+            if (P === undefined || t === undefined) break;
+            setResult('W', P * t);
+            break;
+          }
+          if (unknown === 'P') {
+            if (W === undefined || t === undefined) break;
+            requireNonZero(t, 't');
+            setResult('P', W / t);
+            break;
+          }
+          if (unknown === 't') {
+            if (W === undefined || P === undefined) break;
+            requireNonZero(P, 'P');
+            setResult('t', W / P);
+            break;
+          }
+          break;
+        }
+        case 'em-cir-5': {
+          // R = rho L / A
+          const R = get('R');
+          const rho = get('rho');
+          const L = get('L');
+          const A = get('A');
+
+          if (unknown === 'R') {
+            if (rho === undefined || L === undefined || A === undefined) break;
+            requireNonZero(A, 'A');
+            setResult('R', (rho * L) / A);
+            break;
+          }
+          if (unknown === 'rho') {
+            if (R === undefined || L === undefined || A === undefined) break;
+            requireNonZero(L, 'L');
+            setResult('rho', (R * A) / L);
+            break;
+          }
+          if (unknown === 'L') {
+            if (R === undefined || rho === undefined || A === undefined) break;
+            requireNonZero(rho, 'rho');
+            setResult('L', (R * A) / rho);
+            break;
+          }
+          if (unknown === 'A') {
+            if (R === undefined || rho === undefined || L === undefined) break;
+            requireNonZero(R, 'R');
+            setResult('A', (rho * L) / R);
+            break;
+          }
+          break;
+        }
+        case 'em-dom-1': {
+          // E = P t  (kWh = kW * h)
+          const E = get('E_kWh');
+          const P = get('P');
+          const t = get('t');
+
+          if (unknown === 'E_kWh') {
+            if (P === undefined || t === undefined) break;
+            setResult('E_kWh', P * t);
+            break;
+          }
+          if (unknown === 'P') {
+            if (E === undefined || t === undefined) break;
+            requireNonZero(t, 't');
+            setResult('P', E / t);
+            break;
+          }
+          if (unknown === 't') {
+            if (E === undefined || P === undefined) break;
+            requireNonZero(P, 'P');
+            setResult('t', E / P);
+            break;
+          }
+          break;
+        }
+        case 'em-dom-2': {
+          // I = P / V
+          const I = get('I');
+          const P = get('P');
+          const V = get('V');
+
+          if (unknown === 'I') {
+            if (P === undefined || V === undefined) break;
+            requireNonZero(V, 'V');
+            setResult('I', P / V);
+            break;
+          }
+          if (unknown === 'P') {
+            if (I === undefined || V === undefined) break;
+            setResult('P', I * V);
+            break;
+          }
+          if (unknown === 'V') {
+            if (I === undefined || P === undefined) break;
+            requireNonZero(I, 'I');
+            setResult('V', P / I);
+            break;
+          }
+          break;
+        }
+        case 'em-mag-1': {
+          // F = B I L
+          const F = get('F');
+          const B = get('B');
+          const I = get('I');
+          const L = get('L');
+
+          if (unknown === 'F') {
+            if (B === undefined || I === undefined || L === undefined) break;
+            setResult('F', B * I * L);
+            break;
+          }
+          if (unknown === 'B') {
+            if (F === undefined || I === undefined || L === undefined) break;
+            requireNonZero(I * L, 'I*L');
+            setResult('B', F / (I * L));
+            break;
+          }
+          if (unknown === 'I') {
+            if (F === undefined || B === undefined || L === undefined) break;
+            requireNonZero(B * L, 'B*L');
+            setResult('I', F / (B * L));
+            break;
+          }
+          if (unknown === 'L') {
+            if (F === undefined || B === undefined || I === undefined) break;
+            requireNonZero(B * I, 'B*I');
+            setResult('L', F / (B * I));
+            break;
+          }
+          break;
+        }
+        case 'em-mag-2': {
+          // F = q v B  (magnitude-ish; sign/dir handled separately)
+          const F = get('F');
+          const q = get('q');
+          const v = get('v');
+          const B = get('B');
+
+          if (unknown === 'F') {
+            if (q === undefined || v === undefined || B === undefined) break;
+            setResult('F', Math.abs(q) * v * B);
+            break;
+          }
+          if (unknown === 'q') {
+            if (F === undefined || v === undefined || B === undefined) break;
+            requireNonZero(v * B, 'v*B');
+            setResultPlusMinus('q', F / (v * B));
+            break;
+          }
+          if (unknown === 'v') {
+            if (F === undefined || q === undefined || B === undefined) break;
+            requireNonZero(Math.abs(q) * B, '|q|*B');
+            setResult('v', F / (Math.abs(q) * B));
+            break;
+          }
+          if (unknown === 'B') {
+            if (F === undefined || q === undefined || v === undefined) break;
+            requireNonZero(Math.abs(q) * v, '|q|*v');
+            setResult('B', F / (Math.abs(q) * v));
+            break;
+          }
+          break;
+        }
+        case 'em-ind-1': {
+          // Phi = B A cos(theta_deg)
+          const Phi = get('Phi');
+          const B = get('B');
+          const A = get('A');
+          const theta = get('theta');
+
+          const toRad = (deg: number) => (deg * Math.PI) / 180;
+
+          if (unknown === 'Phi') {
+            if (B === undefined || A === undefined || theta === undefined) break;
+            setResult('Phi', B * A * Math.cos(toRad(theta)));
+            break;
+          }
+          if (unknown === 'B') {
+            if (Phi === undefined || A === undefined || theta === undefined) break;
+            const c = Math.cos(toRad(theta));
+            requireNonZero(A * c, 'A*cosθ');
+            setResult('B', Phi / (A * c));
+            break;
+          }
+          if (unknown === 'A') {
+            if (Phi === undefined || B === undefined || theta === undefined) break;
+            const c = Math.cos(toRad(theta));
+            requireNonZero(B * c, 'B*cosθ');
+            setResult('A', Phi / (B * c));
+            break;
+          }
+          if (unknown === 'theta') {
+            if (Phi === undefined || B === undefined || A === undefined) break;
+            requireNonZero(B * A, 'B*A');
+            const ratio = Phi / (B * A);
+            if (ratio < -1 || ratio > 1) throw new Error('acos out of range');
+            setResult('theta', (Math.acos(ratio) * 180) / Math.PI);
+            break;
+          }
+          break;
+        }
+        case 'em-ind-2': {
+          // |emf| = N dPhi / dt
+          const emf = get('emf');
+          const N = get('N');
+          const dPhi = get('dPhi');
+          const dt = get('dt');
+
+          if (unknown === 'emf') {
+            if (N === undefined || dPhi === undefined || dt === undefined) break;
+            requireNonZero(dt, 'dt');
+            setResult('emf', Math.abs((N * dPhi) / dt));
+            break;
+          }
+          if (unknown === 'N') {
+            if (emf === undefined || dPhi === undefined || dt === undefined) break;
+            requireNonZero(dPhi, 'dPhi');
+            setResult('N', Math.abs((emf * dt) / dPhi));
+            break;
+          }
+          if (unknown === 'dPhi') {
+            if (emf === undefined || N === undefined || dt === undefined) break;
+            requireNonZero(N, 'N');
+            setResultPlusMinus('dPhi', (emf * dt) / N);
+            break;
+          }
+          if (unknown === 'dt') {
+            if (emf === undefined || N === undefined || dPhi === undefined) break;
+            requireNonZero(emf, 'emf');
+            setResult('dt', Math.abs((N * dPhi) / emf));
+            break;
+          }
+          break;
+        }
+        case 'em-ind-3': {
+          // emf = B l v
+          const emf = get('emf');
+          const B = get('B');
+          const l = get('l');
+          const v = get('v');
+
+          if (unknown === 'emf') {
+            if (B === undefined || l === undefined || v === undefined) break;
+            setResult('emf', B * l * v);
+            break;
+          }
+          if (unknown === 'B') {
+            if (emf === undefined || l === undefined || v === undefined) break;
+            requireNonZero(l * v, 'l*v');
+            setResult('B', emf / (l * v));
+            break;
+          }
+          if (unknown === 'l') {
+            if (emf === undefined || B === undefined || v === undefined) break;
+            requireNonZero(B * v, 'B*v');
+            setResult('l', emf / (B * v));
+            break;
+          }
+          if (unknown === 'v') {
+            if (emf === undefined || B === undefined || l === undefined) break;
+            requireNonZero(B * l, 'B*l');
+            setResult('v', emf / (B * l));
+            break;
+          }
+          break;
+        }
+        case 'em-ac-1': {
+          // Vrms = V0 / sqrt(2)
+          const Vrms = get('Vrms');
+          const V0 = get('V0');
+          const root2 = Math.sqrt(2);
+
+          if (unknown === 'Vrms') {
+            if (V0 === undefined) break;
+            setResult('Vrms', V0 / root2);
+            break;
+          }
+          if (unknown === 'V0') {
+            if (Vrms === undefined) break;
+            setResult('V0', Vrms * root2);
+            break;
+          }
+          break;
+        }
+        case 'em-ac-2': {
+          // Vp / Vs = Np / Ns
+          const Vp = get('Vp');
+          const Vs = get('Vs');
+          const Np = get('Np');
+          const Ns = get('Ns');
+
+          if (unknown === 'Vp') {
+            if (Vs === undefined || Np === undefined || Ns === undefined) break;
+            requireNonZero(Ns, 'Ns');
+            setResult('Vp', (Vs * Np) / Ns);
+            break;
+          }
+          if (unknown === 'Vs') {
+            if (Vp === undefined || Np === undefined || Ns === undefined) break;
+            requireNonZero(Np, 'Np');
+            setResult('Vs', (Vp * Ns) / Np);
+            break;
+          }
+          if (unknown === 'Np') {
+            if (Vp === undefined || Vs === undefined || Ns === undefined) break;
+            requireNonZero(Vs, 'Vs');
+            setResult('Np', (Vp * Ns) / Vs);
+            break;
+          }
+          if (unknown === 'Ns') {
+            if (Vp === undefined || Vs === undefined || Np === undefined) break;
+            requireNonZero(Vp, 'Vp');
+            setResult('Ns', (Vs * Np) / Vp);
+            break;
+          }
+          break;
+        }
+        case 'em-ac-3': {
+          // Ploss = I^2 R
+          const Ploss = get('Ploss');
+          const I = get('I');
+          const R = get('R');
+
+          if (unknown === 'Ploss') {
+            if (I === undefined || R === undefined) break;
+            setResult('Ploss', I * I * R);
+            break;
+          }
+          if (unknown === 'I') {
+            if (Ploss === undefined || R === undefined) break;
+            requireNonZero(R, 'R');
+            const ratio = Ploss / R;
+            if (ratio < 0) throw new Error('negative under sqrt');
+            setResult('I', Math.sqrt(ratio));
+            break;
+          }
+          if (unknown === 'R') {
+            if (Ploss === undefined || I === undefined) break;
+            requireNonZero(I, 'I');
+            setResult('R', Ploss / (I * I));
+            break;
+          }
+          break;
+        }
         default: {
           setText('该公式暂未支持计算');
         }
@@ -1362,6 +1966,26 @@ function ExerciseTab({ topicId }: { topicId: string }) {
           defaultSectionId="electrostatics"
           sections={ELECTRICITY_MAGNETISM_SECTIONS}
           exercises={ELECTRICITY_MAGNETISM_EXERCISES}
+        />
+      </motion.div>
+    );
+  }
+
+  if (topicId === 'temperature-gas') {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        className="h-full"
+      >
+        <ExercisePage
+          embedded={true}
+          topicId="temperature-gas"
+          chapterId="tg-ch1"
+          defaultSectionId="temp-heat-internal"
+          sections={TEMPERATURE_GAS_SECTIONS}
+          exercises={TEMPERATURE_GAS_EXERCISES}
         />
       </motion.div>
     );
