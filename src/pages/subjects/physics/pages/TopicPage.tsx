@@ -705,52 +705,519 @@ function CalculatorTab({
   expandedFormula: string | null;
   setExpandedFormula: (id: string | null) => void;
 }) {
-  const [calcValues, setCalcValues] = useState<Record<string, number>>({});
+  const [calcValues, setCalcValues] = useState<Record<string, number | undefined>>({});
   const [calcResult, setCalcResult] = useState<string>('');
 
   const calculateFormula = (formula: Formula) => {
     try {
-      // 简单的公式计算逻辑
+      let producedResult = false;
+      const setText = (text: string) => {
+        producedResult = true;
+        setCalcResult(text);
+      };
+
+      const fmt = (n: number) => {
+        if (!Number.isFinite(n)) return 'NaN';
+        const abs = Math.abs(n);
+        if (abs !== 0 && (abs < 0.01 || abs >= 10000)) return n.toExponential(3);
+        return Number(n.toFixed(3)).toString();
+      };
+
+      const get = (symbol: string) => calcValues[symbol];
+      const unitOf = (symbol: string) => formula.variables.find((v) => v.symbol === symbol)?.unit || '';
+
+      // 允许用户“留空一个未知量”：
+      const missingSymbols = formula.variables
+        .map((v) => v.symbol)
+        .filter((symbol) => get(symbol) === undefined);
+
+      if (missingSymbols.length !== 1) {
+        setText('请留空 1 个未知量，其余变量填入数值后再计算');
+        return;
+      }
+
+      const unknown = missingSymbols[0];
+
+      const setResult = (symbol: string, value: number) => {
+        setText(`${symbol} = ${fmt(value)} ${unitOf(symbol)}`.trim());
+      };
+
+      const setResultPlusMinus = (symbol: string, magnitude: number) => {
+        const unit = unitOf(symbol);
+        if (magnitude === 0) {
+          setText(`${symbol} = 0 ${unit}`.trim());
+          return;
+        }
+        setText(`${symbol} = ±${fmt(magnitude)} ${unit}（按方向取正/负）`.trim());
+      };
+
+      const requireNonZero = (value: number | undefined, name: string) => {
+        if (value === undefined || value === 0) throw new Error(`${name} cannot be 0`);
+      };
+
       switch (formula.id) {
-        case 'fm-1': // v = s / t
-          if (calcValues['s'] && calcValues['t']) {
-            setCalcResult(`v = ${(calcValues['s'] / calcValues['t']).toFixed(2)} m/s`);
+        case 'fm-1': {
+          // s = 1/2 a t^2
+          const s = get('s');
+          const a = get('a');
+          const t = get('t');
+
+          if (unknown === 's') {
+            if (a === undefined || t === undefined) break;
+            setResult('s', 0.5 * a * t * t);
+            break;
+          }
+          if (unknown === 'a') {
+            if (s === undefined || t === undefined) break;
+            requireNonZero(t, 't');
+            setResult('a', (2 * s) / (t * t));
+            break;
+          }
+          if (unknown === 't') {
+            if (s === undefined || a === undefined) break;
+            requireNonZero(a, 'a');
+            const ratio = (2 * s) / a;
+            if (ratio < 0) throw new Error('negative under sqrt');
+            setResult('t', Math.sqrt(ratio));
+            break;
           }
           break;
-        case 'fm-2': // a = (v - u) / t
-          if (calcValues['v'] !== undefined && calcValues['u'] !== undefined && calcValues['t']) {
-            setCalcResult(`a = ${((calcValues['v'] - calcValues['u']) / calcValues['t']).toFixed(2)} m/s²`);
+        }
+        case 'fm-2': {
+          // s = ut + 1/2 a t^2
+          const s = get('s');
+          const u = get('u');
+          const a = get('a');
+          const t = get('t');
+
+          if (unknown === 's') {
+            if (u === undefined || a === undefined || t === undefined) break;
+            setResult('s', u * t + 0.5 * a * t * t);
+            break;
+          }
+          if (unknown === 'u') {
+            if (s === undefined || a === undefined || t === undefined) break;
+            requireNonZero(t, 't');
+            setResult('u', (s - 0.5 * a * t * t) / t);
+            break;
+          }
+          if (unknown === 'a') {
+            if (s === undefined || u === undefined || t === undefined) break;
+            requireNonZero(t, 't');
+            setResult('a', (2 * (s - u * t)) / (t * t));
+            break;
+          }
+          if (unknown === 't') {
+            if (s === undefined || u === undefined || a === undefined) break;
+            if (a === 0) {
+              requireNonZero(u, 'u');
+              setResult('t', s / u);
+              break;
+            }
+            const disc = u * u + 2 * a * s;
+            if (disc < 0) throw new Error('negative discriminant');
+            const sqrtDisc = Math.sqrt(disc);
+            const t1 = (-u + sqrtDisc) / a;
+            const t2 = (-u - sqrtDisc) / a;
+            const roots = [t1, t2].filter((x) => Number.isFinite(x) && x >= 0).sort((x, y) => x - y);
+            if (roots.length === 0) throw new Error('no positive time root');
+            if (roots.length === 1 || Math.abs(roots[0] - roots[1]) < 1e-9) {
+              setResult('t', roots[0]);
+              break;
+            }
+            setText(`t = ${fmt(roots[0])} s 或 ${fmt(roots[1])} s（按题意选取）`);
+            break;
           }
           break;
-        case 'fm-3': // F = ma
-          if (calcValues['m'] && calcValues['a']) {
-            setCalcResult(`F = ${(calcValues['m'] * calcValues['a']).toFixed(2)} N`);
+        }
+        case 'fm-3': {
+          // v = u + at
+          const v = get('v');
+          const u = get('u');
+          const a = get('a');
+          const t = get('t');
+
+          if (unknown === 'v') {
+            if (u === undefined || a === undefined || t === undefined) break;
+            setResult('v', u + a * t);
+            break;
+          }
+          if (unknown === 'u') {
+            if (v === undefined || a === undefined || t === undefined) break;
+            setResult('u', v - a * t);
+            break;
+          }
+          if (unknown === 'a') {
+            if (v === undefined || u === undefined || t === undefined) break;
+            requireNonZero(t, 't');
+            setResult('a', (v - u) / t);
+            break;
+          }
+          if (unknown === 't') {
+            if (v === undefined || u === undefined || a === undefined) break;
+            requireNonZero(a, 'a');
+            setResult('t', (v - u) / a);
+            break;
           }
           break;
-        case 'fm-7': // W = mg
-          if (calcValues['m']) {
-            const g = calcValues['g'] || 9.8;
-            setCalcResult(`W = ${(calcValues['m'] * g).toFixed(2)} N`);
+        }
+        case 'fm-4': {
+          // v^2 = u^2 + 2as
+          const v = get('v');
+          const u = get('u');
+          const a = get('a');
+          const s = get('s');
+
+          if (unknown === 'v') {
+            if (u === undefined || a === undefined || s === undefined) break;
+            const inside = u * u + 2 * a * s;
+            if (inside < 0) throw new Error('negative under sqrt');
+            setResultPlusMinus('v', Math.sqrt(inside));
+            break;
+          }
+          if (unknown === 'u') {
+            if (v === undefined || a === undefined || s === undefined) break;
+            const inside = v * v - 2 * a * s;
+            if (inside < 0) throw new Error('negative under sqrt');
+            setResultPlusMinus('u', Math.sqrt(inside));
+            break;
+          }
+          if (unknown === 'a') {
+            if (v === undefined || u === undefined || s === undefined) break;
+            requireNonZero(s, 's');
+            setResult('a', (v * v - u * u) / (2 * s));
+            break;
+          }
+          if (unknown === 's') {
+            if (v === undefined || u === undefined || a === undefined) break;
+            requireNonZero(a, 'a');
+            setResult('s', (v * v - u * u) / (2 * a));
+            break;
           }
           break;
-        case 'fm-8': // p = mv
-          if (calcValues['m'] && calcValues['v']) {
-            setCalcResult(`p = ${(calcValues['m'] * calcValues['v']).toFixed(2)} kg·m/s`);
+        }
+        case 'fm-5': {
+          // Δs = s(t2) - s(t1)
+          const ds = get('Δs');
+          const s2 = get('s(t₂)');
+          const s1 = get('s(t₁)');
+
+          if (unknown === 'Δs') {
+            if (s2 === undefined || s1 === undefined) break;
+            setResult('Δs', s2 - s1);
+            break;
+          }
+          if (unknown === 's(t₂)') {
+            if (ds === undefined || s1 === undefined) break;
+            setResult('s(t₂)', ds + s1);
+            break;
+          }
+          if (unknown === 's(t₁)') {
+            if (ds === undefined || s2 === undefined) break;
+            setResult('s(t₁)', s2 - ds);
+            break;
           }
           break;
-        case 'fm-11': // KE = ½mv²
-          if (calcValues['m'] && calcValues['v']) {
-            setCalcResult(`KE = ${(0.5 * calcValues['m'] * calcValues['v'] * calcValues['v']).toFixed(2)} J`);
+        }
+        case 'fm-6': {
+          // u = (s - 1/2 a t^2) / t  (equivalent to s = ut + 1/2 a t^2)
+          const u = get('u');
+          const s = get('s');
+          const a = get('a');
+          const t = get('t');
+
+          if (unknown === 'u') {
+            if (s === undefined || a === undefined || t === undefined) break;
+            requireNonZero(t, 't');
+            setResult('u', (s - 0.5 * a * t * t) / t);
+            break;
+          }
+          if (unknown === 's') {
+            if (u === undefined || a === undefined || t === undefined) break;
+            setResult('s', u * t + 0.5 * a * t * t);
+            break;
+          }
+          if (unknown === 'a') {
+            if (s === undefined || u === undefined || t === undefined) break;
+            requireNonZero(t, 't');
+            setResult('a', (2 * (s - u * t)) / (t * t));
+            break;
+          }
+          if (unknown === 't') {
+            if (s === undefined || u === undefined || a === undefined) break;
+            if (a === 0) {
+              requireNonZero(u, 'u');
+              setResult('t', s / u);
+              break;
+            }
+            const disc = u * u + 2 * a * s;
+            if (disc < 0) throw new Error('negative discriminant');
+            const sqrtDisc = Math.sqrt(disc);
+            const t1 = (-u + sqrtDisc) / a;
+            const t2 = (-u - sqrtDisc) / a;
+            const roots = [t1, t2].filter((x) => Number.isFinite(x) && x >= 0).sort((x, y) => x - y);
+            if (roots.length === 0) throw new Error('no positive time root');
+            if (roots.length === 1 || Math.abs(roots[0] - roots[1]) < 1e-9) {
+              setResult('t', roots[0]);
+              break;
+            }
+            setText(`t = ${fmt(roots[0])} s 或 ${fmt(roots[1])} s（按题意选取）`);
+            break;
           }
           break;
-        case 'fm-12': // PE = mgh
-          if (calcValues['m'] && calcValues['h']) {
-            const g = calcValues['g'] || 9.8;
-            setCalcResult(`PE = ${(calcValues['m'] * g * calcValues['h']).toFixed(2)} J`);
+        }
+        case 'fm-7': {
+          // t = (v - u) / a  (same as v = u + at)
+          const t = get('t');
+          const v = get('v');
+          const u = get('u');
+          const a = get('a');
+
+          if (unknown === 't') {
+            if (v === undefined || u === undefined || a === undefined) break;
+            requireNonZero(a, 'a');
+            setResult('t', (v - u) / a);
+            break;
+          }
+          if (unknown === 'v') {
+            if (t === undefined || u === undefined || a === undefined) break;
+            setResult('v', u + a * t);
+            break;
+          }
+          if (unknown === 'u') {
+            if (t === undefined || v === undefined || a === undefined) break;
+            setResult('u', v - a * t);
+            break;
+          }
+          if (unknown === 'a') {
+            if (t === undefined || v === undefined || u === undefined) break;
+            requireNonZero(t, 't');
+            setResult('a', (v - u) / t);
+            break;
           }
           break;
-        default:
-          setCalcResult('请输入所需变量值');
+        }
+        case 'fm-8': {
+          // v_avg = s / t
+          const vAvg = get('v_avg');
+          const s = get('s');
+          const t = get('t');
+
+          if (unknown === 'v_avg') {
+            if (s === undefined || t === undefined) break;
+            requireNonZero(t, 't');
+            setResult('v_avg', s / t);
+            break;
+          }
+          if (unknown === 's') {
+            if (vAvg === undefined || t === undefined) break;
+            setResult('s', vAvg * t);
+            break;
+          }
+          if (unknown === 't') {
+            if (vAvg === undefined || s === undefined) break;
+            requireNonZero(vAvg, 'v_avg');
+            setResult('t', s / vAvg);
+            break;
+          }
+          break;
+        }
+        case 'fm-9': {
+          // a = (v2 - v1) / (t2 - t1)
+          const a = get('a');
+          const v2 = get('v2');
+          const v1 = get('v1');
+          const t2 = get('t2');
+          const t1 = get('t1');
+
+          if (unknown === 'a') {
+            if (v2 === undefined || v1 === undefined || t2 === undefined || t1 === undefined) break;
+            const dt = t2 - t1;
+            if (dt === 0) throw new Error('t2 - t1 cannot be 0');
+            setResult('a', (v2 - v1) / dt);
+            break;
+          }
+          if (unknown === 'v2') {
+            if (a === undefined || v1 === undefined || t2 === undefined || t1 === undefined) break;
+            setResult('v2', v1 + a * (t2 - t1));
+            break;
+          }
+          if (unknown === 'v1') {
+            if (a === undefined || v2 === undefined || t2 === undefined || t1 === undefined) break;
+            setResult('v1', v2 - a * (t2 - t1));
+            break;
+          }
+          if (unknown === 't2') {
+            if (a === undefined || v2 === undefined || v1 === undefined || t1 === undefined) break;
+            requireNonZero(a, 'a');
+            setResult('t2', (v2 - v1) / a + t1);
+            break;
+          }
+          if (unknown === 't1') {
+            if (a === undefined || v2 === undefined || v1 === undefined || t2 === undefined) break;
+            requireNonZero(a, 'a');
+            setResult('t1', t2 - (v2 - v1) / a);
+            break;
+          }
+          break;
+        }
+        case 'fm-10': {
+          // Δt = 1 / f
+          const dt = get('Δt');
+          const f = get('f');
+
+          if (unknown === 'Δt') {
+            if (f === undefined) break;
+            requireNonZero(f, 'f');
+            setResult('Δt', 1 / f);
+            break;
+          }
+          if (unknown === 'f') {
+            if (dt === undefined) break;
+            requireNonZero(dt, 'Δt');
+            setResult('f', 1 / dt);
+            break;
+          }
+          break;
+        }
+        case 'fm-11': {
+          // d_n = u + 1/2 a (2n - 1)
+          const dn = get('d_n');
+          const u = get('u');
+          const a = get('a');
+          const n = get('n');
+
+          if (unknown === 'd_n') {
+            if (u === undefined || a === undefined || n === undefined) break;
+            setResult('d_n', u + 0.5 * a * (2 * n - 1));
+            break;
+          }
+          if (unknown === 'u') {
+            if (dn === undefined || a === undefined || n === undefined) break;
+            setResult('u', dn - 0.5 * a * (2 * n - 1));
+            break;
+          }
+          if (unknown === 'a') {
+            if (dn === undefined || u === undefined || n === undefined) break;
+            const denom = 2 * n - 1;
+            if (denom === 0) throw new Error('2n - 1 cannot be 0');
+            setResult('a', (2 * (dn - u)) / denom);
+            break;
+          }
+          if (unknown === 'n') {
+            if (dn === undefined || u === undefined || a === undefined) break;
+            requireNonZero(a, 'a');
+            setResult('n', ((dn - u) / (0.5 * a) + 1) / 2);
+            break;
+          }
+          break;
+        }
+        case 'fm-12': {
+          // v_ms = (5/18) v_kmh
+          const vMs = get('v_ms');
+          const vKmh = get('v_kmh');
+
+          if (unknown === 'v_ms') {
+            if (vKmh === undefined) break;
+            setResult('v_ms', (5 / 18) * vKmh);
+            break;
+          }
+          if (unknown === 'v_kmh') {
+            if (vMs === undefined) break;
+            setResult('v_kmh', (18 / 5) * vMs);
+            break;
+          }
+          break;
+        }
+        case 'fm-13': {
+          // s = 1/2 (v1 + v2) Δt  (area under v-t for a straight segment)
+          const s = get('s');
+          const v1 = get('v1');
+          const v2 = get('v2');
+          const dt = get('Δt');
+
+          if (unknown === 's') {
+            if (v1 === undefined || v2 === undefined || dt === undefined) break;
+            setResult('s', 0.5 * (v1 + v2) * dt);
+            break;
+          }
+          if (unknown === 'v1') {
+            if (s === undefined || v2 === undefined || dt === undefined) break;
+            requireNonZero(dt, 'Δt');
+            setResult('v1', (2 * s) / dt - v2);
+            break;
+          }
+          if (unknown === 'v2') {
+            if (s === undefined || v1 === undefined || dt === undefined) break;
+            requireNonZero(dt, 'Δt');
+            setResult('v2', (2 * s) / dt - v1);
+            break;
+          }
+          if (unknown === 'Δt') {
+            if (s === undefined || v1 === undefined || v2 === undefined) break;
+            requireNonZero(v1 + v2, 'v1+v2');
+            setResult('Δt', (2 * s) / (v1 + v2));
+            break;
+          }
+          break;
+        }
+        case 'fm-14': {
+          // s_total = v t_r + v^2 / (2 a_d)
+          const sTotal = get('s_total');
+          const v = get('v');
+          const tr = get('t_r');
+          const ad = get('a_d');
+
+          if (unknown === 's_total') {
+            if (v === undefined || tr === undefined || ad === undefined) break;
+            requireNonZero(ad, 'a_d');
+            setResult('s_total', v * tr + (v * v) / (2 * ad));
+            break;
+          }
+          if (unknown === 't_r') {
+            if (sTotal === undefined || v === undefined || ad === undefined) break;
+            requireNonZero(v, 'v');
+            setResult('t_r', (sTotal - (v * v) / (2 * ad)) / v);
+            break;
+          }
+          if (unknown === 'a_d') {
+            if (sTotal === undefined || v === undefined || tr === undefined) break;
+            const denom = 2 * (sTotal - v * tr);
+            if (denom === 0) throw new Error('2(s_total - v t_r) cannot be 0');
+            setResult('a_d', (v * v) / denom);
+            break;
+          }
+          if (unknown === 'v') {
+            // Solve s_total = v t_r + v^2/(2 a_d) => (1/(2a_d)) v^2 + t_r v - s_total = 0
+            if (sTotal === undefined || tr === undefined || ad === undefined) break;
+            requireNonZero(ad, 'a_d');
+            const A = 1 / (2 * ad);
+            const B = tr;
+            const C = -sTotal;
+            const disc = B * B - 4 * A * C;
+            if (disc < 0) throw new Error('negative discriminant');
+            const sqrtDisc = Math.sqrt(disc);
+            const v1 = (-B + sqrtDisc) / (2 * A);
+            const v2 = (-B - sqrtDisc) / (2 * A);
+            const roots = [v1, v2].filter((x) => Number.isFinite(x) && x >= 0).sort((x, y) => x - y);
+            if (roots.length === 0) throw new Error('no positive velocity root');
+            if (roots.length === 1 || Math.abs(roots[0] - roots[1]) < 1e-9) {
+              setResult('v', roots[0]);
+              break;
+            }
+            setText(`v = ${fmt(roots[0])} m/s 或 ${fmt(roots[1])} m/s（按题意选取）`);
+            break;
+          }
+          break;
+        }
+        default: {
+          setText('该公式暂未支持计算');
+        }
+      }
+
+      // 如果走到这里还没有结果，说明缺少必要输入
+      if (!producedResult) {
+        setCalcResult('请确认已填入所需变量（仅留空 1 个未知量）');
       }
     } catch {
       setCalcResult('计算错误');
@@ -830,13 +1297,14 @@ function CalculatorTab({
                                 type="number"
                                 step="0.1"
                                 placeholder="0"
-                                value={calcValues[variable.symbol] || ''}
-                                onChange={(e) =>
+                                value={calcValues[variable.symbol] ?? ''}
+                                onChange={(e) => {
+                                  const raw = e.target.value;
                                   setCalcValues({
                                     ...calcValues,
-                                    [variable.symbol]: parseFloat(e.target.value) || 0,
-                                  })
-                                }
+                                    [variable.symbol]: raw === '' ? undefined : Number(raw),
+                                  });
+                                }}
                                 className="w-full bg-slate-800/50 border border-primary-500/30 rounded-lg px-3 py-2 text-blue-100 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/30"
                               />
                               <span className="absolute right-3 top-1/2 -translate-y-1/2 text-blue-300 text-sm">

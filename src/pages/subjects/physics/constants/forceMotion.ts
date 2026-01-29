@@ -104,6 +104,107 @@ export const FORCE_MOTION_FORMULAS: Formula[] = [
     description: '由 v = u + at 变形而来。求从某速度加速/减速到另一速度所需的时间。',
     example: '由静止加速到 5.38 m/s（g=9.81）：t = (5.38-0)/9.81 = 0.55 s',
   },
+  {
+    id: 'fm-8',
+    name: 'Average Velocity / Speed',
+    nameCN: '平均速度/平均速率',
+    expression: 'v_avg = s / t',
+    variables: [
+      { symbol: 'v_avg', name: 'average velocity (magnitude)', unit: 'm/s', description: '平均速度/平均速率' },
+      { symbol: 's', name: 'displacement (or distance)', unit: 'm', description: '位移/路程' },
+      { symbol: 't', name: 'time', unit: 's', description: '时间' },
+    ],
+    description:
+      '平均速度（Average velocity）= 位移 / 总时间；平均速率（Average speed）= 路程 / 总时间。做题时先判断题目要的是 displacement 还是 distance。',
+    example: '直线位移 500 m，用时 36 s：v_avg = 500/36 = 13.9 m/s',
+  },
+  {
+    id: 'fm-9',
+    name: 'Acceleration from v-t Graph (Slope)',
+    nameCN: '由 v–t 图像求加速度（斜率）',
+    expression: 'a = (v₂ - v₁) / (t₂ - t₁)',
+    variables: [
+      { symbol: 'a', name: 'acceleration', unit: 'm/s²', description: '加速度' },
+      { symbol: 'v2', name: 'velocity at t₂', unit: 'm/s', description: 't₂ 时速度 v₂' },
+      { symbol: 'v1', name: 'velocity at t₁', unit: 'm/s', description: 't₁ 时速度 v₁' },
+      { symbol: 't2', name: 'time t₂', unit: 's', description: 't₂' },
+      { symbol: 't1', name: 'time t₁', unit: 's', description: 't₁' },
+    ],
+    description:
+      '在速度-时间（v–t）图像上，斜率（slope）就是加速度。选两点代入即可，注意单位与正负号。',
+    example: 'v 从 0 到 6 m/s，用时 3 s：a = (6-0)/(3-0) = 2 m/s²',
+  },
+  {
+    id: 'fm-10',
+    name: 'Time Interval from Frequency',
+    nameCN: '由频率求时间间隔（频闪/打点）',
+    expression: 'Δt = 1 / f',
+    variables: [
+      { symbol: 'Δt', name: 'time interval', unit: 's', description: '时间间隔 Δt' },
+      { symbol: 'f', name: 'frequency', unit: 'Hz', description: '频率 f' },
+    ],
+    description:
+      '频率 f（Hz）表示每秒次数。频闪/打点题的关键是先把“每秒几次”换成“每次间隔多少秒”。',
+    example: '2 flashes per second：Δt = 1/2 = 0.5 s',
+  },
+  {
+    id: 'fm-11',
+    name: 'Distance in the Nth Second (Uniform Acceleration)',
+    nameCN: '第 n 秒路程（匀加速）',
+    expression: 'd_n = u + ½a(2n - 1)',
+    variables: [
+      { symbol: 'd_n', name: 'distance in nth second', unit: 'm', description: '第 n 秒路程 d_n' },
+      { symbol: 'u', name: 'initial velocity', unit: 'm/s', description: '初速度 u' },
+      { symbol: 'a', name: 'acceleration', unit: 'm/s²', description: '加速度 a' },
+      { symbol: 'n', name: 'nth second', unit: '', description: '第 n 秒（n）' },
+    ],
+    description:
+      '“第 n 秒路程”= s(n) − s(n−1)。对匀加速运动，可直接用 d_n = u + ½a(2n−1) 快速计算。',
+    example: '自由落体 u=0，a=g=9.8，n=3：d3 = ½×9.8×5 = 24.5 m',
+  },
+  {
+    id: 'fm-12',
+    name: 'Speed Unit Conversion',
+    nameCN: '速度单位换算（km/h ↔ m/s）',
+    expression: 'v_ms = (5/18)v_kmh',
+    variables: [
+      { symbol: 'v_ms', name: 'speed in m/s', unit: 'm/s', description: '速度（m/s）' },
+      { symbol: 'v_kmh', name: 'speed in km/h', unit: 'km/h', description: '速度（km/h）' },
+    ],
+    description:
+      'DSE 常用换算：1 km/h = 5/18 m/s，所以 v(m/s) = v(km/h)×5/18；反过来乘以 18/5。',
+    example: '50 km/h → v_ms = 50×5/18 = 13.9 m/s',
+  },
+  {
+    id: 'fm-13',
+    name: 'Displacement from v-t Graph (Area of Trapezium)',
+    nameCN: '由 v–t 图像求位移（梯形面积）',
+    expression: 's = ½(v1 + v2)Δt',
+    variables: [
+      { symbol: 's', name: 'displacement', unit: 'm', description: '位移/路程 s' },
+      { symbol: 'v1', name: 'initial velocity (segment)', unit: 'm/s', description: '该段起始速度 v1' },
+      { symbol: 'v2', name: 'final velocity (segment)', unit: 'm/s', description: '该段末速度 v2' },
+      { symbol: 'Δt', name: 'time interval', unit: 's', description: '时间间隔 Δt' },
+    ],
+    description:
+      '在 v–t 图像中，直线段下方的面积（trapezium）代表该段位移。若速度不变号，面积也等于路程。',
+    example: '刹车：v1=14, v2=0, Δt=4.2 → s=½×(14+0)×4.2=29.4 m',
+  },
+  {
+    id: 'fm-14',
+    name: 'Total Stopping Distance (Reaction + Braking)',
+    nameCN: '总停距（反应 + 制动）',
+    expression: 's_total = v t_r + v² / (2a_d)',
+    variables: [
+      { symbol: 's_total', name: 'total stopping distance', unit: 'm', description: '总停距 s_total' },
+      { symbol: 'v', name: 'initial speed', unit: 'm/s', description: '初速度 v' },
+      { symbol: 't_r', name: 'reaction time', unit: 's', description: '反应时间 t_r' },
+      { symbol: 'a_d', name: 'deceleration magnitude', unit: 'm/s²', description: '制动减速度大小 a_d' },
+    ],
+    description:
+      '常见两段模型：反应阶段匀速（s_r = v t_r），制动阶段匀减速到停下（s_b = v²/(2a_d)，其中 a_d 取“减速度大小”）。总停距 s_total = s_r + s_b。',
+    example: 'v=18 m/s, t_r=0.5 s, a_d=6 → s_total=18×0.5+18²/(2×6)=9+27=36 m',
+  },
 ];
 
 // 概念知识点 - 位置与运动
