@@ -29,6 +29,7 @@ import { PHYSICS_TOPICS } from '../constants/topics';
 import { FORCE_MOTION_EXERCISES } from '../constants/forceMotion';
 import { FORCE_MOTION_SECTIONS } from '../constants/forceMotionSections';
 import { getPhysicsExerciseCatalogEntry } from '../constants/exerciseCatalog';
+import { filterExistingImages, getPhysicsExerciseImageCandidates } from '../utils/exerciseImageMapper';
 import { Exercise } from '../types';
 import { Card } from '../components/UI/Card';
 import { Button } from '../components/UI/Button';
@@ -104,6 +105,7 @@ export default function ExercisePage({
   const [showSummaryModal, setShowSummaryModal] = useState(false);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
   const [summaryDismissedMap, setSummaryDismissedMap] = useState<Record<string, boolean>>({});
+  const [autoImagePaths, setAutoImagePaths] = useState<string[]>([]);
 
   // 过滤练习题（按子板块 + 难度）
   const filteredExercises = useMemo(() => {
@@ -163,6 +165,47 @@ export default function ExercisePage({
   const currentSavedAnswer = currentExercise
     ? exerciseProgress.answers?.[currentExercise.id] ?? null
     : null;
+
+  // Auto-detect question images by convention when imagePaths is missing
+  useEffect(() => {
+    let cancelled = false;
+
+    const detectQuestionImages = async () => {
+      if (!currentExercise) {
+        setAutoImagePaths([]);
+        return;
+      }
+
+      if (currentExercise.imagePaths && currentExercise.imagePaths.length > 0) {
+        setAutoImagePaths([]);
+        return;
+      }
+
+      if (!currentExercise.sectionId) {
+        setAutoImagePaths([]);
+        return;
+      }
+
+      const candidates = getPhysicsExerciseImageCandidates(
+        currentExercise.sectionId,
+        currentExercise.id
+      );
+      const existing = await filterExistingImages(candidates);
+      if (!cancelled) {
+        setAutoImagePaths(existing);
+      }
+    };
+
+    void detectQuestionImages();
+    return () => {
+      cancelled = true;
+    };
+  }, [currentExercise?.id, currentExercise?.imagePaths?.length, currentExercise?.sectionId]);
+
+  const questionImagePaths =
+    currentExercise?.imagePaths && currentExercise.imagePaths.length > 0
+      ? currentExercise.imagePaths
+      : autoImagePaths;
 
   const studySecondsRef = useRef(0);
   const nightSecondsRef = useRef(0);
@@ -1261,11 +1304,11 @@ export default function ExercisePage({
             {/* Question Card */}
             <div className="mb-6">
               {/* Figure Display (if imagePaths exist) - 方案C：统一展示在题目上方 */}
-              {currentExercise.imagePaths && currentExercise.imagePaths.length > 0 && (
+              {questionImagePaths && questionImagePaths.length > 0 && (
                 <div className="mb-6 rounded-xl border border-blue-500/30 bg-slate-800/40 p-4">
                   <div className="text-xs text-blue-300 mb-3 font-medium">Figure (not drawn to scale)</div>
                   <div className="flex flex-wrap gap-4 justify-center">
-                    {currentExercise.imagePaths.map((imagePath, idx) => (
+                    {questionImagePaths.map((imagePath, idx) => (
                       <img
                         key={`figure-${idx}`}
                         src={imagePath}
