@@ -793,6 +793,10 @@ export default function UserCenter() {
                   averageAccuracy={Math.round(physicsStore.stats.averageScore)}
                   achievementsObtained={physicsStore.achievements.filter(a => a.unlocked).length}
                   totalAchievements={physicsStore.achievements.length}
+                  achievementsPreview={physicsStore.achievements
+                    .filter(a => a.unlocked)
+                    .slice(0, 3)
+                    .map(a => ({ id: a.id, titleCN: a.titleCN, icon: a.icon }))}
                   totalProgress={totalProgress}
                   learningTrend={learningTrend}
                   todayTasks={todayTasks}

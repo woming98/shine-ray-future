@@ -22,6 +22,7 @@ interface LearningDashboardProps {
   averageAccuracy?: number
   achievementsObtained?: number
   totalAchievements?: number
+  achievementsPreview?: Array<{ id: string; titleCN: string; icon: string }>
   
   // 总进度
   totalProgress?: number
@@ -53,6 +54,7 @@ export default function LearningDashboard({
   averageAccuracy = 78,
   achievementsObtained = 0,
   totalAchievements = 6,
+  achievementsPreview = [],
   totalProgress = 0,
   learningTrend = [
     { date: '1/1', minutes: 45 },
@@ -352,7 +354,30 @@ export default function LearningDashboard({
             <div className="text-3xl font-bold text-white mb-1">
               {achievementsObtained}
             </div>
-            <div className="text-sm text-white/60">获得成就</div>
+            <div className="text-sm text-white/60 mb-3">获得成就</div>
+            {achievementsPreview.length > 0 ? (
+              <div className="flex flex-wrap gap-2">
+                {achievementsPreview.slice(0, 3).map((achievement) => (
+                  <span
+                    key={achievement.id}
+                    className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-white/10 text-xs text-white/80"
+                  >
+                    <span>{achievement.icon}</span>
+                    <span>{achievement.titleCN}</span>
+                  </span>
+                ))}
+              </div>
+            ) : (
+              <div className="text-xs text-white/50">暂无已解锁成就</div>
+            )}
+            <div className="mt-3">
+              <Link
+                to="/subjects/physics/achievements"
+                className="text-xs text-yellow-300 hover:text-yellow-200 transition-colors"
+              >
+                查看全部成就 →
+              </Link>
+            </div>
           </motion.div>
         </div>
 
