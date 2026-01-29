@@ -244,6 +244,204 @@ export const FORCE_MOTION_CONCEPTS: Concept[] = [
     ],
     difficulty: 'intermediate',
   },
+  {
+    id: 'fmc-9',
+    title: '运动图像三件套 (Motion Graphs Toolkit)',
+    content:
+      '在 DSE 运动学题中，图像往往比公式更关键：看斜率（slope）与面积（area）就能直接读出速度、加速度与位移。掌握 s–t、v–t、a–t 三种图像的对应关系，可以快速做出判断题与图像题。',
+    keyPoints: [
+      's–t 图像斜率 = v（Velocity is the slope of displacement–time graph）',
+      'v–t 图像斜率 = a（Acceleration is the slope of velocity–time graph）',
+      'a–t 图像面积 = Δv（Area under acceleration–time graph gives change in velocity）',
+      '匀加速 (uniform acceleration) ⇒ v–t 是直线；s–t 是开口向上的曲线 (parabola)',
+    ],
+    examples: [
+      'v–t 直线从 (0,0) 到 (3s,6m/s)：a = 6/3 = 2 m/s²',
+      's–t 的斜率越来越大：速度在增加 (speeding up)',
+      'v–t 水平线：a = 0（constant velocity）',
+    ],
+    difficulty: 'basic',
+  },
+  {
+    id: 'fmc-10',
+    title: 'v–t 图像面积：位移 vs 路程 (Displacement vs Distance)',
+    content:
+      'v–t 图像下面的“带符号面积”（signed area）代表位移 displacement；若要算路程 distance，则要把速度为负时的面积取绝对值再相加。出现掉头/反向（velocity changes sign）时，这是最常见的陷阱之一。',
+    keyPoints: [
+      '位移 displacement = v–t 图像下的带符号面积 (signed area)',
+      '路程 distance = |面积| 的总和 (sum of absolute areas)',
+      '最大离开起点距离通常发生在 v 首次变为 0 的时刻（turning point）',
+      '判断“谁领先/追上”→ 比较到同一时刻的累计位移（比较面积）',
+    ],
+    examples: [
+      '上抛运动：先 v>0 再 v<0；位移可为 0，但路程一定 >0',
+      '速度先正后负：到 v=0 的时刻距离最远',
+      '两人 v–t 图：面积更大者走得更远（ahead）',
+    ],
+    difficulty: 'intermediate',
+  },
+  {
+    id: 'fmc-11',
+    title: '单位换算与合理性检查 (Unit & Sanity Check)',
+    content:
+      '很多运动题的坑不在物理，而在单位。DSE 常见混用 km/h、m/s、cm/s、m、s。做题前先统一单位，再用数量级（order of magnitude）检查答案是否合理。',
+    keyPoints: [
+      'km/h → m/s：乘以 5/18（Multiply by 5/18）',
+      'm/s → km/h：乘以 18/5（Multiply by 18/5）',
+      'cm/s ↔ m/s：除/乘 100（1 m = 100 cm）',
+      'Sanity check：50 km/h ≈ 14 m/s；1 s 内不可能开出几百米',
+    ],
+    examples: [
+      '50 km/h ≈ 13.9 m/s（常用记忆点）',
+      '2 flashes per second ⇒ Δt = 0.5 s',
+      '若算出 t = 0.1 s 跑 500 m：明显不合理',
+    ],
+    difficulty: 'basic',
+  },
+  {
+    id: 'fmc-12',
+    title: '第 n 秒路程/某段位移 (Nth-second Distance & Segment Displacement)',
+    content:
+      '题目问“第 3 秒走了多少”或“后 4 秒位移”时，不能直接把 t=3 或 t=4 代入总位移公式。正确做法是用总位移差：Δs = s(t2) − s(t1)。匀加速时也可以用更快的思路。',
+    keyPoints: [
+      '某段位移：Δs = s(t2) − s(t1)（Segment displacement）',
+      '第 n 秒路程：d_n = s(n) − s(n−1)',
+      '匀加速且从静止：s(t)=½at² ⇒ d_n = ½a(2n−1)',
+      '看到 “a further …” 要先变成总时间（convert to total time first）',
+    ],
+    examples: [
+      '自由落体：第 1 秒 4.9 m；第 3 秒 = s(3) − s(2) = 24.5 m',
+      'x=第1秒，y=第2秒：x:y=1:3',
+      '已知 1 s 后 4 m，再过 4 s：算 s(5) 不是 s(4)',
+    ],
+    difficulty: 'intermediate',
+  },
+  {
+    id: 'fmc-13',
+    title: '刹车模型：反应距离 + 制动距离 (Reaction + Braking Distance)',
+    content:
+      '交通安全题一般分两段：看到危险到踩刹车前是“反应段”（匀速），踩下刹车后是“制动段”（匀减速）。总停距 = 反应距离 + 制动距离。很多题会用 speed–time 图像的面积来算距离。',
+    keyPoints: [
+      '反应距离：s_r = v × t_reaction（constant speed）',
+      '制动距离：用 v² = u² + 2as，停车时 v=0',
+      '同样制动条件（|a| 相同）⇒ 制动距离 s ∝ u²',
+      'speed–time 图像面积 = 路程（area gives distance travelled）',
+    ],
+    examples: [
+      'v=18 m/s，反应 0.5 s：反应距离 9 m，剩余距离才用来制动',
+      '50→70 km/h：制动距离倍率 = (70/50)²=1.96',
+      '图像拆分：矩形(反应) + 三角形(刹车)',
+    ],
+    difficulty: 'intermediate',
+  },
+  {
+    id: 'fmc-14',
+    title: '线性化图像：s–t² 与 v²–s (Linearization Tricks)',
+    content:
+      '有些题故意把图像画成 s 对 t² 或 v² 对 s，让你用“斜率”直接求加速度。核心是把匀加速公式写成 y = mx + c 的线性形式：用 slope（斜率）找参数。',
+    keyPoints: [
+      '从静止匀加速：s = ½at² ⇒ s–t² 图的 slope = ½a',
+      '一般匀加速：v² = u² + 2as ⇒ v²–s 图的 slope = 2a，intercept = u²',
+      '读斜率要取两点（two points），单位也要跟着变',
+      '若图像是直线 ⇒ 匀加速（constant acceleration）假设成立',
+    ],
+    examples: [
+      's–t² 图 slope=1 ⇒ a=2 m/s²',
+      'v²–s 图 slope=1 ⇒ 2a=1 ⇒ a=0.5 m/s²',
+      'v²–s 在 s=0 的截距 = u²（可反推出初速）',
+    ],
+    difficulty: 'intermediate',
+  },
+  {
+    id: 'fmc-15',
+    title: '追及/相遇：用“位移相同”判断 (Catch-up & Meeting)',
+    content:
+      '同一直线的追及/相遇，本质条件只有一个：同一时刻两者位移相同（same displacement at the same time）。若给 v–t 图，直接比较面积；若给公式，列出 s_A(t)=s_B(t)。',
+    keyPoints: [
+      '相遇条件：s_A(t) = s_B(t)（meeting condition）',
+      '给 v–t 图：比较从 0 到 t 的面积（area under v–t）',
+      '“谁领先”取决于累计位移，而不是瞬时速度大小',
+      '速度相同不一定在同一位置；位置相同必须位移相同',
+    ],
+    examples: [
+      '车与卡车：t=20 s 追上 ⇔ 两条 v–t 图面积相等',
+      '两人同起点：某时刻 v 相同，但面积不同 ⇒ 不在同一点',
+      '用面积看“追上”比解方程更快',
+    ],
+    difficulty: 'intermediate',
+  },
+  {
+    id: 'fmc-16',
+    title: '实验读图：Ticker-tape / Stroboscope (Equal-time Recording)',
+    content:
+      'ticker-tape（打点纸带）与 stroboscope（频闪）都在“等时间间隔”上记录位置。相邻点距代表该时间段的平均速率；点距按等差增大意味着匀加速；频率决定每次记录的时间间隔。',
+    keyPoints: [
+      '等时间间隔 ⇒ 相邻点距 ∝ 平均速度 (spacing ∝ average speed)',
+      '点距等差增大 ⇒ 速度等差增大 ⇒ 加速度恒定 (constant acceleration)',
+      '频闪 f（Hz）⇒ Δt = 1/f（time between flashes）',
+      '位移是“累计”（cumulative），别把单段当总位移',
+    ],
+    examples: [
+      '2 flashes/s ⇒ Δt = 0.5 s；MN 位移 20 cm ⇒ v_avg = 40 cm/s',
+      '纸带 1,2,3,4,5,6 cm：v 均匀增加 ⇒ a 恒定',
+      '判断 (1)(2)(3)：看“每段长度”与“累计长度”区别',
+    ],
+    difficulty: 'intermediate',
+  },
+  {
+    id: 'fmc-17',
+    title: '二维位移合成与平均速度 (Vector Displacement & Average Velocity)',
+    content:
+      '很多“走曲线/走多段路”的题，关键是区分 distance 与 displacement。平均速度（average velocity）用位移/时间；平均速率（average speed）用路程/时间。二维位移通常用分量 (components) + 勾股 (Pythagoras)。',
+    keyPoints: [
+      '平均速度 v_avg = displacement / total time（vector）',
+      '平均速率 speed_avg = distance / total time（scalar）',
+      '位移用分量合成：s = √(x²+y²)',
+      '平均速度的大小 ≤ 平均速率（displacement ≤ distance）',
+    ],
+    examples: [
+      '向西 40m、向南 40m、向东 70m：位移=√(30²+40²)=50m',
+      '走半圆到半圆：平均速度用 AC 的直线位移，不用弧长',
+      '恒定速率 50 km/h：平均速度不可能超过 50 km/h',
+    ],
+    difficulty: 'intermediate',
+  },
+  {
+    id: 'fmc-18',
+    title: '正负号与方向约定 (Sign Convention)',
+    content:
+      '竖直运动、刹车、掉头题的核心是“先定正方向，再全程一致”。只要方向一变，速度/加速度就可能变号。用同一套 sign convention 可以避免“代公式全对但答案全错”。',
+    keyPoints: [
+      '先选正方向（Choose a positive direction）并保持一致',
+      '向上为正：重力加速度 a = −g；向下为正：a = +g',
+      '减速：a 与 v 方向相反（acceleration opposite to velocity）',
+      '看图像符号：v<0 表示向负方向运动，别把速度当“负的速率”',
+    ],
+    examples: [
+      '上抛最高点：v=0，但 a 仍为 −g（若向上为正）',
+      '从楼顶抛上：到地面位移是负值（若向上为正）',
+      '位移–时间图斜率为负：速度为负（向反方向运动）',
+    ],
+    difficulty: 'intermediate',
+  },
+  {
+    id: 'fmc-19',
+    title: '相对运动：同加速度时“间距不变” (Relative Motion)',
+    content:
+      '如果两个物体在同一方向上具有相同加速度（例如都在自由落体且忽略空气阻力），它们的相对加速度为 0，因此相对速度保持不变；若初始相对速度为 0，则两者间距始终不变。这类题用相对运动更快。',
+    keyPoints: [
+      '相对加速度 a_rel = a1 − a2',
+      '若 a1 = a2 ⇒ a_rel = 0 ⇒ 相对速度恒定 (relative velocity constant)',
+      '若初始相对速度也为 0 ⇒ 间距保持不变 (separation remains constant)',
+      '同一 g 下自由落体与质量无关（mass independent）',
+    ],
+    examples: [
+      '两球同时释放：一直保持原来的间距',
+      '同一高度释放不同质量：落地时间相同',
+      '相对运动能避免写两条 s(t) 方程',
+    ],
+    difficulty: 'advanced',
+  },
 ];
 
 // 练习题 - DSE Style (All in English)
