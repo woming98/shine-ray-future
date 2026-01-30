@@ -341,11 +341,11 @@ export default function ExercisePage({
     if (shouldLaunch && correctCount > 0) {
       setShowRocketLaunch(true);
       setLaunched(resolvedTopicId, sectionIdKey);
-      // 3秒后隐藏动画，然后显示选择 Modal
+      // 动画结束后自动消失（不再弹出选择 Modal）
       const timer = setTimeout(() => {
         setShowRocketLaunch(false);
-        setShowLaunchModal(true);
-      }, 3000);
+        setShowLaunchModal(false);
+      }, 3600);
       return () => clearTimeout(timer);
     }
   }, [shouldLaunch, correctCount, resolvedTopicId, sectionIdKey, setLaunched]);
@@ -854,15 +854,26 @@ export default function ExercisePage({
             className="fixed inset-0 z-[100] pointer-events-none"
           >
             {/* 背景遮罩 */}
-            <div className="absolute inset-0 bg-gradient-to-b from-blue-900/80 via-slate-900/80 to-slate-900/80" />
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-b from-blue-900/80 via-slate-900/80 to-slate-900/80"
+              animate={{
+                opacity: [1, 1, 1],
+                x: [0, 0, 0, -6, 6, -4, 4, 0],
+              }}
+              transition={{
+                duration: 3.2,
+                times: [0, 0.55, 0.62, 0.70, 0.74, 0.78, 0.82, 1],
+                ease: 'easeInOut',
+              }}
+            />
             
             {/* 火箭 */}
             <motion.div
               initial={{ y: '100vh', x: '-50%', rotate: 0 }}
-              animate={{ y: '-20vh', rotate: -15 }}
-              exit={{ y: '-20vh', opacity: 0 }}
+              animate={{ y: '-120vh', rotate: -12 }}
+              exit={{ y: '-120vh', opacity: 0 }}
               transition={{
-                duration: 2.5,
+                duration: 2.3,
                 ease: [0.25, 0.1, 0.25, 1],
               }}
               className="absolute left-1/2 bottom-0"
@@ -879,7 +890,7 @@ export default function ExercisePage({
                     ease: 'easeInOut',
                   }}
                 >
-                  <Rocket className="w-16 h-16 text-yellow-400 drop-shadow-[0_0_20px_rgba(250,204,21,0.8)]" />
+                  <Rocket className="w-40 h-40 text-yellow-300 drop-shadow-[0_0_45px_rgba(250,204,21,0.9)]" />
                 </motion.div>
                 
                 {/* 火焰尾迹 */}
@@ -891,9 +902,63 @@ export default function ExercisePage({
                     repeat: Infinity,
                     ease: 'easeInOut',
                   }}
-                  className="absolute top-full left-1/2 -translate-x-1/2 w-8 h-12 bg-gradient-to-t from-orange-500 via-yellow-400 to-transparent rounded-full blur-sm"
+                  className="absolute top-full left-1/2 -translate-x-1/2 w-24 h-44 bg-gradient-to-t from-red-500 via-orange-400 to-transparent rounded-full blur-md"
                 />
+
+                {/* 发动机火花 */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: [0.2, 0.9, 0.2] }}
+                  transition={{ duration: 0.15, repeat: Infinity, ease: 'easeInOut' }}
+                  className="absolute top-[110%] left-1/2 -translate-x-1/2 w-32 h-24"
+                >
+                  <div className="absolute left-1/2 top-0 -translate-x-1/2 w-2 h-10 bg-yellow-200/80 rounded-full blur-sm" />
+                  <div className="absolute left-[45%] top-3 w-1.5 h-8 bg-orange-200/80 rounded-full blur-sm" />
+                  <div className="absolute left-[55%] top-5 w-1.5 h-8 bg-orange-200/80 rounded-full blur-sm" />
+                </motion.div>
               </div>
+            </motion.div>
+
+            {/* 爆炸效果（在屏幕上方） */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.4 }}
+              animate={{ opacity: [0, 1, 0], scale: [0.4, 1.2, 1.6] }}
+              transition={{ delay: 2.15, duration: 0.8, ease: 'easeOut' }}
+              className="absolute left-1/2 top-20 -translate-x-1/2"
+            >
+              {/* 核心闪光 */}
+              <div className="w-32 h-32 rounded-full bg-yellow-200/70 blur-md" />
+              <div className="absolute inset-0 w-32 h-32 rounded-full bg-orange-300/60 blur-lg" />
+              <div className="absolute inset-0 w-32 h-32 rounded-full bg-white/40 blur-xl" />
+
+              {/* 碎片粒子 */}
+              {[
+                { x: -140, y: -40, d: 0.02 },
+                { x: -90, y: -110, d: 0.04 },
+                { x: -30, y: -150, d: 0.01 },
+                { x: 40, y: -150, d: 0.03 },
+                { x: 100, y: -110, d: 0.05 },
+                { x: 150, y: -40, d: 0.02 },
+                { x: -160, y: 30, d: 0.03 },
+                { x: -100, y: 90, d: 0.06 },
+                { x: -20, y: 140, d: 0.04 },
+                { x: 30, y: 140, d: 0.05 },
+                { x: 110, y: 90, d: 0.07 },
+                { x: 170, y: 30, d: 0.03 },
+              ].map((p, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ x: 0, y: 0, opacity: 0, scale: 0.4 }}
+                  animate={{
+                    x: p.x,
+                    y: p.y,
+                    opacity: [0, 1, 0],
+                    scale: [0.4, 1, 0.6],
+                  }}
+                  transition={{ delay: 2.15 + p.d, duration: 0.9, ease: 'easeOut' }}
+                  className="absolute left-1/2 top-1/2 w-3 h-3 rounded-full bg-yellow-200/90 shadow-[0_0_14px_rgba(250,204,21,0.9)]"
+                />
+              ))}
             </motion.div>
 
             {/* 成功文字 */}
