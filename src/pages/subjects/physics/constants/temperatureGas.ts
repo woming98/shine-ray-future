@@ -410,6 +410,7 @@ export const TEMPERATURE_GAS_EXERCISES: Exercise[] = [
       'Use $E = mc\\Delta T$ and solve for $c$',
     ],
     sectionId: 'temp-heat-internal',
+    imagePaths: ['/physics/exercises/temp-heat-internal/thi-020-question.png'],
   },
   {
     id: 'thi-021',
