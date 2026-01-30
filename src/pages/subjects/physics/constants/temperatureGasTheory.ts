@@ -269,6 +269,72 @@ export const TEMPERATURE_GAS_FORMULAS: Formula[] = [
       '能量守恒：热的一方放热 = 冷的一方吸热（无热损失）。若有热损失，可把损失量加到右边：m₁c₁(T₁−θ)=m₂c₂(θ−T₂)+Q_loss。',
     example: '热茶加冷奶：m₁c₁(T₁−θ)=m₂c₂(θ−T₂) 求 θ',
   },
+  {
+    id: 'tg-7',
+    name: 'Heating (no heat loss)',
+    nameCN: '加热（无热损失）',
+    expression: 'Pt = mcΔT',
+    variables: [
+      { symbol: 'P', name: 'power', unit: 'W', description: '功率' },
+      { symbol: 't', name: 'time', unit: 's', description: '时间' },
+      { symbol: 'm', name: 'mass', unit: 'kg', description: '质量' },
+      { symbol: 'c', name: 'specific heat capacity', unit: 'J kg⁻¹ °C⁻¹', description: '比热容' },
+      { symbol: 'ΔT', name: 'temperature change', unit: '°C', description: '温度变化（温差）' },
+    ],
+    description:
+      '把 E=Pt 与 E=mcΔT 合并，可一步求功率/时间/比热容/质量/温差。适用于题目明确“无热损失”的加热过程。',
+    example: '500 W 加热 20 s，m=1 kg，ΔT=40°C → c = 250 J kg⁻¹ °C⁻¹',
+  },
+  {
+    id: 'tg-8',
+    name: 'Energy loss during heating',
+    nameCN: '加热过程能量损失',
+    expression: 'E_loss = Pt − mcΔT',
+    variables: [
+      { symbol: 'E_loss', name: 'energy loss', unit: 'J', description: '能量损失' },
+      { symbol: 'P', name: 'power', unit: 'W', description: '功率' },
+      { symbol: 't', name: 'time', unit: 's', description: '时间' },
+      { symbol: 'm', name: 'mass', unit: 'kg', description: '质量' },
+      { symbol: 'c', name: 'specific heat capacity', unit: 'J kg⁻¹ °C⁻¹', description: '比热容' },
+      { symbol: 'ΔT', name: 'temperature change', unit: '°C', description: '温度变化（温差）' },
+    ],
+    description:
+      '当加热过程中有热损失，电热器输入 Pt 会大于液体吸收的 mcΔT。两者差值就是能量损失 E_loss。',
+    example: '100 W 加热 180 s：Pt=18000 J；水吸收 10500 J → E_loss=7500 J',
+  },
+  {
+    id: 'tg-9',
+    name: 'Mixing (with heat loss)',
+    nameCN: '混合/接触平衡温度（有热损失）',
+    expression: 'm₁c₁(T₁−θ) = m₂c₂(θ−T₂) + Q_loss',
+    variables: [
+      { symbol: 'm1', name: 'mass 1', unit: 'kg', description: '热的一方质量（或物体 1）' },
+      { symbol: 'c1', name: 'specific heat capacity 1', unit: 'J kg⁻¹ °C⁻¹', description: '热的一方比热容（或 c1）' },
+      { symbol: 'T1', name: 'initial temperature 1', unit: '°C', description: '热的一方初温（或 T1）' },
+      { symbol: 'm2', name: 'mass 2', unit: 'kg', description: '冷的一方质量（或物体 2）' },
+      { symbol: 'c2', name: 'specific heat capacity 2', unit: 'J kg⁻¹ °C⁻¹', description: '冷的一方比热容（或 c2）' },
+      { symbol: 'T2', name: 'initial temperature 2', unit: '°C', description: '冷的一方初温（或 T2）' },
+      { symbol: 'θ', name: 'final equilibrium temperature', unit: '°C', description: '平衡温度' },
+      { symbol: 'Q_loss', name: 'heat lost to surroundings', unit: 'J', description: '向环境散失的热量' },
+    ],
+    description:
+      '有热损失时：热的一方放热 = 冷的一方吸热 + 向环境散失的热量 Q_loss。常用于混合/量热题。',
+    example: '0.5 kg 水 60°C 与 0.3 kg 水 18°C 混合，Q_loss=200 J → θ≈44.2°C',
+  },
+  {
+    id: 'tg-10',
+    name: 'Thermometer mark spacing',
+    nameCN: '温度计每 1°C 刻度间距',
+    expression: 'ΔX = (X₁₀₀ − X₀) / 100',
+    variables: [
+      { symbol: 'ΔX', name: 'spacing per 1°C', unit: 'a.u.', description: '每 1°C 的刻度间距（如 cm）' },
+      { symbol: 'X0', name: 'property at 0°C', unit: 'a.u.', description: '0°C 时的读数（如长度）' },
+      { symbol: 'X100', name: 'property at 100°C', unit: 'a.u.', description: '100°C 时的读数（如长度）' },
+    ],
+    description:
+      '在 0°C 与 100°C 之间假设线性刻度，则每 1°C 的刻度间距等于总刻度差除以 100。',
+    example: '水银柱长度：X0=2 cm，X100=24 cm → ΔX=(24−2)/100=0.22 cm',
+  },
 ];
 
 // 章节配置（先做一个章节：temp-heat-internal）

@@ -2032,6 +2032,182 @@ function CalculatorTab({
           }
           break;
         }
+        case 'tg-7': {
+          // Pt = m c ΔT (no heat loss)
+          const P = get('P');
+          const t = get('t');
+          const m = get('m');
+          const c = get('c');
+          const dT = get('ΔT');
+
+          if (unknown === 'P') {
+            if (t === undefined || m === undefined || c === undefined || dT === undefined) break;
+            requireNonZero(t, 't');
+            setResult('P', (m * c * dT) / t);
+            break;
+          }
+          if (unknown === 't') {
+            if (P === undefined || m === undefined || c === undefined || dT === undefined) break;
+            requireNonZero(P, 'P');
+            setResult('t', (m * c * dT) / P);
+            break;
+          }
+          if (unknown === 'm') {
+            if (P === undefined || t === undefined || c === undefined || dT === undefined) break;
+            requireNonZero(c * dT, 'cΔT');
+            setResult('m', (P * t) / (c * dT));
+            break;
+          }
+          if (unknown === 'c') {
+            if (P === undefined || t === undefined || m === undefined || dT === undefined) break;
+            requireNonZero(m * dT, 'mΔT');
+            setResult('c', (P * t) / (m * dT));
+            break;
+          }
+          if (unknown === 'ΔT') {
+            if (P === undefined || t === undefined || m === undefined || c === undefined) break;
+            requireNonZero(m * c, 'mc');
+            setResult('ΔT', (P * t) / (m * c));
+            break;
+          }
+          break;
+        }
+        case 'tg-8': {
+          // E_loss = Pt - m c ΔT
+          const Eloss = get('E_loss');
+          const P = get('P');
+          const t = get('t');
+          const m = get('m');
+          const c = get('c');
+          const dT = get('ΔT');
+
+          if (unknown === 'E_loss') {
+            if (P === undefined || t === undefined || m === undefined || c === undefined || dT === undefined) break;
+            setResult('E_loss', P * t - m * c * dT);
+            break;
+          }
+          if (unknown === 'P') {
+            if (Eloss === undefined || t === undefined || m === undefined || c === undefined || dT === undefined) break;
+            requireNonZero(t, 't');
+            setResult('P', (Eloss + m * c * dT) / t);
+            break;
+          }
+          if (unknown === 't') {
+            if (Eloss === undefined || P === undefined || m === undefined || c === undefined || dT === undefined) break;
+            requireNonZero(P, 'P');
+            setResult('t', (Eloss + m * c * dT) / P);
+            break;
+          }
+          if (unknown === 'm') {
+            if (P === undefined || t === undefined || Eloss === undefined || c === undefined || dT === undefined) break;
+            requireNonZero(c * dT, 'cΔT');
+            setResult('m', (P * t - Eloss) / (c * dT));
+            break;
+          }
+          if (unknown === 'c') {
+            if (P === undefined || t === undefined || Eloss === undefined || m === undefined || dT === undefined) break;
+            requireNonZero(m * dT, 'mΔT');
+            setResult('c', (P * t - Eloss) / (m * dT));
+            break;
+          }
+          if (unknown === 'ΔT') {
+            if (P === undefined || t === undefined || Eloss === undefined || m === undefined || c === undefined) break;
+            requireNonZero(m * c, 'mc');
+            setResult('ΔT', (P * t - Eloss) / (m * c));
+            break;
+          }
+          break;
+        }
+        case 'tg-9': {
+          // m1 c1 (T1 - θ) = m2 c2 (θ - T2) + Q_loss
+          const m1 = get('m1');
+          const c1 = get('c1');
+          const T1 = get('T1');
+          const m2 = get('m2');
+          const c2 = get('c2');
+          const T2 = get('T2');
+          const theta = get('θ');
+          const Qloss = get('Q_loss');
+
+          const A = m1 !== undefined && c1 !== undefined ? m1 * c1 : undefined; // m1c1
+          const B = m2 !== undefined && c2 !== undefined ? m2 * c2 : undefined; // m2c2
+
+          if (unknown === 'θ') {
+            if (A === undefined || B === undefined || T1 === undefined || T2 === undefined || Qloss === undefined) break;
+            requireNonZero(A + B, 'm1c1 + m2c2');
+            setResult('θ', (A * T1 + B * T2 - Qloss) / (A + B));
+            break;
+          }
+          if (unknown === 'Q_loss') {
+            if (A === undefined || B === undefined || T1 === undefined || T2 === undefined || theta === undefined) break;
+            setResult('Q_loss', A * (T1 - theta) - B * (theta - T2));
+            break;
+          }
+          if (unknown === 'T1') {
+            if (A === undefined || B === undefined || T2 === undefined || theta === undefined || Qloss === undefined) break;
+            requireNonZero(A, 'm1c1');
+            setResult('T1', theta + (B * (theta - T2) + Qloss) / A);
+            break;
+          }
+          if (unknown === 'T2') {
+            if (A === undefined || B === undefined || T1 === undefined || theta === undefined || Qloss === undefined) break;
+            requireNonZero(B, 'm2c2');
+            setResult('T2', theta - (A * (T1 - theta) - Qloss) / B);
+            break;
+          }
+          if (unknown === 'm1') {
+            if (c1 === undefined || B === undefined || T1 === undefined || T2 === undefined || theta === undefined || Qloss === undefined) break;
+            const denom = c1 * (T1 - theta);
+            requireNonZero(denom, 'c1(T1-θ)');
+            setResult('m1', (B * (theta - T2) + Qloss) / denom);
+            break;
+          }
+          if (unknown === 'c1') {
+            if (m1 === undefined || B === undefined || T1 === undefined || T2 === undefined || theta === undefined || Qloss === undefined) break;
+            const denom = m1 * (T1 - theta);
+            requireNonZero(denom, 'm1(T1-θ)');
+            setResult('c1', (B * (theta - T2) + Qloss) / denom);
+            break;
+          }
+          if (unknown === 'm2') {
+            if (c2 === undefined || A === undefined || T1 === undefined || T2 === undefined || theta === undefined || Qloss === undefined) break;
+            const denom = c2 * (theta - T2);
+            requireNonZero(denom, 'c2(θ-T2)');
+            setResult('m2', (A * (T1 - theta) - Qloss) / denom);
+            break;
+          }
+          if (unknown === 'c2') {
+            if (m2 === undefined || A === undefined || T1 === undefined || T2 === undefined || theta === undefined || Qloss === undefined) break;
+            const denom = m2 * (theta - T2);
+            requireNonZero(denom, 'm2(θ-T2)');
+            setResult('c2', (A * (T1 - theta) - Qloss) / denom);
+            break;
+          }
+          break;
+        }
+        case 'tg-10': {
+          // ΔX = (X100 - X0)/100
+          const dX = get('ΔX');
+          const X0 = get('X0');
+          const X100 = get('X100');
+
+          if (unknown === 'ΔX') {
+            if (X0 === undefined || X100 === undefined) break;
+            setResult('ΔX', (X100 - X0) / 100);
+            break;
+          }
+          if (unknown === 'X0') {
+            if (dX === undefined || X100 === undefined) break;
+            setResult('X0', X100 - 100 * dX);
+            break;
+          }
+          if (unknown === 'X100') {
+            if (dX === undefined || X0 === undefined) break;
+            setResult('X100', 100 * dX + X0);
+            break;
+          }
+          break;
+        }
         default: {
           setText('该公式暂未支持计算');
         }
