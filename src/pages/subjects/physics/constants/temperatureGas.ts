@@ -434,6 +434,7 @@ export const TEMPERATURE_GAS_EXERCISES: Exercise[] = [
       'Use $m_mc_m(100-38) = m_wc_w(38-23)$',
     ],
     sectionId: 'temp-heat-internal',
+    imagePaths: ['/physics/exercises/temp-heat-internal/thi-021-question.png'],
   },
   {
     id: 'thi-022',
@@ -458,6 +459,7 @@ export const TEMPERATURE_GAS_EXERCISES: Exercise[] = [
       'Heat loss or cup absorption usually makes the calculated value smaller',
     ],
     sectionId: 'temp-heat-internal',
+    imagePaths: ['/physics/exercises/temp-heat-internal/thi-022-question.png'],
   },
   {
     id: 'thi-023',
