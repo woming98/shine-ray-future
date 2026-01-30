@@ -20,6 +20,10 @@ import { PHYSICS_TOPICS } from '../constants/topics';
 import { FORCE_MOTION_CHAPTERS, FORCE_MOTION_FORMULAS } from '../constants/forceMotion';
 import { ELECTRICITY_MAGNETISM_EXERCISES } from '../constants/electricityMagnetism';
 import { ELECTRICITY_MAGNETISM_SECTIONS } from '../constants/electricityMagnetismSections';
+import {
+  ELECTRICITY_MAGNETISM_CHAPTERS,
+  ELECTRICITY_MAGNETISM_FORMULAS,
+} from '../constants/electricityMagnetismTheory';
 import { TEMPERATURE_GAS_EXERCISES } from '../constants/temperatureGas';
 import { TEMPERATURE_GAS_SECTIONS } from '../constants/temperatureGasSections';
 import { TEMPERATURE_GAS_CHAPTERS, TEMPERATURE_GAS_FORMULAS } from '../constants/temperatureGasTheory';
@@ -48,12 +52,16 @@ export default function TopicPage() {
   const chapters =
     topicId === 'force-motion'
       ? FORCE_MOTION_CHAPTERS
+      : topicId === 'electricity-magnetism'
+        ? ELECTRICITY_MAGNETISM_CHAPTERS
       : topicId === 'temperature-gas'
         ? TEMPERATURE_GAS_CHAPTERS
         : [];
   const formulas =
     topicId === 'force-motion'
       ? FORCE_MOTION_FORMULAS
+      : topicId === 'electricity-magnetism'
+        ? ELECTRICITY_MAGNETISM_FORMULAS
       : topicId === 'temperature-gas'
         ? TEMPERATURE_GAS_FORMULAS
         : [];
