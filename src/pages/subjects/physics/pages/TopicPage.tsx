@@ -22,6 +22,7 @@ import { ELECTRICITY_MAGNETISM_EXERCISES } from '../constants/electricityMagneti
 import { ELECTRICITY_MAGNETISM_SECTIONS } from '../constants/electricityMagnetismSections';
 import { TEMPERATURE_GAS_EXERCISES } from '../constants/temperatureGas';
 import { TEMPERATURE_GAS_SECTIONS } from '../constants/temperatureGasSections';
+import { TEMPERATURE_GAS_CHAPTERS, TEMPERATURE_GAS_FORMULAS } from '../constants/temperatureGasTheory';
 import { useStore } from '../store/useStore';
 import { Button } from '../components/UI/Button';
 import { Card } from '../components/UI/Card';
@@ -44,14 +45,28 @@ export default function TopicPage() {
   // 获取当前主题信息
   const topic = PHYSICS_TOPICS.find((t) => t.id === topicId);
   
-  // 目前只有 Force and Motion 有完整内容
-  const chapters = topicId === 'force-motion' ? FORCE_MOTION_CHAPTERS : [];
-  const formulas = topicId === 'force-motion' ? FORCE_MOTION_FORMULAS : [];
+  const chapters =
+    topicId === 'force-motion'
+      ? FORCE_MOTION_CHAPTERS
+      : topicId === 'temperature-gas'
+        ? TEMPERATURE_GAS_CHAPTERS
+        : [];
+  const formulas =
+    topicId === 'force-motion'
+      ? FORCE_MOTION_FORMULAS
+      : topicId === 'temperature-gas'
+        ? TEMPERATURE_GAS_FORMULAS
+        : [];
 
   useEffect(() => {
-    if (chapters.length > 0 && !activeChapter) {
-      setActiveChapter(chapters[0].id);
+    if (chapters.length === 0) {
+      if (activeChapter !== null) setActiveChapter(null);
+      return;
     }
+
+    // 当切换主题时，如果当前 activeChapter 不存在于新章节列表里，自动切到第一章
+    const exists = chapters.some((c) => c.id === activeChapter);
+    if (!exists) setActiveChapter(chapters[0].id);
   }, [chapters, activeChapter]);
 
   if (!topic) {
@@ -1810,6 +1825,209 @@ function CalculatorTab({
             if (Ploss === undefined || I === undefined) break;
             requireNonZero(I, 'I');
             setResult('R', Ploss / (I * I));
+            break;
+          }
+          break;
+        }
+        case 'tg-1': {
+          // θ/100 = (X - X0) / (X100 - X0)
+          const theta = get('θ');
+          const X = get('X');
+          const X0 = get('X0');
+          const X100 = get('X100');
+
+          if (unknown === 'θ') {
+            if (X === undefined || X0 === undefined || X100 === undefined) break;
+            requireNonZero(X100 - X0, 'X100 - X0');
+            setResult('θ', (100 * (X - X0)) / (X100 - X0));
+            break;
+          }
+          if (unknown === 'X') {
+            if (theta === undefined || X0 === undefined || X100 === undefined) break;
+            setResult('X', X0 + (theta / 100) * (X100 - X0));
+            break;
+          }
+          if (unknown === 'X0') {
+            if (theta === undefined || X === undefined || X100 === undefined) break;
+            const r = theta / 100;
+            requireNonZero(1 - r, '1 - θ/100');
+            setResult('X0', (X - r * X100) / (1 - r));
+            break;
+          }
+          if (unknown === 'X100') {
+            if (theta === undefined || X === undefined || X0 === undefined) break;
+            const r = theta / 100;
+            requireNonZero(r, 'θ/100');
+            setResult('X100', X0 + (X - X0) / r);
+            break;
+          }
+          break;
+        }
+        case 'tg-2': {
+          // E = m c ΔT
+          const E = get('E');
+          const m = get('m');
+          const c = get('c');
+          const dT = get('ΔT');
+
+          if (unknown === 'E') {
+            if (m === undefined || c === undefined || dT === undefined) break;
+            setResult('E', m * c * dT);
+            break;
+          }
+          if (unknown === 'm') {
+            if (E === undefined || c === undefined || dT === undefined) break;
+            requireNonZero(c * dT, 'cΔT');
+            setResult('m', E / (c * dT));
+            break;
+          }
+          if (unknown === 'c') {
+            if (E === undefined || m === undefined || dT === undefined) break;
+            requireNonZero(m * dT, 'mΔT');
+            setResult('c', E / (m * dT));
+            break;
+          }
+          if (unknown === 'ΔT') {
+            if (E === undefined || m === undefined || c === undefined) break;
+            requireNonZero(m * c, 'mc');
+            setResult('ΔT', E / (m * c));
+            break;
+          }
+          break;
+        }
+        case 'tg-3': {
+          // E = P t
+          const E = get('E');
+          const P = get('P');
+          const t = get('t');
+
+          if (unknown === 'E') {
+            if (P === undefined || t === undefined) break;
+            setResult('E', P * t);
+            break;
+          }
+          if (unknown === 'P') {
+            if (E === undefined || t === undefined) break;
+            requireNonZero(t, 't');
+            setResult('P', E / t);
+            break;
+          }
+          if (unknown === 't') {
+            if (E === undefined || P === undefined) break;
+            requireNonZero(P, 'P');
+            setResult('t', E / P);
+            break;
+          }
+          break;
+        }
+        case 'tg-4': {
+          // C = m c
+          const C = get('C');
+          const m = get('m');
+          const c = get('c');
+
+          if (unknown === 'C') {
+            if (m === undefined || c === undefined) break;
+            setResult('C', m * c);
+            break;
+          }
+          if (unknown === 'm') {
+            if (C === undefined || c === undefined) break;
+            requireNonZero(c, 'c');
+            setResult('m', C / c);
+            break;
+          }
+          if (unknown === 'c') {
+            if (C === undefined || m === undefined) break;
+            requireNonZero(m, 'm');
+            setResult('c', C / m);
+            break;
+          }
+          break;
+        }
+        case 'tg-5': {
+          // C = E / ΔT
+          const C = get('C');
+          const E = get('E');
+          const dT = get('ΔT');
+
+          if (unknown === 'C') {
+            if (E === undefined || dT === undefined) break;
+            requireNonZero(dT, 'ΔT');
+            setResult('C', E / dT);
+            break;
+          }
+          if (unknown === 'E') {
+            if (C === undefined || dT === undefined) break;
+            setResult('E', C * dT);
+            break;
+          }
+          if (unknown === 'ΔT') {
+            if (E === undefined || C === undefined) break;
+            requireNonZero(C, 'C');
+            setResult('ΔT', E / C);
+            break;
+          }
+          break;
+        }
+        case 'tg-6': {
+          // m1 c1 (T1 - θ) = m2 c2 (θ - T2)
+          const m1 = get('m1');
+          const c1 = get('c1');
+          const T1 = get('T1');
+          const m2 = get('m2');
+          const c2 = get('c2');
+          const T2 = get('T2');
+          const theta = get('θ');
+
+          if (unknown === 'θ') {
+            if (m1 === undefined || c1 === undefined || T1 === undefined || m2 === undefined || c2 === undefined || T2 === undefined) break;
+            const A = m1 * c1;
+            const B = m2 * c2;
+            requireNonZero(A + B, 'm1c1 + m2c2');
+            setResult('θ', (A * T1 + B * T2) / (A + B));
+            break;
+          }
+          if (unknown === 'm1') {
+            if (c1 === undefined || T1 === undefined || m2 === undefined || c2 === undefined || T2 === undefined || theta === undefined) break;
+            const denom = c1 * (T1 - theta);
+            requireNonZero(denom, 'c1(T1-θ)');
+            setResult('m1', (m2 * c2 * (theta - T2)) / denom);
+            break;
+          }
+          if (unknown === 'c1') {
+            if (m1 === undefined || T1 === undefined || m2 === undefined || c2 === undefined || T2 === undefined || theta === undefined) break;
+            const denom = m1 * (T1 - theta);
+            requireNonZero(denom, 'm1(T1-θ)');
+            setResult('c1', (m2 * c2 * (theta - T2)) / denom);
+            break;
+          }
+          if (unknown === 'T1') {
+            if (m1 === undefined || c1 === undefined || m2 === undefined || c2 === undefined || T2 === undefined || theta === undefined) break;
+            const denom = m1 * c1;
+            requireNonZero(denom, 'm1c1');
+            setResult('T1', theta + (m2 * c2 * (theta - T2)) / denom);
+            break;
+          }
+          if (unknown === 'm2') {
+            if (m1 === undefined || c1 === undefined || T1 === undefined || c2 === undefined || T2 === undefined || theta === undefined) break;
+            const denom = c2 * (theta - T2);
+            requireNonZero(denom, 'c2(θ-T2)');
+            setResult('m2', (m1 * c1 * (T1 - theta)) / denom);
+            break;
+          }
+          if (unknown === 'c2') {
+            if (m1 === undefined || c1 === undefined || T1 === undefined || m2 === undefined || T2 === undefined || theta === undefined) break;
+            const denom = m2 * (theta - T2);
+            requireNonZero(denom, 'm2(θ-T2)');
+            setResult('c2', (m1 * c1 * (T1 - theta)) / denom);
+            break;
+          }
+          if (unknown === 'T2') {
+            if (m1 === undefined || c1 === undefined || T1 === undefined || m2 === undefined || c2 === undefined || theta === undefined) break;
+            const denom = m2 * c2;
+            requireNonZero(denom, 'm2c2');
+            setResult('T2', theta - (m1 * c1 * (T1 - theta)) / denom);
             break;
           }
           break;
