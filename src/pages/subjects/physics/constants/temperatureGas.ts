@@ -261,6 +261,7 @@ export const TEMPERATURE_GAS_EXERCISES: Exercise[] = [
       'Do not assume the temperature stops changing immediately at switch‑off',
     ],
     sectionId: 'temp-heat-internal',
+    imagePaths: ['/physics/exercises/temp-heat-internal/thi-013-question.png'],
   },
   {
     id: 'thi-014',
