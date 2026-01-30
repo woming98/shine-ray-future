@@ -556,6 +556,7 @@ export const TEMPERATURE_GAS_EXERCISES: Exercise[] = [
       'Energy loss = heater energy − water energy gain',
     ],
     sectionId: 'temp-heat-internal',
+    imagePaths: ['/physics/exercises/temp-heat-internal/thi-027-question.png'],
   },
   {
     id: 'thi-028',
