@@ -767,15 +767,6 @@ export default function ExercisePage({
     return { parts: parts.length > 0 ? parts : [text], nextKeyIndex: keyIndex };
   };
 
-  if (!currentExercise) {
-    return (
-      <Card hover={false} className="p-8 text-center">
-        <FileQuestion className="w-12 h-12 text-blue-300 mx-auto mb-4" />
-        <p className="text-blue-300">暂无练习题</p>
-      </Card>
-    );
-  }
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -1300,6 +1291,18 @@ export default function ExercisePage({
         {/* 主内容区：题目 */}
         <div className="lg:col-span-8">
           <Card hover={false} className="p-6">
+            {!currentExercise ? (
+              <div className="py-12 text-center">
+                <FileQuestion className="w-12 h-12 text-blue-300 mx-auto mb-4" />
+                <p className="text-blue-300">暂无练习题</p>
+                <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
+                  <Button variant="secondary" onClick={() => setDifficultyFilter(null)}>
+                    清除难度筛选
+                  </Button>
+                </div>
+              </div>
+            ) : (
+              <>
             {/* Sticky Header */}
             <div className="sticky top-[136px] z-10 bg-slate-900/95 backdrop-blur-sm -m-6 p-6 mb-6 border-b border-blue-500/30">
               <div className="flex items-center justify-between">
@@ -1556,6 +1559,8 @@ export default function ExercisePage({
                 </motion.div>
               )}
             </AnimatePresence>
+              </>
+            )}
           </Card>
         </div>
 
