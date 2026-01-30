@@ -2216,6 +2216,160 @@ function CalculatorTab({
           }
           break;
         }
+        case 'tg-11': {
+          // P = kAΔT / L
+          const P = get('P');
+          const k = get('k');
+          const A = get('A');
+          const dT = get('ΔT');
+          const L = get('L');
+
+          if (unknown === 'P') {
+            if (k === undefined || A === undefined || dT === undefined || L === undefined) break;
+            requireNonZero(L, 'L');
+            setResult('P', (k * A * dT) / L);
+            break;
+          }
+          if (unknown === 'k') {
+            if (P === undefined || A === undefined || dT === undefined || L === undefined) break;
+            requireNonZero(A * dT, 'AΔT');
+            setResult('k', (P * L) / (A * dT));
+            break;
+          }
+          if (unknown === 'A') {
+            if (P === undefined || k === undefined || dT === undefined || L === undefined) break;
+            requireNonZero(k * dT, 'kΔT');
+            setResult('A', (P * L) / (k * dT));
+            break;
+          }
+          if (unknown === 'ΔT') {
+            if (P === undefined || k === undefined || A === undefined || L === undefined) break;
+            requireNonZero(k * A, 'kA');
+            setResult('ΔT', (P * L) / (k * A));
+            break;
+          }
+          if (unknown === 'L') {
+            if (P === undefined || k === undefined || A === undefined || dT === undefined) break;
+            requireNonZero(P, 'P');
+            setResult('L', (k * A * dT) / P);
+            break;
+          }
+          break;
+        }
+        case 'tg-12': {
+          // P = hAΔT
+          const P = get('P');
+          const h = get('h');
+          const A = get('A');
+          const dT = get('ΔT');
+
+          if (unknown === 'P') {
+            if (h === undefined || A === undefined || dT === undefined) break;
+            setResult('P', h * A * dT);
+            break;
+          }
+          if (unknown === 'h') {
+            if (P === undefined || A === undefined || dT === undefined) break;
+            requireNonZero(A * dT, 'AΔT');
+            setResult('h', P / (A * dT));
+            break;
+          }
+          if (unknown === 'A') {
+            if (P === undefined || h === undefined || dT === undefined) break;
+            requireNonZero(h * dT, 'hΔT');
+            setResult('A', P / (h * dT));
+            break;
+          }
+          if (unknown === 'ΔT') {
+            if (P === undefined || h === undefined || A === undefined) break;
+            requireNonZero(h * A, 'hA');
+            setResult('ΔT', P / (h * A));
+            break;
+          }
+          break;
+        }
+        case 'tg-13': {
+          // P = εσA(T^4 − T_env^4) ; σ = 5.67e-8 W m^-2 K^-4
+          const SIGMA = 5.67e-8;
+          const P = get('P');
+          const eps = get('ε');
+          const A = get('A');
+          const T = get('T');
+          const Tenv = get('T_env');
+
+          const t4 = (x: number) => x ** 4;
+
+          if (unknown === 'P') {
+            if (eps === undefined || A === undefined || T === undefined || Tenv === undefined) break;
+            setResult('P', eps * SIGMA * A * (t4(T) - t4(Tenv)));
+            break;
+          }
+          if (unknown === 'ε') {
+            if (P === undefined || A === undefined || T === undefined || Tenv === undefined) break;
+            const denom = SIGMA * A * (t4(T) - t4(Tenv));
+            requireNonZero(denom, 'σA(T⁴−T_env⁴)');
+            setResult('ε', P / denom);
+            break;
+          }
+          if (unknown === 'A') {
+            if (P === undefined || eps === undefined || T === undefined || Tenv === undefined) break;
+            const denom = eps * SIGMA * (t4(T) - t4(Tenv));
+            requireNonZero(denom, 'εσ(T⁴−T_env⁴)');
+            setResult('A', P / denom);
+            break;
+          }
+          if (unknown === 'T') {
+            if (P === undefined || eps === undefined || A === undefined || Tenv === undefined) break;
+            const denom = eps * SIGMA * A;
+            requireNonZero(denom, 'εσA');
+            const inside = P / denom + t4(Tenv);
+            if (inside < 0) throw new Error('negative under 4th root');
+            setResult('T', inside ** 0.25);
+            break;
+          }
+          if (unknown === 'T_env') {
+            if (P === undefined || eps === undefined || A === undefined || T === undefined) break;
+            const denom = eps * SIGMA * A;
+            requireNonZero(denom, 'εσA');
+            const inside = t4(T) - P / denom;
+            if (inside < 0) throw new Error('negative under 4th root');
+            setResult('T_env', inside ** 0.25);
+            break;
+          }
+          break;
+        }
+        case 'tg-14': {
+          // R_th = L / (kA)
+          const Rth = get('R_th');
+          const L = get('L');
+          const k = get('k');
+          const A = get('A');
+
+          if (unknown === 'R_th') {
+            if (L === undefined || k === undefined || A === undefined) break;
+            requireNonZero(k * A, 'kA');
+            setResult('R_th', L / (k * A));
+            break;
+          }
+          if (unknown === 'L') {
+            if (Rth === undefined || k === undefined || A === undefined) break;
+            setResult('L', Rth * k * A);
+            break;
+          }
+          if (unknown === 'k') {
+            if (Rth === undefined || L === undefined || A === undefined) break;
+            requireNonZero(Rth * A, 'R_th A');
+            setResult('k', L / (Rth * A));
+            break;
+          }
+          if (unknown === 'A') {
+            if (Rth === undefined || L === undefined || k === undefined) break;
+            requireNonZero(Rth * k, 'R_th k');
+            setResult('A', L / (Rth * k));
+            break;
+          }
+          break;
+        }
         default: {
           setText('该公式暂未支持计算');
         }

@@ -16,5 +16,10 @@ export const TEMPERATURE_GAS_SECTIONS: TemperatureGasSection[] = [
     nameCN: '温度、热、內能',
     description: 'Temperature scales, heat capacity, internal energy, latent heat',
   },
+  {
+    id: 'transfer-processes',
+    name: 'Transfer Processes',
+    nameCN: '热转移过程',
+    description: 'Conduction, convection and radiation; reducing heat loss',
+  },
 ];
-

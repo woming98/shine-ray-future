@@ -1,7 +1,7 @@
 import { Exercise } from '../types';
 
 // 练习题 - DSE Style (All in English)
-// Temperature, Heat and Internal Energy 板块
+// Temperature and Gas (multiple sections)
 export const TEMPERATURE_GAS_EXERCISES: Exercise[] = [
   {
     id: 'thi-001',
@@ -913,5 +913,805 @@ export const TEMPERATURE_GAS_EXERCISES: Exercise[] = [
       'Specific heat capacity does not decide heat flow direction',
     ],
     sectionId: 'temp-heat-internal',
+  },
+  // Transfer Processes 板块
+  {
+    id: 'tp-001',
+    type: 'multiple_choice',
+    question:
+      'The photograph shows a hot potato wrapped by shiny aluminium foil. By what means can the foil help reducing the rate of energy lost from the potato to the surroundings?\n\n(1) conduction\n(2) convection\n(3) radiation',
+    options: ['(2) only', '(3) only', '(1) & (2) only', '(1) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      '⚠️ **Key point:** Shiny aluminium foil reduces heat loss mainly by reducing **radiation**. It does not stop conduction through the foil or convection in the surrounding air.\n\n**Step 1:** Conduction\nAluminium is a good conductor, so wrapping with aluminium foil does not reduce heat loss by conduction.\n\n**Step 2:** Convection\nAir outside the wrapped potato can still circulate and carry heat away, so convection is not reduced.\n\n**Step 3:** Radiation\nA shiny surface is a poor emitter of thermal radiation, so radiative heat loss is reduced.\n\n**Conclusion:** Only (3) is reduced → option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Aluminium is a good conductor, so it is not an insulator',
+      'Wrapping does not prevent air outside from moving (convection)',
+      'Shiny surfaces are poor emitters of thermal radiation',
+    ],
+    sectionId: 'transfer-processes',
+    imagePaths: ['/physics/exercises/transfer-processes/tp-001-question.png'],
+  },
+  {
+    id: 'tp-002',
+    type: 'multiple_choice',
+    question:
+      'The figure shows a vacuum flask with two glass walls. Which of the following statements are correct?\n\n(1) The surfaces $P$ and $Q$ are painted silvery to reduce heat loss.\n(2) The cork stopper reduces heat loss by conduction and convection.\n(3) The vacuum between the double glass walls reduces heat loss by radiation.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (2) only',
+    explanation:
+      '⚠️ **Key point:** A vacuum flask reduces heat transfer by minimizing **conduction** and **convection** (vacuum + stopper) and reducing **radiation** (shiny surfaces).\n\n**Step 1:** Statement (1)\nSilvery surfaces are poor emitters (and good reflectors) of thermal radiation, so they reduce heat loss by **radiation** → true.\n\n**Step 2:** Statement (2)\nCork is a poor conductor, so it reduces heat loss by **conduction**. The stopper also prevents air circulation at the mouth, reducing **convection** → true.\n\n**Step 3:** Statement (3)\nA vacuum prevents **conduction** and **convection**, but it does not stop **radiation** because radiation can travel through vacuum → false.\n\n**Conclusion:** Statements (1) and (2) only → option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Radiation can travel through a vacuum',
+      'Vacuum mainly prevents conduction and convection',
+      'Silvery surfaces reduce radiation; cork reduces conduction and convection at the top',
+    ],
+    sectionId: 'transfer-processes',
+    imagePaths: ['/physics/exercises/transfer-processes/tp-002-question.png'],
+  },
+  {
+    id: 'tp-003',
+    type: 'multiple_choice',
+    question:
+      'The diagram below shows the structure of a cake.\n\nThe ice-cream inside the cake does not melt when it is baked in an oven. Which of the following statements are possible reasons for this phenomenon?\n\n(1) The whipped egg white is a poor conductor of heat.\n(2) The whipped egg white is a good radiator of heat.\n(3) The sponge cake is a poor conductor of heat.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (3) only',
+    explanation:
+      '⚠️ **Key point:** The ice-cream is protected mainly because the layers contain trapped air and are **poor conductors**, so heat reaches the centre very slowly.\n\n**Step 1:** Statement (1)\nWhipped egg white contains many air pockets. Air is a poor conductor, so heat transfer by **conduction** is reduced → true.\n\n**Step 2:** Statement (2)\nA good radiator would emit/absorb thermal radiation well, which would not help prevent heat entering. Egg white is also usually a poor radiator → false.\n\n**Step 3:** Statement (3)\nSponge cake is porous and a poor conductor, so heat transfer by **conduction** from the bottom to the centre is reduced → true.\n\n**Conclusion:** Statements (1) and (3) only → option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Poor conductors (with trapped air) slow down heat transfer by conduction',
+      'A good radiator does not help reduce heat gain',
+      'Both layers act like thermal insulation',
+    ],
+    sectionId: 'transfer-processes',
+    imagePaths: ['/physics/exercises/transfer-processes/tp-003-question.png'],
+  },
+  {
+    id: 'tp-004',
+    type: 'multiple_choice',
+    question:
+      'The above figure shows the aluminium heat sink of an audio amplifier which is used to transfer heat away from the components inside the amplifier. Which of the following statements about the heat sink is/are correct?\n\n(1) The heat sink is made of aluminium so that it can transfer heat away faster by conduction.\n(2) The heat sink is silver in colour so that it can transfer heat away faster by radiation.\n(3) The heat sink has a fin-like design to increase the surface area so that it can transfer heat away faster by conduction to air.',
+    options: ['(2) only', '(3) only', '(1) & (2) only', '(1) & (3) only'],
+    answer: '(1) & (3) only',
+    explanation:
+      '⚠️ **Key point:** A heat sink works by (i) conducting heat away from the hot component and (ii) increasing heat transfer to air (mainly convection). Shiny (silvery) surfaces are poor emitters of radiation.\n\n**Step 1:** Statement (1)\nAluminium is a good conductor, so it helps conduct heat away from the component → true.\n\n**Step 2:** Statement (2)\nA silvery (shiny) surface radiates heat more slowly because it is a poor emitter of thermal radiation → false.\n\n**Step 3:** Statement (3)\nFins increase surface area, increasing heat transfer from the heat sink to the air → true.\n\n**Conclusion:** Statements (1) and (3) only → option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Aluminium is a good conductor, so it conducts heat away quickly',
+      'Shiny/silvery surfaces are poor emitters of thermal radiation',
+      'Fins increase surface area and increase heat transfer to air',
+    ],
+    sectionId: 'transfer-processes',
+    imagePaths: ['/physics/exercises/transfer-processes/tp-004-question.png'],
+  },
+  {
+    id: 'tp-005',
+    type: 'multiple_choice',
+    question:
+      'The figure below shows a solar cooker. Which of the following statements about its design is incorrect?',
+    options: [
+      'Board $P$ should be shiny to reflect sunlight into the cooker.',
+      'Pot $Q$ should be painted in black to increase the heat absorption.',
+      'Case $R$ should be made of metal to enhance heat transfer.',
+      'The glass cover can reduce heat loss by convection.',
+    ],
+    answer: 'Case $R$ should be made of metal to enhance heat transfer.',
+    explanation:
+      '⚠️ **Key point:** A solar cooker should (i) increase energy input (reflection + absorption) and (ii) reduce heat loss (insulation + trapping air).\n\n**Step 1:** Option A\nA shiny board reflects sunlight into the cooker, increasing the solar energy entering the case → correct.\n\n**Step 2:** Option B\nA black surface is a good absorber of radiation, so the pot absorbs more solar energy → correct.\n\n**Step 3:** Option C\nThe case should reduce heat loss to the surroundings, so it should be an **insulator**, not a metal. A metal case increases heat loss by conduction → incorrect.\n\n**Step 4:** Option D\nThe glass cover prevents hot air from escaping and reduces convection heat loss → correct.\n\n**Conclusion:** The incorrect statement is option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Solar cooker design: maximize absorption, minimize heat loss',
+      'Black surfaces absorb radiation well; shiny surfaces reflect well',
+      'Insulation reduces heat loss by conduction; a cover reduces convection',
+    ],
+    sectionId: 'transfer-processes',
+    imagePaths: ['/physics/exercises/transfer-processes/tp-005-question.png'],
+  },
+  {
+    id: 'tp-006',
+    type: 'multiple_choice',
+    question:
+      'The diagram shows an experiment that demonstrates convection taking place in water. What happens to the water to cause the convection?',
+    options: [
+      'The water expands and its density decreases.',
+      'The water expands and its density increases.',
+      'The water contracts and its density decreases.',
+      'The water contracts and its density increases.',
+    ],
+    answer: 'The water expands and its density decreases.',
+    explanation:
+      '⚠️ **Key point:** Heating a fluid makes it expand, so its density decreases. The less dense (warmer) fluid rises and the denser (cooler) fluid sinks, forming a convection current.\n\n**Step 1:** Effect of heating\nWhen water is heated, it expands.\n\n**Step 2:** Density change\nMass stays the same but volume increases, so density decreases.\n\n**Step 3:** Convection current\nThe warmer, less dense water rises and is replaced by cooler, denser water, setting up convection.\n\n**Conclusion:** The water expands and its density decreases → option A.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Heating causes expansion in liquids and gases',
+      'Expansion increases volume, so density decreases',
+      'Less dense fluid rises, creating convection currents',
+    ],
+    sectionId: 'transfer-processes',
+    imagePaths: ['/physics/exercises/transfer-processes/tp-006-question.png'],
+  },
+  {
+    id: 'tp-007',
+    type: 'multiple_choice',
+    question:
+      'A metal spoon is put into a bowl of hot soup. When it is taken out of the soup, it cools by emitting',
+    options: ['electrons.', 'infra-red radiation.', 'visible light.', 'ultra-violet radiation.'],
+    answer: 'infra-red radiation.',
+    explanation:
+      '⚠️ **Key point:** All objects above absolute zero emit thermal radiation. For everyday temperatures, this radiation is mainly **infra-red**.\n\n**Step 1:** Identify the type of radiation emitted\nA warm spoon emits thermal radiation.\n\n**Step 2:** Decide the wavelength region\nAt the temperature of hot soup, the dominant thermal radiation is infra-red (not visible or ultraviolet).\n\n**Conclusion:** The spoon cools by emitting infra-red radiation → option B.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Thermal radiation is emitted by all warm objects',
+      'At ordinary temperatures, thermal radiation is mainly infra-red',
+      'Visible/UV emission requires much higher temperatures',
+    ],
+    sectionId: 'transfer-processes',
+  },
+  {
+    id: 'tp-008',
+    type: 'multiple_choice',
+    question:
+      'In winter, when we sit on a metal chair, we feel cold continuously. What is the reason behind?',
+    options: [
+      'Metal has a small specific heat capacity.',
+      'Metal is a good reflector of heat.',
+      'Metal is a good radiator of heat.',
+      'Metal is a good conductor of heat.',
+    ],
+    answer: 'Metal is a good conductor of heat.',
+    explanation:
+      '⚠️ **Key point:** A good conductor transfers energy quickly by **conduction**, so it can draw heat away from your body continuously.\n\n**Step 1:** Heat transfer direction\nYour body is warmer than the metal chair, so heat flows from you to the chair.\n\n**Step 2:** Why it keeps feeling cold\nMetal conducts heat away quickly, so your skin keeps losing heat and you continue to feel cold.\n\n**Conclusion:** Metal is a good conductor of heat → option D.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Heat flows from hotter body to cooler body',
+      'Conduction is faster in good conductors like metals',
+      'Feeling “cold” is about the rate of heat loss from your skin',
+    ],
+    sectionId: 'transfer-processes',
+  },
+  {
+    id: 'tp-009',
+    type: 'multiple_choice',
+    question:
+      'Which of the followings are related to the process of convection?\n\n(1) Some birds use hot air currents to gain height.\n(2) At day time, breezes move from sea to land.\n(3) At night time, breezes move from land to sea.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      '⚠️ **Key point:** Convection happens when warmer, less dense air rises and cooler air moves in to replace it, forming a circulation.\n\n**Step 1:** (1)\nHot air currents rise. Birds can use these rising air currents to gain height → convection in air.\n\n**Step 2:** (2)\nIn daytime, land heats up faster than sea. Air above land rises, so cooler air moves from sea to land (sea breeze) → convection.\n\n**Step 3:** (3)\nAt night, the sea stays warmer than the land. Air above sea rises, so cooler air moves from land to sea (land breeze) → convection.\n\n**Conclusion:** (1), (2) and (3) are all related to convection → option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Convection involves warm fluid rising and cool fluid sinking',
+      'Land heats up and cools down faster than sea',
+      'Sea breeze (day) and land breeze (night) are convection currents',
+    ],
+    sectionId: 'transfer-processes',
+  },
+  {
+    id: 'tp-010',
+    type: 'multiple_choice',
+    question:
+      'Which of the following processes does not involve the movement of molecules?',
+    options: ['conduction', 'convection', 'radiation', 'diffusion'],
+    answer: 'radiation',
+    explanation:
+      '⚠️ **Key point:** Radiation transfers energy by electromagnetic waves and can occur in a vacuum, so it does not require molecules.\n\n**Step 1:** Conduction\nConduction transfers energy through a material via particle interactions, so molecules/atoms must be present.\n\n**Step 2:** Convection\nConvection is heat transfer by the bulk movement of a fluid.\n\n**Step 3:** Diffusion\nDiffusion happens because molecules move randomly from higher concentration to lower concentration.\n\n**Step 4:** Radiation\nRadiation does not need a medium; energy can be transferred through a vacuum.\n\n**Conclusion:** Radiation → option C.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Radiation can travel through a vacuum',
+      'Convection involves bulk movement of a fluid',
+      'Diffusion is due to random molecular motion',
+    ],
+    sectionId: 'transfer-processes',
+  },
+  {
+    id: 'tp-011',
+    type: 'multiple_choice',
+    question:
+      'Which of the following animals is the best emitter of infra-red radiation from their bodies?',
+    options: ['a white cat', 'a black dog', 'a brown horse', 'a red fox'],
+    answer: 'a black dog',
+    explanation:
+      '⚠️ **Key point:** Dark, dull surfaces are better emitters of thermal (infra-red) radiation than light, shiny surfaces.\n\n**Step 1:** Compare colours\nBlack surfaces are the best emitters of radiation.\n\n**Step 2:** Choose the darkest surface\nAmong the options, the black dog has the darkest surface.\n\n**Conclusion:** The best emitter is a black dog → option B.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Thermal radiation emitted by warm bodies is mainly infra-red',
+      'Black/dull surfaces are better emitters than white/shiny surfaces',
+      'Pick the darkest-coloured animal',
+    ],
+    sectionId: 'transfer-processes',
+  },
+  {
+    id: 'tp-012',
+    type: 'multiple_choice',
+    question:
+      'Arrange the following materials from the poorest conductor to the best conductor in order.\n\n(1) air\n(2) copper\n(3) vacuum\n(4) water',
+    options: [
+      '(1), (3), (2), (4)',
+      '(1), (3), (4), (2)',
+      '(3), (1), (2), (4)',
+      '(3), (1), (4), (2)',
+    ],
+    answer: '(3), (1), (4), (2)',
+    explanation:
+      '⚠️ **Key point:** Heat conduction requires particles. In general: vacuum (none) < gases (poor) < liquids (better) < metals (best).\n\n**Step 1:** Vacuum (3)\nVacuum has no particles, so it does not conduct heat → poorest.\n\n**Step 2:** Air (1)\nAir is a gas and is a poor conductor.\n\n**Step 3:** Water (4)\nWater is a liquid; it conducts better than air.\n\n**Step 4:** Copper (2)\nCopper is a metal and is an excellent conductor → best.\n\n**Conclusion:** (3), (1), (4), (2) → option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Conduction needs particles, so a vacuum cannot conduct',
+      'Gases are generally poor conductors',
+      'Metals (e.g. copper) are excellent conductors',
+    ],
+    sectionId: 'transfer-processes',
+  },
+  {
+    id: 'tp-013',
+    type: 'multiple_choice',
+    question:
+      'The radiators on motor cars are painted black. What is the reason behind?',
+    options: [
+      'It will not get dirty easily.',
+      'Black surface is a good emitter of heat.',
+      'Black surface is a good conductor of heat.',
+      'Black surface is more beautiful.',
+    ],
+    answer: 'Black surface is a good emitter of heat.',
+    explanation:
+      '⚠️ **Key point:** A black, dull surface is a good emitter of thermal (infra-red) radiation, so it helps the radiator lose heat faster.\n\n**Step 1:** Identify the relevant heat transfer\nA radiator loses energy to its surroundings partly by radiation.\n\n**Step 2:** Effect of colour\nBlack surfaces are better emitters of thermal radiation than light or shiny surfaces.\n\n**Conclusion:** Radiators are painted black to emit heat more quickly → option B.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Thermal radiation at these temperatures is mainly infra-red',
+      'Black/dull surfaces are good emitters of radiation',
+      'The question is about heat loss, not appearance',
+    ],
+    sectionId: 'transfer-processes',
+  },
+  {
+    id: 'tp-014',
+    type: 'multiple_choice',
+    question:
+      'Which of the following is NOT an application of the poor conductor of heat?',
+    options: [
+      'wooden handles of frying pans',
+      'fur of the animals',
+      'cooling fins of the engine radiators',
+      'double glazing of windows',
+    ],
+    answer: 'cooling fins of the engine radiators',
+    explanation:
+      '⚠️ **Key point:** Poor conductors are used to reduce heat transfer. Cooling fins are designed to increase heat transfer, so they must be good conductors.\n\n**Step 1:** Options A and B\nWooden handles and fur (trapping air) are poor conductors, so they reduce heat transfer → applications of poor conductors.\n\n**Step 2:** Option D\nDouble glazing traps air between glass panes, reducing heat transfer by conduction → application of poor conductors.\n\n**Step 3:** Option C\nCooling fins need to conduct heat away quickly from the engine/radiator, so they are made of good conductors (e.g. metals) → NOT an application of poor conductors.\n\n**Conclusion:** Cooling fins of engine radiators → option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Poor conductors are used to reduce heat transfer',
+      'Fins are meant to increase heat transfer (cool faster)',
+      'Metals are used for fins because they conduct heat well',
+    ],
+    sectionId: 'transfer-processes',
+  },
+  {
+    id: 'tp-015',
+    type: 'multiple_choice',
+    question:
+      'Which of the following correctly describes shiny surfaces concerning infra-red radiation?',
+    options: [
+      'They are good absorbers and good emitters.',
+      'They are good absorbers but poor emitters.',
+      'They are poor absorbers and poor emitters.',
+      'They are poor absorbers but good emitters.',
+    ],
+    answer: 'They are poor absorbers and poor emitters.',
+    explanation:
+      '⚠️ **Key point:** Shiny (polished) surfaces reflect infra-red well, so they are **poor absorbers** and also **poor emitters** of thermal radiation.\n\n**Step 1:** Absorption\nA shiny surface reflects radiation, so it absorbs little.\n\n**Step 2:** Emission\nA surface that absorbs poorly also emits poorly (good absorber ↔ good emitter).\n\n**Conclusion:** Shiny surfaces are poor absorbers and poor emitters → option C.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Shiny surfaces reflect infra-red radiation well',
+      'Poor absorbers are also poor emitters',
+      'Pick the option that says “poor” for both',
+    ],
+    sectionId: 'transfer-processes',
+  },
+  {
+    id: 'tp-016',
+    type: 'multiple_choice',
+    question:
+      'A metal rod and a rubber rod are at the same temperature. When they are held in the hand, the metal rod "feels" colder than the rubber rod. The best explanation for this observation should be',
+    options: [
+      'metal has a higher melting point than rubber.',
+      'metal has a lower specific heat capacity than rubber.',
+      'metal is a better conductor of heat than rubber.',
+      'metal is a better absorber of heat than rubber.',
+    ],
+    answer: 'metal is a better conductor of heat than rubber.',
+    explanation:
+      '⚠️ **Key point:** What you “feel” depends on the **rate of heat transfer** from your hand.\n\n**Step 1:** Heat flow direction\nYour hand is warmer than the rods, so heat flows from your hand to the rods.\n\n**Step 2:** Compare conduction\nMetal conducts heat away from your hand much faster than rubber.\n\n**Conclusion:** The metal feels colder because it is a better conductor of heat → option C.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Feeling cold depends on how fast heat leaves your skin',
+      'Metals are good conductors; rubber is a poor conductor',
+      'Both rods are at the same temperature initially',
+    ],
+    sectionId: 'transfer-processes',
+  },
+  {
+    id: 'tp-017',
+    type: 'multiple_choice',
+    question:
+      'Which of the following correctly describes dull surfaces concerning infra-red radiation?',
+    options: [
+      'They are good absorbers and good emitters.',
+      'They are good absorbers but poor emitters.',
+      'They are poor absorbers and poor emitters.',
+      'They are poor absorbers but good emitters.',
+    ],
+    answer: 'They are good absorbers and good emitters.',
+    explanation:
+      '⚠️ **Key point:** Dull (matte) surfaces absorb infra-red well, transforms it to internal energy, and therefore also emit infra-red well.\n\n**Conclusion:** Dull surfaces are good absorbers and good emitters → option A.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Dull surfaces are the opposite of shiny surfaces for infra-red radiation',
+      'Good absorber ↔ good emitter',
+      'Pick “good” for both absorber and emitter',
+    ],
+    sectionId: 'transfer-processes',
+  },
+  {
+    id: 'tp-018',
+    type: 'multiple_choice',
+    question:
+      'A bowl of hot soup is placed in air. Which of the following transfer processes would carry away the energy from the soup to cool it down?\n\n(1) conduction\n(2) convection\n(3) radiation',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      '⚠️ **Key point:** In air, a hot object can lose energy by **conduction**, **convection** and **radiation**.\n\n**Step 1:** Conduction\nEnergy is conducted from the hot soup/bowl to nearby air molecules (and to the table) → (1) yes.\n\n**Step 2:** Convection\nWarm air above the soup rises and cooler air replaces it, carrying energy away → (2) yes.\n\n**Step 3:** Radiation\nThe soup/bowl emits infra-red radiation to the surroundings → (3) yes.\n\n**Conclusion:** All three processes take place → option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Hot objects in air can lose energy by all three processes',
+      'Convection needs a fluid (air) and happens above the soup',
+      'Thermal radiation is infra-red',
+    ],
+    sectionId: 'transfer-processes',
+  },
+  {
+    id: 'tp-019',
+    type: 'multiple_choice',
+    question:
+      'Which of the following substances is the best conductor of heat?',
+    options: ['vacuum', 'air', 'water', 'iron'],
+    answer: 'iron',
+    explanation:
+      '⚠️ **Key point:** Metals are good conductors of heat. A vacuum does not conduct heat at all.\n\n**Conclusion:** Iron (a metal) is the best conductor among the options → option D.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Metals are good conductors of heat',
+      'A vacuum cannot conduct heat',
+      'Pick the metal among the options',
+    ],
+    sectionId: 'transfer-processes',
+  },
+  {
+    id: 'tp-020',
+    type: 'multiple_choice',
+    question:
+      'Which of the following process can heat be transferred in a vacuum?\n\n(1) conduction\n(2) convection\n(3) radiation',
+    options: ['(1) only', '(2) only', '(3) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      '⚠️ **Key point:** Only radiation can transfer heat through a vacuum.\n\n**Step 1:** Conduction\nConduction requires particles in contact, so it needs a medium → not possible in a vacuum.\n\n**Step 2:** Convection\nConvection requires a fluid (liquid or gas) to move → not possible in a vacuum.\n\n**Step 3:** Radiation\nRadiation is electromagnetic (infra-red) waves and can travel through vacuum → possible.\n\n**Conclusion:** Only (3) → option C.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Conduction and convection need matter (a medium)',
+      'Radiation can travel through a vacuum',
+      'Thermal radiation here is mainly infra-red',
+    ],
+    sectionId: 'transfer-processes',
+  },
+  {
+    id: 'tp-021',
+    type: 'multiple_choice',
+    question:
+      'The above figure shows a simple solar heater. What type of material should be used for the pipe to give the hottest water from the heater?',
+    options: [
+      'Plastic painted white',
+      'Plastic painted black',
+      'Copper painted white',
+      'Copper painted black',
+    ],
+    answer: 'Copper painted black',
+    explanation:
+      '⚠️ **Key point:** To get the hottest water, the pipe should (i) absorb more solar radiation and (ii) transfer that heat efficiently to the water.\n\n**Step 1:** Choose the material (conduction to water)\nCopper is a good conductor, so heat can be transferred from the pipe to the water more effectively than plastic.\n\n**Step 2:** Choose the colour (absorption of radiation)\nA black surface is a good absorber of radiation, so it absorbs more solar energy than a white surface.\n\n**Conclusion:** Copper painted black → option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Copper conducts heat better than plastic',
+      'Black surfaces absorb radiation better than white surfaces',
+      'You need both good absorption and good conduction to water',
+    ],
+    sectionId: 'transfer-processes',
+    imagePaths: ['/physics/exercises/transfer-processes/tp-021-question.png'],
+  },
+  {
+    id: 'tp-022',
+    type: 'multiple_choice',
+    question:
+      'Normally, the conduction of heat through a substance depends on its state. Which of the following correctly arranges the three states from the poorest conductor to the best conductor?',
+    options: ['gas liquid solid', 'solid gas liquid', 'gas solid liquid', 'liquid gas solid'],
+    answer: 'gas liquid solid',
+    explanation:
+      '⚠️ **Key point:** Conduction is generally poorest in gases, better in liquids, and best in solids.\n\n**Step 1:** Compare the three states\n- **Gas:** particles are far apart → poor conduction.\n- **Liquid:** particles are closer → better than gas.\n- **Solid:** particles are closely packed → best conduction.\n\n**Conclusion:** gas → liquid → solid → option A.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'In general: gas (poorest) < liquid < solid (best) for heat conduction',
+      'Conduction works better when particles are closer together',
+      'Pick the order from poorest to best',
+    ],
+    sectionId: 'transfer-processes',
+  },
+  {
+    id: 'tp-023',
+    type: 'multiple_choice',
+    question:
+      'When a match is placed near the flame of a Bunsen burner as shown, it is found that the match does not ignite. Which of the following is the best reason?',
+    options: [
+      'The temperature of the flame is not high enough.',
+      'Air is not a good conductor of heat.',
+      'There is no convection current near the flame.',
+      'There is no radiation from the flame.',
+    ],
+    answer: 'Air is not a good conductor of heat.',
+    explanation:
+      '⚠️ **Key point:** Air is a poor conductor, so heat cannot be conducted effectively across the air gap to raise the match to its ignition temperature.\n\n**Step 1:** Eliminate A\nA Bunsen burner flame is hot enough to ignite a match. The problem is that the match is not in direct contact with the hottest part of the flame.\n\n**Step 2:** Focus on conduction through air (B)\nWith an air gap, heat transfer to the match relies strongly on conduction through air, but air conducts heat very poorly, so the match does not get hot enough.\n\n**Step 3:** Eliminate C and D\nA flame produces both convection currents and thermal radiation, so it is incorrect to say there is “no convection” or “no radiation”.\n\n**Conclusion:** Air is not a good conductor of heat → option B.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Air is a poor conductor of heat',
+      '“Near” the flame means there is an air gap',
+      'A flame still produces convection and radiation',
+    ],
+    sectionId: 'transfer-processes',
+    imagePaths: ['/physics/exercises/transfer-processes/tp-023-question.png'],
+  },
+  {
+    id: 'tp-024',
+    type: 'multiple_choice',
+    question:
+      'In a hot summer day, Peter wears a white shirt and black trousers. When he stands under the sun, he feels that his feet are hotter than his back. Which of the following is the possible reason?',
+    options: [
+      'The white shirt emits less infra-red radiation than the black trousers.',
+      'The white shirt emits more infra-red radiation than the black trousers.',
+      'The white shirt absorbs less infra-red radiation than the black trousers.',
+      'The white shirt absorbs more infra-red radiation than the black trousers.',
+    ],
+    answer: 'The white shirt absorbs less infra-red radiation than the black trousers.',
+    explanation:
+      '⚠️ **Key point:** A black surface is a better **absorber** of radiation than a white surface. Under sunlight, the part that absorbs more radiation becomes hotter.\n\n**Step 1:** Compare absorption\n- White surfaces are poor absorbers (good reflectors) of radiation.\n- Black surfaces are good absorbers of radiation.\n\n**Step 2:** Apply to the clothing\nThe black trousers absorb more radiation from the Sun than the white shirt, so the trousers (and the legs/feet region) heat up more.\n\n**Conclusion:** The white shirt absorbs less infra-red radiation than the black trousers → option C.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Black surfaces are good absorbers of radiation',
+      'White surfaces reflect more radiation and absorb less',
+      'Under the Sun, absorption matters more than emission',
+    ],
+    sectionId: 'transfer-processes',
+  },
+  {
+    id: 'tp-025',
+    type: 'multiple_choice',
+    question:
+      'In the diagram shown, a piece of metal gauze is used to keep the ice at the bottom of the test tube. The upper part of the test tube is then heated until the water boils. However, the ice still exists at the bottom. Which of the followings are the possible reasons?\n\n(1) Water is not a good conductor of heat.\n(2) Convection can hardly be set up between boiling water and ice.\n(3) The metal gauze prevents heat from conducting to the ice.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (2) only',
+    explanation:
+      '⚠️ **Key point:** Heating water from the top does not set up convection easily. Since water is also a poor conductor, little heat reaches the ice at the bottom.\n\n**Step 1:** Statement (1)\nWater is a poor conductor, so heat is not transferred efficiently from the hot water at the top down to the ice → true.\n\n**Step 2:** Statement (2)\nConvection requires warmer, less dense water to rise and cooler, denser water to sink. Here the hot water is already at the top and cold water is at the bottom, so the arrangement is stable and convection can hardly be set up between them → true.\n\n**Step 3:** Statement (3)\nThe metal gauze is a good conductor. It does not prevent heat conduction to the ice; it mainly holds the ice in place → false.\n\n**Conclusion:** (1) and (2) only → option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Water is a poor conductor of heat',
+      'Convection is hard to set up when heating from the top',
+      'Metals are good conductors, so gauze does not “block” conduction',
+    ],
+    sectionId: 'transfer-processes',
+    imagePaths: ['/physics/exercises/transfer-processes/tp-025-question.png'],
+  },
+  {
+    id: 'tp-026',
+    type: 'multiple_choice',
+    question:
+      'A vacuum can prevent heat transfer by\n\n(1) conduction\n(2) convection\n(3) radiation',
+    options: ['(1) only', '(2) only', '(3) only', '(1) & (2) only'],
+    answer: '(1) & (2) only',
+    explanation:
+      '⚠️ **Key point:** A vacuum contains no matter, so it prevents **conduction** and **convection**, but **radiation** can still travel through a vacuum.\n\n**Step 1:** Conduction (1)\nConduction requires particles to transfer energy by collisions. In a vacuum there are no particles → prevented.\n\n**Step 2:** Convection (2)\nConvection requires a fluid (liquid or gas) to move. A vacuum has no fluid → prevented.\n\n**Step 3:** Radiation (3)\nRadiation is electromagnetic (infra-red) waves and can travel through a vacuum → not prevented.\n\n**Conclusion:** A vacuum prevents (1) and (2) only → option D.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Conduction and convection need matter (a medium)',
+      'A vacuum contains no particles',
+      'Radiation can travel through a vacuum',
+    ],
+    sectionId: 'transfer-processes',
+  },
+  {
+    id: 'tp-027',
+    type: 'multiple_choice',
+    question:
+      'In a vacuum flask, the inside walls have silvery surface. The main purpose of this design is to reduce heat transfer by',
+    options: ['conduction only.', 'radiation only.', 'conduction and convection only.', 'convection and radiation only.'],
+    answer: 'radiation only.',
+    explanation:
+      '⚠️ **Key point:** Silvery (shiny) surfaces are poor emitters (and good reflectors) of infra-red radiation, so they mainly reduce heat transfer by **radiation**.\n\n**Step 1:** Identify the role of the silvery surface\nThe silvery coating affects thermal radiation, not conduction through solids or convection in fluids.\n\n**Step 2:** Apply radiation principle\nA shiny surface emits less infra-red radiation, so less energy is lost (or gained) by radiation.\n\n**Conclusion:** Heat transfer by radiation is reduced → option B.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Silvery/shiny surfaces are poor emitters of infra-red radiation',
+      'This design targets radiation, not conduction or convection',
+      'Think “good reflector, poor emitter”',
+    ],
+    sectionId: 'transfer-processes',
+    imagePaths: ['/physics/exercises/transfer-processes/tp-027-question.png'],
+  },
+  {
+    id: 'tp-028',
+    type: 'multiple_choice',
+    question:
+      'Billy wants to set up a convection current inside the water in a metal tank. Which of the following methods can achieve this?\n\n(1) Heat the water at $A$.\n(2) Cool the water at $A$.\n(3) Cool the water at $B$.',
+    options: ['(1) only', '(2) only', '(3) only', '(1) & (2) only'],
+    answer: '(2) only',
+    explanation:
+      '⚠️ **Key point:** Convection is driven by density differences: warm water (less dense) rises, and cold water (more dense) sinks. A convection current forms only when the fluid can rise/sink to set up a circulation.\n\n**Step 1:** Heat the water at $A$ (1)\nFrom the diagram, $A$ is at the top. If water at the top is heated, it becomes less dense but has nowhere to rise, so a convection current is not easily set up → false.\n\n**Step 2:** Cool the water at $A$ (2)\nCooling water at the top makes it denser, so it sinks. This downward motion forces other water to move up to replace it, forming a convection current → true.\n\n**Step 3:** Cool the water at $B$ (3)\nFrom the diagram, $B$ is at the bottom. If water at the bottom is cooled, it becomes denser but has nowhere to sink, so convection is not easily set up → false.\n\n**Conclusion:** Only (2) can achieve this → option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Warm water rises; cold water sinks',
+      'Heating at the top does not create an upward movement',
+      'Cooling at the top makes water sink and can drive circulation',
+    ],
+    sectionId: 'transfer-processes',
+    imagePaths: ['/physics/exercises/transfer-processes/tp-028-question.png'],
+  },
+  {
+    id: 'tp-029',
+    type: 'multiple_choice',
+    question:
+      'A beaker of water is heated by a flame placed at the bottom. Which diagram below best shows the convection currents?',
+    options: [
+      '/physics/exercises/transfer-processes/tp-029-option-a.png',
+      '/physics/exercises/transfer-processes/tp-029-option-b.png',
+      '/physics/exercises/transfer-processes/tp-029-option-c.png',
+      '/physics/exercises/transfer-processes/tp-029-option-d.png',
+    ],
+    answer: '/physics/exercises/transfer-processes/tp-029-option-d.png',
+    explanation:
+      '⚠️ **Key point:** When water at the bottom is heated, it becomes less dense and rises. Cooler, denser water sinks to replace it, forming a circulation.\n\n**Step 1:** Bottom heating\nWater near the flame warms up, expands and its density decreases, so it rises.\n\n**Step 2:** Complete the convection loop\nAt the top, the warm water spreads sideways. Near the sides it cools, becomes denser and sinks, then flows back along the bottom toward the centre.\n\n**Conclusion:** The diagram that shows rising in the middle and sinking at the sides is option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Heated water becomes less dense and rises',
+      'Cooler water sinks to replace rising water',
+      'Convection current forms a closed loop',
+    ],
+    sectionId: 'transfer-processes',
+  },
+  {
+    id: 'tp-030',
+    type: 'multiple_choice',
+    question:
+      'In a water heating system, the hot water from the heater flows to the tap through water pipes. However, heat is lost during the flowing process. Which of the following statements are correct concerning the flowing process?\n\n(1) Heat is lost through the walls of the pipes by conduction.\n(2) Heat is lost through the surrounding air by convection.\n(3) Heat is lost to the surrounding by radiation.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      '⚠️ **Key point:** A hot pipe can lose energy to the surroundings by **conduction** (through the pipe wall), **convection** (to moving air) and **radiation** (infra-red).\n\n**Step 1:** Statement (1) — conduction\nHeat is conducted from the hot water to the pipe and then through the pipe wall to the outside → true.\n\n**Step 2:** Statement (2) — convection\nThe outer surface of the pipe warms the surrounding air. Warm air rises and is replaced by cooler air, setting up convection currents that carry energy away → true.\n\n**Step 3:** Statement (3) — radiation\nAll warm objects emit thermal (infra-red) radiation, so the pipe radiates energy to the surroundings → true.\n\n**Conclusion:** (1), (2) and (3) are all correct → option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Heat can travel through solids by conduction',
+      'Warm air rising is convection',
+      'All warm objects emit infra-red radiation',
+    ],
+    sectionId: 'transfer-processes',
+  },
+  {
+    id: 'tp-031',
+    type: 'multiple_choice',
+    question:
+      'What material should be used to cover the roof of the house in order to keep the house cooler in a hot day under the Sun?',
+    options: [
+      'a layer of red brick',
+      'a layer of dark soil',
+      'a layer of black paint',
+      'a layer of white paint',
+    ],
+    answer: 'a layer of white paint',
+    explanation:
+      '⚠️ **Key point:** To keep the house cooler under the Sun, the roof should absorb as little solar radiation as possible.\n\n**Step 1:** Compare absorption of colours\nDark colours (e.g. black) are good absorbers of radiation, so they heat up more.\nWhite surfaces reflect more radiation and absorb less.\n\n**Step 2:** Choose the best covering\nA white-painted roof absorbs less solar energy, so less heat is transferred into the house.\n\n**Conclusion:** Use a layer of white paint → option D.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Black/dark surfaces absorb radiation well and heat up',
+      'White surfaces reflect more radiation and absorb less',
+      'Choose the roof covering that absorbs the least sunlight',
+    ],
+    sectionId: 'transfer-processes',
+    imagePaths: ['/physics/exercises/transfer-processes/tp-031-question.png'],
+  },
+  {
+    id: 'tp-032',
+    type: 'multiple_choice',
+    question:
+      'Fibre is used to separate the roof and the ceiling. How may fibre help to prevent heat from passing through the ceiling?',
+    options: [
+      'Fibre allows air to pass through easily.',
+      'Fibre traps air.',
+      'Fibre is cold.',
+      'Fibre is light in colour.',
+    ],
+    answer: 'Fibre traps air.',
+    explanation:
+      '⚠️ **Key point:** Fibre acts as an insulator mainly because it traps air, and air is a poor conductor of heat.\n\n**Step 1:** Trapped air reduces conduction\nAir conducts heat poorly, so many small air pockets reduce heat transfer by conduction through the ceiling.\n\n**Step 2:** Less air movement reduces convection\nWhen air is trapped in small spaces, it cannot circulate easily, so convection is also reduced.\n\n**Conclusion:** Fibre traps air → option B.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Air is a poor conductor of heat',
+      'Fibre insulation works by trapping air in small pockets',
+      'Trapped air also reduces convection currents',
+    ],
+    sectionId: 'transfer-processes',
+    imagePaths: ['/physics/exercises/transfer-processes/tp-032-question.png'],
+  },
+  {
+    id: 'tp-033',
+    type: 'multiple_choice',
+    question:
+      'Which of the following correctly explains the main reason for the heat to be transferred in the process of convection?',
+    options: [
+      'The heat is carried away by infra-red radiation.',
+      'The process is achieved due to the temperature difference in a solid.',
+      'The process is achieved due to the density difference in a fluid.',
+      'The process is achieved due to the vibration of molecules.',
+    ],
+    answer: 'The process is achieved due to the density difference in a fluid.',
+    explanation:
+      '⚠️ **Key point:** Convection occurs in fluids because temperature differences create **density differences**. The less dense (warmer) fluid rises and the denser (cooler) fluid sinks, setting up a convection current.\n\n**Step 1:** Identify what drives the motion\nHeating usually causes expansion, which lowers density. Cooler regions are denser.\n\n**Step 2:** Link motion to heat transfer\nThe bulk movement of fluid carries internal energy from one place to another.\n\n**Conclusion:** Convection is achieved due to density differences in a fluid → option C.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Convection happens in liquids and gases (fluids)',
+      'Warm fluid is less dense and rises; cold fluid is more dense and sinks',
+      'The key is density difference, not radiation or vibration',
+    ],
+    sectionId: 'transfer-processes',
+  },
+  {
+    id: 'tp-034',
+    type: 'multiple_choice',
+    question:
+      'In the design of a solar heater, the panels are painted black in colour. What is the reason behind?',
+    options: [
+      'To make the panel become good conductor.',
+      'To allow convection to take place.',
+      'To improve the absorption of infra-red radiation.',
+      'To improve the emission of infra-red radiation.',
+    ],
+    answer: 'To improve the absorption of infra-red radiation.',
+    explanation:
+      '⚠️ **Key point:** A black surface is a good absorber of radiation, so it absorbs more solar energy and heats up more.\n\n**Step 1:** What black colour affects\nColour mainly affects absorption/reflection of radiation, not conduction.\n\n**Step 2:** Apply to a solar heater\nA black panel absorbs more radiation energy, so more energy is available to heat the water.\n\n**Conclusion:** Black paint improves absorption of infra-red radiation → option C.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Black surfaces are good absorbers of radiation',
+      'Painting changes absorption, not the material’s conductivity',
+      'A solar heater wants to absorb as much radiation as possible',
+    ],
+    sectionId: 'transfer-processes',
+  },
+  {
+    id: 'tp-035',
+    type: 'multiple_choice',
+    question:
+      'Two identical metal plates, one painted with white colour and the other painted with black colour, are placed at equal distances from a radiant heater as shown. After some time, which metal plate absorbs more energy and which metal plate emits more energy?',
+    options: [
+      'Absorbs more: white; Emits more: white',
+      'Absorbs more: white; Emits more: black',
+      'Absorbs more: black; Emits more: white',
+      'Absorbs more: black; Emits more: black',
+    ],
+    answer: 'Absorbs more: black; Emits more: black',
+    explanation:
+      '⚠️ **Key point:** For thermal radiation, **black/dull** surfaces are good absorbers and good emitters, while **white/shiny** surfaces are poor absorbers and poor emitters.\n\n**Step 1:** Absorption from the radiant heater\nThe black plate absorbs more radiation energy than the white plate.\n\n**Step 2:** Emission to the surroundings\nAfter heating up, the black plate also emits infra-red radiation more effectively than the white plate.\n\n**Conclusion:** The black plate absorbs more and emits more → option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Black/dull surfaces are good absorbers of thermal radiation',
+      'Good absorbers are also good emitters',
+      'White/shiny surfaces are poor absorbers and poor emitters',
+    ],
+    sectionId: 'transfer-processes',
+    imagePaths: ['/physics/exercises/transfer-processes/tp-035-question.png'],
+  },
+  {
+    id: 'tp-036',
+    type: 'multiple_choice',
+    question:
+      'Cynthia places a carpet on a tile floor. After a while, she stands in bare feet with one foot on the tile floor and the other on the carpet as shown. She feels that the tile floor is colder than the carpet. Which of the following best explains this phenomenon?',
+    options: [
+      'The tile is a better insulator of heat than the carpet.',
+      'The tile is at a lower temperature than the carpet.',
+      'The specific heat capacity of the tile is smaller than that of the carpet.',
+      "Energy transfers from Cynthia's foot to the tile at a greater rate than that to the carpet.",
+    ],
+    answer: "Energy transfers from Cynthia's foot to the tile at a greater rate than that to the carpet.",
+    explanation:
+      "⚠️ **Key point:** What you feel depends on the **rate of heat transfer** from your skin. A good conductor draws heat away faster, making it feel colder.\n\n**Step 1:** Same temperature, different feeling\nAfter a while, both the tile and the carpet are at roughly room temperature. Feeling colder does not mean it is at a lower temperature.\n\n**Step 2:** Compare thermal conductivity\nTile is a better conductor of heat than carpet (which traps air and is a poor conductor).\n\n**Step 3:** Link to heat transfer rate\nBecause tile conducts heat away faster, energy flows from Cynthia’s foot to the tile at a greater rate than to the carpet.\n\n**Conclusion:** The tile feels colder because heat transfers to it faster → option D.",
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Feeling “cold” depends on how fast heat leaves your skin',
+      'Tile is a better conductor than carpet',
+      'Both surfaces can be at the same room temperature',
+    ],
+    sectionId: 'transfer-processes',
+    imagePaths: ['/physics/exercises/transfer-processes/tp-036-question.png'],
+  },
+  {
+    id: 'tp-038',
+    type: 'multiple_choice',
+    question:
+      'A driver parks his car outdoor under the sun. After parking, he switches off the engine of the car. Two hours later when he gets back into the car, he feels that the inside of the car is far hotter than outside.\n\nThe best explanation is',
+    options: [
+      "the car's engine is still generating heat after the engine has been switched off.",
+      "the car's metal parts absorb infra-red radiation at a faster rate than the surroundings.",
+      'the glass windows of the car trap infra-red radiation and a greenhouse effect results.',
+      'the surrounding air is a good insulator of heat which reduces heat loss by conduction.',
+    ],
+    answer: 'the glass windows of the car trap infra-red radiation and a greenhouse effect results.',
+    explanation:
+      '⚠️ **Key point:** Sunlight can enter through the car windows, but much of the heat (mainly infra-red) is then trapped, so the inside temperature rises — this is the greenhouse effect.\n\n**Step 1:** Eliminate A\nAfter the engine is switched off, it cools down and stops providing significant heat after some time.\n\n**Step 2:** Why B is not the best\nThe metal body may get hot, but the main reason the *air inside* becomes much hotter is trapping of radiation rather than “faster absorption than the surroundings”.\n\n**Step 3:** Identify the greenhouse effect (C)\nSolar radiation enters through the glass and warms the interior. The warmed interior emits infra-red radiation, which does not escape as effectively through the glass, so heat is trapped and the inside gets hotter.\n\n**Step 4:** Eliminate D\nConduction through air is not the main mechanism here; the dominant effect is radiation trapping.\n\n**Conclusion:** The greenhouse effect due to glass windows trapping infra-red radiation → option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Think “greenhouse effect” for a closed car under sunlight',
+      'Sunlight enters easily through glass, but heat is trapped inside',
+      'The car gets hotter even without the engine running',
+    ],
+    sectionId: 'transfer-processes',
+  },
+  {
+    id: 'tp-039',
+    type: 'multiple_choice',
+    question:
+      'Some icy cold liquid is kept cold inside a vacuum flask. Which statements are correct?\n\n(1) The flask’s cork stopper reduces heat gain from the surroundings.\n(2) The silver coating on the inner surface of the glass wall is a good reflector of infra-red.\n(3) The vacuum between the double glass walls reduces heat gain by radiation.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (2) only',
+    explanation:
+      '⚠️ **Key point:** A vacuum flask reduces heat transfer by (i) stopping **conduction & convection** with a vacuum and a stopper, and (ii) reducing **radiation** with a shiny (silver) surface.\n\n**Step 1:** Statement (1)\nCork is a poor conductor, reducing heat gain by conduction. It also limits air movement at the mouth, reducing convection → true.\n\n**Step 2:** Statement (2)\nA silver (shiny) coating is a good reflector and a poor absorber/emitter of infra-red radiation, so it reduces heat gain by radiation → true.\n\n**Step 3:** Statement (3)\nA vacuum prevents conduction and convection, but radiation can travel through a vacuum. So a vacuum does not reduce heat gain by radiation → false.\n\n**Conclusion:** (1) and (2) only → option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Vacuum stops conduction and convection, not radiation',
+      'Shiny/silver surfaces reflect infra-red radiation',
+      'Cork reduces conduction and limits convection at the top',
+    ],
+    sectionId: 'transfer-processes',
   },
 ];

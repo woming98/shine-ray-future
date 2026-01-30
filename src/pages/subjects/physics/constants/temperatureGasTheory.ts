@@ -2,8 +2,8 @@ import { Chapter, Concept, Formula } from '../types';
 import { TEMPERATURE_GAS_EXERCISES } from './temperatureGas';
 
 // ============================================
-// Temperature and Gas 主题内容（先完成 Section: temp-heat-internal）
-// 基于 DSE 真题风格 + 已录入练习题（thi-001~）反推理论结构
+// Temperature and Gas 主题内容（已覆盖：temp-heat-internal / transfer-processes）
+// 基于 DSE 真题风格 + 已录入练习题（thi-001~、tp-001~）反推理论结构
 // ============================================
 
 // 概念知识点 - Temperature, Heat and Internal Energy
@@ -181,8 +181,156 @@ export const TEMPERATURE_GAS_CONCEPTS: Concept[] = [
   },
 ];
 
+// 概念知识点 - Transfer Processes
+export const TEMPERATURE_GAS_TRANSFER_CONCEPTS: Concept[] = [
+  {
+    id: 'tgp-1',
+    title: '三种热传递（Transfer Processes）总览',
+    content:
+      '热可以通过三种方式在物体与环境之间传递：传导（conduction）、对流（convection）和辐射（radiation）。同一个情境通常会同时发生多种热传递过程。',
+    keyPoints: [
+      '传导：粒子碰撞/相互作用传能，常见于固体（也可发生于静止流体）',
+      '对流：流体整体运动把能量“搬运”走，只发生在液体/气体',
+      '辐射：电磁波（主要是红外线）传能，可在真空中传播',
+      '实际题目经常是“(1)(2)(3) 都有”或问“哪一种被减弱”',
+      '对应练习：tp-010、tp-018、tp-020、tp-026',
+    ],
+    examples: [
+      '热汤放在空气中冷却：传导 + 对流 + 辐射同时发生',
+      '太空中只有辐射能传热（无传导/对流）',
+    ],
+    difficulty: 'basic',
+  },
+  {
+    id: 'tgp-2',
+    title: '传导（Conduction）：好导体/差导体与“感觉更冷”',
+    content:
+      '传导是靠粒子碰撞把能量从高温处传到低温处。金属一般是好导体；空气、纤维、木材等通常是差导体。你“感觉冷/热”很大程度取决于热从皮肤流走的快慢。',
+    keyPoints: [
+      '金属好导热 ⇒ 热从皮肤流走快 ⇒ “更冷”（不代表金属温度更低）',
+      '空气是差导体；真空没有粒子 ⇒ 不能传导',
+      '一般导热能力：气体 < 液体 < 固体（同一题目常用此顺序）',
+      '对应练习：tp-008、tp-012、tp-016、tp-019、tp-022、tp-023、tp-036',
+    ],
+    examples: ['冬天坐金属椅更冷（导热快）', '瓷砖比地毯更“冰”（导热快）'],
+    difficulty: 'basic',
+  },
+  {
+    id: 'tgp-3',
+    title: '保温材料为何有效：困住空气（Trapped air）',
+    content:
+      '很多保温材料本身并不一定“神奇”，关键是它们内部有大量细小空隙，能困住空气。空气导热差，而且被困住后不易形成对流，从而减少热传递。',
+    keyPoints: [
+      '困住空气：降低传导（空气差导体）',
+      '小空隙：抑制对流（空气不易循环）',
+      '双层玻璃/动物毛/纤维隔热层：本质都是“困住空气”',
+      '对应练习：tp-014、tp-032、tp-036',
+    ],
+    examples: ['羽绒服保暖：靠困住空气', '屋顶纤维隔热层：减少热通过天花板'],
+    difficulty: 'basic',
+  },
+  {
+    id: 'tgp-4',
+    title: '对流（Convection）：密度差驱动的循环',
+    content:
+      '对流发生在流体中：受热的流体膨胀、密度减小而上升；较冷的流体密度较大而下沉，从而形成循环（convection current）。',
+    keyPoints: [
+      '加热 ⇒ 体积增大 ⇒ 密度减小 ⇒ 上升',
+      '冷却 ⇒ 密度增大 ⇒ 下沉',
+      '对流的“根本原因”是温度差造成的密度差',
+      '对应练习：tp-006、tp-033',
+    ],
+    examples: ['水被从底部加热：热水上升、冷水下沉形成对流', '暖空气上升形成热气流'],
+    difficulty: 'basic',
+  },
+  {
+    id: 'tgp-5',
+    title: '对流能否建立：从上加热 vs 从下加热',
+    content:
+      '对流需要“热的在下、冷的在上”这种不稳定分布才能自然形成循环。如果热的流体本来就在上方，往往难以建立对流（系统稳定）。',
+    keyPoints: [
+      '从下加热：热的上升、冷的下沉 ⇒ 易建立对流',
+      '从上加热：热的已经在上面 ⇒ 不易建立对流',
+      '从上冷却：冷的下沉 ⇒ 可驱动对流',
+      '对应练习：tp-025、tp-028、tp-029',
+    ],
+    examples: ['上层水沸腾但底部仍有冰：难以对流 + 水导热差', '冷却上层水可驱动循环'],
+    difficulty: 'intermediate',
+  },
+  {
+    id: 'tgp-6',
+    title: '自然对流的例子：海风/陆风与热气流',
+    content:
+      '自然界中很多风与气流都源于对流：白天陆地升温快，陆地上空热空气上升，海风吹向陆地；夜晚海水降温慢，海面上空空气较热上升，陆风吹向海面。',
+    keyPoints: [
+      '白天：陆地更热 ⇒ 陆地上空空气上升 ⇒ 海风（sea breeze）吹向陆地',
+      '夜晚：海更热 ⇒ 海面上空空气上升 ⇒ 陆风（land breeze）吹向海面',
+      '热气流上升可被鸟类利用（滑翔/上升气流）',
+      '对应练习：tp-009',
+    ],
+    examples: ['海边白天风从海吹向陆地', '鸟利用上升热气流获取高度'],
+    difficulty: 'basic',
+  },
+  {
+    id: 'tgp-7',
+    title: '热辐射（Radiation）与红外线（Infra-red）',
+    content:
+      '所有物体只要温度高于绝对零度都会发出热辐射；在日常温度范围，主要是红外线（infra-red）。辐射不需要介质，因此能在真空中传热。',
+    keyPoints: [
+      '热辐射主要是红外线',
+      '辐射不需要介质 ⇒ 真空中仍能传热',
+      '“不涉及分子运动”的过程：辐射',
+      '对应练习：tp-007、tp-010、tp-020、tp-026',
+    ],
+    examples: ['站在火旁会感到热：辐射', '太空中卫星散热主要靠辐射'],
+    difficulty: 'basic',
+  },
+  {
+    id: 'tgp-8',
+    title: '吸收与发射：黑/白、暗/亮、光滑/粗糙',
+    content:
+      '表面性质会影响热辐射：黑色/暗哑（dull）表面一般是好吸收体也是好发射体；光亮/银色（shiny）表面则是差吸收体也是差发射体。',
+    keyPoints: [
+      '黑/暗哑：好吸收 + 好发射',
+      '光亮/银色：差吸收 + 差发射（善反射）',
+      '“好吸收体也是好发射体”是常见核心规则',
+      '对应练习：tp-011、tp-013、tp-015、tp-017、tp-024、tp-031、tp-034、tp-035',
+    ],
+    examples: ['汽车水箱散热器常涂黑：增强辐射散热', '太阳能集热板涂黑：增强吸收'],
+    difficulty: 'basic',
+  },
+  {
+    id: 'tgp-9',
+    title: '保温与减热设计：真空瓶、锡纸、玻璃盖',
+    content:
+      '保温设计通常是“针对性地减少某一种热传递”。例如：真空层减少传导与对流；银色内壁减少辐射；盖子/玻璃盖减少对流。',
+    keyPoints: [
+      '真空：减少传导与对流（不是减少辐射）',
+      '银色内壁：反射红外线、差发射 ⇒ 减少辐射换热',
+      '盖子/玻璃盖：阻止空气交换 ⇒ 减少对流',
+      '对应练习：tp-001、tp-002、tp-005、tp-027、tp-039',
+    ],
+    examples: ['用光亮铝箔包热食物：主要减少辐射散热', '太阳灶玻璃盖：减少对流散热'],
+    difficulty: 'intermediate',
+  },
+  {
+    id: 'tgp-10',
+    title: '温室效应（Greenhouse effect）：车内更热的原因',
+    content:
+      '太阳光（可见光为主）较容易透过玻璃进入车内，车内物体吸收后升温并发出红外线。玻璃对红外线的透过较差，同时车内对流也被抑制，导致热量更容易“被困住”。',
+    keyPoints: [
+      '太阳光进入容易；车内红外线散出较困难 ⇒ 热量积累',
+      '封闭空间抑制对流换气 ⇒ 更难把热带走',
+      '常见考法：车内/温室/太阳灶玻璃盖',
+      '对应练习：tp-038、tp-005',
+    ],
+    examples: ['夏天停在阳光下的车：车内温度显著升高', '温室种植：保持较高温度'],
+    difficulty: 'intermediate',
+  },
+];
+
 // 物理公式 - Temperature, Heat and Internal Energy
-export const TEMPERATURE_GAS_FORMULAS: Formula[] = [
+export const TEMPERATURE_GAS_FORMULAS_THI: Formula[] = [
   {
     id: 'tg-1',
     name: 'Thermometer scale (linear interpolation)',
@@ -337,15 +485,97 @@ export const TEMPERATURE_GAS_FORMULAS: Formula[] = [
   },
 ];
 
-// 章节配置（先做一个章节：temp-heat-internal）
+// 物理公式 - Transfer Processes
+export const TEMPERATURE_GAS_FORMULAS_TP: Formula[] = [
+  {
+    id: 'tg-11',
+    name: 'Conduction (rate of heat transfer)',
+    nameCN: '传导：热传递速率',
+    expression: 'P = kAΔT / L',
+    variables: [
+      { symbol: 'P', name: 'power (rate)', unit: 'W', description: '热传递速率 P' },
+      { symbol: 'k', name: 'thermal conductivity', unit: 'W m⁻¹ K⁻¹', description: '导热系数 k' },
+      { symbol: 'A', name: 'area', unit: 'm²', description: '面积 A' },
+      { symbol: 'ΔT', name: 'temperature difference', unit: 'K', description: '温差 ΔT' },
+      { symbol: 'L', name: 'thickness/length', unit: 'm', description: '厚度/长度 L' },
+    ],
+    description:
+      '稳态传导中，热传递速率与导热系数、面积、温差成正比，与材料厚度成反比。提示：ΔT 用 K 或 °C 的“温差”数值相同。',
+    example: 'k=0.04 W m⁻¹ K⁻¹, A=10 m², ΔT=15 K, L=0.10 m → P=60 W',
+  },
+  {
+    id: 'tg-12',
+    name: 'Convection (Newton’s law of cooling, simplified)',
+    nameCN: '对流：热传递速率（简化）',
+    expression: 'P = hAΔT',
+    variables: [
+      { symbol: 'P', name: 'power (rate)', unit: 'W', description: '热传递速率 P' },
+      { symbol: 'h', name: 'convection coefficient', unit: 'W m⁻² K⁻¹', description: '对流换热系数 h' },
+      { symbol: 'A', name: 'area', unit: 'm²', description: '面积 A' },
+      { symbol: 'ΔT', name: 'temperature difference', unit: 'K', description: '温差 ΔT' },
+    ],
+    description:
+      '对流换热常用 P = hAΔT（h 由流体、流速、表面形状等决定）。题目若给 h，可用此式估算对流换热速率。',
+    example: 'h=8 W m⁻² K⁻¹, A=2 m², ΔT=10 K → P=160 W',
+  },
+  {
+    id: 'tg-13',
+    name: 'Radiation (Stefan–Boltzmann law)',
+    nameCN: '辐射：斯特藩–玻尔兹曼定律',
+    expression: 'P = εσA(T⁴ − T_env⁴)',
+    variables: [
+      { symbol: 'P', name: 'power (net)', unit: 'W', description: '净辐射功率 P' },
+      { symbol: 'ε', name: 'emissivity', unit: '-', description: '发射率 ε（0~1）' },
+      { symbol: 'A', name: 'area', unit: 'm²', description: '表面积 A' },
+      { symbol: 'T', name: 'object temperature', unit: 'K', description: '物体温度 T（K）' },
+      { symbol: 'T_env', name: 'surroundings temperature', unit: 'K', description: '环境温度 T_env（K）' },
+    ],
+    description:
+      '净辐射功率：P = εσA(T⁴ − T_env⁴)，其中 σ = 5.67×10⁻⁸ W m⁻² K⁻⁴。注意：辐射公式必须用 K（绝对温度）。',
+    example: 'ε=0.9, A=0.5 m², T=350 K, T_env=300 K → P≈165 W',
+  },
+  {
+    id: 'tg-14',
+    name: 'Thermal resistance (conduction)',
+    nameCN: '热阻：传导（等效）',
+    expression: 'R_th = L / (kA)',
+    variables: [
+      { symbol: 'R_th', name: 'thermal resistance', unit: 'K W⁻¹', description: '热阻 R_th' },
+      { symbol: 'L', name: 'thickness/length', unit: 'm', description: '厚度/长度 L' },
+      { symbol: 'k', name: 'thermal conductivity', unit: 'W m⁻¹ K⁻¹', description: '导热系数 k' },
+      { symbol: 'A', name: 'area', unit: 'm²', description: '面积 A' },
+    ],
+    description:
+      '把传导写成“电路类比”：R_th = L/(kA)，并可配合 P = ΔT / R_th 使用。厚度越大、面积越小、导热系数越小 ⇒ 热阻越大 ⇒ 越保温。',
+    example: 'L=0.10 m, k=0.04, A=10 m² → R_th=0.25 K/W',
+  },
+];
+
+// 供“公式计算”标签页使用：整合全主题公式
+export const TEMPERATURE_GAS_FORMULAS: Formula[] = [
+  ...TEMPERATURE_GAS_FORMULAS_THI,
+  ...TEMPERATURE_GAS_FORMULAS_TP,
+];
+
+// 章节配置
 export const TEMPERATURE_GAS_CHAPTERS: Chapter[] = [
   {
     id: 'temp-heat-internal',
     title: 'Temperature, Heat and Internal Energy',
     titleCN: '温度、热、內能',
     concepts: TEMPERATURE_GAS_CONCEPTS,
-    formulas: TEMPERATURE_GAS_FORMULAS,
+    formulas: TEMPERATURE_GAS_FORMULAS_THI,
     exercises: TEMPERATURE_GAS_EXERCISES.filter((e) => e.sectionId === 'temp-heat-internal'),
+    simulations: [],
+    completed: false,
+  },
+  {
+    id: 'transfer-processes',
+    title: 'Transfer Processes',
+    titleCN: '热转移过程',
+    concepts: TEMPERATURE_GAS_TRANSFER_CONCEPTS,
+    formulas: TEMPERATURE_GAS_FORMULAS_TP,
+    exercises: TEMPERATURE_GAS_EXERCISES.filter((e) => e.sectionId === 'transfer-processes'),
     simulations: [],
     completed: false,
   },
