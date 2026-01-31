@@ -1700,6 +1700,7 @@ export const TEMPERATURE_GAS_EXERCISES: Exercise[] = [
       'The car gets hotter even without the engine running',
     ],
     sectionId: 'transfer-processes',
+    imagePaths: ['/physics/exercises/transfer-processes/tp-037-question.png'],
   },
   {
     id: 'tp-039',
