@@ -21,7 +21,7 @@ export default function SubjectHub() {
       color: 'from-emerald-500 to-teal-500',
       bgColor: 'bg-emerald-50',
       iconColor: 'text-emerald-500',
-      status: 'active',
+      status: 'coming',
       description: 'DSE英文科目學習資源',
       features: ['智能閱讀', 'AI寫作批改', '聽力訓練', '口語對練'],
     },
@@ -33,7 +33,7 @@ export default function SubjectHub() {
       color: 'from-blue-500 to-indigo-500',
       bgColor: 'bg-blue-50',
       iconColor: 'text-blue-500',
-      status: 'active',
+      status: 'coming',
       description: 'DSE數學必修部分',
       features: ['題型練習', '幾何工具', '錯題分析', '學習報告'],
     },
@@ -67,7 +67,7 @@ export default function SubjectHub() {
       color: 'from-fuchsia-500 to-pink-500',
       bgColor: 'bg-fuchsia-50',
       iconColor: 'text-fuchsia-500',
-      status: 'active',
+      status: 'coming',
       description: '數學延伸部分單元二',
       features: ['三角函數學習中心', '歷屆試題庫', '知識點解析', '公式推導'],
     },
@@ -102,7 +102,7 @@ export default function SubjectHub() {
       color: 'from-green-500 to-emerald-500',
       bgColor: 'bg-green-50',
       iconColor: 'text-green-500',
-      status: 'active',
+      status: 'coming',
       description: '3D細胞模型與虛擬顯微鏡',
       features: ['3D互動', '詞彙學習', '閃卡系統'],
     },
@@ -219,7 +219,7 @@ export default function SubjectHub() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-8">
             <Lock className="w-5 h-5 text-slate-400" />
-            <h2 className="text-2xl font-bold text-slate-800">即將推出</h2>
+            <h2 className="text-2xl font-bold text-slate-800">未上線</h2>
             <span className="text-sm bg-slate-100 text-slate-600 px-3 py-1 rounded-full">
               {comingSubjects.length} 個學科
             </span>
@@ -246,7 +246,7 @@ export default function SubjectHub() {
                 <p className="text-sm text-slate-500">{subject.description}</p>
                 <div className="mt-3 text-xs text-slate-400 flex items-center gap-1">
                   <Lock className="w-3 h-3" />
-                  敬請期待
+                  未上線
                 </div>
               </motion.div>
             ))}

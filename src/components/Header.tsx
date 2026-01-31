@@ -4,15 +4,15 @@
  */
 
 import { useState, useEffect, useRef } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
-  Menu, X, ChevronDown, Globe, 
+  Menu, X, ChevronDown, ChevronRight, Globe, 
   GraduationCap, BookOpen, Calculator, Home,
   Trophy, FileText, ClipboardCheck, Atom, Microscope,
   Languages, Sigma, FlaskConical, TrendingUp, Receipt,
-  BookMarked, Crown
+  BookMarked, Crown, Lock
 } from 'lucide-react'
 
 // 导航配置类型
@@ -25,12 +25,14 @@ interface NavItem {
     label: string
     icon: React.ElementType
     description?: string
+    status?: 'active' | 'coming'
   }[]
 }
 
 export default function Header() {
   const { i18n } = useTranslation()
   const location = useLocation()
+  const navigate = useNavigate()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false)
@@ -73,17 +75,24 @@ export default function Header() {
     {
       label: '學科學習',
       icon: BookOpen,
+      path: '/subjects',
       children: [
-        { path: '/subjects/physics', label: '物理', icon: Atom, description: '互動學習平台' },
-        { path: '/subjects/biology', label: '生物', icon: Microscope, description: '3D細胞模型' },
-        { path: '/subjects/english', label: '英文', icon: BookOpen },
-        { path: '/subjects/math', label: '數學', icon: Calculator },
-        { path: '/subjects/chinese', label: '語文', icon: Languages },
-        { path: '/subjects/m1', label: 'M1', icon: Sigma },
-        { path: '/subjects/m2', label: 'M2', icon: Sigma },
-        { path: '/subjects/chemistry', label: '化學', icon: FlaskConical },
-        { path: '/subjects/economics', label: '經濟', icon: TrendingUp },
-        { path: '/subjects/bafs', label: '會計', icon: Receipt },
+        {
+          path: '/subjects/physics',
+          label: '物理',
+          icon: Atom,
+          description: '互動學習平台',
+          status: 'active',
+        },
+        { path: '/subjects/biology', label: '生物', icon: Microscope, description: '3D細胞模型', status: 'coming' },
+        { path: '/subjects/english', label: '英文', icon: BookOpen, status: 'coming' },
+        { path: '/subjects/math', label: '數學', icon: Calculator, status: 'coming' },
+        { path: '/subjects/chinese', label: '語文', icon: Languages, status: 'coming' },
+        { path: '/subjects/m1', label: 'M1', icon: Sigma, status: 'coming' },
+        { path: '/subjects/m2', label: 'M2', icon: Sigma, status: 'coming' },
+        { path: '/subjects/chemistry', label: '化學', icon: FlaskConical, status: 'coming' },
+        { path: '/subjects/economics', label: '經濟', icon: TrendingUp, status: 'coming' },
+        { path: '/subjects/bafs', label: '會計', icon: Receipt, status: 'coming' },
       ]
     },
     {
@@ -150,8 +159,7 @@ export default function Header() {
               if (hasChildren) {
                 return (
                   <div key={link.label} className="relative">
-                    <button
-                      onClick={() => setOpenDropdown(openDropdown === link.label ? null : link.label)}
+                    <div
                       className={`relative px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200 flex items-center gap-1 ${
                         isActive
                           ? (isScrolled || isLightHeader) ? 'text-primary-600' : 'text-white'
@@ -160,10 +168,29 @@ export default function Header() {
                             : 'text-white/80 hover:text-white hover:bg-white/10'
                       }`}
                     >
-                      <link.icon size={16} />
-                      {link.label}
-                      <ChevronDown size={14} className={`transition-transform ${openDropdown === link.label ? 'rotate-180' : ''}`} />
-                    </button>
+                      {link.path ? (
+                        <Link to={link.path} className="flex items-center gap-1 hover:opacity-90">
+                          <link.icon size={16} />
+                          {link.label}
+                        </Link>
+                      ) : (
+                        <>
+                          <link.icon size={16} />
+                          <span>{link.label}</span>
+                        </>
+                      )}
+                      <button
+                        type="button"
+                        aria-label={`Open ${link.label} menu`}
+                        onClick={() => setOpenDropdown(openDropdown === link.label ? null : link.label)}
+                        className="ml-0.5 p-0.5 rounded hover:bg-black/5"
+                      >
+                        <ChevronDown
+                          size={14}
+                          className={`transition-transform ${openDropdown === link.label ? 'rotate-180' : ''}`}
+                        />
+                      </button>
+                    </div>
 
                     <AnimatePresence>
                       {openDropdown === link.label && (
@@ -178,16 +205,33 @@ export default function Header() {
                               <Link
                                 key={child.path}
                                 to={child.path}
-                                onClick={() => setOpenDropdown(null)}
+                                aria-disabled={child.status === 'coming'}
+                                onClick={(e) => {
+                                  setOpenDropdown(null)
+                                  if (child.status === 'coming') {
+                                    e.preventDefault()
+                                    navigate('/subjects')
+                                  }
+                                }}
                                 className={`flex items-start gap-3 px-3 py-2.5 rounded-xl transition-colors ${
                                   location.pathname === child.path
                                     ? 'bg-primary-50 text-primary-600'
-                                    : 'text-slate-600 hover:bg-slate-50'
-                                }`}
+                                    : child.status === 'coming'
+                                      ? 'text-slate-400 bg-slate-50 cursor-not-allowed'
+                                      : 'text-slate-600 hover:bg-slate-50'
+                                } ${child.status === 'coming' ? 'pointer-events-auto' : ''}`}
                               >
                                 <child.icon size={18} className="mt-0.5 flex-shrink-0" />
                                 <div>
-                                  <div className="font-medium text-sm">{child.label}</div>
+                                  <div className="font-medium text-sm flex items-center gap-2">
+                                    {child.label}
+                                    {child.status === 'coming' && (
+                                      <span className="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-full bg-slate-200 text-slate-600">
+                                        <Lock size={10} />
+                                        未上线
+                                      </span>
+                                    )}
+                                  </div>
                                   {child.description && (
                                     <div className="text-xs text-slate-400">{child.description}</div>
                                   )}
@@ -316,24 +360,55 @@ export default function Header() {
                 if (hasChildren) {
                   return (
                     <div key={link.label} className="space-y-1">
-                      <div className="flex items-center gap-3 px-4 py-2 text-slate-400 text-sm font-medium">
-                        <link.icon size={18} />
-                        {link.label}
-                      </div>
+                      {link.path ? (
+                        <Link
+                          to={link.path}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="flex items-center justify-between gap-3 px-4 py-2 rounded-xl text-slate-700 text-sm font-semibold hover:bg-slate-50"
+                        >
+                          <span className="flex items-center gap-3">
+                            <link.icon size={18} />
+                            {link.label}
+                          </span>
+                          <ChevronRight size={16} className="text-slate-400" />
+                        </Link>
+                      ) : (
+                        <div className="flex items-center gap-3 px-4 py-2 text-slate-400 text-sm font-medium">
+                          <link.icon size={18} />
+                          {link.label}
+                        </div>
+                      )}
                       <div className="pl-4 space-y-1">
                         {link.children!.map((child) => (
                           <Link
                             key={child.path}
                             to={child.path}
-                            onClick={() => setIsMobileMenuOpen(false)}
+                            aria-disabled={child.status === 'coming'}
+                            onClick={(e) => {
+                              setIsMobileMenuOpen(false)
+                              if (child.status === 'coming') {
+                                e.preventDefault()
+                                navigate('/subjects')
+                              }
+                            }}
                             className={`flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all ${
                               location.pathname === child.path
                                 ? 'bg-primary-50 text-primary-600'
-                                : 'text-slate-600 hover:bg-slate-50'
+                                : child.status === 'coming'
+                                  ? 'text-slate-400 bg-slate-50 cursor-not-allowed'
+                                  : 'text-slate-600 hover:bg-slate-50'
                             }`}
                           >
                             <child.icon size={18} />
-                            {child.label}
+                            <span className="flex items-center gap-2">
+                              {child.label}
+                              {child.status === 'coming' && (
+                                <span className="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-full bg-slate-200 text-slate-600">
+                                  <Lock size={10} />
+                                  未上线
+                                </span>
+                              )}
+                            </span>
                           </Link>
                         ))}
                       </div>
