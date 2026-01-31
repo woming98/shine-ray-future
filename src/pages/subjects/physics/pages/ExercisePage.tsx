@@ -341,14 +341,31 @@ export default function ExercisePage({
     if (shouldLaunch && correctCount > 0) {
       setShowRocketLaunch(true);
       setLaunched(resolvedTopicId, sectionIdKey);
-      // 动画结束后自动消失（不再弹出选择 Modal）
-      const timer = setTimeout(() => {
-        setShowRocketLaunch(false);
-        setShowLaunchModal(false);
-      }, 3600);
-      return () => clearTimeout(timer);
     }
   }, [shouldLaunch, correctCount, resolvedTopicId, sectionIdKey, setLaunched]);
+
+  // 升空动画：自动消失（从 shouldLaunch effect 中拆出来，避免 shouldLaunch 变化时清理掉 timer 导致卡住）
+  useEffect(() => {
+    if (!showRocketLaunch) return;
+    const timer = window.setTimeout(() => {
+      setShowRocketLaunch(false);
+      setShowLaunchModal(false);
+    }, 3600);
+    return () => window.clearTimeout(timer);
+  }, [showRocketLaunch]);
+
+  // 升空动画：支持按 Esc 跳过
+  useEffect(() => {
+    if (!showRocketLaunch) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setShowRocketLaunch(false);
+        setShowLaunchModal(false);
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [showRocketLaunch]);
 
   // 检测是否做完全部题目，自动显示总结
   const summaryDismissed = summaryDismissedMap[sectionIdKey] ?? false;
@@ -842,8 +859,20 @@ export default function ExercisePage({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] pointer-events-none"
+            className="fixed inset-0 z-[100]"
           >
+            {/* 跳过按钮 */}
+            <button
+              type="button"
+              onClick={() => {
+                setShowRocketLaunch(false);
+                setShowLaunchModal(false);
+              }}
+              className="absolute top-6 right-6 z-[101] px-3 py-1.5 rounded-lg text-sm font-medium bg-slate-800/70 hover:bg-slate-700/70 text-blue-100 border border-blue-500/30 backdrop-blur-sm"
+            >
+              跳过
+            </button>
+
             {/* 背景遮罩 */}
             <motion.div
               className="absolute inset-0 bg-gradient-to-b from-blue-900/80 via-slate-900/80 to-slate-900/80"
