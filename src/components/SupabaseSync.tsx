@@ -90,8 +90,9 @@ export default function SupabaseSync() {
 
       hydratingRef.current = false
       readyRef.current = true
+      scheduleSave()
     },
-    [setGlobalUser, setPhysicsUser]
+    [scheduleSave, setGlobalUser, setPhysicsUser]
   )
 
   useEffect(() => {
