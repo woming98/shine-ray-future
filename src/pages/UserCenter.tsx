@@ -9,6 +9,7 @@ import {
 import { useNavigate } from 'react-router-dom'
 import LearningDashboard from '../components/LearningDashboard'
 import { isSupabaseConfigured, supabase } from '../supabase'
+import { isAdminUser } from '../admin'
 import { useStore as usePhysicsStore } from '../pages/subjects/physics/store/useStore'
 import { useMathStore } from '../pages/subjects/math/store/useStore'
 import { useEnglishStore } from '../pages/subjects/english/store/useStore'
@@ -801,6 +802,11 @@ export default function UserCenter() {
                   learningTrend={learningTrend}
                   todayTasks={todayTasks}
                   onContinueLearning={handleContinueLearning}
+                  adminLink={
+                    session?.user && isAdminUser(session.user)
+                      ? { href: '/admin', label: '学习后台' }
+                      : undefined
+                  }
                 />
               </motion.div>
             )}

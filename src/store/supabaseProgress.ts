@@ -9,6 +9,11 @@ import { ENGLISH_ACHIEVEMENTS } from '../pages/subjects/english/constants/achiev
 
 export type ProgressPayload = {
   version: number
+  meta?: {
+    name: string
+    email: string
+    syncedAt: string
+  }
   physics: {
     progress: ReturnType<typeof usePhysicsStore.getState>['progress']
     achievements: ReturnType<typeof usePhysicsStore.getState>['achievements']
@@ -85,6 +90,7 @@ const buildEnglishAchievements = () =>
 
 export const buildProgressPayload = (): ProgressPayload => ({
   version: 1,
+  meta: undefined,
   physics: {
     progress: usePhysicsStore.getState().progress,
     achievements: usePhysicsStore.getState().achievements,
@@ -119,6 +125,18 @@ export const buildProgressPayload = (): ProgressPayload => ({
     trigVisionParams: useM2Store.getState().trigVisionParams,
     proofProgress: useM2Store.getState().proofProgress,
   },
+})
+
+export const buildProgressPayloadWithMeta = (
+  meta?: Omit<NonNullable<ProgressPayload['meta']>, 'syncedAt'>
+): ProgressPayload => ({
+  ...buildProgressPayload(),
+  meta: meta
+    ? {
+        ...meta,
+        syncedAt: new Date().toISOString(),
+      }
+    : undefined,
 })
 
 export const applyProgressPayload = (payload: ProgressPayload) => {

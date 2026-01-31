@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { 
   Clock, Target, TrendingUp, Trophy, Flame, Star, 
-  BookOpen, Zap, Play, Rocket
+  BookOpen, Zap, Play, Rocket, Shield
 } from 'lucide-react'
 import { Area, AreaChart, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 
@@ -43,6 +43,12 @@ interface LearningDashboardProps {
   
   // 回调函数
   onContinueLearning?: () => void
+
+  // 管理后台入口（仅管理员显示）
+  adminLink?: {
+    href: string
+    label?: string
+  }
 }
 
 export default function LearningDashboard({
@@ -94,7 +100,8 @@ export default function LearningDashboard({
       percentage: 40
     }
   ],
-  onContinueLearning
+  onContinueLearning,
+  adminLink,
 }: LearningDashboardProps) {
   // 格式化学习时间
   const formatStudyTime = (minutes: number) => {
@@ -143,6 +150,16 @@ export default function LearningDashboard({
               <Play className="w-5 h-5" />
               继续学习
             </button>
+
+            {adminLink?.href && (
+              <Link
+                to={adminLink.href}
+                className="flex items-center gap-2 px-5 py-3 bg-white/10 hover:bg-white/15 text-white rounded-xl font-medium transition-colors border border-white/20"
+              >
+                <Shield className="w-5 h-5 text-yellow-400" />
+                {adminLink.label || '后台'}
+              </Link>
+            )}
           </div>
         </motion.div>
 

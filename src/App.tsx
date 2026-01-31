@@ -14,6 +14,7 @@ const Home = lazy(() => import('./pages/Home'))
 const About = lazy(() => import('./pages/About'))
 const UserCenter = lazy(() => import('./pages/UserCenter'))
 const PhysicsProgress = lazy(() => import('./pages/PhysicsProgress'))
+const AdminDashboard = lazy(() => import('./pages/AdminDashboard'))
 
 // 插班模块
 const AdmissionHub = lazy(() => import('./pages/admission/index'))
@@ -99,6 +100,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="user" element={<UserCenter />} />
           <Route path="user/physics-progress" element={<PhysicsProgress />} />
+          <Route path="admin" element={<AdminDashboard />} />
         </Route>
       </Routes>
     </Suspense>

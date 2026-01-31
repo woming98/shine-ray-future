@@ -8,7 +8,7 @@ import { useEnglishStore } from '../pages/subjects/english/store/useStore'
 import { useM2Store } from '../pages/subjects/m2/store/useStore'
 import {
   applyProgressPayload,
-  buildProgressPayload,
+  buildProgressPayloadWithMeta,
   fetchUserProgress,
   resetProgressStores,
   saveUserProgress,
@@ -48,7 +48,15 @@ export default function SupabaseSync() {
 
     saveTimerRef.current = window.setTimeout(async () => {
       if (!activeUserIdRef.current) return
-      const payload = buildProgressPayload()
+      const globalUser = useGlobalUser.getState().user
+      const payload = buildProgressPayloadWithMeta(
+        globalUser
+          ? {
+              name: globalUser.name,
+              email: globalUser.email,
+            }
+          : undefined
+      )
       await saveUserProgress(activeUserIdRef.current, payload)
     }, SAVE_DEBOUNCE_MS)
   }, [])
