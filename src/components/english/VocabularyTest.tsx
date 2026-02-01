@@ -16,6 +16,54 @@ interface Props {
 
 type TestState = 'testing' | 'result'
 
+const UNIT_GLOSSARY: Record<
+  string,
+  { zh: string; pos?: string; example: string; tips?: string[] }
+> = {
+  worry: {
+    zh: '担心；忧虑',
+    pos: 'v.',
+    example: 'Don’t worry about the test. You have prepared well.',
+    tips: ['worry about + n./V-ing', 'be worried about = 担心…'],
+  },
+  'fortune-teller': {
+    zh: '算命先生；占卜师',
+    pos: 'n.',
+    example: 'They visited a fortune-teller for fun.',
+    tips: ['tell someone’s fortune = 给…算命'],
+  },
+  predict: {
+    zh: '预测；预言',
+    pos: 'v.',
+    example: 'It is hard to predict what will happen next.',
+    tips: ['predict + noun/clause', 'prediction (n.)'],
+  },
+  upset: {
+    zh: '心烦的；使…难过',
+    pos: 'adj./v.',
+    example: 'She felt upset after hearing the news.',
+    tips: ['be upset about/at', 'upset (v.) – upset – upset'],
+  },
+  comfort: {
+    zh: '安慰；使…舒服',
+    pos: 'v./n.',
+    example: 'His mother tried to comfort him.',
+    tips: ['comfort (v.) / comfortable (adj.)'],
+  },
+  moved: {
+    zh: '感动的',
+    pos: 'adj.',
+    example: 'We were moved by the teacher’s words.',
+    tips: ['moved (adj.) vs move (v.)', 'be moved by'],
+  },
+  caring: {
+    zh: '关心他人的；体贴的',
+    pos: 'adj.',
+    example: 'She is a caring teacher who helps everyone.',
+    tips: ['care (v./n.)', 'take care of = 照顾'],
+  },
+}
+
 export default function VocabularyTest({ questions, timeLimit, onBack }: Props) {
   const [testState, setTestState] = useState<TestState>('testing')
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -85,12 +133,15 @@ export default function VocabularyTest({ questions, timeLimit, onBack }: Props) 
       meaning: { correct: 0, total: 0 },
       context: { correct: 0, total: 0 }
     }
+    const wrongWords = new Set<string>()
 
     questions.forEach((q: VocabularyQuestion) => {
       byType[q.type].total++
       if (answers[q.id] === q.answer) {
         correct++
         byType[q.type].correct++
+      } else {
+        wrongWords.add(q.word)
       }
     })
 
@@ -98,7 +149,8 @@ export default function VocabularyTest({ questions, timeLimit, onBack }: Props) 
       correct,
       total: questions.length,
       percentage: Math.round((correct / questions.length) * 100),
-      byType
+      byType,
+      wrongWords: Array.from(wrongWords),
     }
   }
 
@@ -167,6 +219,47 @@ export default function VocabularyTest({ questions, timeLimit, onBack }: Props) 
               )
           ))}
         </div>
+
+        {/* 学习建议：错词复盘 */}
+        {score.wrongWords.length > 0 && (
+          <div className="mb-8">
+            <h3 className="font-semibold text-slate-800 mb-4">学习建议（根据错题自动生成）</h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              {score.wrongWords
+                .filter((w) => UNIT_GLOSSARY[w.toLowerCase()])
+                .slice(0, 6)
+                .map((w) => {
+                  const entry = UNIT_GLOSSARY[w.toLowerCase()]
+                  return (
+                    <div key={w} className="rounded-2xl border border-slate-200 bg-white p-5">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="text-xl font-bold text-slate-900">{w}</div>
+                          <div className="text-sm text-slate-600 mt-1">
+                            {entry.pos ? `${entry.pos} ` : ''}
+                            {entry.zh}
+                          </div>
+                        </div>
+                        <div className="w-10 h-10 rounded-xl bg-primary-100 flex items-center justify-center">
+                          <BookA className="w-5 h-5 text-primary-600" />
+                        </div>
+                      </div>
+                      <div className="mt-3 text-sm text-slate-700 bg-slate-50 border border-slate-200 rounded-xl p-3">
+                        {entry.example}
+                      </div>
+                      {entry.tips && entry.tips.length > 0 && (
+                        <ul className="mt-3 text-sm text-slate-600 list-disc pl-5 space-y-1">
+                          {entry.tips.slice(0, 3).map((tip) => (
+                            <li key={tip}>{tip}</li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  )
+                })}
+            </div>
+          </div>
+        )}
 
         {/* 答题详情 */}
         <div className="space-y-4 mb-8 max-h-96 overflow-y-auto">

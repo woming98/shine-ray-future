@@ -8,6 +8,8 @@ import type { GrammarQuestion } from './types'
 
 export const s1GrammarQuestions: GrammarQuestion[] = [
   // ========== 语法题 ==========
+  // 说明：以下新增题目更贴近「中一插班」Grammar & Vocab 常见题型（proofreading / usage / sentence patterns）。
+  // 为避免版权问题，题目与文本均为原创，但覆盖相同考点。
   {
     id: 's1-g-001',
     grade: 'S1',
@@ -65,6 +67,187 @@ export const s1GrammarQuestions: GrammarQuestion[] = [
     question: 'Find and correct the error: "He don\'t like vegetables."',
     answer: ['He doesn\'t like vegetables.', 'doesn\'t'],
     explanation: '第三人称单数否定句用 doesn\'t，不是 don\'t。'
+  },
+
+  // ========== Proofreading（每句一错）==========
+  {
+    id: 's1-g-006',
+    grade: 'S1',
+    type: 'error-correction',
+    category: 'grammar',
+    topic: 'Possessive noun (’s)',
+    difficulty: 'medium',
+    question: 'Find and correct the error: "The boy future is bright."',
+    answer: ["The boy's future is bright.", "boy's"],
+    explanation: "表示“某人的…”要用所有格：the boy's future。"
+  },
+  {
+    id: 's1-g-007',
+    grade: 'S1',
+    type: 'error-correction',
+    category: 'grammar',
+    topic: 'Prepositions / collocations',
+    difficulty: 'medium',
+    question: 'Find and correct the error: "You can depend with your friends."',
+    answer: ['You can depend on your friends.', 'depend on'],
+    explanation: '固定搭配是 depend on（= rely on）。'
+  },
+  {
+    id: 's1-g-008',
+    grade: 'S1',
+    type: 'error-correction',
+    category: 'grammar',
+    topic: 'Tense sequence',
+    difficulty: 'medium',
+    question: 'Find and correct the error: "He said he is tired yesterday."',
+    answer: ['He said he was tired yesterday.', 'was'],
+    explanation: '转述过去说的话：He said + past（was）。'
+  },
+  {
+    id: 's1-g-009',
+    grade: 'S1',
+    type: 'error-correction',
+    category: 'grammar',
+    topic: 'who / whom',
+    difficulty: 'hard',
+    question: 'Find and correct the error: "Whom is your new class teacher?"',
+    answer: ['Who is your new class teacher?', 'Who'],
+    explanation: '问“是谁”作主语用 who。'
+  },
+  {
+    id: 's1-g-010',
+    grade: 'S1',
+    type: 'error-correction',
+    category: 'grammar',
+    topic: 'Word form (adj/adv)',
+    difficulty: 'medium',
+    question: 'Find and correct the error: "She speaks very polite to strangers."',
+    answer: ['She speaks very politely to strangers.', 'politely'],
+    explanation: '修饰动词 speaks 用副词 politely。'
+  },
+  {
+    id: 's1-g-011',
+    grade: 'S1',
+    type: 'error-correction',
+    category: 'grammar',
+    topic: "It’s vs its",
+    difficulty: 'medium',
+    question: 'Find and correct the error: "Its such a sunny morning."',
+    answer: ["It's such a sunny morning.", "It's"],
+    explanation: "It's = it is；its 是物主代词（它的）。"
+  },
+  {
+    id: 's1-g-012',
+    grade: 'S1',
+    type: 'error-correction',
+    category: 'grammar',
+    topic: 'Present participle clause (V-ing)',
+    difficulty: 'hard',
+    question: 'Find and correct the error: "Looking out of the window, an accident happened."',
+    answer: [
+      'While I was looking out of the window, an accident happened.',
+      'While I was looking out of the window,'
+    ],
+    explanation: 'V-ing 分句主语必须与主句一致；这里应改为 while 从句。'
+  },
+
+  // ========== Sentence patterns / usage ==========
+  {
+    id: 's1-g-013',
+    grade: 'S1',
+    type: 'choice',
+    category: 'grammar',
+    topic: 'so…that…',
+    difficulty: 'medium',
+    question: 'Choose the correct sentence.',
+    options: [
+      'The music was so loud that I covered my ears.',
+      'The music was so loud to cover my ears.',
+      'The music was such loud that I cover my ears.',
+      'The music was so loud because I covered my ears.',
+    ],
+    answer: 'The music was so loud that I covered my ears.',
+    explanation: 'so + adj + that + result：so loud that…'
+  },
+  {
+    id: 's1-g-014',
+    grade: 'S1',
+    type: 'choice',
+    category: 'grammar',
+    topic: 'who / whom',
+    difficulty: 'hard',
+    question: 'Choose the best answer: "To ____ did you give the gift?"',
+    options: ['who', 'whom', 'whose', 'which'],
+    answer: 'whom',
+    explanation: '介词 to 后面是宾语，用 whom（正式书面语）。'
+  },
+
+  // ========== Unit vocab（以语法区的 vocabulary 小题呈现）==========
+  {
+    id: 's1-g-015',
+    grade: 'S1',
+    type: 'fill',
+    category: 'vocabulary',
+    topic: 'Word meaning',
+    difficulty: 'easy',
+    question: 'Fill in the blank: "Don’t ____ about tomorrow. Focus on today."',
+    answer: ['worry'],
+    explanation: 'worry (v.) = 担心。worry about + n./V-ing。'
+  },
+  {
+    id: 's1-g-016',
+    grade: 'S1',
+    type: 'fill',
+    category: 'vocabulary',
+    topic: 'Word form (past participle adjective)',
+    difficulty: 'medium',
+    question: 'Fill in the blank: "I was ____ by her kindness." (move)',
+    answer: ['moved'],
+    explanation: 'moved (adj.) = 感动的；be moved by…'
+  },
+  {
+    id: 's1-g-017',
+    grade: 'S1',
+    type: 'fill',
+    category: 'vocabulary',
+    topic: 'Word meaning',
+    difficulty: 'medium',
+    question: 'Fill in the blank: "It is hard to ____ the weather next week."',
+    answer: ['predict'],
+    explanation: 'predict (v.) = 预测；predict + noun/clause。'
+  },
+  {
+    id: 's1-g-018',
+    grade: 'S1',
+    type: 'fill',
+    category: 'vocabulary',
+    topic: 'Word meaning',
+    difficulty: 'easy',
+    question: 'Fill in the blank: "She tried to ____ her little brother after he fell."',
+    answer: ['comfort'],
+    explanation: 'comfort (v.) = 安慰。'
+  },
+  {
+    id: 's1-g-019',
+    grade: 'S1',
+    type: 'fill',
+    category: 'vocabulary',
+    topic: 'Word meaning',
+    difficulty: 'easy',
+    question: 'Fill in the blank: "He felt ____ when he lost his wallet."',
+    answer: ['upset'],
+    explanation: 'upset (adj.) = 心烦的/难过的。'
+  },
+  {
+    id: 's1-g-020',
+    grade: 'S1',
+    type: 'fill',
+    category: 'vocabulary',
+    topic: 'Word meaning',
+    difficulty: 'easy',
+    question: 'Fill in the blank: "Miss Wong is a patient and ____ teacher."',
+    answer: ['caring'],
+    explanation: 'caring (adj.) = 关心他人的；体贴的。'
   },
 
   // ========== 词汇题 ==========

@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Clock, ArrowLeft, CheckCircle, XCircle, ChevronRight, ChevronLeft } from 'lucide-react'
+import { Clock, ArrowLeft, CheckCircle, XCircle, ChevronRight, ChevronLeft, Sparkles, BookOpen } from 'lucide-react'
 import type { GrammarQuestion } from '../../data/englishQuestions'
+import { LESSONS, topicToLessonKey } from './diagnosticLessons'
 
 interface Props {
   questions: GrammarQuestion[]
@@ -69,12 +70,115 @@ export default function GrammarTest({ questions, timeLimit, onBack }: Props) {
 
   if (testState === 'result') {
     const score = calculateScore()
+    const byTopic: Record<string, { correct: number; total: number }> = {}
+    const wrongTopics = new Set<string>()
+
+    questions.forEach((q) => {
+      const topic = q.topic || 'Other'
+      if (!byTopic[topic]) byTopic[topic] = { correct: 0, total: 0 }
+      byTopic[topic].total++
+      const userAnswer = answers[q.id]?.toLowerCase().trim()
+      const correctAnswers = Array.isArray(q.answer)
+        ? q.answer.map((a) => a.toLowerCase())
+        : [q.answer.toLowerCase()]
+      const isCorrect = correctAnswers.includes(userAnswer)
+      if (isCorrect) byTopic[topic].correct++
+      else wrongTopics.add(topic)
+    })
+
+    const topicRows = Object.entries(byTopic)
+      .map(([topic, data]) => ({
+        topic,
+        ...data,
+        percent: data.total > 0 ? Math.round((data.correct / data.total) * 100) : 0,
+      }))
+      .sort((a, b) => a.percent - b.percent)
+
+    const focusLessons = topicRows
+      .filter((row) => row.total >= 1 && row.percent < 75)
+      .map((row) => topicToLessonKey(row.topic))
+      .filter((k): k is NonNullable<typeof k> => Boolean(k))
+      .slice(0, 3)
+      .map((k) => LESSONS[k])
+
     return (
       <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-8">
         <div className="text-center mb-8">
           <div className="text-6xl font-bold text-primary-600 mb-2">{score.percentage}%</div>
           <div className="text-slate-600">答对 {score.correct} / {score.total} 题</div>
         </div>
+
+        {/* 评估报告：按知识点 */}
+        <div className="mb-8">
+          <div className="flex items-center gap-2 mb-4">
+            <Sparkles className="w-5 h-5 text-primary-600" />
+            <h3 className="font-semibold text-slate-800">评估报告（按知识点）</h3>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {topicRows.map((row) => (
+              <div
+                key={row.topic}
+                className="rounded-xl border border-slate-200 bg-slate-50 p-4"
+              >
+                <div className="flex items-center justify-between gap-2">
+                  <div className="text-sm font-semibold text-slate-800 truncate">{row.topic}</div>
+                  <div className="text-sm font-bold text-slate-800">{row.percent}%</div>
+                </div>
+                <div className="text-xs text-slate-500 mt-1">
+                  {row.correct}/{row.total}
+                </div>
+                <div className="mt-3 h-2 rounded-full bg-slate-200 overflow-hidden">
+                  <div
+                    className={`h-full rounded-full ${
+                      row.percent >= 80
+                        ? 'bg-emerald-500'
+                        : row.percent >= 60
+                          ? 'bg-amber-500'
+                          : 'bg-rose-500'
+                    }`}
+                    style={{ width: `${row.percent}%` }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 学习建议 */}
+        {focusLessons.length > 0 && (
+          <div className="mb-8">
+            <div className="flex items-center gap-2 mb-4">
+              <BookOpen className="w-5 h-5 text-accent-500" />
+              <h3 className="font-semibold text-slate-800">学习建议（根据错题自动生成）</h3>
+            </div>
+            <div className="grid md:grid-cols-3 gap-4">
+              {focusLessons.map((lesson) => (
+                <div
+                  key={lesson.key}
+                  className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
+                >
+                  <div className="text-sm text-slate-500">{lesson.title}</div>
+                  <div className="text-lg font-bold text-slate-900 mt-1">{lesson.titleZh}</div>
+                  <p className="text-sm text-slate-600 mt-2 leading-relaxed">{lesson.summary}</p>
+                  <ul className="text-sm text-slate-700 mt-3 space-y-1 list-disc pl-5">
+                    {lesson.keyPoints.slice(0, 3).map((p) => (
+                      <li key={p}>{p}</li>
+                    ))}
+                  </ul>
+                  <div className="mt-4 bg-slate-50 border border-slate-200 rounded-xl p-3 text-xs text-slate-700 space-y-2">
+                    {lesson.examples.slice(0, 2).map((ex) => (
+                      <div key={ex.right}>
+                        {ex.wrong && <div className="text-rose-600">✗ {ex.wrong}</div>}
+                        <div className="text-emerald-700">✓ {ex.right}</div>
+                        {ex.note && <div className="text-slate-500">{ex.note}</div>}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         <div className="space-y-4 mb-8 max-h-96 overflow-y-auto">
           {questions.map((q: GrammarQuestion, idx: number) => {
