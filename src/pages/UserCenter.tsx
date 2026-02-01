@@ -6,7 +6,7 @@ import {
   User, Mail, Lock, Eye, EyeOff, Phone, ArrowRight,
   BookOpen, Calculator, Star
 } from 'lucide-react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import LearningDashboard from '../components/LearningDashboard'
 import { isSupabaseConfigured, supabase } from '../supabase'
 import { isAdminUser } from '../admin'
@@ -21,6 +21,7 @@ import { useEnglishStore } from '../pages/subjects/english/store/useStore'
 export default function UserCenter() {
   const { t } = useTranslation()
   const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
   const [session, setSession] = useState<Session | null>(null)
   const [activeTab, setActiveTab] = useState<'login' | 'register'>('login')
   const [showPassword, setShowPassword] = useState(false)
@@ -39,6 +40,22 @@ export default function UserCenter() {
   const [recoveryConfirmPassword, setRecoveryConfirmPassword] = useState('')
 
   const isLoggedIn = Boolean(session)
+  const redirectParam = searchParams.get('redirect')
+  const safeRedirect =
+    redirectParam && redirectParam.startsWith('/') ? redirectParam : null
+
+  useEffect(() => {
+    if (!isLoggedIn && safeRedirect) {
+      setAuthMessage('请先登录后继续')
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  useEffect(() => {
+    if (isLoggedIn && safeRedirect) {
+      navigate(safeRedirect, { replace: true })
+    }
+  }, [isLoggedIn, navigate, safeRedirect])
 
   const getAuthTypeFromUrl = () => {
     if (typeof window === 'undefined') return null

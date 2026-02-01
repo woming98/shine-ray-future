@@ -8,6 +8,7 @@ import { Suspense, lazy } from 'react'
 import Layout from './components/Layout'
 import LoadingSpinner from './components/LoadingSpinner'
 import SupabaseSync from './components/SupabaseSync'
+import { RequireAuth, RequireAuthOutlet } from './components/RequireAuth'
 
 // 懒加载页面组件
 const Home = lazy(() => import('./pages/Home'))
@@ -58,9 +59,11 @@ function App() {
             <Route path="rankings" element={<Rankings />} />
             <Route path="info" element={<TransferInfo />} />
             <Route path="test">
-              <Route index element={<TestHub />} />
-              <Route path="english" element={<EnglishTest />} />
-              <Route path="math" element={<MathTest />} />
+              <Route element={<RequireAuthOutlet />}>
+                <Route index element={<TestHub />} />
+                <Route path="english" element={<EnglishTest />} />
+                <Route path="math" element={<MathTest />} />
+              </Route>
             </Route>
           </Route>
           
@@ -70,14 +73,14 @@ function App() {
           <Route path="math-test" element={<MathTest />} />
           
           {/* 獨立學科模塊 - 放在前面确保优先匹配 */}
-          <Route path="subjects/physics/*" element={<PhysicsModule />} />
-          <Route path="subjects/biology/*" element={<BiologyModule />} />
-          <Route path="subjects/math/*" element={<MathModule />} />
-          <Route path="subjects/m2/*" element={<M2Module />} />
-          <Route path="subjects/english/*" element={<EnglishModule />} />
+          <Route path="subjects/physics/*" element={<RequireAuth><PhysicsModule /></RequireAuth>} />
+          <Route path="subjects/biology/*" element={<RequireAuth><BiologyModule /></RequireAuth>} />
+          <Route path="subjects/math/*" element={<RequireAuth><MathModule /></RequireAuth>} />
+          <Route path="subjects/m2/*" element={<RequireAuth><M2Module /></RequireAuth>} />
+          <Route path="subjects/english/*" element={<RequireAuth><EnglishModule /></RequireAuth>} />
           
           {/* 学科学习模块 */}
-          <Route path="subjects">
+          <Route path="subjects" element={<RequireAuthOutlet />}>
             <Route index element={<SubjectHub />} />
             {/* 英文模块有自己的子路由，不需要单独的 english 路由 */}
             <Route path="chinese" element={<ChineseSubject />} />
