@@ -69,8 +69,8 @@ function App() {
           
           {/* 旧路由兼容 - 重定向到新路径 */}
           <Route path="schools" element={<Rankings />} />
-          <Route path="english-test" element={<EnglishTest />} />
-          <Route path="math-test" element={<MathTest />} />
+          <Route path="english-test" element={<RequireAuth><EnglishTest /></RequireAuth>} />
+          <Route path="math-test" element={<RequireAuth><MathTest /></RequireAuth>} />
           
           {/* 獨立學科模塊 - 放在前面确保优先匹配 */}
           <Route path="subjects/physics/*" element={<RequireAuth><PhysicsModule /></RequireAuth>} />
