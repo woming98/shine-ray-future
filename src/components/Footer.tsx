@@ -56,7 +56,7 @@ export default function Footer() {
               />
             </div>
             <p className="text-slate-600 text-sm leading-relaxed mb-6">
-              启迪智慧，照亮未来。我们致力于为家长和学生提供最专业的香港学校插班服务，
+              启迪智慧，照亮未来。我们致力于为家长和学生提供最专业的香港升学插班与学科学习服务，
               助力每一个孩子找到最适合的教育之路。
             </p>
             {/* 社交媒体 */}

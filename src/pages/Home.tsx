@@ -272,7 +272,7 @@ export default function Home() {
           >
             <h2 className="section-title mb-4">{t('home.featuredServices')}</h2>
             <p className="section-subtitle">
-              专业团队为您提供全方位的香港学校插班服务
+              专业团队为您提供全方位的香港升学插班与学科学习服务
             </p>
           </motion.div>
 
@@ -335,7 +335,7 @@ export default function Home() {
                 <span className="gradient-text"> 莘睿未来</span>
               </h2>
               <p className="text-slate-600 text-lg mb-8 leading-relaxed">
-                我们拥有丰富的香港教育资源和专业团队，致力于为每一位学生提供最优质的插班服务。
+                我们拥有丰富的香港教育资源和专业团队，致力于为每一位学生提供高质量的升学插班与学科学习服务。
               </p>
 
               {/* 特点列表 */}

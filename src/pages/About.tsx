@@ -88,7 +88,7 @@ export default function About() {
               {t('nav.about')}
             </h1>
             <p className="text-lg text-primary-200 max-w-2xl mx-auto">
-              启迪智慧，照亮未来 — 我们致力于为每一位学生提供最专业的香港学校插班服务
+              启迪智慧，照亮未来 — 我们致力于为每一位学生提供最专业的香港升学插班与学科学习服务
             </p>
           </motion.div>
         </div>
@@ -108,7 +108,7 @@ export default function About() {
               </h2>
               <div className="space-y-4 text-slate-600 leading-relaxed">
                 <p>
-                  莘睿未来（Shine Ray Future）成立于2021年，是一家专注于香港学校插班服务的教育咨询公司。
+                  莘睿未来（Shine Ray Future）成立于2021年，是一家专注于香港升学插班与HKDSE学科学习的教育机构。
                   我们的名字寓意着"培育莘莘学子，睿智规划未来"。
                 </p>
                 <p>
@@ -152,7 +152,7 @@ export default function About() {
                 <div className="relative z-10">
                   <h3 className="text-2xl font-bold mb-6">我们的使命</h3>
                   <p className="text-primary-100 mb-8 leading-relaxed">
-                    为每一个追求优质教育的家庭提供专业、透明、高效的香港学校插班服务，
+                    为每一个追求优质教育的家庭提供专业、透明、高效的一站式升学插班与学科学习服务，
                     帮助学生找到最适合的教育之路，成就精彩人生。
                   </p>
                   
