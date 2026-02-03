@@ -1720,4 +1720,1621 @@ export const TEMPERATURE_GAS_EXERCISES: Exercise[] = [
     ],
     sectionId: 'transfer-processes',
   },
+  {
+    id: 'cos-001',
+    type: 'multiple_choice',
+    question:
+      'Two liquids $A$ and $B$ are cooled in air. Their cooling curves are shown. If $A$ and $B$ have the same mass, which of the following statements is/are true?\n\n(1) $A$ has a higher freezing point than $B$.\n(2) $A$ has a greater specific latent heat of fusion than $B$.\n(3) Liquid $A$ has a greater specific heat capacity than liquid $B$.',
+    options: ['(3) only', '(1) & (2) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      '⚠️ **Key point:** On a cooling curve, a horizontal segment means a change of state at the freezing point.\n\n**(1) Freezing point**\nThe temperature of the horizontal line is the freezing point. Since the plateau of $A$ is at a higher temperature than that of $B$, $A$ has a higher freezing point → (1) true.\n\n**(2) Specific latent heat of fusion**\nDuring freezing, energy removed is proportional to time: $E = Pt$. For the same mass and the same cooling power, a longer freezing plateau means more energy removed, so $L_f$ is larger (since $E = mL_f$). The plateau of $A$ lasts longer → (2) true.\n\n**(3) Specific heat capacity (liquid phase)**\nIn the liquid-cooling part, $Pt = mc\\Delta T$ so\n$$\\frac{\\Delta T}{t} = \\frac{P}{mc} \\propto \\frac{1}{c}$$\n(same $m$ and $P$). Liquid $A$ has a smaller magnitude slope, so it has a larger $c$ → (3) true.\n\n**Conclusion:** (1), (2) and (3) are all true → option D.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'The temperature of the horizontal part is the freezing point.',
+      'For the same cooling power, a longer freezing plateau means more energy removed during freezing.',
+      'With the same mass and power, a smaller magnitude slope implies a larger specific heat capacity.',
+    ],
+    sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-001-question.png'],
+  },
+  {
+    id: 'cos-002',
+    type: 'multiple_choice',
+    question:
+      'A liquid placed inside an insulated vessel is kept boiling by a heating coil immersed in it. When the power supplied to the coil is $42\\ \\text{W}$, the liquid boils away at a rate of $10^{-4}\\ \\text{kg s}^{-1}$. What is the specific latent heat of vaporization of the liquid?',
+    options: [
+      '$42 \\times 10^{3}\\ \\text{J kg}^{-1}$',
+      '$21 \\times 10^{4}\\ \\text{J kg}^{-1}$',
+      '$42 \\times 10^{4}\\ \\text{J kg}^{-1}$',
+      '$21 \\times 10^{5}\\ \\text{J kg}^{-1}$',
+    ],
+    answer: '$42 \\times 10^{4}\\ \\text{J kg}^{-1}$',
+    explanation:
+      '⚠️ **Key point:** Since the vessel is insulated and the liquid is boiling, the supplied energy goes into latent heat of vaporization.\n\n**Step 1:** Relate power to latent heat\nLatent heat: $E = mL_v$.\nPower: $P = \\frac{E}{t} = \\frac{m}{t}L_v$.\n\n**Step 2:** Substitute values\nGiven $P = 42\\ \\text{J s}^{-1}$ and $\\frac{m}{t} = 10^{-4}\\ \\text{kg s}^{-1}$,\n$$L_v = \\frac{P}{m/t} = \\frac{42}{10^{-4}} = 42 \\times 10^{4}\\ \\text{J kg}^{-1}.$$\n\n**Conclusion:** $L_v = 42 \\times 10^{4}\\ \\text{J kg}^{-1}$ → option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'At boiling, energy goes into latent heat: $E = mL_v$.',
+      'Use $P = E/t = (m/t)L_v$.',
+      'So $L_v = P\\, /\\,(m/t)$.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-003',
+    type: 'multiple_choice',
+    question:
+      '0.10 g of steam at $100^{\\circ}\\text{C}$ is mixed with 0.10 g of ice at $0^{\\circ}\\text{C}$. No heat is lost to the surroundings. Which of the following describes the final mixture?\n\nGiven:\n- Specific heat capacity of water, $c = 4.2\\ \\text{kJ kg}^{-1}\\ {}^{\\circ}\\text{C}^{-1}$\n- Specific latent heat of fusion of ice, $L_f = 336\\ \\text{kJ kg}^{-1}$\n- Specific latent heat of vaporization of steam, $L_v = 2260\\ \\text{kJ kg}^{-1}$',
+    options: [
+      'A mixture of water and steam at $100^{\\circ}\\text{C}$',
+      'Water at $0^{\\circ}\\text{C}$',
+      'Water at $50^{\\circ}\\text{C}$',
+      'Water at $100^{\\circ}\\text{C}$',
+    ],
+    answer: 'A mixture of water and steam at $100^{\\circ}\\text{C}$',
+    explanation:
+      '⚠️ **Key point:** In an insulated system, heat released by steam condensing equals heat absorbed by ice melting and warming.\n\nLet $m = 0.10\\text{ g} = 1.0\\times 10^{-4}\\ \\text{kg}$.\n\n**Step 1: Heat needed to turn the ice (0°C) into water at 100°C**\nMelt ice:\n$$Q_1 = mL_f = (1.0\\times 10^{-4})(336\\times 10^{3}) = 33.6\\ \\text{J}$$\nHeat the melted water from 0°C to 100°C:\n$$Q_2 = mc\\Delta T = (1.0\\times 10^{-4})(4.2\\times 10^{3})(100) = 42\\ \\text{J}$$\nTotal required:\n$$Q_{\\text{need}} = Q_1 + Q_2 = 75.6\\ \\text{J}$$\n\n**Step 2: Compare with heat released if all the steam condenses**\n$$Q_{\\text{steam}} = mL_v = (1.0\\times 10^{-4})(2260\\times 10^{3}) = 226\\ \\text{J}$$\nSince $Q_{\\text{steam}} > Q_{\\text{need}}$, not all steam needs to condense to melt the ice and heat it to $100^{\\circ}\\text{C}$.\n\n**Step 3: Final state**\nAfter the ice becomes water and reaches $100^{\\circ}\\text{C}$, any remaining steam can coexist with water at $100^{\\circ}\\text{C}$ (a mixture at the boiling point).\n\n**Conclusion:** The final mixture is water + steam at $100^{\\circ}\\text{C}$ → option A.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Convert 0.10 g to kg before using the given constants.',
+      'Energy needed: melt ice ($mL_f$) + heat water to 100°C ($mc\\Delta T$).',
+      'Energy supplied comes from steam condensing: $mL_v$. Compare the two.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-004',
+    type: 'multiple_choice',
+    question:
+      'A solid substance of mass $2\\ \\text{kg}$ and specific heat capacity $1000\\ \\text{J kg}^{-1}\\ {}^{\\circ}\\text{C}^{-1}$ is heated uniformly by a constant heat source. The temperature–time graph of the substance is shown. Assuming that no heat is lost, find from the graph the specific latent heat of fusion of the substance.',
+    options: [
+      '$1000\\ \\text{J kg}^{-1}$',
+      '$20000\\ \\text{J kg}^{-1}$',
+      '$30000\\ \\text{J kg}^{-1}$',
+      '$50000\\ \\text{J kg}^{-1}$',
+    ],
+    answer: '$50000\\ \\text{J kg}^{-1}$',
+    explanation:
+      '⚠️ **Key point:** With constant power $P$, energy supplied in a time interval is $E = Pt$.\n\nFrom the graph:\n- Time for melting plateau: $t_1 = 100\\ \\text{s}$\n- Time for heating the solid from $20^{\\circ}\\text{C}$ to $70^{\\circ}\\text{C}$: $t_2 = 100\\ \\text{s}$\n\n**Step 1: Write energies for the two intervals**\nMelting (at constant temperature):\n$$Pt_1 = mL_f$$\nHeating (temperature rise):\n$$Pt_2 = mc\\Delta T$$\n\n**Step 2: Use $t_1 = t_2$ (same power)**\nSince $P$ is constant and $t_1 = t_2$, the energies are equal:\n$$mL_f = mc\\Delta T$$\nSo\n$$L_f = c\\Delta T.$$\n\n**Step 3: Substitute values**\n$$\\Delta T = 70 - 20 = 50^{\\circ}\\text{C}$$\n$$L_f = (1000)(50) = 5.0\\times 10^{4}\\ \\text{J kg}^{-1}.$$\n\n**Conclusion:** $L_f = 50000\\ \\text{J kg}^{-1}$ → option D.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'For a constant heater, energy supplied is proportional to time: $E = Pt$.',
+      'Plateau time gives energy for melting: $Pt = mL_f$.',
+      'A rising segment gives $Pt = mc\\Delta T$. Compare two equal time intervals on the graph.',
+    ],
+    sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-004-question.png'],
+  },
+  {
+    id: 'cos-005',
+    type: 'multiple_choice',
+    question:
+      'The following data shows the thermal properties of four substances $P$, $Q$, $R$ and $S$:\n\n- Melting point (K): $P=40$, $Q=98$, $R=114$, $S=270$\n- Boiling point (K): $P=280$, $Q=880$, $R=180$, $S=370$\n- Average specific heat capacity (J kg$^{-1}$ $^{\\circ}$C$^{-1}$): $P=800$, $Q=1200$, $R=226$, $S=40$\n- Specific latent heat of fusion (J kg$^{-1}$): $P=2\\times 10^{4}$, $Q=11\\times 10^{4}$, $R=5\\times 10^{4}$, $S=33\\times 10^{4}$\n- Specific latent heat of vaporization (J kg$^{-1}$): $P=30\\times 10^{4}$, $Q=34\\times 10^{4}$, $R=40\\times 10^{4}$, $S=230\\times 10^{4}$\n\nWhen the temperature of each substance is increased from $250\\ \\text{K}$ to $400\\ \\text{K}$, which one will absorb the greatest amount of energy?',
+    options: ['P', 'Q', 'R', 'S'],
+    answer: 'S',
+    explanation:
+      '⚠️ **Key point:** Energy absorbed includes sensible heat $mc\\Delta T$ plus latent heat when crossing melting/boiling points.\n\nConsider energy per unit mass (since all substances are compared over the same temperature change).\n\n**P:** 250 K → 280 K (liquid warming) + vaporization at 280 K + 280 K → 400 K (gas warming)\n$$E_P = c(30+120) + L_v = 800(150) + 30\\times 10^{4} = 4.2\\times 10^{5}\\ \\text{J kg}^{-1}$$\n\n**Q:** 250 K → 400 K (no phase change)\n$$E_Q = c(150) = 1200(150) = 1.8\\times 10^{5}\\ \\text{J kg}^{-1}$$\n\n**R:** 250 K → 400 K (no phase change)\n$$E_R = c(150) = 226(150) = 3.39\\times 10^{4}\\ \\text{J kg}^{-1}$$\n\n**S:** 250 K → 270 K (solid warming) + fusion at 270 K + 270 K → 370 K (liquid warming) + vaporization at 370 K + 370 K → 400 K (gas warming)\n$$E_S = c(20+100+30) + L_f + L_v = 40(150) + 33\\times 10^{4} + 230\\times 10^{4} = 2.636\\times 10^{6}\\ \\text{J kg}^{-1}$$\n\n**Conclusion:** $S$ absorbs the greatest amount of energy because it undergoes both fusion and vaporization, and has very large latent heats → option D.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Decide the state at 250 K using melting/boiling points.',
+      'Add latent heat if the temperature range crosses a melting or boiling point.',
+      'For temperature changes, use $\\Delta T$ in K (same as in °C): $E = mc\\Delta T$.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-006',
+    type: 'multiple_choice',
+    question:
+      'It is given that:\n- Specific latent heat of fusion of ice, $L_f = 3.3\\times 10^{5}\\ \\text{J kg}^{-1}$\n- Specific latent heat of vaporization of water, $L_v = 2.3\\times 10^{6}\\ \\text{J kg}^{-1}$\n\nIf $1\\ \\text{kg}$ of ice at $0^{\\circ}\\text{C}$ and $1\\ \\text{kg}$ of steam at $100^{\\circ}\\text{C}$ are mixed in a well-insulated vessel, the result will be',
+    options: [
+      'a mixture of ice and ice-cold water',
+      'a mixture of steam and boiling water',
+      'water at $0^{\\circ}\\text{C}$',
+      'water at $50^{\\circ}\\text{C}$',
+    ],
+    answer: 'a mixture of steam and boiling water',
+    explanation:
+      '⚠️ **Key point:** In an insulated system, heat released by steam condensing is used to melt the ice and warm it.\n\nLet $m = 1\\ \\text{kg}$.\n\n**Step 1: Heat needed to melt ice and raise it to $100^{\\circ}\\text{C}$**\nMelt ice:\n$$Q_1 = mL_f = (1)(3.3\\times 10^{5}) = 3.3\\times 10^{5}\\ \\text{J}$$\nHeat the melted water from $0^{\\circ}\\text{C}$ to $100^{\\circ}\\text{C}$ (using $c\\approx 4.2\\times 10^{3}\\ \\text{J kg}^{-1}\\ {}^{\\circ}\\text{C}^{-1}$ for water):\n$$Q_2 = mc\\Delta T = (1)(4.2\\times 10^{3})(100) = 4.2\\times 10^{5}\\ \\text{J}$$\nSo\n$$Q_{\\text{need}} = Q_1 + Q_2 = 7.5\\times 10^{5}\\ \\text{J}.$$\n\n**Step 2: Heat released if all $1\\ \\text{kg}$ steam condenses**\n$$Q_{\\text{steam}} = mL_v = (1)(2.3\\times 10^{6}) = 2.3\\times 10^{6}\\ \\text{J}.$$ \nSince $Q_{\\text{steam}} > Q_{\\text{need}}$, only part of the steam needs to condense. Therefore some steam remains.\n\n**Conclusion:** The final state is a mixture of steam and water at the boiling point ($100^{\\circ}\\text{C}$) → option B.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Energy released by condensing steam: $Q = mL_v$.',
+      'Energy absorbed by ice: melt ($mL_f$) + warm water to $100^{\\circ}\\text{C}$ ($mc\\Delta T$).',
+      'If steam can provide more energy than needed, some steam remains → mixture at $100^{\\circ}\\text{C}$.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-007',
+    type: 'multiple_choice',
+    question:
+      'A cooling curve for liquid naphthalene is shown. From the graph, which of the following statement(s) is/are true?\n\n(1) The melting point of naphthalene is around $70^{\\circ}\\text{C}$.\n(2) In the period $BC$, only liquid naphthalene is present.\n(3) In the period $BC$, no energy is given by naphthalene to the surroundings.',
+    options: ['(1) only', '(1) & (2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      '⚠️ **Key point:** During solidification, temperature stays (approximately) constant at the melting point while latent heat is released.\n\n**(1)** The flat (constant-temperature) part of the cooling curve is around $70^{\\circ}\\text{C}$, so the melting/freezing point is about $70^{\\circ}\\text{C}$ → true.\n\n**(2)** In period $BC$, the substance is changing state (solidifying), so both **liquid and solid** naphthalene are present → false.\n\n**(3)** Even though the temperature is constant in $BC$, naphthalene is releasing latent heat to the surroundings during solidification → false.\n\n**Conclusion:** (1) only is correct → option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'A horizontal segment indicates a change of state at the melting/freezing point.',
+      'During freezing, both solid and liquid coexist.',
+      'Latent heat is released to the surroundings even if temperature stays constant.',
+    ],
+    sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-007-question.png'],
+  },
+  {
+    id: 'cos-008',
+    type: 'multiple_choice',
+    question:
+      'If an immersion heater takes $10\\ \\text{min}$ to bring a cup of water to its boiling point $100^{\\circ}\\text{C}$ from room temperature $20^{\\circ}\\text{C}$, what will be the time taken for the boiling water to vaporize completely?\n\n(Specific heat capacity of water $c = 4.2\\ \\text{kJ kg}^{-1}\\ {}^{\\circ}\\text{C}^{-1}$; specific latent heat of vaporization $L_v = 2268\\ \\text{kJ kg}^{-1}$.)',
+    options: ['33.75 minutes', '54.00 minutes', '67.50 minutes', '75.40 minutes'],
+    answer: '67.50 minutes',
+    explanation:
+      '⚠️ **Key point:** With the same heater power $P$ and the same mass $m$, time is proportional to the energy required.\n\nHeating from $20^{\\circ}\\text{C}$ to $100^{\\circ}\\text{C}$:\n$$Pt_1 = mc\\Delta T$$\nBoiling to vaporize completely:\n$$Pt_2 = mL_v$$\n\nDivide the equations:\n$$\\frac{t_2}{t_1} = \\frac{L_v}{c\\Delta T}$$\nSo\n$$t_2 = t_1\\,\\frac{L_v}{c\\Delta T} = 10\\,\\frac{2268}{4.2\\times (100-20)}\\ \\text{min} = 67.5\\ \\text{min}.$$\n\n**Conclusion:** The time is $67.50$ minutes → option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Same heater power means time ∝ energy required.',
+      'Use $mc\\Delta T$ for heating and $mL_v$ for boiling.',
+      'Mass cancels when taking the ratio.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-009',
+    type: 'multiple_choice',
+    question:
+      'Heat is needed to keep water boiling because energy is required to\n\n(1) increase the potential energy of the water molecules.\n(2) increase the kinetic energy of the water molecules.\n(3) increase the average speed of the water molecules.',
+    options: ['(1) only', '(1) & (2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      '⚠️ **Key point:** At the boiling point, temperature stays constant while supplied energy becomes latent heat.\n\n**(1)** During boiling, energy is used to overcome intermolecular attractions and separate molecules (increase molecular potential energy) → true.\n\n**(2)** Temperature is constant during boiling, so the average kinetic energy of molecules does not increase → false.\n\n**(3)** Since average kinetic energy is unchanged, the average molecular speed (which depends on kinetic energy) does not increase → false.\n\n**Conclusion:** (1) only is correct → option A.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Boiling happens at constant temperature (for a pure substance at fixed pressure).',
+      'Latent heat changes potential energy, not average kinetic energy.',
+      'Average molecular speed depends on kinetic energy (temperature).',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-010',
+    type: 'multiple_choice',
+    question:
+      'The graph shows the cooling curve of liquid naphthalene. In which region has naphthalene completely solidified?',
+    options: ['P', 'Q', 'R', 'S'],
+    answer: 'S',
+    explanation:
+      '⚠️ **Key point:** After the horizontal plateau (solidification) ends, the substance is fully solid.\n\n- Region $P$: liquid cooling; may approach the freezing point.\n- Region $Q$: temperature stays constant at the freezing point → liquid and solid coexist (solidification in progress).\n- Region $R$: solidification finishes by the end of this region.\n- Region $S$: after solidification is complete, only solid remains and its temperature continues to drop.\n\n**Conclusion:** Naphthalene is completely solidified in region $S$ → option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'The flat part of the curve corresponds to solidification (liquid + solid).',
+      'Fully solid means after the plateau has ended.',
+      'Look for the region after solidification is complete.',
+    ],
+    sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-010-question.png'],
+  },
+  {
+    id: 'cos-011',
+    type: 'multiple_choice',
+    question:
+      'Arrange the following in ascending order.\n\n$E_1$: Energy required to melt $1\\ \\text{kg}$ of ice at $0^{\\circ}\\text{C}$\n\n$E_2$: Energy required to raise the temperature of $1\\ \\text{kg}$ of copper by $1^{\\circ}\\text{C}$\n\n$E_3$: Energy required to vaporize $1\\ \\text{kg}$ of water at $100^{\\circ}\\text{C}$\n\n$E_4$: Energy required to raise the temperature of $1\\ \\text{kg}$ of water by $1^{\\circ}\\text{C}$',
+    options: [
+      '$E_2 < E_4 < E_1 < E_3$',
+      '$E_2 < E_4 < E_3 < E_1$',
+      '$E_3 < E_1 < E_4 < E_2$',
+      '$E_4 < E_2 < E_3 < E_1$',
+    ],
+    answer: '$E_2 < E_4 < E_1 < E_3$',
+    explanation:
+      '⚠️ **Key point:** For $1\\ \\text{kg}$, raising temperature by $1^{\\circ}\\text{C}$ needs $E = mc\\Delta T = c$ (in J), while phase changes need $E = mL$.\n\n- $E_2 = c_{\\text{copper}} \\times 1^{\\circ}\\text{C}$, and $c_{\\text{copper}}$ is smaller than $c_{\\text{water}}$.\n- $E_4 = c_{\\text{water}} \\times 1^{\\circ}\\text{C}$.\n- $E_1 = L_f$ (melting ice), which is much larger than specific heat capacities.\n- $E_3 = L_v$ (vaporizing water), and typically $L_v > L_f$.\n\nTherefore:\n$$E_2 < E_4 < E_1 < E_3.$$\n\n**Conclusion:** Option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use $E = mc\\Delta T$ for temperature change and $E = mL$ for phase change.',
+      'For $1\\ \\text{kg}$ and $1^{\\circ}\\text{C}$ rise, $E$ equals the specific heat capacity $c$.',
+      'Compare $c_{\\text{copper}}$, $c_{\\text{water}}$, $L_f$ and $L_v$.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-018',
+    type: 'multiple_choice',
+    question:
+      'The apparatus shown is used to find the specific latent heat of fusion of ice. Which of the following is an essential precaution to ensure an accurate result?',
+    options: [
+      'Crushed ice should be used.',
+      'The ice used should be just taken from the refrigerator so that its temperature is well below $0^{\\circ}\\text{C}$.',
+      'The amount of ice used in funnel $X$ should be larger than that in $Y$.',
+      'The two funnels should be wrapped in insulating material.',
+    ],
+    answer: 'Crushed ice should be used.',
+    explanation:
+      '⚠️ **Key point:** To measure $L_f$ accurately, the electrical energy supplied should be used as fully as possible for melting at $0^{\\circ}\\text{C}$.\n\n**A** Crushed ice has a larger contact area, so it makes good thermal contact with the heater and helps ensure the heater’s energy goes into melting the ice → correct.\n\n**B** Ice well below $0^{\\circ}\\text{C}$ requires extra energy to warm it up to $0^{\\circ}\\text{C}$ before melting, which would affect the calculation → not a precaution for accurate $L_f$.\n\n**C** For a fair comparison between funnels $X$ and $Y$ (control), the masses should be the same, not different → wrong.\n\n**D** Funnel $Y$ acts as the control to account for heat gained from the surroundings; wrapping both funnels would reduce that effect and defeats the purpose of the control → not essential.\n\n**Conclusion:** Use crushed ice → option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Latent heat of fusion is defined at the melting point (about $0^{\\circ}\\text{C}$ for ice).',
+      'Avoid extra energy being used to warm ice below $0^{\\circ}\\text{C}$.',
+      'Crushed ice improves contact with the heater.',
+    ],
+    sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-018-question.png'],
+  },
+  {
+    id: 'cos-019',
+    type: 'multiple_choice',
+    question:
+      'Which of the following substances is a liquid at room temperature (about $20^{\\circ}\\text{C}$)?\n\n- $P$: melting point $25^{\\circ}\\text{C}$, boiling point $444^{\\circ}\\text{C}$\n- $Q$: melting point $-39^{\\circ}\\text{C}$, boiling point $357^{\\circ}\\text{C}$\n- $R$: melting point $44^{\\circ}\\text{C}$, boiling point $280^{\\circ}\\text{C}$\n- $S$: melting point $-218^{\\circ}\\text{C}$, boiling point $-183^{\\circ}\\text{C}$',
+    options: ['P', 'Q', 'R', 'S'],
+    answer: 'Q',
+    explanation:
+      '⚠️ **Key point:** A substance is liquid when the temperature is between its melting point and boiling point.\n\nAt $20^{\\circ}\\text{C}$:\n- $P$: $20^{\\circ}\\text{C}$ is below its melting point ($25^{\\circ}\\text{C}$) → solid.\n- $Q$: $-39^{\\circ}\\text{C} < 20^{\\circ}\\text{C} < 357^{\\circ}\\text{C}$ → liquid.\n- $R$: $20^{\\circ}\\text{C}$ is below its melting point ($44^{\\circ}\\text{C}$) → solid.\n- $S$: $20^{\\circ}\\text{C}$ is above its boiling point ($-183^{\\circ}\\text{C}$) → gas.\n\n**Conclusion:** $Q$ is a liquid at room temperature → option B.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Compare $20^{\\circ}\\text{C}$ with the melting and boiling points.',
+      'Liquid state occurs when melting point < temperature < boiling point.',
+      'If temperature is above boiling point, the substance is a gas.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-020',
+    type: 'multiple_choice',
+    question:
+      'The melting point of copper is $1080^{\\circ}\\text{C}$ and its specific latent heat of fusion is $2.1\\times 10^{5}\\ \\text{J kg}^{-1}$. How much energy is needed to melt $0.5\\ \\text{kg}$ of copper at its melting point?',
+    options: [
+      '$2.1\\times 10^{5} / 0.5\\ \\text{J}$',
+      '$0.5 \\times 2.1\\times 10^{5}\\ \\text{J}$',
+      '$2.1\\times 10^{5} /(0.5 \\times 1080)\\ \\text{J}$',
+      '$0.5 \\times 2.1\\times 10^{5} / 1080\\ \\text{J}$',
+    ],
+    answer: '$0.5 \\times 2.1\\times 10^{5}\\ \\text{J}$',
+    explanation:
+      '⚠️ **Key point:** Melting at the melting point requires latent heat only: $E = mL_f$.\n\nGiven $m = 0.5\\ \\text{kg}$ and $L_f = 2.1\\times 10^{5}\\ \\text{J kg}^{-1}$,\n$$E = (0.5)(2.1\\times 10^{5})\\ \\text{J}.$$\n\n**Conclusion:** $0.5 \\times 2.1\\times 10^{5}\\ \\text{J}$ → option B.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'At the melting point, temperature does not change during melting.',
+      'Use latent heat: $E = mL_f$.',
+      'Do not divide by temperature; melting point is not used in the calculation.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-021',
+    type: 'multiple_choice',
+    question:
+      'Two solid substances $X$ and $Y$ of equal mass are separately heated by two identical heaters. The figure shows the variation of the temperatures of the substances with time. Which of the following statements is/are correct?\n\n(1) The melting point of $X$ is higher than that of $Y$.\n(2) The specific heat capacity of $X$ is smaller than that of $Y$.\n(3) The specific latent heat of fusion of $X$ is smaller than that of $Y$.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      '⚠️ **Key point:** On a heating curve, the flat part is melting (at the melting point). With the same heater power and mass, slope relates to $c$, and plateau length relates to $L_f$.\n\n**(1) Melting point**\nThe horizontal (melting) part of $X$ occurs at a lower temperature than that of $Y$, so $X$ has a *lower* melting point. Hence statement (1) is false.\n\n**(2) Specific heat capacity**\nFor the sloping (solid-heating) part, $Pt = mc\\Delta T$, so\n$$\\text{slope} = \\frac{\\Delta T}{t} = \\frac{P}{mc} \\propto \\frac{1}{c}$$\n(same $P$ and $m$). $X$ has the steeper slope, so $c_X$ is smaller than $c_Y$ → (2) true.\n\n**(3) Specific latent heat of fusion**\nDuring melting, $Pt = mL_f$. With the same $P$ and $m$, the time length of the horizontal part is proportional to $L_f$. $X$ has a shorter horizontal part, so $L_{f,X}$ is smaller → (3) true.\n\n**Conclusion:** (2) and (3) only are correct → option D.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'The flat part gives the melting point.',
+      'For the sloping part, steeper slope means smaller $c$ (same $P$ and $m$).',
+      'Longer melting plateau means larger $L_f$ (same $P$ and $m$).',
+    ],
+    sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-021-question.png'],
+  },
+  {
+    id: 'cos-022',
+    type: 'multiple_choice',
+    question:
+      'The following apparatus is used to find the specific latent heat of vaporization of a liquid. When the liquid boils, the reading of the balance is taken. After $200\\ \\text{s}$, the reading of the balance decreases by $0.02\\ \\text{kg}$. The power output of the heater is $150\\ \\text{W}$. If $20\\%$ of the energy supplied is lost to the surroundings, find the specific latent heat of vaporization of the liquid.',
+    options: [
+      '$120\\ \\text{J kg}^{-1}$',
+      '$480\\ \\text{J kg}^{-1}$',
+      '$3.0\\times 10^{5}\\ \\text{J kg}^{-1}$',
+      '$1.2\\times 10^{6}\\ \\text{J kg}^{-1}$',
+    ],
+    answer: '$1.2\\times 10^{6}\\ \\text{J kg}^{-1}$',
+    explanation:
+      '⚠️ **Key point:** Only $80\\%$ of the electrical energy goes into vaporizing the liquid.\n\nEnergy supplied by heater in $t$ seconds:\n$$E_{\\text{supplied}} = Pt = (150)(200) = 3.0\\times 10^{4}\\ \\text{J}$$\nUseful energy for vaporization:\n$$E = (1-0.20)E_{\\text{supplied}} = 0.8\\times 3.0\\times 10^{4} = 2.4\\times 10^{4}\\ \\text{J}$$\nMass vaporized: $m = 0.02\\ \\text{kg}$.\n\nUse $E = mL_v$:\n$$L_v = \\frac{E}{m} = \\frac{2.4\\times 10^{4}}{0.02} = 1.2\\times 10^{6}\\ \\text{J kg}^{-1}.$$\n\n**Conclusion:** $L_v = 1.2\\times 10^{6}\\ \\text{J kg}^{-1}$ → option D.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Compute total energy: $E = Pt$.',
+      'Only $80\\%$ is useful due to $20\\%$ loss.',
+      'Use $E = mL_v$ with the mass decrease.',
+    ],
+    sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-022-question.png'],
+  },
+  {
+    id: 'cos-023',
+    type: 'multiple_choice',
+    question:
+      'The following apparatus is used to find the specific latent heat of vaporization of a liquid. Which of the following can improve the accuracy of the experiment?\n\n(1) covering the beaker with a lid\n(2) completely immersing the heating coil in liquid\n(3) stirring the liquid throughout the experiment',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(2) only',
+    explanation:
+      '⚠️ **Key point:** Accuracy improves when as much heater energy as possible goes into vaporizing the liquid (reducing heat loss to air and the container).\n\n**(1)** Covering with a lid is not appropriate for this setup because the steam produced must be able to escape freely; otherwise pressure/condensation effects can spoil the measurement → false.\n\n**(2)** The heating coil should be completely immersed. If part of the coil is in air, some electrical energy heats the surrounding air instead of the liquid, increasing heat loss and reducing accuracy → true.\n\n**(3)** During boiling, the liquid is at (approximately) a uniform boiling temperature, so stirring does not significantly improve the measurement of $L_v$ → false.\n\n**Conclusion:** (2) only is correct → option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'The heater should transfer energy to the liquid, not the surrounding air.',
+      'At boiling, the liquid stays at the boiling point throughout.',
+      'Steam must be able to escape for a valid mass-loss measurement.',
+    ],
+    sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-023-question.png'],
+  },
+  {
+    id: 'cos-024',
+    type: 'multiple_choice',
+    question:
+      'The set-up shown can be used to find the specific latent heat of fusion of ice. Which of the following is **not** an essential precaution to ensure an accurate result?',
+    options: [
+      'covering the funnels with lids',
+      'using melting ice in the experiment',
+      'inserting the immersion heater into the ice completely',
+      'using the same amount of ice in both funnels',
+    ],
+    answer: 'covering the funnels with lids',
+    explanation:
+      '⚠️ **Key point:** The control funnel accounts for heat gained from the surroundings, so the key is to keep the experimental and control conditions identical (except for the heater being powered).\n\n**A** Covering the funnels with lids is not essential because the control experiment already allows you to correct for heat gained from the surroundings → not essential.\n\n**B** Using melting ice ensures the ice is at $0^{\\circ}\\text{C}$, so no extra energy is used to warm sub-zero ice before melting → essential.\n\n**C** The immersion heater should be completely inserted into the ice so the supplied energy goes into melting, not heating surrounding air → essential.\n\n**D** The two funnels must contain the same mass of ice so that the control is a fair comparison → essential.\n\n**Conclusion:** Option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'The control funnel helps correct for heat gained from the surroundings.',
+      'Melting ice ensures the initial temperature is $0^{\\circ}\\text{C}$.',
+      'Experimental and control setups should be identical in mass and conditions.',
+    ],
+    sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-024-question.png'],
+  },
+  {
+    id: 'cos-025',
+    type: 'multiple_choice',
+    question:
+      'A block of melting ice with mass $0.02\\ \\text{kg}$ is put into a polystyrene cup containing $0.3\\ \\text{kg}$ of water with initial temperature $20^{\\circ}\\text{C}$. After the mixture is stirred well, the ice block melts completely and the final temperature of the water becomes $14^{\\circ}\\text{C}$. Which of the following equations can be used to find the specific latent heat of fusion of ice, $L$?\n\n(Given: specific heat capacity of water $c = 4200\\ \\text{J kg}^{-1}\\ {}^{\\circ}\\text{C}^{-1}$.)',
+    options: [
+      '$0.3 \\times 4200 \\times 6 = 0.02 L + 0.02 \\times 4200 \\times 14$',
+      '$0.3 \\times 4200 \\times 6 = 0.02 L - 0.02 \\times 4200 \\times 6$',
+      '$0.3 \\times 4200 \\times 6 = 0.02 L + 0.02 \\times 4200 \\times 6$',
+      '$0.3 \\times 4200 \\times 6 = (0.02 L + 0.02 \\times 4200) \\times 14$',
+    ],
+    answer: '$0.3 \\times 4200 \\times 6 = 0.02 L + 0.02 \\times 4200 \\times 14$',
+    explanation:
+      '⚠️ **Key point:** Heat lost by warm water = heat gained by ice (melting + warming the melted water to final temperature).\n\nInitial ice is melting ice, so it is at $0^{\\circ}\\text{C}$.\n\nHeat lost by water:\n$$Q_{\\text{water}} = m_w c(20-14) = (0.3)(4200)(6).$$\n\nHeat gained by ice:\n- Melting: $Q_1 = m_i L = (0.02)L$\n- Warming melted water from $0^{\\circ}\\text{C}$ to $14^{\\circ}\\text{C}$: $Q_2 = m_i c(14-0) = (0.02)(4200)(14)$\n\nSo\n$$m_w c(20-14) = m_i L + m_i c(14-0)$$\nwhich matches option A.\n\n**Conclusion:** Option A.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Melting ice is at $0^{\\circ}\\text{C}$.',
+      'Ice gains heat to melt ($mL$) and then to warm to $14^{\\circ}\\text{C}$ ($mc\\Delta T$).',
+      'Water loses heat cooling from $20^{\\circ}\\text{C}$ to $14^{\\circ}\\text{C}$.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-026',
+    type: 'multiple_choice',
+    question:
+      'The apparatus shown is used to find the specific latent heat of vaporization of a liquid. Which of the following can improve the accuracy of the experiment?',
+    options: [
+      'Wrapping the beaker with cotton wool',
+      'Covering the beaker with a lid',
+      'Stirring the liquid throughout the experiment',
+      'Using shorter wires to connect the heater and the power supply',
+    ],
+    answer: 'Wrapping the beaker with cotton wool',
+    explanation:
+      '⚠️ **Key point:** To measure $L_v$ accurately, you should reduce heat loss so that more of the electrical energy supplied goes into vaporizing the liquid.\n\n**A** Wrapping the beaker with cotton wool reduces heat loss to the surroundings, so the calculated $L_v$ is closer to the true value → correct.\n\n**B** A lid would hinder the escape of steam/condensed vapor and can affect mass-loss measurements → not suitable.\n\n**C** During boiling, the liquid is at (approximately) the boiling point throughout, so stirring does not significantly improve accuracy → not necessary.\n\n**D** In this syllabus treatment, the heater power output is taken as the power delivered by the heater; changing wire length does not affect the heater’s stated output power (wire resistance is neglected) → not a relevant improvement.\n\n**Conclusion:** Option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Accuracy improves by reducing heat loss to the surroundings.',
+      'Boiling happens at constant temperature, so stirring is usually unnecessary here.',
+      'Steam must be able to escape for a valid mass-loss method.',
+    ],
+    sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-026-question.png'],
+  },
+  {
+    id: 'cos-027',
+    type: 'multiple_choice',
+    question:
+      'A cup of fruit juice has mass $0.2\\ \\text{kg}$ and temperature $70^{\\circ}\\text{C}$. If the specific heat capacity of the fruit juice is $4000\\ \\text{J kg}^{-1}\\ {}^{\\circ}\\text{C}^{-1}$, find the **minimum** amount of ice at $0^{\\circ}\\text{C}$ that should be added to the juice in order to lower its temperature to $0^{\\circ}\\text{C}$.\n\n(Note: specific latent heat of fusion of ice $L_f = 3.34\\times 10^{5}\\ \\text{J kg}^{-1}$.)',
+    options: ['0.17 kg', '0.20 kg', '0.37 kg', '0.84 kg'],
+    answer: '0.17 kg',
+    explanation:
+      '⚠️ **Key point:** Minimum ice means the final mixture is just at $0^{\\circ}\\text{C}$, so all the heat lost by the juice is used only to melt the ice (no extra warming above $0^{\\circ}\\text{C}$).\n\nHeat lost by juice cooling from $70^{\\circ}\\text{C}$ to $0^{\\circ}\\text{C}$:\n$$Q = mc\\Delta T = (0.2)(4000)(70) = 5.6\\times 10^{4}\\ \\text{J}$$\nHeat absorbed to melt $m$ kg of ice at $0^{\\circ}\\text{C}$:\n$$Q = mL_f = m(3.34\\times 10^{5})$$\n\nEquate and solve:\n$$m = \\frac{5.6\\times 10^{4}}{3.34\\times 10^{5}} \\approx 0.17\\ \\text{kg}.$$\n\n**Conclusion:** $0.17\\ \\text{kg}$ → option A.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Use $Q = mc\\Delta T$ for the juice cooling down.',
+      'Use $Q = mL_f$ for melting ice at $0^{\\circ}\\text{C}$.',
+      'Minimum ice corresponds to final temperature exactly $0^{\\circ}\\text{C}$.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-028',
+    type: 'multiple_choice',
+    question:
+      'The apparatus is used to find the specific latent heat of vaporization of water $L_v$. Which of the following factors will cause the result obtained to be larger than the true value of $L_v$?\n\n(1) Some energy is lost to the surroundings.\n(2) Some steam condenses and drips back into the beaker.\n(3) Some boiling water inside the beaker splashes out of the beaker.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) & (2) only',
+    explanation:
+      '⚠️ **Key point:** The experiment typically uses $L_v = \\dfrac{E}{m}$ where $E$ is the electrical energy supplied and $m$ is the mass of water that actually vaporizes (mass loss).\n\n**(1)** If energy is lost to the surroundings, the calculated $E$ (from $Pt$) is larger than the energy actually used for vaporization. That makes $L_v = E/m$ larger than the true value → true.\n\n**(2)** If some steam condenses and drips back, the balance shows a smaller mass loss, so the measured $m$ is smaller than the actual mass vaporized. With the same $E$, $L_v = E/m$ becomes larger → true.\n\n**(3)** If boiling water splashes out, the balance reading decreases even though that lost mass was not vaporized. The measured $m$ becomes larger, so $L_v = E/m$ would be smaller than the true value → false.\n\n**Conclusion:** (1) and (2) only are correct → option C.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Use $L_v = E/m$.',
+      'Energy loss makes $E$ too large for the vaporized mass.',
+      'Condensation back reduces the measured mass loss.',
+    ],
+    sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-028-question.png'],
+  },
+  {
+    id: 'cos-029',
+    type: 'multiple_choice',
+    question:
+      'A melting ice block of mass $0.05\\ \\text{kg}$ is mixed with $x\\ \\text{kg}$ of water at $0^{\\circ}\\text{C}$ in a well-insulated container. If $25000\\ \\text{J}$ of energy is supplied to the mixture, the mixture becomes water at $4^{\\circ}\\text{C}$. Find $x$.\n\n(Given: specific latent heat of fusion of ice $L_f = 3.34\\times 10^{5}\\ \\text{J kg}^{-1}$, specific heat capacity of water $c = 4200\\ \\text{J kg}^{-1}\\ {}^{\\circ}\\text{C}^{-1}$.)',
+    options: ['0.37 kg', '0.44 kg', '0.49 kg', '1.44 kg'],
+    answer: '0.44 kg',
+    explanation:
+      '⚠️ **Key point:** The supplied energy first melts the ice at $0^{\\circ}\\text{C}$, then heats the resulting water from $0^{\\circ}\\text{C}$ to $4^{\\circ}\\text{C}$.\n\n**Step 1: Melt the ice**\n$$Q_1 = m_i L_f = (0.05)(3.34\\times 10^{5}) = 1.67\\times 10^{4}\\ \\text{J}$$\n\n**Step 2: Heat all the water from $0^{\\circ}\\text{C}$ to $4^{\\circ}\\text{C}$**\nAfter melting, total mass of water is $(x+0.05)$ kg.\n$$Q_2 = (x+0.05)c\\Delta T = (x+0.05)(4200)(4)$$\n\n**Step 3: Use energy conservation**\n$$25000 = Q_1 + Q_2$$\n$$25000 - 16700 = (x+0.05)(16800)$$\n$$x+0.05 \\approx 0.494 \\Rightarrow x \\approx 0.44\\ \\text{kg}$$\n\n**Conclusion:** $x \\approx 0.44\\ \\text{kg}$ → option B.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Split the process: melt the ice first, then heat the water.',
+      'After melting, the total water mass is $(x+0.05)$ kg.',
+      'Use $Q = mL_f$ and $Q = mc\\Delta T$ with $25000 = Q_1 + Q_2$.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-030',
+    type: 'multiple_choice',
+    question:
+      'A cup of liquid $P$ and a cup of liquid $Q$ of equal mass are heated at the same rate. It is found that the temperature of $P$ rises faster than that of $Q$.\n\nWhich of the following deductions is/are correct?\n\n(1) $P$ has a lower specific latent heat of vaporization than $Q$.\n(2) $P$ has a lower boiling point than $Q$.\n(3) $P$ has a lower specific heat capacity than $Q$.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      '⚠️ **Key point:** While the liquid temperature is rising (no phase change), the heating relation is\n$$Pt = mc\\Delta T \\;\\Rightarrow\\; \\frac{\\Delta T}{t} = \\frac{P}{mc}.$$ \nWith the same heater power $P$ and the same mass $m$, a faster temperature rise means a larger $\\frac{\\Delta T}{t}$, so $c$ must be smaller.\n\n**(1)** Specific latent heat of vaporization only matters *during boiling* (temperature stays constant during the phase change). From the given information (only the rate of temperature rise), we cannot deduce $L_v$ → false.\n\n**(2)** Boiling point is the temperature at which boiling starts, but the rate of temperature rise (before boiling) does not determine the boiling point → false.\n\n**(3)** From $\\frac{\\Delta T}{t} = \\frac{P}{mc}$, a faster rise for $P$ implies $c_P < c_Q$ → true.\n\n**Conclusion:** (3) only → option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'If the temperature is rising, the liquid is not boiling yet.',
+      'Use $Pt = mc\\Delta T$ to compare rates of temperature rise.',
+      'With the same $P$ and $m$, a larger slope means a smaller $c$.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-031',
+    type: 'multiple_choice',
+    question:
+      'The figure shows the cooling curve of a substance which is initially in the liquid state. The temperature of the substance remains unchanged during the period $PQ$. Which of the following statements about the substance during the period $PQ$ is/are correct?\n\n(1) The substance is not losing any energy to the surroundings.\n(2) Latent heat is absorbed by the substance.\n(3) The average potential energy of the molecules of the substance is decreasing.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      '⚠️ **Key point:** A constant-temperature section on a **cooling** curve indicates **freezing/solidification**. The substance keeps losing energy, but the energy goes into changing state (latent heat), not lowering temperature.\n\n**(1)** The substance is still cooling overall, so it must be transferring energy to the surroundings during $PQ$ → false.\n\n**(2)** During freezing, the substance **releases** latent heat to the surroundings (latent heat is not absorbed) → false.\n\n**(3)** When liquid turns to solid, molecules become more tightly bound, so the **average potential energy decreases** → true.\n\n**Conclusion:** (3) only → option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'A horizontal segment on a cooling curve indicates a phase change.',
+      'During freezing, latent heat is released while temperature stays constant.',
+      'Potential energy decreases when molecules form a solid structure.',
+    ],
+    sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-031-question.png'],
+  },
+  {
+    id: 'cos-032',
+    type: 'multiple_choice',
+    question:
+      'A certain amount of crushed solid is heated and the variation of its temperature $T$ with time $t$ is shown. If the same heater is used to heat a **smaller** amount of the solid, which of the following graphs (dashed line) best shows the variation of the temperature of the solid?',
+    options: [
+      '/physics/exercises/change-of-state/cos-032-option-a.png',
+      '/physics/exercises/change-of-state/cos-032-option-b.png',
+      '/physics/exercises/change-of-state/cos-032-option-c.png',
+      '/physics/exercises/change-of-state/cos-032-option-d.png',
+    ],
+    answer: '/physics/exercises/change-of-state/cos-032-option-c.png',
+    explanation:
+      '⚠️ **Key point:** With the same heater, power $P$ is the same. Heating in a single phase follows $Pt = mc\\Delta T$.\n\nA smaller mass $m$ means a larger rate of temperature rise:\n$$\\frac{\\Delta T}{t} = \\frac{P}{mc}$$\nso the sloping parts become **steeper**.\n\nThe melting point is a property of the material, so the **plateau temperature stays the same**. But the time to reach the melting point and the time spent melting both scale with mass (less energy needed), so both are **shorter**.\n\n**Conclusion:** Steeper rise + same melting temperature + shorter melting duration → option C.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Melting point does not depend on mass.',
+      'Use $Pt = mc\\Delta T$: smaller $m$ gives steeper slope.',
+      'Less mass means less energy for melting ($Q=mL$) → shorter plateau time.',
+    ],
+    sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-032-question.png'],
+  },
+  {
+    id: 'cos-033',
+    type: 'multiple_choice',
+    question:
+      'As shown in the figure, some liquid in a beaker is heated by a $1000\\ \\text{W}$ immersion heater. The graph shows the variation of the reading of the electronic balance with time $t$. Which of the following statements about the liquid is **incorrect**?',
+    options: [
+      'It starts to boil at $t=t_1$.',
+      'Its temperature increases during the period $t=0$ to $t_1$.',
+      'Its specific heat capacity can be estimated by $\\frac{1000 t_1}{m_2}$.',
+      'Its specific latent heat of vaporization can be estimated by $\\frac{1000(t_2-t_1)}{m_2-m_1}$.',
+    ],
+    answer: 'Its specific heat capacity can be estimated by $\\frac{1000 t_1}{m_2}$.',
+    explanation:
+      '⚠️ **Key point:** Specific heat capacity requires a temperature change: $c = \\dfrac{E}{m\\Delta T}$.\n\nFrom the balance graph, the mass stays constant up to $t_1$ (no evaporation), then starts decreasing after $t_1$ (boiling and vaporizing).\n\n**A** At $t=t_1$, mass begins to decrease → liquid starts boiling → correct.\n\n**B** Before boiling ($0$ to $t_1$), the heater raises the temperature of the liquid → correct.\n\n**C** During $0$ to $t_1$, energy supplied is $E = Pt = 1000t_1$, but\n$$c = \\frac{E}{m\\Delta T} = \\frac{1000t_1}{m_2\\Delta T}$$\nso $\\Delta T$ is needed. $\\frac{1000t_1}{m_2}$ is **not** $c$ → incorrect.\n\n**D** During boiling ($t_1$ to $t_2$), temperature is (approximately) constant and energy goes into vaporization:\n$$L_v = \\frac{E}{m} = \\frac{1000(t_2-t_1)}{m_2-m_1}$$\n→ correct.\n\n**Conclusion:** Statement C is incorrect → option C.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Balance reading starts dropping when vaporization begins.',
+      'For heating without phase change: $Pt = mc\\Delta T$.',
+      'For boiling: $Pt = mL_v$.',
+    ],
+    sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-033-question.png'],
+  },
+  {
+    id: 'cos-034',
+    type: 'multiple_choice',
+    question:
+      'The set-up is used to measure $L_v$, the specific latent heat of vaporization of a liquid.\n\nThe result of the experiment is:\n- Initial reading of the balance = $1.60\\ \\text{kg}$\n- Final reading of the balance = $1.45\\ \\text{kg}$\n- Energy supplied (kWh meter) = $0.10\\ \\text{kWh}$\n\nFind the measured value of $L_v$.',
+    options: [
+      '$2.25\\times 10^{5}\\ \\text{J kg}^{-1}$',
+      '$2.48\\times 10^{5}\\ \\text{J kg}^{-1}$',
+      '$2.40\\times 10^{6}\\ \\text{J kg}^{-1}$',
+      '$6.67\\times 10^{6}\\ \\text{J kg}^{-1}$',
+    ],
+    answer: '$2.40\\times 10^{6}\\ \\text{J kg}^{-1}$',
+    explanation:
+      '⚠️ **Key point:** $L_v = \\dfrac{E}{m}$ where $m$ is the mass vaporized.\n\n**Step 1: Find mass vaporized**\n$$m = 1.60 - 1.45 = 0.15\\ \\text{kg}$$\n\n**Step 2: Convert energy from kWh to J**\n$$1\\ \\text{kWh} = 3.6\\times 10^{6}\\ \\text{J}$$\nSo\n$$E = 0.10\\times 3.6\\times 10^{6} = 3.6\\times 10^{5}\\ \\text{J}$$\n\n**Step 3: Calculate $L_v$**\n$$L_v = \\frac{E}{m} = \\frac{3.6\\times 10^{5}}{0.15} = 2.4\\times 10^{6}\\ \\text{J kg}^{-1}$$\n\n**Conclusion:** $2.40\\times 10^{6}\\ \\text{J kg}^{-1}$ → option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use $L_v = E/m$.',
+      'Mass vaporized = initial mass − final mass.',
+      'Convert kWh to J using $1\\ \\text{kWh}=3.6\\times 10^{6}\\ \\text{J}$.',
+    ],
+    sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-034-question.png'],
+  },
+  {
+    id: 'cos-035',
+    type: 'multiple_choice',
+    question:
+      'The set-up is used to measure $L_v$, the specific latent heat of vaporization of a liquid.\n\nHow will the value of $L_v$ obtained in the experiment be affected if the following measures are taken separately?\n\nI. Replacing the beaker with a polystyrene container (better insulator)\nII. Adding more liquid into the beaker until the heater is completely immersed',
+    options: [
+      'I decreases; II increases',
+      'I decreases; II decreases',
+      'I increases; II increases',
+      'I increases; II decreases',
+    ],
+    answer: 'I decreases; II decreases',
+    explanation:
+      '⚠️ **Key point:** The experiment typically estimates $L_v$ using $L_v = \\dfrac{E}{m}$ where $E$ is electrical energy supplied and $m$ is the mass that vaporizes.\n\n**I** Better insulation means **less heat loss** to the surroundings. For a given mass vaporized, less supplied energy is needed, so the measured $E$ is smaller and $L_v = E/m$ decreases.\n\n**II** If the heater is fully immersed, less energy is wasted heating the surrounding air, so heat loss is reduced. Again, for the same mass vaporized, less supplied energy is needed, so the measured $L_v$ decreases.\n\n**Conclusion:** Both measures decrease the measured $L_v$ → option B.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Reducing heat loss improves the experiment.',
+      'Use $L_v = E/m$ and think about how $E$ changes when less energy is wasted.',
+      'Fully immersing the heater reduces heat loss to air.',
+    ],
+    sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-035-question.png'],
+  },
+  {
+    id: 'cos-036',
+    type: 'multiple_choice',
+    question:
+      'The graph shows the variation in temperature of equal masses of two substances $P$ and $Q$ when they are separately heated by identical heaters. Which of the following deductions is correct?',
+    options: [
+      'The melting point of $P$ is lower than that of $Q$.',
+      'The specific heat capacity of $P$ in solid state is larger than that of $Q$.',
+      'The specific latent heat of fusion of $P$ is larger than that of $Q$.',
+      'The energy required to raise the temperature of $P$ from room temperature to boiling point is more than that of $Q$.',
+    ],
+    answer: 'The specific heat capacity of $P$ in solid state is larger than that of $Q$.',
+    explanation:
+      '⚠️ **Key point:** With equal masses and identical heaters, the heating rate is\n$$\\frac{\\Delta T}{t} = \\frac{P}{mc} \\propto \\frac{1}{c}$$\nwithin a single phase.\n\n**A** The melting point is the temperature of the horizontal (constant-temperature) section. From the graph, $P$ melts at a higher temperature than $Q$, so $P$ does **not** have a lower melting point → false.\n\n**B** In the solid-heating section, the slope for $P$ is smaller (temperature rises more slowly), so $c_P$ is larger than $c_Q$ → true.\n\n**C** During melting, energy for fusion is $E = mL_f = Pt$. With equal $m$ and the same $P$, a shorter melting duration means smaller $L_f$. Since $P$ takes a shorter time to melt, $L_{f,P} < L_{f,Q}$ → false.\n\n**D** Energy supplied up to a given time is $E = Pt$. If $P$ reaches boiling sooner than $Q$, it has received less energy, not more → false.\n\n**Conclusion:** Option B.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Use $Pt = mc\\Delta T$ for the sloping (single-phase) parts.',
+      'Slope is inversely proportional to specific heat capacity.',
+      'Plateau duration relates to latent heat via $Pt = mL$.',
+    ],
+    sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-036-question.png'],
+  },
+  {
+    id: 'cos-037',
+    type: 'multiple_choice',
+    question:
+      'When Joanne gets off an air-conditioned bus in the summer, her glasses become misty. After a while, the glasses become clear again. Which of the following physical processes are involved in these phenomena?',
+    options: [
+      'condensation followed by evaporation',
+      'condensation followed by fusion',
+      'solidification followed by evaporation',
+      'solidification followed by fusion',
+    ],
+    answer: 'condensation followed by evaporation',
+    explanation:
+      '⚠️ **Key point:** Warm humid air meeting a cold surface causes condensation; the droplets later disappear by evaporation.\n\nWhen Joanne steps into warm, humid outdoor air, the lenses are still cold from the air-conditioned bus. Water vapour in the air condenses into tiny liquid droplets on the cold glass, making it look misty.\n\nAs the glasses warm up, the droplets evaporate back into water vapour, so the glasses become clear again.\n\n**Conclusion:** condensation followed by evaporation → option A.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Mist on a cold surface is tiny liquid droplets formed from water vapour.',
+      'Evaporation can occur below the boiling point.',
+    ],
+    sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-037-question.png'],
+  },
+  {
+    id: 'cos-038',
+    type: 'multiple_choice',
+    question:
+      'If equal masses of boiling water and melting ice cubes are mixed, which of the following best describes the state of the mixture?\n\n(Specific heat capacity of water $c = 4200\\ \\text{J kg}^{-1}\\ {}^{\\circ}\\text{C}^{-1}$; specific latent heat of fusion of ice $L_f = 3.34\\times 10^{5}\\ \\text{J kg}^{-1}$.)',
+    options: [
+      'water at $0^{\\circ}\\text{C}$',
+      'water at a temperature higher than $0^{\\circ}\\text{C}$',
+      'a mixture of water and ice at $0^{\\circ}\\text{C}$',
+      'It cannot be determined since the masses of the water and ice are not given.',
+    ],
+    answer: 'water at a temperature higher than $0^{\\circ}\\text{C}$',
+    explanation:
+      '⚠️ **Key point:** Compare the heat released by boiling water cooling down with the heat needed to melt and warm the ice.\n\nLet the equal masses be $m$.\n- Boiling water cools from $100^{\\circ}\\text{C}$ to final temperature $\\theta$: $$Q_{\\text{lost}} = mc(100-\\theta).$$\n- Melting ice at $0^{\\circ}\\text{C}$ first melts and then warms to $\\theta$: $$Q_{\\text{gain}} = mL_f + mc(\\theta-0).$$\n\nNo heat loss:\n$$mc(100-\\theta) = mL_f + mc\\theta.$$\nCancel $m$ and substitute $c=4200$, $L_f=3.34\\times 10^{5}$:\n$$4200(100-\\theta) = 3.34\\times 10^{5} + 4200\\theta.$$\nSolve:\n$$\\theta \\approx 10.2^{\\circ}\\text{C} > 0^{\\circ}\\text{C}.$$\n\nSo all the ice melts and the mixture ends as water above $0^{\\circ}\\text{C}$.\n\n**Conclusion:** water at a temperature higher than $0^{\\circ}\\text{C}$ → option B.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Boiling water starts at $100^{\\circ}\\text{C}$; melting ice starts at $0^{\\circ}\\text{C}$.',
+      'Use $Q=mc\\Delta T$ for cooling/heating and $Q=mL_f$ for melting ice.',
+      'If the calculated final temperature is above $0^{\\circ}\\text{C}$, all the ice must have melted.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-039',
+    type: 'multiple_choice',
+    question:
+      "A space shuttle is covered by 'heat shields' over its body to protect the interior from getting too hot while entering the Earth's atmosphere. Which of the following thermal properties is/are desirable for the material of the heat shields?\n\n(1) It should be a good conductor of heat.\n(2) It should have a very high melting point.\n(3) It should have high specific heat capacity.",
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      "⚠️ **Key point:** A heat shield should resist melting and reduce the temperature rise of the structure.\n\n**(1)** A good conductor would transfer heat quickly into the shuttle’s interior. A heat shield should be a **poor** conductor (good insulator) → false.\n\n**(2)** A very high melting point helps the material stay solid under extreme heating → true.\n\n**(3)** A high specific heat capacity means a given amount of absorbed energy causes a smaller temperature rise ($\\Delta T = \\dfrac{Q}{mc}$), helping keep the shield temperature lower → true.\n\n**Conclusion:** (2) and (3) only → option D.",
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'A heat shield should not conduct heat quickly into the interior.',
+      'High melting point prevents melting at high temperatures.',
+      'High specific heat capacity reduces temperature rise for a given energy input.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-040',
+    type: 'multiple_choice',
+    question:
+      'A substance $X$ is heated at a constant rate and its changing temperature over a time period is recorded. The data are plotted in the graph.\n\nWhich of the following statements about the substance $X$ is **incorrect**?',
+    options: [
+      '$X$ is in liquid state at $0^{\\circ}\\text{C}$.',
+      'The boiling point of $X$ is $80^{\\circ}\\text{C}$.',
+      'The specific heat capacity of $X$ in the solid state is smaller than that of $X$ in the gas state.',
+      'The specific latent heat of fusion of $X$ is larger than the specific latent heat of vaporization of $X$.',
+    ],
+    answer:
+      'The specific latent heat of fusion of $X$ is larger than the specific latent heat of vaporization of $X$.',
+    explanation:
+      '⚠️ **Key point:** On a heating curve with constant power, (i) sloping parts reflect specific heat capacity and (ii) plateau duration reflects latent heat.\n\n**A** $0^{\\circ}\\text{C}$ lies between the melting point and boiling point on the graph, so the substance is liquid at $0^{\\circ}\\text{C}$ → correct.\n\n**B** The higher constant-temperature section corresponds to boiling, so its temperature is the boiling point. From the graph it is $80^{\\circ}\\text{C}$ → correct.\n\n**C** For a single phase, $Pt = mc\\Delta T$, so\n$$\\frac{\\Delta T}{t} = \\frac{P}{mc} \\propto \\frac{1}{c}.$$\nThe solid section has a steeper slope than the gas section, so $c_{\\text{solid}} < c_{\\text{gas}}$ → correct.\n\n**D** During melting/boiling, $Pt = mL$. With the same $P$ and $m$, a **shorter** plateau means a **smaller** latent heat. The melting plateau is shorter than the boiling plateau, so $L_f < L_v$. Therefore “$L_f$ is larger than $L_v$” is false → incorrect.\n\n**Conclusion:** Option D is incorrect.',
+    difficulty: 4,
+    points: 25,
+    hints: [
+      'Plateau temperature gives melting/boiling point.',
+      'Slope is inversely proportional to specific heat capacity.',
+      'Plateau duration is proportional to latent heat for the same heater and mass.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-041',
+    type: 'multiple_choice',
+    question:
+      'The initial temperature of a jar of juice is $80^{\\circ}\\text{C}$ and the mass of the juice is $2\\ \\text{kg}$. Susan adds ice cubes into the jar in order to cool down the juice to $20^{\\circ}\\text{C}$. What is the **minimum** number of ice cubes at $0^{\\circ}\\text{C}$ required?\n\n(Neglect the heat capacity of the jar and assume there is no heat exchange with the surroundings.)\n\nGiven:\n- Mass of each ice cube = $0.15\\ \\text{kg}$\n- Specific heat capacity of juice = $4700\\ \\text{J kg}^{-1}\\ {}^{\\circ}\\text{C}^{-1}$\n- Specific heat capacity of water = $4200\\ \\text{J kg}^{-1}\\ {}^{\\circ}\\text{C}^{-1}$\n- Specific latent heat of fusion of ice = $3.34\\times 10^{5}\\ \\text{J kg}^{-1}$',
+    options: ['9', '10', '11', '12'],
+    answer: '9',
+    explanation:
+      '⚠️ **Key point:** Heat lost by the juice = heat gained by the ice (melting + warming the melted water to $20^{\\circ}\\text{C}$).\n\n**Step 1: Heat lost by juice**\n$$Q_{\\text{juice}} = mc\\Delta T = (2)(4700)(80-20) = 5.64\\times 10^{5}\\ \\text{J}$$\n\n**Step 2: Heat gained per kg of ice (at $0^{\\circ}\\text{C}$) to become water at $20^{\\circ}\\text{C}$**\n$$Q_{\\text{ice}} = L_f + c_w(20-0) = 3.34\\times 10^{5} + (4200)(20) = 4.18\\times 10^{5}\\ \\text{J kg}^{-1}$$\n\n**Step 3: Find required ice mass**\n$$m_i = \\frac{Q_{\\text{juice}}}{Q_{\\text{ice}}} = \\frac{5.64\\times 10^{5}}{4.18\\times 10^{5}} \\approx 1.35\\ \\text{kg}$$\n\n**Step 4: Convert to number of cubes**\nEach cube has mass $0.15\\ \\text{kg}$:\n$$N = \\frac{1.35}{0.15} = 9$$\n\n**Conclusion:** Minimum number of ice cubes = $9$ → option A.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Use heat conservation: heat lost by juice = heat gained by ice.',
+      'Ice must melt ($mL_f$) and then warm to $20^{\\circ}\\text{C}$ ($mc\\Delta T$).',
+      'After finding ice mass, divide by $0.15\\ \\text{kg}$ per cube.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-042',
+    type: 'multiple_choice',
+    question:
+      'Water has a very high value of specific latent heat of vaporization. Which of the following statements can be illustrated by this fact?\n\n(1) Water is used as the coolant in car engines.\n(2) Coastal regions have milder climate compared with inland regions.\n(3) Steam at $100^{\\circ}\\text{C}$ causes more serious injury to skin than boiling water.',
+    options: ['(1) only', '(2) only', '(3) only', '(1), (2) & (3)'],
+    answer: '(3) only',
+    explanation:
+      '⚠️ **Key point:** A high *latent heat of vaporization* means a large amount of energy is involved in the change between liquid and gas at the same temperature.\n\n**(1)** Using water as an engine coolant mainly relies on water’s **high specific heat capacity** (it can absorb lots of energy with a small temperature rise), not latent heat of vaporization → not illustrated.\n\n**(2)** Milder coastal climate is mainly due to water’s **high specific heat capacity** (the sea warms/cools slowly), not latent heat of vaporization → not illustrated.\n\n**(3)** Steam at $100^{\\circ}\\text{C}$ releases a large amount of energy when it **condenses** to water (latent heat of vaporization). This extra energy transfer makes steam burns more severe than boiling water at the same temperature → illustrated.\n\n**Conclusion:** (3) only → option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Latent heat relates to energy during a change of state at constant temperature.',
+      'Cooling effect and climate moderation usually relate to high specific heat capacity.',
+      'Steam can release latent heat when it condenses on skin.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-043',
+    type: 'multiple_choice',
+    question:
+      'Which of the following statements about evaporation are correct?\n\n(1) Evaporation occurs only on the surface of the liquid.\n(2) The rate of evaporation is higher when the temperature is higher.\n(3) After evaporation, the average kinetic energy of the remaining liquid molecules will increase.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (2) only',
+    explanation:
+      '⚠️ **Key point:** Evaporation is a surface process that can occur below the boiling point, and it causes cooling.\n\n**(1)** Molecules escape from the liquid surface into the air, so evaporation occurs at the surface → true.\n\n**(2)** At a higher temperature, more molecules have sufficient kinetic energy to escape, so the evaporation rate increases → true.\n\n**(3)** The more energetic molecules are more likely to escape first, so the remaining liquid has a *lower* average kinetic energy (lower temperature) → false.\n\n**Conclusion:** (1) and (2) only → option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Evaporation occurs at the surface, unlike boiling.',
+      'Higher temperature means more energetic molecules can escape.',
+      'Evaporation removes the faster molecules and cools the liquid.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-044',
+    type: 'multiple_choice',
+    question:
+      'In an experiment, $2\\ \\text{kg}$ of water at $20^{\\circ}\\text{C}$ is heated inside a boiler for $20$ minutes. The water is heated to $100^{\\circ}\\text{C}$ and $1.7\\ \\text{kg}$ of water remains after boiling. What is the estimated power of the boiler?\n\nGiven:\n- Specific heat capacity of water $c = 4200\\ \\text{J kg}^{-1}\\ {}^{\\circ}\\text{C}^{-1}$\n- Specific latent heat of vaporization $L_v = 2.26\\times 10^{6}\\ \\text{J kg}^{-1}$',
+    options: ['565 W', '649 W', '1125 W', '3762 W'],
+    answer: '1125 W',
+    explanation:
+      '⚠️ **Key point:** Total energy supplied = energy to heat the water to $100^{\\circ}\\text{C}$ + energy to vaporize the mass that boils away.\n\nTime: $$t = 20\\times 60 = 1200\\ \\text{s}$$\n\nMass vaporized: $$m_{\\text{vap}} = 2.0 - 1.7 = 0.3\\ \\text{kg}$$\n\nEnergy to heat $2\\ \\text{kg}$ from $20^{\\circ}\\text{C}$ to $100^{\\circ}\\text{C}$:\n$$Q_1 = mc\\Delta T = (2)(4200)(100-20) = 6.72\\times 10^{5}\\ \\text{J}$$\n\nEnergy to vaporize $0.3\\ \\text{kg}$ at $100^{\\circ}\\text{C}$:\n$$Q_2 = m_{\\text{vap}}L_v = (0.3)(2.26\\times 10^{6}) = 6.78\\times 10^{5}\\ \\text{J}$$\n\nTotal energy: $$E = Q_1 + Q_2 = 1.35\\times 10^{6}\\ \\text{J}$$\n\nPower:\n$$P = \\frac{E}{t} = \\frac{1.35\\times 10^{6}}{1200} = 1125\\ \\text{W}$$\n\n**Conclusion:** $1125\\ \\text{W}$ → option C.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Total energy includes heating to $100^{\\circ}\\text{C}$ and vaporizing the boiled-away mass.',
+      'Mass boiled away = initial mass − remaining mass.',
+      'Use $P = E/t$ with $t = 20\\text{ min} = 1200\\text{ s}$.',
+    ],
+    sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-044-question.png'],
+  },
+  {
+    id: 'cos-045',
+    type: 'multiple_choice',
+    question: 'Which of the following has the highest average speed of the molecules?',
+    options: [
+      '1 g of ice cube at $-10^{\\circ}\\text{C}$',
+      '10 g of melting ice cube',
+      '100 g of water at room temperature',
+      '0.1 g of steam at $100^{\\circ}\\text{C}$',
+    ],
+    answer: '0.1 g of steam at $100^{\\circ}\\text{C}$',
+    explanation:
+      '⚠️ **Key point:** The average speed of molecules depends on their average kinetic energy, which depends on temperature (higher $T$ → higher average kinetic energy → higher average speed).\n\nThe mass of the sample does not affect the *average* molecular speed. Among the options, steam at $100^{\\circ}\\text{C}$ has the highest temperature, so it has the highest average molecular speed.\n\n**Conclusion:** $0.1\\ \\text{g}$ of steam at $100^{\\circ}\\text{C}$ → option D.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Average molecular speed depends mainly on temperature.',
+      'Mass of the sample does not change the average speed at a given temperature.',
+      'Compare the temperatures of the states given.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-046',
+    type: 'multiple_choice',
+    question:
+      'Which of the following statements is/are correct?\n\n(1) Energy transfers from an object with higher internal energy to an object with lower internal energy.\n(2) An object must absorb energy when it changes its state.\n(3) Energy transfers from an object with higher temperature to an object with lower temperature.',
+    options: ['(2) only', '(3) only', '(1) & (2) only', '(1) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      '⚠️ **Key point:** Heat (energy transfer due to heating) flows because of a **temperature difference**, from higher temperature to lower temperature.\n\n**(1)** Internal energy depends on mass, material, temperature and state. An object can have a larger internal energy (e.g. larger mass) but a lower temperature, so heat does not necessarily transfer from higher internal energy to lower internal energy → false.\n\n**(2)** In a change of state, an object may **absorb** energy (melting, boiling) or **release** energy (freezing, condensing). So it is not always absorption → false.\n\n**(3)** With a temperature difference, energy transfers from the higher temperature object to the lower temperature object → true.\n\n**Conclusion:** (3) only → option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Heat transfer is driven by temperature difference.',
+      'Internal energy is not determined by temperature alone.',
+      'State changes can release or absorb latent heat.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-047',
+    type: 'multiple_choice',
+    question:
+      'In an experiment, a kilowatt-hour meter measures the energy supplied to an immersion heater and an electronic balance measures the change in mass. The data are used to estimate the specific latent heat of vaporization of water $L_v$.\n\nIf the following experimental errors arise:\n\n(I) Water splashes out of the polystyrene cup as the boiling is too vigorous.\n(II) Water vapour condenses on the upper part of the heater and drips back into the polystyrene cup.\n\nHow would the calculated value of $L_v$ be affected?',
+    options: [
+      'I increases; II decreases',
+      'I increases; II increases',
+      'I decreases; II decreases',
+      'I decreases; II increases',
+    ],
+    answer: 'I decreases; II increases',
+    explanation:
+      '⚠️ **Key point:** In this method, $L_v$ is calculated using\n$$L_v = \\frac{E}{m}$$\nwhere $E$ is the electrical energy supplied and $m$ is the **measured mass loss** (interpreted as mass vaporized).\n\n**(I) Splashing out**\nSplashing makes the balance reading drop even though that lost mass was **not** vaporized. So the measured $m$ becomes larger than the true vaporized mass. Since $L_v = E/m$, a larger $m$ gives a smaller calculated $L_v$ → **decreases**.\n\n**(II) Condensation dripping back**\nIf steam condenses and drips back, the balance shows a **smaller mass loss** than the true mass vaporized. So the measured $m$ is smaller. Since $L_v = E/m$, a smaller $m$ gives a larger calculated $L_v$ → **increases**.\n\n**Conclusion:** (I) decreases; (II) increases → option D.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Use $L_v = E/m$ where $m$ is measured mass loss.',
+      'Splashing increases the apparent mass loss.',
+      'Condensation dripping back reduces the apparent mass loss.',
+    ],
+    sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-047-question.png'],
+  },
+  {
+    id: 'cos-048',
+    type: 'multiple_choice',
+    question:
+      'Some ice cubes at $0^{\\circ}\\text{C}$ are added to $0.3\\ \\text{kg}$ of soft drink at $20^{\\circ}\\text{C}$. What is the **minimum** amount of ice needed to cool the soft drink to $0^{\\circ}\\text{C}$?\n\nGiven:\n- Specific heat capacity of the soft drink $c = 5300\\ \\text{J kg}^{-1}\\ {}^{\\circ}\\text{C}^{-1}$\n- Specific latent heat of fusion of ice $L_f = 3.34\\times 10^{5}\\ \\text{J kg}^{-1}$',
+    options: ['0.08 kg', '0.10 kg', '0.26 kg', '0.32 kg'],
+    answer: '0.10 kg',
+    explanation:
+      '⚠️ **Key point:** “Minimum ice” means the final temperature is exactly $0^{\\circ}\\text{C}$, so the ice only needs to **melt** (no warming above $0^{\\circ}\\text{C}$).\n\nHeat lost by soft drink cooling from $20^{\\circ}\\text{C}$ to $0^{\\circ}\\text{C}$:\n$$Q = mc\\Delta T = (0.3)(5300)(20) = 3.18\\times 10^{4}\\ \\text{J}$$\n\nHeat absorbed to melt $m$ kg of ice at $0^{\\circ}\\text{C}$:\n$$Q = mL_f = m(3.34\\times 10^{5})$$\n\nEquate and solve:\n$$m = \\frac{3.18\\times 10^{4}}{3.34\\times 10^{5}} \\approx 9.52\\times 10^{-2}\\ \\text{kg} \\approx 0.10\\ \\text{kg}.$$\n\n**Conclusion:** $0.10\\ \\text{kg}$ → option B.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Minimum ice corresponds to a final temperature of $0^{\\circ}\\text{C}$.',
+      'Use $Q=mc\\Delta T$ for the drink and $Q=mL_f$ for melting ice.',
+      'No extra term for warming melted ice if final is $0^{\\circ}\\text{C}$.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-049',
+    type: 'multiple_choice',
+    question:
+      'When a certain mass of a solid substance is heated by a heater of constant power, the variation of its temperature with time is shown in the figure. If a **greater** mass of the same substance is heated by the same heater, which of the following graphs best represents how its temperature varies with time?\n\n(Assume no heat is lost to the surroundings.)',
+    options: [
+      '/physics/exercises/change-of-state/cos-049-option-a.png',
+      '/physics/exercises/change-of-state/cos-049-option-b.png',
+      '/physics/exercises/change-of-state/cos-049-option-c.png',
+      '/physics/exercises/change-of-state/cos-049-option-d.png',
+    ],
+    answer: '/physics/exercises/change-of-state/cos-049-option-d.png',
+    explanation:
+      '⚠️ **Key point:** With the same heater power $P$, heating a larger mass requires more energy, so it takes longer.\n\nIn a single phase:\n$$Pt = mc\\Delta T \\Rightarrow t \\propto m$$\nSo for a greater mass, the temperature rises more slowly (smaller slope).\n\nAt the melting point, temperature stays constant while melting occurs. Latent heat is $Q=mL_f$, so a greater mass also takes **longer** to melt (longer plateau).\n\nTherefore the new curve has the same melting temperature, but reaches it later and has a longer horizontal section.\n\n**Conclusion:** Option D.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'For fixed $P$, heating time scales with mass in $Pt=mc\\Delta T$.',
+      'Melting point stays the same for the same substance.',
+      'More mass means longer melting plateau because $Q=mL_f$.',
+    ],
+    sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-049-question.png'],
+  },
+  {
+    id: 'cos-050',
+    type: 'multiple_choice',
+    question:
+      'Three different solids, initially at $20^{\\circ}\\text{C}$, are heated at the same power.\n\nA table of their heat capacity and melting point is given:\n- $P$: heat capacity $300\\ \\text{J}\\ {}^{\\circ}\\text{C}^{-1}$, melting point $218^{\\circ}\\text{C}$\n- $Q$: heat capacity $500\\ \\text{J}\\ {}^{\\circ}\\text{C}^{-1}$, melting point $132^{\\circ}\\text{C}$\n- $R$: heat capacity $900\\ \\text{J}\\ {}^{\\circ}\\text{C}^{-1}$, melting point $84^{\\circ}\\text{C}$\n\nWhich solid will start melting first?',
+    options: ['$P$', '$Q$', '$R$', 'cannot be determined as the mass is unknown'],
+    answer: '$Q$',
+    explanation:
+      '⚠️ **Key point:** Heat capacity $C$ (in $\\text{J}\\ {}^{\\circ}\\text{C}^{-1}$) already equals $mc$. Energy needed to reach the melting point is\n$$Q = C\\Delta T$$\nso the time required is $t = Q/P$ (same power $P$).\n\nCompute energy needed to warm each solid from $20^{\\circ}\\text{C}$ to its melting point:\n- $P$: $Q_P = 300(218-20)=300(198)=59400\\ \\text{J}$\n- $Q$: $Q_Q = 500(132-20)=500(112)=56000\\ \\text{J}$\n- $R$: $Q_R = 900(84-20)=900(64)=57600\\ \\text{J}$\n\nSmallest energy → shortest time → starts melting first.\n\n**Conclusion:** $Q$ → option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use $Q=C\\Delta T$ where $C$ is heat capacity.',
+      'Same heater power means time is proportional to required energy.',
+      'Heat capacity already includes the effect of mass ($C=mc$).',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-051',
+    type: 'multiple_choice',
+    question:
+      'A paper tray contains some water. The tray is heated by a gentle flame from below as shown. The water in the tray starts to boil while the paper does not catch fire.\n\nWhich of the following statements are correct in this situation?\n\n(1) Water can transfer heat away from the paper tray very quickly.\n(2) Water remains at $100^{\\circ}\\text{C}$ when it is boiling.\n(3) There is no heat transfer between the paper tray and the flame.',
+    options: ['(1) & (2) only', '(2) & (3) only', '(1) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (2) only',
+    explanation:
+      '⚠️ **Key point:** While water is present, it absorbs energy and keeps the paper tray close to the boiling temperature, preventing the paper from reaching its ignition temperature.\n\n**(1)** Heat conducted through the paper is quickly taken away by the water. The water absorbs energy and circulates (convection), so the paper does not get hot enough to burn → true.\n\n**(2)** During boiling at atmospheric pressure, the temperature of water stays at about $100^{\\circ}\\text{C}$ while energy is used as latent heat of vaporization → true.\n\n**(3)** Heat transfer from the flame to the paper tray is necessary to heat the water to boiling, so it is not zero → false.\n\n**Conclusion:** (1) and (2) only → option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'As long as water remains, its temperature is capped at the boiling point during boiling.',
+      'Water can remove heat from the paper by absorbing energy and by convection.',
+      'Without heat transfer from the flame, the water would not boil.',
+    ],
+    sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-051-question.png'],
+  },
+  {
+    id: 'cos-052',
+    type: 'multiple_choice',
+    question:
+      'A beaker of water is heated by an immersion heater. The graph shows the variation of the reading of the balance with time. What is the estimated output power of the heater?\n\n(Assume no heat is lost to the surroundings.)\n\nGiven:\n- Specific latent heat of vaporization of water $L_v = 2.26\\times 10^{6}\\ \\text{J kg}^{-1}$\n- Specific heat capacity of water $c = 4200\\ \\text{J kg}^{-1}\\ {}^{\\circ}\\text{C}^{-1}$',
+    options: ['175 W', '269 W', '377 W', '700 W'],
+    answer: '377 W',
+    explanation:
+      '⚠️ **Key point:** Use the mass-loss (boiling) section of the graph: during boiling, $E = mL_v$ and $P=E/t$.\n\nFrom the graph, between $t=2\\ \\text{min}$ and $t=7\\ \\text{min}$, the mass decreases from $0.50\\ \\text{kg}$ to $0.45\\ \\text{kg}$.\nSo the mass vaporized is\n$$m = 0.50-0.45 = 0.05\\ \\text{kg}$$\nTime interval:\n$$\\Delta t = (7-2)\\times 60 = 300\\ \\text{s}$$\n\nEnergy used for vaporization:\n$$E = mL_v = (0.05)(2.26\\times 10^{6}) = 1.13\\times 10^{5}\\ \\text{J}$$\n\nPower:\n$$P = \\frac{E}{\\Delta t} = \\frac{1.13\\times 10^{5}}{300} \\approx 3.77\\times 10^{2}\\ \\text{W} = 377\\ \\text{W}$$\n\n**Conclusion:** $377\\ \\text{W}$ → option C.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Use the mass-loss section where water is boiling.',
+      'Apply $E=mL_v$ and $P=E/t$.',
+      'Convert minutes to seconds.',
+    ],
+    sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-052-question.png'],
+  },
+  {
+    id: 'cos-053',
+    type: 'multiple_choice',
+    question:
+      'People feel cooler when they get out of water after swimming. Which of the following is/are the reason(s)?\n\n(1) The water on the skin evaporates.\n(2) The water on the skin absorbs latent heat of fusion.\n(3) The water on the skin releases latent heat of vaporization to the surrounding air.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      '⚠️ **Key point:** Evaporation requires energy (latent heat of vaporization), which is taken from the skin, causing cooling.\n\n**(1)** Water on the skin evaporates. During evaporation, the liquid absorbs latent heat from the skin, lowering the skin temperature → true.\n\n**(2)** Latent heat of fusion is involved in melting/freezing, not evaporation → false.\n\n**(3)** Latent heat of vaporization is **released** when water vapour condenses, not when liquid water evaporates → false.\n\n**Conclusion:** (1) only → option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Evaporation absorbs energy from the surroundings.',
+      'Fusion is for melting/freezing, not for evaporation.',
+      'Condensation releases latent heat; evaporation absorbs it.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-054',
+    type: 'multiple_choice',
+    question:
+      'The setup is used to determine the specific latent heat of fusion of ice. At time $t=0$, $0.15\\ \\text{kg}$ of ice cubes at $0^{\\circ}\\text{C}$ are added into $1\\ \\text{kg}$ of hot water at $60^{\\circ}\\text{C}$. The graph shows the variation of the water temperature with time. At $Q$, the mixture reaches thermal equilibrium.\n\nWhat is the specific latent heat of fusion of ice estimated from this experiment?\n\n(Given: specific heat capacity of water $c = 4200\\ \\text{J kg}^{-1}\\ {}^{\\circ}\\text{C}^{-1}$.)',
+    options: [
+      '$3.34\\times 10^{5}\\ \\text{J kg}^{-1}$',
+      '$3.92\\times 10^{5}\\ \\text{J kg}^{-1}$',
+      '$4.48\\times 10^{5}\\ \\text{J kg}^{-1}$',
+      '$5.60\\times 10^{5}\\ \\text{J kg}^{-1}$',
+    ],
+    answer: '$3.92\\times 10^{5}\\ \\text{J kg}^{-1}$',
+    explanation:
+      '⚠️ **Key point:** Heat lost by hot water = heat gained by ice (melting + warming the melted water to the final temperature).\n\nFrom the graph, the final equilibrium temperature at $Q$ is $40^{\\circ}\\text{C}$.\n\nHeat gained by ice:\n- Melting at $0^{\\circ}\\text{C}$: $Q_1 = m_i L_f$\n- Warming melted water from $0^{\\circ}\\text{C}$ to $40^{\\circ}\\text{C}$: $Q_2 = m_i c(40-0)$\n\nHeat lost by hot water cooling from $60^{\\circ}\\text{C}$ to $40^{\\circ}\\text{C}$:\n$$Q_3 = m_w c(60-40)$$\n\nEnergy conservation:\n$$m_i L_f + m_i c(40-0) = m_w c(60-40)$$\nSubstitute $m_i=0.15$, $m_w=1.0$, $c=4200$:\n$$(0.15)L_f + (0.15)(4200)(40) = (1)(4200)(20)$$\n$$(0.15)L_f + 25200 = 84000$$\n$$(0.15)L_f = 58800 \\Rightarrow L_f = 392000\\ \\text{J kg}^{-1} = 3.92\\times 10^{5}\\ \\text{J kg}^{-1}$$\n\n**Conclusion:** $3.92\\times 10^{5}\\ \\text{J kg}^{-1}$ → option B.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Read the equilibrium temperature from the graph (point $Q$).',
+      'Ice first melts, then the melted water warms to the final temperature.',
+      'Use heat conservation: heat gained = heat lost.',
+    ],
+    sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-054-question.png'],
+  },
+  {
+    id: 'cos-055',
+    type: 'multiple_choice',
+    question:
+      'The setup is used to determine the specific latent heat of fusion of ice. At time $t=0$, $0.15\\ \\text{kg}$ of ice cubes at $0^{\\circ}\\text{C}$ are added into $1\\ \\text{kg}$ of hot water. The initial temperature of the water is $60^{\\circ}\\text{C}$. The graph shows the variation of the water temperature with time. At $Q$, the mixture reaches thermal equilibrium.\n\nWhich of the following statements about the experiment is correct?',
+    options: [
+      'Between $P$ and $Q$, the water is absorbing latent heat of fusion from the ice.',
+      'Between $P$ and $Q$, the temperature of the ice is increasing.',
+      'Between $Q$ and $R$, the water is absorbing energy from the surroundings.',
+      'The temperature of the surroundings is $20^{\\circ}\\text{C}$.',
+    ],
+    answer: 'The temperature of the surroundings is $20^{\\circ}\\text{C}$.',
+    explanation:
+      '⚠️ **Key point:** The long-term temperature the mixture approaches is the surroundings temperature.\n\n**A** During $P$ to $Q$, the hotter water loses heat to the ice. The ice absorbs latent heat of fusion while melting; the water does not absorb latent heat from the ice → false.\n\n**B** While the ice is melting, its temperature stays at $0^{\\circ}\\text{C}$ (energy goes into latent heat). So we cannot say the ice temperature is increasing during the melting stage → false.\n\n**C** After $Q$, the mixture is warmer than the surroundings, so it loses heat to the surroundings (temperature decreases). It is not absorbing energy from the surroundings → false.\n\n**D** From the graph, the temperature tends towards $20^{\\circ}\\text{C}$ at long time. That limiting value is the surroundings temperature → true.\n\n**Conclusion:** Option D.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Heat transfer direction depends on temperature difference.',
+      'During melting, temperature stays constant while latent heat is absorbed.',
+      'The final “flattening” temperature indicates the surroundings temperature.',
+    ],
+    sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-055-question.png'],
+  },
+  {
+    id: 'cos-056',
+    type: 'multiple_choice',
+    question:
+      'An ice-making machine extracts energy at a rate of $500\\ \\text{W}$. The specific latent heat of fusion of ice is $334\\ \\text{kJ kg}^{-1}$. How long does it take to change $10\\ \\text{kg}$ of water at $0^{\\circ}\\text{C}$ into ice at $0^{\\circ}\\text{C}$?',
+    options: [
+      '$\\frac{10 \\times 334}{500}\\ \\text{s}$',
+      '$\\frac{10 \\times 500}{334}\\ \\text{s}$',
+      '$\\frac{10 \\times 334 \\times 1000}{500}\\ \\text{s}$',
+      '$\\frac{10 \\times 500}{334 \\times 1000}\\ \\text{s}$',
+    ],
+    answer: '$\\frac{10 \\times 334 \\times 1000}{500}\\ \\text{s}$',
+    explanation:
+      '⚠️ **Key point:** During freezing at $0^{\\circ}\\text{C}$, the energy removed is latent heat only: $E = mL_f$. Power is $P = E/t$.\n\nConvert $L_f$ to J/kg:\n$$L_f = 334\\ \\text{kJ kg}^{-1} = 334\\times 1000\\ \\text{J kg}^{-1}$$\n\nEnergy to freeze $10\\ \\text{kg}$:\n$$E = mL_f = (10)(334\\times 1000)$$\n\nUsing $P = E/t$:\n$$t = \\frac{E}{P} = \\frac{10\\times 334\\times 1000}{500}\\ \\text{s} \\approx 6.68\\times 10^{3}\\ \\text{s}$$\n\n**Conclusion:** $\\frac{10 \\times 334 \\times 1000}{500}\\ \\text{s}$ → option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Freezing at $0^{\\circ}\\text{C}$ uses $E=mL_f$ (no temperature change).',
+      'Convert $\\text{kJ}$ to $\\text{J}$ using $1\\ \\text{kJ}=1000\\ \\text{J}$.',
+      'Use $P=E/t$.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-057',
+    type: 'multiple_choice',
+    question:
+      'An immersion heater rated at $150\\ \\text{W}$ is fitted into a large block of ice at $0^{\\circ}\\text{C}$. How long does it take to melt $30\\ \\text{g}$ of ice?\n\n(Given: specific latent heat of fusion of ice $L_f = 334000\\ \\text{J kg}^{-1}$.)',
+    options: ['33.4 seconds', '66.8 seconds', '66800 seconds', '66.8 minutes'],
+    answer: '66.8 seconds',
+    explanation:
+      '⚠️ **Key point:** Melting at $0^{\\circ}\\text{C}$ uses latent heat only: $E = mL_f$ and $P = E/t$.\n\nConvert mass:\n$$m = 30\\ \\text{g} = 0.03\\ \\text{kg}$$\n\nEnergy to melt:\n$$E = mL_f = (0.03)(334000) = 10020\\ \\text{J}$$\n\nTime:\n$$t = \\frac{E}{P} = \\frac{10020}{150} = 66.8\\ \\text{s}$$\n\n**Conclusion:** $66.8\\ \\text{s}$ → option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use $E=mL_f$ because temperature stays at $0^{\\circ}\\text{C}$ during melting.',
+      'Convert grams to kilograms.',
+      'Use $P=E/t$.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-058',
+    type: 'multiple_choice',
+    question:
+      'Which of the following statements correctly describe the difference between evaporation and boiling of a liquid?\n\n(1) Evaporation occurs at all temperatures but boiling occurs at one temperature only.\n(2) Evaporation occurs at the surface of the liquid but boiling occurs throughout the liquid.\n(3) Evaporation does not absorb latent heat of vaporization but boiling absorbs latent heat of vaporization.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (2) only',
+    explanation:
+      '⚠️ **Key point:** Both evaporation and boiling are forms of vaporization and both require latent heat, but they occur under different conditions.\n\n**(1)** Evaporation can occur at any temperature (below the boiling point). Boiling occurs at the boiling point (for a given pressure), where the temperature stays constant during boiling → true.\n\n**(2)** Evaporation happens only at the liquid surface, while boiling occurs throughout the liquid with bubbles forming inside → true.\n\n**(3)** Both evaporation and boiling require the latent heat of vaporization (energy must be absorbed to change liquid to gas). So this statement is false → false.\n\n**Conclusion:** (1) and (2) only → option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Evaporation is a surface process and can happen below boiling point.',
+      'Boiling occurs throughout the liquid at the boiling point.',
+      'Both processes require latent heat of vaporization.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-059',
+    type: 'multiple_choice',
+    question:
+      'Which of the following would enable wet clothes to dry more quickly?\n\n(1) Spread the clothes to increase the surface area.\n(2) Increase the temperature of the environment.\n(3) Blow air over the clothes.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      '⚠️ **Key point:** Drying happens by evaporation. The evaporation rate increases with larger surface area, higher temperature and stronger air movement.\n\n**(1)** Larger surface area allows more molecules to escape per unit time → true.\n\n**(2)** Higher temperature means molecules have higher kinetic energy, so more can escape → true.\n\n**(3)** Blowing air removes humid air near the surface and brings in drier air, increasing evaporation → true.\n\n**Conclusion:** (1), (2) and (3) are all correct → option D.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Evaporation is faster with a larger surface area.',
+      'Evaporation is faster at higher temperature.',
+      'Wind removes saturated air and speeds up evaporation.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-060',
+    type: 'multiple_choice',
+    question:
+      'The diagram shows a beaker containing ether, which is a volatile liquid. The beaker stands on a wooden board. A thin film of water is put between the board and the base of the beaker. Air is then blown through the tube so that it bubbles out from the immersed end.\n\nWhich of the following would happen?\n\n(1) Ether evaporates from the beaker.\n(2) Mist forms at the outer surface of the beaker.\n(3) The water cools down and freezes.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      '⚠️ **Key point:** Faster evaporation causes cooling. Blowing air increases evaporation, which can cool the beaker enough for condensation (mist) and even freezing of the water film.\n\n**(1)** Ether is volatile, and blowing air through it increases the evaporation rate → true.\n\n**(2)** Evaporation absorbs latent heat from the ether and the beaker, cooling the beaker’s outer surface. Water vapour in air can then condense into tiny droplets (mist) on the cold surface → true.\n\n**(3)** Continued cooling can lower the temperature of the thin water film below $0^{\\circ}\\text{C}$ so it freezes → true.\n\n**Conclusion:** (1), (2) and (3) → option D.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Blowing air speeds up evaporation.',
+      'Evaporation absorbs latent heat and cools the surroundings.',
+      'A cold beaker surface can cause condensation and may freeze nearby water.',
+    ],
+    sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-060-question.png'],
+  },
+  {
+    id: 'cos-061',
+    type: 'multiple_choice',
+    question:
+      'David sweats $0.1\\ \\text{kg}$ of water in $10$ minutes after an athletics meet. What is the rate of cooling of his body by sweating?\n\n(Specific latent heat of vaporization of water $L_v = 2.26\\times 10^{6}\\ \\text{J kg}^{-1}$.)',
+    options: [
+      '$377\\ \\text{J s}^{-1}$',
+      '$754\\ \\text{J s}^{-1}$',
+      '$22600\\ \\text{J s}^{-1}$',
+      '$37700\\ \\text{J s}^{-1}$',
+    ],
+    answer: '$377\\ \\text{J s}^{-1}$',
+    explanation:
+      '⚠️ **Key point:** Cooling power equals the rate of energy removed by evaporation.\n\nEnergy removed by evaporating $m$ kg of sweat:\n$$E = mL_v = (0.1)(2.26\\times 10^{6}) = 2.26\\times 10^{5}\\ \\text{J}$$\n\nTime:\n$$t = 10\\times 60 = 600\\ \\text{s}$$\n\nRate of cooling:\n$$\\text{power} = \\frac{E}{t} = \\frac{2.26\\times 10^{5}}{600} \\approx 3.77\\times 10^{2}\\ \\text{J s}^{-1}$$\n\n**Conclusion:** $377\\ \\text{J s}^{-1}$ → option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use $E=mL_v$ for energy removed by evaporation.',
+      'Convert minutes to seconds.',
+      'Rate of cooling is energy per second (power).',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-062',
+    type: 'multiple_choice',
+    question:
+      'In a refrigerator, the liquid Freon is pumped around the pipes in a circuit. Which of the following are correct?\n\n(1) As the Freon evaporates, it removes energy from the food.\n(2) As the Freon condenses, it gives out energy.\n(3) The energy removed from the food is given out at the back of the refrigerator.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      '⚠️ **Key point:** A refrigerator transfers heat from inside to the surroundings using evaporation and condensation of a refrigerant.\n\n**(1)** In the evaporator (inside the fridge), Freon evaporates and absorbs latent heat from the food/air, cooling the interior → true.\n\n**(2)** In the condenser (back of the fridge), Freon condenses and releases latent heat to the surroundings → true.\n\n**(3)** The heat removed from the food (and additional work done by the compressor) is released at the back through the condenser coils/fins → true.\n\n**Conclusion:** (1), (2) and (3) are all correct → option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Evaporation absorbs latent heat; condensation releases it.',
+      'The fridge moves heat from inside to outside.',
+      'The back coils are the condenser where heat is released.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-063',
+    type: 'multiple_choice',
+    question:
+      'A cup of water is placed at the room temperature of $25^{\\circ}\\text{C}$. At which temperatures would evaporation and boiling start to occur respectively?',
+    options: [
+      'Evaporation: $50^{\\circ}\\text{C}$; Boiling: $50^{\\circ}\\text{C}$',
+      'Evaporation: $25^{\\circ}\\text{C}$; Boiling: $100^{\\circ}\\text{C}$',
+      'Evaporation: $100^{\\circ}\\text{C}$; Boiling: $50^{\\circ}\\text{C}$',
+      'Evaporation: $100^{\\circ}\\text{C}$; Boiling: $100^{\\circ}\\text{C}$',
+    ],
+    answer: 'Evaporation: $25^{\\circ}\\text{C}$; Boiling: $100^{\\circ}\\text{C}$',
+    explanation:
+      '⚠️ **Key point:** Evaporation can occur at any temperature, while boiling starts only at the boiling point.\n\nSince the water is at room temperature, evaporation starts at $25^{\\circ}\\text{C}$. Boiling starts only at the boiling point of water, $100^{\\circ}\\text{C}$ (at standard atmospheric pressure).\n\n**Conclusion:** $25^{\\circ}\\text{C}$ and $100^{\\circ}\\text{C}$ → option B.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Evaporation can occur below the boiling point.',
+      'Boiling starts at the boiling point (for a given pressure).',
+      'Room temperature here is $25^{\\circ}\\text{C}$.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-064',
+    type: 'multiple_choice',
+    question:
+      'When a liquid evaporates, some of the molecules escape from the surface and the temperature of the liquid changes. Which of the following best describes the energy of the escaping molecules and the change in temperature of the liquid?',
+    options: [
+      'Energy low; Temperature increases',
+      'Energy low; Temperature decreases',
+      'Energy high; Temperature increases',
+      'Energy high; Temperature decreases',
+    ],
+    answer: 'Energy high; Temperature decreases',
+    explanation:
+      '⚠️ **Key point:** Evaporation removes the higher-energy molecules, lowering the average kinetic energy of the remaining liquid.\n\nThe molecules that escape have higher kinetic energy than average. Their escape reduces the average kinetic energy of the remaining molecules, so the liquid cools down.\n\n**Conclusion:** High energy; temperature decreases → option D.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Faster molecules are more likely to escape.',
+      'Removing higher-energy molecules cools the remaining liquid.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-065',
+    type: 'multiple_choice',
+    question:
+      'The melting points and boiling points of four elements are listed below. Which element is a liquid at $1000^{\\circ}\\text{C}$?\n\nA. Aluminium (mp 660°C, bp 2470°C)\nB. Mercury (mp −39°C, bp 357°C)\nC. Chlorine (mp −101°C, bp −35°C)\nD. Iron (mp 1540°C, bp 2750°C)',
+    options: ['Aluminium', 'Mercury', 'Chlorine', 'Iron'],
+    answer: 'Aluminium',
+    explanation:
+      '⚠️ **Key point:** A substance is liquid when the temperature is between its melting and boiling points.\n\nAt $1000^{\\circ}\\text{C}$:\n- Aluminium: $660 < 1000 < 2470$ → liquid.\n- Mercury: $1000 > 357$ → gas.\n- Chlorine: $1000 > -35$ → gas.\n- Iron: $1000 < 1540$ → solid.\n\n**Conclusion:** Aluminium is the liquid → option A.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Liquid means temperature is between melting and boiling points.',
+      'Compare $1000^{\\circ}\\text{C}$ with each element’s mp and bp.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-066',
+    type: 'multiple_choice',
+    question:
+      'When Paul goes out from an air-conditioned shopping mall, he finds that his glasses become misted-up. Which of the following statements are correct?\n\n(1) Water vapour condenses onto the glass surfaces.\n(2) Cold air holds less water vapour than warm air.\n(3) Latent heat of vaporization is absorbed when mist is formed.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (2) only',
+    explanation:
+      '⚠️ **Key point:** Misting is due to condensation on a cold surface; condensation releases latent heat.\n\n**(1)** The glasses are colder than the warm, humid outdoor air, so water vapour condenses on the surface → true.\n\n**(2)** Cold air has a lower capacity to hold water vapour than warm air → true.\n\n**(3)** Condensation releases latent heat (the reverse of vaporization), so latent heat is not absorbed → false.\n\n**Conclusion:** (1) and (2) only → option A.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Misting is condensation on a cold surface.',
+      'Warm air can hold more water vapour than cold air.',
+      'Condensation releases latent heat.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-067',
+    type: 'multiple_choice',
+    question:
+      'If we come out from a swimming pool and do not dry ourselves, we would feel cool. What is the main reason?',
+    options: [
+      'Water is a good conductor of heat.',
+      'Water is colder than the air.',
+      'Water has a high specific heat capacity.',
+      'Water evaporates in air.',
+    ],
+    answer: 'Water evaporates in air.',
+    explanation:
+      '⚠️ **Key point:** Evaporation absorbs latent heat from the body, causing cooling.\n\nWater on the skin evaporates and absorbs latent heat of vaporization from the body, lowering the skin temperature and making us feel cool.\n\n**Conclusion:** Water evaporates in air → option D.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Evaporation absorbs latent heat from the surroundings.',
+      'Cooling sensation is due to heat taken from the skin.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-068',
+    type: 'multiple_choice',
+    question:
+      'What is the process that causes water molecules to escape from the surface of the sea to the sky?',
+    options: ['boiling', 'convection', 'evaporation', 'radiation'],
+    answer: 'evaporation',
+    explanation:
+      '⚠️ **Key point:** Water molecules escape from a liquid surface by evaporation.\n\nWater at the sea surface gains enough energy for some molecules to leave the liquid and enter the air as water vapour. This is evaporation.\n\n**Conclusion:** evaporation → option C.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Surface molecules can escape without boiling.',
+      'Evaporation turns liquid water into water vapour.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-069',
+    type: 'multiple_choice',
+    question:
+      'When water is heated steadily, its temperature stops rising when the water starts to',
+    options: ['release water vapour', 'evaporate', 'freeze', 'boil'],
+    answer: 'boil',
+    explanation:
+      '⚠️ **Key point:** During boiling, added heat goes into latent heat, so temperature stays constant.\n\nWhen water reaches its boiling point, further heating provides the latent heat of vaporization instead of increasing temperature. Thus the temperature remains at $100^{\\circ}\\text{C}$ (at standard atmospheric pressure) while boiling.\n\n**Conclusion:** boil → option D.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'At boiling, temperature stays constant while liquid changes to gas.',
+      'Evaporation can happen below boiling, but temperature still rises with heating.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-070',
+    type: 'multiple_choice',
+    question:
+      'Mary hangs the wet clothes in a room for drying. Which of the following can help the clothes to dry more quickly?\n\n(1) Close the window.\n(2) Switch on the dehumidifier.\n(3) Switch on the heating radiator.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(2) & (3) only',
+    explanation:
+      '⚠️ **Key point:** Drying speed increases with lower humidity and higher temperature, and with airflow.\n\n**(1)** Closing the window reduces airflow, so evaporation is slower → false.\n\n**(2)** A dehumidifier lowers the air’s moisture content, increasing evaporation → true.\n\n**(3)** Heating raises temperature, increasing evaporation rate → true.\n\n**Conclusion:** (2) and (3) only → option C.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Lower humidity speeds up evaporation.',
+      'Higher temperature speeds up evaporation.',
+      'Airflow helps evaporation.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-071',
+    type: 'multiple_choice',
+    question:
+      'Peter puts a few drops of alcohol in his right hand and a few drops of water in his left hand at the same time. He feels that his right hand is cooler than his left hand. Which of the following may be the reason?\n\n(1) Alcohol has evaporation but water does not have evaporation.\n(2) The heat conduction of alcohol is better than that of water.\n(3) Alcohol has a greater rate of evaporation than water.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      '⚠️ **Key point:** Faster evaporation removes heat more quickly, causing stronger cooling.\n\n**(1)** Both alcohol and water evaporate → false.\n\n**(2)** Their thermal conductivities are not the main reason for the cooling sensation here → false.\n\n**(3)** Alcohol evaporates faster than water, so it absorbs latent heat from the skin more rapidly → true.\n\n**Conclusion:** (3) only → option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Evaporation absorbs latent heat.',
+      'Alcohol is more volatile than water.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-072',
+    type: 'multiple_choice',
+    question:
+      'Which of the following statements are correct when a liquid is boiling?\n\n(1) When the liquid is boiling, large amounts of energy are absorbed.\n(2) The average kinetic energy of its molecules is increased during boiling.\n(3) The average potential energy of its molecules is increased during boiling.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (3) only',
+    explanation:
+      '⚠️ **Key point:** During boiling, temperature stays constant; absorbed energy increases molecular potential energy.\n\n**(1)** Boiling requires latent heat of vaporization, so large amounts of energy are absorbed → true.\n\n**(2)** Temperature is constant during boiling, so average kinetic energy does not increase → false.\n\n**(3)** Molecules move farther apart in the gas phase, so average potential energy increases → true.\n\n**Conclusion:** (1) and (3) only → option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Boiling happens at constant temperature.',
+      'Latent heat changes molecular potential energy, not kinetic energy.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-073',
+    type: 'multiple_choice',
+    question:
+      'When a gas is heated, which of the following statements must be correct?\n\n(1) The temperature of the gas must increase.\n(2) The kinetic energy of the gas molecules must increase.\n(3) The molecules of the gas must move faster.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      '⚠️ **Key point:** Heating a gas increases its temperature, which raises average kinetic energy and molecular speed.\n\nFor a gas with no change of state, heating raises temperature. Higher temperature means higher average kinetic energy, so molecules move faster.\n\n**Conclusion:** (1), (2) and (3) are all correct → option D.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'For an ideal gas, temperature is proportional to average kinetic energy.',
+      'Higher kinetic energy means higher average molecular speed.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-074',
+    type: 'multiple_choice',
+    question:
+      'Which of the following statements is/are correct when a vapour condenses into a liquid at its boiling point?\n\n(1) When the vapour condenses, its temperature decreases.\n(2) The vapour releases energy to the surroundings during condensation.\n(3) The average potential energy of the molecules decreases.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      '⚠️ **Key point:** Condensation at the boiling point occurs at constant temperature and releases latent heat.\n\n**(1)** At the boiling point, condensation happens at constant temperature → false.\n\n**(2)** Condensation releases latent heat to the surroundings → true.\n\n**(3)** Molecules come closer together in the liquid, so average potential energy decreases → true.\n\n**Conclusion:** (2) and (3) only → option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Phase changes at the boiling point occur at constant temperature.',
+      'Condensation releases latent heat.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-075',
+    type: 'multiple_choice',
+    question:
+      'When a body is heated, which of the following statements must be correct?',
+    options: [
+      'The internal energy of the body always increases.',
+      'The temperature of the body always increases.',
+      'The average kinetic energy of the molecules in the body always increases.',
+      'The average potential energy of the molecules in the body always increases.',
+    ],
+    answer: 'The internal energy of the body always increases.',
+    explanation:
+      '⚠️ **Key point:** Heating increases internal energy, but temperature or molecular energies may not increase if a phase change occurs.\n\nInternal energy increases because heat is absorbed. During a phase change, temperature (and average kinetic energy) can remain constant, while potential energy changes.\n\n**Conclusion:** Only statement A is always correct.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'During phase change, temperature can stay constant.',
+      'Heating always increases internal energy.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-076',
+    type: 'multiple_choice',
+    question:
+      'The graph shows the variation in temperature of equal masses of two substances $P$ and $Q$ when they are separately heated by identical heaters. Which deduction is correct?',
+    options: [
+      'The melting point of $P$ is lower than that of $Q$.',
+      'The specific heat capacity of $P$ in solid state is larger than that of $Q$.',
+      'The specific latent heat of fusion of $P$ is larger than that of $Q$.',
+      'The energy required to raise the temperature of $P$ from room temperature to boiling point is more than that of $Q$.',
+    ],
+    answer: 'The specific heat capacity of $P$ in solid state is larger than that of $Q$.',
+    explanation:
+      '⚠️ **Key point:** With equal mass and identical heaters, the slope of the temperature–time graph is inversely proportional to the specific heat capacity.\n\nA smaller slope in the solid-heating section means a larger specific heat capacity. From the graph, $P$ has the smaller solid-phase slope, so $c_P$ is larger.\n\n**Conclusion:** Option B is correct.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'For constant power, slope $\\propto 1/c$ (same mass).',
+      'Compare the solid-phase slopes of $P$ and $Q$.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-077',
+    type: 'multiple_choice',
+    question:
+      'The sprinkler system on a rooftop is able to spray small water droplets onto the rooftop which can lower the temperature of the rooftop on hot sunny days. Which of the following explanations about the sprinkler system is/are reasonable?\n\n(1) Water is a good conductor, which conducts heat quickly.\n(2) Water has a high specific heat capacity, absorbing a lot of energy when its temperature rises.\n(3) Water has a high specific latent heat of vaporization, absorbing a lot of energy when it evaporates.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      '⚠️ **Key point:** Cooling comes mainly from water heating up and evaporating; water is not a good conductor.\n\n**(1)** Water is a poor conductor → false.\n\n**(2)** Water’s high specific heat capacity lets it absorb much energy as it warms → true.\n\n**(3)** Water’s high latent heat of vaporization absorbs much energy during evaporation → true.\n\n**Conclusion:** (2) and (3) only → option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Water is not a good conductor.',
+      'Heating and evaporation both absorb energy.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-078',
+    type: 'multiple_choice',
+    question:
+      'Which of the following descriptions is correct?',
+    options: [
+      'When water at $25^{\\circ}\\text{C}$ is heated to $50^{\\circ}\\text{C}$, both the kinetic energy and potential energy of the water molecules increase.',
+      'When water at $25^{\\circ}\\text{C}$ is heated to $50^{\\circ}\\text{C}$, only the potential energy of the water molecules increases.',
+      'When water boils at $100^{\\circ}\\text{C}$ and turns into steam, the kinetic energy of the water molecules increases.',
+      'When water boils at $100^{\\circ}\\text{C}$ and turns into steam, the potential energy of the water molecules increases.',
+    ],
+    answer:
+      'When water boils at $100^{\\circ}\\text{C}$ and turns into steam, the potential energy of the water molecules increases.',
+    explanation:
+      '⚠️ **Key point:** Temperature rise increases average kinetic energy; phase change increases average potential energy.\n\nHeating water from $25^{\\circ}\\text{C}$ to $50^{\\circ}\\text{C}$ increases kinetic energy, not potential energy. During boiling at $100^{\\circ}\\text{C}$, temperature stays constant, so kinetic energy does not increase; the absorbed energy increases molecular potential energy.\n\n**Conclusion:** Option D is correct.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Rising temperature increases kinetic energy.',
+      'Phase change at constant temperature increases potential energy.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-079',
+    type: 'multiple_choice',
+    question:
+      "When a patient's arm is wiped by a piece of cotton soaked with alcohol, the wiped area will feel cool as that patch of alcohol on the skin evaporates. Which statement explains this phenomenon?",
+    options: [
+      "The evaporation of alcohol absorbs heat from the patient's arm.",
+      'The alcohol on the skin releases latent heat to the surrounding air.',
+      'The motion of all the molecules in the patch of alcohol slows down.',
+      'Air molecules remove heat from the patch of alcohol by conduction.',
+    ],
+    answer: "The evaporation of alcohol absorbs heat from the patient's arm.",
+    explanation:
+      '⚠️ **Key point:** Evaporation absorbs latent heat from the skin, causing cooling.\n\nAs alcohol evaporates, it absorbs latent heat from the skin, lowering the skin temperature and giving a cooling sensation.\n\n**Conclusion:** Option A is correct.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Evaporation absorbs latent heat from the surroundings.',
+      'Cooling sensation is due to heat taken from the skin.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-080',
+    type: 'multiple_choice',
+    question:
+      'Which of the following statements about boiling and evaporation of a liquid is/are correct?\n\n(1) A liquid absorbs energy when it boils but does not absorb energy when it evaporates.\n(2) Boiling occurs at a definite temperature while evaporation takes place above room temperature.\n(3) Boiling occurs throughout the liquid while evaporation only takes place at the liquid\\'s surface.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      '⚠️ **Key point:** Both evaporation and boiling absorb latent heat; boiling is throughout the liquid, evaporation only at the surface.\n\n**(1)** Both processes absorb latent heat → false.\n\n**(2)** Evaporation can occur at any temperature, not only above room temperature → false.\n\n**(3)** Boiling occurs throughout the liquid; evaporation occurs at the surface → true.\n\n**Conclusion:** (3) only → option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Evaporation can happen at any temperature.',
+      'Both processes need latent heat.',
+      'Boiling is a bulk process; evaporation is a surface process.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-081',
+    type: 'multiple_choice',
+    question:
+      'In an experiment to measure the specific latent heat of vaporization of water, a beaker of water is boiled off using an electric heater. Which of the following sources of error would lead to an experimental result smaller than the standard value?',
+    options: [
+      'Energy is lost to the surroundings.',
+      'Water splashes out of the beaker.',
+      'Steam condenses on the cooler part of the heater and drops back to the beaker.',
+      'The heater is not completely immersed in water.',
+    ],
+    answer: 'Water splashes out of the beaker.',
+    explanation:
+      '⚠️ **Key point:** The measured latent heat is $L_v = \\dfrac{E}{m}$. Errors that make $m$ too large (or $E$ too small) give a smaller result.\n\n**A** Energy lost to surroundings makes the supplied energy $E$ overestimated, so $L_v$ appears larger → not smaller.\n\n**B** Splashing increases the measured mass loss without corresponding latent heat, so $m$ is overestimated → $L_v$ smaller → correct.\n\n**C** Condensed steam returning reduces measured mass loss, making $m$ smaller → $L_v$ larger → not smaller.\n\n**D** Heater not fully immersed increases energy lost to air, so $E$ is overestimated → $L_v$ larger → not smaller.\n\n**Conclusion:** Water splashes out → option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use $L_v = E/m$.',
+      'Anything that makes $m$ too large reduces $L_v$.',
+      'Anything that makes $E$ too large increases $L_v$.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-082',
+    type: 'multiple_choice',
+    question:
+      'An electric heater of constant power is used to heat a solid substance $X$ which is insulated from the surroundings. The variation of its temperature $\\theta$ with time $t$ is shown. $X$ has a specific heat capacity of $800\\ \\text{J kg}^{-1}\\ {}^{\\circ}\\text{C}^{-1}$ in its solid state. What is the specific latent heat of fusion of $X$?',
+    options: [
+      '$144\\ \\text{kJ kg}^{-1}$',
+      '$192\\ \\text{kJ kg}^{-1}$',
+      '$202\\ \\text{kJ kg}^{-1}$',
+      'Answer cannot be found as both the mass of $X$ and the power of the heater are not known.',
+    ],
+    answer: '$144\\ \\text{kJ kg}^{-1}$',
+    explanation:
+      '⚠️ **Key point:** With constant power, energy is proportional to time. Use the heating segment to find $P/m$, then use the melting time to find $L_f$.\n\nLet heater power be $P$ and mass be $m$.\n\nFrom the graph, temperature rises from $20^{\\circ}\\text{C}$ to $80^{\\circ}\\text{C}$ in $2\\ \\text{min}$:\n$$P(2) = mc\\Delta T = m(800)(60)$$\n\nMelting lasts $6\\ \\text{min}$, so\n$$P(6) = mL_f$$\n\nDivide the two equations:\n$$\\frac{P(2)}{P(6)} = \\frac{m(800)(60)}{mL_f} \\Rightarrow L_f = 144000\\ \\text{J kg}^{-1}$$\n\n**Conclusion:** $144\\ \\text{kJ kg}^{-1}$ → option A.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Use $P t = mc\\Delta T$ on the sloped part.',
+      'Use $P t = mL_f$ on the flat (melting) part.',
+      'Divide to eliminate $P$ and $m$.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-083',
+    type: 'multiple_choice',
+    question:
+      '0.3 kg of water at temperature $50^{\\circ}\\text{C}$ is mixed with 0.2 kg of ice at temperature $0^{\\circ}\\text{C}$ in an insulated container of negligible heat capacity. What is the final temperature of the mixture?\n\nGiven: specific heat capacity of water $= 4200\\ \\text{J kg}^{-1}\\ {}^{\\circ}\\text{C}^{-1}$; specific latent heat of fusion of ice $= 3.34\\times 10^5\\ \\text{J kg}^{-1}$.',
+    options: [
+      '$-1.8^{\\circ}\\text{C}$',
+      '$0^{\\circ}\\text{C}$',
+      '$1.8^{\\circ}\\text{C}$',
+      '$3.0^{\\circ}\\text{C}$',
+    ],
+    answer: '$0^{\\circ}\\text{C}$',
+    explanation:
+      '⚠️ **Key point:** If the hot water does not supply enough energy to melt all the ice, the final temperature is $0^{\\circ}\\text{C}$ with ice remaining.\n\nHeat available from cooling water to $0^{\\circ}\\text{C}$:\n$$Q_{\\text{water}} = mc\\Delta T = (0.3)(4200)(50) = 63000\\ \\text{J}$$\n\nHeat needed to melt all the ice:\n$$Q_{\\text{melt}} = mL_f = (0.2)(3.34\\times 10^5) = 66800\\ \\text{J}$$\n\nSince $Q_{\\text{water}} < Q_{\\text{melt}}$, not all ice melts, so the mixture remains at $0^{\\circ}\\text{C}$.\n\n**Conclusion:** $0^{\\circ}\\text{C}$ → option B.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Compare heat available from warm water with heat needed to melt all ice.',
+      'If ice remains, the final temperature is $0^{\\circ}\\text{C}$.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-084',
+    type: 'multiple_choice',
+    question:
+      'Same mass of solids $P$ and $Q$ are heated at the same rate. The temperature–time graphs of the two substances are shown. Which of the following comparisons about their melting points and specific latent heats of fusion is correct?',
+    options: [
+      'Melting point: $P$ higher; Latent heat of fusion: $P$ larger',
+      'Melting point: $P$ higher; Latent heat of fusion: $Q$ larger',
+      'Melting point: $Q$ higher; Latent heat of fusion: $P$ larger',
+      'Melting point: $Q$ higher; Latent heat of fusion: $Q$ larger',
+    ],
+    answer: 'Melting point: $Q$ higher; Latent heat of fusion: $P$ larger',
+    explanation:
+      '⚠️ **Key point:** The plateau temperature gives the melting point; the plateau duration is proportional to latent heat (same mass and power).\n\nThe plateau for $Q$ is at a higher temperature, so $Q$ has the higher melting point. The plateau for $P$ lasts longer, so $P$ has the larger specific latent heat of fusion.\n\n**Conclusion:** Melting point $Q$ higher; latent heat of fusion $P$ larger → option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'The flat part indicates melting at the melting point.',
+      'Longer melting time means larger latent heat (same mass and power).',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
+    id: 'cos-085',
+    type: 'multiple_choice',
+    question:
+      'Which of the following statements about the internal energy of a substance are correct?\n\n(1) When a solid melts, the latent heat of fusion absorbed becomes potential energy of the molecules in the substance.\n(2) When a vapour condenses, its internal energy decreases.\n(3) When a liquid evaporates, the internal energy of the remaining liquid increases.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (2) only',
+    explanation:
+      '⚠️ **Key point:** During melting, absorbed energy increases potential energy; condensation lowers internal energy; evaporation cools the remaining liquid.\n\n**(1)** Melting occurs at constant temperature, so kinetic energy stays the same; absorbed latent heat increases molecular potential energy → true.\n\n**(2)** Condensation releases latent heat, so internal energy decreases → true.\n\n**(3)** Evaporation removes higher‑energy molecules, so the remaining liquid’s temperature (and internal energy) decreases → false.\n\n**Conclusion:** (1) and (2) only → option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Latent heat at constant temperature changes potential energy.',
+      'Condensation releases energy.',
+      'Evaporation cools the remaining liquid.',
+    ],
+    sectionId: 'change-of-state',
+  },
 ];

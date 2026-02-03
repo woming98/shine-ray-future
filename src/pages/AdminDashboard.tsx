@@ -20,6 +20,7 @@ import { isAdminUser } from '../admin'
 import type { ProgressPayload } from '../store/supabaseProgress'
 import { PHYSICS_TOPICS } from './subjects/physics/constants/topics'
 import { PHYSICS_CURRICULUM } from './subjects/physics/constants/curriculum'
+import { PHYSICS_ALL_EXERCISES, PHYSICS_EXERCISE_CATALOG } from './subjects/physics/constants/exerciseCatalog'
 
 type UserProgressRow = {
   user_id: string
@@ -48,6 +49,21 @@ type StudentSummary = {
     totalChapters: number
     percent: number
   }>
+}
+
+type WrongExerciseEntry = {
+  id: string
+  question: string
+  options?: string[]
+  answer: string
+  userAnswer: string | null
+  imagePaths?: string[]
+  topicId: string
+  topicName: string
+  topicNameCN: string
+  sectionId: string
+  sectionName: string
+  sectionNameCN: string
 }
 
 const formatMinutes = (minutes: number) => {
@@ -168,6 +184,17 @@ const summarizeStudent = (row: UserProgressRow): StudentSummary => {
   }
 }
 
+const resolveTopicSectionFromKey = (key: string) => {
+  const topicIds = Object.keys(PHYSICS_EXERCISE_CATALOG)
+  for (const topicId of topicIds) {
+    const prefix = `${topicId}-`
+    if (key.startsWith(prefix)) {
+      return { topicId, sectionId: key.slice(prefix.length) }
+    }
+  }
+  return null
+}
+
 export default function AdminDashboard() {
   const [session, setSession] = useState<Session | null>(null)
   const [loading, setLoading] = useState(false)
@@ -175,6 +202,8 @@ export default function AdminDashboard() {
   const [rows, setRows] = useState<UserProgressRow[]>([])
   const [selectedUserId, setSelectedUserId] = useState<string | null>(null)
   const [query, setQuery] = useState('')
+  const [wrongTopicId, setWrongTopicId] = useState<string>('all')
+  const [wrongSectionId, setWrongSectionId] = useState<string>('all')
 
   const isLoggedIn = Boolean(session?.user)
   const isAdmin = isAdminUser(session?.user)
@@ -234,6 +263,10 @@ export default function AdminDashboard() {
   }, [isLoggedIn, isAdmin])
 
   const students = useMemo(() => rows.map(summarizeStudent), [rows])
+  const selectedRow = useMemo(
+    () => rows.find((row) => row.user_id === selectedUserId) || null,
+    [rows, selectedUserId]
+  )
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
@@ -251,6 +284,96 @@ export default function AdminDashboard() {
     if (!selectedUserId) return null
     return students.find((s) => s.userId === selectedUserId) || null
   }, [selectedUserId, students])
+
+  useEffect(() => {
+    setWrongTopicId('all')
+    setWrongSectionId('all')
+  }, [selectedUserId])
+
+  const exerciseIndex = useMemo(() => {
+    const index = new Map<string, { topicId: string; sectionId: string; sectionName: string; sectionNameCN: string }>()
+    Object.values(PHYSICS_EXERCISE_CATALOG).forEach((entry) => {
+      entry.exercises.forEach((exercise) => {
+        const sectionId = exercise.sectionId || entry.defaultSectionId || ''
+        const sectionMeta = entry.sections.find((s) => s.id === sectionId)
+        index.set(exercise.id, {
+          topicId: entry.topicId,
+          sectionId,
+          sectionName: sectionMeta?.name || sectionId || '未命名',
+          sectionNameCN: sectionMeta?.nameCN || sectionId || '未命名',
+        })
+      })
+    })
+    return index
+  }, [])
+
+  const exerciseById = useMemo(() => {
+    return new Map(PHYSICS_ALL_EXERCISES.map((exercise) => [exercise.id, exercise]))
+  }, [])
+
+  const wrongExercises = useMemo(() => {
+    const payload = selectedRow?.payload
+    if (!payload?.physics?.exerciseProgress) return []
+
+    const topicNameMap = new Map(PHYSICS_TOPICS.map((t) => [t.id, { name: t.name, nameCN: t.nameCN }]))
+    const entries: WrongExerciseEntry[] = []
+
+    Object.entries(payload.physics.exerciseProgress).forEach(([key, progress]) => {
+      const resolved = resolveTopicSectionFromKey(key)
+      const fallback = resolved ?? { topicId: '', sectionId: '' }
+      const topicId = fallback.topicId
+      const sectionId = fallback.sectionId
+      const topicName = topicNameMap.get(topicId)?.name || topicId || '未知主题'
+      const topicNameCN = topicNameMap.get(topicId)?.nameCN || topicId || '未知主题'
+
+      const sectionMeta = topicId ? PHYSICS_EXERCISE_CATALOG[topicId]?.sections.find((s) => s.id === sectionId) : null
+      const sectionName = sectionMeta?.name || sectionId || '未命名'
+      const sectionNameCN = sectionMeta?.nameCN || sectionId || '未命名'
+
+      const wrongIds = progress?.wrongEverIds || []
+      wrongIds.forEach((exerciseId) => {
+        const exercise = exerciseById.get(exerciseId)
+        if (!exercise) return
+        const indexInfo = exerciseIndex.get(exerciseId)
+        const resolvedTopicId = topicId || indexInfo?.topicId || ''
+        const resolvedSectionId = sectionId || indexInfo?.sectionId || ''
+        const resolvedSectionName = sectionName || indexInfo?.sectionName || '未命名'
+        const resolvedSectionNameCN = sectionNameCN || indexInfo?.sectionNameCN || '未命名'
+        const resolvedTopicName = topicNameMap.get(resolvedTopicId)?.name || topicName
+        const resolvedTopicNameCN = topicNameMap.get(resolvedTopicId)?.nameCN || topicNameCN
+
+        entries.push({
+          id: exercise.id,
+          question: exercise.question,
+          options: exercise.options,
+          answer: exercise.answer,
+          userAnswer: progress?.answers?.[exercise.id] ?? null,
+          imagePaths: exercise.imagePaths,
+          topicId: resolvedTopicId,
+          topicName: resolvedTopicName,
+          topicNameCN: resolvedTopicNameCN,
+          sectionId: resolvedSectionId,
+          sectionName: resolvedSectionName,
+          sectionNameCN: resolvedSectionNameCN,
+        })
+      })
+    })
+
+    return entries
+  }, [selectedRow, exerciseIndex, exerciseById])
+
+  const filteredWrongExercises = useMemo(() => {
+    return wrongExercises.filter((entry) => {
+      if (wrongTopicId !== 'all' && entry.topicId !== wrongTopicId) return false
+      if (wrongSectionId !== 'all' && entry.sectionId !== wrongSectionId) return false
+      return true
+    })
+  }, [wrongExercises, wrongTopicId, wrongSectionId])
+
+  const wrongSectionOptions = useMemo(() => {
+    if (wrongTopicId === 'all') return []
+    return PHYSICS_EXERCISE_CATALOG[wrongTopicId]?.sections || []
+  }, [wrongTopicId])
 
   const totals = useMemo(() => {
     const totalStudents = students.length
@@ -570,6 +693,130 @@ export default function AdminDashboard() {
                             </AreaChart>
                           </ResponsiveContainer>
                         </div>
+                      </div>
+
+                      <div className="rounded-2xl border border-white/15 bg-white/10 p-6">
+                        <div className="flex items-center justify-between mb-4">
+                          <div className="flex items-center gap-2 text-white font-semibold">
+                            <AlertTriangle className="w-5 h-5 text-red-300" />
+                            物理错题列表
+                          </div>
+                          <div className="text-white/60 text-xs">
+                            {filteredWrongExercises.length}/{wrongExercises.length}
+                          </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
+                          <div>
+                            <label className="text-white/60 text-xs">主题筛选</label>
+                            <select
+                              value={wrongTopicId}
+                              onChange={(e) => {
+                                setWrongTopicId(e.target.value)
+                                setWrongSectionId('all')
+                              }}
+                              className="mt-1 w-full rounded-xl bg-black/20 border border-white/10 text-white text-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-500/60"
+                            >
+                              <option value="all">全部主题</option>
+                              {PHYSICS_TOPICS.map((topic) => (
+                                <option key={topic.id} value={topic.id}>
+                                  {topic.nameCN} · {topic.name}
+                                </option>
+                              ))}
+                            </select>
+                          </div>
+                          <div>
+                            <label className="text-white/60 text-xs">章节筛选</label>
+                            <select
+                              value={wrongSectionId}
+                              onChange={(e) => setWrongSectionId(e.target.value)}
+                              disabled={wrongTopicId === 'all'}
+                              className="mt-1 w-full rounded-xl bg-black/20 border border-white/10 text-white text-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-500/60 disabled:opacity-60"
+                            >
+                              <option value="all">全部章节</option>
+                              {wrongSectionOptions.map((section) => (
+                                <option key={section.id} value={section.id}>
+                                  {section.nameCN} · {section.name}
+                                </option>
+                              ))}
+                            </select>
+                          </div>
+                        </div>
+
+                        {filteredWrongExercises.length === 0 ? (
+                          <div className="rounded-2xl bg-black/15 border border-white/10 p-6 text-center text-white/60">
+                            暂无错题数据（需学生有错题记录并已同步）
+                          </div>
+                        ) : (
+                          <div className="space-y-4">
+                            {filteredWrongExercises.map((item) => (
+                              <div
+                                key={`${item.topicId}-${item.sectionId}-${item.id}`}
+                                className="rounded-2xl bg-black/15 border border-white/10 p-4"
+                              >
+                                <div className="flex flex-wrap items-center gap-2 text-xs text-white/60 mb-2">
+                                  <span className="px-2 py-1 rounded-full bg-white/10">
+                                    {item.topicNameCN}
+                                  </span>
+                                  <span className="px-2 py-1 rounded-full bg-white/10">
+                                    {item.sectionNameCN}
+                                  </span>
+                                  <span className="px-2 py-1 rounded-full bg-white/10">
+                                    {item.id}
+                                  </span>
+                                </div>
+
+                                <div className="text-white/90 whitespace-pre-wrap text-sm">
+                                  {item.question}
+                                </div>
+
+                                {item.imagePaths && item.imagePaths.length > 0 && (
+                                  <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                    {item.imagePaths.map((src, idx) => (
+                                      <div
+                                        key={`${item.id}-img-${idx}`}
+                                        className="rounded-2xl overflow-hidden border border-white/10 bg-black/20"
+                                      >
+                                        <img
+                                          src={src}
+                                          alt={`${item.id}-image-${idx + 1}`}
+                                          className="w-full h-auto object-contain"
+                                          loading="lazy"
+                                        />
+                                      </div>
+                                    ))}
+                                  </div>
+                                )}
+
+                                {item.options && item.options.length > 0 && (
+                                  <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-white/70">
+                                    {item.options.map((opt, idx) => (
+                                      <div
+                                        key={`${item.id}-opt-${idx}`}
+                                        className="rounded-xl bg-white/5 border border-white/10 px-3 py-2"
+                                      >
+                                        {opt}
+                                      </div>
+                                    ))}
+                                  </div>
+                                )}
+
+                                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                                  <div className="rounded-xl bg-emerald-500/10 border border-emerald-500/30 p-3 text-white/90">
+                                    <div className="text-xs text-emerald-200/80 mb-1">正确答案</div>
+                                    <div className="whitespace-pre-wrap">{item.answer}</div>
+                                  </div>
+                                  <div className="rounded-xl bg-red-500/10 border border-red-500/30 p-3 text-white/90">
+                                    <div className="text-xs text-red-200/80 mb-1">学生答案</div>
+                                    <div className="whitespace-pre-wrap">
+                                      {item.userAnswer ?? '未记录'}
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        )}
                       </div>
 
                       <div className="rounded-2xl border border-white/15 bg-white/10 p-6">

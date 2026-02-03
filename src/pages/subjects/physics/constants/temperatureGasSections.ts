@@ -22,4 +22,10 @@ export const TEMPERATURE_GAS_SECTIONS: TemperatureGasSection[] = [
     nameCN: '热转移过程',
     description: 'Conduction, convection and radiation; reducing heat loss',
   },
+  {
+    id: 'change-of-state',
+    name: 'Change of State',
+    nameCN: '形态的改变',
+    description: 'Heating/cooling curves, freezing/melting, latent heat',
+  },
 ];
