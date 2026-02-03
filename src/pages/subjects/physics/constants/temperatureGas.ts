@@ -3215,7 +3215,7 @@ export const TEMPERATURE_GAS_EXERCISES: Exercise[] = [
     id: 'cos-080',
     type: 'multiple_choice',
     question:
-      'Which of the following statements about boiling and evaporation of a liquid is/are correct?\n\n(1) A liquid absorbs energy when it boils but does not absorb energy when it evaporates.\n(2) Boiling occurs at a definite temperature while evaporation takes place above room temperature.\n(3) Boiling occurs throughout the liquid while evaporation only takes place at the liquid\\'s surface.',
+      "Which of the following statements about boiling and evaporation of a liquid is/are correct?\n\n(1) A liquid absorbs energy when it boils but does not absorb energy when it evaporates.\n(2) Boiling occurs at a definite temperature while evaporation takes place above room temperature.\n(3) Boiling occurs throughout the liquid while evaporation only takes place at the liquid's surface.",
     options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(3) only',
     explanation:
