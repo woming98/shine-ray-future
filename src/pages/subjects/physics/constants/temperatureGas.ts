@@ -1679,6 +1679,31 @@ export const TEMPERATURE_GAS_EXERCISES: Exercise[] = [
     imagePaths: ['/physics/exercises/transfer-processes/tp-036-question.png'],
   },
   {
+    id: 'tp-037',
+    type: 'multiple_choice',
+    question:
+      'Two identical scoops of ice-cream are transferred from a refrigerator into paper cup $X$ and vacuum flask $Y$ shown above. Under room temperature, the time required for the ice-cream in the containers to melt completely is $t_{\\mathrm{X}}$ and $t_{\\mathrm{Y}}$ respectively. What is the expected result and explanation ?',
+    options: [
+      '$t_{\\mathrm{X}}>t_{\\mathrm{Y}}$ as the vacuum flask reduces heat loss to the surroundings.',
+      '$t_{\\mathrm{X}}>t_{\\mathrm{Y}}$ as the vacuum flask retains the heat.',
+      '$t_{\\mathrm{Y}}>t_{\\mathrm{X}}$ as the vacuum flask keeps things cold by releasing heat into the surroundings.',
+      '$t_{\\mathrm{Y}}>t_{\\mathrm{X}}$ as the vacuum flask reduces the rate of heat gain from the surroundings.',
+    ],
+    answer:
+      '$t_{\\mathrm{Y}}>t_{\\mathrm{X}}$ as the vacuum flask reduces the rate of heat gain from the surroundings.',
+    explanation:
+      '⚠️ **Key point:** A vacuum flask reduces heat transfer with the surroundings, so the ice-cream gains heat more slowly and melts later.\n\n**Step 1:** Compare heat transfer rates\nThe paper cup allows more heat to enter by conduction, convection and radiation. A vacuum flask reduces these processes.\n\n**Step 2:** Link to melting time\nSlower heat gain means it takes longer for the ice-cream in $Y$ to absorb enough energy to melt.\n\n**Conclusion:** $t_{\\mathrm{Y}}>t_{\\mathrm{X}}$ because the vacuum flask reduces the rate of heat gain → option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'A vacuum flask reduces heat transfer with the surroundings',
+      'Less heat gain means a longer melting time',
+      'Paper cups are poor at insulation compared with vacuum flasks',
+    ],
+    sectionId: 'transfer-processes',
+    imagePaths: ['/physics/exercises/transfer-processes/tp-037-question.png'],
+  },
+  {
     id: 'tp-038',
     type: 'multiple_choice',
     question:
@@ -1700,7 +1725,6 @@ export const TEMPERATURE_GAS_EXERCISES: Exercise[] = [
       'The car gets hotter even without the engine running',
     ],
     sectionId: 'transfer-processes',
-    imagePaths: ['/physics/exercises/transfer-processes/tp-037-question.png'],
   },
   {
     id: 'tp-039',

@@ -19,7 +19,6 @@ export const PHYSICS_CURRICULUM: PhysicsCurriculumTopic[] = [
     sections: [
       { id: 'temp-heat-internal', title: 'Temperature, Heat and Internal Energy', titleCN: '温度、热、內能' },
       { id: 'transfer-processes', title: 'Transfer Processes', titleCN: '热转移过程' },
-      { id: 'change-of-state', title: 'Change of State', titleCN: '形态的改变' },
       { id: 'general-gas-law', title: 'General Gas Law', titleCN: '普通气体定律' },
       { id: 'kinetic-theory', title: 'Kinetic Theory', titleCN: '分子运动论' },
     ],
