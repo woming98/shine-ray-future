@@ -1972,6 +1972,144 @@ export const TEMPERATURE_GAS_EXERCISES: Exercise[] = [
     sectionId: 'change-of-state',
   },
   {
+    id: 'cos-012',
+    type: 'multiple_choice',
+    question:
+      'Five different solids, each of mass $1\\ \\text{kg}$, are heated by identical immersion heaters for $10\\ \\text{min}$. The following graphs show their heating curves. Assuming no loss in heat, which solid has the greatest specific latent heat of fusion?',
+    options: [
+      '/physics/exercises/change-of-state/cos-012-option-a.png',
+      '/physics/exercises/change-of-state/cos-012-option-b.png',
+      '/physics/exercises/change-of-state/cos-012-option-c.png',
+      '/physics/exercises/change-of-state/cos-012-option-d.png',
+    ],
+    answer: '/physics/exercises/change-of-state/cos-012-option-a.png',
+    explanation:
+      '⚠️ **Key point:** With identical heaters and equal mass, the energy supplied during the horizontal (melting) segment is $E = Pt = mL_f$. A longer horizontal segment means more energy used for melting, hence a larger $L_f$.\n\n**Conclusion:** The graph with the longest horizontal region corresponds to the greatest specific latent heat of fusion → option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'The horizontal part of a heating curve represents melting at constant temperature.',
+      'With the same heater power and mass, longer time at the plateau means larger $L_f$.',
+      'Choose the graph with the longest horizontal segment.',
+    ],
+    sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-012-question.png'],
+  },
+  {
+    id: 'cos-013',
+    type: 'multiple_choice',
+    question:
+      'The figure shows an experiment to determine the specific latent heat of fusion of ice. The result obtained is lower than the one expected. The main reason could be that',
+    options: [
+      'there is heat gain from the surroundings.',
+      'there is heat loss to the surroundings.',
+      'there is some water remaining in the funnel, not falling into the beaker.',
+      'the temperature of ice is below $0^{\\circ}\\text{C}$.',
+    ],
+    answer: 'there is heat gain from the surroundings.',
+    explanation:
+      '⚠️ **Key point:** The result is lower than expected, so the calculated $L_f = E/m$ must be smaller than the true value. This happens if $m$ is larger than it should be or if $E$ is smaller than it should be.\n\n**A** Heat gain from surroundings melts extra ice, increasing measured mass $m$ while $E$ (from the heater) is unchanged, so $L_f = E/m$ becomes smaller → correct.\n\n**B** Heat loss means some heater energy does not melt ice, so the effective $E$ for melting is smaller; this would make the calculated $L_f$ larger, not smaller → incorrect.\n\n**C** Water remaining in the funnel reduces measured $m$, making $L_f$ larger → incorrect.\n\n**D** Ice below $0^{\\circ}\\text{C}$ requires extra energy to warm to $0^{\\circ}\\text{C}$; this makes calculated $L_f$ larger → incorrect.\n\n**Conclusion:** Option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use $L_f = E/m$ and think which error makes the value smaller.',
+      'Extra melting from surroundings increases $m$ without changing $E$.',
+      'Errors that reduce $m$ or increase $E$ make $L_f$ larger, not smaller.',
+    ],
+    sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-013-question.png'],
+  },
+  {
+    id: 'cos-014',
+    type: 'multiple_choice',
+    question:
+      'The apparatus shown is used to find the specific latent heat of vaporization of water. Which of the following is NOT correct?',
+    options: [
+      'Cover the beaker with a lid.',
+      'Use a suitable heater to prevent boiling the water too vigorously.',
+      'Surround the beaker with some cotton.',
+      'Repeat the experiment several times and take the mean of the results.',
+    ],
+    answer: 'Cover the beaker with a lid.',
+    explanation:
+      '⚠️ **Key point:** In a latent heat of vaporization experiment, steam must escape freely so that mass loss can be measured correctly.\n\n**A** Covering with a lid prevents water vapour from escaping, so the mass loss is not measured correctly → NOT correct.\n\n**B** Gentle boiling prevents splashing and loss of liquid water, improving accuracy → correct.\n\n**C** Cotton insulation reduces heat loss to surroundings → correct.\n\n**D** Repeating and averaging reduces random error → correct.\n\n**Conclusion:** Option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Mass loss of vapour is needed for the calculation.',
+      'Anything that blocks vapour escape invalidates the measurement.',
+      'Other options improve accuracy or reduce heat loss.',
+    ],
+    sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-014-question.png'],
+  },
+  {
+    id: 'cos-015',
+    type: 'multiple_choice',
+    question:
+      'A 20 W heater is used to melt a solid. A graph of temperature $\\theta$ against time $t$ is plotted as shown above. If a heater of 40 W is used, which graph (using the same scale) would be obtained?',
+    options: [
+      '/physics/exercises/change-of-state/cos-015-option-a.png',
+      '/physics/exercises/change-of-state/cos-015-option-b.png',
+      '/physics/exercises/change-of-state/cos-015-option-c.png',
+      '/physics/exercises/change-of-state/cos-015-option-d.png',
+    ],
+    answer: '/physics/exercises/change-of-state/cos-015-option-a.png',
+    explanation:
+      '⚠️ **Key point:** For the same solid, the energy required for heating and melting is fixed. With $E = Pt$, time is inversely proportional to power.\n\nDoubling power from $20\\ \\text{W}$ to $40\\ \\text{W}$ halves the time taken for each segment, so the entire curve is compressed along the time axis.\n\n**Conclusion:** The correct graph is option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use $E = Pt$; for the same energy, $t \\propto 1/P$.',
+      'Doubling power halves the time for both sloping and horizontal segments.',
+      'Look for the graph compressed in time by a factor of 2.',
+    ],
+    sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-015-question.png'],
+  },
+  {
+    id: 'cos-016',
+    type: 'multiple_choice',
+    question:
+      'A 400 W electric heater is used to heat 0.4 kg of a solid. The graph shows the temperature against time of the substance. The specific latent heat of fusion of the substance is',
+    options: [
+      '$64\\ \\text{kJ kg}^{-1}$',
+      '$160\\ \\text{kJ kg}^{-1}$',
+      '$400\\ \\text{kJ kg}^{-1}$',
+      '$500\\ \\text{kJ kg}^{-1}$',
+    ],
+    answer: '$400\\ \\text{kJ kg}^{-1}$',
+    explanation:
+      '⚠️ **Key point:** During melting, the energy supplied goes into latent heat: $Pt = mL_f$.\n\nFrom the graph, the melting (horizontal) segment lasts from 100 s to 500 s, so $t = 400\\ \\text{s}$.\n\n$$Pt = mL_f$$\n$$L_f = \\frac{Pt}{m} = \\frac{(400)(400)}{0.4} = 4.0\\times 10^{5}\\ \\text{J kg}^{-1} = 400\\ \\text{kJ kg}^{-1}$$\n\n**Conclusion:** $400\\ \\text{kJ kg}^{-1}$ → option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use the plateau (melting) time from the graph.',
+      'Apply $Pt = mL_f$ during the constant-temperature segment.',
+      'Convert J kg$^{-1}$ to kJ kg$^{-1}$ if needed.',
+    ],
+    sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-016-question.png'],
+  },
+  {
+    id: 'cos-017',
+    type: 'multiple_choice',
+    question:
+      'An immersion heater is used to heat a cup of water. It takes $10\\ \\text{min}$ to bring the water from $20^{\\circ}\\text{C}$ to its boiling point $100^{\\circ}\\text{C}$. Find the time taken for the heater to vaporize the boiling water completely.\n\n(Given: specific heat capacity of water $= 4200\\ \\text{J kg}^{-1}\\ {}^{\\circ}\\text{C}^{-1}$; specific latent heat of vaporization of water $= 2.268\\times 10^6\\ \\text{J kg}^{-1}$.)',
+    options: ['54 minutes', '60 minutes', '67.5 minutes', '77.5 minutes'],
+    answer: '67.5 minutes',
+    explanation:
+      '⚠️ **Key point:** With the same heater power and mass, time is proportional to the energy required.\n\nHeating to boiling:\n$$Pt_1 = mc\\Delta T$$\nBoiling to vaporize completely:\n$$Pt_2 = mL_v$$\n\nTaking the ratio:\n$$\\frac{t_2}{t_1} = \\frac{L_v}{c\\Delta T}$$\n$$t_2 = 10\\times \\frac{2.268\\times 10^6}{4200\\times (100-20)}\\ \\text{min} = 67.5\\ \\text{min}$$\n\n**Conclusion:** $67.5$ minutes → option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use $Pt_1 = mc\\Delta T$ and $Pt_2 = mL_v$.',
+      'Divide to eliminate $P$ and $m$.',
+      'Substitute $\\Delta T = 80^{\\circ}\\text{C}$.',
+    ],
+    sectionId: 'change-of-state',
+  },
+  {
     id: 'cos-018',
     type: 'multiple_choice',
     question:
