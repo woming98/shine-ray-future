@@ -2,8 +2,8 @@ import { Chapter, Concept, Formula } from '../types';
 import { TEMPERATURE_GAS_EXERCISES } from './temperatureGas';
 
 // ============================================
-// Temperature and Gas 主题内容（已覆盖：temp-heat-internal / transfer-processes）
-// 基于 DSE 真题风格 + 已录入练习题（thi-001~、tp-001~）反推理论结构
+// Temperature and Gas 主题内容（已覆盖：temp-heat-internal / change-of-state / transfer-processes）
+// 基于 DSE 真题风格 + 已录入练习题（thi-001~、cos-001~、tp-001~）反推理论结构
 // ============================================
 
 // 概念知识点 - Temperature, Heat and Internal Energy
@@ -329,6 +329,52 @@ export const TEMPERATURE_GAS_TRANSFER_CONCEPTS: Concept[] = [
   },
 ];
 
+// 概念知识点 - Change of State
+export const TEMPERATURE_GAS_CHANGE_STATE_CONCEPTS: Concept[] = [
+  {
+    id: 'tgs-1',
+    title: '物态变化与潜热（Latent heat）',
+    content:
+      '物质在熔化、凝固、汽化、液化时温度保持不变，但会吸收或释放能量，这部分能量称为潜热。',
+    keyPoints: [
+      '变化状态时温度不变，但内能改变',
+      '熔化/汽化：吸热；凝固/液化：放热',
+      '潜热与质量成正比：E = mL',
+      '对应练习：cos-009、cos-010、cos-021',
+    ],
+    examples: ['冰融化时温度仍为 0°C，但持续吸热', '水沸腾时温度保持 100°C 但持续吸热'],
+    difficulty: 'basic',
+  },
+  {
+    id: 'tgs-2',
+    title: '加热/冷却曲线（Heating/Cooling curves）',
+    content:
+      '曲线中的斜线表示升温或降温（使用 E=mcΔT），水平段表示物态变化（使用 E=mL）。',
+    keyPoints: [
+      '斜率与比热容有关：斜率越大，c 越小',
+      '水平段长度与潜热有关：越长，L 越大',
+      '同一物质不同相态的 c 与 L 可不同',
+      '对应练习：cos-001、cos-007、cos-032、cos-049',
+    ],
+    examples: ['冷却曲线中水平段对应凝固点', '相同功率加热时水平段时间更长表示潜热更大'],
+    difficulty: 'intermediate',
+  },
+  {
+    id: 'tgs-3',
+    title: '熔化潜热与汽化潜热（Lf / Lv）',
+    content:
+      '熔化潜热 Lf 是物质在熔化时每千克吸收的能量；汽化潜热 Lv 是物质在汽化时每千克吸收的能量。',
+    keyPoints: [
+      '常见公式：E = mLf（熔化）或 E = mLv（汽化）',
+      '同一物质的 Lv 通常大于 Lf',
+      '温度单位用 °C 或 K 均可，注意 ΔT 仅用于升温/降温',
+      '对应练习：cos-012、cos-044、cos-060',
+    ],
+    examples: ['0.2 kg 冰融化所需能量：E = 0.2 × Lf', '水汽化所需能量：E = mLv'],
+    difficulty: 'basic',
+  },
+];
+
 // 物理公式 - Temperature, Heat and Internal Energy
 export const TEMPERATURE_GAS_FORMULAS_THI: Formula[] = [
   {
@@ -551,9 +597,28 @@ export const TEMPERATURE_GAS_FORMULAS_TP: Formula[] = [
   },
 ];
 
+// 物理公式 - Change of State
+export const TEMPERATURE_GAS_FORMULAS_COS: Formula[] = [
+  {
+    id: 'tg-15',
+    name: 'Latent heat',
+    nameCN: '潜热',
+    expression: 'E = mL',
+    variables: [
+      { symbol: 'E', name: 'energy', unit: 'J', description: '物态变化吸收/释放的能量' },
+      { symbol: 'm', name: 'mass', unit: 'kg', description: '质量' },
+      { symbol: 'L', name: 'specific latent heat', unit: 'J kg⁻¹', description: '比潜热（Lf 或 Lv）' },
+    ],
+    description:
+      '物态变化时温度不变，吸收/释放的能量由 E = mL 给出。L 可指熔化潜热 Lf 或汽化潜热 Lv。',
+    example: '0.5 kg 冰融化：E = 0.5 × Lf',
+  },
+];
+
 // 供“公式计算”标签页使用：整合全主题公式
 export const TEMPERATURE_GAS_FORMULAS: Formula[] = [
   ...TEMPERATURE_GAS_FORMULAS_THI,
+  ...TEMPERATURE_GAS_FORMULAS_COS,
   ...TEMPERATURE_GAS_FORMULAS_TP,
 ];
 
@@ -566,6 +631,16 @@ export const TEMPERATURE_GAS_CHAPTERS: Chapter[] = [
     concepts: TEMPERATURE_GAS_CONCEPTS,
     formulas: TEMPERATURE_GAS_FORMULAS_THI,
     exercises: TEMPERATURE_GAS_EXERCISES.filter((e) => e.sectionId === 'temp-heat-internal'),
+    simulations: [],
+    completed: false,
+  },
+  {
+    id: 'change-of-state',
+    title: 'Change of State',
+    titleCN: '物态变化',
+    concepts: TEMPERATURE_GAS_CHANGE_STATE_CONCEPTS,
+    formulas: TEMPERATURE_GAS_FORMULAS_COS,
+    exercises: TEMPERATURE_GAS_EXERCISES.filter((e) => e.sectionId === 'change-of-state'),
     simulations: [],
     completed: false,
   },

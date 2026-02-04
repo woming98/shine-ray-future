@@ -17,6 +17,12 @@ export const TEMPERATURE_GAS_SECTIONS: TemperatureGasSection[] = [
     description: 'Temperature scales, heat capacity, internal energy, latent heat',
   },
   {
+    id: 'change-of-state',
+    name: 'Change of State',
+    nameCN: '物态变化',
+    description: 'Latent heat, melting/freezing, boiling/condensation, heating/cooling curves',
+  },
+  {
     id: 'transfer-processes',
     name: 'Transfer Processes',
     nameCN: '热转移过程',
