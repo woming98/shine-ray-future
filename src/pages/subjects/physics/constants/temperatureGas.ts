@@ -1976,13 +1976,8 @@ export const TEMPERATURE_GAS_EXERCISES: Exercise[] = [
     type: 'multiple_choice',
     question:
       'Five different solids, each of mass $1\\ \\text{kg}$, are heated by identical immersion heaters for $10\\ \\text{min}$. The following graphs show their heating curves. Assuming no loss in heat, which solid has the greatest specific latent heat of fusion?',
-    options: [
-      '/physics/exercises/change-of-state/cos-012-option-a.png',
-      '/physics/exercises/change-of-state/cos-012-option-b.png',
-      '/physics/exercises/change-of-state/cos-012-option-c.png',
-      '/physics/exercises/change-of-state/cos-012-option-d.png',
-    ],
-    answer: '/physics/exercises/change-of-state/cos-012-option-a.png',
+    options: ['A', 'B', 'C', 'D'],
+    answer: 'A',
     explanation:
       '⚠️ **Key point:** With identical heaters and equal mass, the energy supplied during the horizontal (melting) segment is $E = Pt = mL_f$. A longer horizontal segment means more energy used for melting, hence a larger $L_f$.\n\n**Conclusion:** The graph with the longest horizontal region corresponds to the greatest specific latent heat of fusion → option A.',
     difficulty: 2,
