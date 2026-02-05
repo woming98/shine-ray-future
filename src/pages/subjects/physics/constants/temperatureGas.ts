@@ -3580,8 +3580,8 @@ export const TEMPERATURE_GAS_EXERCISES: Exercise[] = [
     type: 'multiple_choice',
     question:
       'If the pressure of a fixed mass of gas of initial volume $V$ is doubled and its absolute temperature halved, its volume becomes',
-    options: ['\\u00bc V', '\\u00bd V', '2 V', '4 V'],
-    answer: '\\u00bc V',
+    options: ['0.25 V', '0.5 V', '2 V', '4 V'],
+    answer: '0.25 V',
     explanation:
       '⚠️ **Key point:** For a fixed mass, $\\frac{p_1 V_1}{T_1} = \\frac{p_2 V_2}{T_2}$.\n\nLet $p_1 = P$, $V_1 = V$, $T_1 = T$.\nThen $p_2 = 2P$ and $T_2 = \\tfrac{1}{2}T$.\n\n$$\\frac{PV}{T} = \\frac{(2P)V_2}{(\\tfrac{1}{2}T)} = \\frac{4P V_2}{T}$$\nSo $V_2 = \\tfrac{1}{4}V$.\n\n**Conclusion:** $\\tfrac{1}{4}V$ → option A.',
     difficulty: 1,
@@ -3776,7 +3776,7 @@ export const TEMPERATURE_GAS_EXERCISES: Exercise[] = [
     type: 'multiple_choice',
     question:
       'The absolute temperature of a fixed mass of gas is $T$. If the pressure and volume of the gas are both doubled, its absolute temperature becomes',
-    options: ['\\u00bc T', '\\u00bd T', '2 T', '4 T'],
+    options: ['0.25 T', '0.5 T', '2 T', '4 T'],
     answer: '4 T',
     explanation:
       '⚠️ **Key point:** For a fixed mass of gas, $\\frac{pV}{T}=\\text{constant}$.\n\nInitially: $\\frac{PV}{T}$.\nFinally: $\\frac{(2P)(2V)}{T_2} = \\frac{4PV}{T_2}$.\n\nSet equal:\n$$\\frac{PV}{T} = \\frac{4PV}{T_2} \\Rightarrow T_2 = 4T.$$\n\n**Conclusion:** $4T$ → option D.',
@@ -4039,7 +4039,7 @@ export const TEMPERATURE_GAS_EXERCISES: Exercise[] = [
     id: 'ggl-027',
     type: 'multiple_choice',
     question:
-      'The above graph shows the result obtained when an experiment is performed to study the relation between the pressure and temperature of a fixed mass of gas at constant volume. Which of the following statements is/are correct?\n\n(1) The $y$- and $x$-axes denote the pressure and temperature of the gas respectively.\n(2) The slope of the graph denotes the volume of the gas.\n(3) The intercept $y_0$ denotes the absolute zero temperature.',
+      'The above graph shows the result obtained when an experiment is performed to study the relation between the pressure and temperature of a fixed mass of gas at constant volume. Which of the following statements is/are correct?\n\n(1) The $y$ axes and $x$ axes denote the pressure and temperature of the gas respectively.\n(2) The slope of the graph denotes the volume of the gas.\n(3) The intercept $y_0$ denotes the absolute zero temperature.',
     options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(1) only',
     explanation:
