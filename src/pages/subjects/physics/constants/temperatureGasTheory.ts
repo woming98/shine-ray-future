@@ -2,8 +2,8 @@ import { Chapter, Concept, Formula } from '../types';
 import { TEMPERATURE_GAS_EXERCISES } from './temperatureGas';
 
 // ============================================
-// Temperature and Gas 主题内容（已覆盖：temp-heat-internal / change-of-state / general-gas-law / transfer-processes）
-// 基于 DSE 真题风格 + 已录入练习题（thi-001~、cos-001~、ggl-001~、tp-001~）反推理论结构
+// Temperature and Gas 主题内容（已覆盖：temp-heat-internal / change-of-state / general-gas-law / kinetic-theory / transfer-processes）
+// 基于 DSE 真题风格 + 已录入练习题（thi-001~、cos-001~、ggl-001~、kt-001~、tp-001~）反推理论结构
 // ============================================
 
 // 概念知识点 - Temperature, Heat and Internal Energy
@@ -449,6 +449,52 @@ export const TEMPERATURE_GAS_GASLAW_CONCEPTS: Concept[] = [
   },
 ];
 
+// 概念知识点 - Kinetic Theory
+export const TEMPERATURE_GAS_KINETIC_CONCEPTS: Concept[] = [
+  {
+    id: 'tgk-1',
+    title: 'Brownian motion（布朗运动）',
+    content:
+      '布朗运动是悬浮微粒（如烟粒）因被空气分子随机碰撞而产生的无规则运动，是分子无规则运动的证据之一。',
+    keyPoints: [
+      '布朗运动由空气分子撞击烟粒引起',
+      '看到的是烟粒运动，不是空气分子本身',
+      '温度越高，分子运动越剧烈，布朗运动更明显',
+      '对应练习：kt-001、kt-006、kt-026、kt-032',
+    ],
+    examples: ['显微镜下烟室中的烟粒呈锯齿状随机运动'],
+    difficulty: 'basic',
+  },
+  {
+    id: 'tgk-2',
+    title: '理想气体分子模型假设',
+    content:
+      '理想气体模型假设：分子体积可忽略、分子间作用力可忽略（碰撞瞬间除外）、分子作无规则运动、碰撞为完全弹性。',
+    keyPoints: [
+      '分子本身尺寸相对容器可忽略',
+      '分子间平均作用力可忽略（理想化）',
+      '与容器壁碰撞产生压强',
+      '对应练习：kt-024、kt-037、kt-038、kt-043',
+    ],
+    examples: ['温度不太低、压强不太高时，真实气体更接近理想气体'],
+    difficulty: 'intermediate',
+  },
+  {
+    id: 'tgk-3',
+    title: '温度与分子平均动能、r.m.s. 速率',
+    content:
+      '温度反映分子平均动能：温度升高，平均动能增大，r.m.s. 速率增大。r.m.s. 速率与温度和摩尔质量有关。',
+    keyPoints: [
+      '平均动能与绝对温度成正比',
+      '同温下轻分子 r.m.s. 速率更大',
+      '同一气体 c_rms ∝ √T',
+      '对应练习：kt-018、kt-028、kt-033、kt-035、kt-039',
+    ],
+    examples: ['氢气在同温下比氧气分子运动更快'],
+    difficulty: 'intermediate',
+  },
+];
+
 // 物理公式 - Temperature, Heat and Internal Energy
 export const TEMPERATURE_GAS_FORMULAS_THI: Formula[] = [
   {
@@ -757,11 +803,45 @@ export const TEMPERATURE_GAS_FORMULAS_GGL: Formula[] = [
   },
 ];
 
+// 物理公式 - Kinetic Theory
+export const TEMPERATURE_GAS_FORMULAS_KT: Formula[] = [
+  {
+    id: 'tg-21',
+    name: 'Kinetic equation of ideal gas',
+    nameCN: '理想气体动理论方程',
+    expression: 'pV = (1/3)Nm c_rms²',
+    variables: [
+      { symbol: 'p', name: 'pressure', unit: 'Pa', description: '压强' },
+      { symbol: 'V', name: 'volume', unit: 'm³', description: '体积' },
+      { symbol: 'N', name: 'number of molecules', unit: '-', description: '分子数' },
+      { symbol: 'm', name: 'mass of one molecule', unit: 'kg', description: '单个分子质量' },
+      { symbol: 'c_rms', name: 'r.m.s. speed', unit: 'm s⁻¹', description: '方均根速率' },
+    ],
+    description: '把宏观量 p、V 与微观分子运动联系起来：pV = (1/3)Nm c_rms²。',
+    example: '已知 p、V、总质量 M 时，可写成 pV=(1/3)Mc_rms² 求 c_rms',
+  },
+  {
+    id: 'tg-22',
+    name: 'r.m.s. speed and molar mass',
+    nameCN: '方均根速率与摩尔质量',
+    expression: 'c_rms = √(3RT / M_m)',
+    variables: [
+      { symbol: 'c_rms', name: 'r.m.s. speed', unit: 'm s⁻¹', description: '方均根速率' },
+      { symbol: 'R', name: 'gas constant', unit: 'J mol⁻¹ K⁻¹', description: '气体常数' },
+      { symbol: 'T', name: 'temperature', unit: 'K', description: '绝对温度' },
+      { symbol: 'M_m', name: 'molar mass', unit: 'kg mol⁻¹', description: '摩尔质量' },
+    ],
+    description: '同一温度下，摩尔质量越小，气体分子方均根速率越大。',
+    example: '同温下 H₂ 的 c_rms 大于 O₂',
+  },
+];
+
 // 供“公式计算”标签页使用：整合全主题公式
 export const TEMPERATURE_GAS_FORMULAS: Formula[] = [
   ...TEMPERATURE_GAS_FORMULAS_THI,
   ...TEMPERATURE_GAS_FORMULAS_COS,
   ...TEMPERATURE_GAS_FORMULAS_GGL,
+  ...TEMPERATURE_GAS_FORMULAS_KT,
   ...TEMPERATURE_GAS_FORMULAS_TP,
 ];
 
@@ -794,6 +874,16 @@ export const TEMPERATURE_GAS_CHAPTERS: Chapter[] = [
     concepts: TEMPERATURE_GAS_GASLAW_CONCEPTS,
     formulas: TEMPERATURE_GAS_FORMULAS_GGL,
     exercises: TEMPERATURE_GAS_EXERCISES.filter((e) => e.sectionId === 'general-gas-law'),
+    simulations: [],
+    completed: false,
+  },
+  {
+    id: 'kinetic-theory',
+    title: 'Kinetic Theory',
+    titleCN: '分子运动论',
+    concepts: TEMPERATURE_GAS_KINETIC_CONCEPTS,
+    formulas: TEMPERATURE_GAS_FORMULAS_KT,
+    exercises: TEMPERATURE_GAS_EXERCISES.filter((e) => e.sectionId === 'kinetic-theory'),
     simulations: [],
     completed: false,
   },

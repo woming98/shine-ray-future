@@ -29,6 +29,12 @@ export const TEMPERATURE_GAS_SECTIONS: TemperatureGasSection[] = [
     description: 'Boyle’s law, Charles’ law, pressure law and ideal gas equation',
   },
   {
+    id: 'kinetic-theory',
+    name: 'Kinetic Theory',
+    nameCN: '分子运动论',
+    description: 'Brownian motion, kinetic model assumptions and r.m.s. speed',
+  },
+  {
     id: 'transfer-processes',
     name: 'Transfer Processes',
     nameCN: '热转移过程',
