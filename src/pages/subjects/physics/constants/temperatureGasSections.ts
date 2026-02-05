@@ -12,25 +12,25 @@ export interface TemperatureGasSection {
 export const TEMPERATURE_GAS_SECTIONS: TemperatureGasSection[] = [
   {
     id: 'temp-heat-internal',
-    name: '温度、热、內能',
+    name: 'Temperature, Heat and Internal Energy',
     nameCN: '温度、热、內能',
     description: 'Temperature scales, heat capacity, internal energy, latent heat',
   },
   {
     id: 'change-of-state',
-    name: '物态变化',
+    name: 'Change of State',
     nameCN: '物态变化',
     description: 'Latent heat, melting/freezing, boiling/condensation, heating/cooling curves',
   },
   {
     id: 'general-gas-law',
-    name: '普通气体定律',
+    name: 'General Gas Law',
     nameCN: '普通气体定律',
     description: 'Boyle’s law, Charles’ law, pressure law and ideal gas equation',
   },
   {
     id: 'transfer-processes',
-    name: '热转移过程',
+    name: 'Transfer Processes',
     nameCN: '热转移过程',
     description: 'Conduction, convection and radiation; reducing heat loss',
   },
