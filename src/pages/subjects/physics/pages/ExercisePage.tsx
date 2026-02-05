@@ -1278,7 +1278,7 @@ export default function ExercisePage({
                   : 'bg-slate-800/50/10 text-blue-200 hover:bg-slate-800/50/20'
               }`}
             >
-              {section.nameCN}
+              {section.name}
             </button>
           ))}
         </div>
