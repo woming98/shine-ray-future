@@ -4838,7 +4838,7 @@ export const TEMPERATURE_GAS_EXERCISES: Exercise[] = [
     id: 'kt-016',
     type: 'multiple_choice',
     question:
-      'Figure (a) shows a mechanical model of a gas and Figure (b) shows the $P-V$ relation of a fixed mass of ideal gas at a certain temperature. If the operating voltage of the motor in the model is increased, which of the following denotes a corresponding transition in the $P$-$V$ graph (point $X$ represents the initial state of the gas)?',
+      'Figure (a) shows a mechanical model of a gas and Figure (b) shows the $P-V$ relation of a fixed mass of ideal gas at a certain temperature. If the operating voltage of the motor in the model is increased, which of the following denotes a corresponding transition in the $P-V$ graph (point $X$ represents the initial state of the gas)?',
     options: ['X → A', 'X → B', 'X → C', 'X → D'],
     answer: 'X → A',
     explanation:
