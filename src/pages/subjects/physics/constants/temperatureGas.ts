@@ -4779,10 +4779,10 @@ export const TEMPERATURE_GAS_EXERCISES: Exercise[] = [
     question:
       'The diagram shows a mechanical model of a gas. The weight of the disc and the power of the motor can give a measure of two different properties of the gas. What are these two properties?',
     options: [
-      'A. Weight of disc: Pressure; Power of motor: Volume',
-      'B. Weight of disc: Pressure; Power of motor: Temperature',
-      'C. Weight of disc: Volume; Power of motor: Temperature',
-      'D. Weight of disc: Temperature; Power of motor: Pressure',
+      'Weight of disc: Pressure; Power of motor: Volume',
+      'Weight of disc: Pressure; Power of motor: Temperature',
+      'Weight of disc: Volume; Power of motor: Temperature',
+      'Weight of disc: Temperature; Power of motor: Pressure',
     ],
     answer: 'B. Weight of disc: Pressure; Power of motor: Temperature',
     explanation:
@@ -4838,7 +4838,7 @@ export const TEMPERATURE_GAS_EXERCISES: Exercise[] = [
     id: 'kt-016',
     type: 'multiple_choice',
     question:
-      'Figure (a) shows a mechanical model of a gas and Figure (b) shows the $P$-$V$ relation of a fixed mass of ideal gas at a certain temperature. If the operating voltage of the motor in the model is increased, which of the following denotes a corresponding transition in the $P$-$V$ graph (point $X$ represents the initial state of the gas)?',
+      'Figure (a) shows a mechanical model of a gas and Figure (b) shows the $P-V$ relation of a fixed mass of ideal gas at a certain temperature. If the operating voltage of the motor in the model is increased, which of the following denotes a corresponding transition in the $P$-$V$ graph (point $X$ represents the initial state of the gas)?',
     options: ['X → A', 'X → B', 'X → C', 'X → D'],
     answer: 'X → A',
     explanation:
