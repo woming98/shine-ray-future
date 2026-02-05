@@ -4784,7 +4784,7 @@ export const TEMPERATURE_GAS_EXERCISES: Exercise[] = [
       'Weight of disc: Volume; Power of motor: Temperature',
       'Weight of disc: Temperature; Power of motor: Pressure',
     ],
-    answer: 'B. Weight of disc: Pressure; Power of motor: Temperature',
+    answer: 'Weight of disc: Pressure; Power of motor: Temperature',
     explanation:
       '⚠️ **Key point:** In the mechanical gas model, different controls represent different gas variables.\n\n- Weight of the disc represents the external pressure on the gas.\n- Power of the motor represents molecular agitation level, i.e. temperature.\n\n**Conclusion:** option B.',
     difficulty: 1,
