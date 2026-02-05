@@ -23,6 +23,12 @@ export const TEMPERATURE_GAS_SECTIONS: TemperatureGasSection[] = [
     description: 'Latent heat, melting/freezing, boiling/condensation, heating/cooling curves',
   },
   {
+    id: 'general-gas-law',
+    name: 'General Gas Law',
+    nameCN: '普通气体定律',
+    description: 'Boyle’s law, Charles’ law, pressure law and ideal gas equation',
+  },
+  {
     id: 'transfer-processes',
     name: 'Transfer Processes',
     nameCN: '热转移过程',

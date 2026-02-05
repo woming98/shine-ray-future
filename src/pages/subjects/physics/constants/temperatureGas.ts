@@ -3498,4 +3498,1042 @@ export const TEMPERATURE_GAS_EXERCISES: Exercise[] = [
     ],
     sectionId: 'change-of-state',
   },
+  {
+    id: 'ggl-001',
+    type: 'multiple_choice',
+    question:
+      '$6 \\times 10^{-3}\\ \\text{m}^3$ of a gas is contained in a vessel at $91^{\\circ}\\text{C}$ and a pressure of $4 \\times 10^5\\ \\text{Pa}$. If the density of the gas at s.t.p. ($0^{\\circ}\\text{C}$ and $10^5\\ \\text{Pa}$) is $1.2\\ \\text{kg m}^{-3}$, what is the mass of the gas?',
+    options: ['7.2 g', '14.4 g', '21.6 g', '28.8 g'],
+    answer: '21.6 g',
+    explanation:
+      '⚠️ **Key point:** Use the general gas law to find the gas volume at s.t.p., then apply $m = \\rho V$.\n\nConvert temperatures to K:\n$T_1 = 91 + 273 = 364\\ \\text{K}$, $T_2 = 273\\ \\text{K}$.\n\nUse\n$$\\frac{P_1 V_1}{T_1} = \\frac{P_2 V_2}{T_2}$$\n$$\\frac{(4\\times 10^5)(6\\times 10^{-3})}{364} = \\frac{(10^5) V_2}{273}$$\nSo\n$$V_2 = 0.018\\ \\text{m}^3.$$\n\nMass at s.t.p.:\n$$m = \\rho V_2 = (1.2)(0.018) = 0.0216\\ \\text{kg} = 21.6\\ \\text{g}.$$\n\n**Conclusion:** $21.6\\ \\text{g}$ → option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use $T$ in kelvin: $T = \\theta + 273$.',
+      'Apply $\\frac{P_1 V_1}{T_1} = \\frac{P_2 V_2}{T_2}$ to find $V_2$ at s.t.p.',
+      'Use $m = \\rho V$ with the density at s.t.p.',
+    ],
+    sectionId: 'general-gas-law',
+  },
+  {
+    id: 'ggl-002',
+    type: 'multiple_choice',
+    question:
+      'An inexpansible vessel contains $1.2\\ \\text{kg}$ of a gas at $300\\ \\text{K}$. What is the mass of gas expelled from the vessel if it is heated from $300\\ \\text{K}$ to $400\\ \\text{K}$ under constant pressure?',
+    options: ['0.9 kg', '0.75 kg', '0.6 kg', '0.3 kg'],
+    answer: '0.3 kg',
+    explanation:
+      '⚠️ **Key point:** For a fixed vessel volume, keeping pressure constant means the amount of gas must decrease as temperature increases ($pV = nRT$).\n\nSince $p$ and $V$ are constant, $n \\propto 1/T$. Thus\n$$\\frac{n_2}{n_1} = \\frac{T_1}{T_2} = \\frac{300}{400} = \\frac{3}{4}.$$\nSo $\\tfrac{1}{4}$ of the gas is expelled.\n\nMass expelled:\n$$m_{\\text{expelled}} = 1.2 \\times \\frac{1}{4} = 0.3\\ \\text{kg}.$$\n\n**Conclusion:** $0.3\\ \\text{kg}$ → option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'In a rigid vessel, $V$ is constant.',
+      'At constant pressure, $n \\propto 1/T$.',
+      'Only a fraction of the gas remains inside after heating.',
+    ],
+    sectionId: 'general-gas-law',
+  },
+  {
+    id: 'ggl-003',
+    type: 'multiple_choice',
+    question:
+      'A fixed mass of gas has its temperature changed from $127^{\\circ}\\text{C}$ to $27^{\\circ}\\text{C}$ at constant pressure. The ratio of the new volume to the old volume is',
+    options: ['27 : 127', '127 : 27', '3 : 4', '4 : 3'],
+    answer: '3 : 4',
+    explanation:
+      '⚠️ **Key point:** At constant pressure, $V/T = \\text{constant}$ and temperature must be in kelvin.\n\n$T_1 = 127 + 273 = 400\\ \\text{K}$\n$T_2 = 27 + 273 = 300\\ \\text{K}$\n\nSo\n$$\\frac{V_2}{V_1} = \\frac{T_2}{T_1} = \\frac{300}{400} = \\frac{3}{4}.$$\n\n**Conclusion:** The ratio is $3 : 4$ → option C.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Use $V_1/T_1 = V_2/T_2$.',
+      'Convert °C to K by adding 273.',
+      'Compute $V_2/V_1 = 300/400$.',
+    ],
+    sectionId: 'general-gas-law',
+  },
+  {
+    id: 'ggl-004',
+    type: 'multiple_choice',
+    question:
+      'The initial pressure of a fixed mass of gas at $25^{\\circ}\\text{C}$ is $2 \\times 10^5\\ \\text{Pa}$. What would its pressure be if the gas were reduced to half of its original volume and its temperature were increased to $95^{\\circ}\\text{C}$?',
+    options: [
+      '$1.23 \\times 10^5\\ \\text{Pa}$',
+      '$3.24 \\times 10^5\\ \\text{Pa}$',
+      '$4.94 \\times 10^5\\ \\text{Pa}$',
+      '$15.2 \\times 10^5\\ \\text{Pa}$',
+    ],
+    answer: '$4.94 \\times 10^5\\ \\text{Pa}$',
+    explanation:
+      '⚠️ **Key point:** For a fixed mass of gas, use $\\frac{p_1 V_1}{T_1} = \\frac{p_2 V_2}{T_2}$ with temperatures in kelvin.\n\n$T_1 = 25 + 273 = 298\\ \\text{K}$\n$T_2 = 95 + 273 = 368\\ \\text{K}$\n$V_2 = \\tfrac{1}{2}V_1$\n\nSo\n$$\\frac{(2\\times 10^5) V_1}{298} = \\frac{p_2 (\\tfrac{1}{2} V_1)}{368}$$\n$$p_2 = 2\\times 10^5 \\times \\frac{368}{298} \\times 2 = 4.94\\times 10^5\\ \\text{Pa}.$$\n\n**Conclusion:** $4.94 \\times 10^5\\ \\text{Pa}$ → option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use $p_1 V_1 / T_1 = p_2 V_2 / T_2$.',
+      'Convert °C to K for both temperatures.',
+      'Remember the volume is halved: $V_2 = V_1/2$.',
+    ],
+    sectionId: 'general-gas-law',
+  },
+  {
+    id: 'ggl-005',
+    type: 'multiple_choice',
+    question:
+      'If the pressure of a fixed mass of gas of initial volume $V$ is doubled and its absolute temperature halved, its volume becomes',
+    options: ['\\u00bc V', '\\u00bd V', '2 V', '4 V'],
+    answer: '\\u00bc V',
+    explanation:
+      '⚠️ **Key point:** For a fixed mass, $\\frac{p_1 V_1}{T_1} = \\frac{p_2 V_2}{T_2}$.\n\nLet $p_1 = P$, $V_1 = V$, $T_1 = T$.\nThen $p_2 = 2P$ and $T_2 = \\tfrac{1}{2}T$.\n\n$$\\frac{PV}{T} = \\frac{(2P)V_2}{(\\tfrac{1}{2}T)} = \\frac{4P V_2}{T}$$\nSo $V_2 = \\tfrac{1}{4}V$.\n\n**Conclusion:** $\\tfrac{1}{4}V$ → option A.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Use $p_1 V_1 / T_1 = p_2 V_2 / T_2$.',
+      'Doubling $p$ and halving $T$ changes the ratio by a factor of 4.',
+      'Solve for $V_2$ in terms of $V$.',
+    ],
+    sectionId: 'general-gas-law',
+  },
+  {
+    id: 'ggl-006',
+    type: 'multiple_choice',
+    question:
+      'In the experiment shown in the diagram, volume of the air inside the syringe is $25\\ \\text{ml}$ when the pressure is $1.0 \\times 10^5\\ \\text{N m}^{-2}$. What is the volume of the air when the pressure is $0.5 \\times 10^5\\ \\text{N m}^{-2}$? (Assume that mass of the air in the syringe is constant.)',
+    options: ['30 ml', '50 ml', '70 ml', '100 ml'],
+    answer: '50 ml',
+    explanation:
+      '⚠️ **Key point:** At constant temperature and fixed mass, Boyle’s law applies: $p_1 V_1 = p_2 V_2$.\n\n$$ (1.0\\times 10^5)(25) = (0.5\\times 10^5) V_2 $$\nSo\n$$ V_2 = 50\\ \\text{ml}. $$\n\n**Conclusion:** $50\\ \\text{ml}$ → option B.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Use Boyle’s law: $p_1 V_1 = p_2 V_2$.',
+      'Mass is constant, so the gas amount does not change.',
+      'Halving pressure doubles volume.',
+    ],
+    sectionId: 'general-gas-law',
+    imagePaths: ['/physics/exercises/general-gas-law/ggl-006-question.png'],
+  },
+  {
+    id: 'ggl-007',
+    type: 'multiple_choice',
+    question:
+      'Which of the following graphs correctly shows the relation between the pressure ($P$) and the volume ($V$) of a fixed mass of gas under constant temperature?',
+    options: [
+      '/physics/exercises/general-gas-law/ggl-007-option-a.png',
+      '/physics/exercises/general-gas-law/ggl-007-option-b.png',
+      '/physics/exercises/general-gas-law/ggl-007-option-c.png',
+      '/physics/exercises/general-gas-law/ggl-007-option-d.png',
+    ],
+    answer: '/physics/exercises/general-gas-law/ggl-007-option-b.png',
+    explanation:
+      '⚠️ **Key point:** At constant temperature, Boyle’s law gives $PV=\\text{constant}$, so $P \\propto \\frac{1}{V}$.\n\nThis is a decreasing curve (rectangular hyperbola) on a $P$–$V$ graph.\n\n**Conclusion:** The correct graph is option B.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Use Boyle’s law: $PV=\\text{constant}$.',
+      'Pressure decreases as volume increases.',
+      'The graph is a curve, not a straight line.',
+    ],
+    sectionId: 'general-gas-law',
+  },
+  {
+    id: 'ggl-008',
+    type: 'multiple_choice',
+    question:
+      'A cylinder contains a gas at a pressure of $10^5\\ \\text{Pa}$ and a temperature of $20^{\\circ}\\text{C}$. It is compressed to half of its original volume and the temperature increases to $55^{\\circ}\\text{C}$. What is the final pressure of the gas?',
+    options: [
+      '$0.56 \\times 10^5\\ \\text{Pa}$',
+      '$0.73 \\times 10^5\\ \\text{Pa}$',
+      '$1.79 \\times 10^5\\ \\text{Pa}$',
+      '$2.24 \\times 10^5\\ \\text{Pa}$',
+    ],
+    answer: '$2.24 \\times 10^5\\ \\text{Pa}$',
+    explanation:
+      '⚠️ **Key point:** For a fixed mass, use $\\frac{p_1 V_1}{T_1} = \\frac{p_2 V_2}{T_2}$ with temperatures in kelvin.\n\n$T_1 = 20 + 273 = 293\\ \\text{K}$\n$T_2 = 55 + 273 = 328\\ \\text{K}$\n$V_2 = \\tfrac{1}{2}V_1$\n\n$$\\frac{(10^5)V_1}{293} = \\frac{p_2(\\tfrac{1}{2}V_1)}{328}$$\n$$p_2 = 10^5 \\times \\frac{328}{293} \\times 2 = 2.24\\times 10^5\\ \\text{Pa}.$$\n\n**Conclusion:** $2.24 \\times 10^5\\ \\text{Pa}$ → option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use $p_1 V_1 / T_1 = p_2 V_2 / T_2$.',
+      'Convert °C to K for both temperatures.',
+      'Remember the volume is halved: $V_2 = V_1/2$.',
+    ],
+    sectionId: 'general-gas-law',
+  },
+  {
+    id: 'ggl-009',
+    type: 'multiple_choice',
+    question:
+      'The pressure of a fixed mass of gas at $25^{\\circ}\\text{C}$ is $2 \\times 10^5\\ \\text{Pa}$. How would its pressure be if the gas were reduced to half its volume and its temperature were increased to $95^{\\circ}\\text{C}$?',
+    options: [
+      '$1.23 \\times 10^5\\ \\text{Pa}$',
+      '$2.47 \\times 10^5\\ \\text{Pa}$',
+      '$4.94 \\times 10^5\\ \\text{Pa}$',
+      '$15.2 \\times 10^5\\ \\text{Pa}$',
+    ],
+    answer: '$4.94 \\times 10^5\\ \\text{Pa}$',
+    explanation:
+      '⚠️ **Key point:** For a fixed mass, use $\\frac{p_1 V_1}{T_1} = \\frac{p_2 V_2}{T_2}$ with temperatures in kelvin.\n\n$T_1 = 25 + 273 = 298\\ \\text{K}$\n$T_2 = 95 + 273 = 368\\ \\text{K}$\n$V_2 = \\tfrac{1}{2}V_1$\n\n$$\\frac{(2\\times 10^5)V_1}{298} = \\frac{p_2(\\tfrac{1}{2}V_1)}{368}$$\n$$p_2 = 2\\times 10^5 \\times \\frac{368}{298} \\times 2 = 4.94\\times 10^5\\ \\text{Pa}.$$\n\n**Conclusion:** $4.94 \\times 10^5\\ \\text{Pa}$ → option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use $p_1 V_1 / T_1 = p_2 V_2 / T_2$.',
+      'Convert °C to K for both temperatures.',
+      'Remember the volume is halved: $V_2 = V_1/2$.',
+    ],
+    sectionId: 'general-gas-law',
+  },
+  {
+    id: 'ggl-010',
+    type: 'multiple_choice',
+    question:
+      'The apparatus shown is used to study the relation between the temperature and the pressure of a fixed mass of gas at constant volume. Which of the following is NOT correct?',
+    options: [
+      'Stir the water before taking a reading.',
+      'Immerse the whole flask in water.',
+      'Prevent the thermometer from touching the bottom of the beaker.',
+      'Connect the Bourdon gauge to the flask with a long tube.',
+    ],
+    answer: 'Connect the Bourdon gauge to the flask with a long tube.',
+    explanation:
+      '⚠️ **Key point:** The experiment requires a fixed mass of gas at constant volume with uniform temperature.\n\n**A** Stirring ensures uniform water temperature → correct.\n\n**B** Fully immersing the flask ensures all the gas is heated by the water bath → correct.\n\n**C** The bottom of the beaker can be hotter than the bulk water, so the thermometer should not touch it → correct.\n\n**D** A long tube adds extra gas volume that is not fully heated by the water bath, so the volume is no longer well-defined and the temperature is non-uniform → NOT correct.\n\n**Conclusion:** Option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'The gas volume should be fixed and well-defined.',
+      'All the gas should be at the same temperature as the water bath.',
+      'Extra unheated volume in a long tube invalidates the setup.',
+    ],
+    sectionId: 'general-gas-law',
+    imagePaths: ['/physics/exercises/general-gas-law/ggl-010-question.png'],
+  },
+  {
+    id: 'ggl-011',
+    type: 'multiple_choice',
+    question:
+      'Which of the following graphs correctly shows the variation of volume $V$ with absolute temperature $T$ of a fixed mass of gas at constant pressure?',
+    options: [
+      '/physics/exercises/general-gas-law/ggl-011-option-a.png',
+      '/physics/exercises/general-gas-law/ggl-011-option-b.png',
+      '/physics/exercises/general-gas-law/ggl-011-option-c.png',
+      '/physics/exercises/general-gas-law/ggl-011-option-d.png',
+    ],
+    answer: '/physics/exercises/general-gas-law/ggl-011-option-b.png',
+    explanation:
+      '⚠️ **Key point:** At constant pressure for a fixed mass of gas, Charles’ law gives $\\frac{V}{T}=\\text{constant}$, so $V \\propto T$.\n\nSince $T$ is absolute temperature (K), the $V$–$T$ graph is a straight line through the origin.\n\n**Conclusion:** The correct graph is option B.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Use Charles’ law: $V/T = \\text{constant}$.',
+      'Absolute temperature means kelvin scale.',
+      'Direct proportionality gives a straight line through the origin.',
+    ],
+    sectionId: 'general-gas-law',
+  },
+  {
+    id: 'ggl-012',
+    type: 'multiple_choice',
+    question:
+      'The apparatus shown in the figure is used to study the relation between the volume and temperature of a fixed mass of gas at constant pressure. Which of the following statements is/are correct?\n\n(1) Immersing the whole gas column in water.\n(2) Sealing the capillary tube at both ends.\n(3) Preventing the thermometer from touching the bottom of the beaker.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(1) & (3) only',
+    explanation:
+      '⚠️ **Key point:** The setup must keep pressure constant and ensure the gas temperature matches the water-bath temperature.\n\n**(1)** Correct. Immersing the whole gas column ensures all trapped gas is heated to the bath temperature.\n\n**(2)** Incorrect. Sealing both ends traps gas at variable pressure, so constant-pressure condition is not satisfied.\n\n**(3)** Correct. The beaker bottom can be hotter than the water, so the thermometer should not touch it.\n\n**Conclusion:** (1) and (3) only are correct → option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Constant pressure is a required condition for the $V$–$T$ experiment.',
+      'All gas should be at the measured water temperature.',
+      'Thermometer should measure water temperature, not beaker-bottom temperature.',
+    ],
+    sectionId: 'general-gas-law',
+    imagePaths: ['/physics/exercises/general-gas-law/ggl-012-question.png'],
+  },
+  {
+    id: 'ggl-013',
+    type: 'multiple_choice',
+    question:
+      'A column of gas is compressed slowly as shown in the figure above. Which of the following graphs correctly shows the relation between the gas pressure $P$ and the length of the gas column $h$?',
+    options: [
+      '/physics/exercises/general-gas-law/ggl-013-option-a.png',
+      '/physics/exercises/general-gas-law/ggl-013-option-b.png',
+      '/physics/exercises/general-gas-law/ggl-013-option-c.png',
+      '/physics/exercises/general-gas-law/ggl-013-option-d.png',
+    ],
+    answer: '/physics/exercises/general-gas-law/ggl-013-option-d.png',
+    explanation:
+      '⚠️ **Key point:** For slow compression, temperature is approximately constant, so Boyle’s law applies: $PV=\\text{constant}$.\n\nFor a uniform tube, gas volume is proportional to column length: $V \\propto h$.\nSo\n$$P \\propto \\frac{1}{V} \\propto \\frac{1}{h}.$$\nHence a graph of $P$ against $1/h$ is a straight line through the origin; equivalently, the $P$–$h$ relation is inverse.\n\n**Conclusion:** The correct graph is option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use Boyle’s law for (approximately) constant temperature compression.',
+      'In the tube, $V$ is proportional to gas-column length $h$.',
+      'So pressure varies inversely with $h$.',
+    ],
+    sectionId: 'general-gas-law',
+    imagePaths: ['/physics/exercises/general-gas-law/ggl-013-question.png'],
+  },
+  {
+    id: 'ggl-014',
+    type: 'multiple_choice',
+    question:
+      'The absolute temperature of a fixed mass of gas is $T$. If the pressure and volume of the gas are both doubled, its absolute temperature becomes',
+    options: ['\\u00bc T', '\\u00bd T', '2 T', '4 T'],
+    answer: '4 T',
+    explanation:
+      '⚠️ **Key point:** For a fixed mass of gas, $\\frac{pV}{T}=\\text{constant}$.\n\nInitially: $\\frac{PV}{T}$.\nFinally: $\\frac{(2P)(2V)}{T_2} = \\frac{4PV}{T_2}$.\n\nSet equal:\n$$\\frac{PV}{T} = \\frac{4PV}{T_2} \\Rightarrow T_2 = 4T.$$\n\n**Conclusion:** $4T$ → option D.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Use $p_1V_1/T_1 = p_2V_2/T_2$.',
+      'Substitute $p_2=2p_1$ and $V_2=2V_1$.',
+      'Solve for $T_2$ in terms of $T$.',
+    ],
+    sectionId: 'general-gas-law',
+  },
+  {
+    id: 'ggl-015',
+    type: 'multiple_choice',
+    question:
+      'Which of the following graphs correctly shows the relation between the pressure $P$ and the absolute temperature $T$ of a fixed mass of gas at constant volume?',
+    options: [
+      '/physics/exercises/general-gas-law/ggl-015-option-a.png',
+      '/physics/exercises/general-gas-law/ggl-015-option-b.png',
+      '/physics/exercises/general-gas-law/ggl-015-option-c.png',
+      '/physics/exercises/general-gas-law/ggl-015-option-d.png',
+    ],
+    answer: '/physics/exercises/general-gas-law/ggl-015-option-c.png',
+    explanation:
+      '⚠️ **Key point:** For a fixed mass of gas at constant volume, the pressure law gives $\\frac{P}{T}=\\text{constant}$, so $P \\propto T$.\n\nSince $T$ is absolute temperature (K), the $P$–$T$ graph is a straight line through the origin.\n\n**Conclusion:** The correct graph is option C.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Use pressure law: $P/T = \\text{constant}$.',
+      'Absolute temperature means Kelvin scale.',
+      'Direct proportionality gives a straight line through the origin.',
+    ],
+    sectionId: 'general-gas-law',
+  },
+  {
+    id: 'ggl-016',
+    type: 'multiple_choice',
+    question:
+      'The pressure of a fixed mass of gas at $30^{\\circ}\\text{C}$ is $3 \\times 10^5\\ \\text{Pa}$. What would be its pressure if the volume of the gas is doubled and its temperature is increased to $60^{\\circ}\\text{C}$?',
+    options: [
+      '$1.65 \\times 10^5\\ \\text{Pa}$',
+      '$3.00 \\times 10^5\\ \\text{Pa}$',
+      '$5.46 \\times 10^5\\ \\text{Pa}$',
+      '$6.59 \\times 10^5\\ \\text{Pa}$',
+    ],
+    answer: '$1.65 \\times 10^5\\ \\text{Pa}$',
+    explanation:
+      '⚠️ **Key point:** For a fixed mass, use $\\frac{p_1V_1}{T_1}=\\frac{p_2V_2}{T_2}$ with temperatures in kelvin.\n\n$T_1=30+273=303\\ \\text{K}$, $T_2=60+273=333\\ \\text{K}$, and $V_2=2V_1$.\n\n$$\\frac{(3\\times10^5)V_1}{303}=\\frac{p_2(2V_1)}{333}$$\n$$p_2=3\\times10^5\\times\\frac{333}{303}\\times\\frac{1}{2}=1.65\\times10^5\\ \\text{Pa}.$$\n\n**Conclusion:** $1.65\\times10^5\\ \\text{Pa}$ → option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use $p_1V_1/T_1=p_2V_2/T_2$.',
+      'Convert °C to K.',
+      'Volume is doubled: $V_2=2V_1$.',
+    ],
+    sectionId: 'general-gas-law',
+  },
+  {
+    id: 'ggl-017',
+    type: 'multiple_choice',
+    question:
+      'The above apparatus is used to study the relationship between the pressure and volume of a fixed mass of gas at constant temperature. Which of the following can improve the accuracy of the experiment?\n\n(1) Pressing the piston quickly.\n(2) Using a large syringe.\n(3) Using a short length of rubber tubing.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      '⚠️ **Key point:** Boyle’s law requires constant temperature and a well-defined gas volume.\n\n**(1)** Pressing quickly raises gas temperature, violating the constant-temperature condition → not helpful.\n\n**(2)** A larger syringe makes the gas volume in the connecting tube relatively negligible, reducing systematic error → improves accuracy.\n\n**(3)** Shorter rubber tubing reduces extra dead volume not included in syringe reading → improves accuracy.\n\n**Conclusion:** (2) and (3) only are correct → option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Boyle’s law needs constant temperature.',
+      'Avoid rapid compression/heating.',
+      'Minimize unmeasured dead volume in tubing.',
+    ],
+    sectionId: 'general-gas-law',
+    imagePaths: ['/physics/exercises/general-gas-law/ggl-017-question.png'],
+  },
+  {
+    id: 'ggl-018',
+    type: 'multiple_choice',
+    question:
+      "The graph shows the result obtained when an experiment is performed to study Boyle's Law. What do the axes of the graph represent?",
+    options: [
+      'A. y-axis: Volume, x-axis: Temperature',
+      'B. y-axis: Volume, x-axis: 1/Temperature',
+      'C. y-axis: Pressure, x-axis: Volume',
+      'D. y-axis: Pressure, x-axis: 1/Volume',
+    ],
+    answer: 'D. y-axis: Pressure, x-axis: 1/Volume',
+    explanation:
+      "⚠️ **Key point:** Boyle's law gives $PV=\\text{constant}$, so $P\\propto\\frac{1}{V}$ for a fixed mass at constant temperature.\n\nTherefore, plotting $P$ (y-axis) against $1/V$ (x-axis) gives a straight line through the origin.\n\n**Conclusion:** Option D.",
+    difficulty: 2,
+    points: 15,
+    hints: [
+      "Use Boyle's law: $PV=\\text{constant}$.",
+      'Rearrange to $P\\propto 1/V$.',
+      'A straight line through origin corresponds to direct proportionality.',
+    ],
+    sectionId: 'general-gas-law',
+    imagePaths: ['/physics/exercises/general-gas-law/ggl-018-question.png'],
+  },
+  {
+    id: 'ggl-019',
+    type: 'multiple_choice',
+    question:
+      'The volume of a fixed mass of gas is $V$. If the pressure of the gas is doubled and its absolute temperature is reduced to half of the initial value, the volume of the gas becomes',
+    options: ['$V/4$', '$V/2$', '$2V$', '$4V$'],
+    answer: '$V/4$',
+    explanation:
+      '⚠️ **Key point:** For a fixed mass of gas, use $\\frac{p_1V_1}{T_1}=\\frac{p_2V_2}{T_2}$.\n\nLet $p_1=P$, $V_1=V$, $T_1=T$.\nGiven $p_2=2P$ and $T_2=\\tfrac{1}{2}T$:\n\n$$\\frac{PV}{T}=\\frac{(2P)V_2}{(\\tfrac{1}{2}T)}=\\frac{4PV_2}{T}$$\nSo\n$$V_2=\\frac{V}{4}.$$\n\n**Conclusion:** $V/4$ → option A.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Use $p_1V_1/T_1=p_2V_2/T_2$.',
+      'Substitute doubled pressure and halved absolute temperature.',
+      'Solve for $V_2$ in terms of $V$.',
+    ],
+    sectionId: 'general-gas-law',
+  },
+  {
+    id: 'ggl-020',
+    type: 'multiple_choice',
+    question:
+      'The temperature of two gases are $0^{\\circ}\\text{C}$ and $100^{\\circ}\\text{C}$ respectively. Express the temperature difference of the two gases in absolute temperature scale.',
+    options: ['0 K', '100 K', '273 K', '373 K'],
+    answer: '100 K',
+    explanation:
+      '⚠️ **Key point:** A temperature difference in °C has the same numerical value in K.\n\n$$\\Delta T = (100+273) - (0+273) = 100\\ \\text{K}.$$\n\n**Conclusion:** $100\\ \\text{K}$ → option B.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Convert both temperatures to K and subtract.',
+      '$\\Delta T(^{\\circ}\\text{C}) = \\Delta T(\\text{K})$.',
+      'Do not answer with absolute temperature values; this asks for difference.',
+    ],
+    sectionId: 'general-gas-law',
+  },
+  {
+    id: 'ggl-021',
+    type: 'multiple_choice',
+    question:
+      'Which of the following graphs correctly shows the relation between the pressure $P$ and volume $V$ of a fixed mass of gas at constant temperature?',
+    options: [
+      '/physics/exercises/general-gas-law/ggl-021-option-a.png',
+      '/physics/exercises/general-gas-law/ggl-021-option-b.png',
+      '/physics/exercises/general-gas-law/ggl-021-option-c.png',
+      '/physics/exercises/general-gas-law/ggl-021-option-d.png',
+    ],
+    answer: '/physics/exercises/general-gas-law/ggl-021-option-c.png',
+    explanation:
+      "⚠️ **Key point:** Boyle's law gives $PV=\\text{constant}$, so $P\\propto\\frac{1}{V}$ for fixed mass at constant temperature.\n\nHence the correct graph is the inverse relation between $P$ and $V$ (or equivalently a straight line for $P$ vs $1/V$).\n\n**Conclusion:** Option C.",
+    difficulty: 1,
+    points: 10,
+    hints: [
+      "Use Boyle's law: $PV=\\text{constant}$.",
+      'As $V$ increases, $P$ decreases inversely.',
+      'Choose the option showing inverse proportionality.',
+    ],
+    sectionId: 'general-gas-law',
+  },
+  {
+    id: 'ggl-022',
+    type: 'multiple_choice',
+    question:
+      'A fixed mass of gas at $120^{\\circ}\\text{C}$ is heated at constant volume so that its pressure is tripled. Find the new temperature of the gas.',
+    options: ['$40^{\\circ}\\text{C}$', '$360^{\\circ}\\text{C}$', '$906^{\\circ}\\text{C}$', '$1179^{\\circ}\\text{C}$'],
+    answer: '$906^{\\circ}\\text{C}$',
+    explanation:
+      '⚠️ **Key point:** At constant volume, $\\frac{p}{T}=\\text{constant}$ and temperature must be in kelvin.\n\n$T_1 = 120 + 273 = 393\\ \\text{K}$, and $p_2 = 3p_1$.\n\n$$\\frac{p_1}{T_1} = \\frac{p_2}{T_2} \\Rightarrow T_2 = 3T_1 = 3(393)=1179\\ \\text{K}.$$\nConvert to °C:\n$$\\theta_2 = 1179 - 273 = 906^{\\circ}\\text{C}.$$\n\n**Conclusion:** $906^{\\circ}\\text{C}$ → option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use pressure law: $p_1/T_1=p_2/T_2$.',
+      'Convert °C to K first.',
+      'Convert back to °C at the end.',
+    ],
+    sectionId: 'general-gas-law',
+  },
+  {
+    id: 'ggl-023',
+    type: 'multiple_choice',
+    question:
+      'A cylinder contains a fixed mass of gas at a pressure of $10^5\\ \\text{N m}^{-2}$ and a temperature of $27^{\\circ}\\text{C}$. The cylinder is compressed to half of its original volume and the pressure increases to $3 \\times 10^5\\ \\text{N m}^{-2}$. Find the final temperature of the gas.',
+    options: [
+      '$40.5^{\\circ}\\text{C}$',
+      '$177^{\\circ}\\text{C}$',
+      '$313.5^{\\circ}\\text{C}$',
+      '$450^{\\circ}\\text{C}$',
+    ],
+    answer: '$177^{\\circ}\\text{C}$',
+    explanation:
+      '⚠️ **Key point:** For a fixed mass of gas, use $\\frac{p_1V_1}{T_1}=\\frac{p_2V_2}{T_2}$ and use kelvin.\n\n$T_1=27+273=300\\ \\text{K}$, $V_2=\\tfrac{1}{2}V_1$, $p_2=3p_1$.\n\n$$\\frac{p_1V_1}{300}=\\frac{(3p_1)(\\tfrac{1}{2}V_1)}{T_2}$$\n$$T_2=450\\ \\text{K}=177^{\\circ}\\text{C}.$$\n\n**Conclusion:** $177^{\\circ}\\text{C}$ → option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use $p_1V_1/T_1=p_2V_2/T_2$.',
+      'Convert initial temperature to K.',
+      'Substitute $V_2=V_1/2$ and $p_2=3p_1$.',
+    ],
+    sectionId: 'general-gas-law',
+  },
+  {
+    id: 'ggl-024',
+    type: 'multiple_choice',
+    question:
+      'The curve $C$ in the graph shows the $P$-$V$ relation of a fixed mass of ideal gas at a certain temperature. Point $X$ denotes the initial state of the gas. The state of the gas is now changed along the path shown from $X$ to $Y$, then from $Y$ to $Z$, and finally from $Z$ back to $X$ along the curve $C$. Which of the following statements is/are correct?\n\n(1) The temperature of the gas remains unchanged in the transition from $X$ to $Y$.\n(2) The temperature of the gas decreases in the transition from $Y$ to $Z$.\n(3) The temperature of the gas remains unchanged in the transition from $Z$ to $X$.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      '⚠️ **Key point:** For a fixed mass of ideal gas, $T \\propto pV$.\n\n**(1) X → Y:** Pressure is constant while volume increases, so $pV$ increases and temperature increases. Hence (1) is false.\n\n**(2) Y → Z:** Volume is constant while pressure decreases, so $pV$ decreases and temperature decreases. Hence (2) is true.\n\n**(3) Z → X on curve C:** Curve $C$ is an isotherm (same temperature), so temperature remains unchanged. Hence (3) is true.\n\n**Conclusion:** (2) and (3) only are correct → option D.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Use $pV \\propto T$ for a fixed mass of ideal gas.',
+      'Constant-$p$ path with increasing $V$ means increasing $T$.',
+      'An isothermal curve means constant temperature.',
+    ],
+    sectionId: 'general-gas-law',
+    imagePaths: ['/physics/exercises/general-gas-law/ggl-024-question.png'],
+  },
+  {
+    id: 'ggl-025',
+    type: 'multiple_choice',
+    question:
+      'The above apparatus is used to study the relation between pressure and temperature of a fixed mass of gas at constant volume. Which of the following can improve the accuracy of the experiment?\n\n(1) using a larger flask\n(2) using a shorter length of rubber tubing to connect the gauge and the flask\n(3) setting up a control experiment with the burner removed',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) & (2) only',
+    explanation:
+      '⚠️ **Key point:** Accuracy improves when the measured gas better matches the assumed fixed-volume gas in the flask.\n\n**(1)** A larger flask makes the gas volume in tubing relatively negligible, reducing error → correct.\n\n**(2)** A shorter tube reduces unheated/unaccounted gas volume in tubing, improving accuracy → correct.\n\n**(3)** A control with burner removed does not help this measurement and the experiment would not provide the needed heating data → incorrect.\n\n**Conclusion:** (1) and (2) only are correct → option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Minimize gas volume outside the heated flask.',
+      'Dead volume in tubing causes systematic error.',
+      'This setup needs heating; a no-heating control is not required here.',
+    ],
+    sectionId: 'general-gas-law',
+    imagePaths: ['/physics/exercises/general-gas-law/ggl-025-question.png'],
+  },
+  {
+    id: 'ggl-026',
+    type: 'multiple_choice',
+    question:
+      'The graph shows the $V$-$T$ relation of a fixed mass of ideal gas. Point $X$ denotes the initial state of the gas. The gas changes its state from $X$ to $Y$, then from $Y$ to $Z$ and finally from $Z$ back to $X$ along the path shown. Which of the following statements about the pressure of the gas is/are correct?\n\n(1) The pressure remains unchanged in the transition from $X$ to $Y$.\n(2) The pressure increases in the transition from $Y$ to $Z$.\n(3) The pressure decreases in the transition from $Z$ to $X$.',
+    options: ['(3) only', '(1) & (2) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      '⚠️ **Key point:** For a fixed mass of ideal gas, $pV=nRT$, so pressure changes can be inferred from the $V$-$T$ path.\n\n**(1) X → Y:** This segment lies along a straight line through origin in the $V$-$T$ plane, meaning $V\\propto T$, which corresponds to constant pressure → true.\n\n**(2) Y → Z:** Temperature is constant while volume decreases, so by Boyle’s law $p\\propto 1/V$, pressure increases → true.\n\n**(3) Z → X:** Volume is constant while temperature decreases, so by pressure law $p\\propto T$, pressure decreases → true.\n\n**Conclusion:** (1), (2) and (3) are all correct → option D.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Use $pV=nRT$ as the overall relation.',
+      'On a $V$-$T$ graph, a line through origin indicates constant pressure.',
+      'For constant $T$: $p\\propto 1/V$; for constant $V$: $p\\propto T$.',
+    ],
+    sectionId: 'general-gas-law',
+    imagePaths: ['/physics/exercises/general-gas-law/ggl-026-question.png'],
+  },
+  {
+    id: 'ggl-027',
+    type: 'multiple_choice',
+    question:
+      'The above graph shows the result obtained when an experiment is performed to study the relation between the pressure and temperature of a fixed mass of gas at constant volume. Which of the following statements is/are correct?\n\n(1) The $y$- and $x$-axes denote the pressure and temperature of the gas respectively.\n(2) The slope of the graph denotes the volume of the gas.\n(3) The intercept $y_0$ denotes the absolute zero temperature.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      '⚠️ **Key point:** At constant volume for a fixed mass, $P$ is linearly related to temperature.\n\nFrom ideal gas law: $PV=nRT$ and with $T=\\theta+273$,\n$$P=\\frac{nR}{V}(\\theta+273).$$\nSo plotting $P$ against Celsius temperature $\\theta$ gives a straight line.\n\n**(1)** Correct: the axes are pressure (y) and temperature (x).\n\n**(2)** Incorrect: slope is $\\frac{nR}{V}$, related to volume but not equal to volume.\n\n**(3)** Incorrect: absolute zero corresponds to $\\theta=-273^{\\circ}\\text{C}$ on the x-axis, not the y-intercept $y_0$.\n\n**Conclusion:** (1) only is correct → option A.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Use $PV=nRT$ and $T=\\theta+273$.',
+      'Identify what the slope represents in $P$ vs $\\theta$.',
+      'Absolute zero is an x-axis temperature value.',
+    ],
+    sectionId: 'general-gas-law',
+    imagePaths: ['/physics/exercises/general-gas-law/ggl-027-question.png'],
+  },
+  {
+    id: 'ggl-028',
+    type: 'multiple_choice',
+    question:
+      'The difference in absolute temperature of two bodies is $100\\ \\text{K}$. Express the temperature difference in degree Celsius.',
+    options: [
+      '$-173^{\\circ}\\text{C}$',
+      '$100^{\\circ}\\text{C}$',
+      '$273^{\\circ}\\text{C}$',
+      '$373^{\\circ}\\text{C}$',
+    ],
+    answer: '$100^{\\circ}\\text{C}$',
+    explanation:
+      '⚠️ **Key point:** Temperature differences have the same numerical value in kelvin and degree Celsius.\n\n$$\\Delta T(\\text{K}) = \\Delta T(^{\\circ}\\text{C}).$$\nSo\n$$100\\ \\text{K} = 100^{\\circ}\\text{C}.$$\n\n**Conclusion:** option B.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'For temperature differences: $1\\ \\text{K} = 1^{\\circ}\\text{C}$.',
+      'Do not add or subtract 273 for differences.',
+      'The question asks for difference, not absolute temperature.',
+    ],
+    sectionId: 'general-gas-law',
+  },
+  {
+    id: 'ggl-029',
+    type: 'multiple_choice',
+    question:
+      'A tyre of a car is filled with air at a temperature of $20^{\\circ}\\text{C}$ and a pressure of $200\\ \\text{kPa}$. After driving for some time, the temperature of the air inside the tyre increases to $30^{\\circ}\\text{C}$ and the capacity of the tyre increases by $1\\%$. Find the pressure inside the tyre.',
+    options: ['188 kPa', '205 kPa', '273 kPa', '297 kPa'],
+    answer: '205 kPa',
+    explanation:
+      '⚠️ **Key point:** For a fixed mass of gas, use $\\frac{p_1V_1}{T_1}=\\frac{p_2V_2}{T_2}$.\n\nGiven:\n$T_1=20+273=293\\ \\text{K}$,\n$T_2=30+273=303\\ \\text{K}$,\n$V_2=1.01V_1$.\n\n$$\\frac{(200)V_1}{293}=\\frac{p_2(1.01V_1)}{303}$$\n$$p_2=200\\times\\frac{303}{293}\\times\\frac{1}{1.01}\\approx 205\\ \\text{kPa}.$$\n\n**Conclusion:** $205\\ \\text{kPa}$ → option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use kelvin for temperature.',
+      'A 1% capacity increase means $V_2=1.01V_1$.',
+      'Apply $p_1V_1/T_1=p_2V_2/T_2$.',
+    ],
+    sectionId: 'general-gas-law',
+  },
+  {
+    id: 'ggl-030',
+    type: 'multiple_choice',
+    question:
+      'The above apparatus is used to study the relation between the pressure and volume of a fixed mass of gas at constant temperature. Which of the following can improve the accuracy of the experiment?',
+    options: [
+      'using a larger syringe',
+      'pushing the piston quickly',
+      'using a longer length of rubber tubing',
+      'setting a control experiment with the bourdon gauge removed',
+    ],
+    answer: 'using a larger syringe',
+    explanation:
+      '⚠️ **Key point:** Accuracy improves when unmeasured dead volume is negligible and temperature remains approximately constant.\n\n**A** A larger syringe makes the gas volume in tubing relatively negligible, reducing systematic error → correct.\n\n**B** Pushing quickly heats the gas, violating constant-temperature condition → incorrect.\n\n**C** Longer tubing increases unmeasured dead volume → incorrect.\n\n**D** Removing the Bourdon gauge means pressure cannot be measured → incorrect.\n\n**Conclusion:** option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Keep temperature as constant as possible.',
+      'Minimize uncounted gas volume in tubing.',
+      'Pressure measuring instrument must remain in the setup.',
+    ],
+    sectionId: 'general-gas-law',
+    imagePaths: ['/physics/exercises/general-gas-law/ggl-030-question.png'],
+  },
+  {
+    id: 'ggl-031',
+    type: 'multiple_choice',
+    question:
+      'Two vessels $X$ and $Y$ contain equal masses of an ideal gas. $X$ has a greater volume than $Y$. When the temperature $\\theta$ changes, which of the following represents the variation of the pressure $P$ of the gas in each vessel with temperature $\\theta$?',
+    options: [
+      '/physics/exercises/general-gas-law/ggl-031-option-a.png',
+      '/physics/exercises/general-gas-law/ggl-031-option-b.png',
+      '/physics/exercises/general-gas-law/ggl-031-option-c.png',
+      '/physics/exercises/general-gas-law/ggl-031-option-d.png',
+    ],
+    answer: '/physics/exercises/general-gas-law/ggl-031-option-d.png',
+    explanation:
+      '⚠️ **Key point:** For a fixed amount of gas in each vessel, $PV=nRT \\Rightarrow P=\\frac{nR}{V}T$.\n\nSo the slope of a $P$ vs $T$ graph is $\\frac{nR}{V}$.\nSince vessel $X$ has larger volume, its slope is smaller; vessel $Y$ has smaller volume, so slope is larger.\nAlso, when plotted against Celsius temperature $\\theta$, both lines extrapolate to $\\theta=-273^{\\circ}\\text{C}$.\n\n**Conclusion:** option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use $P=\\frac{nR}{V}T$.',
+      'Larger volume gives smaller slope.',
+      'For Celsius plot, lines extrapolate to $-273^{\\circ}\\text{C}$.',
+    ],
+    sectionId: 'general-gas-law',
+  },
+  {
+    id: 'ggl-032',
+    type: 'multiple_choice',
+    question:
+      'A metal vessel with a small opening contains $1.2\\ \\text{kg}$ of gas at $300\\ \\text{K}$. Find the mass of gas expelled from the vessel if it is heated from $300\\ \\text{K}$ to $400\\ \\text{K}$ under constant pressure.',
+    options: ['0.25 kg', '0.30 kg', '0.60 kg', '0.75 kg'],
+    answer: '0.30 kg',
+    explanation:
+      '⚠️ **Key point:** In a rigid vessel with a small opening, heating at constant pressure means some gas escapes. Since $P$ and $V$ are constant, from $PV=nRT$, we have $n\\propto 1/T$.\n\nAt 300 K: amount $n_1$.\nAt 400 K: amount $n_2$.\n\n$$\\frac{n_2}{n_1}=\\frac{300}{400}=\\frac{3}{4}.$$\nSo remaining mass is\n$$1.2\\times\\frac{3}{4}=0.9\\ \\text{kg}.$$\nMass expelled is\n$$1.2-0.9=0.3\\ \\text{kg}.$$\n\n**Conclusion:** $0.30\\ \\text{kg}$ → option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use $PV=nRT$ with constant $P$ and $V$.',
+      'So $n$ is inversely proportional to $T$.',
+      'Find remaining mass first, then subtract from initial mass.',
+    ],
+    sectionId: 'general-gas-law',
+  },
+  {
+    id: 'ggl-033',
+    type: 'multiple_choice',
+    question:
+      'An inexpansible vessel contains air at $50^{\\circ}\\text{C}$. What percentage of air remains in the vessel if it is heated to $150^{\\circ}\\text{C}$ under constant pressure?',
+    options: ['76%', '67%', '63%', '53%'],
+    answer: '76%',
+    explanation:
+      '⚠️ **Key point:** In a rigid vessel with constant pressure, from $PV=nRT$ we have $n\\propto 1/T$.\n\nInitial temperature: $T_1=50+273=323\\ \\text{K}$\nFinal temperature: $T_2=150+273=423\\ \\text{K}$\n\n$$\\frac{n_2}{n_1}=\\frac{T_1}{T_2}=\\frac{323}{423}\\approx 0.76.$$\nSo the percentage remaining is\n$$0.76\\times 100\\%\\approx 76\\%.$$\n\n**Conclusion:** option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use kelvin temperatures.',
+      'With constant $P$ and $V$, amount of gas $n$ is inversely proportional to $T$.',
+      'Convert the ratio to a percentage.',
+    ],
+    sectionId: 'general-gas-law',
+  },
+  {
+    id: 'ggl-034',
+    type: 'multiple_choice',
+    question:
+      'A cylinder fitted with a smooth piston contains an ideal gas as shown below.\n\nFirstly, the piston is held fixed and the gas is cooled. Secondly, the piston is pushed inwards slowly under constant temperature. If $i$ is the initial state and $f$ is the final state, which of the following graphs represents the variation of gas pressure $P$ with gas volume $V$?',
+    options: [
+      '/physics/exercises/general-gas-law/ggl-034-option-a.png',
+      '/physics/exercises/general-gas-law/ggl-034-option-b.png',
+      '/physics/exercises/general-gas-law/ggl-034-option-c.png',
+      '/physics/exercises/general-gas-law/ggl-034-option-d.png',
+    ],
+    answer: '/physics/exercises/general-gas-law/ggl-034-option-a.png',
+    explanation:
+      '⚠️ **Key point:** The process has two stages with different constraints.\n\nStage 1 (piston fixed): volume is constant, cooling causes temperature to decrease, so pressure decreases ($P\\propto T$ at constant $V$).\n\nStage 2 (slow compression at constant temperature): temperature is constant, volume decreases, so pressure increases following Boyle’s law ($P\\propto 1/V$).\n\nSo the path first moves downward at constant $V$, then follows an isothermal compression curve to the final state.\n\n**Conclusion:** option A.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Split the process into two stages.',
+      'At constant $V$: $P\\propto T$.',
+      'At constant $T$: $P\\propto 1/V$.',
+    ],
+    sectionId: 'general-gas-law',
+    imagePaths: ['/physics/exercises/general-gas-law/ggl-034-question.png'],
+  },
+  {
+    id: 'ggl-035',
+    type: 'multiple_choice',
+    question:
+      'The pressure of an ideal gas in a container is $P_0$. If the number of gas molecules is halved, the volume of the container is doubled and the temperature is kept constant, what would then be the pressure in the container?',
+    options: ['$\\frac{1}{4}P_0$', '$\\frac{1}{2}P_0$', '$P_0$', '$2P_0$'],
+    answer: '$\\frac{1}{4}P_0$',
+    explanation:
+      '⚠️ **Key point:** Use ideal gas equation $PV=nRT$ at constant $T$.\n\nInitially:\n$$P_0V=nRT.$$\nFinally, $n\\to\\tfrac{1}{2}n$ and $V\\to 2V$:\n$$P\'(2V)=\\left(\\tfrac{1}{2}n\\right)RT.$$\nSo\n$$P\'=\\frac{(\\tfrac{1}{2}nRT)}{2V}=\\frac{1}{4}\\cdot\\frac{nRT}{V}=\\frac{1}{4}P_0.$$\n\n**Conclusion:** option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Start from $PV=nRT$.',
+      'Substitute the new $n$ and $V$ values while keeping $T$ constant.',
+      'Compare new pressure with $P_0$.',
+    ],
+    sectionId: 'general-gas-law',
+  },
+  {
+    id: 'ggl-036',
+    type: 'multiple_choice',
+    question:
+      'Two different containers $X$ and $Y$ of volume $V$ and $4V$ respectively are connected by a narrow tube as shown. Initially the tap $S$ is closed and an ideal gas is contained in $X$ at a pressure of $400\\ \\text{kPa}$ while container $Y$ is evacuated. The tap $S$ is then opened. Which of the following statements is correct when equilibrium is finally reached?',
+    options: [
+      'The gas pressure in $X$ is 100 kPa.',
+      'There are still gas molecules moving through the tap $S$.',
+      'The product of pressure and volume of the gas in $X$ is equal to that in $Y$.',
+      'The density of gas molecules in $X$ is greater than that in $Y$.',
+    ],
+    answer: 'There are still gas molecules moving through the tap $S$.',
+    explanation:
+      '⚠️ **Key point:** At equilibrium, pressure and temperature become uniform, but random molecular motion continues.\n\nTotal final volume is $V+4V=5V$ and (assuming temperature unchanged):\n$$P_f(5V)=400V \\Rightarrow P_f=80\\ \\text{kPa},$$\nso option A is false.\n\nAt equilibrium, molecules still move both ways through the tap; only the **net** flow is zero, so B is true.\n\nSince final pressures are equal but volumes are different, $PV$ for each container is not equal, so C is false.\n\nWith same gas at same $P$ and $T$, number density (and mass density) is the same in both containers, so D is false.\n\n**Conclusion:** option B.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Use ideal-gas reasoning for the final common pressure.',
+      'Equilibrium means zero net flow, not zero molecular motion.',
+      'At same $P$ and $T$ for same gas, densities are equal.',
+    ],
+    sectionId: 'general-gas-law',
+  },
+  {
+    id: 'ggl-037',
+    type: 'multiple_choice',
+    question:
+      'Which of the following quantities is/are vector?\n\n(1) change of momentum\n(2) work\n(3) pressure',
+    options: ['(1) only', '(1) & (2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      '⚠️ **Key point:** A vector has both magnitude and direction.\n\n**(1)** Change of momentum is a vector because momentum itself is a vector.\n\n**(2)** Work is a scalar quantity (energy transfer), so it has no direction.\n\n**(3)** Pressure is scalar; at a point in a fluid it acts equally in all directions.\n\n**Conclusion:** (1) only is correct → option A.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Momentum is a vector quantity.',
+      'Work is energy transfer and is scalar.',
+      'Pressure is scalar, not vector.',
+    ],
+    sectionId: 'general-gas-law',
+  },
+  {
+    id: 'ggl-038',
+    type: 'multiple_choice',
+    question:
+      'The graph shows the relation between the pressure $P$ and the absolute temperature $T$ of a fixed mass of an ideal gas, which changes from state $A$ to state $B$ along the path $AB$. Which of the following statements is/are correct?\n\n(1) The graph shows that $P$ is directly proportional to $T$.\n(2) All the points on line $AB$ satisfy the relation $\\frac{PV}{T}=\\text{constant}$.\n(3) From state $A$ to state $B$, the volume $V$ of the gas increases.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      '⚠️ **Key point:** For a fixed mass of ideal gas, $\\frac{PV}{T}=nR=\\text{constant}$ always holds.\n\n**(1)** False. Direct proportionality $P\\propto T$ requires a straight line through the origin (constant volume). The given line does not pass through the origin.\n\n**(2)** True. Since the gas mass is fixed and ideal, every state on the path satisfies $\\frac{PV}{T}=\\text{constant}$.\n\n**(3)** True. At the same temperature, point $B$ has lower pressure than the constant-volume reference, so by $PV=nRT$, lower $P$ implies larger $V$.\n\n**Conclusion:** (2) and (3) only are correct → option D.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Use $PV=nRT$ for fixed mass ideal gas.',
+      'Check direct proportionality by whether the line passes through origin.',
+      'At fixed $T$, lower $P$ means larger $V$.',
+    ],
+    sectionId: 'general-gas-law',
+    imagePaths: ['/physics/exercises/general-gas-law/ggl-038-question.png'],
+  },
+  {
+    id: 'ggl-039',
+    type: 'multiple_choice',
+    question:
+      'A fixed mass of an ideal gas changes from state $X$ to state $Y$, then to state $Z$ as shown in the pressure $P$ against volume $V$ graph. Which of the below graphs best shows the variation of the absolute temperature $T$ of the gas with its volume $V$?',
+    options: [
+      '/physics/exercises/general-gas-law/ggl-039-option-a.png',
+      '/physics/exercises/general-gas-law/ggl-039-option-b.png',
+      '/physics/exercises/general-gas-law/ggl-039-option-c.png',
+    ],
+    answer: '/physics/exercises/general-gas-law/ggl-039-option-c.png',
+    explanation:
+      '⚠️ **Key point:** For an ideal gas, $T\\propto PV$.\n\nFrom $X$ to $Y$, pressure is constant, so $V\\propto T$ and the $T$-$V$ relation is a straight line through the origin.\n\nFrom $Y$ to $Z$, $P_YV_Y\\neq P_ZV_Z$, so temperature is not constant; therefore this part cannot be a horizontal line in the $T$-$V$ graph.\n\n**Conclusion:** option C.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Use $PV=nRT$ so $T\\propto PV$.',
+      'At constant $P$, $T$ is directly proportional to $V$.',
+      'Check whether $PV$ stays constant from $Y$ to $Z$.',
+    ],
+    sectionId: 'general-gas-law',
+    imagePaths: ['/physics/exercises/general-gas-law/ggl-039-question.png'],
+  },
+  {
+    id: 'ggl-040',
+    type: 'multiple_choice',
+    question:
+      'An ideal gas undergoes a change from state $X$ to state $Y$, then to state $Z$ as shown in the pressure $P$ against volume $V$ graph. Which of the following descriptions about the temperature of the gas at $X$, $Y$ and $Z$ is correct?',
+    options: [
+      'The temperature of the gas is lowest at $X$ and highest at $Y$.',
+      'The temperature of the gas is lowest at $X$ and highest at $Z$.',
+      'The temperature of the gas is lowest at $Y$ and highest at $X$.',
+      'The gas has the same temperature at $X$, $Y$ and $Z$.',
+    ],
+    answer: 'The temperature of the gas is lowest at $X$ and highest at $Y$.',
+    explanation:
+      '⚠️ **Key point:** For a fixed mass of ideal gas, $PV=nRT$, so $T\\propto PV$.\n\nFrom the graph values:\n$$T_X\\propto P_XV_X=4k,\\quad T_Y\\propto P_YV_Y=6k,\\quad T_Z\\propto P_ZV_Z=5k.$$ \nSo\n$$T_X<T_Z<T_Y.$$ \nHence the lowest temperature is at $X$ and the highest is at $Y$.\n\n**Conclusion:** option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use $T\\propto PV$ for ideal gas.',
+      'Compare $PV$ at points $X$, $Y$, and $Z$.',
+      'Largest $PV$ gives highest temperature.',
+    ],
+    sectionId: 'general-gas-law',
+    imagePaths: ['/physics/exercises/general-gas-law/ggl-040-question.png'],
+  },
+  {
+    id: 'ggl-041',
+    type: 'multiple_choice',
+    question:
+      'A gas in a vessel of fixed volume leaks gradually. The gas changes from state $X$ of pressure $p$ and absolute temperature $T_0$ to state $Y$ of pressure $1.5p$ and absolute temperature $2T_0$ as shown in the pressure $P$ against absolute temperature $T$ graph. What percentage of the original mass of the gas leaks out from the vessel in this process?',
+    options: ['10%', '20%', '25%', '50%'],
+    answer: '25%',
+    explanation:
+      '⚠️ **Key point:** At fixed volume, use $PV=nRT$ and compare initial/final states.\n\nInitial:\n$$pV=n_1RT_0$$\nFinal:\n$$(1.5p)V=n_2R(2T_0)$$\nSo\n$$\\frac{n_2}{n_1}=\\frac{1.5}{2}=\\frac{3}{4}.$$\nThus fraction leaked out is\n$$1-\\frac{3}{4}=\\frac{1}{4}=25\\%.$$\n\n**Conclusion:** option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'At fixed volume, relate states using $PV=nRT$.',
+      'Find the ratio $n_2/n_1$ from pressure and temperature ratios.',
+      'Leaked percentage = $(1-n_2/n_1)\\times 100\\%$.',
+    ],
+    sectionId: 'general-gas-law',
+    imagePaths: ['/physics/exercises/general-gas-law/ggl-041-question.png'],
+  },
+  {
+    id: 'ggl-042',
+    type: 'multiple_choice',
+    question:
+      'The pressure $P$ of a fixed mass of ideal gas varies with its volume $V$ as shown in the above figure. Which of the following graph best shows the corresponding pressure-temperature ($P$-$T$) relationship?',
+    options: [
+      '/physics/exercises/general-gas-law/ggl-042-option-a.png',
+      '/physics/exercises/general-gas-law/ggl-042-option-b.png',
+      '/physics/exercises/general-gas-law/ggl-042-option-c.png',
+      '/physics/exercises/general-gas-law/ggl-042-option-d.png',
+    ],
+    answer: '/physics/exercises/general-gas-law/ggl-042-option-c.png',
+    explanation:
+      '⚠️ **Key point:** For a fixed mass of ideal gas, $PV=nRT$, so $PV\\propto T$.\n\nFrom the given $P$-$V$ points:\n- At $P=6$, $PV=6\\times4=24$\n- At $P=4$, $PV=4\\times8=32$\n- At $P=2$, $PV=2\\times12=24$\n\nSo $T$ at $P=6$ equals $T$ at $P=2$, while $T$ at $P=4$ is higher.\nTherefore the correct $P$-$T$ graph is option C.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Use $PV=nRT$ to link $P$, $V$, and $T$.',
+      'Compute $PV$ at the marked points first.',
+      'Equal $PV$ means equal temperature.',
+    ],
+    sectionId: 'general-gas-law',
+    imagePaths: ['/physics/exercises/general-gas-law/ggl-042-question.png'],
+  },
+  {
+    id: 'ggl-043',
+    type: 'multiple_choice',
+    question:
+      'A closed container of volume $1\\ \\text{m}^3$ contains an ideal gas. The temperature of the gas is $25^{\\circ}\\text{C}$ and the pressure of the gas is $1.01 \\times 10^5\\ \\text{Pa}$. Calculate the number of gas molecules in the container.',
+    options: [
+      '$2.46 \\times 10^{25}$',
+      '$2.93 \\times 10^{25}$',
+      '$2.46 \\times 10^{26}$',
+      '$2.93 \\times 10^{26}$',
+    ],
+    answer: '$2.46 \\times 10^{25}$',
+    explanation:
+      '⚠️ **Key point:** First find moles from $PV=nRT$, then multiply by Avogadro constant.\n\n$$n=\\frac{PV}{RT}=\\frac{(1.01\\times10^5)(1)}{(8.31)(25+273)}\\approx 40.8\\ \\text{mol}.$$\n\nNumber of molecules:\n$$N=nN_A=(40.8)(6.02\\times10^{23})\\approx 2.46\\times10^{25}.$$\n\n**Conclusion:** option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use $PV=nRT$ with $T$ in kelvin.',
+      'Find $n$ first, then use $N=nN_A$.',
+      'Take $N_A\\approx 6.02\\times10^{23}\\ \\text{mol}^{-1}$.',
+    ],
+    sectionId: 'general-gas-law',
+  },
+  {
+    id: 'ggl-044',
+    type: 'multiple_choice',
+    question:
+      'A vessel contains an ideal gas at the temperature of $25^{\\circ}\\text{C}$ and a pressure of $1.10 \\times 10^{-7}\\ \\text{Pa}$. Estimate the number of gas molecules per unit volume in the vessel.',
+    options: [
+      '$2.67 \\times 10^{13}$',
+      '$2.92 \\times 10^{13}$',
+      '$3.19 \\times 10^{14}$',
+      '$3.49 \\times 10^{14}$',
+    ],
+    answer: '$2.67 \\times 10^{13}$',
+    explanation:
+      '⚠️ **Key point:** Use ideal gas equation in number-density form.\n\nFrom\n$$PV=nRT=\\frac{N}{N_A}RT,$$\nwe get\n$$\\frac{N}{V}=\\frac{PN_A}{RT}.$$\n\nSubstitute values:\n$$\\frac{N}{V}=\\frac{(1.10\\times10^{-7})(6.02\\times10^{23})}{(8.31)(25+273)}\\approx 2.67\\times10^{13}\\ \\text{m}^{-3}.$$\n\n**Conclusion:** option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Start from $PV=nRT$ and use $n=N/N_A$.',
+      'Rearrange to $N/V=PN_A/(RT)$.',
+      'Convert $25^{\\circ}\\text{C}$ to $298\\ \\text{K}$.',
+    ],
+    sectionId: 'general-gas-law',
+  },
+  {
+    id: 'ggl-045',
+    type: 'multiple_choice',
+    question:
+      'A car tyre has a constant volume of $0.025\\ \\text{m}^3$. It contains $1.2\\ \\text{mol}$ of air at a pressure of $280\\ \\text{kPa}$. An air pump delivers $8 \\times 10^{-3}\\ \\text{mol}$ of air into the tyre on each stroke of the pump. Calculate the minimum number of complete strokes of the pump so as to increase the air pressure in the tyre to $320\\ \\text{kPa}$. Assume the temperatures of air in the tyre and the pump are the same.',
+    options: ['20', '21', '22', '23'],
+    answer: '22',
+    explanation:
+      '⚠️ **Key point:** With constant $V$ and same $T$, ideal gas law gives $P\\propto n$.\n\n$$\\frac{P_1}{P_2}=\\frac{n_1}{n_2} \\Rightarrow \\frac{280}{320}=\\frac{1.2}{n_2}$$\n$$n_2=1.37\\ \\text{mol}.$$ \nExtra amount needed:\n$$\\Delta n=1.37-1.2=0.17\\ \\text{mol}.$$ \nEach stroke adds $8\\times10^{-3}\\ \\text{mol}$, so\n$$N=\\frac{0.17}{8\\times10^{-3}}=21.3.$$ \nMinimum complete strokes $=22$.\n\n**Conclusion:** option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'At constant volume and temperature, $P\\propto n$.',
+      'Find final moles from pressure ratio.',
+      'Round up to the next whole stroke.',
+    ],
+    sectionId: 'general-gas-law',
+  },
+  {
+    id: 'ggl-046',
+    type: 'multiple_choice',
+    question:
+      'A car tyre has a constant volume of $12500\\ \\text{cm}^3$. The pressure of the air in the tyre is $275\\ \\text{kPa}$ at a temperature of $30^{\\circ}\\text{C}$. Assume air is an ideal gas, what is the amount of air in the tyre?',
+    options: ['1.2 mol', '1.4 mol', '1.6 mol', '1.8 mol'],
+    answer: '1.4 mol',
+    explanation:
+      '⚠️ **Key point:** Use $PV=nRT$ with SI units.\n\nConvert units:\n$$V=12500\\ \\text{cm}^3=12500\\times10^{-6}=0.0125\\ \\text{m}^3,$$\n$$P=275\\ \\text{kPa}=275\\times10^3\\ \\text{Pa},\\quad T=30+273=303\\ \\text{K}.$$\n\nThen\n$$n=\\frac{PV}{RT}=\\frac{(275\\times10^3)(0.0125)}{(8.31)(303)}\\approx1.4\\ \\text{mol}.$$\n\n**Conclusion:** option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Convert cm$^3$ to m$^3$.',
+      'Convert kPa to Pa.',
+      'Use $T$ in kelvin.',
+    ],
+    sectionId: 'general-gas-law',
+  },
+  {
+    id: 'ggl-047',
+    type: 'multiple_choice',
+    question:
+      'For air at room temperature of $25^{\\circ}\\text{C}$ and atmospheric pressure of $10^5\\ \\text{Pa}$, calculate the order of magnitude of the number of molecules in $1\\ \\text{cm}^3$ of air.',
+    options: ['$10^{25}$', '$10^{19}$', '$10^{16}$', '$10^{13}$'],
+    answer: '$10^{19}$',
+    explanation:
+      '⚠️ **Key point:** Use ideal gas law to find moles in $1\\ \\text{cm}^3$, then convert to number of molecules.\n\n$$PV=nRT$$\n$$ (10^5)(1\\times10^{-6})=n(8.31)(25+273) $$\n$$ n\\approx4.0\\times10^{-5}\\ \\text{mol}. $$\n\nNumber of molecules:\n$$N=nN_A=(4.0\\times10^{-5})(6.02\\times10^{23})\\approx2.4\\times10^{19}.$$\nSo the order of magnitude is $10^{19}$.\n\n**Conclusion:** option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Convert $1\\ \\text{cm}^3$ to $1\\times10^{-6}\\ \\text{m}^3$.',
+      'Use $PV=nRT$ to find $n$.',
+      'Then use $N=nN_A$ and pick the nearest power of ten.',
+    ],
+    sectionId: 'general-gas-law',
+  },
+  {
+    id: 'ggl-048',
+    type: 'multiple_choice',
+    question:
+      'As the gas in a vessel of fixed volume is heated, it gradually leaks out. The gas in the vessel changes from state $X$ to state $Y$ along the path $XY$ shown in the plot of pressure against absolute temperature. What percentage of the original mass of the gas leaks out from the vessel in this process?',
+    options: ['10%', '20%', '25%', '50%'],
+    answer: '25%',
+    explanation:
+      '⚠️ **Key point:** In a fixed-volume vessel, compare states with $PV=nRT$.\n\nAt state $X$:\n$$pV=n_XRT.$$\nAt state $Y$:\n$$(1.5p)V=n_YR(2T).$$\nSo\n$$\\frac{n_Y}{n_X}=\\frac{1.5}{2}=\\frac{3}{4}.$$\nTherefore leaked fraction is\n$$1-\\frac{3}{4}=\\frac{1}{4}=25\\%.$$\n\n**Conclusion:** option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use $PV=nRT$ at each state.',
+      'Volume is fixed, so compare pressure and temperature ratios.',
+      'Leaked percentage = $1-n_Y/n_X$.',
+    ],
+    sectionId: 'general-gas-law',
+    imagePaths: ['/physics/exercises/general-gas-law/ggl-048-question.png'],
+  },
+  {
+    id: 'ggl-049',
+    type: 'multiple_choice',
+    question:
+      'An ideal gas is contained in a closed vessel of fixed volume. The graph below shows the variation of pressure $p$ of the gas against its Celsius temperature $\\theta$.\n\nIf the number of gas molecules in the vessel is halved, which graph of the dotted line best shows the relationship between $p$ and $\\theta$?',
+    options: [
+      '/physics/exercises/general-gas-law/ggl-049-option-a.png',
+      '/physics/exercises/general-gas-law/ggl-049-option-b.png',
+      '/physics/exercises/general-gas-law/ggl-049-option-c.png',
+      '/physics/exercises/general-gas-law/ggl-049-option-d.png',
+    ],
+    answer: '/physics/exercises/general-gas-law/ggl-049-option-a.png',
+    explanation:
+      '⚠️ **Key point:** For fixed volume, $pV=nRT$ gives\n$$p=\\frac{nR}{V}(\\theta+273).$$\nSo on a $p$-$\\theta$ graph, slope is $\\frac{nR}{V}$.\n\nIf molecule number (and hence $n$) is halved, the slope is halved.\nThe x-intercept remains at absolute zero $-273^{\\circ}\\text{C}$.\n\nTherefore the correct dotted line is the one with smaller slope but same x-intercept.\n\n**Conclusion:** option A.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Use $p=\\frac{nR}{V}(\\theta+273)$.',
+      'Halving molecule number halves $n$, so halves slope.',
+      'Absolute zero x-intercept stays at $-273^{\\circ}\\text{C}$.',
+    ],
+    sectionId: 'general-gas-law',
+    imagePaths: ['/physics/exercises/general-gas-law/ggl-049-question.png'],
+  },
+  {
+    id: 'ggl-050',
+    type: 'multiple_choice',
+    question:
+      'The pressure of a fixed mass of an ideal gas at $10^{\\circ}\\text{C}$ is $2 \\times 10^5\\ \\text{N m}^{-2}$. If the volume of the gas is reduced to half of its original volume and its temperature is increased to $100^{\\circ}\\text{C}$, what would the pressure be?',
+    options: [
+      '$1.00 \\times 10^5\\ \\text{N m}^{-2}$',
+      '$1.32 \\times 10^5\\ \\text{N m}^{-2}$',
+      '$4.00 \\times 10^5\\ \\text{N m}^{-2}$',
+      '$5.27 \\times 10^5\\ \\text{N m}^{-2}$',
+    ],
+    answer: '$5.27 \\times 10^5\\ \\text{N m}^{-2}$',
+    explanation:
+      '⚠️ **Key point:** For fixed mass of gas, use\n$$\\frac{p_1V_1}{T_1}=\\frac{p_2V_2}{T_2}$$\nwith temperature in kelvin.\n\n$T_1=10+273=283\\ \\text{K}$,\n$T_2=100+273=373\\ \\text{K}$,\n$V_2=\\frac{V_1}{2}$.\n\n$$\\frac{(2\\times10^5)V_1}{283}=\\frac{p_2(V_1/2)}{373}$$\n$$p_2=2\\times10^5\\times\\frac{373}{283}\\times2\\approx5.27\\times10^5\\ \\text{N m}^{-2}.$$\n\n**Conclusion:** option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use $p_1V_1/T_1=p_2V_2/T_2$.',
+      'Convert temperatures to kelvin.',
+      'Reducing volume to half contributes a factor of 2 to pressure.',
+    ],
+    sectionId: 'general-gas-law',
+  },
 ];

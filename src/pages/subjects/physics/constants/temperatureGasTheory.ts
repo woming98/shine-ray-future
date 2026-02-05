@@ -2,8 +2,8 @@ import { Chapter, Concept, Formula } from '../types';
 import { TEMPERATURE_GAS_EXERCISES } from './temperatureGas';
 
 // ============================================
-// Temperature and Gas 主题内容（已覆盖：temp-heat-internal / change-of-state / transfer-processes）
-// 基于 DSE 真题风格 + 已录入练习题（thi-001~、cos-001~、tp-001~）反推理论结构
+// Temperature and Gas 主题内容（已覆盖：temp-heat-internal / change-of-state / general-gas-law / transfer-processes）
+// 基于 DSE 真题风格 + 已录入练习题（thi-001~、cos-001~、ggl-001~、tp-001~）反推理论结构
 // ============================================
 
 // 概念知识点 - Temperature, Heat and Internal Energy
@@ -375,6 +375,80 @@ export const TEMPERATURE_GAS_CHANGE_STATE_CONCEPTS: Concept[] = [
   },
 ];
 
+// 概念知识点 - General Gas Law
+export const TEMPERATURE_GAS_GASLAW_CONCEPTS: Concept[] = [
+  {
+    id: 'tgg-1',
+    title: 'Boyle’s law（波义耳定律）',
+    content:
+      '在温度不变时，气体压强与体积成反比：$pV=\\text{constant}$。',
+    keyPoints: [
+      '等温过程：$p_1V_1 = p_2V_2$',
+      '压强单位可用 Pa 或 kPa，保持一致即可',
+      '温度必须保持不变',
+      '对应练习：ggl-001',
+    ],
+    examples: ['活塞压缩气体：体积减半，压强加倍（温度不变）'],
+    difficulty: 'basic',
+  },
+  {
+    id: 'tgg-2',
+    title: 'Charles’ law（查理定律）',
+    content:
+      '在压强不变时，气体体积与绝对温度成正比：$V/T=\\text{constant}$。',
+    keyPoints: [
+      '等压过程：$V_1/T_1 = V_2/T_2$',
+      '温度必须用 K（绝对温度）',
+      '体积单位保持一致',
+      '对应练习：ggl-002',
+    ],
+    examples: ['气球受热膨胀：温度升高，体积增大（压强近似恒定）'],
+    difficulty: 'basic',
+  },
+  {
+    id: 'tgg-3',
+    title: 'Pressure law（压强定律 / Gay-Lussac）',
+    content:
+      '在体积不变时，气体压强与绝对温度成正比：$p/T=\\text{constant}$。',
+    keyPoints: [
+      '等容过程：$p_1/T_1 = p_2/T_2$',
+      '温度用 K',
+      '容器刚性且体积不变',
+      '对应练习：ggl-003',
+    ],
+    examples: ['密闭刚性容器加热：温度升高，压强升高'],
+    difficulty: 'basic',
+  },
+  {
+    id: 'tgg-4',
+    title: 'General gas law（综合气体定律）',
+    content:
+      '综合三大定律得到：$\\frac{pV}{T}=\\text{constant}$，适用于固定质量气体。',
+    keyPoints: [
+      '$\\frac{p_1V_1}{T_1} = \\frac{p_2V_2}{T_2}$',
+      '温度必须用 K',
+      '适用于同一份气体（质量不变）',
+      '对应练习：ggl-004',
+    ],
+    examples: ['气球随海拔变化：压强下降、温度变化、体积变化'],
+    difficulty: 'intermediate',
+  },
+  {
+    id: 'tgg-5',
+    title: 'Ideal gas equation（理想气体方程）',
+    content:
+      '$pV = nRT$，将气体状态与物质的量 $n$ 联系起来。',
+    keyPoints: [
+      'R = 8.31 J mol⁻¹ K⁻¹（SI）',
+      'p 用 Pa，V 用 m³，T 用 K',
+      '可与 $n=m/M$ 联立',
+      '对应练习：ggl-005',
+    ],
+    examples: ['已知质量和摩尔质量，求气体压强或体积'],
+    difficulty: 'intermediate',
+  },
+];
+
 // 物理公式 - Temperature, Heat and Internal Energy
 export const TEMPERATURE_GAS_FORMULAS_THI: Formula[] = [
   {
@@ -615,10 +689,79 @@ export const TEMPERATURE_GAS_FORMULAS_COS: Formula[] = [
   },
 ];
 
+// 物理公式 - General Gas Law
+export const TEMPERATURE_GAS_FORMULAS_GGL: Formula[] = [
+  {
+    id: 'tg-16',
+    name: 'Boyle’s law',
+    nameCN: '波义耳定律（等温）',
+    expression: 'p_1 V_1 = p_2 V_2',
+    variables: [
+      { symbol: 'p', name: 'pressure', unit: 'Pa', description: '压强' },
+      { symbol: 'V', name: 'volume', unit: 'm³', description: '体积' },
+    ],
+    description: '温度不变时，$pV$ 为常数。',
+    example: 'p1=200 kPa, V1=2 L, V2=1 L → p2=400 kPa',
+  },
+  {
+    id: 'tg-17',
+    name: 'Charles’ law',
+    nameCN: '查理定律（等压）',
+    expression: 'V_1/T_1 = V_2/T_2',
+    variables: [
+      { symbol: 'V', name: 'volume', unit: 'm³', description: '体积' },
+      { symbol: 'T', name: 'temperature', unit: 'K', description: '绝对温度' },
+    ],
+    description: '压强不变时，$V/T$ 为常数（T 用 K）。',
+    example: 'V1=2 L, T1=300 K, T2=450 K → V2=3 L',
+  },
+  {
+    id: 'tg-18',
+    name: 'Pressure law',
+    nameCN: '压强定律（等容）',
+    expression: 'p_1/T_1 = p_2/T_2',
+    variables: [
+      { symbol: 'p', name: 'pressure', unit: 'Pa', description: '压强' },
+      { symbol: 'T', name: 'temperature', unit: 'K', description: '绝对温度' },
+    ],
+    description: '体积不变时，$p/T$ 为常数（T 用 K）。',
+    example: 'p1=100 kPa, T1=300 K, T2=360 K → p2=120 kPa',
+  },
+  {
+    id: 'tg-19',
+    name: 'General gas law',
+    nameCN: '综合气体定律',
+    expression: 'p_1 V_1 / T_1 = p_2 V_2 / T_2',
+    variables: [
+      { symbol: 'p', name: 'pressure', unit: 'Pa', description: '压强' },
+      { symbol: 'V', name: 'volume', unit: 'm³', description: '体积' },
+      { symbol: 'T', name: 'temperature', unit: 'K', description: '绝对温度' },
+    ],
+    description: '固定质量气体满足 $pV/T$ 为常数。',
+    example: 'p1=100 kPa, V1=2 L, T1=300 K; V2=1.5 L, T2=330 K → p2=110 kPa',
+  },
+  {
+    id: 'tg-20',
+    name: 'Ideal gas equation',
+    nameCN: '理想气体方程',
+    expression: 'pV = nRT',
+    variables: [
+      { symbol: 'p', name: 'pressure', unit: 'Pa', description: '压强' },
+      { symbol: 'V', name: 'volume', unit: 'm³', description: '体积' },
+      { symbol: 'n', name: 'amount of substance', unit: 'mol', description: '物质的量' },
+      { symbol: 'R', name: 'gas constant', unit: 'J mol⁻¹ K⁻¹', description: '气体常数' },
+      { symbol: 'T', name: 'temperature', unit: 'K', description: '绝对温度' },
+    ],
+    description: '理想气体满足 $pV=nRT$，注意单位一致。',
+    example: 'n=1 mol, T=300 K, V=0.025 m³ → p≈1.0×10⁵ Pa',
+  },
+];
+
 // 供“公式计算”标签页使用：整合全主题公式
 export const TEMPERATURE_GAS_FORMULAS: Formula[] = [
   ...TEMPERATURE_GAS_FORMULAS_THI,
   ...TEMPERATURE_GAS_FORMULAS_COS,
+  ...TEMPERATURE_GAS_FORMULAS_GGL,
   ...TEMPERATURE_GAS_FORMULAS_TP,
 ];
 
@@ -641,6 +784,16 @@ export const TEMPERATURE_GAS_CHAPTERS: Chapter[] = [
     concepts: TEMPERATURE_GAS_CHANGE_STATE_CONCEPTS,
     formulas: TEMPERATURE_GAS_FORMULAS_COS,
     exercises: TEMPERATURE_GAS_EXERCISES.filter((e) => e.sectionId === 'change-of-state'),
+    simulations: [],
+    completed: false,
+  },
+  {
+    id: 'general-gas-law',
+    title: 'General Gas Law',
+    titleCN: '普通气体定律',
+    concepts: TEMPERATURE_GAS_GASLAW_CONCEPTS,
+    formulas: TEMPERATURE_GAS_FORMULAS_GGL,
+    exercises: TEMPERATURE_GAS_EXERCISES.filter((e) => e.sectionId === 'general-gas-law'),
     simulations: [],
     completed: false,
   },
