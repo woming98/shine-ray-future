@@ -2487,6 +2487,993 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     sectionId: 'position-movement',
   },
+  {
+    id: 'nl-001',
+    type: 'multiple_choice',
+    question:
+      'A spring balance suspended from the ceiling of a lift registers the weight of a 20 kg body as 150 N. The lift is probably',
+    options: [
+      'ascending with uniform velocity.',
+      'ascending with uniform acceleration.',
+      'descending with uniform velocity.',
+      'descending with uniform acceleration.',
+    ],
+    answer: 'descending with uniform acceleration.',
+    explanation:
+      '⚠️ **Key point:** Spring balance reading is the apparent weight (normal reaction), not necessarily the true weight.\n\nTrue weight:\n$$W=mg=(20)(9.81)=196\\ \\text{N}.$$\nMeasured reading is $150\\ \\text{N}$, so\n$$R<W.$$ \nThis means acceleration is downward.\n\nIf acceleration is downward, the lift is accelerating downward (not moving at uniform velocity).\n\n**Conclusion:** the lift is descending with uniform acceleration → option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Compute true weight first: $mg$.',
+      'Compare spring balance reading with $mg$ to infer acceleration direction.',
+      'Uniform velocity would give reading equal to true weight.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-002',
+    type: 'multiple_choice',
+    question:
+      'A horizontal force $F$ is applied to a block of mass $M$ on a rough horizontal surface. The acceleration of the block is $a$. If the force is changed to $2F$ and the frictional force remains unchanged, then the acceleration of the block will be',
+    options: ['greater than $2a$.', 'equal to $2a$.', 'between $a$ and $2a$.', 'less than $a$.'],
+    answer: 'greater than $2a$.',
+    explanation:
+      '⚠️ **Key point:** When friction stays constant, doubling the driving force increases net force by **more than** a factor of 2 relative to the original net force.\n\nInitially:\n$$F-f=Ma$$\nAfter doubling force:\n$$2F-f=Ma\'$$\nUse $F=f+Ma$ from the first equation:\n$$2F-f=2(f+Ma)-f=f+2Ma$$\nSo\n$$Ma\'=f+2Ma \\Rightarrow a\'=2a+\\frac{f}{M}.$$\nSince $f>0$ on a rough surface,\n$$a\'>2a.$$\n\n**Conclusion:** option A.',
+    difficulty: 3,
+    points: 20,
+    hints: [
+      'Write Newton’s second law before and after changing the force.',
+      'Keep friction as the same constant $f$ in both equations.',
+      'Substitute from the first equation into the second.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-003',
+    type: 'multiple_choice',
+    question:
+      'In the figure shown, $X$ and $Y$ are blocks of mass 1 kg and 2 kg respectively. $S$ is a spring balance of negligible mass and $P$ is a smooth pulley fixed at the top of two smooth inclined planes. What is the reading of $S$ when $X$ is held stationary by an external force?',
+    options: ['4.9 N', '9.8 N', '14.7 N', '19.6 N'],
+    answer: '9.8 N',
+    explanation:
+      '⚠️ **Key point:** Spring balance reads the string tension $T$.\n\nSince $X$ is held stationary by an external force, the system is in equilibrium. Consider block $Y$ (mass 2 kg) on a smooth $30^{\\circ}$ incline:\n$$T = mg\\sin\\theta = (2)(9.81)\\sin30^{\\circ} = 9.81\\ \\text{N}.$$\nSo the spring balance reading is\n$$S=T\\approx 9.8\\ \\text{N}.$$\n\n**Conclusion:** option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'The spring balance reads tension in the string.',
+      'Use equilibrium for block $Y$ along the slope.',
+      'Resolve weight component: $mg\\sin\\theta$.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-003-question.png'],
+  },
+  {
+    id: 'nl-004',
+    type: 'multiple_choice',
+    question:
+      'Two blocks $A$ and $B$ of masses $m_1$ and $m_2$ respectively are connected by a light spring on a horizontal frictionless table. The spring is stretched by moving the blocks apart. What is the ratio of the acceleration of $A$ to that of $B$ at the moment when they are released?',
+    options: [
+      '$m_1 : m_2$',
+      '$m_2 : m_1$',
+      '$m_1^2 : m_2^2$',
+      '$m_2^2 : m_1^2$',
+    ],
+    answer: '$m_2 : m_1$',
+    explanation:
+      '⚠️ **Key point:** At release, spring force on the two blocks has equal magnitude (Newton’s third law).\n\nLet the spring force magnitude be $F$ on each block.\nThen\n$$a_A=\\frac{F}{m_1},\\quad a_B=\\frac{F}{m_2}.$$\nSo\n$$\\frac{a_A}{a_B}=\\frac{F/m_1}{F/m_2}=\\frac{m_2}{m_1}.$$\n\n**Conclusion:** $a_A:a_B = m_2:m_1$ → option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Forces on the two blocks from the spring are equal in magnitude.',
+      'Use $a=F/m$ for each block.',
+      'Take the ratio to cancel $F$.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-005',
+    type: 'multiple_choice',
+    question:
+      'An object is resting on a rough plane inclined at an angle $\\theta$ to the horizontal. As $\\theta$ gradually increases, the frictional force acting on the object before sliding occurs is directly proportional to',
+    options: ['1', '$\\theta$', '$\\sin\\theta$', '$\\cos\\theta$'],
+    answer: '$\\sin\\theta$',
+    explanation:
+      '⚠️ **Key point:** Before sliding, the object is in equilibrium along the slope, so static friction balances the downslope weight component.\n\nAlong the incline:\n$$f=mg\\sin\\theta.$$\nHence\n$$f\\propto\\sin\\theta.$$\n\n**Conclusion:** option C.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Resolve weight into components parallel and perpendicular to slope.',
+      'Before motion, friction equals the parallel component of weight.',
+      'Look for proportionality in $f=mg\\sin\\theta$.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-006',
+    type: 'multiple_choice',
+    question:
+      'An object is projected up a smooth inclined plane with an initial velocity $u$. Which of the following graphs best represents the variation of the displacement $s$ of the object along the plane with time $t$?',
+    options: [
+      '/physics/exercises/newton-laws/nl-006-option-a.png',
+      '/physics/exercises/newton-laws/nl-006-option-b.png',
+      '/physics/exercises/newton-laws/nl-006-option-c.png',
+      '/physics/exercises/newton-laws/nl-006-option-d.png',
+    ],
+    answer: '/physics/exercises/newton-laws/nl-006-option-b.png',
+    explanation:
+      '⚠️ **Key point:** On an $s$-$t$ graph, slope is velocity. Motion along a smooth incline has constant acceleration down the plane.\n\nInitially moving up: velocity is positive but decreasing (deceleration), so slope decreases.\nAt highest point: velocity becomes zero, so slope is zero.\nThen moving down: velocity becomes negative with increasing magnitude, so slope becomes negative and steeper.\n\nThus the $s$-$t$ curve is a concave-down parabola, matching option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Slope of displacement-time graph equals velocity.',
+      'Acceleration along the plane is constant downward.',
+      'Velocity changes from positive to zero to negative.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-006-question.png'],
+  },
+  {
+    id: 'nl-007',
+    type: 'multiple_choice',
+    question:
+      'Five blocks of equal mass $A, B, C, D$ and $E$ are connected by four identical strings, $S_1, S_2, S_3$ and $S_4$ as shown in the figure above. They are made to slide on a smooth horizontal surface by a steadily increasing force $F$ applied to block $A$. Which of the strings is most likely to break first?',
+    options: ['$S_1$', '$S_2$', '$S_3$', '$S_4$'],
+    answer: '$S_1$',
+    explanation:
+      '⚠️ **Key point:** Each string must pull all blocks behind it, so tension is largest in the front string.\n\nLet each block have mass $m$ and acceleration be $a$.\n\nFor block $E$ only:\n$$T_4=ma.$$\nFor $D+E$:\n$$T_3=2ma.$$\nFor $C+D+E$:\n$$T_2=3ma.$$\nFor $B+C+D+E$:\n$$T_1=4ma.$$\nSo\n$$T_1>T_2>T_3>T_4.$$\nSince strings are identical, the one with greatest tension breaks first.\n\n**Conclusion:** $S_1$ → option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Treat groups of blocks as one system for each string.',
+      'Tension equals total mass being pulled times acceleration.',
+      'The front string pulls the largest mass.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-007-question.png'],
+  },
+  {
+    id: 'nl-008',
+    type: 'multiple_choice',
+    question:
+      'A body of mass $M$ rests in equilibrium on a plane inclined at an angle $\\theta$ to the horizontal. What is the frictional force acting on the body?',
+    options: ['zero', '$Mg$', '$Mg\\sin\\theta$', '$Mg\\cos\\theta$'],
+    answer: '$Mg\\sin\\theta$',
+    explanation:
+      '⚠️ **Key point:** In equilibrium on an incline, friction balances the downslope component of weight.\n\nWeight component parallel to slope is\n$$Mg\\sin\\theta.$$\nSince net force along slope is zero,\n$$f=Mg\\sin\\theta.$$\n\n**Conclusion:** option C.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Resolve weight into components along and perpendicular to slope.',
+      'At rest means net force along slope is zero.',
+      'Friction balances the downslope component $Mg\\sin\\theta$.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-009',
+    type: 'multiple_choice',
+    question:
+      'A trolley of mass 1 kg placed on a smooth horizontal table is connected by two light strings to blocks $A$ and $B$ of masses 0.75 kg and 0.25 kg respectively, as shown in the figure. $X$ and $Y$ are frictionless pulleys. When the system is released, what will be its acceleration?',
+    options: [
+      '$0\\ \\text{m s}^{-2}$',
+      '$1.0\\ \\text{m s}^{-2}$',
+      '$2.5\\ \\text{m s}^{-2}$',
+      '$5.0\\ \\text{m s}^{-2}$',
+    ],
+    answer: '$2.5\\ \\text{m s}^{-2}$',
+    explanation:
+      '⚠️ **Key point:** Treat the trolley + both hanging blocks as one system. Internal tensions cancel.\n\nNet driving force is due to weight difference of hanging masses:\n$$F_{\\text{net}}=(0.75g)-(0.25g)=0.50g.$$\nTotal mass:\n$$m_{\\text{total}}=0.75+1.00+0.25=2.00\\ \\text{kg}.$$\nSo\n$$a=\\frac{F_{\\text{net}}}{m_{\\text{total}}}=\\frac{0.50\\times9.81}{2.00}=2.45\\ \\text{m s}^{-2}\\approx2.5\\ \\text{m s}^{-2}.$$\n\n**Conclusion:** option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use whole-system method to avoid solving for tensions first.',
+      'Net force comes from difference in hanging weights.',
+      'Acceleration = net force / total mass.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-009-question.png'],
+  },
+  {
+    id: 'nl-010',
+    type: 'multiple_choice',
+    question:
+      'A constant force directed to the left is acting on a body which is initially travelling to the right. Which of the graphs below best represents the velocity-time graph of the body?',
+    options: [
+      '/physics/exercises/newton-laws/nl-010-option-a.png',
+      '/physics/exercises/newton-laws/nl-010-option-b.png',
+      '/physics/exercises/newton-laws/nl-010-option-c.png',
+      '/physics/exercises/newton-laws/nl-010-option-d.png',
+    ],
+    answer: '/physics/exercises/newton-laws/nl-010-option-a.png',
+    explanation:
+      '⚠️ **Key point:** Constant leftward force gives constant leftward acceleration (constant negative slope on a $v$-$t$ graph if right is positive).\n\nInitially velocity is positive (moving right), so it decreases linearly to zero.\nAfter reaching zero, acceleration still points left, so velocity becomes negative and its magnitude increases linearly.\n\nHence the correct $v$-$t$ graph is a straight line with constant negative slope crossing the time axis.\n\n**Conclusion:** option A.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Constant force implies constant acceleration.',
+      'Slope of $v$-$t$ graph equals acceleration.',
+      'Velocity changes sign after the body reverses direction.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-011',
+    type: 'multiple_choice',
+    question:
+      'A trolley on a smooth horizontal surface is pulled by two forces $P$ and $Q$ in the direction as shown in the figure. The magnitude of $P$ and $Q$ are 2 N and 1 N respectively. If the mass of the trolley is 1 kg, the acceleration of the trolley is',
+    options: [
+      '$0.15\\ \\text{m s}^{-2}$ towards the left',
+      '$2.24\\ \\text{m s}^{-2}$ towards the left',
+      '$0.73\\ \\text{m s}^{-2}$ towards the right',
+      '$0.15\\ \\text{m s}^{-2}$ towards the right',
+    ],
+    answer: '$0.73\\ \\text{m s}^{-2}$ towards the right',
+    explanation:
+      '⚠️ **Key point:** Resolve forces horizontally and apply Newton’s second law.\n\nHorizontal resultant force:\n$$F_x=P\\cos\\theta-Q.$$ \nWith $P=2\\ \\text{N}$, $Q=1\\ \\text{N}$, $\\theta=30^{\\circ}$:\n$$F_x=2\\cos30^{\\circ}-1=2\\left(\\frac{\\sqrt{3}}{2}\\right)-1\\approx1.732-1=0.732\\ \\text{N}.$$\n\nAcceleration:\n$$a=\\frac{F_x}{m}=\\frac{0.732}{1}=0.73\\ \\text{m s}^{-2}.$$\nDirection is to the right (same as positive $F_x$).\n\n**Conclusion:** option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Only horizontal components affect horizontal acceleration.',
+      'Use $F_x=P\\cos\\theta-Q$.',
+      'Then apply $a=F/m$.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-011-question.png'],
+  },
+  {
+    id: 'nl-012',
+    type: 'multiple_choice',
+    question:
+      'The net force acting on a particle is zero. Which of the statements below concerning the motion of the particle may be true?',
+    options: [
+      'The particle is swinging to and fro.',
+      'The particle is decelerating in a straight line.',
+      'The particle is moving in a circle with constant speed.',
+      'The particle is moving with constant velocity.',
+    ],
+    answer: 'The particle is moving with constant velocity.',
+    explanation:
+      '⚠️ **Key point:** By Newton’s first law, zero net force means zero acceleration.\n\nWith $a=0$, velocity stays constant (including the special case of zero velocity).\nSo moving with constant velocity is possible.\n\nOther options involve changing velocity (magnitude and/or direction), which requires non-zero net force.\n\n**Conclusion:** option D.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Net force zero implies acceleration zero.',
+      'Zero acceleration means velocity does not change.',
+      'Circular motion and deceleration require non-zero resultant force.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-013',
+    type: 'multiple_choice',
+    question:
+      'A person in a lift, which is ascending at a velocity of $10\\ \\text{m s}^{-1}$, releases a ball. What is the velocity of the ball with respect to the earth at the moment when the ball is released?',
+    options: [
+      '$10\\ \\text{m s}^{-1}$ upwards',
+      '$10\\ \\text{m s}^{-1}$ downwards',
+      '$20\\ \\text{m s}^{-1}$ upwards',
+      '$20\\ \\text{m s}^{-1}$ downwards',
+    ],
+    answer: '$10\\ \\text{m s}^{-1}$ upwards',
+    explanation:
+      '⚠️ **Key point:** At the instant of release, the ball keeps the lift’s instantaneous velocity (inertia).\n\nBefore release, ball and lift move together at $10\\ \\text{m s}^{-1}$ upwards. So at the exact moment it is released, its velocity relative to Earth is still $10\\ \\text{m s}^{-1}$ upwards.\n\n(After that instant, gravity changes its velocity.)\n\n**Conclusion:** option A.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'At release instant, velocity does not suddenly jump.',
+      'Use inertia: object keeps its current velocity unless net force changes it over time.',
+      'Distinguish “at the moment of release” from “later motion”.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-014',
+    type: 'multiple_choice',
+    question:
+      'The graph shows the variation of velocity $v$ with time $t$ when a metal ball is released from rest and allowed to fall vertically under gravity through oil. Which of the following statements concerning the motion of the ball is/are correct?\n\n(1) The velocity of the ball decreases with time.\n(2) The acceleration of the ball decreases with time.\n(3) The ball stops falling after 4 s.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(2) only',
+    explanation:
+      '⚠️ **Key point:** From a $v$-$t$ graph, slope equals acceleration.\n\n(1) False: velocity increases from zero and then approaches a constant value (terminal speed), not decreasing.\n\n(2) True: the slope of the curve decreases with time, so acceleration decreases.\n\n(3) False: after about 4 s the ball moves at terminal velocity, which is non-zero, so it does not stop.\n\n**Conclusion:** (2) only → option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Read acceleration from the slope of the $v$-$t$ graph.',
+      'Terminal velocity means constant non-zero velocity.',
+      'Check each statement against the graph trend.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-014-question.png'],
+  },
+  {
+    id: 'nl-015',
+    type: 'multiple_choice',
+    question:
+      'If the engine of a rocket travelling in space is turned off, the rocket will',
+    options: [
+      'stop moving.',
+      'continue to move with uniform velocity.',
+      'continue to move with decreasing velocity.',
+      'continue to move with uniform acceleration.',
+    ],
+    answer: 'continue to move with uniform velocity.',
+    explanation:
+      '⚠️ **Key point:** With engine off (and neglecting external forces), net force on the rocket is zero.\n\nBy Newton’s first law, zero net force means zero acceleration. So the rocket continues in its current state of motion: constant velocity in a straight line.\n\n**Conclusion:** option B.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Apply Newton’s first law.',
+      'No net force implies no acceleration.',
+      'No acceleration means velocity remains constant.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-016',
+    type: 'multiple_choice',
+    question:
+      'Two blocks $A$ and $B$ of masses 1 kg and 1.5 kg respectively are resting on a smooth horizontal surface and are linked by a string. They are pulled by a force of 10 N as shown in the diagram. What are the tensions $T_1$ and $T_2$?',
+    options: [
+      '$T_1=10\\ \\text{N},\\ T_2=10\\ \\text{N}$',
+      '$T_1=10\\ \\text{N},\\ T_2=6\\ \\text{N}$',
+      '$T_1=10\\ \\text{N},\\ T_2=4\\ \\text{N}$',
+      '$T_1=6\\ \\text{N},\\ T_2=4\\ \\text{N}$',
+    ],
+    answer: '$T_1=10\\ \\text{N},\\ T_2=6\\ \\text{N}$',
+    explanation:
+      '⚠️ **Key point:** The spring balance measures the pulling tension directly, so $T_1=10\\ \\text{N}$.\n\nFor blocks $A+B$ as one system:\n$$10=(1+1.5)a \\Rightarrow a=4\\ \\text{m s}^{-2}.$$\n\nFor block $B$ alone:\n$$T_2=m_Ba=(1.5)(4)=6\\ \\text{N}.$$\n\nSo the tensions are $T_1=10\\ \\text{N}$ and $T_2=6\\ \\text{N}$.\n\n**Conclusion:** option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Read $T_1$ directly from the applied pull through the spring balance.',
+      'Find acceleration using total mass.',
+      'Use block $B$ to find $T_2$ via $F=ma$.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-016-question.png'],
+  },
+  {
+    id: 'nl-017',
+    type: 'multiple_choice',
+    question:
+      'A block is given an initial velocity up a smooth inclined plane. Which graph below shows the acceleration of the block against time? (The upward direction of motion along the plane is taken as positive.)',
+    options: [
+      '/physics/exercises/newton-laws/nl-017-option-a.png',
+      '/physics/exercises/newton-laws/nl-017-option-b.png',
+      '/physics/exercises/newton-laws/nl-017-option-c.png',
+      '/physics/exercises/newton-laws/nl-017-option-d.png',
+    ],
+    answer: '/physics/exercises/newton-laws/nl-017-option-d.png',
+    explanation:
+      '⚠️ **Key point:** On a smooth incline, only the component of weight along the plane acts: $mg\\sin\\theta$ downward.\n\nTaking upward along the plane as positive, acceleration is\n$$a=-g\\sin\\theta,$$\nwhich is constant and negative throughout the motion (both on the way up and on the way down).\n\nSo the $a$-$t$ graph is a horizontal line below zero.\n\n**Conclusion:** option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Find resultant force along the plane first.',
+      'Direction of acceleration is fixed down the slope.',
+      'With no friction, acceleration magnitude is constant.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-017-question.png'],
+  },
+  {
+    id: 'nl-018',
+    type: 'multiple_choice',
+    question:
+      'The system of pulleys and blocks is at rest. What is the tension in string $S$? (Neglect all friction and the masses of the strings and pulleys.)',
+    options: [
+      '$9.8\\ \\text{N}$',
+      '$19.6\\ \\text{N}$',
+      '$29.4\\ \\text{N}$',
+      '$39.2\\ \\text{N}$',
+    ],
+    answer: '$29.4\\ \\text{N}$',
+    explanation:
+      '⚠️ **Key point:** For the movable pulley connected to the 6 kg mass, two upward tensions support the load.\n\nFor equilibrium of the 6 kg load-pulley system:\n$$2T=mg=(6)(9.81).$$\nSo\n$$T=\\frac{6\\times9.81}{2}=29.4\\ \\text{N}.$$\n\nSince the system is at rest and strings are light/frictionless, the tension in string $S$ equals this string tension.\n\n**Conclusion:** $S=29.4\\ \\text{N}$ → option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use equilibrium: total upward force equals total downward force.',
+      'A movable pulley with two supporting segments gives $2T$ upward.',
+      'Neglecting pulley/string mass keeps tension uniform in each string.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-018-question.png'],
+  },
+  {
+    id: 'nl-019',
+    type: 'multiple_choice',
+    question:
+      'Which of the following motions of a given mass requires the greatest force $P$? (Assume that the surface is smooth.)',
+    options: [
+      '/physics/exercises/newton-laws/nl-019-option-a.png',
+      '/physics/exercises/newton-laws/nl-019-option-b.png',
+      '/physics/exercises/newton-laws/nl-019-option-c.png',
+      '/physics/exercises/newton-laws/nl-019-option-d.png',
+    ],
+    answer: '/physics/exercises/newton-laws/nl-019-option-d.png',
+    explanation:
+      '⚠️ **Key point:** Along a smooth incline,\n$$P-mg\\sin\\theta=ma \\Rightarrow P=mg\\sin\\theta+ma.$$ \nFor fixed mass $m$, required force increases when either $\\theta$ is larger (larger $mg\\sin\\theta$) or required acceleration $a$ is larger.\n\nSo the case with both the largest incline angle and largest acceleration needs the greatest $P$.\n\n**Conclusion:** option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Write Newton’s second law along the incline.',
+      'Identify contributions from weight component and target acceleration.',
+      'Compare options by both $\\theta$ and $a$.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-020',
+    type: 'multiple_choice',
+    question:
+      'Which of the following statements is/are true? A man in a lift feels heavier when the lift is moving\n\n(1) upwards with acceleration.\n(2) upwards with retardation.\n(3) downwards with retardation.',
+    options: ['(1) only', '(2) only', '(1) & (2) only', '(1) & (3) only'],
+    answer: '(1) & (3) only',
+    explanation:
+      '⚠️ **Key point:** Feeling heavier means apparent weight (normal reaction) is greater than true weight: $R>mg$, which occurs when acceleration is upward.\n\n(1) Upward with acceleration → acceleration upward → feels heavier.\n\n(2) Upward with retardation → acceleration downward → feels lighter.\n\n(3) Downward with retardation → acceleration upward → feels heavier.\n\n**Conclusion:** (1) and (3) only → option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Apparent weight is the normal reaction $R$.',
+      'Heavier feeling corresponds to $R>mg$.',
+      'Check acceleration direction, not just motion direction.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-021',
+    type: 'multiple_choice',
+    question:
+      'An object is subject to a resultant force $(F)$ which varies with time $(t)$ as shown in the diagram above. Which of the following graphs correctly shows the variation of its speed $(v)$ with time $(t)$?',
+    options: [
+      '/physics/exercises/newton-laws/nl-021-option-a.png',
+      '/physics/exercises/newton-laws/nl-021-option-b.png',
+      '/physics/exercises/newton-laws/nl-021-option-c.png',
+      '/physics/exercises/newton-laws/nl-021-option-d.png',
+    ],
+    answer: '/physics/exercises/newton-laws/nl-021-option-b.png',
+    explanation:
+      '⚠️ **Key point:** $F=ma$, so acceleration follows the same time dependence as force.\n\nBefore $t=t_0$, force is positive, so acceleration is positive and the slope of the $v$-$t$ graph is positive (speed increases).\nAfter $t=t_0$, force becomes zero, so acceleration is zero and $v$ becomes constant (horizontal line).\n\nThe velocity/speed cannot drop instantaneously to zero unless an impulse occurs, which is not shown.\n\n**Conclusion:** option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use $F=ma$ to get acceleration behavior.',
+      'Slope of $v$-$t$ graph equals acceleration.',
+      'Zero force means constant velocity/speed.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-021-question.png'],
+  },
+  {
+    id: 'nl-022',
+    type: 'multiple_choice',
+    question:
+      'Three blocks of equal mass are placed on a smooth horizontal surface as shown above. A constant force $F$ is applied to block $A$ so that the three blocks move towards the right with the same acceleration. The resultant force acting on block $B$ is',
+    options: ['0', '$\\frac{1}{3}F$', '$\\frac{1}{2}F$', '$\\frac{2}{3}F$'],
+    answer: '$\\frac{1}{3}F$',
+    explanation:
+      '⚠️ **Key point:** Treat all three equal-mass blocks as one system first.\n\nIf each block has mass $m$, total mass is $3m$, so acceleration is\n$$a=\\frac{F}{3m}.$$\nFor block $B$ (mass $m$), resultant force is\n$$F_B=ma=m\\cdot\\frac{F}{3m}=\\frac{F}{3}.$$\n\n**Conclusion:** option B.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Find system acceleration using total mass.',
+      'Then use $F=ma$ for block $B$ alone.',
+      'Equal masses imply equal resultant forces for same acceleration.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-022-question.png'],
+  },
+  {
+    id: 'nl-023',
+    type: 'multiple_choice',
+    question:
+      '$Y$ has a linear relationship with time as shown. $Y$ may represent\n\n(1) the speed of a body starting from rest under a constant force.\n(2) the distance travelled by a body at constant speed.\n(3) the acceleration of a body falling from rest.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) & (2) only',
+    explanation:
+      '⚠️ **Key point:** A straight line increasing with time means quantity is proportional to time.\n\n(1) True: constant force on fixed mass gives constant acceleration, so speed from rest increases linearly with time.\n\n(2) True: at constant speed, distance is proportional to time ($s=vt$), giving a straight line through origin.\n\n(3) False for this graph shape: free-fall acceleration is approximately constant, so $a$ vs $t$ is a horizontal line, not an increasing straight line.\n\n**Conclusion:** (1) and (2) only → option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Identify whether the shown straight line is increasing or horizontal.',
+      'Use $v=at$ for constant acceleration from rest.',
+      'Use $s=vt$ for constant speed motion.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-024',
+    type: 'multiple_choice',
+    question:
+      'A force $F$ is applied to a block of mass 1 kg as shown below. The greatest value of $F$ for the block to remain at rest is 11 N. What would be the motion of the block if $F$ is not applied?\n(Take the acceleration due to gravity to be $10\\ \\text{m s}^{-2}$.)',
+    options: [
+      'remaining at rest',
+      'sliding down with constant velocity',
+      'sliding down with an acceleration of $1\\ \\text{m s}^{-2}$',
+      'sliding down with an acceleration of $5\\ \\text{m s}^{-2}$',
+    ],
+    answer: 'remaining at rest',
+    explanation:
+      '⚠️ **Key point:** Use the limiting equilibrium case to find maximum static friction first.\n\nAt limiting rest with applied force $F=11\\ \\text{N}$:\n$$F=f_{\\max}+mg\\sin\\theta.$$\nGiven $m=1\\ \\text{kg}$, $g=10\\ \\text{m s}^{-2}$, $\\theta=30^{\\circ}$:\n$$11=f_{\\max}+(1)(10)\\sin30^{\\circ}=f_{\\max}+5$$\n$$f_{\\max}=6\\ \\text{N}.$$\n\nIf $F$ is removed, downslope force is only\n$$mg\\sin30^{\\circ}=5\\ \\text{N}.$$\nSince $5\\ \\text{N}<f_{\\max}(6\\ \\text{N})$, static friction can balance it, so the block remains at rest.\n\n**Conclusion:** option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use the given limiting case ($F=11$ N) to find $f_{\\max}$.',
+      'Then compare $mg\\sin\\theta$ with $f_{\\max}$ when $F=0$.',
+      'If required friction is below maximum static friction, block stays at rest.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-024-question.png'],
+  },
+  {
+    id: 'nl-025',
+    type: 'multiple_choice',
+    question:
+      'A man of weight $W$ stands inside a lift which is moving upwards with a constant speed. If the force exerted by the floor on the man is $R$, which of the below statements is/are correct?\n\n(1) $R$ is greater than $W$ in magnitude.\n(2) $R$ and $W$ are in opposite directions.\n(3) $R$ and $W$ form an action and reaction pair according to Newton\'s third law.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(2) only',
+    explanation:
+      '⚠️ **Key point:** Constant speed means zero acceleration, so net force on the man is zero.\n\nTherefore $R=W$ in magnitude, so (1) is false.\n$R$ acts upward while $W$ acts downward, so (2) is true.\n\n(3) is false because action-reaction forces act on different bodies; here $R$ and $W$ both act on the man.\n\n**Conclusion:** (2) only → option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Constant speed implies resultant force is zero.',
+      'Check direction and magnitude of $R$ vs $W$.',
+      'Action-reaction pair must act on different objects.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-026',
+    type: 'multiple_choice',
+    question:
+      'Two blocks of equal mass are placed on a smooth horizontal surface as shown above. A constant force of 12 N is applied to block $A$ so that the two blocks move towards the right together. The force acting on $A$ by $B$ is',
+    options: ['6 N to the left.', '6 N to the right.', '12 N to the left.', '12 N to the right.'],
+    answer: '6 N to the left.',
+    explanation:
+      '⚠️ **Key point:** First find common acceleration, then find contact force between the blocks.\n\nLet each block have mass $M$.\nWhole system:\n$$12=(2M)a \\Rightarrow a=\\frac{6}{M}.$$ \nFor block $B$:\n$$R=Ma=M\\left(\\frac{6}{M}\\right)=6\\ \\text{N}.$$ \nThis is force on $B$ by $A$ to the right. Therefore force on $A$ by $B$ is equal and opposite: 6 N to the left.\n\n**Conclusion:** option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use whole-system approach to get acceleration first.',
+      'Then isolate one block to get contact force magnitude.',
+      'Apply Newton’s third law for direction on $A$ by $B$.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-026-question.png'],
+  },
+  {
+    id: 'nl-027',
+    type: 'multiple_choice',
+    question:
+      'The diagram above shows the variation of the net force acting on an object which is initially at rest. Which of the following velocity-time graphs correctly describes the motion of the object?',
+    options: [
+      '/physics/exercises/newton-laws/nl-027-option-a.png',
+      '/physics/exercises/newton-laws/nl-027-option-b.png',
+      '/physics/exercises/newton-laws/nl-027-option-c.png',
+      '/physics/exercises/newton-laws/nl-027-option-d.png',
+    ],
+    answer: '/physics/exercises/newton-laws/nl-027-option-b.png',
+    explanation:
+      '⚠️ **Key point:** $F=ma$, so acceleration follows the same time pattern as net force. Slope of the $v$-$t$ graph equals acceleration.\n\nBefore $t=t_1$, net force is zero, so acceleration is zero and velocity stays constant. Since object starts from rest, velocity remains zero (horizontal on time axis).\n\nAfter $t=t_1$, net force is positive, so acceleration is positive and velocity increases with positive slope.\n\n**Conclusion:** option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Convert force-time behavior into acceleration-time behavior using $F=ma$.',
+      'Use slope of $v$-$t$ graph = acceleration.',
+      'Initial rest condition fixes the first segment at $v=0$.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-027-question.png'],
+  },
+  {
+    id: 'nl-028',
+    type: 'multiple_choice',
+    question:
+      'Two identical blocks $X$ and $Y$ are connected by a light string passing over a smooth pulley as shown above. The two blocks are released from rest. After a while, the string breaks. Which of the following correctly describes the motion of the blocks immediately after the string breaks? (Take the acceleration due to gravity to be $10\\ \\text{m s}^{-2}$.)',
+    options: [
+      '$X$: stops moving; $Y$: accelerates at $5\\ \\text{m s}^{-2}$',
+      '$X$: moves with constant velocity; $Y$: accelerates at $5\\ \\text{m s}^{-2}$',
+      '$X$: moves with constant velocity; $Y$: accelerates at $10\\ \\text{m s}^{-2}$',
+      '$X$: decelerates at $5\\ \\text{m s}^{-2}$; $Y$: accelerates at $10\\ \\text{m s}^{-2}$',
+    ],
+    answer: '$X$: moves with constant velocity; $Y$: accelerates at $10\\ \\text{m s}^{-2}$',
+    explanation:
+      '⚠️ **Key point:** Immediately after the string breaks, constraints are removed and each block follows its own net force.\n\nFor $X$: with no net horizontal force, it continues with its current velocity (Newton’s first law), so it moves with constant velocity.\n\nFor $Y$: once detached, only gravity acts (neglect air resistance), so it is in free fall with acceleration $g=10\\ \\text{m s}^{-2}$ downward.\n\n**Conclusion:** option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'After break, treat $X$ and $Y$ as separate bodies.',
+      'No net force on $X$ implies constant velocity.',
+      '$Y$ in free fall has acceleration $g$.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-028-question.png'],
+  },
+  {
+    id: 'nl-029',
+    type: 'multiple_choice',
+    question:
+      'In the diagram above, blocks $A$ and $B$ are connected by a light inextensible string and rest on a smooth horizontal table. The masses of $A$ and $B$ are 2 kg and 3 kg respectively. Block $A$ is pulled by a force of 2 N. Find the tension in the string $S$.',
+    options: ['$0.4\\ \\text{N}$', '$0.8\\ \\text{N}$', '$1.0\\ \\text{N}$', '$1.2\\ \\text{N}$'],
+    answer: '$1.2\\ \\text{N}$',
+    explanation:
+      '⚠️ **Key point:** First find system acceleration, then use one block to find tension.\n\nFor $A+B$ as one system:\n$$2=(2+3)a \\Rightarrow a=0.4\\ \\text{m s}^{-2}.$$\n\nUsing block $B$:\n$$T=m_Ba=(3)(0.4)=1.2\\ \\text{N}.$$\n(Equivalent result from block $A$: $2-T=2(0.4)$.)\n\n**Conclusion:** option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use whole-system method for acceleration.',
+      'Then isolate one block to get tension.',
+      'Check with the other block equation for consistency.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-029-question.png'],
+  },
+  {
+    id: 'nl-030',
+    type: 'multiple_choice',
+    question:
+      "Which of the following pairs of forces $F_1$ and $F_2$ is/are action and reaction pair(s) according to Newton's third law of motion?",
+    options: ['(2) only', '(3) only', '(1) & (2) only', '(1) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      '⚠️ **Key point:** Action-reaction forces are equal and opposite forces acting on **different bodies**.\n\n(1) Not a third-law pair because both forces are on the same block.\n\n(2) Not a third-law pair because both forces are on the same ball.\n\n(3) Is a third-law pair because one force acts on one charge and the other acts on the opposite charge (different objects).\n\n**Conclusion:** (3) only → option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Third-law pair must act on different objects.',
+      'Equal and opposite forces on the same object are not third-law pairs.',
+      'Look for interaction between two distinct bodies.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-030-question.png'],
+  },
+  {
+    id: 'nl-031',
+    type: 'multiple_choice',
+    question:
+      'A man of mass 50 kg is standing in a lift. If the lift is falling freely, which of the following statements is/are true?\n\n(1) The weight of the man is 0 N.\n(2) The force acting on the floor of the lift by the man is 491 N.\n(3) The force acting on the man by the floor of the lift is 0 N.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      '⚠️ **Key point:** In free fall, apparent weight is zero, but true weight $mg$ is not zero.\n\n(1) False: true weight is\n$$W=mg=50\\times9.81\\approx491\\ \\text{N}.$$ \n(2) False: in free fall the man does not press on floor (normal contact force is zero), so force on floor by man is 0.\n(3) True: force on man by floor (normal reaction) is 0.\n\n**Conclusion:** (3) only → option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Distinguish true weight ($mg$) from apparent weight (normal reaction).',
+      'In free fall, normal reaction is zero.',
+      'Action-reaction contact pair vanishes when contact force is zero.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-032',
+    type: 'multiple_choice',
+    question:
+      'A trolley is given a push and runs down a friction-compensated runway. The motion of the trolley is recorded on the paper tape as shown in the 1st figure. Which of the following changes can enable the trolley to produce a paper tape as shown in the 2nd figure?\n\n(1) Giving the trolley a harder initial push.\n(2) Increasing the angle of inclination of the runway.\n(3) Increasing the frequency of the ticker-tape timer.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      '⚠️ **Key point:** Friction-compensated runway means trolley should move at (approximately) constant speed, so equal dot spacing is expected for equal time intervals.\n\n(1) True: a harder initial push gives a larger initial speed, so spacing between dots can become larger while still remaining uniform.\n\n(2) False: increasing slope makes downslope component exceed friction, causing acceleration; dot spacing would increase progressively, not remain equal.\n\n(3) False: higher ticker frequency gives shorter time between dots, so spacing between adjacent dots becomes smaller.\n\n**Conclusion:** (1) only → option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Equal spacing on ticker tape indicates constant speed.',
+      'Changing slope changes acceleration condition.',
+      'Higher ticker frequency means shorter time interval per dot.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: [
+      '/physics/exercises/newton-laws/nl-032-question-1.png',
+      '/physics/exercises/newton-laws/nl-032-question-2.png',
+    ],
+  },
+  {
+    id: 'nl-033',
+    type: 'multiple_choice',
+    question:
+      'Two blocks $X$ and $Y$ of weights 2 N and 8 N respectively are suspended by two light strings as shown in the diagram. A downward force of 4 N is applied to $X$. Find the tension $T_1$ and $T_2$ in the two strings.',
+    options: [
+      '$T_1=4\\ \\text{N},\\ T_2=10\\ \\text{N}$',
+      '$T_1=4\\ \\text{N},\\ T_2=14\\ \\text{N}$',
+      '$T_1=6\\ \\text{N},\\ T_2=12\\ \\text{N}$',
+      '$T_1=6\\ \\text{N},\\ T_2=14\\ \\text{N}$',
+    ],
+    answer: '$T_1=6\\ \\text{N},\\ T_2=14\\ \\text{N}$',
+    explanation:
+      '⚠️ **Key point:** System is in equilibrium, so tensions balance downward loads below each string.\n\nFor block $X$:\n$$T_1 = F + W_X = 4 + 2 = 6\\ \\text{N}.$$\n\nFor upper string supporting both $Y$ and the pull from below:\n$$T_2 = T_1 + W_Y = 6 + 8 = 14\\ \\text{N}.$$\n\n**Conclusion:** $T_1=6\\ \\text{N},\\ T_2=14\\ \\text{N}$ → option D.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Use equilibrium for each block/string segment.',
+      'Lower string balances force on block $X$.',
+      'Upper string supports everything below it.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-033-question.png'],
+  },
+  {
+    id: 'nl-034',
+    type: 'multiple_choice',
+    question:
+      'A car moves with a speed $30\\ \\text{km h}^{-1}$. The driver applies the brake and the car is stopped in a distance of 12 m. If the car is moving at $60\\ \\text{km h}^{-1}$, what is the stopping distance? Assume that the same constant braking force is applied in both cases.',
+    options: ['12 m', '24 m', '48 m', '72 m'],
+    answer: '48 m',
+    explanation:
+      '⚠️ **Key point:** Same constant braking force on same car gives same constant deceleration magnitude.\n\nUsing\n$$v^2=u^2+2as,$$\nwith final speed $v=0$:\n$$0=u^2-2as \\Rightarrow s=\\frac{u^2}{2a}\\propto u^2.$$\nSo doubling speed from 30 to 60 km/h makes stopping distance 4 times larger:\n$$s_2=4\\times12=48\\ \\text{m}.$$\n\n**Conclusion:** option C.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'For same braking force, deceleration is the same.',
+      'Stopping distance under constant deceleration is proportional to $u^2$.',
+      'Doubling speed multiplies stopping distance by 4.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-035',
+    type: 'multiple_choice',
+    question:
+      'A trolley is placed on a horizontal ground. A force $F$ inclined at an angle $\\theta$ to the horizontal acts on the trolley. What is the horizontal component of $F$ that pulls the trolley towards the right?',
+    options: ['$F\\theta$', '$F\\sin\\theta$', '$F\\cos\\theta$', '$F/\\sin\\theta$'],
+    answer: '$F\\cos\\theta$',
+    explanation:
+      '⚠️ **Key point:** If angle $\\theta$ is measured from the horizontal, horizontal component is the adjacent component.\n\nSo the horizontal component is\n$$F_x=F\\cos\\theta.$$\n\n**Conclusion:** option C.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Use right-triangle component resolution.',
+      'Adjacent to angle $\\theta$ uses cosine.',
+      'Horizontal component is the one along the direction of motion.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-036',
+    type: 'multiple_choice',
+    question:
+      'Two blocks are connected together by a light string $S$ placed on a smooth horizontal surface. They move with uniform acceleration of $2\\ \\text{m s}^{-2}$ under the action of force $F$. What will the accelerations of the blocks become if $S$ suddenly breaks?',
+    options: [
+      '2 kg block: $6\\ \\text{m s}^{-2}$, 4 kg block: $0\\ \\text{m s}^{-2}$',
+      '2 kg block: $6\\ \\text{m s}^{-2}$, 4 kg block: $2\\ \\text{m s}^{-2}$',
+      '2 kg block: $2\\ \\text{m s}^{-2}$, 4 kg block: $0\\ \\text{m s}^{-2}$',
+      '2 kg block: $0\\ \\text{m s}^{-2}$, 4 kg block: $3\\ \\text{m s}^{-2}$',
+    ],
+    answer: '2 kg block: $6\\ \\text{m s}^{-2}$, 4 kg block: $0\\ \\text{m s}^{-2}$',
+    explanation:
+      '⚠️ **Key point:** First find the pulling force from the initial joint motion.\n\nBefore breaking:\n$$(4+2)(2)=12\\ \\text{N}=F.$$\n\nAfter string breaks:\n- 4 kg block has no horizontal force on smooth surface, so $a=0$.\n- 2 kg block is acted on by $F=12\\ \\text{N}$ alone:\n$$a=\\frac{F}{m}=\\frac{12}{2}=6\\ \\text{m s}^{-2}.$$\n\n**Conclusion:** option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use initial combined motion to determine $F$.',
+      'After break, analyze each block separately.',
+      'No horizontal force means zero horizontal acceleration.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-037',
+    type: 'multiple_choice',
+    question:
+      "The above diagram shows a block resting on the ground. Which of the following pairs of forces is/are action and reaction pair(s) according to Newton's third law of motion?\n\n(1) $R$ and $W$\n(2) $W$ and $F$\n(3) $F$ and $R$",
+    options: ['(1) only', '(2) only', '(3) only', '(1) & (2) only'],
+    answer: '(2) only',
+    explanation:
+      '⚠️ **Key point:** Newton’s third-law force pairs act on different bodies and are equal in magnitude and opposite in direction.\n\n(1) $R$ and $W$ both act on the same block, so not a third-law pair.\n\n(2) $W$ (Earth on block) and $F$ (block on Earth) are equal and opposite on different bodies, so this is a third-law pair.\n\n(3) $F$ and $R$ are not a valid action-reaction pair.\n\n**Conclusion:** (2) only → option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Third-law pairs always act on different objects.',
+      'Forces on the same object are not an action-reaction pair.',
+      'Identify the interacting bodies for each force.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-037-question.png'],
+  },
+  {
+    id: 'nl-038',
+    type: 'multiple_choice',
+    question:
+      'Two objects of different masses are released from rest at the same height. Assume air resistance is negligible. Which of the following statements is/are correct?\n\n(1) A greater gravitational force is acting on the object with greater mass.\n(2) They take the same time to reach the ground.\n(3) They have equal velocities when they reach the ground.',
+    options: ['(1) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      '⚠️ **Key point:** In free fall (no air resistance), acceleration is $g$ for all masses.\n\n(1) True: weight $W=mg$, so larger mass has larger gravitational force.\n\n(2) True: same initial condition and same acceleration $g$ means same fall time.\n\n(3) True: from the same height with same $g$, final speed is the same ($v=\\sqrt{2gh}$).\n\n**Conclusion:** (1), (2) and (3) are all correct → option D.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Distinguish gravitational force ($mg$) from acceleration ($g$).',
+      'Free-fall time from rest depends on $h$ and $g$, not mass.',
+      'Final speed from height $h$ depends on $g$ and $h$ only.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-039',
+    type: 'multiple_choice',
+    question:
+      'A block remains at rest on an inclined plane as shown above. Which of the following statements is/are true?\n\n(1) The frictional force acting by the plane on the block is zero.\n(2) The normal reaction acting by the plane on the block is zero.\n(3) The resultant force acting on the block is zero.',
+    options: ['(2) only', '(3) only', '(1) & (2) only', '(1) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      '⚠️ **Key point:** If the block is at rest, it is in equilibrium, so resultant force is zero.\n\n(1) False: on an incline, static friction is generally needed to balance the downslope component of weight.\n\n(2) False: since the block is in contact with the plane, normal reaction is non-zero.\n\n(3) True: equilibrium requires net force to be zero.\n\n**Conclusion:** (3) only → option B.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'At rest implies equilibrium.',
+      'Check contact forces on an inclined plane: normal + friction.',
+      'Resultant force must be zero for no acceleration.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-040',
+    type: 'multiple_choice',
+    question:
+      'A coin and a feather are released from rest in a cylinder which is vacuum as shown. Which of the following is/are correct deductions from this experiment?\n\n(1) The masses of the coin and the feather are identical in vacuum.\n(2) The coin and the feather fall with the same acceleration in vacuum.\n(3) The forces acting on the coin and the feather in vacuum are identical.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(2) only',
+    explanation:
+      '⚠️ **Key point:** In vacuum there is no air resistance, so all objects fall with the same gravitational acceleration $g$.\n\n(1) False: vacuum does not change masses; coin and feather still have different masses.\n\n(2) True: both fall with the same acceleration $g$.\n\n(3) False: gravitational force is $W=mg$, so different masses mean different forces.\n\n**Conclusion:** (2) only → option B.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Vacuum removes air resistance, not mass.',
+      'Free-fall acceleration in vacuum is $g$ for all objects.',
+      'Weight still depends on mass via $W=mg$.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-040-question.png'],
+  },
+  {
+    id: 'nl-041',
+    type: 'multiple_choice',
+    question:
+      'The above diagram shows a man lifting a ball vertically upwards with uniform acceleration. Which of the following correctly describes the relation between the magnitudes of the forces?',
+    options: [
+      '$F_1 = F_2 > F_3$',
+      '$F_1 = F_3 > F_2$',
+      '$F_1 > F_2 = F_3$',
+      '$F_1 > F_2 > F_3$',
+    ],
+    answer: '$F_1 = F_2 > F_3$',
+    explanation:
+      '⚠️ **Key point:** Upward acceleration of the ball means upward force on ball is greater than its weight.\n\nFor the ball: upward force $F_1$ (from hand) and downward weight $F_3$ act on it. Since acceleration is upward,\n$$F_1>F_3.$$ \n\n$F_1$ and $F_2$ are Newton’s third-law pair between hand and ball, so\n$$F_1=F_2.$$\nTherefore,\n$$F_1=F_2>F_3.$$\n\n**Conclusion:** option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use direction of acceleration to compare net forces on the ball.',
+      'Third-law pair has equal magnitude on different objects.',
+      'Weight acts downward on the ball.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-041-question.png'],
+  },
+  {
+    id: 'nl-042',
+    type: 'multiple_choice',
+    question:
+      'Which of the following statements concerning the motion of an object is/are correct?\n\n(1) A constant unbalanced force is needed to keep an object moving with uniform velocity.\n(2) An increasing unbalanced force is needed to keep an object moving with uniform acceleration.\n(3) An object may remain at rest if there is no unbalanced force acting on it.',
+    options: ['(2) only', '(3) only', '(1) & (2) only', '(1) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      '⚠️ **Key point:** Newton’s laws link net force with acceleration.\n\n(1) False: uniform velocity means zero acceleration, so net force must be zero (no unbalanced force needed).\n\n(2) False: uniform acceleration means constant acceleration, so net force should be constant, not increasing.\n\n(3) True: with no unbalanced force, acceleration is zero, so an object may remain at rest (or move with constant velocity).\n\n**Conclusion:** (3) only → option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use $F_{\\text{net}}=ma$.',
+      'Uniform velocity corresponds to $a=0$.',
+      'Uniform acceleration corresponds to constant (not increasing) net force.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-043',
+    type: 'multiple_choice',
+    question:
+      'Which of the following statements about mass and weight is incorrect?',
+    options: [
+      'Mass is measured in kilograms and weight in newtons.',
+      'Mass is a measure of the inertia of an object and weight is a measure of the gravitational pull on it.',
+      'The weight of an object at a particular place is proportional to its mass.',
+      'Both the mass and weight of an object vary slightly at different places on the earth.',
+    ],
+    answer: 'Both the mass and weight of an object vary slightly at different places on the earth.',
+    explanation:
+      '⚠️ **Key point:** Mass is an intrinsic property of an object and does not change with location, while weight depends on local gravitational field strength.\n\nA is correct: mass in kg, weight in N.\nB is correct: mass relates to inertia; weight is gravitational force.\nC is correct: at a given place, $W=mg$ so $W\\propto m$.\nD is incorrect because only weight changes with place; mass stays constant.\n\n**Conclusion:** option D.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Mass is location-independent.',
+      'Weight depends on local $g$.',
+      'At fixed location, $W=mg$ links weight to mass.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-044',
+    type: 'multiple_choice',
+    question:
+      "Which of the following pairs of forces is/are action and reaction pair(s) according to Newton's third law of motion?\n\n(1) The weight of a man standing on a chair, and the force acting on the man by the chair.\n(2) The gravitational force acting on the earth by the moon, and the gravitational force acting on the moon by the earth.\n(3) The force exerted by a swimmer on the water to push the water backward, and the force exerted by the water to push the swimmer forward.",
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      '⚠️ **Key point:** Newton’s third-law pair must be equal and opposite forces acting on different bodies.\n\n(1) Not a third-law pair: both forces act on the man.\n(2) Yes: Earth-on-moon and moon-on-Earth gravitational forces are a third-law pair.\n(3) Yes: swimmer pushes water backward; water pushes swimmer forward.\n\n**Conclusion:** (2) and (3) only → option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Third-law pairs act on different objects.',
+      'Equal and opposite forces on the same object are not third-law pairs.',
+      'Interaction pairs (earth-moon, swimmer-water) are typical examples.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-045',
+    type: 'multiple_choice',
+    question:
+      'A block is placed on a smooth inclined plane. A force $P$ parallel to the inclined plane is applied to the block so that the block moves up the plane. Which of the following diagrams correctly shows all the forces acting on the block?',
+    options: [
+      '/physics/exercises/newton-laws/nl-045-option-a.png',
+      '/physics/exercises/newton-laws/nl-045-option-b.png',
+      '/physics/exercises/newton-laws/nl-045-option-c.png',
+      '/physics/exercises/newton-laws/nl-045-option-d.png',
+    ],
+    answer: '/physics/exercises/newton-laws/nl-045-option-c.png',
+    explanation:
+      '⚠️ **Key point:** On a smooth incline, forces on the block are: applied force $P$ along the slope, weight $W=mg$ vertically downward, and normal reaction perpendicular to the plane.\n\nBecause the plane is smooth, friction is absent.\n\nSo the correct free-body diagram is the one showing exactly these three forces with correct directions.\n\n**Conclusion:** option C.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Weight always acts vertically downward.',
+      'Normal reaction is perpendicular to the plane.',
+      'Smooth surface means no friction force.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-045-question.png'],
+  },
+  {
+    id: 'nl-046',
+    type: 'multiple_choice',
+    question:
+      'A broken-down car of mass 1000 kg is pulled by a tow-truck and moves at a constant velocity $8\\ \\text{m s}^{-1}$ along a horizontal road. It is known that the frictional force acting on the car is 500 N. Find the tension in the cable connecting the truck and the car.',
+    options: ['0 N', '500 N', '8000 N', '8500 N'],
+    answer: '500 N',
+    explanation:
+      '⚠️ **Key point:** Constant velocity means zero acceleration, so resultant horizontal force is zero.\n\nHence pull tension balances friction:\n$$T-f=0 \\Rightarrow T=f=500\\ \\text{N}.$$\n\n**Conclusion:** option B.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Constant velocity implies $a=0$.',
+      'Use horizontal force balance on the car.',
+      'Mass value is not needed once acceleration is zero.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-047',
+    type: 'multiple_choice',
+    question:
+      'A girl in a lift uses a spring balance to measure the weight of an object. The reading of the spring balance is $10\\ \\text{N}$ when the lift is at rest. When the lift is moving, the reading of the spring balance becomes $8\\ \\text{N}$. Which of the following describes the motion of the lift?',
+    options: [
+      'moving downwards with a uniform velocity',
+      'moving upwards with an acceleration',
+      'moving downwards with an acceleration',
+      'moving downwards with a deceleration',
+    ],
+    answer: 'moving downwards with an acceleration',
+    explanation:
+      '⚠️ **Key point:** Spring balance reading is the apparent weight (normal reaction) $R$.\n\nAt rest: $R=mg=10\\ \\text{N}$.\nWhen moving: $R=8\\ \\text{N}$, so $R<mg$.\n\nNet force on the object is downward:\n$$mg-R=ma$$\nSo the acceleration is downward.\n\nThis corresponds to the lift having **downward acceleration** (or equivalently, the lift could be moving upward with deceleration, but that option is not given).\n\n**Conclusion:** moving downwards with an acceleration → option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'At rest, the balance reads $mg$.',
+      'Compare the moving reading with $mg$.',
+      'If $R<mg$, the acceleration is downward.',
+    ],
+    sectionId: 'newton-laws',
+  },
 ];
 
 // 互动模拟 - 自由落体计时器
