@@ -3474,6 +3474,43 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     sectionId: 'newton-laws',
   },
+  {
+    id: 'nl-048',
+    type: 'multiple_choice',
+    question:
+      'Two forces $F_1$ and $F_2$ act on a particle $P$ as shown. If a third force $F_3$ acts on $P$ to keep it in equilibrium, what should be the magnitude of $F_3$?',
+    options: ['1.4 N', '4.0 N', '4.2 N', '4.5 N'],
+    answer: '4.5 N',
+    explanation:
+      '⚠️ **Key point:** For equilibrium, the third force must balance the resultant of the other two forces, so $|F_3|=|F|$.\n\nGiven perpendicular components with magnitudes $2\\ \\text{N}$ and $4\\ \\text{N}$:\n$$F=\\sqrt{2^2+4^2}=\\sqrt{20}\\approx4.47\\ \\text{N}$$\nSo the required magnitude is about $4.5\\ \\text{N}$.\n\n**Conclusion:** option D.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'In equilibrium, resultant force is zero.',
+      'So $F_3$ must be equal in magnitude to the resultant of $F_1$ and $F_2$.',
+      'Use Pythagoras: $F=\\sqrt{2^2+4^2}$.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-048-question.png'],
+  },
+  {
+    id: 'nl-049',
+    type: 'multiple_choice',
+    question:
+      "Which of the following phenomena can be explained by Newton's first law of motion?\n\n(1) A passenger in a car tends to move forward when the car suddenly stops.\n(2) A coin and a feather fall with the same acceleration in a vacuum.\n(3) The maximum mass an astronaut can lift on the moon is greater than on earth.",
+    options: ['(1) only', '(2) only', '(1) and (3) only', '(2) and (3) only'],
+    answer: '(1) only',
+    explanation:
+      "**Key point:** Newton's first law (law of inertia) explains motion when no resultant force acts.\n\n(1) True for first law: when the car suddenly stops, the passenger tends to keep moving forward due to inertia.\n\n(2) Not first law: equal acceleration in vacuum is explained by Newton's second law, $F=ma$, giving $mg=ma \\Rightarrow a=g$.\n\n(3) Not first law: lifting more mass on the moon is due to smaller gravity (weight), not inertia.\n\n**Conclusion:** only (1) is explained by Newton's first law, so option A.",
+    difficulty: 1,
+    points: 10,
+    hints: [
+      "Identify which statement is about inertia (tendency to maintain motion state).",
+      "(2) involves acceleration in gravity, so think of $F=ma$.",
+      '(3) compares lifting on moon vs earth, which is about weight change.',
+    ],
+    sectionId: 'newton-laws',
+  },
 ];
 
 // 互动模拟 - 自由落体计时器
