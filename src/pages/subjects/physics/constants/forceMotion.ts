@@ -3528,6 +3528,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
       'Apply vertical force balance: $2T\\cos75^\\circ=2$.',
     ],
     sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-050-question.png'],
   },
   {
     id: 'nl-051',
@@ -3546,6 +3547,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
       'On a fixed incline, $R=mg\\cos\\theta$ is constant.',
     ],
     sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-051-question.png'],
   },
   {
     id: 'nl-052',
