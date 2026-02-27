@@ -3511,6 +3511,102 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     sectionId: 'newton-laws',
   },
+  {
+    id: 'nl-050',
+    type: 'multiple_choice',
+    question:
+      'A light rope is fixed at two poles with the ends $A$ and $B$ at the same level. A T-shirt of weight 2 N is hung at the midpoint $C$ of the rope. The rope depresses such that $\\angle ACB=150^{\\circ}$. Find the tension in the rope.',
+    options: ['1.0 N', '2.0 N', '3.9 N', '7.7 N'],
+    answer: '3.9 N',
+    explanation:
+      '**Key point:** At equilibrium, vertical components of the two equal tensions balance the weight.\n\nLet the tension in each side of the rope be $T$. By symmetry, each side makes an angle of $75^{\\circ}$ at $C$, so each gives an upward component $T\\cos75^{\\circ}$.\n\nHence\n$$2T\\cos75^{\\circ}=2.$$ \nSo\n$$T=\\frac{1}{\\cos75^{\\circ}}\\approx3.9\\ \\text{N}.$$\n\n**Conclusion:** option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use symmetry: tensions in $AC$ and $CB$ are equal.',
+      'The included angle is $150^\\circ$, so each side is at $75^\\circ$ from the vertical bisector.',
+      'Apply vertical force balance: $2T\\cos75^\\circ=2$.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-051',
+    type: 'multiple_choice',
+    question:
+      'A block is sliding down a friction-compensated runway as shown. Which of the following statements is/are correct?\n\n(1) The speed of the block is increasing.\n(2) The normal reaction acting by the runway on the block is increasing.\n(3) The net force acting on the block is zero.',
+    options: ['(1) only', '(3) only', '(1) and (2) only', '(2) and (3) only'],
+    answer: '(3) only',
+    explanation:
+      '**Key point:** On a friction-compensated runway, the downslope component of weight is balanced by friction, so acceleration is zero.\n\n(1) False: with zero acceleration, the block moves at constant velocity, so speed does not increase.\n\n(2) False: normal reaction is $R=mg\\cos\\theta$, which is constant on a fixed incline.\n\n(3) True: since $f=mg\\sin\\theta$, the resultant force along the slope is zero, and perpendicular forces also balance.\n\n**Conclusion:** only (3) is correct, so option B.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Friction-compensated means no resultant force along the slope.',
+      'If resultant force is zero, acceleration is zero.',
+      'On a fixed incline, $R=mg\\cos\\theta$ is constant.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-052',
+    type: 'multiple_choice',
+    question:
+      'A 2 kg steel sphere and a 1 kg wooden sphere are initially held at the same level above the ground and then released from rest simultaneously. Assume air resistance is negligible. Which of the following statements about the two spheres at any instant before they reach the ground is/are correct?\n\n(1) The speeds of the two spheres are equal.\n(2) The accelerations of the two spheres are equal.\n(3) The gravitational forces acting on the two spheres are equal.',
+    options: ['(1) only', '(3) only', '(1) and (2) only', '(2) and (3) only'],
+    answer: '(1) and (2) only',
+    explanation:
+      '**Key point:** In free fall without air resistance, all objects have the same acceleration $g$, independent of mass.\n\n(1) True: starting from rest at the same height and moving with the same acceleration, their speeds are equal at any instant.\n\n(2) True: both accelerations are $g$ downward.\n\n(3) False: gravitational force is weight $W=mg$, so with different masses, the weights are different.\n\n**Conclusion:** (1) and (2) only, so option C.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'In vacuum, free-fall acceleration does not depend on mass.',
+      'Same initial condition + same acceleration implies same speed at each instant.',
+      'Weight is $W=mg$, so different $m$ gives different $W$.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-053',
+    type: 'multiple_choice',
+    question:
+      'It is said that Galileo Galilei (1564-1642), an Italian scientist, dropped a small iron ball and a large cannon ball from the top of the Leaning Tower of Pisa. He found that the two balls reached the ground at almost the same time.\n\nWhich of the following is/are correct deduction(s) from this experiment?\n\n(1) The two balls fell with the same acceleration.\n(2) A body will maintain uniform motion if there is no external force acting on it.\n(3) The gravitational forces acting on the two balls were identical.',
+    options: ['(1) only', '(3) only', '(1) and (2) only', '(2) and (3) only'],
+    answer: '(1) only',
+    explanation:
+      '**Key point:** The observation that both balls reach the ground at nearly the same time supports equal free-fall acceleration, not equal force.\n\n(1) True: this suggests both balls have the same acceleration due to gravity (neglecting air resistance).\n\n(2) False as a deduction here: this statement is Newton’s first law, but it is not directly deduced from this falling-ball result.\n\n(3) False: gravitational force is $W=mg$, so different masses have different weights.\n\n**Conclusion:** only (1) is correct, so option A.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Focus on what “arrive at almost the same time” implies about acceleration.',
+      'Distinguish acceleration equality from force equality.',
+      'Use $W=mg$ to compare gravitational forces on different masses.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-054',
+    type: 'multiple_choice',
+    question:
+      'A uniform steel ball lies at rest on a horizontal ground and just touches a vertical wall as shown in the diagram. Which of the following diagrams shows all the forces acting on the ball?\n\n(Note: $W$ = gravitational force acting on the ball, $R$ = normal reaction from the ground, $F$ = friction acting by the ground on the ball, $N$ = normal reaction from the wall.)',
+    options: [
+      '/physics/exercises/newton-laws/nl-054-option-a.png',
+      '/physics/exercises/newton-laws/nl-054-option-b.png',
+      '/physics/exercises/newton-laws/nl-054-option-c.png',
+      '/physics/exercises/newton-laws/nl-054-option-d.png',
+    ],
+    answer: '/physics/exercises/newton-laws/nl-054-option-a.png',
+    explanation:
+      '**Key point:** Include only real forces that actually act under the given contact condition.\n\n$W$: exists (gravity by Earth on the ball).\n\n$R$: exists (normal reaction from the ground balancing weight).\n\n$F$: does not exist here because there is no tendency of the ball to slide along the ground.\n\n$N$: does not exist because the ball only just touches the wall without pressing on it.\n\n**Conclusion:** the correct free-body diagram is option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Start from gravity and ground normal: these must be present.',
+      'Friction needs a tendency of relative motion.',
+      'Wall normal exists only if the wall is pressed by the ball.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-054-question.png'],
+  },
 ];
 
 // 互动模拟 - 自由落体计时器
