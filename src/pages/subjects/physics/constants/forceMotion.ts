@@ -5171,6 +5171,173 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     sectionId: 'newton-laws',
   },
+  {
+    id: 'nl-131',
+    type: 'multiple_choice',
+    question:
+      'A weight $W$ is suspended from the ceiling by inextensible strings as shown. String $OA$ makes an angle $\\theta$ with the vertical while string $OB$ makes the same angle $\\theta$ with the ceiling. Find the tension in $OB$.',
+    options: ['$W\\sin\\theta$', '$W/\\sin\\theta$', '$W\\cos\\theta$', '$W/\\cos\\theta$'],
+    answer: '$W\\sin\\theta$',
+    explanation:
+      '**Key point:** Use equilibrium at the junction.\n\nHorizontal and vertical balances with the two string directions give\n$$T_{OB}=W\\sin\\theta.$$ \n\n**Conclusion:** option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Resolve both string tensions into horizontal and vertical components.',
+      'Use both equilibrium equations at the joint.',
+      'Eliminate the other string tension to get $T_{OB}$.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-131-question.png'],
+  },
+  {
+    id: 'nl-132',
+    type: 'multiple_choice',
+    question:
+      'Three blocks $A$, $B$ and $C$, connected by light strings, are placed on a smooth horizontal surface as shown. A constant force $F$ is applied to block $A$ so that the whole system travels to the right with acceleration. If a lump of plasticine is placed on $B$ and it moves together with $B$ while the applied force $F$ remains unchanged, how would the tensions $T_1$ and $T_2$ in the two strings change?',
+    options: [
+      '$T_1$ decreases, $T_2$ increases',
+      '$T_1$ decreases, $T_2$ decreases',
+      '$T_1$ increases, $T_2$ increases',
+      '$T_1$ increases, $T_2$ decreases',
+    ],
+    answer: '$T_1$ increases, $T_2$ decreases',
+    explanation:
+      '**Key point:** Added plasticine increases total mass, so common acceleration decreases. But $T_1$ pulls a larger trailing mass group, so it increases; $T_2$ is tied to accelerating block $C$ with smaller acceleration, so it decreases.\n\n**Conclusion:** option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'First infer how common acceleration changes when mass increases with same $F$.',
+      'Think of what mass each tension has to accelerate.',
+      'Compare before and after adding plasticine.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-132-question.png'],
+  },
+  {
+    id: 'nl-133',
+    type: 'multiple_choice',
+    question:
+      'A small bob $P$ is suspended by an inextensible string from the ceiling of a vehicle. The vehicle is moving on a straight horizontal road and the string makes an angle $\\theta$ with the vehicle as shown in the figure. Which of the following description of the acceleration of the vehicle is correct?',
+    options: [
+      '$g\\sin\\theta$ to the left',
+      '$g\\sin\\theta$ to the right',
+      '$g\\tan\\theta$ to the left',
+      '$g\\tan\\theta$ to the right',
+    ],
+    answer: '$g\\tan\\theta$ to the right',
+    explanation:
+      '**Key point:** For a suspended bob in a horizontally accelerating vehicle, component relation gives\n$$\\tan\\theta=\\frac{a}{g}\\Rightarrow a=g\\tan\\theta.$$ \nDirection is opposite to the bob’s tilt; from the shown setup this is to the right.\n\n**Conclusion:** option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use force components on bob: horizontal resultant provides $ma$.',
+      'Apply $\\tan\\theta=a/g$.',
+      'Acceleration direction is opposite to the tilt direction of the string.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-133-question.png'],
+  },
+  {
+    id: 'nl-134',
+    type: 'multiple_choice',
+    question:
+      'A block $X$ is placed on top of another block $Y$, which rests on a horizontal surface. The blocks have the same mass $m$. The block $Y$ is pulled by a horizontal force $F$ as shown. Assume that all contact surfaces are smooth. What is the acceleration of each block?',
+    options: [
+      '$a_X=0$, $a_Y=\\frac{F}{m}$',
+      '$a_X=0$, $a_Y=\\frac{F}{2m}$',
+      '$a_X=\\frac{F}{m}$, $a_Y=\\frac{F}{m}$',
+      '$a_X=\\frac{F}{2m}$, $a_Y=\\frac{F}{2m}$',
+    ],
+    answer: '$a_X=0$, $a_Y=\\frac{F}{m}$',
+    explanation:
+      '**Key point:** With smooth contact between $X$ and $Y$, no horizontal force is transmitted to $X$.\n\nSo $X$ has zero horizontal acceleration, while $Y$ alone is accelerated by $F$:\n$$a_Y=\\frac{F}{m}.$$ \n\n**Conclusion:** option A.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Smooth contact means no frictional horizontal interaction.',
+      'Check horizontal forces on $X$ first.',
+      'Then apply $F=ma$ to block $Y$.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-134-question.png'],
+  },
+  {
+    id: 'nl-135',
+    type: 'multiple_choice',
+    question:
+      'A 2 kg block is placed on top of a 3 kg block on a smooth horizontal surface as shown. A horizontal force of 6 N is applied to the 3 kg block such that the two blocks move together. The friction acting between the two blocks is',
+    options: ['0 N', '1.2 N', '2.4 N', '3.6 N'],
+    answer: '2.4 N',
+    explanation:
+      '**Key point:** If blocks move together, they share acceleration\n$$a=\\frac{6}{2+3}=1.2\\ \\text{m s}^{-2}.$$ \nFriction on the 2 kg top block provides its acceleration:\n$$f=ma=2\\times1.2=2.4\\ \\text{N}.$$ \n\n**Conclusion:** option C.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Find system acceleration first.',
+      'Then use top block alone to find friction.',
+      'Friction is the only horizontal force on the top block.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-135-question.png'],
+  },
+  {
+    id: 'nl-136',
+    type: 'multiple_choice',
+    question:
+      'Billy of mass 50 kg stands still on a weighing scale in a lift. The lift starts to ascend at $t=0$ and comes to rest at $t=24\\ \\text{s}$. The graph shows how the reading of the weighing scale varies within this time interval. What is the corresponding height ascended by the lift? (Take the acceleration due to gravity to be $10\\ \\text{m s}^{-2}$.)',
+    options: ['192 m', '144 m', '128 m', '96 m'],
+    answer: '128 m',
+    explanation:
+      '**Key point:** Convert scale readings to lift acceleration in each phase, then use $v$-$t$ area.\n\nFrom graph: 0–8 s gives upward $a=1$, 8–16 s gives $a=0$, 16–24 s gives downward $a=1$ (decelerating upward).\nSo peak speed after 8 s is\n$$v=0+1\\times8=8\\ \\text{m s}^{-1}.$$ \nDistance ascended equals area under $v$-$t$ graph:\n$$s=\\frac{1}{2}(8+24)\\times8=128\\ \\text{m}.$$ \n\n**Conclusion:** option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use $R-mg=ma$ or $mg-R=ma$ by phase.',
+      'Build the velocity-time profile across 0–24 s.',
+      'Distance is area under $v$-$t$ graph.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-136-question.png'],
+  },
+  {
+    id: 'nl-137',
+    type: 'multiple_choice',
+    question:
+      'A body of weight $W$ is suspended by three inextensible light strings $OA$, $OB$ and $OC$ as shown in the figure. $OA$ makes an angle $\\theta$ with the horizontal while $OB$ is horizontal. The maximum tension that each string can bear is the same. If the weight $W$ gradually increases, which string will break first?',
+    options: ['string $OA$', 'string $OB$', 'string $OC$', 'It depends on the value of $\\theta$'],
+    answer: 'string $OA$',
+    explanation:
+      '**Key point:** Equilibrium component equations give\n$$T_A\\sin\\theta=T_C,\\quad T_A\\cos\\theta=T_B.$$ \nSo $T_A>T_C$ and $T_A>T_B$. Therefore $OA$ always carries the greatest tension and reaches limit first.\n\n**Conclusion:** option A.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Resolve tensions of string $OA$ into horizontal and vertical components.',
+      'Relate each component to $T_B$ and $T_C$.',
+      'Compare magnitudes to identify which is largest.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-137-question.png'],
+  },
+  {
+    id: 'nl-138',
+    type: 'multiple_choice',
+    question:
+      'A boy performs a bungee jump from the top of a bridge. He is connected with a light elastic cord to the bridge at $O$ as shown in the figure. When he falls down from rest at $O$, the cord starts to stretch at point $P$. He then passes $Q$ where the tension in the cord is just equal to his weight. Finally, the boy reaches point $R$ where he is momentarily at rest. If air resistance is neglected, which of the following descriptions are correct?\n\n(1) From $P$ to $Q$, the speed of the boy increases throughout.\n(2) At $Q$, the speed of the boy is the maximum in the falling motion.\n(3) At $R$, the net force acting on the boy is zero.',
+    options: ['(1) and (2) only', '(1) and (3) only', '(2) and (3) only', '(1), (2) and (3)'],
+    answer: '(1) and (2) only',
+    explanation:
+      '**Key point:** Tension rises with extension.\n\nFrom $P$ to $Q$, tension is still less than weight, so net force is downward and speed keeps increasing → (1) true.\nAt $Q$, $T=mg$, so acceleration is zero at that instant; after $Q$, $T>mg$ gives upward acceleration, so speed starts decreasing. Hence speed is maximum at $Q$ → (2) true.\nAt $R$, velocity is momentarily zero but cord is highly stretched so $T>mg$; net force is not zero → (3) false.\n\n**Conclusion:** (1) and (2) only, so option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Compare tension with weight in each segment.',
+      'Maximum speed occurs where acceleration changes sign.',
+      'Momentary rest does not imply zero net force.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-138-question.png'],
+  },
 ];
 
 // 互动模拟 - 自由落体计时器
