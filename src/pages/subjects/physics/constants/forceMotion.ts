@@ -5007,6 +5007,170 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     sectionId: 'newton-laws',
     imagePaths: ['/physics/exercises/newton-laws/nl-122-question.png'],
   },
+  {
+    id: 'nl-123',
+    type: 'multiple_choice',
+    question:
+      'The resultant of two forces $F_1$ and $F_2$ acting at a point has a minimum value of 7 N and a maximum value of 17 N. When the two forces act at right angles to each other, the magnitude of their resultant is',
+    options: ['10 N', '13 N', '18 N', '22 N'],
+    answer: '13 N',
+    explanation:
+      '**Key point:** Maximum resultant occurs when two forces are in same direction; minimum when opposite.\n\nSo\n$$F_1+F_2=17,\\quad F_1-F_2=7.$$ \nSolving:\n$$F_1=12\\ \\text{N},\\quad F_2=5\\ \\text{N}.$$ \nAt right angles:\n$$R=\\sqrt{F_1^2+F_2^2}=\\sqrt{12^2+5^2}=\\sqrt{169}=13\\ \\text{N}.$$ \n\n**Conclusion:** option B.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Use max/min resultant conditions to find $F_1$ and $F_2$.',
+      'Set up two equations: sum and difference.',
+      'Then apply Pythagoras for perpendicular forces.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-123-question.png'],
+  },
+  {
+    id: 'nl-124',
+    type: 'multiple_choice',
+    question:
+      'The above figure shows a toy with a propeller driven by a motor inside the toy connected by a light string to a fixed point on the ceiling. The toy remains stationary when the motor is on. Which of the following diagrams correctly represents the forces acting on the toy?',
+    options: [
+      '/physics/exercises/newton-laws/nl-124-option-a.png',
+      '/physics/exercises/newton-laws/nl-124-option-b.png',
+      '/physics/exercises/newton-laws/nl-124-option-c.png',
+      '/physics/exercises/newton-laws/nl-124-option-d.png',
+    ],
+    answer: '/physics/exercises/newton-laws/nl-124-option-d.png',
+    explanation:
+      '**Key point:** Since the toy is stationary, all forces must balance.\n\nForces on the toy are:\n- weight vertically downward,\n- tension along the string toward the ceiling point,\n- propeller thrust in the opposite direction needed to complete equilibrium.\n\nThe correct free-body diagram is the one showing these three forces with correct directions.\n\n**Conclusion:** option D.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'At rest means vector sum of all forces is zero.',
+      'Tension is always along the string.',
+      'Weight is always vertical downward.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-124-question.png'],
+  },
+  {
+    id: 'nl-125',
+    type: 'multiple_choice',
+    question:
+      'When given a slight push, a block moves freely with constant velocity down a plane inclined at $20^{\\circ}$ to the horizontal. If the mass of the block is 0.5 kg, find the force parallel to the inclined plane to pull the block up the plane with constant velocity.',
+    options: ['1.7 N', '3.4 N', '4.7 N', '6.7 N'],
+    answer: '3.4 N',
+    explanation:
+      '**Key point:** Constant velocity means zero acceleration, so net force along the incline is zero in each case.\n\nWhen moving down with constant velocity:\n$$f=mg\\sin\\theta=(0.5)(9.81)\\sin20^{\\circ}=1.68\\ \\text{N}.$$ \n\nTo pull it up with constant velocity, both downslope component of weight and friction oppose motion:\n$$F=mg\\sin\\theta+f=1.68+1.68\\approx3.36\\ \\text{N}\\approx3.4\\ \\text{N}.$$ \n\n**Conclusion:** option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use zero-acceleration condition along the slope.',
+      'First deduce friction from downward constant-speed case.',
+      'For upward constant speed, add resisting forces.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-126',
+    type: 'multiple_choice',
+    question:
+      'Two blocks $A$ and $B$ are connected by a light string which passes over a smooth, fixed pulley as shown in the figure. The maximum friction between any two surfaces is 1.5 N. If a horizontal force $F$ is applied to block $B$, find the minimum value of this applied force for moving $B$.',
+    options: ['1.5 N', '3.0 N', '4.5 N', '6.0 N'],
+    answer: '4.5 N',
+    explanation:
+      '**Key point:** At the threshold of motion, all friction forces take their maximum values.\n\nFor block $A$ (limiting case):\n$$T=f_1=1.5\\ \\text{N}.$$ \nFor block $B$, minimum applied force must overcome three opposing contributions in this setup:\n$$F=f_1+T+f_2=1.5+1.5+1.5=4.5\\ \\text{N}.$$ \n\n**Conclusion:** option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use limiting-friction condition for minimum force to start motion.',
+      'Find string tension from block $A$ first.',
+      'Sum all resisting forces on block $B$.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-126-question.png'],
+  },
+  {
+    id: 'nl-127',
+    type: 'multiple_choice',
+    question:
+      'Two blocks $A$ and $B$ of mass ratio 2:1 are placed on a horizontal frictionless surface as shown above. $P$ and $Q$ are horizontal forces acting on $A$ and $B$ respectively ($P>Q$) so that the blocks move to the left with constant acceleration. Find the force acting on $B$ by $A$.',
+    options: [
+      '$\\frac{P-Q}{3}$',
+      '$\\frac{P+Q}{3}$',
+      '$\\frac{2(P-Q)}{3}$',
+      '$\\frac{2P+Q}{3}$',
+    ],
+    answer: '$\\frac{2P+Q}{3}$',
+    explanation:
+      '**Key point:** First find system acceleration, then apply Newton’s second law to block $B$.\n\nFor the two-block system (masses $2m$ and $m$):\n$$P-Q=(2m+m)a\\Rightarrow a=\\frac{P-Q}{3m}.$$ \nLet contact force on $B$ by $A$ be $R$.\nFor block $B$:\n$$P-R=ma.$$ \nSo\n$$R=P-m\\left(\\frac{P-Q}{3m}\\right)=\\frac{2P+Q}{3}.$$ \n\n**Conclusion:** option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use total mass to get common acceleration first.',
+      'Then isolate block $B$ only.',
+      'Substitute $a$ to solve for contact force.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-127-question.png'],
+  },
+  {
+    id: 'nl-128',
+    type: 'multiple_choice',
+    question:
+      'Amy holds one end of a string to which a block of mass 8 kg is tied at the other end. She raises the block with a constant acceleration by pulling the string in an upward direction. If the maximum tension that the string can withstand is 100 N, find the maximum acceleration of the block before the string breaks.',
+    options: [
+      '$2.7\\ \\text{m s}^{-2}$',
+      '$3.8\\ \\text{m s}^{-2}$',
+      '$4.6\\ \\text{m s}^{-2}$',
+      '$7.2\\ \\text{m s}^{-2}$',
+    ],
+    answer: '$2.7\\ \\text{m s}^{-2}$',
+    explanation:
+      '**Key point:** At breaking threshold, tension equals maximum value.\n\nUse\n$$T_{max}-mg=ma.$$ \nSubstitute values:\n$$100-(8)(9.81)=8a$$\n$$a=2.69\\ \\text{m s}^{-2}\\approx2.7\\ \\text{m s}^{-2}.$$ \n\n**Conclusion:** option A.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Use the maximum tension in Newton’s second law.',
+      'Take upward as positive.',
+      'Round to one decimal place.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-129',
+    type: 'multiple_choice',
+    question:
+      'Two books $P$ and $Q$ are placed on a horizontal table surface as shown. A horizontal force $F$ is applied to $P$ but the system remains stationary. Which of the following statements is/are correct?\n\n(1) The frictional force acting on $Q$ by the table surface is greater than $F$.\n(2) The frictional force acting on $P$ by $Q$ is towards the right.\n(3) The system would remain stationary if $F$ is applied to $Q$ instead.',
+    options: ['(1) only', '(3) only', '(1) and (2) only', '(2) and (3) only'],
+    answer: '(2) and (3) only',
+    explanation:
+      '**Key point:** Since the system is stationary, each body has zero net force.\n\n(1) False: friction on $Q$ by table balances transmitted force and is not greater than $F$ in this static condition.\n\n(2) True: if $F$ pushes $P$ toward one side, friction on $P$ by $Q$ opposes that tendency and is toward the right (as stated).\n\n(3) True under the same static-friction limit: applying $F$ to $Q$ can still leave the system stationary.\n\n**Conclusion:** (2) and (3) only, so option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use zero net force on each book in static condition.',
+      'Friction direction opposes relative slipping tendency.',
+      'Check statement (1) against force balance magnitude.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-129-question.png'],
+  },
+  {
+    id: 'nl-130',
+    type: 'multiple_choice',
+    question:
+      'A trolley of mass 0.4 kg moves with a certain acceleration down a runway which is inclined to the horizontal at $12^{\\circ}$. If the angle of inclination is increased to $18^{\\circ}$, the acceleration of the trolley would be doubled. Find the average frictional force, assuming the same in both cases, acting on the trolley.',
+    options: ['0.35 N', '0.39 N', '0.42 N', '0.47 N'],
+    answer: '0.42 N',
+    explanation:
+      '**Key point:** Write force equations for both inclinations and eliminate $a$.\n\nAt $12^{\\circ}$:\n$$(0.4\\times9.81)\\sin12^{\\circ}-f=(0.4)a.$$ \nAt $18^{\\circ}$ with doubled acceleration:\n$$(0.4\\times9.81)\\sin18^{\\circ}-f=(0.4)(2a).$$ \nCompute $(2\\times\\text{first})-(\\text{second})$:\n$$f=2(0.4\\times9.81)\\sin12^{\\circ}-(0.4\\times9.81)\\sin18^{\\circ}\\approx0.42\\ \\text{N}.$$ \n\n**Conclusion:** option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Set up one equation for each incline angle.',
+      'Use the condition: second acceleration is twice the first.',
+      'Eliminate $a$ algebraically to solve for friction.',
+    ],
+    sectionId: 'newton-laws',
+  },
 ];
 
 // 互动模拟 - 自由落体计时器
