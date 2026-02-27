@@ -5691,6 +5691,384 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     sectionId: 'newton-laws',
     imagePaths: ['/physics/exercises/newton-laws/nl-160-question.png'],
   },
+  {
+    id: 'mf-001',
+    type: 'multiple_choice',
+    question:
+      'If a mass of 2 kg is placed at a distance of 2 cm from the fulcrum $F$ as shown, which of the following could keep the light rod in equilibrium?\n\n(1) a mass of 4 kg placed at $P$\n(2) a mass of 2 kg placed at $Q$\n(3) a mass of 1 kg placed at $R$',
+    options: ['(1) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      'Moment of given mass about $F$ is $2\\times2=4$. For equilibrium, opposite moment must also be 4. (1) $4\\times1=4$, (2) $2\\times2=4$, (3) $1\\times4=4$. All work.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Use moment = force × perpendicular distance.', 'Compute the reference moment first.', 'Check each option against the same moment value.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-001-question.png'],
+  },
+  {
+    id: 'mf-002',
+    type: 'multiple_choice',
+    question:
+      'In the figure shown, the uniform metre rule of weight 1 N is balanced horizontally. Find the tension $T$ in the string.',
+    options: ['2.4 N', '3.4 N', '8.4 N', '9.4 N'],
+    answer: '9.4 N',
+    explanation:
+      'Take moments about the right end (so weight $W$ there has no moment): $(6)(20+50)+(1)(50)=T(50)$. Hence $T=9.4\\,\\mathrm{N}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Choose a pivot that simplifies unknowns.', 'Include metre rule weight at its midpoint.', 'Set clockwise moment = anticlockwise moment.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-002-question.png'],
+  },
+  {
+    id: 'mf-003',
+    type: 'multiple_choice',
+    question:
+      'The diagram shows a light rod under three vertical forces. Points $P,Q,R,S,T$ are equally spaced. At which point must an upward vertical force of 2 N be applied to hold the rod in equilibrium?',
+    options: ['P', 'Q', 'R', 'S'],
+    answer: 'S',
+    explanation:
+      'Given couple at $Q$ and $S$ has moment $1\\times2=2$ (clockwise). To balance, need anticlockwise couple of 2. With applied force 2 N, required distance is $d=2/2=1$ spacing, which is at point $S$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Identify the existing couple first.', 'For a couple, moment = one force × separation.', 'Find where 2 N gives equal opposite moment.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-003-question.png'],
+  },
+  {
+    id: 'mf-004',
+    type: 'multiple_choice',
+    question:
+      'The diagram shows a light rod under the action of two vertical forces. Under which condition will the rod be in equilibrium?',
+    options: [
+      'Applying an upward force of 2 N at $P$.',
+      'Applying a downward force of 2 N at $P$.',
+      'Applying an upward force of 4 N at $R$ and a downward force of 4 N at $Q$.',
+      'Applying an upward force of 4 N at $Q$ and a downward force of 4 N at $R$.',
+    ],
+    answer: 'Applying an upward force of 4 N at $Q$ and a downward force of 4 N at $R$.',
+    explanation:
+      'Given couple moment is $2\\times(2\\times10)=40\\,\\mathrm{N\\,cm}$. Required balancing couple must be equal and opposite. With 4 N forces, needed separation is $d=40/4=10\\,\\mathrm{cm}$ and clockwise direction, which matches option D.',
+    difficulty: 2,
+    points: 15,
+    hints: ['For equilibrium, net force and net moment must be zero.', 'Couple moment = one force × separation.', 'Balancing couple has opposite rotational sense.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-004-question.png'],
+  },
+  {
+    id: 'mf-005',
+    type: 'multiple_choice',
+    question:
+      'A uniform plank $AB$ of weight 200 N rests on two trestles. A boy stands at end $B$. What is the maximum weight of the boy without tilting the plank? (Weight of plank acts at its centre.)',
+    options: ['75 N', '100 N', '200 N', '300 N'],
+    answer: '300 N',
+    explanation:
+      'At tipping point, take moment about the right trestle: $(200)(1.5)=W(1)$. Hence $W=300\\,\\mathrm{N}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['At maximum load, one support just loses contact.', 'Take moments about the remaining support.', 'Use plank weight at midpoint.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-005-question.png'],
+  },
+  {
+    id: 'mf-006',
+    type: 'multiple_choice',
+    question:
+      'A light plank of length 2 m rests on trestles $S_1$ and $S_2$. A boy of weight 500 N stands at the midpoint. Find the forces acting on the two trestles by the plank.',
+    options: [
+      '$166\\frac{2}{3}\\ \\mathrm{N}$ and $333\\frac{1}{3}\\ \\mathrm{N}$',
+      '200 N and 300 N',
+      '250 N and 250 N',
+      '300 N and 200 N',
+    ],
+    answer: '200 N and 300 N',
+    explanation:
+      'Take moment about $S_1$: $F_1(1.25)=500(1-0.5)$, so $F_1=200\\,\\mathrm{N}$. Force balance gives $F_1+F_2=500$, so $F_2=300\\,\\mathrm{N}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Write one moment equation and one force-balance equation.', 'Use distance from $S_1$ to midpoint.', 'Solve for both reactions.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-006-question.png'],
+  },
+  {
+    id: 'mf-007',
+    type: 'multiple_choice',
+    question:
+      'A uniform beam of length 3 m and weight 300 N lies on horizontal ground. What minimum vertical force must be applied at one end to just lift that end off the ground? (Weight acts at midpoint.)',
+    options: ['100 N', '150 N', '300 N', '450 N'],
+    answer: '150 N',
+    explanation:
+      'At just-lift condition, take moments about the opposite end: $F(3)=300(1.5)$. Therefore $F=150\\,\\mathrm{N}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Use just-lift condition as rotational equilibrium about contact end.', 'Beam weight acts at centre.', 'Solve directly from moment equation.'],
+    sectionId: 'moment-force',
+  },
+  {
+    id: 'mf-008',
+    type: 'multiple_choice',
+    question:
+      'A uniform rod of length $L$ is pivoted at a point $\\frac{1}{4}L$ from one end. Two forces 14 N and 3 N act on its ends as shown. If in equilibrium, find the rod weight. (Weight acts at midpoint.)',
+    options: ['2.5 N', '5 N', '8 N', '11 N'],
+    answer: '5 N',
+    explanation:
+      'Taking moments about pivot: $14\\times\\frac{L}{4}=W\\times\\frac{L}{4}+3\\times\\frac{3L}{4}$. Solving gives $W=5\\,\\mathrm{N}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use pivot to eliminate support force.', 'Write clockwise = anticlockwise moments.', 'Keep $L/4$ as common factor.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-008-question.png'],
+  },
+  {
+    id: 'mf-009',
+    type: 'multiple_choice',
+    question:
+      'A weighing device uses a rod $AB$ supported at point $X$ and a movable counter-weight. Which changes can increase the maximum measurable weight?\n\n(1) moving string at $X$ towards $A$\n(2) increasing counter-weight mass\n(3) increasing length of string from which counter-weight hangs',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) & (2) only',
+    explanation:
+      'Moment condition about $X$ is load moment = counter-weight moment. Moving $X$ toward $A$ increases workable load arm range; increasing counter-weight mass increases balancing moment. String hanging length does not affect moment arm about $X$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Think in terms of moments about support point $X$.', 'Only perpendicular distance from $X$ matters.', 'Mass increase raises available balancing moment.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-009-question.png'],
+  },
+  {
+    id: 'mf-010',
+    type: 'multiple_choice',
+    question:
+      'A uniform plank of weight 450 N rests on trestles $X$ and $Y$. A worker of weight 675 N stands at one end and holds packets of 6 N each in a basket. What is the maximum number of packets without tilting?',
+    options: ['11', '12', '13', '18'],
+    answer: '12',
+    explanation:
+      'At just-tilt, support at $X$ loses contact. Take moments about $Y$: $450\\times2.5=(675+6n)\\times1.5$. This gives $n=12.5$, so maximum integer without tilting is 12.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use just-tilt condition.', 'Take moments about the pivot support $Y$.', 'Final answer must be integer packet count not exceeding threshold.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-010-question.png'],
+  },
+  {
+    id: 'mf-011',
+    type: 'multiple_choice',
+    question:
+      'A block is initially at rest on smooth horizontal ground. Two forces of equal magnitude $F$ act on the block. In which case(s) will the block remain at rest?\n\n(1)\n(2)\n(3)',
+    options: ['(2) only', '(3) only', '(1) & (2) only', '(1) & (3) only'],
+    answer: '(2) only',
+    explanation:
+      '(1) forms a couple, causing rotation. (2) forces balance with no net force or turning effect. (3) has a non-zero resultant to the right, so it accelerates.',
+    difficulty: 2,
+    points: 15,
+    hints: ['For full rest, both net force and net moment must be zero.', 'Couple causes rotation even when resultant force is zero.', 'Check vector sum of forces in each case.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-011-question.png'],
+  },
+  {
+    id: 'mf-012',
+    type: 'multiple_choice',
+    question:
+      'A uniform rod of weight 50 N is supported by spring balances $P$ and $Q$ and remains at rest as shown. Find the readings of $P$ and $Q$.',
+    options: ['17 N, 33 N', '20 N, 30 N', '30 N, 20 N', '33 N, 17 N'],
+    answer: '20 N, 30 N',
+    explanation:
+      'Taking moment about point under $P$: $50\\times0.3=Q\\times0.5$, so $Q=30\\,\\mathrm{N}$. Then force balance gives $P+30=50\\Rightarrow P=20\\,\\mathrm{N}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use one moment equation and one force-balance equation.', 'Choose pivot at $P$ to remove $P$ from moment equation.', 'Then substitute into vertical force balance.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-012-question.png'],
+  },
+  {
+    id: 'mf-013',
+    type: 'multiple_choice',
+    question:
+      'Figure (a) shows a uniform plank supported by spring balances $P$ and $Q$, both reading 150 N. Then $P$ is moved 0.25 m towards $Q$ (Figure (b)). Find new readings of $P$ and $Q$.',
+    options: ['100 N, 200 N', '150 N, 150 N', '200 N, 100 N', '200 N, 150 N'],
+    answer: '200 N, 100 N',
+    explanation:
+      'Plank weight is $150+150=300\\,\\mathrm{N}$. In Figure (b), taking moment about $Q$: $P(1-0.25)=300(0.5)$, so $P=200\\,\\mathrm{N}$. Then $P+Q=300\\Rightarrow Q=100\\,\\mathrm{N}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Total weight stays 300 N.', 'Use updated support spacing in Figure (b).', 'Solve moment first, then force balance.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-013-question.png'],
+  },
+  {
+    id: 'mf-014',
+    type: 'multiple_choice',
+    question:
+      'A uniform metre rule $AB$ of mass 0.15 kg is hinged at $B$. End $A$ is connected by a wire to wall point $C$. A block $X$ of mass 0.1 kg hangs at 30 cm from $A$. Rule is horizontal. Find the moment of the wire tension about $B$.',
+    options: ['1.42 Nm', '1.05 Nm', '0.75 Nm', '0.70 Nm'],
+    answer: '1.42 Nm',
+    explanation:
+      'Taking moments about $B$: tension moment equals sum of clockwise moments of weights.\n$M_T=(0.1\\times9.81)(1-0.3)+(0.15\\times9.81)(0.5)=1.42\\,\\mathrm{N\\,m}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use metres for distances from pivot $B$.', 'Weight of rule acts at midpoint.', 'Tension moment balances total weight moments.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-014-question.png'],
+  },
+  {
+    id: 'mf-015',
+    type: 'multiple_choice',
+    question:
+      'A uniform rod $AB$ is held horizontal by a wire at $C$ and pivoted at $A$. The rod carries load $W$. If $W$ is shifted gradually from $A$ towards $B$, which quantities increase?\n\n(1) moment of rod weight about $A$\n(2) moment of load $W$ about $A$\n(3) tension of the wire',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      'Rod CG position is fixed, so rod-weight moment about $A$ is unchanged. Moving $W$ farther from $A$ increases its moment. To maintain equilibrium, wire tension must increase.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Uniform rod CG does not move.', 'Moment is force × perpendicular distance from pivot.', 'Increased clockwise load moment requires increased balancing tension moment.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-015-question.png'],
+  },
+  {
+    id: 'mf-016',
+    type: 'multiple_choice',
+    question:
+      'A light rigid rod $AB$ is hinged at one end and connected by a string to point $C$ above $B$. A weight $W$ hangs on the rod; rod remains horizontal. Which change(s) increase string tension?\n\n(1) Shift weight towards $A$.\n(2) Replace string with a shorter one connecting midpoints of $AB$ and $BC$.\n(3) Replace string with a longer one connecting to a point higher than $C$.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) & (2) only',
+    explanation:
+      'Using moment about hinge: $T\\sin\\theta\\cdot L=W\\cdot d$.\n(1) Shifting $W$ toward $A$ increases $d$, so $T$ increases.\n(2) Shorter string setup reduces effective $L$ (with similar $\\theta$), so $T$ increases.\n(3) Higher attachment increases $\\theta$ so $\\sin\\theta$ increases, hence required $T$ decreases.',
+    difficulty: 3,
+    points: 20,
+    hints: ['Write a moment equation about hinge.', 'Analyze how each change affects lever arm or angle factor.', 'If denominator increases, required tension decreases.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-016-question.png'],
+  },
+  {
+    id: 'mf-017',
+    type: 'multiple_choice',
+    question:
+      'Figure (a) shows a uniform plank supported by spring balances $P$ and $Q$, both reading 150 N. In Figure (b), $P$ is moved 0.25 m towards $Q$. Find the new readings of $P$ and $Q$.',
+    options: ['100 N, 200 N', '150 N, 150 N', '200 N, 100 N', '200 N, 150 N'],
+    answer: '200 N, 100 N',
+    explanation:
+      'Total weight is $150+150=300\\,\\mathrm{N}$. Taking moments about $Q$ in Figure (b): $P(1-0.25)=300(0.5)$, so $P=200\\,\\mathrm{N}$. Then $P+Q=300\\Rightarrow Q=100\\,\\mathrm{N}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Find total weight from initial readings.', 'Use new support separation after moving $P$.', 'Use force balance after moment equation.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-017-question.png'],
+  },
+  {
+    id: 'mf-018',
+    type: 'multiple_choice',
+    question:
+      'A rod $XY$ is hinged at $X$ and kept horizontal by a light string. $M$ is midpoint of $XY$. In which arrangement is the string tension $T$ smallest?',
+    options: [
+      '/physics/exercises/moment-force/mf-018-option-a.png',
+      '/physics/exercises/moment-force/mf-018-option-b.png',
+      '/physics/exercises/moment-force/mf-018-option-c.png',
+      '/physics/exercises/moment-force/mf-018-option-d.png',
+    ],
+    answer: '/physics/exercises/moment-force/mf-018-option-a.png',
+    explanation:
+      'Using moment about $X$:\nA gives $T\\sin45^\\circ\\cdot L=mg\\cdot\\frac{L}{2}\\Rightarrow T=0.707mg$.\nB and C give $T=mg$.\nD gives $T=1.41mg$.\nSmallest is A.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Take moments about hinge $X$.', 'Compare $T$ from each geometry.', 'Larger effective moment arm gives smaller required $T$.'],
+    sectionId: 'moment-force',
+  },
+  {
+    id: 'mf-019',
+    type: 'multiple_choice',
+    question:
+      'A uniform gangplank $PQ$ (mass $M$, length 2 m) is hinged at $P$ and raised steadily by a rope via a smooth pulley, attached at point $R$ 1.5 m from $P$. Which statement is correct about required force?',
+    options: [
+      'Initial: $0.67Mg$, subsequent: greater than $0.67Mg$',
+      'Initial: $0.67Mg$, subsequent: smaller than $0.67Mg$',
+      'Initial: $0.94Mg$, subsequent: greater than $0.94Mg$',
+      'Initial: $0.94Mg$, subsequent: smaller than $0.94Mg$',
+    ],
+    answer: 'Initial: $0.94Mg$, subsequent: smaller than $0.94Mg$',
+    explanation:
+      'Initially (horizontal), moment about $P$: $T\\sin45^\\circ\\times1.5=Mg\\times1$, so $T=0.94Mg$. As plank rises, weight moment arm about $P$ decreases and rope angle increases, so required $T$ decreases.',
+    difficulty: 3,
+    points: 20,
+    hints: ['Use moment balance about hinge for initial position.', 'Weight moment arm shortens as plank rotates up.', 'Increasing rope angle increases moment effectiveness.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-019-question.png'],
+  },
+  {
+    id: 'mf-020',
+    type: 'multiple_choice',
+    question:
+      'A supermarket trolley has wheels $X$ and $Y$ separated by 0.7 m. Total weight is 154 N with centre of gravity 0.5 m from wheel $Y$. What is the ground reaction on wheel $X$?',
+    options: ['44 N', '62 N', '92 N', '110 N'],
+    answer: '110 N',
+    explanation:
+      'Take moments about $Y$: $R_X\\times0.7=154\\times0.5$, so $R_X=110\\,\\mathrm{N}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Choose pivot at $Y$.', 'Use moment = force × distance.', 'Solve directly for $R_X$.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-020-question.png'],
+  },
+  {
+    id: 'mf-021',
+    type: 'multiple_choice',
+    question:
+      'A semicircular cardboard hangs from point $O$ on a spring balance reading 5 N. Which statements are correct?\n\n(1) Weight of cardboard is 5 N.\n(2) Centre of gravity is directly under $O$.\n(3) Balance reading becomes zero on the Moon.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (2) only',
+    explanation:
+      '(1) True: spring balance reads supported weight in that field. (2) True: at rest, CG lies on line of support through hanging point. (3) False: Moon gravity is smaller, so reading decreases but is not zero.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Balance reading equals weight in local gravity.', 'A freely hanging body aligns CG vertically below support.', 'Moon has reduced gravity, not zero gravity.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-021-question.png'],
+  },
+  {
+    id: 'mf-022',
+    type: 'multiple_choice',
+    question:
+      'A composite rod $PQR$ has uniform cross-section, with portions $PQ$ and $QR$ made of different materials and uniform densities. Length ratio $PQ:QR=2:3$. When suspended at $Q$, it remains horizontal. What is the mass ratio $m_{PQ}:m_{QR}$?',
+    options: ['2:3', '1:1', '3:2', 'Cannot be found without density ratio'],
+    answer: '3:2',
+    explanation:
+      'Each portion has its weight acting at its own midpoint. Taking moments about $Q$: $m_1g\\times1=m_2g\\times1.5$, hence $m_1:m_2=3:2$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Treat each portion as a separate uniform segment.', 'Weight of each segment acts at its midpoint.', 'Use moment balance about $Q$.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-022-question.png'],
+  },
+  {
+    id: 'mf-023',
+    type: 'multiple_choice',
+    question:
+      'A uniform metre rule is supported by vertical wires $P$ and $Q$ and remains horizontal. Initially each wire tension is 1 N. Then a 4 N weight is hung at position $x$ and the tension in $Q$ becomes 2.3 N (still horizontal). Find $x$.',
+    options: ['32.5 cm', '57.5 cm', '67.5 cm', 'Cannot be found as tension in $P$ is unknown'],
+    answer: '32.5 cm',
+    explanation:
+      'From initial condition, rule weight is $1+1=2\\,\\mathrm{N}$ acting at 50 cm. In loaded case, taking moments about $P$: $(2.3)(100)=(4)(x)+(2)(50)$. So $x=32.5\\,\\mathrm{cm}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use initial tensions to get rule weight first.', 'Uniform rule means CG at 50 cm mark.', 'Take moments about $P$ in second setup.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-023-question.png'],
+  },
+  {
+    id: 'mf-024',
+    type: 'multiple_choice',
+    question:
+      'A uniform selfie stick of length 0.7 m is held horizontally. Forces by hand are represented by $F_1$ and $F_2$, both perpendicular to the stick. Weight of stick is 1.5 N and mobile phone is 2.0 N (point mass). Estimate magnitude of $F_2$.',
+    options: ['3.5 N', '19.3 N', '35 N', 'Cannot be determined as $F_1$ is unknown'],
+    answer: '19.3 N',
+    explanation:
+      'Take moments about point of $F_1$. Using given geometry, balancing moments of stick and phone against $F_2$ gives approximately $F_2=19.3\\,\\mathrm{N}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Choose pivot at the point where $F_1$ acts.', 'Include both stick weight and phone weight moments.', 'Solve $F_2$ from moment equilibrium.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-024-question.png'],
+  },
 ];
 
 // 互动模拟 - 自由落体计时器
