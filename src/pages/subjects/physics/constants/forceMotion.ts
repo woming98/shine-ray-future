@@ -3609,6 +3609,195 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     sectionId: 'newton-laws',
     imagePaths: ['/physics/exercises/newton-laws/nl-054-question.png'],
   },
+  {
+    id: 'nl-055',
+    type: 'multiple_choice',
+    question:
+      'A block is placed on a rough inclined plane and then projected upwards along the plane. After reaching the highest point, the block slides down along the plane. Which of the following graphs shows the time variation of the velocity $v$ of the block?',
+    options: [
+      '/physics/exercises/newton-laws/nl-055-option-a.png',
+      '/physics/exercises/newton-laws/nl-055-option-b.png',
+      '/physics/exercises/newton-laws/nl-055-option-c.png',
+      '/physics/exercises/newton-laws/nl-055-option-d.png',
+    ],
+    answer: '/physics/exercises/newton-laws/nl-055-option-a.png',
+    explanation:
+      '**Key point:** Friction always opposes motion, so the acceleration magnitudes are different on the way up and on the way down.\n\nWhen moving upward, both $mg\\sin\\theta$ and friction act down the plane:\n$$mg\\sin\\theta+f=ma_1,$$\nso the block decelerates with magnitude $a_1$.\n\nWhen moving downward, friction acts up the plane:\n$$mg\\sin\\theta-f=ma_2,$$\nso the block accelerates downward with magnitude $a_2$.\n\nHence $a_1>a_2$. Since the slope magnitude of the $v$-$t$ graph equals acceleration magnitude, the upward-motion segment is steeper than the downward-motion segment.\n\n**Conclusion:** option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Decide friction direction separately for upward and downward motion.',
+      'Write equations along the slope for each stage.',
+      'Compare $|\\text{slope}|$ on the two straight segments of the $v$-$t$ graph.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-055-question.png'],
+  },
+  {
+    id: 'nl-056',
+    type: 'multiple_choice',
+    question:
+      'Three forces of magnitudes $F_1$, $F_2$ and 10 N act on an object as shown. If the object is in equilibrium, find the force $F_2$.',
+    options: ['5.0 N', '8.7 N', '11.5 N', '17.3 N'],
+    answer: '11.5 N',
+    explanation:
+      '**Key point:** For equilibrium, resultant force in each direction is zero.\n\nUsing vertical force balance:\n$$F_2\\cos30^{\\circ}=10.$$ \nHence\n$$F_2=\\frac{10}{\\cos30^{\\circ}}\\approx11.5\\ \\text{N}.$$\n\n**Conclusion:** option C.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Resolve forces vertically first.',
+      'Use equilibrium: net vertical force is zero.',
+      'Apply $F_2\\cos30^\\circ=10$.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-056-question.png'],
+  },
+  {
+    id: 'nl-057',
+    type: 'multiple_choice',
+    question:
+      'A block is placed on a rough horizontal ground and a horizontal force acts on the block. If the magnitude of the force, $F$, is increased gradually, which of the following graphs shows the relation between $F$ and the acceleration $a$ of the block?',
+    options: [
+      '/physics/exercises/newton-laws/nl-057-option-a.png',
+      '/physics/exercises/newton-laws/nl-057-option-b.png',
+      '/physics/exercises/newton-laws/nl-057-option-c.png',
+      '/physics/exercises/newton-laws/nl-057-option-d.png',
+    ],
+    answer: '/physics/exercises/newton-laws/nl-057-option-b.png',
+    explanation:
+      '**Key point:** On a rough surface, friction opposes motion, so\n$$F-f=ma\\Rightarrow a=\\frac{1}{m}F-\\frac{f}{m}.$$ \nThis is a linear relation between $a$ and $F$ with positive slope and a positive $F$-intercept when $a=0$.\n\nSo the correct graph is the straight line corresponding to option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Write Newton’s second law including friction.',
+      'Rearrange to make $a$ the subject.',
+      'Identify the slope and intercept from the linear form.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-057-question.png'],
+  },
+  {
+    id: 'nl-058',
+    type: 'multiple_choice',
+    question:
+      'An astronaut lands on the moon and finds that his weight is about one-sixth of that on the earth. Which of the following deductions is/are correct?\n\n(1) If he throws an object upwards on the moon, it will reach a higher level than throwing the object with the same speed on earth.\n(2) If he releases an object on the moon, it will take a shorter time to reach the ground than releasing the object from the same height on earth.\n(3) The maximum weight he can lift on the moon is greater than on earth.',
+    options: ['(1) only', '(3) only', '(1) and (2) only', '(2) and (3) only'],
+    answer: '(1) only',
+    explanation:
+      '**Key point:** Since $W=mg$, and weight on the moon is about one-sixth, the moon’s gravitational acceleration is about $g/6$.\n\n(1) True: for upward throw with same initial speed $u$, from $0=u^2-2gs$ we get $s=\\frac{u^2}{2g}$, so smaller $g$ gives larger maximum height.\n\n(2) False: for free fall from same height with $u=0$, $s=\\frac{1}{2}gt^2$, so smaller $g$ gives a longer time, not shorter.\n\n(3) False in terms of weight: the astronaut can exert about the same maximum force, so maximum **weight** he can lift is not greater; he can lift a greater **mass** on the moon.\n\n**Conclusion:** only (1) is correct, so option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use $W=mg$ to compare gravity on moon and earth.',
+      'For upward throw, use $v^2=u^2+2as$ at the top where $v=0$.',
+      'Distinguish weight from mass in statement (3).',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-059',
+    type: 'multiple_choice',
+    question:
+      'A block on a rough horizontal table is acted on by two horizontal forces of magnitudes 10 N and 2 N as shown. It remains at rest on the table. If the force of magnitude 10 N is removed, find the resultant force acting on the block.',
+    options: ['zero', '2 N', '6 N', '8 N'],
+    answer: 'zero',
+    explanation:
+      '**Key point:** For an object at rest, static friction adjusts to balance the net applied horizontal force (up to its limit).\n\nInitially, to keep rest:\n$$f=10-2=8\\ \\text{N}.$$ \nAfter removing the 10 N force, the only applied horizontal force is 2 N, so static friction readjusts to 2 N in the opposite direction.\n\nHence horizontal resultant force remains zero.\n\n**Conclusion:** option A.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'At rest means resultant horizontal force is zero.',
+      'Static friction is not fixed; it adjusts as needed.',
+      'After removing 10 N, compare remaining applied force with friction needed for equilibrium.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-059-question.png'],
+  },
+  {
+    id: 'nl-060',
+    type: 'multiple_choice',
+    question:
+      'A coin is placed on a piece of cardboard resting on a glass as shown above. If the cardboard is flicked with a finger, the coin will drop into the glass. What does this experiment demonstrate?',
+    options: [
+      'The coin will fall with uniform acceleration under the action of gravity.',
+      'The acceleration of the coin is proportional to the applied force.',
+      'Action and reaction always occur in pairs.',
+      'The coin has a tendency to maintain its state of rest.',
+    ],
+    answer: 'The coin has a tendency to maintain its state of rest.',
+    explanation:
+      "**Key point:** This demonstrates Newton's first law (law of inertia).\n\nWhen the cardboard is flicked away quickly, the coin tends to remain in its original state of rest due to inertia. With support removed, it then falls vertically into the glass under gravity.\n\n**Conclusion:** the experiment demonstrates the tendency to maintain state of rest, so option D.",
+    difficulty: 1,
+    points: 10,
+    hints: [
+      "Think about Newton's law related to inertia.",
+      'A quick flick minimizes horizontal motion transferred to the coin.',
+      'The key idea is maintaining the original state of motion (rest).',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-060-question.png'],
+  },
+  {
+    id: 'nl-061',
+    type: 'multiple_choice',
+    question:
+      "A man is pulling a suitcase along the horizontal ground as shown below. Which of the following pairs of forces is/are action and reaction pair(s) according to Newton's third law of motion?\n\n(1) The gravitational force exerted by the earth on the man, and the gravitational force exerted by the man on the earth.\n(2) The pulling force exerted by the man on the suitcase, and the friction exerted by the ground on the suitcase.\n(3) The gravitational force exerted by the earth on the suitcase, and the normal reaction exerted by the ground on the suitcase.",
+    options: ['(1) only', '(3) only', '(1) and (2) only', '(2) and (3) only'],
+    answer: '(1) only',
+    explanation:
+      "**Key point:** Newton's third-law force pairs are equal and opposite forces acting on different bodies in the same interaction.\n\n(1) Correct: Earth-on-man gravity pairs with man-on-Earth gravity.\n\n(2) Incorrect: both forces act on the suitcase, so they are not an action-reaction pair.\n\n(3) Incorrect: both forces also act on the suitcase, so they are not an action-reaction pair.\n\n**Conclusion:** only (1) is a valid third-law pair, so option A.",
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'A third-law pair must act on two different bodies.',
+      'Check whether each listed pair belongs to the same interaction.',
+      'If two forces act on the same object, they are not a third-law pair.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-061-question.png'],
+  },
+  {
+    id: 'nl-062',
+    type: 'multiple_choice',
+    question:
+      "A student uses a friction-compensated runway to study Newton's second law of motion. The variation of the acceleration $a$ of the trolley with the force $F$ applied parallel to the runway is shown above. If the experiment is repeated with the runway making a larger angle of inclination with the horizontal, which of the graphs (in dotted lines) represents the expected result?",
+    options: [
+      '/physics/exercises/newton-laws/nl-062-option-a.png',
+      '/physics/exercises/newton-laws/nl-062-option-b.png',
+      '/physics/exercises/newton-laws/nl-062-option-c.png',
+      '/physics/exercises/newton-laws/nl-062-option-d.png',
+    ],
+    answer: '/physics/exercises/newton-laws/nl-062-option-c.png',
+    explanation:
+      '**Key point:** In an $a$-$F$ graph, slope is $\\frac{1}{m}$, so changing runway angle does not change slope if trolley mass is unchanged.\n\nWith a larger inclination, the runway is no longer perfectly friction-compensated, so even when $F=0$, there is a non-zero acceleration down the slope.\n\nHence the new line should keep the same slope but have a positive $a$-intercept.\n\n**Conclusion:** option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'From $a=\\frac{F}{m}$, identify what sets the slope of an $a$-$F$ graph.',
+      'Check what happens at $F=0$ after increasing runway angle.',
+      'Look for same slope but shifted upward intercept.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-062-question.png'],
+  },
+  {
+    id: 'nl-063',
+    type: 'multiple_choice',
+    question:
+      'John, of mass 80 kg, is standing on a weighing scale in a lift. At a certain instant, the reading of the weighing scale is 600 N. Which of the following statements about John at this instant is/are correct? (Take the acceleration due to gravity to be $10\\ \\text{m s}^{-2}$.)\n\n(1) The gravitational force acting on John is 600 N.\n(2) The force exerted by the weighing scale on John is 200 N.\n(3) John is accelerating downward at a rate of $2.5\\ \\text{m s}^{-2}$.',
+    options: ['(2) only', '(3) only', '(1) and (2) only', '(1) and (3) only'],
+    answer: '(3) only',
+    explanation:
+      '**Key point:** The scale reading is the normal reaction $R$, not the weight $mg$.\n\nWeight:\n$$mg=80\\times10=800\\ \\text{N},$$\nso statement (1) is false.\n\nScale force on John equals reading, so $R=600\\ \\text{N}$, not 200 N. Statement (2) is false.\n\nApply Newton’s second law vertically:\n$$mg-R=ma$$\n$$800-600=80a$$\n$$a=2.5\\ \\text{m s}^{-2}$$\nDirection is downward since $mg>R$.\n\n**Conclusion:** only (3) is correct, so option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Distinguish between weight $mg$ and scale reading $R$.',
+      'Use $mg=80\\times10$ first.',
+      'Then apply $mg-R=ma$ to find acceleration and direction.',
+    ],
+    sectionId: 'newton-laws',
+  },
 ];
 
 // 互动模拟 - 自由落体计时器
