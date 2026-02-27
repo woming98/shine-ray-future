@@ -3165,7 +3165,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     sectionId: 'newton-laws',
     imagePaths: [
-      '/physics/exercises/newton-laws/nl-032-question-1.png',
+      '/physics/exercises/newton-laws/nl-032-question.png',
       '/physics/exercises/newton-laws/nl-032-question-2.png',
     ],
   },
