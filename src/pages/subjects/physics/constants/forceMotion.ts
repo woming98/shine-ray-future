@@ -3798,6 +3798,761 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     sectionId: 'newton-laws',
   },
+  {
+    id: 'nl-064',
+    type: 'multiple_choice',
+    question:
+      'A block of mass 0.5 kg slides down a rough inclined plane with an acceleration of $3\\ \\text{m s}^{-2}$. If the plane is inclined at $30^{\\circ}$ to the horizontal, find the friction between the block and the plane.',
+    options: ['0.95 N', '1.47 N', '2.75 N', '3.92 N'],
+    answer: '0.95 N',
+    explanation:
+      '**Key point:** Along the slope, resultant force is $mg\\sin\\theta-f=ma$.\n\nSubstitute values:\n$$(0.5)(9.81)\\sin30^{\\circ}-f=(0.5)(3).$$\nSo\n$$f=(0.5)(9.81)(0.5)-1.5=2.4525-1.5=0.9525\\ \\text{N}\\approx0.95\\ \\text{N}.$$\n\n**Conclusion:** option A.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Resolve forces along the incline only.',
+      'Use $mg\\sin\\theta-f=ma$ for downward motion.',
+      'Compute and round to 2 d.p.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-064-question.png'],
+  },
+  {
+    id: 'nl-065',
+    type: 'multiple_choice',
+    question:
+      'A block of weight 100 N is placed on a smooth horizontal table. A vertical force of 60 N and a horizontal force of 30 N are applied to the block as shown. Find the magnitude of the resultant force acting on the block.',
+    options: ['30 N', '40 N', '50 N', '67 N'],
+    answer: '30 N',
+    explanation:
+      '**Key point:** On a smooth table, vertical forces balance while the horizontal applied force remains unbalanced.\n\nVertically:\n$$100\\ \\text{N} = 60\\ \\text{N} + R \\Rightarrow R=40\\ \\text{N},$$\nso net vertical force is zero.\n\nHorizontally, the only unbalanced force is 30 N.\n\nTherefore resultant force magnitude is 30 N.\n\n**Conclusion:** option A.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Treat vertical and horizontal directions separately.',
+      'Find the normal reaction from vertical balance first.',
+      'Smooth table means no friction in horizontal direction.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-065-question.png'],
+  },
+  {
+    id: 'nl-066',
+    type: 'multiple_choice',
+    question:
+      "The following are statements written by three students about Newton's first law of motion.\n\n(1) A stationary object will remain in a state of rest unless acted on by an unbalanced force.\n(2) An object undergoing uniform motion will maintain its motion unless acted on by an unbalanced force.\n(3) An unbalanced force is required to maintain the motion of an object at uniform velocity.\n\nWhich of the above statements is/are correct?",
+    options: ['(2) only', '(3) only', '(1) and (2) only', '(1) and (3) only'],
+    answer: '(1) and (2) only',
+    explanation:
+      "**Key point:** Newton's first law states that without unbalanced force, an object keeps its state of rest or uniform straight-line motion.\n\n(1) Correct: rest is maintained without unbalanced force.\n\n(2) Correct: uniform motion is maintained without unbalanced force.\n\n(3) Incorrect: unbalanced force is needed to change velocity (cause acceleration), not to maintain uniform velocity.\n\n**Conclusion:** (1) and (2) only, so option C.",
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'First law covers both rest and uniform motion.',
+      'Unbalanced force causes acceleration (change in velocity).',
+      'Maintaining uniform velocity needs zero resultant force.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-067',
+    type: 'multiple_choice',
+    question:
+      'Which of the following objects are under the action of an unbalanced force at the instant shown in the diagrams?\n\n(1) a football being kicked by a player\n(2) a parachutist falling with uniform velocity\n(3) a swinging pendulum bob',
+    options: ['(1) and (2) only', '(1) and (3) only', '(2) and (3) only', '(1), (2) and (3)'],
+    answer: '(1) and (3) only',
+    explanation:
+      '**Key point:** Unbalanced force is required whenever there is acceleration (change in velocity magnitude and/or direction).\n\n(1) Football being kicked: speed changes from rest, so acceleration exists and force is unbalanced.\n\n(2) Parachutist at uniform velocity: acceleration is zero, so resultant force is zero (balanced).\n\n(3) Swinging pendulum bob: direction of velocity keeps changing, so acceleration exists and an unbalanced force is present.\n\n**Conclusion:** (1) and (3) only, so option B.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Check whether velocity is changing in magnitude or direction.',
+      'Uniform velocity implies zero acceleration.',
+      'Circular/curved motion still needs acceleration due to changing direction.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: [
+      '/physics/exercises/newton-laws/nl-067-question-1.png',
+      '/physics/exercises/newton-laws/nl-067-question-2.png',
+      '/physics/exercises/newton-laws/nl-067-question-3.png',
+    ],
+  },
+  {
+    id: 'nl-068',
+    type: 'multiple_choice',
+    question:
+      'A block of mass $m$ slides down an inclined plane with uniform velocity. What is the net force acting on the block?',
+    options: ['$mg$', '$mg\\sin\\theta$', '$mg\\cos\\theta$', 'zero'],
+    answer: 'zero',
+    explanation:
+      '**Key point:** Uniform velocity means zero acceleration.\n\nBy Newton’s second law,\n$$F_{\\text{net}}=ma.$$ \nSince $a=0$,\n$$F_{\\text{net}}=0.$$\n\n**Conclusion:** option D.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Uniform velocity implies acceleration is zero.',
+      'Apply Newton’s second law directly.',
+      'Net force follows from $F_{\\text{net}}=ma$.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-068-question.png'],
+  },
+  {
+    id: 'nl-069',
+    type: 'multiple_choice',
+    question:
+      'A uniform cube of weight 600 N is held in equilibrium in the air by four identical cables as shown above. If each cable makes an equal angle of $20^{\\circ}$ with the vertical, find the tension in each cable.',
+    options: ['150 N', '160 N', '412 N', '439 N'],
+    answer: '160 N',
+    explanation:
+      '**Key point:** In equilibrium, the total upward vertical components of the four tensions balance the weight.\n\nVertical force balance:\n$$4T\\cos20^{\\circ}=600.$$ \nHence\n$$T=\\frac{600}{4\\cos20^{\\circ}}\\approx160\\ \\text{N}.$$\n\n**Conclusion:** option B.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Resolve each cable tension into vertical component.',
+      'Sum of four vertical components equals 600 N.',
+      'Solve $4T\\cos20^\\circ=600$.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-069-question.png'],
+  },
+  {
+    id: 'nl-070',
+    type: 'multiple_choice',
+    question:
+      'The figure shows a ride in an amusement park. A passenger is fastened to a seat which is then raised to the top of a vertical pole. At time $t=0$, the seat is released from rest and falls freely. After 3 s, the seat is brought to rest at a point $P$ near the ground. Which of the below graphs best shows the relation between the gravitational force acting on the passenger $W$ and $t$?',
+    options: [
+      '/physics/exercises/newton-laws/nl-070-option-a.png',
+      '/physics/exercises/newton-laws/nl-070-option-b.png',
+      '/physics/exercises/newton-laws/nl-070-option-c.png',
+      '/physics/exercises/newton-laws/nl-070-option-d.png',
+    ],
+    answer: '/physics/exercises/newton-laws/nl-070-option-a.png',
+    explanation:
+      '**Key point:** Gravitational force on the passenger is weight, $W=mg$, which remains constant near Earth’s surface.\n\nAlthough the seat’s velocity and acceleration change during the ride, the gravitational force itself does not depend on those motion changes.\n\nSo the $W$-$t$ graph is a horizontal line.\n\n**Conclusion:** option A.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Distinguish weight from apparent weight/normal reaction.',
+      'Weight is $mg$ and is approximately constant near Earth.',
+      'Motion changes do not directly change gravitational force.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-070-question.png'],
+  },
+  {
+    id: 'nl-071',
+    type: 'multiple_choice',
+    question:
+      'A car accelerates at $3\\ \\text{m s}^{-2}$ along a straight horizontal road. A child of mass 10 kg is sitting on a safety seat inside the car. Find the magnitude of the resultant force exerted by the safety seat on the child. (Take the acceleration due to gravity to be $10\\ \\text{m s}^{-2}$.)',
+    options: ['30 N', '100 N', '104 N', '130 N'],
+    answer: '104 N',
+    explanation:
+      '**Key point:** The seat exerts two perpendicular contact forces on the child: one horizontal and one vertical.\n\nHorizontal force from seat back:\n$$R_1=ma=(10)(3)=30\\ \\text{N}.$$\n\nVertical force from seat base balances weight:\n$$R_2=mg=(10)(10)=100\\ \\text{N}.$$\n\nResultant seat force:\n$$R=\\sqrt{R_1^2+R_2^2}=\\sqrt{30^2+100^2}=\\sqrt{10900}\\approx104\\ \\text{N}.$$\n\n**Conclusion:** option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Identify horizontal and vertical contact forces separately.',
+      'Use $R_1=ma$ for horizontal acceleration.',
+      'Combine perpendicular components with Pythagoras.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-071-question.png'],
+  },
+  {
+    id: 'nl-072',
+    type: 'multiple_choice',
+    question:
+      'A child is sitting on a chair as shown above. Which of the following pairs of forces is/are action and reaction pair(s)?\n\n(1) The gravitational force exerted by the earth on the child, and the normal reaction exerted by the chair on the child.\n(2) The force exerted by the child on the chair, and the normal reaction exerted by the chair on the child.\n(3) The force exerted by the chair on the ground, and the gravitational force exerted by the earth on the chair.',
+    options: ['(1) only', '(2) only', '(1) and (3) only', '(2) and (3) only'],
+    answer: '(2) only',
+    explanation:
+      "**Key point:** Newton's third-law pair must be equal and opposite forces acting on different bodies in the same interaction.\n\n(1) Not a third-law pair: both forces act on the child.\n\n(2) Yes: child-on-chair and chair-on-child are equal and opposite, acting on different bodies.\n\n(3) Not a third-law pair: chair-on-ground and Earth-on-chair are different interactions, and both are downward in this context, so not an action-reaction pair.\n\n**Conclusion:** only (2) is correct, so option B.",
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Check whether the two forces act on different bodies.',
+      'Third-law pairs come from the same interaction.',
+      'If both forces act on the same body, they are not a third-law pair.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-072-question.png'],
+  },
+  {
+    id: 'nl-073',
+    type: 'multiple_choice',
+    question:
+      'An object weighs 60 N on the Earth and 10 N on the moon. Which of the following statements are correct? (Take the acceleration due to gravity to be $10\\ \\text{m s}^{-2}$.)\n\n(1) The mass of the object on the Earth is 6 kg.\n(2) The mass of the object on the moon is 1 kg.\n(3) The acceleration due to gravity on the moon is one-sixth that on the Earth.',
+    options: ['(1) and (2) only', '(1) and (3) only', '(2) and (3) only', '(1), (2) and (3)'],
+    answer: '(1) and (3) only',
+    explanation:
+      '**Key point:** Weight depends on gravity, but mass does not.\n\nOn Earth:\n$$W=mg\\Rightarrow 60=m(10)\\Rightarrow m=6\\ \\text{kg},$$\nso (1) is true.\n\nMass is invariant, so on the moon it is still 6 kg, not 1 kg. Thus (2) is false.\n\nFor the same mass,\n$$\\frac{W_{moon}}{W_{earth}}=\\frac{g_{moon}}{g_{earth}}=\\frac{10}{60}=\\frac{1}{6},$$\nso (3) is true.\n\n**Conclusion:** (1) and (3) only, so option B.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Use $W=mg$ on Earth to find mass first.',
+      'Mass does not change with location.',
+      'Compare moon weight to Earth weight for the same mass to infer $g$.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-074',
+    type: 'multiple_choice',
+    question:
+      'Two blocks, of masses $m_1$ and $m_2$ ($m_1>m_2$), are connected by a light inextensible string and placed on a smooth horizontal surface. Let $T_1$ and $T_2$ be the tensions in the string when a horizontal force of magnitude $F$ is applied to the blocks as shown in Figures (a) and (b) respectively. Which of the following relationships are correct?\n\n(1) $T_1>T_2$\n(2) $\\frac{T_1}{m_1}=\\frac{T_2}{m_2}$\n(3) $T_1+T_2=F$',
+    options: ['(1) and (2) only', '(1) and (3) only', '(2) and (3) only', '(1), (2) and (3)'],
+    answer: '(1), (2) and (3)',
+    explanation:
+      '**Key point:** In both setups, total mass is the same and external horizontal force is $F$, so acceleration is the same:\n$$a=\\frac{F}{m_1+m_2}.$$ \n\nIn Fig. (a), tension accelerates block $m_1$:\n$$T_1=m_1a.$$ \nIn Fig. (b), tension accelerates block $m_2$:\n$$T_2=m_2a.$$ \n\nSince $m_1>m_2$, we get $T_1>T_2$.\nAlso,\n$$\\frac{T_1}{m_1}=a=\\frac{T_2}{m_2}.$$ \nAnd\n$$T_1+T_2=m_1a+m_2a=(m_1+m_2)a=F.$$ \n\n**Conclusion:** (1), (2) and (3) are all correct, so option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Find common acceleration of the two-block system first.',
+      'Write tension in each case using the block accelerated by the string.',
+      'Substitute $a=F/(m_1+m_2)$ to test statement (3).',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-074-question.png'],
+  },
+  {
+    id: 'nl-075',
+    type: 'multiple_choice',
+    question:
+      'A block is initially at rest on a smooth horizontal table and is pulled by a constant horizontal force. The figure shows the relationship between the physical quantities $y$ and $x$. Which of the following combinations of $y$ and $x$ is impossible?',
+    options: [
+      '$y$: displacement of the block; $x$: square of time',
+      '$y$: velocity of the block; $x$: time',
+      '$y$: square of velocity of the block; $x$: displacement of the block',
+      '$y$: acceleration of the block; $x$: time',
+    ],
+    answer: '$y$: acceleration of the block; $x$: time',
+    explanation:
+      '**Key point:** Under a constant horizontal force on a smooth table, acceleration is constant.\n\nA. Possible: from $s=\\frac{1}{2}at^2$, plotting $s$ against $t^2$ gives a straight line through origin.\n\nB. Possible: from $v=at$, plotting $v$ against $t$ gives a straight line through origin.\n\nC. Possible: from $v^2=2as$, plotting $v^2$ against $s$ gives a straight line through origin.\n\nD. Impossible for the shown straight-through-origin pattern: $a$ is constant, so $a$ vs $t$ should be a horizontal line, not an increasing straight line through origin.\n\n**Conclusion:** option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Constant force on smooth surface means constant acceleration.',
+      'Match each option with a standard kinematics equation.',
+      'Check the expected graph shape for $a$ vs $t$.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-075-question.png'],
+  },
+  {
+    id: 'nl-076',
+    type: 'multiple_choice',
+    question:
+      'The photograph shows a sucker sticking a hook to a vertical wall. Which of the following forces balances the gravitational force acting on the sucker and hook by the Earth?',
+    options: [
+      'the friction between the sucker and the wall',
+      'the force exerted by the air molecules on the sucker',
+      'the normal reaction exerted by the wall on the sucker',
+      'the gravitational force acting on the Earth by the sucker and hook',
+    ],
+    answer: 'the friction between the sucker and the wall',
+    explanation:
+      '**Key point:** To balance weight, an upward force along the wall is required.\n\nThe gravitational force acts downward. The normal reaction is perpendicular to the wall (horizontal), so it cannot balance weight.\n\nThe interaction that provides upward force along the wall is friction between the sucker and the wall.\n\n**Conclusion:** option A.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Identify the direction of weight.',
+      'Check the direction of normal reaction on a vertical wall.',
+      'Only a force along the wall can balance weight vertically.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-076-question.png'],
+  },
+  {
+    id: 'nl-077',
+    type: 'multiple_choice',
+    question:
+      'An object is acted on by three forces $F_1$, $F_2$ and $F_3$ in suitable directions such that it remains at rest. Which of the following combinations of the magnitude of the forces is/are possible?\n\n(1) $F_1=3\\ \\text{N},\\ F_2=4\\ \\text{N},\\ F_3=5\\ \\text{N}$\n(2) $F_1=3\\ \\text{N},\\ F_2=4\\ \\text{N},\\ F_3=7\\ \\text{N}$\n(3) $F_1=3\\ \\text{N},\\ F_2=5\\ \\text{N},\\ F_3=9\\ \\text{N}$',
+    options: ['(2) only', '(3) only', '(1) and (2) only', '(1) and (3) only'],
+    answer: '(1) and (2) only',
+    explanation:
+      '**Key point:** For equilibrium, one force must be able to balance the resultant of the other two by choosing suitable directions.\n\n(1) Possible: with 3 N and 4 N perpendicular, resultant is 5 N, balanced by $F_3=5$ N opposite direction.\n\n(2) Possible: with 3 N and 4 N in the same direction, resultant is 7 N, balanced by $F_3=7$ N opposite direction.\n\n(3) Impossible: for 3 N and 5 N, the resultant can range only from $|5-3|=2$ N to $5+3=8$ N. It cannot be 9 N.\n\n**Conclusion:** (1) and (2) only, so option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Think of $F_3$ balancing the resultant of $F_1$ and $F_2$.',
+      'For two forces $a,b$, resultant magnitude lies in $[|a-b|,a+b]$.',
+      'Test each case against this range.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-078',
+    type: 'multiple_choice',
+    question:
+      'A block remains at rest on a rough inclined plane. Which of the following diagrams shows all the forces acting on the block?\n\nNote: $W$ = gravitational force acting on the block, $R$ = normal reaction exerted by the inclined plane on the block, and $F$ = friction acting on the block.',
+    options: [
+      '/physics/exercises/newton-laws/nl-078-option-a.png',
+      '/physics/exercises/newton-laws/nl-078-option-b.png',
+      '/physics/exercises/newton-laws/nl-078-option-c.png',
+      '/physics/exercises/newton-laws/nl-078-option-d.png',
+    ],
+    answer: '/physics/exercises/newton-laws/nl-078-option-c.png',
+    explanation:
+      '**Key point:** For a block at rest on a rough incline, three forces act: weight, normal reaction, and static friction.\n\n- $W$ acts vertically downward.\n- $R$ acts perpendicular to the plane.\n- Since the block tends to slide down, friction acts up the plane to oppose that tendency.\n\nSo the correct free-body diagram is the one showing these three forces with correct directions.\n\n**Conclusion:** option C.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Weight is always vertical downward.',
+      'Normal reaction is perpendicular to the contact surface.',
+      'Friction opposes the tendency of motion along the plane.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-078-question.png'],
+  },
+  {
+    id: 'nl-079',
+    type: 'multiple_choice',
+    question:
+      'A fish is hung on a light string as shown above. If the tension in the string is 10 N, find the total weight of the fish and the hook.',
+    options: [
+      '$10\\sin70^{\\circ}\\ \\text{N}$',
+      '$10\\cos70^{\\circ}\\ \\text{N}$',
+      '$20\\sin70^{\\circ}\\ \\text{N}$',
+      '$20\\cos70^{\\circ}\\ \\text{N}$',
+    ],
+    answer: '$20\\cos70^{\\circ}\\ \\text{N}$',
+    explanation:
+      '**Key point:** In equilibrium, total upward vertical components of the two string tensions balance the weight.\n\nEach side has tension $T=10\\ \\text{N}$ and contributes vertical component $T\\cos70^{\\circ}$.\nSo\n$$W=2T\\cos70^{\\circ}=2(10)\\cos70^{\\circ}=20\\cos70^{\\circ}\\ \\text{N}.$$\n\n**Conclusion:** option D.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Resolve each tension into vertical and horizontal components.',
+      'Horizontal components cancel by symmetry.',
+      'Use vertical equilibrium to solve for $W$.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-079-question.png'],
+  },
+  {
+    id: 'nl-080',
+    type: 'multiple_choice',
+    question:
+      'A 1 kg block is pulled by a horizontal force of 5 N and moves with an acceleration of $2\\ \\text{m s}^{-2}$ on a rough horizontal plane. Find the frictional force acting on the block.',
+    options: ['zero', '2 N', '3 N', '7 N'],
+    answer: '3 N',
+    explanation:
+      '**Key point:** Along the direction of motion, applied force minus friction equals $ma$.\n\nUsing\n$$F-f=ma,$$\nsubstitute values:\n$$5-f=(1)(2).$$\nSo\n$$f=3\\ \\text{N}.$$\n\n**Conclusion:** option C.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Apply Newton’s second law along the horizontal direction.',
+      'Use $F-f=ma$.',
+      'Substitute $F=5$, $m=1$, $a=2$.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-080-question.png'],
+  },
+  {
+    id: 'nl-081',
+    type: 'multiple_choice',
+    question:
+      'Kelvin is standing on a balance inside a lift. The table shows the readings of the balance in three situations. Which of the following relationships is correct?',
+    options: ['$R_1=R_2>R_3$', '$R_3>R_1=R_2$', '$R_1>R_2>R_3$', '$R_1>R_1>R_2$'],
+    answer: '$R_3>R_1=R_2$',
+    explanation:
+      '**Key point:** Balance reading is normal reaction $R$.\n\n(1) Lift moving upward with uniform speed: $a=0$, so $R_1=mg$.\n\n(2) Lift moving downward with uniform speed: $a=0$, so $R_2=mg$.\n\n(3) Lift moving upward with acceleration: net force is upward, so\n$$R_3-mg=ma>0\\Rightarrow R_3>mg.$$\nTherefore,\n$$R_3>R_1=R_2.$$\n\n**Conclusion:** option B.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Uniform speed means zero acceleration.',
+      'Balance reading equals normal reaction.',
+      'Upward acceleration implies $R>mg$.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-081-question.png'],
+  },
+  {
+    id: 'nl-082',
+    type: 'multiple_choice',
+    question:
+      'Two blocks $X$ and $Y$ are connected by a light string passing over a smooth pulley as shown below. The mass of $X$ is greater than that of $Y$. The blocks are released from rest. Which of the following pairs of physical quantities are not equal while the blocks are in motion?',
+    options: [
+      'the speeds of the blocks',
+      'the magnitude of the accelerations of the blocks',
+      'the magnitude of the resultant forces acting on the blocks',
+      'the magnitude of the forces exerted by the string on the blocks',
+    ],
+    answer: 'the magnitude of the resultant forces acting on the blocks',
+    explanation:
+      '**Key point:** For a light string over a smooth pulley, connected blocks have the same speed magnitude and same acceleration magnitude, and the string tension is the same on both sides.\n\nThus:\n- Speeds are equal (A equal).\n- Accelerations are equal in magnitude (B equal).\n- String forces (tensions) are equal (D equal).\n\nBut resultant force magnitude is $F_{\\text{net}}=ma$. Since $m_X\\neq m_Y$ while $a$ is the same magnitude, resultant forces are different.\n\n**Conclusion:** the unequal pair is option C.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'For connected blocks, speed and acceleration magnitudes are linked by the string.',
+      'Smooth pulley + light string implies equal tension on both sides.',
+      'Compare resultant force using $F_{\\text{net}}=ma$ with different masses.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-082-question.png'],
+  },
+  {
+    id: 'nl-083',
+    type: 'multiple_choice',
+    question:
+      'Two blocks $X$ and $Y$ are connected by a light string passing over a smooth pulley as shown below. The mass of $X$ is greater than that of $Y$. The blocks are released from rest. Which of the following pairs of forces is an action and reaction pair?',
+    options: [
+      'The force exerted by the string on $X$ and the force exerted by the string on $Y$',
+      'The force exerted by the string on $Y$ and the force exerted by $Y$ on the string',
+      'The gravitational force exerted on $X$ and the force exerted by $X$ on the horizontal surface',
+      'The gravitational force exerted on $Y$ and the force exerted by the string on $Y$',
+    ],
+    answer: 'The force exerted by the string on $Y$ and the force exerted by $Y$ on the string',
+    explanation:
+      '**Key point:** A Newton’s third-law pair must be equal and opposite forces acting on two different bodies in the same interaction (A on B, and B on A).\n\nOption B is exactly this pair between string and block $Y$.\n\nOther options either act on different interactions or do not form opposite forces on the same two bodies.\n\n**Conclusion:** option B.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Check whether the two forces act on different bodies.',
+      'Third-law pair must come from the same interaction.',
+      'Look for “force of A on B” matched with “force of B on A”.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-083-question.png'],
+  },
+  {
+    id: 'nl-084',
+    type: 'multiple_choice',
+    question:
+      'A bow is pulled horizontally to create a tension of 50 N on its string as shown in the figure. What is the net horizontal force acting on the arrow when it is released?',
+    options: ['32.1 N', '38.3 N', '64.3 N', '76.6 N'],
+    answer: '76.6 N',
+    explanation:
+      '**Key point:** The arrow is pulled by two equal string tensions, and their horizontal components add.\n\nEach side contributes horizontal component:\n$$50\\cos40^{\\circ}.$$ \nSo net horizontal force is\n$$F_h=2\\times 50\\cos40^{\\circ}=76.6\\ \\text{N}.$$\n\n**Conclusion:** option D.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Resolve each tension into horizontal component.',
+      'Use symmetry: vertical components cancel.',
+      'Add both horizontal components.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-084-question.png'],
+  },
+  {
+    id: 'nl-085',
+    type: 'multiple_choice',
+    question:
+      'If Peter stands with his feet on a weighing scale placed on level ground, his weight measured by the scale is $W$. What would be the reading on the scale if he exerts a downward force $F$ on a table top with his hands while he is still standing on the same scale as shown above?',
+    options: ['$W$', '$W+F$', '$W-F$', '$F$'],
+    answer: '$W-F$',
+    explanation:
+      '**Key point:** The scale reads the normal reaction from the scale on Peter.\n\nForces on Peter vertically:\n- Weight $W$ downward\n- Upward reaction from table on hands: $F$\n- Upward normal reaction from scale: $R$ (the scale reading)\n\nAt equilibrium:\n$$F+R=W\\Rightarrow R=W-F.$$\n\n**Conclusion:** option C.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Identify what a weighing scale measures.',
+      'Draw vertical forces on Peter only.',
+      'Use vertical equilibrium to solve for $R$.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-085-question.png'],
+  },
+  {
+    id: 'nl-086',
+    type: 'multiple_choice',
+    question:
+      'An acrobat is standing in the middle of a cable as shown. The angle $\\theta$ is less than $60^{\\circ}$. Which of the following relations between the tension $T$ of the cable and the weight $W$ of the acrobat is correct? (Neglect the weight of the cable.)',
+    options: ['$T>W$', '$W>T>\\frac{W}{2}$', '$T=\\frac{W}{2}$', '$T<\\frac{W}{2}$'],
+    answer: '$W>T>\\frac{W}{2}$',
+    explanation:
+      '**Key point:** Vertical components of the two equal tensions balance the weight:\n$$W=2T\\cos\\theta\\Rightarrow \\cos\\theta=\\frac{W}{2T}.$$ \nGiven $0^{\\circ}<\\theta<60^{\\circ}$, we have\n$$1>\\cos\\theta>\\frac{1}{2}.$$ \nSo\n$$1>\\frac{W}{2T}>\\frac{1}{2}.$$\nThis implies\n$$T>\\frac{W}{2}\\quad \\text{and}\\quad T<W.$$ \n\n**Conclusion:** $W>T>\\frac{W}{2}$, so option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use vertical equilibrium at the acrobat.',
+      'Write $W=2T\\cos\\theta$ first.',
+      'Use the range of $\\cos\\theta$ for $0^\\circ<\\theta<60^\\circ$.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-086-question.png'],
+  },
+  {
+    id: 'nl-087',
+    type: 'multiple_choice',
+    question:
+      'A student performed an experiment to investigate the factors affecting the acceleration of a trolley carrying different loads. The table below shows the data recorded. Which trials can the student use to deduce the relationship between the acceleration and the net force acting on the trolley?',
+    options: ['(i), (ii) and (iii)', '(i), (iv) and (vi)', '(ii), (iv) and (v)', '(iii), (v) and (vi)'],
+    answer: '(i), (iv) and (vi)',
+    explanation:
+      '**Key point:** To study how acceleration depends on net force, mass must be kept constant.\n\nFrom the table, trials (i), (iv) and (vi) have the same trolley mass (2 kg), while net force varies.\n\nSo these trials isolate the effect of net force on acceleration.\n\n**Conclusion:** option B.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Identify the variable to be studied: net force.',
+      'Control the other key variable: mass.',
+      'Pick the set of trials with equal mass.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-087-question.png'],
+  },
+  {
+    id: 'nl-088',
+    type: 'multiple_choice',
+    question:
+      'Many traffic accidents on highways are associated with inertia. Which of the following traffic regulations can reduce the risk of traffic accidents due to inertia?\n\n(1) Passengers should wear seat belts.\n(2) Vehicles should not be overloaded.\n(3) People should not drive over the speed limit.',
+    options: ['(1) and (2) only', '(1) and (3) only', '(2) and (3) only', '(1), (2) and (3)'],
+    answer: '(1), (2) and (3)',
+    explanation:
+      '**Key point:** Inertia increases risk when objects/passengers tend to maintain their state of motion.\n\n(1) Seat belts reduce injury by restraining forward motion during sudden deceleration.\n\n(2) Overloading increases mass, making stopping harder within safe distance.\n\n(3) Higher speed increases difficulty of stopping safely and increases accident risk.\n\n**Conclusion:** all three measures help reduce inertia-related traffic risk, so option D.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Think about how inertia affects stopping and passenger motion.',
+      'Both mass and speed influence how hard a vehicle is to stop safely.',
+      'Seat belts control passenger motion during sudden deceleration.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-089',
+    type: 'multiple_choice',
+    question:
+      'Two blocks, $A$ and $B$, of masses 1 kg and 3 kg respectively, are placed on a horizontal smooth surface as shown. A horizontal constant force of 12 N is applied to block $A$ so that the two blocks move to the right with uniform acceleration. What is the magnitude of the contact force between $A$ and $B$?',
+    options: ['3 N', '4 N', '8 N', '9 N'],
+    answer: '9 N',
+    explanation:
+      '**Key point:** First find common acceleration of the two-block system, then apply $F=ma$ to block $B$.\n\nFor both blocks together:\n$$12=(1+3)a\\Rightarrow a=3\\ \\text{m s}^{-2}.$$ \nFor block $B$ alone, horizontal force is contact force $N$:\n$$N=m_Ba=(3)(3)=9\\ \\text{N}.$$\n\n**Conclusion:** option D.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Treat both blocks as one system to find acceleration first.',
+      'Then isolate block $B$.',
+      'Use $F=ma$ for the contact force on $B$.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-089-question.png'],
+  },
+  {
+    id: 'nl-090',
+    type: 'multiple_choice',
+    question:
+      'A horse pulls a block along a rough horizontal road and moves with a uniform velocity. Which of the following correctly describes the directions of the friction from the ground acting on the horse and the block?',
+    options: [
+      'Horse: backward; Block: forward',
+      'Horse: backward; Block: backward',
+      'Horse: forward; Block: forward',
+      'Horse: forward; Block: backward',
+    ],
+    answer: 'Horse: forward; Block: backward',
+    explanation:
+      '**Key point:** Friction acts to oppose relative slipping tendency at each contact.\n\nFor the block, it is pulled forward by the horse, so it tends to move forward relative to ground; friction on the block is backward.\n\nFor the horse, it pushes the ground backward with its hooves, so ground exerts forward friction on the horse, enabling forward motion.\n\nWith uniform velocity, these effects balance overall, but directions remain as above.\n\n**Conclusion:** Horse forward, Block backward → option D.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Analyze horse-ground and block-ground contacts separately.',
+      'Friction direction depends on slipping tendency at each contact.',
+      'Uniform velocity means net force is zero, not that friction is absent.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-091',
+    type: 'multiple_choice',
+    question:
+      'A child is standing on a weighing scale as shown above. Which of the following pairs of forces is/are an action and reaction pair(s)?\n\n(1) The force exerted by the child on the scale and the force exerted by the scale on the child\n(2) The gravitational force exerted by the Earth on the child and the force exerted by the scale on the child\n(3) The gravitational force exerted by the Earth on the child and the gravitational force exerted by the Earth on the scale',
+    options: ['(1) only', '(2) only', '(1) and (3) only', '(2) and (3) only'],
+    answer: '(1) only',
+    explanation:
+      '**Key point:** A third-law pair must be “force of A on B” and “force of B on A”.\n\n(1) Correct: child-on-scale and scale-on-child are equal and opposite on different bodies.\n\n(2) Incorrect: Earth-on-child pairs with child-on-Earth, not with scale-on-child.\n\n(3) Incorrect: both listed forces are Earth-on-objects, so they are not action-reaction to each other.\n\n**Conclusion:** only (1) is a valid action-reaction pair, so option A.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Match each force with its exact “other-body on first-body” partner.',
+      'If both forces are “Earth on ...”, they cannot be a third-law pair.',
+      'Check whether the pair acts on two different bodies in opposite directions.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-091-question.png'],
+  },
+  {
+    id: 'nl-092',
+    type: 'multiple_choice',
+    question:
+      'In the above figure, a 1 kg block is suspended by a string under the ceiling. The block is pulled by a 3 N horizontal force such that it makes angle $\\theta$ to the vertical. Which of the following descriptions is correct? (Note: The tension of the string is denoted as $T$.)',
+    options: [
+      '$\\theta<30^{\\circ}$ and $13\\ \\text{N}>T>10\\ \\text{N}$',
+      '$\\theta<30^{\\circ}$ and $T>13\\ \\text{N}$',
+      '$\\theta>30^{\\circ}$ and $13\\ \\text{N}>T>10\\ \\text{N}$',
+      '$\\theta>30^{\\circ}$ and $T>13\\ \\text{N}$',
+    ],
+    answer: '$\\theta<30^{\\circ}$ and $13\\ \\text{N}>T>10\\ \\text{N}$',
+    explanation:
+      '**Key point:** Resolve tension into horizontal and vertical components for equilibrium.\n\nHorizontal balance:\n$$T\\sin\\theta=3.$$ \nVertical balance:\n$$T\\cos\\theta=10.$$ \nSo\n$$\\tan\\theta=\\frac{3}{10}=0.3\\Rightarrow \\theta\\approx16.7^{\\circ}<30^{\\circ}.$$ \nAnd\n$$T=\\sqrt{3^2+10^2}=\\sqrt{109}\\approx10.4\\ \\text{N},$$\nthus\n$$13\\ \\text{N}>T>10\\ \\text{N}.$$\n\n**Conclusion:** option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Write separate force-balance equations horizontally and vertically.',
+      'Use $\\tan\\theta=(T\\sin\\theta)/(T\\cos\\theta)=3/10$.',
+      'Find $T$ from component values or Pythagoras.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-092-question.png'],
+  },
+  {
+    id: 'nl-093',
+    type: 'multiple_choice',
+    question:
+      'A bob is hung by a string from the ceiling of a train. At a certain instant, the bob is inclined to the east as shown in the figure. Which of the following descriptions about the motion of the train at this instant is/are possible?\n\n(1) It is moving to the east and decelerating.\n(2) It is moving to the west and accelerating.\n(3) It starts to move to the east from rest.',
+    options: ['(1) only', '(3) only', '(1) and (2) only', '(2) and (3) only'],
+    answer: '(1) and (2) only',
+    explanation:
+      '**Key point:** The bob inclines opposite to train acceleration direction. Since it inclines to the east, train acceleration is to the west.\n\n(1) Moving east and decelerating means acceleration westward → possible.\n\n(2) Moving west and accelerating means acceleration westward → possible.\n\n(3) Starting to move east from rest means acceleration eastward → not possible.\n\n**Conclusion:** (1) and (2) only, so option C.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'String tilt indicates resultant acceleration direction of the train frame.',
+      'Tilt to east implies acceleration to west.',
+      'Check each motion statement against westward acceleration.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-093-question.png'],
+  },
+  {
+    id: 'nl-094',
+    type: 'multiple_choice',
+    question:
+      'A block is placed on a table resting on the ground as shown in Figure (a). Figure (b) shows the forces acting on the block and the table respectively.\nLet $F_1$ = weight of the block, $F_2$ = force exerted by the block on the table, and $F_3$ = force exerted by the table on the block. Which of the following statements are correct?\n\n(1) $F_1$ and $F_2$ represent the same force.\n(2) $F_1$ and $F_3$ balance each other.\n(3) $F_2$ and $F_3$ form an action-reaction pair.',
+    options: ['(1) and (2) only', '(1) and (3) only', '(2) and (3) only', '(1), (2) and (3)'],
+    answer: '(2) and (3) only',
+    explanation:
+      '**Key point:** Distinguish balanced forces on the same body from third-law pairs on different bodies.\n\n(1) False: $F_1$ is Earth-on-block weight; $F_2$ is block-on-table normal force. Different interactions.\n\n(2) True: on the block, $F_1$ (downward) and $F_3$ (upward) balance because the block is at rest.\n\n(3) True: $F_2$ (block on table) and $F_3$ (table on block) are equal and opposite on different bodies, so they are an action-reaction pair.\n\n**Conclusion:** (2) and (3) only, so option C.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Check whether each pair acts on the same body or different bodies.',
+      'Balanced forces act on one body; third-law pairs act on two bodies.',
+      'For the block at rest, vertical forces on it must balance.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-094-question.png'],
+  },
+  {
+    id: 'nl-095',
+    type: 'multiple_choice',
+    question:
+      'A block of mass $m$ slides down along a rough inclined plane with constant acceleration $a$ as shown above. What are the friction and the normal reaction acting on the block?',
+    options: [
+      'Friction: $mg\\sin\\theta+ma$; Normal reaction: $mg\\sin\\theta$',
+      'Friction: $mg\\sin\\theta-ma$; Normal reaction: $mg\\cos\\theta$',
+      'Friction: $mg\\cos\\theta+ma$; Normal reaction: $mg\\sin\\theta$',
+      'Friction: $mg\\cos\\theta-ma$; Normal reaction: $mg\\cos\\theta$',
+    ],
+    answer: 'Friction: $mg\\sin\\theta-ma$; Normal reaction: $mg\\cos\\theta$',
+    explanation:
+      '**Key point:** Resolve forces along and perpendicular to the incline.\n\nAlong plane (downward positive):\n$$mg\\sin\\theta-f=ma\\Rightarrow f=mg\\sin\\theta-ma.$$ \nPerpendicular to plane, no acceleration:\n$$R=mg\\cos\\theta.$$ \n\nSo the correct pair is friction $mg\\sin\\theta-ma$ and normal reaction $mg\\cos\\theta$.\n\n**Conclusion:** option B.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Write one equation along the slope and one perpendicular to it.',
+      'Friction opposes sliding direction (up the plane).',
+      'No perpendicular acceleration means forces there balance.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-095-question.png'],
+  },
+  {
+    id: 'nl-096',
+    type: 'multiple_choice',
+    question:
+      'Two blocks $A$ and $B$ of the same mass on a horizontal surface are connected by a string as shown above. Two horizontal forces of 10 N and 4 N are acting on $A$ and $B$ respectively. Assume all contact surfaces are smooth. What is the magnitude of the tension in the string?',
+    options: ['3 N', '6 N', '7 N', '14 N'],
+    answer: '7 N',
+    explanation:
+      '**Key point:** The two blocks have equal mass and common acceleration, so write Newton’s second law for each.\n\nLet acceleration be $a$ and tension be $T$.\nFor $A$:\n$$10-T=ma.$$ \nFor $B$:\n$$T-4=ma.$$ \nEquate right-hand sides:\n$$10-T=T-4\\Rightarrow 2T=14\\Rightarrow T=7\\ \\text{N}.$$\n\n**Conclusion:** option C.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Let both blocks have the same acceleration $a$.',
+      'Write separate force equations for $A$ and $B$.',
+      'Eliminate $ma$ by equating the two expressions.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-096-question.png'],
+  },
+  {
+    id: 'nl-097',
+    type: 'multiple_choice',
+    question:
+      'A block of mass 1 kg rests on a rough horizontal plane. When it is pulled by a horizontal force of 5 N, it moves with an acceleration of $2\\ \\text{m s}^{-2}$. Now, the block is at rest and is pulled by a horizontal force of 2 N, what is the resultant force acting on the block?',
+    options: ['zero', '1 N', '2 N', '3 N'],
+    answer: 'zero',
+    explanation:
+      '**Key point:** Static friction adjusts to balance applied force up to its limit.\n\nFrom the moving case:\n$$5-f=1\\times2\\Rightarrow f=3\\ \\text{N}.$$ \nSo friction capability is at least 3 N.\n\nWhen pulled by 2 N while at rest, static friction becomes 2 N opposite to pull, so forces balance.\n\nResultant force is zero.\n\n**Conclusion:** option A.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Use the 5 N case to infer friction value.',
+      'For an object still at rest, static friction can match smaller applied force.',
+      'Check net force after balancing pull with friction.',
+    ],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-098',
+    type: 'multiple_choice',
+    question:
+      'A 50 N block is suspended by two threads as shown in the figure above. Thread $S_1$ makes an angle $30^{\\circ}$ with the horizontal and thread $S_2$ is horizontal. What is the tension in $S_2$?',
+    options: ['28.9 N', '57.7 N', '86.6 N', '100 N'],
+    answer: '86.6 N',
+    explanation:
+      '**Key point:** Resolve $T_1$ into components and apply equilibrium in vertical and horizontal directions.\n\nVertical balance:\n$$T_1\\sin30^{\\circ}=50\\Rightarrow T_1=100\\ \\text{N}.$$ \nHorizontal balance:\n$$T_2=T_1\\cos30^{\\circ}=100\\cos30^{\\circ}=86.6\\ \\text{N}.$$ \n\n**Conclusion:** option C.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Start with vertical force balance to get $T_1$.',
+      'Use $\\sin30^\\circ=0.5$.',
+      'Then use horizontal balance to find $T_2$.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-098-question.png'],
+  },
+  {
+    id: 'nl-099',
+    type: 'multiple_choice',
+    question:
+      'Force $F$ is the resultant of two forces $F_1$ and $F_2$ on a horizontal plane. Which of the following diagrams best represents the missing force $F_2$?',
+    options: [
+      '/physics/exercises/newton-laws/nl-099-option-a.png',
+      '/physics/exercises/newton-laws/nl-099-option-b.png',
+      '/physics/exercises/newton-laws/nl-099-option-c.png',
+      '/physics/exercises/newton-laws/nl-099-option-d.png',
+    ],
+    answer: '/physics/exercises/newton-laws/nl-099-option-a.png',
+    explanation:
+      '**Key point:** Vector addition must satisfy\n$$\\vec F=\\vec F_1+\\vec F_2.$$ \nSo $\\vec F_2$ should be the vector that, when added to $\\vec F_1$, gives resultant $\\vec F$ in both magnitude and direction.\n\nAmong the given diagrams, only option A matches this vector-sum condition.\n\n**Conclusion:** option A.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Use head-to-tail vector addition idea.',
+      'Check both direction and relative length of the missing vector.',
+      'Find the option where $\\vec F_1+\\vec F_2$ points exactly as $\\vec F$.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-099-question.png'],
+  },
+  {
+    id: 'nl-100',
+    type: 'multiple_choice',
+    question:
+      "An object of weight 120 N on the Earth's surface is taken to the Moon's surface where the acceleration due to gravity is $\\frac{1}{6}$ of that at the Earth's surface. What are the mass and the weight of the object at the Moon's surface? (Take the acceleration due to gravity on the Earth's surface to be $10\\ \\text{m s}^{-2}$.)",
+    options: ['mass 2 kg; weight 20 N', 'mass 2 kg; weight 120 N', 'mass 12 kg; weight 20 N', 'mass 12 kg; weight 120 N'],
+    answer: 'mass 12 kg; weight 20 N',
+    explanation:
+      '**Key point:** Mass is invariant, while weight depends on local gravitational acceleration.\n\nOn Earth:\n$$W=mg\\Rightarrow 120=m(10)\\Rightarrow m=12\\ \\text{kg}.$$ \nOn Moon, $g$ is one-sixth, so weight is one-sixth:\n$$W_{moon}=120\\times\\frac{1}{6}=20\\ \\text{N}.$$ \nMass remains $12\\ \\text{kg}$.\n\n**Conclusion:** mass 12 kg and weight 20 N, so option C.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Use Earth data first to find mass from $W=mg$.',
+      'Mass does not change with location.',
+      'Moon weight scales with moon gravity (one-sixth).',
+    ],
+    sectionId: 'newton-laws',
+  },
 ];
 
 // 互动模拟 - 自由落体计时器
