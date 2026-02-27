@@ -5171,6 +5171,526 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     sectionId: 'newton-laws',
   },
+  {
+    id: 'nl-131',
+    type: 'multiple_choice',
+    question:
+      'A weight $W$ is suspended from the ceiling by inextensible strings as shown. String $OA$ makes an angle $\\theta$ with the vertical while string $OB$ makes the same angle $\\theta$ with the ceiling. Find the tension in $OB$.',
+    options: ['$W\\sin\\theta$', '$W/\\sin\\theta$', '$W\\cos\\theta$', '$W/\\cos\\theta$'],
+    answer: '$W\\sin\\theta$',
+    explanation:
+      '**Key point:** Use equilibrium at the junction.\n\nHorizontal and vertical balances with the two string directions give\n$$T_{OB}=W\\sin\\theta.$$ \n\n**Conclusion:** option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Resolve both string tensions into horizontal and vertical components.',
+      'Use both equilibrium equations at the joint.',
+      'Eliminate the other string tension to get $T_{OB}$.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-131-question.png'],
+  },
+  {
+    id: 'nl-132',
+    type: 'multiple_choice',
+    question:
+      'Three blocks $A$, $B$ and $C$, connected by light strings, are placed on a smooth horizontal surface as shown. A constant force $F$ is applied to block $A$ so that the whole system travels to the right with acceleration. If a lump of plasticine is placed on $B$ and it moves together with $B$ while the applied force $F$ remains unchanged, how would the tensions $T_1$ and $T_2$ in the two strings change?',
+    options: [
+      '$T_1$ decreases, $T_2$ increases',
+      '$T_1$ decreases, $T_2$ decreases',
+      '$T_1$ increases, $T_2$ increases',
+      '$T_1$ increases, $T_2$ decreases',
+    ],
+    answer: '$T_1$ increases, $T_2$ decreases',
+    explanation:
+      '**Key point:** Added plasticine increases total mass, so common acceleration decreases. But $T_1$ pulls a larger trailing mass group, so it increases; $T_2$ is tied to accelerating block $C$ with smaller acceleration, so it decreases.\n\n**Conclusion:** option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'First infer how common acceleration changes when mass increases with same $F$.',
+      'Think of what mass each tension has to accelerate.',
+      'Compare before and after adding plasticine.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-132-question.png'],
+  },
+  {
+    id: 'nl-133',
+    type: 'multiple_choice',
+    question:
+      'A small bob $P$ is suspended by an inextensible string from the ceiling of a vehicle. The vehicle is moving on a straight horizontal road and the string makes an angle $\\theta$ with the vehicle as shown in the figure. Which of the following description of the acceleration of the vehicle is correct?',
+    options: [
+      '$g\\sin\\theta$ to the left',
+      '$g\\sin\\theta$ to the right',
+      '$g\\tan\\theta$ to the left',
+      '$g\\tan\\theta$ to the right',
+    ],
+    answer: '$g\\tan\\theta$ to the right',
+    explanation:
+      '**Key point:** For a suspended bob in a horizontally accelerating vehicle, component relation gives\n$$\\tan\\theta=\\frac{a}{g}\\Rightarrow a=g\\tan\\theta.$$ \nDirection is opposite to the bob’s tilt; from the shown setup this is to the right.\n\n**Conclusion:** option D.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use force components on bob: horizontal resultant provides $ma$.',
+      'Apply $\\tan\\theta=a/g$.',
+      'Acceleration direction is opposite to the tilt direction of the string.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-133-question.png'],
+  },
+  {
+    id: 'nl-134',
+    type: 'multiple_choice',
+    question:
+      'A block $X$ is placed on top of another block $Y$, which rests on a horizontal surface. The blocks have the same mass $m$. The block $Y$ is pulled by a horizontal force $F$ as shown. Assume that all contact surfaces are smooth. What is the acceleration of each block?',
+    options: [
+      '$a_X=0$, $a_Y=\\frac{F}{m}$',
+      '$a_X=0$, $a_Y=\\frac{F}{2m}$',
+      '$a_X=\\frac{F}{m}$, $a_Y=\\frac{F}{m}$',
+      '$a_X=\\frac{F}{2m}$, $a_Y=\\frac{F}{2m}$',
+    ],
+    answer: '$a_X=0$, $a_Y=\\frac{F}{m}$',
+    explanation:
+      '**Key point:** With smooth contact between $X$ and $Y$, no horizontal force is transmitted to $X$.\n\nSo $X$ has zero horizontal acceleration, while $Y$ alone is accelerated by $F$:\n$$a_Y=\\frac{F}{m}.$$ \n\n**Conclusion:** option A.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Smooth contact means no frictional horizontal interaction.',
+      'Check horizontal forces on $X$ first.',
+      'Then apply $F=ma$ to block $Y$.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-134-question.png'],
+  },
+  {
+    id: 'nl-135',
+    type: 'multiple_choice',
+    question:
+      'A 2 kg block is placed on top of a 3 kg block on a smooth horizontal surface as shown. A horizontal force of 6 N is applied to the 3 kg block such that the two blocks move together. The friction acting between the two blocks is',
+    options: ['0 N', '1.2 N', '2.4 N', '3.6 N'],
+    answer: '2.4 N',
+    explanation:
+      '**Key point:** If blocks move together, they share acceleration\n$$a=\\frac{6}{2+3}=1.2\\ \\text{m s}^{-2}.$$ \nFriction on the 2 kg top block provides its acceleration:\n$$f=ma=2\\times1.2=2.4\\ \\text{N}.$$ \n\n**Conclusion:** option C.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Find system acceleration first.',
+      'Then use top block alone to find friction.',
+      'Friction is the only horizontal force on the top block.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-135-question.png'],
+  },
+  {
+    id: 'nl-136',
+    type: 'multiple_choice',
+    question:
+      'Billy of mass 50 kg stands still on a weighing scale in a lift. The lift starts to ascend at $t=0$ and comes to rest at $t=24\\ \\text{s}$. The graph shows how the reading of the weighing scale varies within this time interval. What is the corresponding height ascended by the lift? (Take the acceleration due to gravity to be $10\\ \\text{m s}^{-2}$.)',
+    options: ['192 m', '144 m', '128 m', '96 m'],
+    answer: '128 m',
+    explanation:
+      '**Key point:** Convert scale readings to lift acceleration in each phase, then use $v$-$t$ area.\n\nFrom graph: 0–8 s gives upward $a=1$, 8–16 s gives $a=0$, 16–24 s gives downward $a=1$ (decelerating upward).\nSo peak speed after 8 s is\n$$v=0+1\\times8=8\\ \\text{m s}^{-1}.$$ \nDistance ascended equals area under $v$-$t$ graph:\n$$s=\\frac{1}{2}(8+24)\\times8=128\\ \\text{m}.$$ \n\n**Conclusion:** option C.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Use $R-mg=ma$ or $mg-R=ma$ by phase.',
+      'Build the velocity-time profile across 0–24 s.',
+      'Distance is area under $v$-$t$ graph.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-136-question.png'],
+  },
+  {
+    id: 'nl-137',
+    type: 'multiple_choice',
+    question:
+      'A body of weight $W$ is suspended by three inextensible light strings $OA$, $OB$ and $OC$ as shown in the figure. $OA$ makes an angle $\\theta$ with the horizontal while $OB$ is horizontal. The maximum tension that each string can bear is the same. If the weight $W$ gradually increases, which string will break first?',
+    options: ['string $OA$', 'string $OB$', 'string $OC$', 'It depends on the value of $\\theta$'],
+    answer: 'string $OA$',
+    explanation:
+      '**Key point:** Equilibrium component equations give\n$$T_A\\sin\\theta=T_C,\\quad T_A\\cos\\theta=T_B.$$ \nSo $T_A>T_C$ and $T_A>T_B$. Therefore $OA$ always carries the greatest tension and reaches limit first.\n\n**Conclusion:** option A.',
+    difficulty: 1,
+    points: 10,
+    hints: [
+      'Resolve tensions of string $OA$ into horizontal and vertical components.',
+      'Relate each component to $T_B$ and $T_C$.',
+      'Compare magnitudes to identify which is largest.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-137-question.png'],
+  },
+  {
+    id: 'nl-138',
+    type: 'multiple_choice',
+    question:
+      'A boy performs a bungee jump from the top of a bridge. He is connected with a light elastic cord to the bridge at $O$ as shown in the figure. When he falls down from rest at $O$, the cord starts to stretch at point $P$. He then passes $Q$ where the tension in the cord is just equal to his weight. Finally, the boy reaches point $R$ where he is momentarily at rest. If air resistance is neglected, which of the following descriptions are correct?\n\n(1) From $P$ to $Q$, the speed of the boy increases throughout.\n(2) At $Q$, the speed of the boy is the maximum in the falling motion.\n(3) At $R$, the net force acting on the boy is zero.',
+    options: ['(1) and (2) only', '(1) and (3) only', '(2) and (3) only', '(1), (2) and (3)'],
+    answer: '(1) and (2) only',
+    explanation:
+      '**Key point:** Tension rises with extension.\n\nFrom $P$ to $Q$, tension is still less than weight, so net force is downward and speed keeps increasing → (1) true.\nAt $Q$, $T=mg$, so acceleration is zero at that instant; after $Q$, $T>mg$ gives upward acceleration, so speed starts decreasing. Hence speed is maximum at $Q$ → (2) true.\nAt $R$, velocity is momentarily zero but cord is highly stretched so $T>mg$; net force is not zero → (3) false.\n\n**Conclusion:** (1) and (2) only, so option A.',
+    difficulty: 2,
+    points: 15,
+    hints: [
+      'Compare tension with weight in each segment.',
+      'Maximum speed occurs where acceleration changes sign.',
+      'Momentary rest does not imply zero net force.',
+    ],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-138-question.png'],
+  },
+  {
+    id: 'nl-139',
+    type: 'multiple_choice',
+    question:
+      'A fish is hung on a light string as shown. If the tension in the string is 10 N, find the total weight of the fish and the hook.',
+    options: ['$20\\sin70^{\\circ}\\ \\mathrm{N}$', '$20\\cos70^{\\circ}\\ \\mathrm{N}$', '$10\\sin70^{\\circ}\\ \\mathrm{N}$', '$10\\cos70^{\\circ}\\ \\mathrm{N}$'],
+    answer: '$20\\cos70^{\\circ}\\ \\mathrm{N}$',
+    explanation:
+      'Resolve each string tension into components. The two vertical components balance the weight: $W=2T\\cos70^{\\circ}=20\\cos70^{\\circ}\\,\\mathrm{N}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['At equilibrium, vertical components balance weight.', 'There are two equal tension forces.', 'Use $T=10\\,\\mathrm{N}$.'],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-139-question.png'],
+  },
+  {
+    id: 'nl-140',
+    type: 'multiple_choice',
+    question:
+      'A block remains at rest on a rough inclined plane. Which diagram shows all the forces acting on the block? ( $W$: weight, $R$: normal reaction, $F$: friction )',
+    options: [
+      '/physics/exercises/newton-laws/nl-140-option-a.png',
+      '/physics/exercises/newton-laws/nl-140-option-b.png',
+      '/physics/exercises/newton-laws/nl-140-option-c.png',
+      '/physics/exercises/newton-laws/nl-140-option-d.png',
+    ],
+    answer: '/physics/exercises/newton-laws/nl-140-option-c.png',
+    explanation:
+      'On a rough incline at rest, friction acts up the plane to oppose sliding tendency; normal reaction is perpendicular to plane; weight is vertical.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Weight is always vertical downward.', 'Normal reaction is perpendicular to surface.', 'Static friction opposes tendency to slide down.'],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-140-question.png'],
+  },
+  {
+    id: 'nl-141',
+    type: 'multiple_choice',
+    question:
+      'A 1 kg block is pulled by a horizontal force of 5 N and moves with acceleration $2\\ \\mathrm{m\\ s^{-2}}$ on a rough horizontal plane. Find the frictional force.',
+    options: ['zero', '2 N', '3 N', '7 N'],
+    answer: '3 N',
+    explanation: 'By Newton second law: $F-f=ma\\Rightarrow 5-f=1\\times2$, so $f=3\\,\\mathrm{N}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Use $F-f=ma$.', 'Mass is 1 kg.', 'Solve linearly for $f$.'],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-141-question.png'],
+  },
+  {
+    id: 'nl-142',
+    type: 'multiple_choice',
+    question:
+      'Kelvin stands on a balance in a lift. Readings are $R_1$ (moving up with uniform speed), $R_2$ (moving down with uniform speed), and $R_3$ (moving up with acceleration). Which relation is correct?',
+    options: ['$R_1=R_2>R_3$', '$R_3>R_1=R_2$', '$R_1>R_2>R_3$', '$R_3>R_1>R_2$'],
+    answer: '$R_3>R_1=R_2$',
+    explanation:
+      'Uniform speed means zero acceleration, so $R_1=R_2=mg$. Moving upward with acceleration needs larger normal reaction, so $R_3>mg$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Uniform speed means $a=0$.', 'Scale reading is normal reaction.', 'Upward acceleration increases apparent weight.'],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-142-question.png'],
+  },
+  {
+    id: 'nl-143',
+    type: 'multiple_choice',
+    question:
+      'A block slides down a smooth incline from rest and then moves on rough ground as in the given $v$-$t$ graph. If released from a higher point on the same incline, which dotted graph is correct (same friction on ground)?',
+    options: [
+      '/physics/exercises/newton-laws/nl-143-option-a.png',
+      '/physics/exercises/newton-laws/nl-143-option-b.png',
+      '/physics/exercises/newton-laws/nl-143-option-c.png',
+      '/physics/exercises/newton-laws/nl-143-option-d.png',
+    ],
+    answer: '/physics/exercises/newton-laws/nl-143-option-d.png',
+    explanation:
+      'On the same smooth incline, acceleration is unchanged so first-segment slope is same. From higher release point, bottom speed is greater. On rough ground, deceleration is same, so second-segment slope is unchanged.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Incline acceleration depends on angle.', 'Higher release point gives larger speed before rough section.', 'Same friction means same deceleration slope.'],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-143-question.png'],
+  },
+  {
+    id: 'nl-144',
+    type: 'multiple_choice',
+    question:
+      'A block of weight 100 N is on a horizontal table. An upward vertical force of 60 N is exerted on the block. Which statements are correct?\n\n(1) Weight is balanced by force exerted on block by table.\n(2) Weight and force exerted on table by block are equal in magnitude.\n(3) Force exerted on table by block and force exerted on block by table are an action-reaction pair.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      'Vertical balance on block gives $R+60=100\\Rightarrow R=40\\,\\mathrm{N}$. So (1) false and (2) false. The pair in (3) is a Newton third-law pair.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Include the extra 60 N in vertical balance.', 'Find table normal $R$ first.', 'Third-law pair acts on different bodies.'],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-144-question.png'],
+  },
+  {
+    id: 'nl-145',
+    type: 'multiple_choice',
+    question:
+      'Blocks $P,Q,R$ are connected on a smooth horizontal surface. A constant force $F$ pulls $P$. If a lump of plasticine is placed on $Q$ and moves with it while $F$ is unchanged, how do tensions $T_1$ and $T_2$ change?',
+    options: [
+      '$T_1$ increase, $T_2$ decrease',
+      '$T_1$ increase, $T_2$ increase',
+      '$T_1$ decrease, $T_2$ decrease',
+      '$T_1$ decrease, $T_2$ increase',
+    ],
+    answer: '$T_1$ increase, $T_2$ decrease',
+    explanation:
+      'Total mass increases so common acceleration decreases. For trailing block $R$, $T_2=m_R a$ decreases. For front block, $F-T_1=m_P a$ with smaller $a$ gives larger $T_1$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Same $F$ with larger mass gives smaller $a$.', 'Use $T_2=m_R a$.', 'Use $F-T_1=m_P a$.'],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-145-question.png'],
+  },
+  {
+    id: 'nl-146',
+    type: 'multiple_choice',
+    question:
+      'Blocks $P$ and $Q$ of masses $m$ and $2m$ are connected by a light spring balance on a smooth surface. Horizontal forces $F_1$ and $F_2$ ($F_1>F_2$) act so the system accelerates left. What is the balance reading?',
+    options: ['$\\frac{2F_1-F_2}{3}$', '$\\frac{2(F_1-F_2)}{3}$', '$\\frac{2F_1+F_2}{3}$', '$\\frac{F_1+2F_2}{3}$'],
+    answer: '$\\frac{2F_1+F_2}{3}$',
+    explanation:
+      'Whole system: $F_1-F_2=(m+2m)a\\Rightarrow a=\\frac{F_1-F_2}{3m}$. For block $P$: $F_1-T=ma$, hence $T=F_1-\\frac{F_1-F_2}{3}=\\frac{2F_1+F_2}{3}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Find common acceleration from net external force.', 'Then isolate block $P$.', 'Balance reading equals string force $T$.'],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-146-question.png'],
+  },
+  {
+    id: 'nl-147',
+    type: 'multiple_choice',
+    question:
+      'Two forces $F_1$ and $F_2$ of constant magnitudes act at a point. As the angle $\\theta$ between them increases from $0^\\circ$ to $180^\\circ$, the resultant magnitude',
+    options: ['decreases throughout.', 'increases throughout.', 'decreases and then increases.', 'increases and then decreases.'],
+    answer: 'decreases throughout.',
+    explanation:
+      'Resultant magnitude is $R=\\sqrt{F_1^2+F_2^2+2F_1F_2\\cos\\theta}$. As $\\theta$ increases, $\\cos\\theta$ decreases from 1 to -1, so $R$ decreases monotonically.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Use vector resultant formula with $\\cos\\theta$.', '$\\cos\\theta$ decreases on $[0^\\circ,180^\\circ]$.', 'Compare extremes at $0^\\circ$ and $180^\\circ$.'],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-147-question.png'],
+  },
+  {
+    id: 'nl-148',
+    type: 'multiple_choice',
+    question:
+      'A block of mass $m$ on a $30^\\circ$ rough incline is given a slight push and slides down with uniform speed. Which statements are correct?\n\n(1) Net force is zero.\n(2) Friction is $0.5mg$.\n(3) Giving a greater initial speed makes it slide with acceleration.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) & (2) only',
+    explanation:
+      'Uniform speed means $a=0$, so net force is zero. Along plane: $mg\\sin30^\\circ=f$, hence $f=0.5mg$. Initial speed does not change force balance, so (3) is false.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Uniform speed implies $a=0$.', 'Resolve forces parallel to incline.', 'Initial speed does not affect constant force values.'],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-148-question.png'],
+  },
+  {
+    id: 'nl-149',
+    type: 'multiple_choice',
+    question:
+      'A block of mass $m$ on a rough horizontal surface is pulled by horizontal force $F$ increasing from zero. If frictional force is constant, which graph shows relation between acceleration $a$ and $F$?',
+    options: [
+      '/physics/exercises/newton-laws/nl-149-option-a.png',
+      '/physics/exercises/newton-laws/nl-149-option-b.png',
+      '/physics/exercises/newton-laws/nl-149-option-c.png',
+      '/physics/exercises/newton-laws/nl-149-option-d.png',
+    ],
+    answer: '/physics/exercises/newton-laws/nl-149-option-a.png',
+    explanation:
+      'With constant friction $f$, $F-f=ma\\Rightarrow a=\\frac{1}{m}F-\\frac{f}{m}$, a straight line with positive slope and negative $a$-intercept.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Write Newton second law first.', 'Identify slope $1/m$.', 'Intercept is $-f/m$.'],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-149-question.png'],
+  },
+  {
+    id: 'nl-150',
+    type: 'multiple_choice',
+    question:
+      'A block of weight 20 N is suspended by a light string from the ceiling. A force $F$ is applied such that the block is displaced to one side with the string making an angle of $25^{\\circ}$ with the vertical. Find the magnitude of $F$.',
+    options: ['8.5 N', '9.3 N', '18.1 N', '47.3 N'],
+    answer: '8.5 N',
+    explanation:
+      'At equilibrium, resolving forces gives $F=W\\sin\\theta=20\\sin25^{\\circ}\\approx8.5\\,\\mathrm{N}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Resolve forces into horizontal and vertical directions.', 'Use equilibrium in both directions.', 'Or directly use $F=W\\sin\\theta$.'],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-150-question.png'],
+  },
+  {
+    id: 'nl-151',
+    type: 'multiple_choice',
+    question:
+      'In the figure, $O$ is the centre of a regular hexagon. A particle at $O$ is subject to six forces with magnitudes indicated. The resultant force acting on the particle is',
+    options: ['9 N along direction $OE$.', '8 N along direction $OE$.', '8 N along direction $OF$.', '6 N along direction $OE$.'],
+    answer: '6 N along direction $OE$.',
+    explanation:
+      'From vector addition in the given diagram, opposite components cancel and the net remaining force is $6\\,\\mathrm{N}$ along $OE$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Pair opposite directions first.', 'Combine forces head-to-tail.', 'Use the diagram symmetry of the hexagon.'],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-151-question.png'],
+  },
+  {
+    id: 'nl-152',
+    type: 'multiple_choice',
+    question:
+      'A block on a rough horizontal surface moves left with constant speed under two horizontal forces 2 N and 12 N. If the 12 N force is suddenly removed, what is the net force at that instant?',
+    options: ['12 N', '10 N', '8 N', '2 N'],
+    answer: '12 N',
+    explanation:
+      'Before removal, net force is zero, so friction balances the remaining horizontal effects. Immediately after removal, velocity is still leftward, so friction direction and magnitude stay the same at that instant, giving net force $12\\,\\mathrm{N}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use the original constant-speed condition.', 'At an instant, velocity direction does not switch immediately.', 'Friction opposes current motion direction.'],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-152-question.png'],
+  },
+  {
+    id: 'nl-153',
+    type: 'multiple_choice',
+    question:
+      'Two blocks of masses 5 kg and 3 kg are connected by a light string over a frictionless fixed light pulley. Find the magnitude of acceleration in terms of $g$ when released.',
+    options: ['$g$', '$\\frac{1}{2}g$', '$\\frac{1}{4}g$', '$\\frac{1}{8}g$'],
+    answer: '$\\frac{1}{4}g$',
+    explanation:
+      'For an Atwood system, $a=\\frac{(5-3)g}{5+3}=\\frac{2g}{8}=\\frac{1}{4}g$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Treat as standard Atwood machine.', 'Use difference over sum: $(m_1-m_2)/(m_1+m_2)$.', 'Heavier side accelerates downward.'],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-153-question.png'],
+  },
+  {
+    id: 'nl-154',
+    type: 'multiple_choice',
+    question:
+      'A weight $W$ is attached to two light strings passing over smooth pegs with 30 N and 20 N hanging at the other ends. The system is in equilibrium. Which deduction about $W$ is correct?',
+    options: ['$W$ is less than 50 N.', '$W$ is equal to 50 N.', '$W$ is greater than 50 N.', 'No information about $W$ can be obtained as $\\theta$ and $\\phi$ are not known.'],
+    answer: '$W$ is less than 50 N.',
+    explanation:
+      'Vertical balance gives $W=30\\sin\\theta+20\\sin\\phi$. Since each sine is less than 1, $W<30+20=50\\,\\mathrm{N}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Use vertical components only.', 'Apply $\\sin\\theta<1$ and $\\sin\\phi<1$.', 'Compare to 50 N upper bound.'],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-154-question.png'],
+  },
+  {
+    id: 'nl-155',
+    type: 'multiple_choice',
+    question:
+      'A constant net force gives acceleration $a_1$ to mass $m_1$ and acceleration $a_2$ to mass $m_2$. If the same force acts on mass $(m_1+m_2)$, what acceleration is produced?',
+    options: ['$a_1+a_2$', '$\\frac{a_1+a_2}{2}$', '$\\frac{a_1a_2}{a_1+a_2}$', '$\\frac{2a_1a_2}{a_1+a_2}$'],
+    answer: '$\\frac{a_1a_2}{a_1+a_2}$',
+    explanation:
+      'Same force $F$: $m_1=F/a_1$, $m_2=F/a_2$. For combined mass, $a=F/(m_1+m_2)=F/(F/a_1+F/a_2)=\\frac{a_1a_2}{a_1+a_2}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Express masses using $F=ma$.', 'Add masses before dividing force.', 'Simplify by factoring out $F$.'],
+    sectionId: 'newton-laws',
+  },
+  {
+    id: 'nl-156',
+    type: 'multiple_choice',
+    question:
+      'A boy of weight $W$ pulls downward with force $F$ on a rope of weight $G$ hung from the ceiling while standing still on the ground. Which pair gives the force by (1) the boy on the ground and (2) the rope on the ceiling?',
+    options: ['(1) $W$, (2) $G-F$', '(1) $W$, (2) $G+F$', '(1) $W-F$, (2) $G-F$', '(1) $W-F$, (2) $G+F$'],
+    answer: '(1) $W-F$, (2) $G+F$',
+    explanation:
+      'On the boy: $R+F=W\\Rightarrow R=W-F$. The force by boy on ground has magnitude $R=W-F$. At the ceiling, rope transmits its own weight plus pull, giving $G+F$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Draw free-body diagram of the boy first.', 'Use static equilibrium on the boy.', 'Then analyze force transmitted to ceiling by rope.'],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-156-question.png'],
+  },
+  {
+    id: 'nl-157',
+    type: 'multiple_choice',
+    question:
+      'A block with initial speed $2\\ \\mathrm{m\\ s^{-1}}$ slides down a rough incline and stops after 0.5 m. What is its deceleration?',
+    options: ['$1\\ \\mathrm{m\\ s^{-2}}$', '$2\\ \\mathrm{m\\ s^{-2}}$', '$4\\ \\mathrm{m\\ s^{-2}}$', 'Cannot be found without incline angle.'],
+    answer: '$4\\ \\mathrm{m\\ s^{-2}}$',
+    explanation:
+      'Use $v^2=u^2+2as$: $0=2^2+2a(0.5)$, so $a=-4\\,\\mathrm{m\\ s^{-2}}$. Deceleration magnitude is $4\\,\\mathrm{m\\ s^{-2}}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Apply constant-acceleration formula.', 'Set final speed to zero.', 'Take magnitude for deceleration.'],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-157-question.png'],
+  },
+  {
+    id: 'nl-158',
+    type: 'multiple_choice',
+    question:
+      'A block is released from rest on an incline and travels 1 m in the first 3 s with uniform acceleration. Determine the acceleration.',
+    options: ['$0.22\\ \\mathrm{m\\ s^{-2}}$', '$0.33\\ \\mathrm{m\\ s^{-2}}$', '$4.91\\ \\mathrm{m\\ s^{-2}}$', 'Cannot be determined as friction is unknown.'],
+    answer: '$0.22\\ \\mathrm{m\\ s^{-2}}$',
+    explanation:
+      'From $s=ut+\\tfrac{1}{2}at^2$, with $u=0$, $1=\\tfrac{1}{2}a(3^2)$, hence $a=\\frac{2}{9}\\approx0.22\\,\\mathrm{m\\ s^{-2}}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Released from rest means $u=0$.', 'Use first-interval displacement directly.', 'Solve for $a$ from one equation.'],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-158-question.png'],
+  },
+  {
+    id: 'nl-159',
+    type: 'multiple_choice',
+    question:
+      'A block of mass $m$ stays at rest on a rough inclined plane. Which diagram correctly shows the forces on the block? ($N$ is normal reaction, $f$ is friction.)',
+    options: [
+      '/physics/exercises/newton-laws/nl-159-option-a.png',
+      '/physics/exercises/newton-laws/nl-159-option-b.png',
+      '/physics/exercises/newton-laws/nl-159-option-c.png',
+      '/physics/exercises/newton-laws/nl-159-option-d.png',
+    ],
+    answer: '/physics/exercises/newton-laws/nl-159-option-c.png',
+    explanation:
+      'For static equilibrium on rough incline: weight acts vertically down, normal reaction is perpendicular to plane, and friction acts up the plane opposing sliding tendency.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Weight direction is always vertical.', 'Normal is perpendicular to contact surface.', 'Friction opposes tendency to move down slope.'],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-159-question.png'],
+  },
+  {
+    id: 'nl-160',
+    type: 'multiple_choice',
+    question:
+      'Blocks $X$ and $Y$ are connected over a frictionless pulley. Masses are 0.5 kg and 1 kg respectively. Initially $Y$ is 1 m above ground. Released from rest, what is the speed of $Y$ just before reaching ground?',
+    options: ['$3.62\\ \\mathrm{m\\ s^{-1}}$', '$4.43\\ \\mathrm{m\\ s^{-1}}$', '$6.26\\ \\mathrm{m\\ s^{-1}}$', '$9.81\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$3.62\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'System acceleration: $a=\\frac{1\\times9.81}{1+0.5}=6.54\\,\\mathrm{m\\ s^{-2}}$. Then for $Y$ over $1\\,\\mathrm{m}$: $v^2=2as=2(6.54)(1)$, so $v=3.62\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Find common acceleration first.', 'Use total mass in denominator.', 'Then apply $v^2=u^2+2as$ with $u=0$.'],
+    sectionId: 'newton-laws',
+    imagePaths: ['/physics/exercises/newton-laws/nl-160-question.png'],
+  },
 ];
 
 // 互动模拟 - 自由落体计时器
