@@ -5691,6 +5691,1462 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     sectionId: 'newton-laws',
     imagePaths: ['/physics/exercises/newton-laws/nl-160-question.png'],
   },
+  {
+    id: 'mf-001',
+    type: 'multiple_choice',
+    question:
+      'If a mass of 2 kg is placed at a distance of 2 cm from the fulcrum $F$ as shown, which of the following could keep the light rod in equilibrium?\n\n(1) a mass of 4 kg placed at $P$\n(2) a mass of 2 kg placed at $Q$\n(3) a mass of 1 kg placed at $R$',
+    options: ['(1) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      'Moment of given mass about $F$ is $2\\times2=4$. For equilibrium, opposite moment must also be 4. (1) $4\\times1=4$, (2) $2\\times2=4$, (3) $1\\times4=4$. All work.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Use moment = force × perpendicular distance.', 'Compute the reference moment first.', 'Check each option against the same moment value.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-001-question.png'],
+  },
+  {
+    id: 'mf-002',
+    type: 'multiple_choice',
+    question:
+      'In the figure shown, the uniform metre rule of weight 1 N is balanced horizontally. Find the tension $T$ in the string.',
+    options: ['2.4 N', '3.4 N', '8.4 N', '9.4 N'],
+    answer: '9.4 N',
+    explanation:
+      'Take moments about the right end (so weight $W$ there has no moment): $(6)(20+50)+(1)(50)=T(50)$. Hence $T=9.4\\,\\mathrm{N}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Choose a pivot that simplifies unknowns.', 'Include metre rule weight at its midpoint.', 'Set clockwise moment = anticlockwise moment.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-002-question.png'],
+  },
+  {
+    id: 'mf-003',
+    type: 'multiple_choice',
+    question:
+      'The diagram shows a light rod under three vertical forces. Points $P,Q,R,S,T$ are equally spaced. At which point must an upward vertical force of 2 N be applied to hold the rod in equilibrium?',
+    options: ['P', 'Q', 'R', 'S'],
+    answer: 'S',
+    explanation:
+      'Given couple at $Q$ and $S$ has moment $1\\times2=2$ (clockwise). To balance, need anticlockwise couple of 2. With applied force 2 N, required distance is $d=2/2=1$ spacing, which is at point $S$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Identify the existing couple first.', 'For a couple, moment = one force × separation.', 'Find where 2 N gives equal opposite moment.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-003-question.png'],
+  },
+  {
+    id: 'mf-004',
+    type: 'multiple_choice',
+    question:
+      'The diagram shows a light rod under the action of two vertical forces. Under which condition will the rod be in equilibrium?',
+    options: [
+      'Applying an upward force of 2 N at $P$.',
+      'Applying a downward force of 2 N at $P$.',
+      'Applying an upward force of 4 N at $R$ and a downward force of 4 N at $Q$.',
+      'Applying an upward force of 4 N at $Q$ and a downward force of 4 N at $R$.',
+    ],
+    answer: 'Applying an upward force of 4 N at $Q$ and a downward force of 4 N at $R$.',
+    explanation:
+      'Given couple moment is $2\\times(2\\times10)=40\\,\\mathrm{N\\,cm}$. Required balancing couple must be equal and opposite. With 4 N forces, needed separation is $d=40/4=10\\,\\mathrm{cm}$ and clockwise direction, which matches option D.',
+    difficulty: 2,
+    points: 15,
+    hints: ['For equilibrium, net force and net moment must be zero.', 'Couple moment = one force × separation.', 'Balancing couple has opposite rotational sense.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-004-question.png'],
+  },
+  {
+    id: 'mf-005',
+    type: 'multiple_choice',
+    question:
+      'A uniform plank $AB$ of weight 200 N rests on two trestles. A boy stands at end $B$. What is the maximum weight of the boy without tilting the plank? (Weight of plank acts at its centre.)',
+    options: ['75 N', '100 N', '200 N', '300 N'],
+    answer: '300 N',
+    explanation:
+      'At tipping point, take moment about the right trestle: $(200)(1.5)=W(1)$. Hence $W=300\\,\\mathrm{N}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['At maximum load, one support just loses contact.', 'Take moments about the remaining support.', 'Use plank weight at midpoint.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-005-question.png'],
+  },
+  {
+    id: 'mf-006',
+    type: 'multiple_choice',
+    question:
+      'A light plank of length 2 m rests on trestles $S_1$ and $S_2$. A boy of weight 500 N stands at the midpoint. Find the forces acting on the two trestles by the plank.',
+    options: [
+      '$166\\frac{2}{3}\\ \\mathrm{N}$ and $333\\frac{1}{3}\\ \\mathrm{N}$',
+      '200 N and 300 N',
+      '250 N and 250 N',
+      '300 N and 200 N',
+    ],
+    answer: '200 N and 300 N',
+    explanation:
+      'Take moment about $S_1$: $F_1(1.25)=500(1-0.5)$, so $F_1=200\\,\\mathrm{N}$. Force balance gives $F_1+F_2=500$, so $F_2=300\\,\\mathrm{N}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Write one moment equation and one force-balance equation.', 'Use distance from $S_1$ to midpoint.', 'Solve for both reactions.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-006-question.png'],
+  },
+  {
+    id: 'mf-007',
+    type: 'multiple_choice',
+    question:
+      'A uniform beam of length 3 m and weight 300 N lies on horizontal ground. What minimum vertical force must be applied at one end to just lift that end off the ground? (Weight acts at midpoint.)',
+    options: ['100 N', '150 N', '300 N', '450 N'],
+    answer: '150 N',
+    explanation:
+      'At just-lift condition, take moments about the opposite end: $F(3)=300(1.5)$. Therefore $F=150\\,\\mathrm{N}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Use just-lift condition as rotational equilibrium about contact end.', 'Beam weight acts at centre.', 'Solve directly from moment equation.'],
+    sectionId: 'moment-force',
+  },
+  {
+    id: 'mf-008',
+    type: 'multiple_choice',
+    question:
+      'A uniform rod of length $L$ is pivoted at a point $\\frac{1}{4}L$ from one end. Two forces 14 N and 3 N act on its ends as shown. If in equilibrium, find the rod weight. (Weight acts at midpoint.)',
+    options: ['2.5 N', '5 N', '8 N', '11 N'],
+    answer: '5 N',
+    explanation:
+      'Taking moments about pivot: $14\\times\\frac{L}{4}=W\\times\\frac{L}{4}+3\\times\\frac{3L}{4}$. Solving gives $W=5\\,\\mathrm{N}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use pivot to eliminate support force.', 'Write clockwise = anticlockwise moments.', 'Keep $L/4$ as common factor.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-008-question.png'],
+  },
+  {
+    id: 'mf-009',
+    type: 'multiple_choice',
+    question:
+      'A weighing device uses a rod $AB$ supported at point $X$ and a movable counter-weight. Which changes can increase the maximum measurable weight?\n\n(1) moving string at $X$ towards $A$\n(2) increasing counter-weight mass\n(3) increasing length of string from which counter-weight hangs',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) & (2) only',
+    explanation:
+      'Moment condition about $X$ is load moment = counter-weight moment. Moving $X$ toward $A$ increases workable load arm range; increasing counter-weight mass increases balancing moment. String hanging length does not affect moment arm about $X$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Think in terms of moments about support point $X$.', 'Only perpendicular distance from $X$ matters.', 'Mass increase raises available balancing moment.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-009-question.png'],
+  },
+  {
+    id: 'mf-010',
+    type: 'multiple_choice',
+    question:
+      'A uniform plank of weight 450 N rests on trestles $X$ and $Y$. A worker of weight 675 N stands at one end and holds packets of 6 N each in a basket. What is the maximum number of packets without tilting?',
+    options: ['11', '12', '13', '18'],
+    answer: '12',
+    explanation:
+      'At just-tilt, support at $X$ loses contact. Take moments about $Y$: $450\\times2.5=(675+6n)\\times1.5$. This gives $n=12.5$, so maximum integer without tilting is 12.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use just-tilt condition.', 'Take moments about the pivot support $Y$.', 'Final answer must be integer packet count not exceeding threshold.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-010-question.png'],
+  },
+  {
+    id: 'mf-011',
+    type: 'multiple_choice',
+    question:
+      'A block is initially at rest on smooth horizontal ground. Two forces of equal magnitude $F$ act on the block. In which case(s) will the block remain at rest?\n\n(1)\n(2)\n(3)',
+    options: ['(2) only', '(3) only', '(1) & (2) only', '(1) & (3) only'],
+    answer: '(2) only',
+    explanation:
+      '(1) forms a couple, causing rotation. (2) forces balance with no net force or turning effect. (3) has a non-zero resultant to the right, so it accelerates.',
+    difficulty: 2,
+    points: 15,
+    hints: ['For full rest, both net force and net moment must be zero.', 'Couple causes rotation even when resultant force is zero.', 'Check vector sum of forces in each case.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-011-question.png'],
+  },
+  {
+    id: 'mf-012',
+    type: 'multiple_choice',
+    question:
+      'A uniform rod of weight 50 N is supported by spring balances $P$ and $Q$ and remains at rest as shown. Find the readings of $P$ and $Q$.',
+    options: ['17 N, 33 N', '20 N, 30 N', '30 N, 20 N', '33 N, 17 N'],
+    answer: '20 N, 30 N',
+    explanation:
+      'Taking moment about point under $P$: $50\\times0.3=Q\\times0.5$, so $Q=30\\,\\mathrm{N}$. Then force balance gives $P+30=50\\Rightarrow P=20\\,\\mathrm{N}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use one moment equation and one force-balance equation.', 'Choose pivot at $P$ to remove $P$ from moment equation.', 'Then substitute into vertical force balance.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-012-question.png'],
+  },
+  {
+    id: 'mf-013',
+    type: 'multiple_choice',
+    question:
+      'Figure (a) shows a uniform plank supported by spring balances $P$ and $Q$, both reading 150 N. Then $P$ is moved 0.25 m towards $Q$ (Figure (b)). Find new readings of $P$ and $Q$.',
+    options: ['100 N, 200 N', '150 N, 150 N', '200 N, 100 N', '200 N, 150 N'],
+    answer: '200 N, 100 N',
+    explanation:
+      'Plank weight is $150+150=300\\,\\mathrm{N}$. In Figure (b), taking moment about $Q$: $P(1-0.25)=300(0.5)$, so $P=200\\,\\mathrm{N}$. Then $P+Q=300\\Rightarrow Q=100\\,\\mathrm{N}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Total weight stays 300 N.', 'Use updated support spacing in Figure (b).', 'Solve moment first, then force balance.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-013-question.png'],
+  },
+  {
+    id: 'mf-014',
+    type: 'multiple_choice',
+    question:
+      'A uniform metre rule $AB$ of mass 0.15 kg is hinged at $B$. End $A$ is connected by a wire to wall point $C$. A block $X$ of mass 0.1 kg hangs at 30 cm from $A$. Rule is horizontal. Find the moment of the wire tension about $B$.',
+    options: ['1.42 Nm', '1.05 Nm', '0.75 Nm', '0.70 Nm'],
+    answer: '1.42 Nm',
+    explanation:
+      'Taking moments about $B$: tension moment equals sum of clockwise moments of weights.\n$M_T=(0.1\\times9.81)(1-0.3)+(0.15\\times9.81)(0.5)=1.42\\,\\mathrm{N\\,m}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use metres for distances from pivot $B$.', 'Weight of rule acts at midpoint.', 'Tension moment balances total weight moments.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-014-question.png'],
+  },
+  {
+    id: 'mf-015',
+    type: 'multiple_choice',
+    question:
+      'A uniform rod $AB$ is held horizontal by a wire at $C$ and pivoted at $A$. The rod carries load $W$. If $W$ is shifted gradually from $A$ towards $B$, which quantities increase?\n\n(1) moment of rod weight about $A$\n(2) moment of load $W$ about $A$\n(3) tension of the wire',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      'Rod CG position is fixed, so rod-weight moment about $A$ is unchanged. Moving $W$ farther from $A$ increases its moment. To maintain equilibrium, wire tension must increase.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Uniform rod CG does not move.', 'Moment is force × perpendicular distance from pivot.', 'Increased clockwise load moment requires increased balancing tension moment.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-015-question.png'],
+  },
+  {
+    id: 'mf-016',
+    type: 'multiple_choice',
+    question:
+      'A light rigid rod $AB$ is hinged at one end and connected by a string to point $C$ above $B$. A weight $W$ hangs on the rod; rod remains horizontal. Which change(s) increase string tension?\n\n(1) Shift weight towards $A$.\n(2) Replace string with a shorter one connecting midpoints of $AB$ and $BC$.\n(3) Replace string with a longer one connecting to a point higher than $C$.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) & (2) only',
+    explanation:
+      'Using moment about hinge: $T\\sin\\theta\\cdot L=W\\cdot d$.\n(1) Shifting $W$ toward $A$ increases $d$, so $T$ increases.\n(2) Shorter string setup reduces effective $L$ (with similar $\\theta$), so $T$ increases.\n(3) Higher attachment increases $\\theta$ so $\\sin\\theta$ increases, hence required $T$ decreases.',
+    difficulty: 3,
+    points: 20,
+    hints: ['Write a moment equation about hinge.', 'Analyze how each change affects lever arm or angle factor.', 'If denominator increases, required tension decreases.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-016-question.png'],
+  },
+  {
+    id: 'mf-017',
+    type: 'multiple_choice',
+    question:
+      'Figure (a) shows a uniform plank supported by spring balances $P$ and $Q$, both reading 150 N. In Figure (b), $P$ is moved 0.25 m towards $Q$. Find the new readings of $P$ and $Q$.',
+    options: ['100 N, 200 N', '150 N, 150 N', '200 N, 100 N', '200 N, 150 N'],
+    answer: '200 N, 100 N',
+    explanation:
+      'Total weight is $150+150=300\\,\\mathrm{N}$. Taking moments about $Q$ in Figure (b): $P(1-0.25)=300(0.5)$, so $P=200\\,\\mathrm{N}$. Then $P+Q=300\\Rightarrow Q=100\\,\\mathrm{N}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Find total weight from initial readings.', 'Use new support separation after moving $P$.', 'Use force balance after moment equation.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-017-question.png'],
+  },
+  {
+    id: 'mf-018',
+    type: 'multiple_choice',
+    question:
+      'A rod $XY$ is hinged at $X$ and kept horizontal by a light string. $M$ is midpoint of $XY$. In which arrangement is the string tension $T$ smallest?',
+    options: [
+      '/physics/exercises/moment-force/mf-018-option-a.png',
+      '/physics/exercises/moment-force/mf-018-option-b.png',
+      '/physics/exercises/moment-force/mf-018-option-c.png',
+      '/physics/exercises/moment-force/mf-018-option-d.png',
+    ],
+    answer: '/physics/exercises/moment-force/mf-018-option-a.png',
+    explanation:
+      'Using moment about $X$:\nA gives $T\\sin45^\\circ\\cdot L=mg\\cdot\\frac{L}{2}\\Rightarrow T=0.707mg$.\nB and C give $T=mg$.\nD gives $T=1.41mg$.\nSmallest is A.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Take moments about hinge $X$.', 'Compare $T$ from each geometry.', 'Larger effective moment arm gives smaller required $T$.'],
+    sectionId: 'moment-force',
+  },
+  {
+    id: 'mf-019',
+    type: 'multiple_choice',
+    question:
+      'A uniform gangplank $PQ$ (mass $M$, length 2 m) is hinged at $P$ and raised steadily by a rope via a smooth pulley, attached at point $R$ 1.5 m from $P$. Which statement is correct about required force?',
+    options: [
+      'Initial: $0.67Mg$, subsequent: greater than $0.67Mg$',
+      'Initial: $0.67Mg$, subsequent: smaller than $0.67Mg$',
+      'Initial: $0.94Mg$, subsequent: greater than $0.94Mg$',
+      'Initial: $0.94Mg$, subsequent: smaller than $0.94Mg$',
+    ],
+    answer: 'Initial: $0.94Mg$, subsequent: smaller than $0.94Mg$',
+    explanation:
+      'Initially (horizontal), moment about $P$: $T\\sin45^\\circ\\times1.5=Mg\\times1$, so $T=0.94Mg$. As plank rises, weight moment arm about $P$ decreases and rope angle increases, so required $T$ decreases.',
+    difficulty: 3,
+    points: 20,
+    hints: ['Use moment balance about hinge for initial position.', 'Weight moment arm shortens as plank rotates up.', 'Increasing rope angle increases moment effectiveness.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-019-question.png'],
+  },
+  {
+    id: 'mf-020',
+    type: 'multiple_choice',
+    question:
+      'A supermarket trolley has wheels $X$ and $Y$ separated by 0.7 m. Total weight is 154 N with centre of gravity 0.5 m from wheel $Y$. What is the ground reaction on wheel $X$?',
+    options: ['44 N', '62 N', '92 N', '110 N'],
+    answer: '110 N',
+    explanation:
+      'Take moments about $Y$: $R_X\\times0.7=154\\times0.5$, so $R_X=110\\,\\mathrm{N}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Choose pivot at $Y$.', 'Use moment = force × distance.', 'Solve directly for $R_X$.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-020-question.png'],
+  },
+  {
+    id: 'mf-021',
+    type: 'multiple_choice',
+    question:
+      'A semicircular cardboard hangs from point $O$ on a spring balance reading 5 N. Which statements are correct?\n\n(1) Weight of cardboard is 5 N.\n(2) Centre of gravity is directly under $O$.\n(3) Balance reading becomes zero on the Moon.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (2) only',
+    explanation:
+      '(1) True: spring balance reads supported weight in that field. (2) True: at rest, CG lies on line of support through hanging point. (3) False: Moon gravity is smaller, so reading decreases but is not zero.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Balance reading equals weight in local gravity.', 'A freely hanging body aligns CG vertically below support.', 'Moon has reduced gravity, not zero gravity.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-021-question.png'],
+  },
+  {
+    id: 'mf-022',
+    type: 'multiple_choice',
+    question:
+      'A composite rod $PQR$ has uniform cross-section, with portions $PQ$ and $QR$ made of different materials and uniform densities. Length ratio $PQ:QR=2:3$. When suspended at $Q$, it remains horizontal. What is the mass ratio $m_{PQ}:m_{QR}$?',
+    options: ['2:3', '1:1', '3:2', 'Cannot be found without density ratio'],
+    answer: '3:2',
+    explanation:
+      'Each portion has its weight acting at its own midpoint. Taking moments about $Q$: $m_1g\\times1=m_2g\\times1.5$, hence $m_1:m_2=3:2$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Treat each portion as a separate uniform segment.', 'Weight of each segment acts at its midpoint.', 'Use moment balance about $Q$.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-022-question.png'],
+  },
+  {
+    id: 'mf-023',
+    type: 'multiple_choice',
+    question:
+      'A uniform metre rule is supported by vertical wires $P$ and $Q$ and remains horizontal. Initially each wire tension is 1 N. Then a 4 N weight is hung at position $x$ and the tension in $Q$ becomes 2.3 N (still horizontal). Find $x$.',
+    options: ['32.5 cm', '57.5 cm', '67.5 cm', 'Cannot be found as tension in $P$ is unknown'],
+    answer: '32.5 cm',
+    explanation:
+      'From initial condition, rule weight is $1+1=2\\,\\mathrm{N}$ acting at 50 cm. In loaded case, taking moments about $P$: $(2.3)(100)=(4)(x)+(2)(50)$. So $x=32.5\\,\\mathrm{cm}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use initial tensions to get rule weight first.', 'Uniform rule means CG at 50 cm mark.', 'Take moments about $P$ in second setup.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-023-question.png'],
+  },
+  {
+    id: 'mf-024',
+    type: 'multiple_choice',
+    question:
+      'A uniform selfie stick of length 0.7 m is held horizontally. Forces by hand are represented by $F_1$ and $F_2$, both perpendicular to the stick. Weight of stick is 1.5 N and mobile phone is 2.0 N (point mass). Estimate magnitude of $F_2$.',
+    options: ['3.5 N', '19.3 N', '35 N', 'Cannot be determined as $F_1$ is unknown'],
+    answer: '19.3 N',
+    explanation:
+      'Take moments about point of $F_1$. Using given geometry, balancing moments of stick and phone against $F_2$ gives approximately $F_2=19.3\\,\\mathrm{N}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Choose pivot at the point where $F_1$ acts.', 'Include both stick weight and phone weight moments.', 'Solve $F_2$ from moment equilibrium.'],
+    sectionId: 'moment-force',
+    imagePaths: ['/physics/exercises/moment-force/mf-024-question.png'],
+  },
+  {
+    id: 'wep-001',
+    type: 'multiple_choice',
+    question:
+      'An object is thrown vertically upwards with initial speed $u$. Which graph represents the variation of its kinetic energy $E_k$ with time $t$?',
+    options: [
+      '/physics/exercises/work-energy-power/wep-001-option-a.png',
+      '/physics/exercises/work-energy-power/wep-001-option-b.png',
+      '/physics/exercises/work-energy-power/wep-001-option-c.png',
+      '/physics/exercises/work-energy-power/wep-001-option-d.png',
+    ],
+    answer: '/physics/exercises/work-energy-power/wep-001-option-b.png',
+    explanation:
+      'At $t=0$, kinetic energy is maximum. At the highest point, speed is zero so kinetic energy is zero. During descent, speed increases again, so $E_k$ decreases to zero and then increases. Since $v=u-gt$, $E_k=\\frac12m(u-gt)^2$, a quadratic curve in time.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use $E_k=\\frac12mv^2$.', 'At the highest point, $v=0$.', 'Velocity varies linearly with time, so kinetic energy varies quadratically.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-002',
+    type: 'multiple_choice',
+    question:
+      'Two masses $m_1$ and $m_2$ ($m_1>m_2$) are hung over a smooth pulley. If the system is released from rest, what is the kinetic energy of the system after mass $m_1$ has descended through distance $h$?',
+    options: ['$m_1gh$', '$m_2gh$', '$(m_1-m_2)gh$', '$(m_2-m_1)gh$'],
+    answer: '$(m_1-m_2)gh$',
+    explanation:
+      'Loss of gravitational potential energy of $m_1$ is $m_1gh$. Gain of gravitational potential energy of $m_2$ is $m_2gh$. The remainder becomes total kinetic energy of the system, so $E_k=(m_1-m_2)gh$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Use energy conservation.', 'One mass loses PE while the other gains PE.', 'The difference becomes total kinetic energy.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-002-question.png'],
+  },
+  {
+    id: 'wep-003',
+    type: 'multiple_choice',
+    question:
+      'A vehicle moves up a road inclined at angle $\\theta$ with constant velocity $10\\ \\mathrm{m\\ s^{-1}}$. If the resisting forces are uniform, the power developed by the engine is',
+    options: ['constant.', 'increasing uniformly.', 'decreasing uniformly.', 'increasing, but not uniformly.'],
+    answer: 'constant.',
+    explanation:
+      'Using $P=Fv$: with constant speed and constant resisting force, the required driving force is constant, so the engine power is constant.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Use $P=Fv$.', 'Velocity is constant.', 'Resistive force is uniform (constant).'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-004',
+    type: 'multiple_choice',
+    question:
+      'Which statements about a body falling freely under gravity are correct?\n\n(1) It gains kinetic energy while falling.\n(2) Its total energy at any point equals the work done in raising it from ground level to that point.\n(3) Its kinetic energy at the end of the flight is all converted into potential energy.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      '(1) True: gravitational potential energy is converted into kinetic energy. (2) False: work done in raising it to that point equals only the potential energy there, not total energy. (3) False: just before reaching ground, potential energy has been converted into kinetic energy, not the reverse.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Separate kinetic and potential energy clearly.', 'Work done to raise from ground gives gravitational PE.', 'In free fall, PE decreases while KE increases.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-005',
+    type: 'multiple_choice',
+    question:
+      'A vehicle moving with uniform speed travels up a road of constant gradient. The power developed by the engine is',
+    options: ['uniformly increasing.', 'increasing, but not uniformly.', 'constant.', 'uniformly decreasing.'],
+    answer: 'constant.',
+    explanation:
+      'Again, $P=Fv$. Uniform speed means constant $v$, and constant gradient with uniform resistive conditions gives constant opposing force, so power is constant.',
+    difficulty: 1,
+    points: 10,
+    hints: ['This is the same power relation as the previous vehicle question.', 'Constant gradient means constant component of weight.', 'Uniform speed implies constant power if force is constant.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-006',
+    type: 'multiple_choice',
+    question:
+      'Two balls $X$ and $Y$ of the same mass are released from rest at $A$. $X$ falls vertically to $B$, while $Y$ moves down a smooth plane to $C$. Which statements are correct?\n\n(1) $X$ reaches $B$ at the same time as $Y$ reaches $C$.\n(2) Velocity of $X$ at $B$ is the same as that of $Y$ at $C$.\n(3) Kinetic energy of $X$ at $B$ is the same as that of $Y$ at $C$.',
+    options: ['(1) only', '(2) only', '(3) only', '(1) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      '(1) False: $X$ has acceleration $g$, while $Y$ has smaller acceleration $g\\sin\\theta$ and travels a longer path. (2) False: their velocity directions differ, so velocities are not the same vectors. (3) True: both lose the same gravitational potential energy, so both gain the same kinetic energy.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Compare both acceleration and distance.', 'Velocity is a vector, not just speed.', 'Use conservation of mechanical energy for KE comparison.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-006-question.png'],
+  },
+  {
+    id: 'wep-007',
+    type: 'multiple_choice',
+    question:
+      'When 40 kg of water falls through a certain distance, its temperature increases by $0.2^{\\circ}\\mathrm{C}$. Given specific heat capacity of water $=4200\\ \\mathrm{J\\ kg^{-1}\\ ^\\circ C^{-1}}$, what is the height fallen?',
+    options: ['20 m', '22 m', '42 m', '86 m'],
+    answer: '86 m',
+    explanation:
+      'Loss of gravitational potential energy equals gain in internal energy: $mgh=mc\\Delta T$. So $gh=c\\Delta T=4200\\times0.2=840$, hence $h=840/9.81\\approx85.6\\,\\mathrm{m}\\approx86\\,\\mathrm{m}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Mass cancels in $mgh=mc\\Delta T$.', 'Use $g=9.81\\ \\mathrm{m\\ s^{-2}}$.', 'Round to nearest option.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-008',
+    type: 'multiple_choice',
+    question:
+      'A student of weight 500 N runs up stairs 15 m high in 20 s. The average power developed is',
+    options: ['37.5 W', '375 W', '750 W', '7500 W'],
+    answer: '375 W',
+    explanation:
+      'Work done against gravity is $Wh=500\\times15=7500\\,\\mathrm{J}$. Average power $P=\\frac{W}{t}=\\frac{7500}{20}=375\\,\\mathrm{W}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Work done = weight × vertical height.', 'Then divide by time.', 'Average power = work/time.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-009',
+    type: 'multiple_choice',
+    question:
+      'A bullet of mass 0.01 kg travelling horizontally at $100\\ \\mathrm{m\\ s^{-1}}$ is stopped by 0.1 m of concrete. What retarding force acts on the bullet?',
+    options: ['0.1 N', '10 N', '500 N', '1000 N'],
+    answer: '500 N',
+    explanation:
+      'Loss of kinetic energy equals work done against retarding force: $\\tfrac12mv^2=Fs$. Thus $\\tfrac12(0.01)(100)^2=F(0.1)$, giving $F=500\\,\\mathrm{N}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Use work-energy theorem.', 'Initial KE is fully lost.', 'Solve for $F$ from $Fs$.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-010',
+    type: 'multiple_choice',
+    question:
+      'A cannon ball hits the wall at the top of a 10 m tower. If the energy needed to destroy the wall is 49000 J and the mass of the ball is 10 kg, what is the minimum initial speed required?',
+    options: ['$100\\ \\mathrm{m\\ s^{-1}}$', '$200\\ \\mathrm{m\\ s^{-1}}$', '$300\\ \\mathrm{m\\ s^{-1}}$', '$400\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$100\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'Initial kinetic energy must supply gain in potential energy plus destruction energy: $\\tfrac12mv^2=mgh+E$. So $\\tfrac12(10)v^2=(10)(9.81)(10)+49000$, giving $v\\approx100\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Add required energies at impact.', 'Include the 10 m height gain.', 'Solve from total initial KE.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-011',
+    type: 'multiple_choice',
+    question:
+      'A bullet hits a target at speed $200\\ \\mathrm{m\\ s^{-1}}$. If 50% of its kinetic energy is converted into the bullet internal energy, what is its temperature rise? (Specific heat capacity $=100\\ \\mathrm{J\\ kg^{-1}\\ ^\\circ C^{-1}}$)',
+    options: ['$10^{\\circ}\\mathrm{C}$', '$20^{\\circ}\\mathrm{C}$', '$100^{\\circ}\\mathrm{C}$', '$200^{\\circ}\\mathrm{C}$'],
+    answer: '$100^{\\circ}\\mathrm{C}$',
+    explanation:
+      'Gain in internal energy is $50\\%$ of kinetic energy: $\\tfrac12mv^2\\times0.5=mc\\Delta T$. Hence $\\tfrac12(200)^2\\times0.5=100\\Delta T$, so $\\Delta T=100^{\\circ}\\mathrm{C}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Mass cancels.', 'Only half the kinetic energy is converted.', 'Set heat gain equal to internal energy increase.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-012',
+    type: 'multiple_choice',
+    question:
+      'A block moves with uniform velocity along a rough horizontal plane. Which statements are true?\n\n(1) Its kinetic energy is increasing.\n(2) Its potential energy is increasing.\n(3) The resultant force acting on it is zero.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      'With uniform velocity, speed is constant so kinetic energy is constant, not increasing. On a horizontal plane, height is constant so potential energy is constant. Zero acceleration means resultant force is zero.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Uniform velocity implies zero acceleration.', 'KE depends on speed.', 'PE on horizontal ground stays unchanged.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-013',
+    type: 'multiple_choice',
+    question:
+      'An object is projected vertically upwards. Which graph correctly describes the variation of kinetic energy $E$ with height $h$?',
+    options: [
+      '/physics/exercises/work-energy-power/wep-013-option-a.png',
+      '/physics/exercises/work-energy-power/wep-013-option-b.png',
+      '/physics/exercises/work-energy-power/wep-013-option-c.png',
+      '/physics/exercises/work-energy-power/wep-013-option-d.png',
+    ],
+    answer: '/physics/exercises/work-energy-power/wep-013-option-d.png',
+    explanation:
+      'As height increases, gravitational potential energy increases linearly, so kinetic energy decreases linearly. At $h=0$, kinetic energy is maximum; then it falls as a straight line with height. Therefore option D is correct.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use conservation of mechanical energy.', '$E_k+E_p$ stays constant.', 'Since $E_p=mgh$, KE changes linearly with $h$.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-014',
+    type: 'multiple_choice',
+    question:
+      'The difference in water temperature between the top and bottom of a waterfall is $0.15^{\\circ}\\mathrm{C}$. Assuming no heat is lost to the surroundings, what is the height of the waterfall? (Specific heat capacity of water is $4200\\ \\mathrm{J\\ kg^{-1}\\ ^\\circ C^{-1}}$.)',
+    options: ['3.6 m', '28 m', '64 m', '360 m'],
+    answer: '64 m',
+    explanation:
+      'Loss of gravitational potential energy equals gain in internal energy: $mgh=mc\\Delta T$. So $gh=4200\\times0.15=630$, hence $h=630/9.81\\approx64\\,\\mathrm{m}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use $mgh=mc\\Delta T$.', 'Mass cancels.', 'Use $g=9.81\\ \\mathrm{m\\ s^{-2}}$.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-015',
+    type: 'multiple_choice',
+    question:
+      'A diver jumps from a high platform into water at point $B$, descends to $C$, and then floats up. Taking potential energy at $B$ as zero, which statements are true concerning the diver at point $C$?\n\n(1) The kinetic energy is at a maximum.\n(2) The kinetic energy is at a minimum.\n(3) The sum of kinetic energy and potential energy is zero.',
+    options: ['(1) only', '(2) only', '(3) only', '(1) & (3) only'],
+    answer: '(2) only',
+    explanation:
+      'At point $C$, the diver is momentarily at rest before rising, so kinetic energy is zero and therefore minimum. Since $C$ is below $B$, potential energy at $C$ is negative (with $B$ defined as zero), so $KE+PE$ is less than zero, not zero.',
+    difficulty: 2,
+    points: 15,
+    hints: ['At the lowest point before rising, speed is momentarily zero.', 'Zero speed means minimum KE.', 'Check the chosen zero level for potential energy.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-015-question.png'],
+  },
+  {
+    id: 'wep-016',
+    type: 'multiple_choice',
+    question:
+      'An escalator can carry 120 passengers to a height of 10 m in one minute. Assuming each passenger has weight 500 N, the possible power output of the escalator must be at least',
+    options: ['1000 W', '5000 W', '10000 W', '50000 W'],
+    answer: '10000 W',
+    explanation:
+      'Total work done in 60 s is $(120)(500)(10)=600000\\,\\mathrm{J}$. Power is $P=E/t=600000/60=10000\\,\\mathrm{W}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Find total gravitational work first.', 'Use all 120 passengers.', 'Then divide by 60 s.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-017',
+    type: 'multiple_choice',
+    question:
+      'An object is projected vertically upwards. Which graph correctly describes the variation of its kinetic energy ($KE$) with height ($h$)?',
+    options: [
+      '/physics/exercises/work-energy-power/wep-017-option-a.png',
+      '/physics/exercises/work-energy-power/wep-017-option-b.png',
+      '/physics/exercises/work-energy-power/wep-017-option-c.png',
+      '/physics/exercises/work-energy-power/wep-017-option-d.png',
+    ],
+    answer: '/physics/exercises/work-energy-power/wep-017-option-b.png',
+    explanation:
+      'Kinetic energy decreases linearly with height because total mechanical energy is constant and $PE=mgh$ increases linearly. At $h=0$, KE is maximum; then it falls along a straight line as $h$ increases.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use conservation of mechanical energy.', 'Since $PE$ is linear in $h$, KE must be linear in $h$.', 'KE is maximum at launch.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-018',
+    type: 'multiple_choice',
+    question:
+      'A trolley of mass 1 kg is released from rest from point $X$ on a rough slope. Its speed at $Y$ is $3\\ \\mathrm{m\\ s^{-1}}$. What is the loss in energy when moving from $X$ to $Y$? (Take $g=10\\ \\mathrm{m\\ s^{-2}}$.)',
+    options: ['1.0 J', '4.5 J', '5.5 J', '9.0 J'],
+    answer: '5.5 J',
+    explanation:
+      'Initial potential energy is $mgh=(1)(10)(1)=10\\,\\mathrm{J}$ from the diagram. Final kinetic energy is $\\tfrac12mv^2=\\tfrac12(1)(3^2)=4.5\\,\\mathrm{J}$. Energy lost is $10-4.5=5.5\\,\\mathrm{J}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use the height shown in the diagram for initial PE.', 'Final KE comes from speed at $Y$.', 'Loss = initial mechanical energy - final mechanical energy.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-018-question.png'],
+  },
+  {
+    id: 'wep-019',
+    type: 'multiple_choice',
+    question:
+      'A mass $m$ is connected to mass $M$ by a string over a smooth pulley. The table is smooth. Which statements are correct?\n\n(1) $m$ and $M$ move with the same acceleration magnitude.\n(2) The loss in potential energy of $m$ equals the gain in kinetic energy of $M$.\n(3) If mass of $M$ is doubled, its acceleration is halved.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      '(1) True: connected bodies have the same acceleration magnitude. (2) False: loss of $PE$ of $m$ becomes kinetic energy of both masses, not just $M$. (3) False: $a=\\frac{mg}{M+m}$, so doubling $M$ does not simply halve $a$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use string constraint for acceleration.', 'Energy is shared by both masses.', 'Check the formula $a=mg/(M+m)$.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-019-question.png'],
+  },
+  {
+    id: 'wep-020',
+    type: 'multiple_choice',
+    question:
+      'A smooth inclined plane has $Y$ midway between $X$ and $Z$. Two particles $A$ and $B$ of the same mass are released from rest at $X$ and $Y$ respectively. Which statements are true?\n\n(1) Time for $A$ to reach $Z$ is double that for $B$.\n(2) Potential energy of $A$ at $Z$ is double that for $B$.\n(3) Kinetic energy of $A$ at $Z$ is double that for $B$.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      '(1) False: for motion from rest, $s\\propto t^2$, so doubling distance makes time increase by $\\sqrt2$, not 2. (2) False: both are at the same final level $Z$, so same potential energy there. (3) True: $A$ falls through double the vertical height, so it loses double the potential energy and gains double the kinetic energy.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use $s=\\tfrac12at^2$ for timing.', 'Final PE depends only on final height.', 'KE gain equals PE loss on a smooth plane.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-020-question.png'],
+  },
+  {
+    id: 'wep-021',
+    type: 'multiple_choice',
+    question:
+      'Two equal masses $A$ and $B$ are connected by a light string over a smooth pulley, with $B$ on a smooth incline. Which statements are correct?\n\n(1) Potential energy lost by $A$ equals potential energy gained by $B$.\n(2) Kinetic energy gained by $A$ equals kinetic energy gained by $B$.\n(3) Potential energy lost by $A$ equals the sum of kinetic energies gained by $A$ and $B$.',
+    options: ['(1) only', '(2) only', '(3) only', '(1) & (2) only'],
+    answer: '(2) only',
+    explanation:
+      '(1) False: both move the same distance, but $B$ rises by a smaller vertical height on the incline, so it gains less PE than $A$ loses. (2) True: same masses and same speed imply equal kinetic energies. (3) False: some of the lost PE of $A$ is used to increase the PE of $B$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Same string means same speed.', 'Equal masses with same speed have equal KE.', 'Include PE gain of the mass on the incline in the energy balance.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-021-question.png'],
+  },
+  {
+    id: 'wep-022',
+    type: 'multiple_choice',
+    question:
+      'An object slides down a smooth plane from rest as shown. Which graph best shows the variation of kinetic energy with time?',
+    options: [
+      '/physics/exercises/work-energy-power/wep-022-option-a.png',
+      '/physics/exercises/work-energy-power/wep-022-option-b.png',
+      '/physics/exercises/work-energy-power/wep-022-option-c.png',
+      '/physics/exercises/work-energy-power/wep-022-option-d.png',
+    ],
+    answer: '/physics/exercises/work-energy-power/wep-022-option-b.png',
+    explanation:
+      'Starting from rest gives $KE=0$ at $t=0$. On a smooth slope, acceleration is constant, so speed increases linearly with time. Since $KE\\propto v^2$, kinetic energy increases quadratically with time, giving an upward-opening curve.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Starts from rest so initial KE is zero.', 'On a smooth plane, acceleration is constant.', 'Use $KE\\propto v^2$ with $v\\propto t$.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-022-question.png'],
+  },
+  {
+    id: 'wep-023',
+    type: 'multiple_choice',
+    question:
+      'Two objects $P$ and $Q$ of mass 0.1 kg and 0.5 kg are thrown vertically upwards with the same speed from the same level. Neglecting air resistance, which is true?',
+    options: [
+      '$P$ will reach a point higher than $Q$.',
+      '$Q$ will take a shorter time to reach its highest point.',
+      'Both will have the same kinetic energy on returning to the starting point.',
+      'Both rise with the same deceleration.',
+    ],
+    answer: 'Both rise with the same deceleration.',
+    explanation:
+      'Both objects move under the same gravitational acceleration, so they have the same deceleration while rising. Same launch speed also means same maximum height and same time to highest point. Their kinetic energies at the start point are not equal because their masses differ.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Neglecting air resistance, only gravity acts.', 'Gravitational acceleration is independent of mass.', 'KE depends on both mass and speed.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-024',
+    type: 'multiple_choice',
+    question:
+      'A block of mass 5 kg moves horizontally on a smooth surface at $6\\ \\mathrm{m\\ s^{-1}}$. To change its speed to $10\\ \\mathrm{m\\ s^{-1}}$, the work done needed is',
+    options: ['40 J', '90 J', '160 J', '400 J'],
+    answer: '160 J',
+    explanation:
+      'Required work equals change in kinetic energy: $W=\\tfrac12mv^2-\\tfrac12mu^2=\\tfrac12(5)(10^2)-\\tfrac12(5)(6^2)=160\\,\\mathrm{J}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Use work-energy theorem.', 'Find final KE minus initial KE.', 'Surface is smooth, so no other energy loss.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-025',
+    type: 'multiple_choice',
+    question:
+      'A block is pulled along a horizontal bench at constant velocity $10\\ \\mathrm{m\\ s^{-1}}$ by a force of 5 N. What is the work done against friction in 4 s?',
+    options: ['200 J', '50 J', '20 J', '12.5 J'],
+    answer: '200 J',
+    explanation:
+      'Constant velocity means pulling force balances friction, so friction is 5 N. Distance in 4 s is $vt=10\\times4=40\\,\\mathrm{m}$. Work done against friction is $Fs=5\\times40=200\\,\\mathrm{J}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['At constant velocity, net force is zero.', 'Distance = speed × time.', 'Work = force × distance.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-026',
+    type: 'multiple_choice',
+    question:
+      'For a body falling freely under gravity, $Y$ has a linear relationship with the displacement of the body as shown. $Y$ may represent',
+    options: ['the potential energy of the body.', 'the kinetic energy of the body.', 'the velocity of the body.', 'the speed of the body.'],
+    answer: 'the potential energy of the body.',
+    explanation:
+      'As displacement downward increases, gravitational potential energy decreases linearly with height change. Kinetic energy and speed increase instead, and velocity/speed are not linear with displacement for free fall from rest.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Think about how each quantity changes with downward displacement.', 'PE changes directly with height.', 'For free fall, $v^2$ is linear in displacement, not $v$.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-026-question.png'],
+  },
+  {
+    id: 'wep-027',
+    type: 'multiple_choice',
+    question:
+      'Which of the following involve an energy transfer of 100 J?\n\n(1) A mass of 10 kg is raised vertically by 10 m.\n(2) A mass of 2 kg gains a speed of $10\\ \\mathrm{m\\ s^{-1}}$ from rest.\n(3) A 10 W heater is switched on for 10 s.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      '(1) $mgh=(10)(9.81)(10)=981\\,\\mathrm{J}$, not 100 J. (2) $\\tfrac12mv^2=\\tfrac12(2)(10^2)=100\\,\\mathrm{J}$. (3) $E=Pt=(10)(10)=100\\,\\mathrm{J}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Use one formula for each case.', 'Gravitational PE: $mgh$.', 'Heater energy: $Pt$.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-028',
+    type: 'multiple_choice',
+    question:
+      'A ball is released from rest from one end of a smooth curved rail. Neglecting air resistance and friction, which statements about its motion are correct?\n\n(1) The ball has maximum kinetic energy at point $B$.\n(2) The speed of the ball at point $C$ is the same as that at point $A$.\n(3) The ball would not rise to a level higher than point $D$.',
+    options: ['(1) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      '(1) True: at the lowest point, PE is minimum so KE is maximum. (2) True: points at the same level have the same PE, so on a smooth track they have the same speed. (3) True: with no energy loss, the ball can rise only back to its original height, not higher.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use conservation of mechanical energy.', 'Lowest point gives maximum KE.', 'Same height means same speed on a smooth track.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-028-question.png'],
+  },
+  {
+    id: 'wep-029',
+    type: 'multiple_choice',
+    question:
+      'A pendulum bob is released from rest from a point $P$ 0.8 m above its lowest position $Q$. Neglecting air resistance. Find the speed of the bob when it reaches $Q$. (Take $g=10\\ \\mathrm{m\\ s^{-2}}$.)',
+    options: ['$2.8\\ \\mathrm{m\\ s^{-1}}$', '$4\\ \\mathrm{m\\ s^{-1}}$', '$8\\ \\mathrm{m\\ s^{-1}}$', '$16\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$4\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'Loss of potential energy equals gain of kinetic energy: $mgh=\\tfrac12mv^2$. So $(10)(0.8)=\\tfrac12v^2$, giving $v=4\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Mass cancels in the energy equation.', 'Use the height difference 0.8 m.', 'Solve for $v$ from $mgh=\\tfrac12mv^2$.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-029-question.png'],
+  },
+  {
+    id: 'wep-030',
+    type: 'multiple_choice',
+    question:
+      'The figure shows the variation of the force acting on an object. What physical quantity does the area of the shaded portion represent?',
+    options: ['Velocity', 'Acceleration', 'Power', 'Work'],
+    answer: 'Work',
+    explanation:
+      'Area under a force-displacement graph is $F\\times s$, which represents work done.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Interpret the graph as force against displacement.', 'Area = force × distance.', 'That quantity is work.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-030-question.png'],
+  },
+  {
+    id: 'wep-031',
+    type: 'multiple_choice',
+    question:
+      'Two blocks $X$ and $Y$ are connected by a light string over a smooth pulley. Mass of $X$ is greater than mass of $Y$. They are released from rest. Which statements are correct?\n\n(1) Potential energy lost by $X$ equals potential energy gained by $Y$.\n(2) Kinetic energy gained by $X$ is greater than kinetic energy gained by $Y$.\n(3) Potential energy lost by $X$ equals the sum of kinetic energies gained by $X$ and $Y$.',
+    options: ['(2) only', '(3) only', '(1) & (2) only', '(1) & (3) only'],
+    answer: '(2) only',
+    explanation:
+      '(1) False: since $X$ is heavier, the PE lost by $X$ is greater than the PE gained by $Y$. (2) True: both have the same speed, but $X$ has greater mass, so $X$ gains greater KE. (3) False: part of the PE lost by $X$ also becomes the PE gained by $Y$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use same-speed constraint for connected bodies.', 'Compare KE using $\\tfrac12mv^2$.', 'Include PE gained by the lighter mass in the energy balance.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-031-question.png'],
+  },
+  {
+    id: 'wep-032',
+    type: 'multiple_choice',
+    question:
+      'A stone is projected vertically upwards. Neglecting air resistance, which graph shows the variation of kinetic energy $KE$ with distance travelled $s$ during its upward motion?',
+    options: [
+      '/physics/exercises/work-energy-power/wep-032-option-a.png',
+      '/physics/exercises/work-energy-power/wep-032-option-b.png',
+      '/physics/exercises/work-energy-power/wep-032-option-c.png',
+      '/physics/exercises/work-energy-power/wep-032-option-d.png',
+    ],
+    answer: '/physics/exercises/work-energy-power/wep-032-option-b.png',
+    explanation:
+      'Kinetic energy decreases linearly with upward distance because $KE+PE$ is constant and $PE=mgs$ increases linearly with $s$. At $s=0$, KE is maximum; then it decreases along a straight line. So option B.',
+    difficulty: 2,
+    points: 15,
+    hints: ['This is an energy vs distance graph, not vs time.', 'Use $PE=mgs$.', 'KE must decrease linearly as PE increases linearly.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-033',
+    type: 'multiple_choice',
+    question:
+      'A trolley runs down a friction-compensated runway. Which statement is true?',
+    options: [
+      'The kinetic energy of the trolley increases with time.',
+      'The sum of kinetic and potential energies of the trolley remains unchanged.',
+      'The frictional force acting on the trolley is zero.',
+      'The resultant force acting on the trolley is zero.',
+    ],
+    answer: 'The resultant force acting on the trolley is zero.',
+    explanation:
+      'On a friction-compensated runway, the component of weight down the slope is balanced by friction. So the trolley moves with constant velocity, meaning zero acceleration and zero resultant force.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Constant velocity implies zero resultant force.', 'Friction-compensated does not mean friction-free.', 'If KE is constant, acceleration is zero.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-033-question.png'],
+  },
+  {
+    id: 'wep-034',
+    type: 'multiple_choice',
+    question:
+      'A bullet of mass 0.02 kg travels at $450\\ \\mathrm{m\\ s^{-1}}$ into a wooden block and leaves at $400\\ \\mathrm{m\\ s^{-1}}$. What is the maximum number of identical blocks that the same bullet can pass through?',
+    options: ['3', '4', '5', '9'],
+    answer: '4',
+    explanation:
+      'Energy lost in one block is $W=\\tfrac12m(450^2-400^2)=425\\,\\mathrm{J}$. Initial KE is $\\tfrac12(0.02)(450^2)=2025\\,\\mathrm{J}$. Thus maximum number is $2025/425\\approx4.76$, so it can fully pass through 4 blocks.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Find energy loss through one block first.', 'Then compare with the bullet initial KE.', 'Take the greatest whole number of complete blocks.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-034-question.png'],
+  },
+  {
+    id: 'wep-035',
+    type: 'multiple_choice',
+    question:
+      'A motor car of mass 2500 kg accelerates from rest to $20\\ \\mathrm{m\\ s^{-1}}$ in 5 s on a level road. Find the average power of the car.',
+    options: ['10 kW', '50 kW', '100 kW', '200 kW'],
+    answer: '100 kW',
+    explanation:
+      'Average power is change in kinetic energy per time: $P=\\frac{\\tfrac12mv^2}{t}=\\frac{\\tfrac12(2500)(20^2)}{5}=100000\\,\\mathrm{W}=100\\,\\mathrm{kW}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Use average power = energy transferred / time.', 'Initial speed is zero.', 'Convert W to kW at the end.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-036',
+    type: 'multiple_choice',
+    question:
+      'A pendulum bob is released from rest at point $A$. At lowest point $B$, the string hits a fixed pin. Neglect air resistance. Which statements are correct?\n\n(1) The bob has maximum kinetic energy at $B$.\n(2) The highest level that the bob can reach is the level of the pin.\n(3) The work done by the tension of the string is zero throughout the motion.',
+    options: ['(2) only', '(3) only', '(1) & (2) only', '(1) & (3) only'],
+    answer: '(1) & (3) only',
+    explanation:
+      '(1) True: at the lowest point PE is minimum, so KE is maximum. (2) False: with no energy loss, the bob can only rise back to the same height as its release point, not specifically to the level of the pin. (3) True: tension is always perpendicular to the instantaneous motion, so it does no work.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use energy conservation for highest point.', 'Tension in circular motion is radial, velocity is tangential.', 'Perpendicular force does no work.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-036-question.png'],
+  },
+  {
+    id: 'wep-037',
+    type: 'multiple_choice',
+    question:
+      'A machine lifts a load of 1200 N through height 1.5 m in 2 s. Find the average output power.',
+    options: ['400 W', '900 W', '1800 W', '3600 W'],
+    answer: '900 W',
+    explanation:
+      'Work done is $Fs=(1200)(1.5)=1800\\,\\mathrm{J}$. Average power is $P=1800/2=900\\,\\mathrm{W}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Work done = force × distance.', 'Then divide by time.', 'This is average power, not instantaneous power.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-038',
+    type: 'multiple_choice',
+    question:
+      'Which of the following units does not represent energy?',
+    options: ['Nm', 'Ws', 'J', '$\\mathrm{kg\\ m\\ s^{-2}}$'],
+    answer: '$\\mathrm{kg\\ m\\ s^{-2}}$',
+    explanation:
+      '$\\mathrm{Nm}$, $\\mathrm{Ws}$, and $\\mathrm{J}$ are all energy units. $\\mathrm{kg\\ m\\ s^{-2}}$ is the unit of force (newton), not energy.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Recall equivalent units for joule.', 'A joule = newton metre.', 'A newton alone is force, not energy.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-039',
+    type: 'multiple_choice',
+    question:
+      'A smooth inclined plane makes angle $30^{\\circ}$ with the horizontal. A man pulls a 50 kg block up the 6 m incline at uniform velocity in 30 s. Take $g=10\\ \\mathrm{m\\ s^{-2}}$. Find the average power of the man.',
+    options: ['5 W', '10 W', '50 W', '87 W'],
+    answer: '50 W',
+    explanation:
+      'On a smooth incline at uniform speed, work done by the man equals gain in potential energy. Vertical rise is $6\\sin30^\\circ=3\\,\\mathrm{m}$. So work $=mgh=(50)(10)(3)=1500\\,\\mathrm{J}$. Average power $=1500/30=50\\,\\mathrm{W}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Uniform speed means no KE change.', 'Use vertical height, not slope length directly.', 'Average power = work/time.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-039-question.png'],
+  },
+  {
+    id: 'wep-040',
+    type: 'multiple_choice',
+    question:
+      'A motor car of mass 2000 kg accelerates from rest at $3\\ \\mathrm{m\\ s^{-2}}$ for 4 s on a straight road. Find the average useful output power of the engine.',
+    options: ['24 kW', '36 kW', '72 kW', '144 kW'],
+    answer: '36 kW',
+    explanation:
+      'Final speed is $v=u+at=0+3\\times4=12\\,\\mathrm{m\\ s^{-1}}$. Average power is change in kinetic energy per time: $P=\\frac{\\tfrac12mv^2}{t}=\\frac{\\tfrac12(2000)(12^2)}{4}=36000\\,\\mathrm{W}=36\\,\\mathrm{kW}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Find final speed first.', 'Use change in KE over 4 s.', 'Convert watts to kilowatts.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-041',
+    type: 'multiple_choice',
+    question:
+      'A 2 kg block is pulled upward by a string with constant tension 24 N. The block rises 4 m in 2 s. Which statements are correct?\n\n(1) Its potential energy is increasing while rising.\n(2) Its kinetic energy is increasing while rising.\n(3) The average power developed by the man during the 2 s is 40 W.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) & (2) only',
+    explanation:
+      '(1) True: height increases, so PE increases. (2) True: tension 24 N is greater than weight $mg\\approx19.6\\,\\mathrm{N}$, so the block accelerates upward and KE increases. (3) False: average power is $P=\\frac{Fs}{t}=\\frac{24\\times4}{2}=48\\,\\mathrm{W}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Compare tension with weight.', 'If net force is upward, speed increases.', 'Average power from force × distance / time.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-041-question.png'],
+  },
+  {
+    id: 'wep-042',
+    type: 'multiple_choice',
+    question:
+      'A man pulls a suitcase along horizontal ground with a rope of tension 100 N inclined at angle $\\theta$ to the horizontal. Find the work done by the man in pulling it 5 m along the ground.',
+    options: ['$500\\sin\\theta\\ \\mathrm{J}$', '$500\\cos\\theta\\ \\mathrm{J}$', '$500/\\sin\\theta\\ \\mathrm{J}$', '$500/\\cos\\theta\\ \\mathrm{J}$'],
+    answer: '$500\\cos\\theta\\ \\mathrm{J}$',
+    explanation:
+      'Work done equals force component along displacement times distance. Horizontal component is $100\\cos\\theta$, so work is $(100\\cos\\theta)(5)=500\\cos\\theta\\,\\mathrm{J}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Only the component along displacement does work.', 'Displacement is horizontal.', 'Use $W=Fs\\cos\\phi$.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-042-question.png'],
+  },
+  {
+    id: 'wep-043',
+    type: 'multiple_choice',
+    question:
+      'A stone is thrown vertically upwards. Assuming air resistance is negligible, which statements are correct?\n\n(1) The acceleration decreases throughout the upward motion.\n(2) The net force becomes zero at the highest point.\n(3) The total energy of the stone remains unchanged throughout the motion.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      '(1) False: acceleration is constant at $g$ downward. (2) False: at the highest point velocity is zero momentarily, but the net force is still the weight of the stone. (3) True: with no air resistance, total mechanical energy remains constant.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Distinguish velocity from acceleration at the top.', 'Gravity still acts at all times.', 'No air resistance means mechanical energy is conserved.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-044',
+    type: 'multiple_choice',
+    question:
+      'A block is projected up a smooth inclined plane. Which graph shows the variation of kinetic energy (K.E.) with potential energy (P.E.) during the upward motion?',
+    options: [
+      '/physics/exercises/work-energy-power/wep-044-option-a.png',
+      '/physics/exercises/work-energy-power/wep-044-option-b.png',
+      '/physics/exercises/work-energy-power/wep-044-option-c.png',
+      '/physics/exercises/work-energy-power/wep-044-option-d.png',
+    ],
+    answer: '/physics/exercises/work-energy-power/wep-044-option-c.png',
+    explanation:
+      'On a smooth incline, mechanical energy is conserved, so $KE+PE=E$ constant. Hence $KE=-PE+E$, a straight line of slope $-1$ with positive intercept. This matches option C.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use conservation of mechanical energy.', 'Rearrange to $KE=-PE+\\text{constant}$.', 'Look for a straight line with slope -1.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-044-question.png'],
+  },
+  {
+    id: 'wep-045',
+    type: 'multiple_choice',
+    question:
+      'A Ferris wheel of diameter 18 m carries a passenger of mass 60 kg. The wheel rotates uniformly and takes 80 s for the passenger to travel from bottom to top. Find the average useful power output of the motor.',
+    options: [
+      '$(60\\times9.81\\times18)\\ \\mathrm{W}$',
+      '$\\left(\\frac{60\\times9.81\\times18}{80}\\right)\\ \\mathrm{W}$',
+      '$\\left(\\frac{60\\times9.81\\times\\pi\\times9}{80}\\right)\\ \\mathrm{W}$',
+      '$(60\\times9.81\\times\\pi\\times9\\times80)\\ \\mathrm{W}$',
+    ],
+    answer: '$\\left(\\frac{60\\times9.81\\times18}{80}\\right)\\ \\mathrm{W}$',
+    explanation:
+      'Average useful power equals gain in gravitational potential energy per time: $P=\\frac{mgh}{t}=\\frac{60\\times9.81\\times18}{80}$. The rise from bottom to top is one diameter, 18 m.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use vertical rise, not arc length.', 'Bottom to top is a height change of 18 m.', 'Average power = energy / time.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-045-question.png'],
+  },
+  {
+    id: 'wep-046',
+    type: 'multiple_choice',
+    question:
+      'A mother pushes a push-chair with uniform velocity $v$ along horizontal ground. Let $F$ be the horizontal force exerted on the push-chair. Which expression denotes the average output power?',
+    options: ['Fv', 'mgv', '$(F-mg)v$', '$(F+mg)v$'],
+    answer: 'Fv',
+    explanation:
+      'Power is force multiplied by velocity in the direction of the force. Since the push force is horizontal and the motion is horizontal with speed $v$, the power is $P=Fv$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Use the component of force along the motion.', 'Velocity is horizontal.', 'Power formula is $P=Fv$ when aligned.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-046-question.png'],
+  },
+  {
+    id: 'wep-047',
+    type: 'multiple_choice',
+    question:
+      'Edmund rides a Ferris wheel rotating at uniform speed. Which physical quantity of Edmund remains unchanged?',
+    options: ['velocity', 'kinetic energy', 'potential energy', 'total mechanical energy'],
+    answer: 'kinetic energy',
+    explanation:
+      'Velocity changes direction continuously, so it is not constant. Potential energy changes with height, so total mechanical energy also changes if KE stays constant while PE changes. With uniform speed, kinetic energy remains constant because it depends only on speed.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Kinetic energy depends on speed, not direction.', 'Velocity is a vector.', 'Potential energy changes as height changes on the wheel.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-047-question.png'],
+  },
+  {
+    id: 'wep-048',
+    type: 'multiple_choice',
+    question:
+      'The diagram shows a weight-lifter lifting a weight of mass 80 kg from the floor to a height of 2 m. Find the work done by the weight-lifter.',
+    options: ['160 J', '785 J', '1570 J', '3140 J'],
+    answer: '1570 J',
+    explanation:
+      'Work done equals gain in gravitational potential energy: $W=mgh=(80)(9.81)(2)\\approx1570\\,\\mathrm{J}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Use gravitational PE formula.', 'Height rise is 2 m.', 'Use $g=9.81\\ \\mathrm{m\\ s^{-2}}$.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-048-question.png'],
+  },
+  {
+    id: 'wep-049',
+    type: 'multiple_choice',
+    question:
+      'John releases a marble from the top of smooth rail $A$ at the edge of a table. He repeats the same process using another smooth rail $B$. Which statements about the marble are correct?\n\n(1) It has the same velocity at the ends of both rails.\n(2) It has the same kinetic energy at the ends of both rails.\n(3) It takes the same time to travel through both rails.',
+    options: ['(1) only', '(2) only', '(3) only', '(1), (2) & (3)'],
+    answer: '(2) only',
+    explanation:
+      '(1) False: the directions at the rail ends differ, so velocities are not the same vectors. (2) True: the marble loses the same gravitational potential energy, so it gains the same kinetic energy. (3) False: different path shapes give different accelerations and travel times.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Velocity includes direction.', 'Use conservation of energy for KE.', 'Travel time depends on path shape and acceleration profile.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-049-question.png'],
+  },
+  {
+    id: 'wep-050',
+    type: 'multiple_choice',
+    question:
+      'A car stopped after emergency braking. The skid mark was 22.3 m long. Assume friction between road and tyres was 0.65 times the weight of the car. Estimate the speed when it began to skid.',
+    options: ['$5.38\\ \\mathrm{m\\ s^{-1}}$', '$11.8\\ \\mathrm{m\\ s^{-1}}$', '$16.1\\ \\mathrm{m\\ s^{-1}}$', '$16.9\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$16.9\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'Loss of kinetic energy equals work done against friction: $\\tfrac12mu^2=fs$. With $f=0.65mg$, $\\tfrac12u^2=0.65gs$. Substituting $g=9.81$ and $s=22.3$ gives $u\\approx16.9\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use work-energy theorem.', 'Replace friction with $0.65mg$.', 'Mass cancels from the equation.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-051',
+    type: 'multiple_choice',
+    question:
+      'A high-diver jumps up from a spring board and then falls into a swimming pool. Which graph best shows the variation of her kinetic energy $K$ with time $t$ from just after leaving the board to just before entering the water? (Neglect air resistance.)',
+    options: [
+      '/physics/exercises/work-energy-power/wep-051-option-a.png',
+      '/physics/exercises/work-energy-power/wep-051-option-b.png',
+      '/physics/exercises/work-energy-power/wep-051-option-c.png',
+      '/physics/exercises/work-energy-power/wep-051-option-d.png',
+    ],
+    answer: '/physics/exercises/work-energy-power/wep-051-option-c.png',
+    explanation:
+      'The diver starts with some initial kinetic energy, then KE decreases to zero at the highest point, and then increases again during the fall. This matches option C.',
+    difficulty: 2,
+    points: 15,
+    hints: ['She already has non-zero speed when leaving the board.', 'At the top, speed is zero.', 'Then KE increases again during descent.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-052',
+    type: 'multiple_choice',
+    question:
+      'An electrical toy car of mass $m$ goes up an inclined plane of inclination $30^{\\circ}$ with constant speed $v$. The air resistance is half of the weight of the car. What is the average power of the car?',
+    options: ['$\\frac{1}{2}mgv$', '$mgv$', '$\\frac{3}{2}mgv$', '$2mgv$'],
+    answer: '$mgv$',
+    explanation:
+      'At constant speed, driving force balances all resisting forces: component of weight down plane is $mg\\sin30^\\circ=\\tfrac12mg$, and air resistance is also $\\tfrac12mg$. Total resisting force is $mg$. So power $P=Fv=mgv$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Constant speed means net force is zero.', 'Add both resisting forces.', 'Then use $P=Fv$.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-053',
+    type: 'multiple_choice',
+    question:
+      'A 1 kg block slides down an inclined plane of inclination $30^{\\circ}$ with constant speed. What are the gain in kinetic energy and the work done against friction after travelling 2 m along the plane? (Take $g=10\\ \\mathrm{m\\ s^{-2}}$.)',
+    options: [
+      'Gain in K.E. = 0 J, Work done against friction = 10 J',
+      'Gain in K.E. = 10 J, Work done against friction = 10 J',
+      'Gain in K.E. = 0 J, Work done against friction = 20 J',
+      'Gain in K.E. = 10 J, Work done against friction = 30 J',
+    ],
+    answer: 'Gain in K.E. = 0 J, Work done against friction = 10 J',
+    explanation:
+      'Constant speed means kinetic energy does not change, so gain in KE is 0. Work done against friction equals component of weight along the plane times distance: $mgs\\sin30^\\circ=(1)(10)(2)(0.5)=10\\,\\mathrm{J}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Constant speed implies no change in KE.', 'Use the downslope component $mg\\sin\\theta$.', 'Multiply by distance along the slope.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-053-question.png'],
+  },
+  {
+    id: 'wep-054',
+    type: 'multiple_choice',
+    question:
+      'A skier slides down a slope. Assume constant friction along the slope. Which graph best describes the change of energy of the skier with distance down the slope?',
+    options: ['A', 'B', 'C', 'D'],
+    answer: 'D',
+    explanation:
+      'Energy against distance should be represented by straight lines. As the skier moves down, gravitational potential energy is converted into kinetic energy plus work done against friction. Therefore the gain in KE is less than the loss in PE, which matches option D.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Energy vs distance should vary linearly under constant forces.', 'Friction removes part of the mechanical energy.', 'So KE rises less steeply than PE falls.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-054-question.png'],
+  },
+  {
+    id: 'wep-055',
+    type: 'multiple_choice',
+    question:
+      'A car travels at constant speed $15\\ \\mathrm{m\\ s^{-1}}$ along a horizontal road. The total resisting force is 500 N. Which statements are correct?\n\n(1) The car travels 120 m in 8 s.\n(2) The work done in overcoming resistance in 8 s is 60 kJ.\n(3) The output power of the car is 7.5 kW.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      '(1) $s=vt=(15)(8)=120\\,\\mathrm{m}$. (2) Work done is $Fs=(500)(120)=60000\\,\\mathrm{J}=60\\,\\mathrm{kJ}$. (3) Power is $Fv=(500)(15)=7500\\,\\mathrm{W}=7.5\\,\\mathrm{kW}$. All three are correct.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Use constant-speed formulas directly.', 'Distance is speed × time.', 'Power can be found from $Fv$.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-056',
+    type: 'multiple_choice',
+    question:
+      'A fish jumps vertically up to a maximum height of 0.5 m above the water surface. What is its speed when it just leaves the surface?',
+    options: ['$3.13\\ \\mathrm{m\\ s^{-1}}$', '$4.47\\ \\mathrm{m\\ s^{-1}}$', '$6.32\\ \\mathrm{m\\ s^{-1}}$', '$9.81\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$3.13\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'Using energy conservation, $\\tfrac12mu^2=mgh$. So $\\tfrac12u^2=9.81\\times0.5$, giving $u=3.13\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['At the maximum height, final speed is zero.', 'Use $\\tfrac12mu^2=mgh$.', 'Mass cancels.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-057',
+    type: 'multiple_choice',
+    question:
+      'The figure shows the velocity-time graph of a car travelling on a horizontal straight road. Which statements are correct?\n\n(1) Area under the graph equals the total displacement.\n(2) The acceleration of the car is maximum at time $t_1$.\n(3) The kinetic energy of the car remains unchanged throughout the whole journey.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      '(1) True: area under a velocity-time graph gives displacement. (2) False: acceleration is the slope of the graph; at $t_1$ the slope is zero, so acceleration is minimum there. (3) False: kinetic energy changes whenever speed changes.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Interpret area and slope on a $v$-$t$ graph.', 'Acceleration comes from gradient.', 'KE depends on speed, not just motion direction.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-057-question.png'],
+  },
+  {
+    id: 'wep-058',
+    type: 'multiple_choice',
+    question:
+      'An object is released from rest. Which graph best describes the variation of its kinetic energy with time during falling? (Neglect air resistance.)',
+    options: [
+      '/physics/exercises/work-energy-power/wep-058-option-a.png',
+      '/physics/exercises/work-energy-power/wep-058-option-b.png',
+      '/physics/exercises/work-energy-power/wep-058-option-c.png',
+      '/physics/exercises/work-energy-power/wep-058-option-d.png',
+    ],
+    answer: '/physics/exercises/work-energy-power/wep-058-option-b.png',
+    explanation:
+      'Released from rest gives $u=0$, so $v=gt$ and hence $v\\propto t$. Since $KE=\\tfrac12mv^2$, kinetic energy is proportional to $t^2$. Therefore the graph is an upward-opening quadratic curve.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use $v=gt$ for free fall from rest.', 'Kinetic energy depends on $v^2$.', 'Look for a quadratic rise from zero.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-059',
+    type: 'multiple_choice',
+    question:
+      'John performs a bungee jump. He falls from rest at $A$. At $B$, the elastic cord starts to stretch. He is momentarily at rest at $C$ and then bounces up. Which descriptions are correct? (Neglect air resistance.)\n\n(1) From $A$ to $B$, John is in free fall.\n(2) From $B$ to $C$, the gravitational potential energy of John increases.\n(3) At $C$, there is no net force acting on John.',
+    options: ['(1) only', '(3) only', '(1) and (2) only', '(2) and (3) only'],
+    answer: '(1) only',
+    explanation:
+      '(1) True: before the cord stretches, only gravity acts. (2) False: from $B$ to $C$ he continues downward, so gravitational potential energy decreases. (3) False: at $C$ he is momentarily at rest but accelerating upward to bounce back, so net force is not zero.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Before stretching, the cord exerts no force.', 'Going downward reduces gravitational PE.', 'Zero velocity at an instant does not imply zero force.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-059-question.png'],
+  },
+  {
+    id: 'wep-060',
+    type: 'multiple_choice',
+    question:
+      'When a skydiver falls steadily in air under no net force, which description of his gravitational potential energy, kinetic energy and power in overcoming air resistance is correct?',
+    options: [
+      'Gravitational potential energy decreases; kinetic energy increases; power in overcoming air resistance increases',
+      'Gravitational potential energy decreases; kinetic energy increases; power in overcoming air resistance remains unchanged',
+      'Gravitational potential energy decreases; kinetic energy remains unchanged; power in overcoming air resistance remains unchanged',
+      'Gravitational potential energy remains unchanged; kinetic energy increases; power in overcoming air resistance increases',
+    ],
+    answer: 'Gravitational potential energy decreases; kinetic energy remains unchanged; power in overcoming air resistance remains unchanged',
+    explanation:
+      'Steady fall means constant speed, so kinetic energy remains unchanged. As the skydiver falls, gravitational potential energy decreases. With no net force, air resistance balances weight and both force and speed are constant, so power against air resistance remains unchanged.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Steady motion means constant velocity.', 'Constant speed gives constant KE.', 'Use $P=Fv$ with constant $F$ and $v$.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-061',
+    type: 'multiple_choice',
+    question:
+      'A ball of mass 0.5 kg resting on horizontal ground is kicked. It travels 10 m along a straight path and comes to rest. If the average resistive force is 3 N, what is its initial speed?',
+    options: ['$3.2\\ \\mathrm{m\\ s^{-1}}$', '$7.7\\ \\mathrm{m\\ s^{-1}}$', '$11.0\\ \\mathrm{m\\ s^{-1}}$', '$15.0\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$11.0\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'Loss of kinetic energy equals work done against resistance: $\\tfrac12mu^2=fs$. So $\\tfrac12(0.5)u^2=(3)(10)$, giving $u\\approx10.95\\,\\mathrm{m\\ s^{-1}}\\approx11.0\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Use work-energy theorem.', 'Final kinetic energy is zero.', 'Solve directly for $u$.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-062',
+    type: 'multiple_choice',
+    question:
+      'A constant force $F$ is applied to an object initially at rest on a horizontal smooth surface. Which graph best represents the variation of power $P$ developed by the force with time $t$?',
+    options: [
+      '/physics/exercises/work-energy-power/wep-062-option-a.png',
+      '/physics/exercises/work-energy-power/wep-062-option-b.png',
+      '/physics/exercises/work-energy-power/wep-062-option-c.png',
+      '/physics/exercises/work-energy-power/wep-062-option-d.png',
+    ],
+    answer: '/physics/exercises/work-energy-power/wep-062-option-b.png',
+    explanation:
+      'Power is $P=Fv$. Since $F$ is constant, $P\\propto v$. On a smooth surface with constant force, acceleration is constant and the object starts from rest, so $v\\propto t$. Hence $P\\propto t$: a straight line through the origin.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use $P=Fv$.', 'Constant force on smooth surface gives constant acceleration.', 'From rest, speed increases linearly with time.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-062-question.png'],
+  },
+  {
+    id: 'wep-063',
+    type: 'multiple_choice',
+    question:
+      'A tram of mass 1500 kg is pulled up a $30^{\\circ}$ slope at uniform speed. The average resistive force along the tram is 200 N. What is the energy required for the tram to move 100 m up the slope?',
+    options: ['20 kJ', '734 kJ', '756 kJ', '1500 kJ'],
+    answer: '756 kJ',
+    explanation:
+      'Required pulling force is $F=mg\\sin30^\\circ+200=(1500)(9.81)(0.5)+200=7557.5\\,\\mathrm{N}$. Energy required over 100 m is $Fs=7557.5\\times100=755750\\,\\mathrm{J}\\approx756\\,\\mathrm{kJ}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['At uniform speed, applied force balances downhill forces.', 'Include both component of weight and resistance.', 'Then multiply force by distance.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-063-question.png'],
+  },
+  {
+    id: 'wep-064',
+    type: 'multiple_choice',
+    question:
+      'An object is released from rest at the top of a building of height $h$. At time $t_1$, the object is at half the height of the building. At time $t_2$, the object just reaches the ground. Which of the following is/are correct? (Neglect air resistance.)\n\n(1) Velocity at $t_2$ = 2 × velocity at $t_1$\n(2) $t_2=2\\times t_1$\n(3) K.E. at $t_2$ = 2 × K.E. at $t_1$',
+    options: ['(2) only', '(3) only', '(1) & (2) only', '(1) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      '(1) False: from $v^2=2as$, speed is proportional to $\\sqrt{s}$, so doubling distance makes speed multiply by $\\sqrt2$, not 2. (2) False: from $s=\\tfrac12at^2$, time is proportional to $\\sqrt{s}$, so $t_2=\\sqrt2\\,t_1$, not $2t_1$. (3) True: kinetic energy gained equals loss of potential energy, and the loss of PE at $t_2$ is twice that at $t_1$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use $v^2=2as$ for free fall from rest.', 'Use $s=\\tfrac12at^2$ for time.', 'Kinetic energy gain equals lost gravitational potential energy.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-064-question.png'],
+  },
+  {
+    id: 'wep-065',
+    type: 'multiple_choice',
+    question:
+      'A car is travelling along a straight horizontal path at $16\\ \\mathrm{m\\ s^{-1}}$ initially. The driver sees an obstacle and applies the brake. The velocity-time graph of his car is shown. What is the magnitude of the deceleration of the car during braking?',
+    options: ['$3.56\\ \\mathrm{m\\ s^{-2}}$', '$4.85\\ \\mathrm{m\\ s^{-2}}$', '$13.3\\ \\mathrm{m\\ s^{-2}}$', '$26.4\\ \\mathrm{m\\ s^{-2}}$'],
+    answer: '$4.85\\ \\mathrm{m\\ s^{-2}}$',
+    explanation:
+      'During braking, the deceleration is the magnitude of the slope of the velocity-time graph: $a=\\frac{16}{4.5-1.2}=4.85\\,\\mathrm{m\\ s^{-2}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use gradient of the sloping part of the $v$-$t$ graph.', 'Take the speed drop as 16 m/s.', 'Use the braking interval from 1.2 s to 4.5 s.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-065-question.png'],
+  },
+  {
+    id: 'wep-066',
+    type: 'multiple_choice',
+    question:
+      'A car is travelling along a straight horizontal path at $16\\ \\mathrm{m\\ s^{-1}}$ initially. The driver sees an obstacle and applies the brake. The velocity-time graph of his car is shown. Which graph best represents the variation of the kinetic energy (K.E.) of the car with distance $s$ travelled?',
+    options: [
+      '/physics/exercises/work-energy-power/wep-066-option-a.png',
+      '/physics/exercises/work-energy-power/wep-066-option-b.png',
+      '/physics/exercises/work-energy-power/wep-066-option-c.png',
+      '/physics/exercises/work-energy-power/wep-066-option-d.png',
+    ],
+    answer: '/physics/exercises/work-energy-power/wep-066-option-a.png',
+    explanation:
+      'Before braking, speed is constant, so kinetic energy is constant. During braking, work done against friction gives $KE=KE_0-fs$, a straight line with negative slope versus distance. This matches option A.',
+    difficulty: 2,
+    points: 15,
+    hints: ['KE is constant while speed is constant.', 'During braking, use work-energy: loss in KE equals work against braking force.', 'That gives a linear decrease with distance.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-066-question.png'],
+  },
+  {
+    id: 'wep-067',
+    type: 'multiple_choice',
+    question:
+      'A horizontal force $F$ is applied to a 4 kg block initially at rest on a smooth horizontal surface. The variation of $F$ with displacement $s$ is shown. The direction of $F$ remains unchanged. What is the work done on the block by $F$ from $s=2\\ \\mathrm{m}$ to $5\\ \\mathrm{m}$?',
+    options: ['16 J', '24 J', '32 J', '40 J'],
+    answer: '24 J',
+    explanation:
+      'Work done equals the area under the force-displacement graph from 2 m to 5 m. From the graph this region is a rectangle of width 3 m and height 8 N, so $W=(5-2)\\times8=24\\,\\mathrm{J}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Work is area under an $F$-$s$ graph.', 'Use only the interval 2 m to 5 m.', 'Width is displacement interval, height is force.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-067-question.png'],
+  },
+  {
+    id: 'wep-068',
+    type: 'multiple_choice',
+    question:
+      'A block of mass 5 kg is projected up a smooth inclined plane of inclination $\\theta$. The graph shows the variation of kinetic energy of the block with distance $s$ travelled up the plane. Find the angle $\\theta$. Take $g=10\\ \\mathrm{m\\ s^{-2}}$.',
+    options: ['$5.7^{\\circ}$', '$11.5^{\\circ}$', '$23.6^{\\circ}$', '$26.7^{\\circ}$'],
+    answer: '$11.5^{\\circ}$',
+    explanation:
+      'From the graph, initial kinetic energy is 24 J and it becomes zero after 2.4 m. On a smooth incline, loss of KE equals gain of PE: $24=(5)(10)(2.4)\\sin\\theta$. Hence $\\sin\\theta=0.2$, so $\\theta=11.5^{\\circ}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Read the initial KE and stopping distance from the graph.', 'Use conservation of mechanical energy.', 'Set lost KE equal to gained PE.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-068-question.png'],
+  },
+  {
+    id: 'wep-069',
+    type: 'multiple_choice',
+    question:
+      'A car of mass 1500 kg accelerates from rest along a straight road. The figure shows the variation of its kinetic energy (K.E.) with the square of time $t^2$. What is the acceleration of the car?',
+    options: ['$0.89\\ \\mathrm{m\\ s^{-2}}$', '$1.41\\ \\mathrm{m\\ s^{-2}}$', '$2.00\\ \\mathrm{m\\ s^{-2}}$', '$4.00\\ \\mathrm{m\\ s^{-2}}$'],
+    answer: '$2.00\\ \\mathrm{m\\ s^{-2}}$',
+    explanation:
+      'For motion from rest, $KE=\\tfrac12mv^2=\\tfrac12m(at)^2=\\tfrac12ma^2t^2$. From the graph, when $t^2=5\\,\\mathrm{s^2}$, $KE=15000\\,\\mathrm{J}$. So $15000=\\tfrac12(1500)a^2(5)$, giving $a=2.00\\,\\mathrm{m\\ s^{-2}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Express KE in terms of $t^2$.', 'Use the graph point directly.', 'Solve for $a$ from the coefficient of $t^2$.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-069-question.png'],
+  },
 ];
 
 // 互动模拟 - 自由落体计时器
