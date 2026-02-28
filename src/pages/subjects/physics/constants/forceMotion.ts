@@ -7388,7 +7388,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     id: 'wep-086',
     type: 'multiple_choice',
     question:
-      'An object is released from rest and falls from $P$ to $Q$. Throughout the motion, air resistance increases with the speed of the object. Which descriptions are correct?\n\n(1) The net force acting on the object is constant throughout the motion.\n(2) The magnitude of the object\\'s acceleration decreases from $P$ to $Q$.\n(3) The kinetic energy gained by the object from $P$ to $Q$ is equal to its loss in gravitational potential energy.',
+      'An object is released from rest and falls from $P$ to $Q$. Throughout the motion, air resistance increases with the speed of the object. Which descriptions are correct?\n\n(1) The net force acting on the object is constant throughout the motion.\n(2) The magnitude of the object\'s acceleration decreases from $P$ to $Q$.\n(3) The kinetic energy gained by the object from $P$ to $Q$ is equal to its loss in gravitational potential energy.',
     options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(2) only',
     explanation:
