@@ -7147,6 +7147,322 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     sectionId: 'work-energy-power',
     imagePaths: ['/physics/exercises/work-energy-power/wep-069-question.png'],
   },
+  {
+    id: 'wep-070',
+    type: 'multiple_choice',
+    question:
+      'A ball moves along a smooth curved rail and passes $P$ at a certain speed. Neglecting air resistance and friction, which statements about the motion are correct?\n\n(1) The ball has maximum kinetic energy at $R$.\n(2) The speed of the ball at $S$ is the same as that at $Q$.\n(3) The ball can never reach $T$.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (2) only',
+    explanation:
+      '(1) True: at the lowest point, potential energy is minimum, so kinetic energy is maximum. (2) True: at the same height, the ball has the same potential energy and therefore the same speed. (3) False: since the ball already has kinetic energy at $P$, it may reach $T$ if its total mechanical energy is high enough.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use conservation of mechanical energy.', 'Lowest point gives maximum KE.', 'Whether it reaches a higher point depends on total energy, not just position.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-070-question.png'],
+  },
+  {
+    id: 'wep-071',
+    type: 'multiple_choice',
+    question:
+      'A mass is released from rest at $P$ from a high platform into a swimming pool. It reaches the water surface at $Q$, enters the water, and finally reaches a maximum depth at $R$. Which descriptions are correct?\n\n(1) From $P$ to $Q$, the acceleration of the mass is increasing.\n(2) From $Q$ to $R$, the net force acting on the mass points upward.\n(3) From $P$ to $R$, the gravitational potential energy loss of the mass equals its kinetic energy gain.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(2) only',
+    explanation:
+      '(1) False: from $P$ to $Q$ it is in free fall, so acceleration is constant at $g$. (2) True: from $Q$ to $R$ the mass is slowing down while moving downward, so acceleration and net force are upward. (3) False: some gravitational potential energy is lost to work done against water resistance, and at $R$ the kinetic energy is zero.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Free fall has constant acceleration.', 'If an object slows while moving downward, acceleration is upward.', 'Energy is dissipated by water resistance.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-071-question.png'],
+  },
+  {
+    id: 'wep-072',
+    type: 'multiple_choice',
+    question:
+      'When a body falls freely in air with air resistance negligible, its total mechanical energy',
+    options: ['increases during the fall.', 'decreases during the fall.', 'remains constant during the fall.', 'is zero at the beginning of the fall.'],
+    answer: 'remains constant during the fall.',
+    explanation:
+      'With negligible air resistance, no non-conservative work is done. Mechanical energy is conserved, so gravitational potential energy decreases while kinetic energy increases by the same amount.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Mechanical energy is KE + PE.', 'No air resistance means no dissipative work.', 'PE converts into KE.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-073',
+    type: 'multiple_choice',
+    question:
+      'Two small balls $X$ and $Y$ of masses 1 kg and 2 kg are released from rest at heights $4h$ and $h$ above the ground. If air resistance is negligible, which statements are correct?\n\n(1) The acceleration of ball $X$ doubles that of ball $Y$.\n(2) The time taken for ball $X$ to reach the ground is double that of ball $Y$.\n(3) The kinetic energy of ball $X$ when reaching the ground is double that of ball $Y$.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      '(1) False: both accelerate at the same rate $g$. (2) True: from $s=\\tfrac12gt^2$, time is proportional to $\\sqrt h$, so falling from $4h$ takes twice as long as from $h$. (3) True: KE gained equals lost PE, so $KE\\propto mh$; ratio is $(1\\times4h):(2\\times h)=2:1$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Free-fall acceleration is independent of mass.', 'Use $s\\propto t^2$.', 'Use KE gain = PE loss.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-073-question.png'],
+  },
+  {
+    id: 'wep-074',
+    type: 'multiple_choice',
+    question:
+      'Three toy cars $P$, $Q$ and $R$ move along a straight line. The velocity-time ($v$-$t$) graphs of the three toy cars are shown. Which of the toy cars experience(s) an increase in kinetic energy during the motion?',
+    options: ['$P$ only', '$R$ only', '$P$ & $Q$ only', '$Q$ & $R$ only'],
+    answer: '$P$ only',
+    explanation:
+      'Kinetic energy depends on $v^2$. An increase in kinetic energy requires an increase in speed. From the given $v$-$t$ graphs, only car $P$ shows increasing speed.',
+    difficulty: 2,
+    points: 15,
+    hints: ['KE depends on speed, not direction.', 'Read speed changes directly from the $v$-$t$ graphs.', 'Only increasing speed means increasing KE.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-074-question.png'],
+  },
+  {
+    id: 'wep-075',
+    type: 'multiple_choice',
+    question:
+      'Three toy cars $P$, $Q$ and $R$ move along a straight line. The velocity-time ($v$-$t$) graphs of the three toy cars are shown. Which of the toy cars has/have an unbalanced force acting during the motion?',
+    options: ['$P$ only', '$R$ only', '$P$ & $Q$ only', '$Q$ & $R$ only'],
+    answer: '$P$ & $Q$ only',
+    explanation:
+      'An unbalanced force causes acceleration. From the $v$-$t$ graphs, car $P$ is accelerating and car $Q$ is decelerating, so both have non-zero acceleration. Car $R$ moves with uniform velocity, so its acceleration is zero and there is no unbalanced force.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use slope of the $v$-$t$ graph.', 'Non-zero slope means acceleration.', 'Acceleration implies non-zero net force.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-075-question.png'],
+  },
+  {
+    id: 'wep-076',
+    type: 'multiple_choice',
+    question:
+      'An electric motor lifts a 10 N load through a vertical distance of 3 m. The total electrical energy supplied is 54 J. What amount of energy is wasted by the motor?',
+    options: ['18 J', '24 J', '30 J', '44 J'],
+    answer: '24 J',
+    explanation:
+      'Useful work done is $Fs=(10)(3)=30\\,\\mathrm{J}$. Energy wasted = input energy - useful output = $54-30=24\\,\\mathrm{J}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Useful output is gain in gravitational PE.', 'Compute useful work first.', 'Subtract from total input energy.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-077',
+    type: 'multiple_choice',
+    question:
+      'A windmill raises 270 kg of water every day from a well 12 m deep. What is the useful power extracted from the wind? (Take $g=10\\ \\mathrm{m\\ s^{-2}}$.)',
+    options: ['0.375 W', '0.9375 W', '9.375 W', '135 W'],
+    answer: '0.375 W',
+    explanation:
+      'Useful energy gained by the water each day is $mgh=(270)(10)(12)=32400\\,\\mathrm{J}$. Average power is $P=E/t=32400/(24\\times60\\times60)=0.375\\,\\mathrm{W}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Compute daily gain in gravitational PE first.', 'A day has 86400 s.', 'Average power = energy / time.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-078',
+    type: 'multiple_choice',
+    question:
+      'David exerts a horizontal force of 500 N on a block on a rough horizontal surface. Friction is 100 N. After the block moves 3 m, what is the gain in kinetic energy of the block?',
+    options: ['300 J', '1200 J', '1500 J', '1800 J'],
+    answer: '1200 J',
+    explanation:
+      'Work done by David is $500\\times3=1500\\,\\mathrm{J}$. Work done against friction is $100\\times3=300\\,\\mathrm{J}$. Gain in kinetic energy is the net work: $1500-300=1200\\,\\mathrm{J}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Use work-energy theorem.', 'Net work = applied work - work against friction.', 'Distance is 3 m.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-079',
+    type: 'multiple_choice',
+    question:
+      'Peter pushes a cart along a level road and then lets it go. As the cart is slowing down, the main energy change of the cart is',
+    options: [
+      'from chemical energy to internal energy.',
+      'from chemical energy to kinetic energy.',
+      'from kinetic energy to internal energy.',
+      'from kinetic energy to potential energy.',
+    ],
+    answer: 'from kinetic energy to internal energy.',
+    explanation:
+      'As the cart slows down, it loses kinetic energy. The slowing is mainly due to friction, so that mechanical energy is dissipated as internal energy (heating).',
+    difficulty: 1,
+    points: 10,
+    hints: ['A slowing object loses kinetic energy.', 'On a level road, there is no significant PE change.', 'Friction converts mechanical energy to internal energy.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-080',
+    type: 'multiple_choice',
+    question:
+      'When a wooden block is rubbed against sand-paper, which statements are correct?\n\n(1) Friction acts on the wooden block by the sand-paper.\n(2) Work done against friction is converted into internal energy.\n(3) The temperature of the rubbed surface of the block rises.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      '(1) True: the rough sand-paper exerts friction on the block. (2) True: work against friction becomes internal energy. (3) True: increased internal energy raises the temperature of the rubbed surfaces.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Friction always acts between contacting surfaces.', 'Frictional work becomes internal energy.', 'Heating is the observable effect.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-081',
+    type: 'multiple_choice',
+    question:
+      'Which of the following physical quantities is not a vector?',
+    options: ['acceleration', 'displacement', 'weight', 'work'],
+    answer: 'work',
+    explanation:
+      'Acceleration, displacement, and weight (a force) are vectors. Work is a scalar quantity: it has magnitude but no direction.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Forces are vectors.', 'Displacement and acceleration include direction.', 'Work is energy transfer and is scalar.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-082',
+    type: 'multiple_choice',
+    question:
+      'A student pushes a block of mass 0.25 kg initially at rest on a smooth horizontal surface. The variation of applied force $F$ with displacement $s$ is shown. What is the speed of the block after it has been pushed for 6 m?',
+    options: ['$12.5\\ \\mathrm{m\\ s^{-1}}$', '$15.5\\ \\mathrm{m\\ s^{-1}}$', '$17.5\\ \\mathrm{m\\ s^{-1}}$', '$25.5\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$15.5\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'Area under the $F$-$s$ graph gives work done, which equals gain in kinetic energy. From the graph, area is $\\tfrac12(10)(6)=30\\,\\mathrm{J}$. So $\\tfrac12(0.25)v^2=30$, giving $v\\approx15.5\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use the area under the force-displacement graph.', 'Smooth surface means all work becomes KE.', 'Then solve from $\\tfrac12mv^2$.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-082-question.png'],
+  },
+  {
+    id: 'wep-083',
+    type: 'multiple_choice',
+    question:
+      'An object of mass 0.5 kg is raised vertically from the ground by a motor. It is raised 2.5 m in 1.5 s with uniform speed. Estimate the output power of the motor. Neglect air resistance.',
+    options: ['5.5 W', '8.2 W', '11.0 W', '16.4 W'],
+    answer: '8.2 W',
+    explanation:
+      'Output power is gain in gravitational potential energy per time: $P=\\frac{mgh}{t}=\\frac{(0.5)(9.81)(2.5)}{1.5}\\approx8.2\\,\\mathrm{W}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Uniform speed means no KE change.', 'Only the PE increase matters.', 'Use average power = energy / time.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-084',
+    type: 'multiple_choice',
+    question:
+      'A bullet of mass 50 g is fired at $400\\ \\mathrm{m\\ s^{-1}}$ and passes through a fixed wooden block of thickness 6 cm, emerging at $250\\ \\mathrm{m\\ s^{-1}}$. Find the average resistive force acting on the bullet due to the block. Neglect air resistance and gravity.',
+    options: ['$4.06\\times10^4\\ \\mathrm{N}$', '$1.02\\times10^4\\ \\mathrm{N}$', '125 N', 'Answer cannot be found as the time is not known.'],
+    answer: '$4.06\\times10^4\\ \\mathrm{N}$',
+    explanation:
+      'Use work-energy: initial KE = final KE + work against resistance. So $\\tfrac12(0.050)(400^2)=\\tfrac12(0.050)(250^2)+F(0.06)$. Solving gives $F\\approx4.06\\times10^4\\,\\mathrm{N}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Convert 50 g to 0.050 kg.', 'Thickness 6 cm is 0.06 m.', 'Use loss in KE = work done against resistance.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-084-question.png'],
+  },
+  {
+    id: 'wep-085',
+    type: 'multiple_choice',
+    question:
+      'Two small identical blocks slide down from rest on smooth incline planes from the same height $H$. Their bottom speeds are $v_1$ and $v_2$, and the times taken are $t_1$ and $t_2$. Which is correct? Neglect air resistance.',
+    options: ['$v_1>v_2$ and $t_1=t_2$', '$v_1>v_2$ and $t_1<t_2$', '$v_1=v_2$ and $t_1=t_2$', '$v_1=v_2$ and $t_1<t_2$'],
+    answer: '$v_1=v_2$ and $t_1<t_2$',
+    explanation:
+      'Both start from the same height, so by energy conservation they reach the bottom with the same speed. The steeper incline gives larger acceleration and a shorter path, so the time taken is shorter there. Hence $v_1=v_2$ and $t_1<t_2$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Same height drop gives same final speed on smooth tracks.', 'Acceleration along an incline is $g\\sin\\theta$.', 'A steeper plane gives a shorter travel time here.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-085-question.png'],
+  },
+  {
+    id: 'wep-086',
+    type: 'multiple_choice',
+    question:
+      'An object is released from rest and falls from $P$ to $Q$. Throughout the motion, air resistance increases with the speed of the object. Which descriptions are correct?\n\n(1) The net force acting on the object is constant throughout the motion.\n(2) The magnitude of the object\\'s acceleration decreases from $P$ to $Q$.\n(3) The kinetic energy gained by the object from $P$ to $Q$ is equal to its loss in gravitational potential energy.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(2) only',
+    explanation:
+      '(1) False: net force is $mg-R$, and since air resistance $R$ increases with speed, the net force decreases. (2) True: smaller net force means smaller acceleration magnitude. (3) False: some lost gravitational potential energy is dissipated by air resistance, so KE gain is less than PE loss.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Net force is weight minus air resistance.', 'Air resistance grows as speed increases.', 'With dissipation, not all lost PE becomes KE.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-086-question.png'],
+  },
+  {
+    id: 'wep-087',
+    type: 'multiple_choice',
+    question:
+      'An object at a certain height falls freely from rest under gravity. Which graph correctly shows the variation of its gravitational potential energy $U$ with time $t$? Neglect air resistance and take $U=0$ at the ground.',
+    options: [
+      '/physics/exercises/work-energy-power/wep-087-option-a.png',
+      '/physics/exercises/work-energy-power/wep-087-option-b.png',
+      '/physics/exercises/work-energy-power/wep-087-option-c.png',
+      '/physics/exercises/work-energy-power/wep-087-option-d.png',
+    ],
+    answer: '/physics/exercises/work-energy-power/wep-087-option-c.png',
+    explanation:
+      'Released from rest gives $v=gt$, so kinetic energy increases as $t^2$. Since total mechanical energy is constant, gravitational potential energy must decrease as a downward-opening quadratic curve with time. This matches option C.',
+    difficulty: 2,
+    points: 15,
+    hints: ['For free fall from rest, $v\\propto t$.', 'Then $KE\\propto t^2$.', 'Use $PE+KE=\\text{constant}$.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-088',
+    type: 'multiple_choice',
+    question:
+      'A crane moves a load of weight $W$ steadily from point $P$ to point $Q$ as shown. The work done on the load by the crane is',
+    options: ['$Wy$', '$W(x+y)$', '$\\sqrt{Wz}$', '$Wz\\cos\\theta$'],
+    answer: '$Wy$',
+    explanation:
+      'Since the load is moved steadily, the work done by the crane equals the gain in gravitational potential energy, which depends only on the vertical rise $y$. Thus the work done is $Wy$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Steady lifting means no KE change.', 'Work done equals gain in gravitational PE.', 'Only vertical rise matters for PE change.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-088-question.png'],
+  },
+  {
+    id: 'wep-089',
+    type: 'multiple_choice',
+    question:
+      'A machine at the top of a smooth inclined plane lifts a block from the ground to the top by two methods:\n\n(I) Pull the block vertically upward at uniform speed $v$.\n(II) Pull the block up along the inclined plane at the same uniform speed $v$.\n\nWhich statements correctly compare the two methods?\n\n(1) The tension in the string is the same.\n(2) The average output power of the machine is the same.\n(3) The work done by the machine on the block is the same.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      '(1) False: in method (I), tension balances weight, so $T_1=mg$; in method (II), tension balances only the component along the plane, so $T_2=mg\\sin\\theta$. (2) False: with the same speed, power is $P=Fv$, so different tensions give different powers. (3) True: in both cases the block gains the same gravitational potential energy, so the work done is the same.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Compare forces needed in each direction.', 'Average power depends on force and speed.', 'Work done depends on the change in gravitational PE.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-089-question.png'],
+  },
+  {
+    id: 'wep-090',
+    type: 'multiple_choice',
+    question:
+      'Blocks $X$ and $Y$ are connected by a light inextensible string over a fixed frictionless light pulley. Masses are 0.5 kg and 1 kg respectively. Initially $Y$ is 1 m above the ground and the string is taut. The system is released from rest. What is the speed of $Y$ just before it reaches the ground?',
+    options: ['$3.62\\ \\mathrm{m\\ s^{-1}}$', '$4.43\\ \\mathrm{m\\ s^{-1}}$', '$6.26\\ \\mathrm{m\\ s^{-1}}$', '$9.81\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$3.62\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'Loss of potential energy of $Y$ equals gain of kinetic energy of both masses: $(1)(9.81)(1)=\\tfrac12(0.5)v^2+\\tfrac12(1)v^2$. Solving gives $v=3.62\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use conservation of mechanical energy.', 'Both blocks have the same speed.', 'Include KE of both masses.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-090-question.png'],
+  },
 ];
 
 // 互动模拟 - 自由落体计时器
