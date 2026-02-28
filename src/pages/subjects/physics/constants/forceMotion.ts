@@ -8713,6 +8713,513 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     sectionId: 'momentum',
     imagePaths: ['/physics/exercises/momentum/mom-077-question.png'],
   },
+  {
+    id: 'pjm-001',
+    type: 'multiple_choice',
+    question:
+      'Two small balls $A$ and $B$ are launched simultaneously from the top of a building. $A$ is projected horizontally with an initial velocity of $10\\ \\mathrm{m\\ s^{-1}}$ and $B$ is projected at an angle of $60^{\\circ}$ above the horizontal with an initial velocity of $20\\ \\mathrm{m\\ s^{-1}}$. The motion of both $A$ and $B$ is in the same plane and air resistance is negligible. Which of the following statements is/are correct when they are travelling in air?\n\n(1) Balls $A$ and $B$ travel equal vertical distances in equal times.\n(2) Balls $A$ and $B$ travel equal horizontal distances in equal times.\n(3) Balls $A$ and $B$ never meet.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      '(1) False: $A$ has zero initial vertical velocity, while $B$ has initial vertical velocity $20\\sin60^{\\circ}=17.3\\,\\mathrm{m\\ s^{-1}}$, so their vertical displacements in equal times are different. (2) True: both have the same horizontal component, $10\\,\\mathrm{m\\ s^{-1}}$, so they cover equal horizontal distances in equal times. (3) True: with the same downward acceleration but $B$ always starting with greater upward vertical speed, $B$ stays above $A$, so they do not meet.',
+    difficulty: 3,
+    points: 20,
+    hints: ['Resolve the second launch into components.', 'Compare horizontal components first.', 'Compare vertical motions under the same gravitational acceleration.'],
+    sectionId: 'projectile-motion',
+  },
+  {
+    id: 'pjm-002',
+    type: 'multiple_choice',
+    question:
+      'A small particle is released from $P$ and slips down a smooth curve to $Q$, at the edge of a table 2 m high, where it travels horizontally. It then leaves the table and travels freely under gravity until it hits the ground at $R$, at a horizontal distance of 3 m from $Q$. What is the vertical distance $h$ of $P$ above $Q$?',
+    options: ['1.13 m', '1.33 m', '2.50 m', '3.00 m'],
+    answer: '1.13 m',
+    explanation:
+      'From $Q$ to $R$: vertical motion gives $2=\\tfrac12(9.81)t^2$, so $t=0.6386\\,\\mathrm{s}$. Horizontal motion gives $3=ut$, so $u=4.70\\,\\mathrm{m\\ s^{-1}}$. From $P$ to $Q$, loss of PE equals gain of KE: $mgh=\\tfrac12mu^2$. Hence $9.81h=\\tfrac12(4.70)^2$, giving $h=1.13\\,\\mathrm{m}$.',
+    difficulty: 3,
+    points: 20,
+    hints: ['Solve the projectile part first to find speed at $Q$.', 'Use horizontal and vertical projectile equations separately.', 'Then use energy from $P$ to $Q$.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-002-question.png'],
+  },
+  {
+    id: 'pjm-003',
+    type: 'multiple_choice',
+    question:
+      'A ball is thrown horizontally from the top of a building at a speed of $20\\ \\mathrm{m\\ s^{-1}}$. What will be the speed of the object after $3\\ \\mathrm{s}$?',
+    options: ['$20.0\\ \\mathrm{m\\ s^{-1}}$', '$25.0\\ \\mathrm{m\\ s^{-1}}$', '$30.0\\ \\mathrm{m\\ s^{-1}}$', '$35.6\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$35.6\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'Horizontal speed stays $20\\,\\mathrm{m\\ s^{-1}}$. Vertical speed after 3 s is $gt=(9.81)(3)=29.43\\,\\mathrm{m\\ s^{-1}}$. Resultant speed is $v=\\sqrt{20^2+29.43^2}=35.6\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Treat horizontal and vertical components separately.', 'Horizontal velocity is constant.', 'Combine components with Pythagoras.'],
+    sectionId: 'projectile-motion',
+  },
+  {
+    id: 'pjm-004',
+    type: 'multiple_choice',
+    question:
+      'A particle is projected with speed $10\\ \\mathrm{m\\ s^{-1}}$ downward from $P$ at an angle of $30^{\\circ}$ to the horizontal. The particle rebounds from the ground at $Q$. If the collision is perfectly elastic and the ground is smooth, what is the horizontal distance $QR$ when it reaches the ground again at $R$? (Take $g=10\\ \\mathrm{m\\ s^{-2}}$.)',
+    options: ['10.0 m', '13.0 m', '26.0 m', '43.5 m'],
+    answer: '26.0 m',
+    explanation:
+      'From $P$ to $Q$, the downward vertical component at launch is $10\\sin30^{\\circ}=5\\,\\mathrm{m\\ s^{-1}}$. Using $v_y^2=u_y^2+2ay$, with drop 10 m from the diagram: $v_y^2=5^2+2(10)(10)$, so $v_y=15\\,\\mathrm{m\\ s^{-1}}$. After a perfectly elastic rebound on a smooth ground, the upward vertical speed is also $15\\,\\mathrm{m\\ s^{-1}}$ and the horizontal speed remains $10\\cos30^{\\circ}$. From $Q$ to $R$, $0=(15)t-\\tfrac12(10)t^2$ gives $t=3\\,\\mathrm{s}$. Hence $QR=(10\\cos30^{\\circ})(3)=26.0\\,\\mathrm{m}$.',
+    difficulty: 3,
+    points: 20,
+    hints: ['Use the given geometry to find the impact vertical speed.', 'Smooth ground preserves horizontal speed.', 'Perfectly elastic rebound reverses the vertical component without losing magnitude.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-004-question.png'],
+  },
+  {
+    id: 'pjm-005',
+    type: 'multiple_choice',
+    question:
+      'A hunter aims his gun at a monkey at rest at point $M$. The gun makes an angle $\\theta$ with the horizontal. When the gun is fired, the monkey lets go and falls with zero initial velocity. In order that the bullet can hit the monkey, the angle $\\theta$ depends on\n\n(1) $u$, the initial speed of the bullet.\n(2) $h$, the vertical height of the monkey above the level of the gun.\n(3) $d$, the horizontal distance of the gun from the monkey.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      'To hit the monkey, the gun must be aimed directly at the monkey initially, so the launch angle satisfies $\\tan\\theta=h/d$. Both bullet and monkey then fall with the same gravitational acceleration, so the required angle does not depend on the bullet\\'s initial speed $u$. It depends only on $h$ and $d$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['This is the classic monkey-and-hunter setup.', 'Both bullet and monkey fall with the same vertical acceleration.', 'The aim direction is set by the initial line of sight.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-005-question.png'],
+  },
+  {
+    id: 'pjm-006',
+    type: 'multiple_choice',
+    question:
+      'Two small balls $A$ and $B$ are placed at the edge of a table. Ball $A$ is pushed slightly and falls vertically to the ground, while ball $B$ is projected horizontally at the same instant and follows a parabolic path. If air resistance is neglected, which statements are correct?\n\n(1) Balls $A$ and $B$ reach the ground at the same time.\n(2) Balls $A$ and $B$ have the same acceleration during their motion in air.\n(3) Balls $A$ and $B$ have the same vertical velocity on reaching the ground.',
+    options: ['(3) only', '(1) & (2) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      'Both balls start with zero initial vertical velocity and fall through the same vertical distance under the same gravitational acceleration, so they reach the ground at the same time and with the same final vertical velocity. During motion in air, both have the same acceleration due to gravity.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Compare vertical motion only.', 'Horizontal motion does not affect fall time.', 'Both experience the same gravitational acceleration.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-006-question.png'],
+  },
+  {
+    id: 'pjm-007',
+    type: 'multiple_choice',
+    question:
+      'A bomber is flying horizontally to the right with constant velocity. It releases three bombs one by one at a constant time interval. If air resistance is neglected, which of the following diagrams best shows the positions of the bomber and the bombs at a certain time instant?',
+    options: [
+      { id: 'option-a', image: '/physics/exercises/projectile-motion/pjm-007-option-a.png' },
+      { id: 'option-b', image: '/physics/exercises/projectile-motion/pjm-007-option-b.png' },
+      { id: 'option-c', image: '/physics/exercises/projectile-motion/pjm-007-option-c.png' },
+      { id: 'option-d', image: '/physics/exercises/projectile-motion/pjm-007-option-d.png' },
+    ],
+    answer: 'option-d',
+    explanation:
+      'The bomber and bombs all have the same horizontal velocity, so they stay vertically aligned at any instant. The bombs released earlier have fallen farther, so the correct arrangement is a vertical line below the bomber.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Horizontal motion is unchanged after release.', 'Compare only the vertical drop of each bomb.'],
+    sectionId: 'projectile-motion',
+  },
+  {
+    id: 'pjm-008',
+    type: 'multiple_choice',
+    question:
+      'A ball is projected horizontally from a table surface with an initial speed $u$. It hits the ground with a speed $v$. If air resistance is neglected, what is the time of flight of the ball in air ?',
+    options: ['$\\frac{v-u}{2g}$', '$\\frac{v-u}{g}$', '$\\frac{\\sqrt{v^2-u^2}}{2g}$', '$\\frac{\\sqrt{v^2-u^2}}{g}$'],
+    answer: '$\\frac{\\sqrt{v^2-u^2}}{g}$',
+    explanation:
+      'The horizontal speed remains $u$. At impact, the vertical component is $v_y=\\sqrt{v^2-u^2}$. Using $v_y=gt$ gives $t=\\frac{\\sqrt{v^2-u^2}}{g}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Resolve the final velocity into horizontal and vertical components.', 'The vertical initial speed is zero.'],
+    sectionId: 'projectile-motion',
+  },
+  {
+    id: 'pjm-009',
+    type: 'multiple_choice',
+    question:
+      'A particle is projected horizontally towards a vertical wall at a horizontal distance of 1.2 m away. It hits the wall at a point which is 0.8 m below its initial horizontal level. If air resistance is neglected, what is the speed of the particle when it hits the wall ?',
+    options: ['$2.65\\ \\mathrm{m\\ s^{-1}}$', '$3.45\\ \\mathrm{m\\ s^{-1}}$', '$3.95\\ \\mathrm{m\\ s^{-1}}$', '$4.95\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$4.95\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'From vertical motion, $0.8=\\frac{1}{2}gt^2$ gives $t\\approx0.404\\,\\mathrm{s}$. Then $v_x=1.2/0.404\\approx2.97\\,\\mathrm{m\\ s^{-1}}$ and $v_y=gt\\approx3.96\\,\\mathrm{m\\ s^{-1}}$. The resultant speed is about $4.95\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Find the time from the vertical drop first.', 'Then combine horizontal and vertical velocity components.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-009-question.png'],
+  },
+  {
+    id: 'pjm-010',
+    type: 'multiple_choice',
+    question:
+      'A ball is projected at an elevation angle of $45^{\\circ}$ to the horizontal with an initial kinetic energy $E_0$. Neglecting air resistance, what is the kinetic energy of the ball when it is moving halfway up?',
+    options: ['$\\frac{1}{4}E_0$', '$\\frac{1}{2}E_0$', '$\\frac{1}{3}E_0$', '$\\frac{3}{4}E_0$'],
+    answer: '$\\frac{3}{4}E_0$',
+    explanation:
+      'At $45^{\\circ}$, the initial kinetic energy is split equally between horizontal and vertical motion, so each has $\\frac{1}{2}E_0$. At halfway up, half of the vertical-motion kinetic energy has changed into gravitational potential energy, leaving $\\frac{1}{4}E_0$ vertically plus $\\frac{1}{2}E_0$ horizontally, totaling $\\frac{3}{4}E_0$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Split the initial kinetic energy into horizontal and vertical parts.', 'Horizontal kinetic energy stays constant.'],
+    sectionId: 'projectile-motion',
+  },
+  {
+    id: 'pjm-011',
+    type: 'multiple_choice',
+    question:
+      'A small particle is projected horizontally into the air. The figure shows part of the stroboscopic picture. The side of each square of the grid is 5 cm long. Estimate the frequency of the stroboscopic lamp used. (Neglect air resistance and take $g$ to be $10\\ \\mathrm{m\\ s^{-2}}$.)',
+    options: ['5.8 Hz', '7.1 Hz', '10.0 Hz', '12.5 Hz'],
+    answer: '10.0 Hz',
+    explanation:
+      'Using the vertical displacements between successive images and $y=u_yt+\\frac{1}{2}gt^2$, the time interval between flashes is $0.1\\,\\mathrm{s}$. Hence the lamp frequency is $1/0.1=10.0\\,\\mathrm{Hz}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use the change in vertical separation between flashes.', 'Frequency is the reciprocal of the time interval.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-011-question.png'],
+  },
+  {
+    id: 'pjm-012',
+    type: 'multiple_choice',
+    question:
+      'As shown in the figure, a gun aims directly at a point $P$ which is 40 m from the gun. The barrel of the gun makes an angle $\\theta$ with the vertical. If the speed of the bullet is $50\\ \\mathrm{m\\ s^{-1}}$, what is the separation between the bullet and point $P$ when the bullet is vertically below $P$ ? (Neglect air resistance and take $g$ to be $10\\ \\mathrm{m\\ s^{-2}}$.)',
+    options: ['3.2 m', '4.8 m', '7.8 m', 'It cannot be found as the value of $\\theta$ is not known.'],
+    answer: '3.2 m',
+    explanation:
+      'The time to reach the vertical line through $P$ is $t=40/50=0.8\\,\\mathrm{s}$ because both horizontal distance and horizontal speed carry the same factor of $\\sin\\theta$. In this time, the projectile falls $\\frac{1}{2}gt^2=\\frac{1}{2}(10)(0.8)^2=3.2\\,\\mathrm{m}$ below the straight aiming line.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Treat it like the monkey-and-hunter setup.', 'The extra drop is purely gravitational.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-012-question.png'],
+  },
+  {
+    id: 'pjm-013',
+    type: 'multiple_choice',
+    question:
+      'Five bombs are released from a bomber flying horizontally with a constant velocity. They are released one by one at one-second intervals. Neglecting air resistance, state\n(1) the positions of the five bombs in the air at any instant before landing on the ground,\n(2) the landing positions of the five bombs on the ground?',
+    options: [
+      '(1) They lie on a parabola. (2) They are evenly spaced.',
+      '(1) They lie on a parabola. (2) They are unevenly spaced.',
+      '(1) They lie on a straight line. (2) They are evenly spaced.',
+      '(1) They lie on a straight line. (2) They are unevenly spaced.',
+    ],
+    answer: '(1) They lie on a straight line. (2) They are evenly spaced.',
+    explanation:
+      'At any instant all bombs have the same horizontal position as the bomber, so they line up vertically, i.e. on a straight line. Equal release intervals and constant horizontal speed mean equal horizontal spacing between landing points.',
+    difficulty: 2,
+    points: 15,
+    hints: ["All bombs keep the bomber's horizontal speed.", 'Horizontal spacing equals $v_x\\Delta t$.'],
+    sectionId: 'projectile-motion',
+  },
+  {
+    id: 'pjm-014',
+    type: 'multiple_choice',
+    question:
+      'As shown in the figure, a small ball is projected horizontally with a speed of $1.6\\ \\mathrm{m\\ s^{-1}}$ from the point $P$ on a wall inside a room. The ball hits the smooth horizontal floor at $Q$ and rebounds to the point $R$ on the opposite wall. If air resistance is neglected, which of the following statements must be true?',
+    options: [
+      'There is no loss of kinetic energy of the ball for the collision at $Q$.',
+      'The ball hits $R$ with a horizontal velocity.',
+      'The total time of flight along the path $PQR$ is 0.5 s.',
+      'If the ball is projected with the same horizontal speed at a point $P^\\prime$, vertically above $P$, the total time of flight from $P^\\prime$ to the opposite wall would be longer.',
+    ],
+    answer: 'The total time of flight along the path $PQR$ is 0.5 s.',
+    explanation:
+      'The horizontal speed stays at $1.6\\,\\mathrm{m\\ s^{-1}}$, so the total travel time is horizontal distance divided by horizontal speed: $(0.6+0.2)/1.6=0.5\\,\\mathrm{s}$. The other statements depend on collision details or impact position and are not guaranteed.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use only the total horizontal distance and constant horizontal speed.', 'You do not need the vertical motion to get total time here.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-014-question.png'],
+  },
+  {
+    id: 'pjm-015',
+    type: 'multiple_choice',
+    question:
+      'A small particle is projected horizontally towards a vertical wall 2.5 m away. It hits the wall 1.5 m below the initial horizontal level. At what angle to the vertical does the particle hit the wall ?',
+    options: ['$34^{\\circ}$', '$40^{\\circ}$', '$53^{\\circ}$', '$56^{\\circ}$'],
+    answer: '$40^{\\circ}$',
+    explanation:
+      'From vertical motion, $1.5=\\frac{1}{2}gt^2$ gives $t\\approx0.553\\,\\mathrm{s}$. Then $v_x=2.5/0.553\\approx4.52\\,\\mathrm{m\\ s^{-1}}$ and $v_y=gt\\approx5.42\\,\\mathrm{m\\ s^{-1}}$. The angle to the vertical satisfies $\\tan\\theta=v_x/v_y$, giving $\\theta\\approx40^{\\circ}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Find the time from the vertical drop.', 'Angle to the vertical uses $\\tan\\theta=v_x/v_y$.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-015-question.png'],
+  },
+  {
+    id: 'pjm-016',
+    type: 'multiple_choice',
+    question:
+      'As shown in the figure, a small ball is released from the point $A$. It makes a perfectly elastic collision at $B$ on a slope and then rebounds horizontally. The ball finally reaches $C$ on the ground. The vertical separation of $AB$ and $BC$ are both equal to $h$. If air resistance is neglected, which of the following statements is/are correct?\n\n(1) The acceleration of the ball is constant throughout the motion from $A$ to $C$.\n(2) The time for the ball to move from $A$ to $B$ is equal to that for it to move from $B$ to $C$.\n(3) The kinetic energy of the ball just before colliding at $C$ is twice that at $B$.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      'During free flight the acceleration is $g$, but at the collision point $B$ there is an additional contact force, so the acceleration is not constant throughout. The vertical motion for $A\\to B$ and $B\\to C$ both starts with zero vertical speed and covers the same drop $h$, so the times are equal. The total drop from $A$ to $C$ is $2h$, so the kinetic energy just before reaching $C$ is twice that at $B$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Treat the motion in separate stages.', 'Compare the vertical drops for the two free-flight segments.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-016-question.png'],
+  },
+  {
+    id: 'pjm-017',
+    type: 'multiple_choice',
+    question:
+      'As shown in the figure, a small ball is projected from the point $A$ on the ground with an angle of elevation. It rebounds at $B$ on the incline and travels back to $A$ along the same path. Which statements about the ball must be correct ?\n\n(1) The ball hits the incline at $B$ normally.\n(2) The ball undergoes perfectly elastic collision at $B$.\n(3) The time taken for the ball to go from $A$ to $B$ is equal to that for it to return from $B$ to $A$.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      'If the ball returns along the same path, it must strike the incline normally. To retrace the path and return to the same starting point, no kinetic energy can be lost at the collision, so the collision must be perfectly elastic. With the same path traversed in reverse and the same speeds at corresponding points, the travel times are equal.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Retracing the exact same path is a strong constraint.', 'Think about what the collision must do to the velocity direction and magnitude.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-017-question.png'],
+  },
+  {
+    id: 'pjm-018',
+    type: 'multiple_choice',
+    question:
+      'A small ball of mass 0.2 kg is projected from point $O$ on the ground with a certain initial velocity as shown. It reaches a maximum height of 1.8 m at point $P$. Find the magnitude of the change in momentum, in N s, of the ball from $O$ to $P$. Neglect air resistance and take $g$ to be $10\\ \\mathrm{m\\ s^{-2}}$.',
+    options: ['1.2', '1.6', '2.4', 'It cannot be determined since the angle of projection is not given.'],
+    answer: '1.2',
+    explanation:
+      'At the highest point, the vertical component of velocity is zero. Using $0=u_y^2-2gh$ with $h=1.8\\,\\mathrm{m}$ gives $u_y=6\\,\\mathrm{m\\ s^{-1}}$. The horizontal momentum is unchanged, so the momentum change is purely vertical: $\\Delta p=mu_y=(0.2)(6)=1.2\\,\\mathrm{N\\ s}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Only the vertical component changes.', 'Use the maximum height to find the initial vertical component.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-018-question.png'],
+  },
+  {
+    id: 'pjm-019',
+    type: 'multiple_choice',
+    question:
+      'A small ball is released from rest at the top of a building. After a while another ball is projected horizontally from the same position. Before reaching the ground, which quantity of the two balls will remain unchanged? Neglect air resistance.\n\n(1) their acceleration\n(2) the difference in the vertical component of their velocities\n(3) the difference in their heights above the ground',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) & (2) only',
+    explanation:
+      'Both balls always have the same acceleration due to gravity. Their vertical velocities differ by a constant amount because they have the same vertical acceleration after the second ball is launched. Their height difference does not remain constant; it changes with time.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Compare only vertical motion.', 'Same acceleration means relative vertical acceleration is zero.'],
+    sectionId: 'projectile-motion',
+  },
+  {
+    id: 'pjm-020',
+    type: 'multiple_choice',
+    question:
+      'A ball of mass 2 kg is projected upwards at an angle of $30^{\\circ}$ to the horizontal. It is found that the kinetic energy of the ball at the maximum height is 108 J. What is the initial speed of the ball ?',
+    options: ['$8\\ \\mathrm{m\\ s^{-1}}$', '$12\\ \\mathrm{m\\ s^{-1}}$', '$15\\ \\mathrm{m\\ s^{-1}}$', '$18\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$12\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'At the maximum height, the vertical component of velocity is zero, so the speed is the horizontal component $u\\cos30^{\\circ}$. Hence $108=\\frac{1}{2}(2)(u\\cos30^{\\circ})^2=u^2\\cdot\\frac{3}{4}$, giving $u=12\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['At the top, only horizontal motion remains.', 'Use kinetic energy of the horizontal component only.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-020-question.png'],
+  },
+  {
+    id: 'pjm-021',
+    type: 'multiple_choice',
+    question:
+      'A ball is projected horizontally from the top of a building. It reaches the ground at a point 40 m from the building, making an angle of $45^{\\circ}$ with the horizontal as shown in the figure. What is the height of the building ? Take the acceleration due to gravity $g$ to be $10\\ \\mathrm{m\\ s^{-2}}$.',
+    options: ['20 m', '30 m', '40 m', '80 m'],
+    answer: '20 m',
+    explanation:
+      'At impact, the angle is $45^{\\circ}$, so the horizontal and vertical speed components are equal: $v_y=v_x=u$. Since $v_y=gt$, we have $u=10t$. Also, horizontal motion gives $40=ut=10t^2$, so $t=2\\,\\mathrm{s}$. The height is then $h=\\frac{1}{2}gt^2=\\frac{1}{2}(10)(2)^2=20\\,\\mathrm{m}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use the 45 degree impact angle to relate horizontal and vertical speed.', 'Then solve horizontal motion before finding the height.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-021-question.png'],
+  },
+  {
+    id: 'pjm-022',
+    type: 'multiple_choice',
+    question:
+      'An angry bird is at a height of 10 m above the ground. A green pig is at a horizontal distance of 55 m from the angry bird with a height of 12 m above the ground. In order that the angry bird can hit the green pig, what should be the launch angle (made with the horizontal) of the shot if the time of flight is $2.5\\ \\mathrm{s}$ ?',
+    options: ['$28.5^{\\circ}$', '$30.7^{\\circ}$', '$32.5^{\\circ}$', '$35.2^{\\circ}$'],
+    answer: '$30.7^{\\circ}$',
+    explanation:
+      'Horizontally, $55=u_x(2.5)$ so $u_x=22\\,\\mathrm{m\\ s^{-1}}$. Vertically, $12-10=u_y(2.5)-\\frac{1}{2}(9.81)(2.5)^2$, giving $u_y\\approx13.06\\,\\mathrm{m\\ s^{-1}}$. Hence $\\tan\\theta=u_y/u_x=13.06/22$, so $\\theta\\approx30.7^{\\circ}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Resolve the launch velocity into horizontal and vertical components.', 'Use the given total flight time in both directions.'],
+    sectionId: 'projectile-motion',
+  },
+  {
+    id: 'pjm-023',
+    type: 'multiple_choice',
+    question:
+      'A ball is projected horizontally with an initial speed of $u$ at a certain height above the ground. It then reaches the ground after a time $t$ and the landing position is at a horizontal distance $R$ from the starting point. What would the corresponding values be if the initial speed of the ball is changed to $2u$ ?',
+    options: ['$2t$, $2R$', '$2t$, $R$', '$t$, $4R$', '$t$, $2R$'],
+    answer: '$t$, $2R$',
+    explanation:
+      'The time of flight depends only on the vertical motion and the height, so it is unchanged. The horizontal range is $R=ut$, so doubling the horizontal speed doubles the horizontal distance to $2R$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Horizontal and vertical motions are independent.', 'Only the horizontal speed changes.'],
+    sectionId: 'projectile-motion',
+  },
+  {
+    id: 'pjm-024',
+    type: 'multiple_choice',
+    question:
+      'A particle is projected from the ground with a certain speed making an angle of $35^{\\circ}$ with the ground. After 4.5 s, it reaches the ground. Determine the horizontal distance moved by the particle.',
+    options: ['128 m', '142 m', '164 m', '186 m'],
+    answer: '142 m',
+    explanation:
+      'Using vertical motion with total flight time $4.5\\,\\mathrm{s}$, $0=(u\\sin35^{\\circ})(4.5)-\\frac{1}{2}(9.81)(4.5)^2$, so $u\\approx38.48\\,\\mathrm{m\\ s^{-1}}$. The horizontal range is then $(u\\cos35^{\\circ})(4.5)\\approx142\\,\\mathrm{m}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['First find the initial speed from the vertical motion.', 'Then use the horizontal component for the range.'],
+    sectionId: 'projectile-motion',
+  },
+  {
+    id: 'pjm-025',
+    type: 'multiple_choice',
+    question:
+      'A heavy ball is projected horizontally from the top of a building with an initial speed of $10\\ \\mathrm{m\\ s^{-1}}$. It hits the ground with a speed of $15\\ \\mathrm{m\\ s^{-1}}$. If air resistance is neglected, what is the height of the building ?',
+    options: ['3.09 m', '6.37 m', '8.15 m', '9.28 m'],
+    answer: '6.37 m',
+    explanation:
+      'The horizontal component stays at $10\\,\\mathrm{m\\ s^{-1}}$. At impact, $15^2=10^2+v_y^2$, so $v_y\\approx11.18\\,\\mathrm{m\\ s^{-1}}$. Using $v_y^2=2gh$ gives $h=11.18^2/(2\\times9.81)\\approx6.37\\,\\mathrm{m}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Find the final vertical component from the resultant speed.', 'Then use vertical kinematics.'],
+    sectionId: 'projectile-motion',
+  },
+  {
+    id: 'pjm-026',
+    type: 'multiple_choice',
+    question:
+      'A particle is projected with speed $25\\ \\mathrm{m\\ s^{-1}}$ at an angle of dip of $30^{\\circ}$ on the edge of a vertical cliff 20 m above point $P$ as shown in the figure. The particle then follows a parabolic path to reach the point $Q$ at the bottom of an incline which makes an angle of $30^{\\circ}$ with the horizontal. Calculate the distance $PQ$ of the incline. Take $g$ to be $10\\ \\mathrm{m\\ s^{-2}}$.',
+    options: ['40 m', '50 m', '60 m', '70 m'],
+    answer: '50 m',
+    explanation:
+      'Let $PQ=d$. Horizontally, $d\\cos30^{\\circ}=(25\\cos30^{\\circ})t$, so $d=25t$. Vertically, $20+d\\sin30^{\\circ}=(25\\sin30^{\\circ})t+\\frac{1}{2}(10)t^2$. Substituting $d=25t$ gives $20=5t^2$, so $t=2\\,\\mathrm{s}$ and hence $d=25(2)=50\\,\\mathrm{m}$.',
+    difficulty: 4,
+    points: 15,
+    hints: ['Express the incline distance in terms of time using horizontal motion first.', 'Then substitute into the vertical equation.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-026-question.png'],
+  },
+  {
+    id: 'pjm-027',
+    type: 'multiple_choice',
+    question:
+      'A ball is projected horizontally at the top of a building with a speed of $12\\ \\mathrm{m\\ s^{-1}}$. The height of the building above the ground is 18 m. What is the speed of the ball when it lands on the ground if air resistance is negligible ?',
+    options: ['$15.6\\ \\mathrm{m\\ s^{-1}}$', '$22.3\\ \\mathrm{m\\ s^{-1}}$', '$25.6\\ \\mathrm{m\\ s^{-1}}$', '$28.9\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$22.3\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'Using energy conservation, $\\frac{1}{2}u^2+gh=\\frac{1}{2}v^2$. Substituting $u=12\\,\\mathrm{m\\ s^{-1}}$ and $h=18\\,\\mathrm{m}$ gives $\\frac{1}{2}(12)^2+(9.81)(18)=\\frac{1}{2}v^2$, so $v\\approx22.3\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['The horizontal launch speed contributes to the initial kinetic energy.', 'Use conservation of mechanical energy.'],
+    sectionId: 'projectile-motion',
+  },
+  {
+    id: 'pjm-028',
+    type: 'multiple_choice',
+    question:
+      'A football player kicks a ball on the ground. The ball leaves the ground with speed $v$ and hits the bar at $X$ with a speed of $17\\ \\mathrm{m\\ s^{-1}}$. $X$ is 2 m above the ground. Neglect air resistance, what is the value of $v$ ?',
+    options: ['$15.8\\ \\mathrm{m\\ s^{-1}}$', '$18.1\\ \\mathrm{m\\ s^{-1}}$', '$19.0\\ \\mathrm{m\\ s^{-1}}$', '$23.3\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$18.1\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'By energy conservation, $\\frac{1}{2}mv^2=\\frac{1}{2}m(17)^2+mg(2)$. So $\\frac{1}{2}v^2=\\frac{1}{2}(17)^2+(9.81)(2)$, giving $v\\approx18.1\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['The ball is higher at X than at launch.', 'Use conservation of mechanical energy.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-028-question.png'],
+  },
+  {
+    id: 'pjm-029',
+    type: 'multiple_choice',
+    question:
+      'A bomber aircraft is 1 km above the ground and is flying horizontally at a speed of $200\\ \\mathrm{m\\ s^{-1}}$. The aircraft is going to release a bomb to destroy a target on the ground. How long before flying over the target should the bomb be released ? Assume that the bomber aircraft and the target are in the same vertical plane and neglect air resistance.',
+    options: ['5.6 s', '10.1 s', '14.3 s', 'It cannot be calculated as the horizontal distance between the aircraft and the target is not known.'],
+    answer: '14.3 s',
+    explanation:
+      'The required lead time is the vertical fall time. Using $1000=\\frac{1}{2}(9.81)t^2$ gives $t\\approx14.3\\,\\mathrm{s}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['The release time depends only on the vertical drop.', 'Ignore horizontal speed when finding the time.'],
+    sectionId: 'projectile-motion',
+  },
+  {
+    id: 'pjm-030',
+    type: 'multiple_choice',
+    question:
+      'A particle is projected into the air at time $t=0$ and it performs a parabolic motion before landing on the ground as shown. Which graph represents the variation of the kinetic energy (KE) of the particle with time before landing? Neglect air resistance.',
+    options: [
+      { id: 'option-a', image: '/physics/exercises/projectile-motion/pjm-030-option-a.png' },
+      { id: 'option-b', image: '/physics/exercises/projectile-motion/pjm-030-option-b.png' },
+      { id: 'option-c', image: '/physics/exercises/projectile-motion/pjm-030-option-c.png' },
+      { id: 'option-d', image: '/physics/exercises/projectile-motion/pjm-030-option-d.png' },
+    ],
+    answer: 'option-d',
+    explanation:
+      'The vertical velocity varies linearly with time, so the vertical kinetic energy varies quadratically with time. The horizontal kinetic energy stays constant. Therefore the total kinetic energy is a quadratic curve with a non-zero minimum at the highest point.',
+    difficulty: 3,
+    points: 15,
+    hints: ['At the highest point, the speed is not zero.', 'Horizontal kinetic energy is constant throughout.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-030-question.png'],
+  },
+  {
+    id: 'pjm-031',
+    type: 'multiple_choice',
+    question:
+      'A particle is projected horizontally towards a vertical wall 1.0 m away. It hits the wall at a position 0.8 m vertically below its point of projection. At what speed is it projected? Neglect air resistance.',
+    options: ['$2.0\\ \\mathrm{m\\ s^{-1}}$', '$2.5\\ \\mathrm{m\\ s^{-1}}$', '$5.0\\ \\mathrm{m\\ s^{-1}}$', '$6.3\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$2.5\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'From the vertical motion, $0.8=\\frac{1}{2}(9.81)t^2$, so $t\\approx0.404\\,\\mathrm{s}$. The horizontal speed is then $u=1.0/0.404\\approx2.5\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['First find the fall time from the vertical drop.', 'Then use horizontal motion.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-031-question.png'],
+  },
+  {
+    id: 'pjm-032',
+    type: 'multiple_choice',
+    question:
+      "The stroboscopic picture shows a particle projected horizontally at position $P$ into the air in a vertical plane. Subsequently the particle reaches positions $Q$ and $R$ such that the time interval between $P$ and $Q$ is equal to that between $Q$ and $R$. Each square of the grid measures $1.25\\ \\mathrm{cm} \\times 1.25\\ \\mathrm{cm}$. Find the particle's speed of projection at $P$. Neglect air resistance.",
+    options: ['$0.3\\ \\mathrm{m\\ s^{-1}}$', '$0.4\\ \\mathrm{m\\ s^{-1}}$', '$0.5\\ \\mathrm{m\\ s^{-1}}$', '$0.6\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$0.5\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'The first vertical drop is $1.25\\,\\mathrm{cm}=0.0125\\,\\mathrm{m}$. Using $y=\\frac{1}{2}gt^2$ gives $T\\approx0.0505\\,\\mathrm{s}$. The first horizontal spacing is $2.5\\,\\mathrm{cm}=0.025\\,\\mathrm{m}$, so $u=0.025/0.0505\\approx0.5\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use the first interval only.', 'Convert cm to m before calculating.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-032-question.png'],
+  },
+  {
+    id: 'pjm-033',
+    type: 'multiple_choice',
+    question:
+      'Marbles $P$ and $Q$ of the same mass are shot horizontally. They hit the horizontal ground at points $R$ and $S$ respectively as shown. Neglect air resistance. Which of the following statements is INCORRECT ?',
+    options: [
+      'The initial speed of marble $P$ is smaller than that of marble $Q$.',
+      'The time of flight of marble $P$ is shorter than that of marble $Q$.',
+      'The potential energy loss of marble $P$ is greater than that of marble $Q$.',
+      'The acceleration of marbles $P$ and $Q$ is the same during the flight.',
+    ],
+    answer: 'The time of flight of marble $P$ is shorter than that of marble $Q$.',
+    explanation:
+      'If marble $P$ falls from a greater height, its time of flight must be longer, not shorter, because vertical fall time depends on height through $y=\\frac{1}{2}gt^2$. The other statements are consistent with projectile motion under gravity.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Check how time of flight depends on height.', 'Both marbles have the same acceleration in air.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-033-question.png'],
+  },
 ];
 
 // 互动模拟 - 自由落体计时器
