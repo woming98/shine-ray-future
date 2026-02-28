@@ -9741,6 +9741,491 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     sectionId: 'circular-motion',
     imagePaths: ['/physics/exercises/circular-motion/cm-032-question.png'],
   },
+  {
+    id: 'grav-001',
+    type: 'multiple_choice',
+    question:
+      'Two identical spheres, each of mass $M$ and radius $r$ are in contact. One sphere is displaced by a distance $4r$, along the line of centres, away from the first sphere. What is the ratio of the final gravitational force between the spheres to the initial gravitational force between them ?',
+    options: ['$1:3$', '$1:9$', '$1:16$', '$1:25$'],
+    answer: '$1:9$',
+    explanation:
+      'Initially the centres are $2r$ apart. After one sphere is moved by $4r$, the centre-to-centre distance becomes $6r$. Since gravitational force varies inversely as the square of separation, $\\frac{F_2}{F_1}=\\left(\\frac{2r}{6r}\\right)^2=\\frac{1}{9}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Treat each sphere as a point mass at its centre.', 'Use the inverse-square law.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-002',
+    type: 'multiple_choice',
+    question:
+      'Taking the Earth to be a perfect sphere with uniform density, which of the following statements concerning the gravitational field $g$ of the Earth is/are correct ?\n\n(1) The gravitational field at the surface of the Earth is greater than that at the top of a high mountain.\n(2) If the density of the Earth increases with its radius remaining unchanged, $g$ at the surface increases.\n(3) If the radius of the Earth increases with its density remaining unchanged, $g$ at the surface decreases.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) & (2) only',
+    explanation:
+      'At greater distance from Earth’s centre, $g$ is smaller, so it is weaker on top of a high mountain than at sea level. Also, $g=\\frac{GM}{R^2}$ and for uniform density $M\\propto\\rho R^3$, so $g\\propto\\rho R$. Thus increasing density at fixed radius increases $g$, while increasing radius at fixed density would increase, not decrease, $g$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use $g=GM/R^2$.', 'For uniform density, mass scales with $R^3$.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-003',
+    type: 'multiple_choice',
+    question:
+      'In which of the following situations is the magnitude of the normal reaction $R$ of the supporting surface equal to the weight $mg$ of the body?\n\n(1) A body is resting on a rough inclined plane.\n(2) A body placed on the floor inside a spacecraft in circular orbit around the Earth.\n(3) A body placed on the floor of a lift moving upwards with uniform velocity.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      'On an inclined plane, the normal reaction is $mg\\cos\\theta$, not $mg$. In a spacecraft orbiting Earth, the body is effectively weightless relative to the floor, so the normal reaction is zero. In a lift moving upward with uniform velocity, acceleration is zero, so the forces balance and $R=mg$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Uniform velocity means zero acceleration.', 'Normal reaction is perpendicular to the supporting surface.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-004',
+    type: 'multiple_choice',
+    question:
+      'A parking satellite appears stationary vertically above an observer at the equator of the Earth. The radius of the satellite from the Earth is $4.24\\times10^7\\ \\mathrm{m}$. Calculate the mass of the Earth.',
+    options: ['$4.5\\times10^{24}\\ \\mathrm{kg}$', '$5.0\\times10^{24}\\ \\mathrm{kg}$', '$5.5\\times10^{24}\\ \\mathrm{kg}$', '$6.0\\times10^{24}\\ \\mathrm{kg}$'],
+    answer: '$6.0\\times10^{24}\\ \\mathrm{kg}$',
+    explanation:
+      'For a geostationary satellite, gravitational force provides centripetal force: $\\frac{GMm}{r^2}=mr\\omega^2$, with $\\omega=\\frac{2\\pi}{T}$ and $T=24\\times60\\times60\\,\\mathrm{s}$. Substituting the given orbital radius gives $M\\approx6.0\\times10^{24}\\,\\mathrm{kg}$.',
+    difficulty: 4,
+    points: 15,
+    hints: ['Use geostationary period = 24 hours.', 'Equate gravity to centripetal force.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-005',
+    type: 'multiple_choice',
+    question:
+      'In which of the following cases would the resultant force on the object become zero ?\n\n(1) a satellite moving round the Earth\n(2) a feather falling freely in a vacuum cylinder in a laboratory\n(3) a parachutist falling with terminal velocity in air',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      'A satellite in orbit requires a centripetal force, so its resultant force is not zero. A feather falling freely in vacuum has only weight acting, so its resultant force is also not zero. A parachutist at terminal velocity has zero acceleration, so the forces balance and the resultant force is zero.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Terminal velocity means constant velocity.', 'Circular motion needs a centripetal resultant force.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-006',
+    type: 'multiple_choice',
+    question:
+      "A close-orbit satellite near the Earth's surface has a speed of $7900\\ \\mathrm{m\\ s^{-1}}$. The radius of the Earth is 4 times that of the Moon and the ratio of the average density of the Earth to that of the Moon is $5:4$. What would be the speed of a close-orbit satellite near the Moon's surface ?",
+    options: ['$1770\\ \\mathrm{m\\ s^{-1}}$', '$2210\\ \\mathrm{m\\ s^{-1}}$', '$2470\\ \\mathrm{m\\ s^{-1}}$', '$3570\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$1770\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'For a close-orbit satellite, $v=\\sqrt{\\frac{GM}{R}}$. Since $M\\propto\\rho R^3$, this gives $v\\propto\\sqrt{\\rho R^2}=R\\sqrt{\\rho}$. Hence $\\frac{v_m}{v_e}=\\frac{R_m}{R_e}\\sqrt{\\frac{\\rho_m}{\\rho_e}}=\\frac{1}{4}\\sqrt{\\frac{4}{5}}$. Multiplying by $7900\\,\\mathrm{m\\ s^{-1}}$ gives about $1770\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 4,
+    points: 15,
+    hints: ['Start from $v=\\sqrt{GM/R}$.', 'Rewrite mass in terms of density and radius.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-007',
+    type: 'multiple_choice',
+    question:
+      'There are two planets $X$ and $Y$. Each of them has a close-orbit satellite revolving close to the planet. If the two satellites are observed to have the same period, then $X$ and $Y$ must have nearly the same',
+    options: ['mass.', 'average density.', 'radius.', "acceleration due to gravity at the planet's surface."],
+    answer: 'average density.',
+    explanation:
+      'For a close-orbit satellite, $\\frac{GM}{R^2}=R\\omega^2$, so $\\frac{GM}{R^3}=\\omega^2$. Since $\\omega=2\\pi/T$, the same period means the same $\\omega$, hence the same $M/R^3$. Because $M/R^3$ is proportional to average density, the planets must have nearly the same average density.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use the close-orbit condition near the surface.', 'Relate $M/R^3$ to density.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-008',
+    type: 'multiple_choice',
+    question:
+      'In the following situations, which of the cases would the normal reaction acting on a body and the weight of the body have the same magnitude ?\n\n(1) A ball bouncing vertically on a horizontal ground is in contact with the ground.\n(2) An astronaut in a spacecraft which performs circular motion around the Earth.\n(3) A boy standing in a lift which is moving vertically upward with a uniform velocity.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      'A bouncing ball in contact with the ground has a large upward acceleration, so the normal reaction is greater than its weight. An astronaut in orbit is in free fall and does not press on the floor, so the normal reaction is zero. In a lift moving upward with uniform velocity, acceleration is zero, so the normal reaction equals the weight.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Uniform velocity means balanced forces.', 'Objects in orbit are effectively in free fall.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-009',
+    type: 'multiple_choice',
+    question:
+      'Assume that the Earth is a perfect sphere. If the radius of the Earth is $6.4\\times10^6\\ \\mathrm{m}$, what is its average density?',
+    options: ['$5.5\\times10^3\\ \\mathrm{kg\\ m^{-3}}$', '$7.3\\times10^3\\ \\mathrm{kg\\ m^{-3}}$', '$2.3\\times10^4\\ \\mathrm{kg\\ m^{-3}}$', '$6.0\\times10^{24}\\ \\mathrm{kg\\ m^{-3}}$'],
+    answer: '$5.5\\times10^3\\ \\mathrm{kg\\ m^{-3}}$',
+    explanation:
+      'Using $g=\\frac{GM}{R^2}$ with $g=9.81\\,\\mathrm{N\\ kg^{-1}}$ and $R=6.4\\times10^6\\,\\mathrm{m}$ gives the Earth’s mass as about $6.0\\times10^{24}\\,\\mathrm{kg}$. Dividing this by the Earth’s volume $\\frac{4}{3}\\pi R^3$ gives an average density of about $5.5\\times10^3\\,\\mathrm{kg\\ m^{-3}}$.',
+    difficulty: 4,
+    points: 15,
+    hints: ['Find Earth’s mass from $g=GM/R^2$ first.', 'Then use density = mass / volume.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-010',
+    type: 'multiple_choice',
+    question:
+      'There are many satellites revolving around Saturn. Different satellites have different speed $v$ and radius $r$. Which of the following correctly expresses the relation between these two values?',
+    options: ['$v\\propto r$', '$v\\propto\\sqrt{r}$', '$v\\propto\\frac{1}{r}$', '$v\\propto\\frac{1}{\\sqrt{r}}$'],
+    answer: '$v\\propto\\frac{1}{\\sqrt{r}}$',
+    explanation:
+      'For circular orbit, gravity provides centripetal force: $\\frac{GMm}{r^2}=\\frac{mv^2}{r}$. Hence $v^2=\\frac{GM}{r}$, so $v\\propto\\frac{1}{\\sqrt{r}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Set gravitational force equal to centripetal force.', 'Rearrange for $v$ in terms of $r$.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-011',
+    type: 'multiple_choice',
+    question:
+      'A planet has a mass 3 times that of the Earth and a diameter 2 times that of the Earth. What is the gravitational field strength on the planet\\'s surface?',
+    options: ['7.36', '9.81', '14.7', '19.6'],
+    answer: '7.36',
+    explanation:
+      "Surface gravitational field scales as $g\\propto\\frac{M}{R^2}$. The planet has mass ratio $3$ and radius ratio $2$, so $\\frac{g_p}{g_E}=3\\left(\\frac{1}{2}\\right)^2=\\frac{3}{4}$. Therefore $g_p=\\frac{3}{4}\\times9.81\\approx7.36\\,\\mathrm{N\\ kg^{-1}}$.",
+    difficulty: 2,
+    points: 15,
+    hints: ['Use $g=GM/R^2$.', 'Diameter doubled means radius doubled.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-012',
+    type: 'multiple_choice',
+    question:
+      'An object of mass 25 kg has a weight of 41 N on the surface of the moon. The radius of the moon is $R$. What is the gravitational field strength in $\\mathrm{N\\ kg^{-1}}$, at a point distance $2R$ from the centre of the moon?',
+    options: ['1.64', '0.82', '0.41', '0.21'],
+    answer: '0.41',
+    explanation:
+      "On the moon's surface, $W=mg$, so $41=(25)g$ and $g=1.64\\,\\mathrm{N\\ kg^{-1}}$. Gravitational field varies as $1/r^2$, so at distance $2R$, the field becomes $1.64\\left(\\frac{R}{2R}\\right)^2=0.41\\,\\mathrm{N\\ kg^{-1}}$.",
+    difficulty: 2,
+    points: 15,
+    hints: ['Find lunar surface $g$ from the given weight first.', 'Then apply the inverse-square law.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-013',
+    type: 'multiple_choice',
+    question:
+      'The Earth is at a distance $r$ from the centre of the Sun. It takes 365 days for the Earth to revolve once around the sun in a circular path. Find the mass of the Sun in terms of $r$.',
+    options: ['$2.45\\times10^{-4}r^3$', '$5.95\\times10^{-4}r^3$', '$3.85\\times10^4r^3$', '$1.75\\times10^6r^3$'],
+    answer: '$5.95\\times10^{-4}r^3$',
+    explanation:
+      'Using $\\frac{GMm}{r^2}=mr\\omega^2$ with $\\omega=\\frac{2\\pi}{T}$ gives $M=\\frac{4\\pi^2r^3}{GT^2}$. Substituting $G=6.67\\times10^{-11}$ and $T=365\\times24\\times3600\\,\\mathrm{s}$ gives $M\\approx5.95\\times10^{-4}r^3$.',
+    difficulty: 4,
+    points: 15,
+    hints: ['Use gravitational force as centripetal force.', 'Convert 365 days to seconds.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-014',
+    type: 'multiple_choice',
+    question:
+      "In which of the following situations does the person concerned experience 'weightlessness' ?\n\n(1) an astronaut in a spacecraft which is decelerating to make a soft landing on the moon\n(2) a parachutist descending with a constant velocity in the air\n(3) an astronaut in a spacecraft which is orbiting around the Earth with its rocket engines shut off",
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      'Weightlessness means no normal reaction is felt. During a soft landing deceleration, the astronaut is supported by the spacecraft and feels a normal reaction. A parachutist at terminal velocity still feels air resistance supporting him. In a spacecraft orbiting Earth with engines off, the astronaut and spacecraft are in free fall together, so no normal reaction acts and he feels weightless.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Weightlessness means absence of support force, not absence of gravity.', 'Objects in orbit are in continuous free fall.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-015',
+    type: 'multiple_choice',
+    question:
+      'Which of the following statements about parking orbits around the Earth are correct?\n\n(1) All satellites in a parking orbit must have the same speed.\n(2) No satellite in a parking orbit can pass vertically above Hong Kong.\n(3) There is only one parking orbit around the Earth.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      'A parking orbit here means geostationary orbit. Its radius is fixed, so all such satellites have the same orbital speed. It lies in the equatorial plane, so it cannot pass vertically above Hong Kong. Since the equatorial plane and orbital radius are fixed, there is only one such orbit.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Treat parking orbit as geostationary orbit.', 'Geostationary satellites must stay above the equator.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-016',
+    type: 'multiple_choice',
+    question:
+      'The figure shows a binary star system in which $X$ and $Y$ are two stars revolving about $O$ with uniform circular motion under their mutual gravitational attraction. If the radius of the orbit of $X$ is twice that of $Y$, which of the following deductions are correct ?\n\n(1) The acceleration of $X$ is twice that of $Y$.\n(2) The orbital speed of $X$ is equal to that of $Y$.\n(3) The mass of $X$ is half that of $Y$.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (3) only',
+    explanation:
+      'Both stars complete each revolution in the same period, so they have the same angular speed. Since $a=r\\omega^2$, the star with twice the orbital radius has twice the centripetal acceleration, so (1) is true. Also $v=r\\omega$, so the star with twice the radius has twice the speed, not the same speed, so (2) is false. Because the mutual gravitational force is the same on both stars and $F=mr\\omega^2$, the star with twice the radius must have half the mass, so (3) is true.',
+    difficulty: 4,
+    points: 15,
+    hints: ['The two stars share the same angular speed.', 'Use $F=mr\\omega^2$ for each star.'],
+    sectionId: 'gravitation',
+    imagePaths: ['/physics/exercises/gravitation/grav-016-question.png'],
+  },
+  {
+    id: 'grav-017',
+    type: 'multiple_choice',
+    question:
+      "Ganymede is one of the satellites of Jupiter. The radius of Ganymede's orbit around Jupiter is about 3 times that of the Moon around the Earth. The mass of Jupiter is 318 times that of the Earth. If the period of the Moon around the Earth is 27.3 days, what is the period of Ganymede revolving around Jupiter ?",
+    options: ['2.7 days', '8.0 days', '91 days', '273 days'],
+    answer: '8.0 days',
+    explanation:
+      'For orbital motion, $T^2=\\frac{4\\pi^2r^3}{GM}$, so $T^2\\propto\\frac{r^3}{M}$. Therefore $\\left(\\frac{T_G}{27.3}\\right)^2=\\frac{3^3}{318}$. This gives $T_G\\approx8.0$ days.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use Kepler-type scaling $T^2\\propto r^3/M$.', 'Substitute the given radius and mass ratios directly.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-018',
+    type: 'multiple_choice',
+    question:
+      'Two identical satellites $X$ and $Y$ are moving in two circular orbits around the Earth as shown. Which statement is/are correct ?\n\n(1) The period of $X$ is greater than that of $Y$.\n(2) The speed of $X$ is smaller than that of $Y$.\n(3) The gravitational force on $X$ is smaller than that on $Y$.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      'For orbital motion, $T^2\\propto r^3$, so the satellite in the larger orbit has a longer period. Also $v^2=\\frac{GM}{r}$, so the satellite farther from Earth has a smaller speed. Finally, $F=\\frac{GMm}{r^2}$, so the gravitational force is smaller at the larger orbital radius. Therefore all three statements are correct.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use $T^2\\propto r^3$ and $v^2\\propto1/r$.', 'Gravitational force follows the inverse-square law.'],
+    sectionId: 'gravitation',
+    imagePaths: ['/physics/exercises/gravitation/grav-018-question.png'],
+  },
+  {
+    id: 'grav-019',
+    type: 'multiple_choice',
+    question:
+      'Given that the radius of the Earth is 6380 km. Find the acceleration due to gravity at a height of 3200 km.',
+    options: ['$3.65\\ \\mathrm{N\\ kg^{-1}}$', '$4.35\\ \\mathrm{N\\ kg^{-1}}$', '$5.85\\ \\mathrm{N\\ kg^{-1}}$', '$6.75\\ \\mathrm{N\\ kg^{-1}}$'],
+    answer: '$4.35\\ \\mathrm{N\\ kg^{-1}}$',
+    explanation:
+      'Gravitational field strength varies as $1/r^2$. Hence $g=9.81\\left(\\frac{6380}{6380+3200}\\right)^2\\approx4.35\\,\\mathrm{N\\ kg^{-1}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ["Use the inverse-square dependence of $g$ on distance from Earth's centre.", "Add the height to Earth's radius first."],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-020',
+    type: 'multiple_choice',
+    question:
+      'The radius of the Earth is $R$. Satellite $X$ orbits around the Earth at a height of $R$, while satellite $Y$ orbits around the Earth at a height of $2R$. Find the ratio of the speed of $X$ to that of $Y$.',
+    options: ['$\\sqrt{\\frac{1}{2}}$', '$\\sqrt{\\frac{2}{1}}$', '$\\sqrt{\\frac{2}{3}}$', '$\\sqrt{\\frac{3}{2}}$'],
+    answer: '$\\sqrt{\\frac{3}{2}}$',
+    explanation:
+      'Orbital speed satisfies $v\\propto\\frac{1}{\\sqrt{r}}$. The orbital radii are $r_X=R+R=2R$ and $r_Y=R+2R=3R$. Hence $\\frac{v_X}{v_Y}=\\sqrt{\\frac{r_Y}{r_X}}=\\sqrt{\\frac{3R}{2R}}=\\sqrt{\\frac{3}{2}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Convert orbital heights to orbital radii first.', 'Use $v\\propto1/\\sqrt{r}$.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-021',
+    type: 'multiple_choice',
+    question:
+      'On a certain planet, an object is thrown vertically upwards with an initial velocity of $v_1$ and it returns to the ground after time $t$. If $v_2$ is the orbital speed of a satellite circling close to the planet, what is the radius of the planet ?',
+    options: ['$\\frac{2v_1^2t}{v_2}$', '$\\frac{4v_1^2t}{v_2}$', '$\\frac{2v_2^2t}{v_1}$', '$\\frac{v_2^2t}{2v_1}$'],
+    answer: '$\\frac{v_2^2t}{2v_1}$',
+    explanation:
+      'For the vertical throw, total flight time gives $0=v_1t-\\frac{1}{2}gt^2$, so $g=\\frac{2v_1}{t}$. For a close-orbit satellite, $g=\\frac{v_2^2}{R}$. Equating these gives $\\frac{v_2^2}{R}=\\frac{2v_1}{t}$, so $R=\\frac{v_2^2t}{2v_1}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ["Find the planet's $g$ from the up-and-down motion first.", 'Relate close-orbit speed to surface gravity.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-022',
+    type: 'multiple_choice',
+    question:
+      'If the gravitational constant $G$ becomes larger while the orbital radius of the Moon around the Earth and the masses of the Moon and the Earth remain unchanged, which physical quantity of the Moon would change ?\n\n(1) orbital speed\n(2) period revolving around the Earth\n(3) acceleration',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      'From $\\frac{GMm}{r^2}=\\frac{mv^2}{r}$, the orbital speed depends on $G$. From $\\frac{GMm}{r^2}=mr\\omega^2$, the angular speed and hence the period also depend on $G$. The centripetal acceleration is $a=\\frac{GM}{r^2}$, so it changes as well. Therefore all three quantities change.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Keep orbital radius fixed and vary only $G$.', 'Use the orbit relations for speed, period, and acceleration.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-023',
+    type: 'multiple_choice',
+    question:
+      'A small sphere $X$ of mass $M$ is placed at a distance $d$ from a point mass. The gravitational force on sphere $X$ is 120 N. The sphere $X$ is removed and another sphere $Y$ of mass $3M$ is placed at a distance $2d$ from the same point mass. What would then be the gravitational force on sphere $Y$ ?',
+    options: ['80 N', '90 N', '160 N', '180 N'],
+    answer: '90 N',
+    explanation:
+      'Gravitational force is proportional to $\\frac{M}{r^2}$. Replacing $M$ by $3M$ and $d$ by $2d$ multiplies the force by $\\frac{3}{(2)^2}=\\frac{3}{4}$. Therefore the new force is $\\frac{3}{4}\\times120=90\\,\\mathrm{N}$.',
+    difficulty: 1,
+    points: 15,
+    hints: ['Compare proportional changes only.', 'Mass triples, distance doubles.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-024',
+    type: 'multiple_choice',
+    question:
+      'A parking satellite is moving at a constant speed in a circular orbit around the Earth. At any instant, the resultant force acting on the satellite is',
+    options: ['zero.', 'equal to the gravitational force on the satellite.', 'equal to the resultant force of the gravitational force on the satellite and the centripetal force.', 'equal to the force exerted by the rockets of the satellite.'],
+    answer: 'equal to the gravitational force on the satellite.',
+    explanation:
+      "The only significant force acting on the parking satellite is Earth's gravitational force. This gravitational force is itself the resultant inward force and provides the required centripetal force for the circular motion.",
+    difficulty: 2,
+    points: 15,
+    hints: ['Centripetal force is not an extra force.', 'A parking satellite does not need rockets firing continuously.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-025',
+    type: 'multiple_choice',
+    question:
+      "Two satellites move in circular orbits of the same radius $R$ around the Earth (mass $M$). The orbits are in two different planes $P$ and $Q$. Plane $P$ coincides with the Earth's equator while plane $Q$ is inclined to the equator. Which of the following statement is INCORRECT?",
+    options: [
+      'The speed of satellite $P$ is $\\sqrt{\\frac{GM}{R}}$.',
+      'The centripetal force acting on satellite $Q$ is pointing along the plane $Q$.',
+      'The acceleration of both satellites is the same in magnitude.',
+      'The period of satellite $Q$ is longer than that of satellite $P$.',
+    ],
+    answer: 'The period of satellite $Q$ is longer than that of satellite $P$.',
+    explanation:
+      "For circular orbits of the same radius around the same Earth, both satellites have the same orbital speed, same centripetal acceleration magnitude, and same period, regardless of orbital plane. The centripetal force on satellite $Q$ points toward Earth's centre and lies in the orbital plane. Therefore the claim that satellite $Q$ has a longer period is incorrect.",
+    difficulty: 3,
+    points: 15,
+    hints: ['Orbital period depends on orbital radius, not orbital plane.', 'Compare two circular orbits with the same radius.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-026',
+    type: 'multiple_choice',
+    question:
+      "It is known that the mass of Mars is about $\\frac{1}{10}$ of that of the Earth while its radius is about $\\frac{1}{2}$ of the Earth's radius. In terms of the gravitational acceleration $g$ on the Earth's surface, the approximate gravitational acceleration on the surface of Mars is",
+    options: ['0.2 g', '0.4 g', '2.5 g', '4 g'],
+    answer: '0.4 g',
+    explanation:
+      'Surface gravity scales as $g\\propto\\frac{M}{R^2}$. So for Mars, $g_M=\\frac{(1/10)}{(1/2)^2}g_E=\\frac{1/10}{1/4}g_E=0.4g$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use the ratio form of $g=GM/R^2$.', 'Square the radius ratio.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-027',
+    type: 'multiple_choice',
+    question:
+      'An astronaut inside a spacecraft moving in a circular orbit around the Earth is apparently weightless because',
+    options: [
+      "the astronaut is too far from the Earth to feel the Earth's gravitational force.",
+      'the astronaut and the spacecraft are both moving with the same acceleration due to gravity towards the Earth.',
+      "the Earth's gravitational force on the astronaut is balanced by the reaction force of the spacecraft's floor.",
+      "the Earth's gravitational force on the astronaut is balanced by the centripetal force.",
+    ],
+    answer: 'the astronaut and the spacecraft are both moving with the same acceleration due to gravity towards the Earth.',
+    explanation:
+      'The astronaut and the spacecraft are both in free fall together, each accelerating toward the Earth under gravity. Because they share the same gravitational acceleration, the astronaut does not press on the floor, so there is no normal reaction and he feels weightless.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Weightlessness means no support force is felt.', 'Centripetal force is provided by gravity here, not something that balances gravity.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-028',
+    type: 'multiple_choice',
+    question:
+      "An artificial satellite revolves in a circular orbit above the Earth's surface at a height equal to the radius of the Earth. Find the acceleration of the satellite in terms of the acceleration due to gravity $g$ on the Earth's surface.",
+    options: ['$\\frac{1}{8}g$', '$\\frac{1}{4}g$', '$\\frac{1}{2}g$', '$g$'],
+    answer: '$\\frac{1}{4}g$',
+    explanation:
+      "The satellite is at distance $2R$ from Earth's centre. Since gravitational acceleration varies as $1/r^2$, the acceleration there is $g\\left(\\frac{R}{2R}\\right)^2=\\frac{1}{4}g$.",
+    difficulty: 1,
+    points: 15,
+    hints: ["Convert the orbital height to distance from Earth's centre.", 'Use the inverse-square law for gravitational field strength.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-029',
+    type: 'multiple_choice',
+    question:
+      'The gravitational force exerted on the Earth by the Sun is $F_0$. The gravitational force exerted on the Sun by the Earth is',
+    options: [
+      'equal to $F_0$ and in the same direction.',
+      'equal to $F_0$ and in the opposite direction.',
+      'much smaller than $F_0$ and in the same direction.',
+      'much smaller than $F_0$ and in the opposite direction.',
+    ],
+    answer: 'equal to $F_0$ and in the opposite direction.',
+    explanation:
+      "These two gravitational forces form a Newton's third-law pair. Therefore they are equal in magnitude and opposite in direction.",
+    difficulty: 1,
+    points: 15,
+    hints: ["Apply Newton's third law to the Earth-Sun interaction."],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-030',
+    type: 'multiple_choice',
+    question:
+      'A satellite orbits the Earth in a circular path of radius $7.2\\times10^6\\ \\mathrm{m}$. What is the period of the satellite ? Given : mass of the Earth $=6.0\\times10^{24}\\ \\mathrm{kg}$',
+    options: ['1.4 hours', '1.7 hours', '1 day', 'Answer cannot be found as the mass of the satellite is not known.'],
+    answer: '1.7 hours',
+    explanation:
+      'For circular orbit, $\\frac{GMm}{r^2}=mr\\omega^2$, so $\\frac{GM}{r^3}=\\left(\\frac{2\\pi}{T}\\right)^2$. Substituting $G=6.67\\times10^{-11}$, $M=6.0\\times10^{24}$, and $r=7.2\\times10^6\\,\\mathrm{m}$ gives $T\\approx6067\\,\\mathrm{s}\\approx1.7$ hours. The satellite mass cancels out.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use gravity as centripetal force.', 'The satellite mass cancels.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-031',
+    type: 'multiple_choice',
+    question:
+      'A small object is released from rest at a point very far away from a planet $X$. The object then starts moving towards $X$. $X$ does not have an atmosphere. Neglect the effect of other celestial bodies. Which of the following graphs best shows the variation of the velocity $v$ of the object with time $t$ before it hits $X$ ?',
+    options: [
+      { id: 'option-a', image: '/physics/exercises/gravitation/grav-031-option-a.png' },
+      { id: 'option-b', image: '/physics/exercises/gravitation/grav-031-option-b.png' },
+      { id: 'option-c', image: '/physics/exercises/gravitation/grav-031-option-c.png' },
+      { id: 'option-d', image: '/physics/exercises/gravitation/grav-031-option-d.png' },
+    ],
+    answer: 'option-c',
+    explanation:
+      'The gravitational acceleration is $a=\\frac{GM}{r^2}$. As the object gets closer to the planet, $r$ decreases, so the acceleration increases. Since the slope of a $v$-$t$ graph is acceleration, the slope must increase progressively, which matches graph C.',
+    difficulty: 2,
+    points: 15,
+    hints: ['The slope of a $v$-$t$ graph is acceleration.', 'Gravitational acceleration increases as distance decreases.'],
+    sectionId: 'gravitation',
+    imagePaths: ['/physics/exercises/gravitation/grav-031-question.png'],
+  },
+  {
+    id: 'grav-032',
+    type: 'multiple_choice',
+    question:
+      'A satellite of mass $m$ moves around a planet of mass $M$ in circular orbit of radius $r$. What does the angular velocity of the satellite depend on ?\n\n(1) $r$\n(2) $m$\n(3) $M$',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(1) & (3) only',
+    explanation:
+      'Using $\\frac{GMm}{r^2}=mr\\omega^2$ gives $\\omega^2=\\frac{GM}{r^3}$. So the angular velocity depends on the orbital radius $r$ and the planet mass $M$, but not on the satellite mass $m$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Set gravitational force equal to centripetal force.', 'Check which quantities cancel.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-033',
+    type: 'multiple_choice',
+    question:
+      "The diameter of Neptune is about 4 times that of the Earth and its mass is about 17 times that of the Earth. Estimate the acceleration due to gravity on Neptune's surface. Given: acceleration due to gravity on Earth's surface $g=9.81\\ \\mathrm{m\\ s^{-2}}$",
+    options: ['$2.3\\ \\mathrm{m\\ s^{-2}}$', '$9.2\\ \\mathrm{m\\ s^{-2}}$', '$10.4\\ \\mathrm{m\\ s^{-2}}$', '$41.7\\ \\mathrm{m\\ s^{-2}}$'],
+    answer: '$10.4\\ \\mathrm{m\\ s^{-2}}$',
+    explanation:
+      "Surface gravity scales as $g\\propto\\frac{M}{R^2}$. Neptune's mass is $17$ times Earth's and its radius is $4$ times Earth's, so $g_N=\\frac{17}{4^2}g_E=\\frac{17}{16}\\times9.81\\approx10.4\\,\\mathrm{m\\ s^{-2}}$.",
+    difficulty: 2,
+    points: 15,
+    hints: ['Diameter ratio is the same as radius ratio.', 'Use the ratio form of $g=GM/R^2$.'],
+    sectionId: 'gravitation',
+  },
 ];
 
 // 互动模拟 - 自由落体计时器
