@@ -6900,8 +6900,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     type: 'multiple_choice',
     question:
       'A skier slides down a slope. Assume constant friction along the slope. Which graph best describes the change of energy of the skier with distance down the slope?',
-    options: ['A', 'B', 'C', 'D'],
-    answer: 'D',
+    options: [
+      '/physics/exercises/work-energy-power/wep-054-option-a.png',
+      '/physics/exercises/work-energy-power/wep-054-option-b.png',
+      '/physics/exercises/work-energy-power/wep-054-option-c.png',
+      '/physics/exercises/work-energy-power/wep-054option-d.png',
+    ],
+    answer: '/physics/exercises/work-energy-power/wep-054option-d.png',
     explanation:
       'Energy against distance should be represented by straight lines. As the skier moves down, gravitational potential energy is converted into kinetic energy plus work done against friction. Therefore the gain in KE is less than the loss in PE, which matches option D.',
     difficulty: 2,
@@ -7465,6 +7470,186 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Use conservation of mechanical energy.', 'Both blocks have the same speed.', 'Include KE of both masses.'],
     sectionId: 'work-energy-power',
     imagePaths: ['/physics/exercises/work-energy-power/wep-090-question.png'],
+  },
+  {
+    id: 'mom-001',
+    type: 'multiple_choice',
+    question:
+      'When a constant unbalanced force is applied to a particle, which of the following will change with time?\n\n(1) The acceleration of the particle\n(2) The momentum of the particle\n(3) The kinetic energy of the particle',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      'A constant net force gives constant acceleration, so (1) is false. With constant acceleration, velocity changes with time, so momentum changes and kinetic energy also changes.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use Newton second law for acceleration.', 'Momentum depends on velocity.', 'Kinetic energy depends on $v^2$.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-002',
+    type: 'multiple_choice',
+    question:
+      'A ball is dropped from a height $h$ above the ground. Each time it hits the ground, one-half of the original kinetic energy is lost. How high will the ball rise above the ground after the second impact?',
+    options: ['$\\frac{h}{8}$', '$\\frac{h}{4}$', '$\\frac{h}{2}$', '$\\frac{h}{\\sqrt2}$'],
+    answer: '$\\frac{h}{4}$',
+    explanation:
+      'After each impact, the remaining kinetic energy is half the value just before that impact. After the second impact, the available rebound kinetic energy is $\\tfrac12\\times\\tfrac12=\\tfrac14$ of the original. Since maximum height is proportional to gravitational potential energy, the rebound height is $\\tfrac14 h$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Relate rebound height to rebound KE.', 'Each collision keeps only half the previous KE.', 'PE at top equals KE just after impact.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-003',
+    type: 'multiple_choice',
+    question:
+      'Two objects $P$ and $Q$ of mass 2 kg and 3 kg respectively have the same momentum. They are then subjected to the same constant resisting force and gradually brought to rest. What is the ratio of the stopping distance of $P$ to that of $Q$?',
+    options: ['4:9', '2:3', '3:2', '9:4'],
+    answer: '3:2',
+    explanation:
+      'For the same momentum $p$, kinetic energy is $KE=\\frac{p^2}{2m}$, so $KE\\propto\\frac1m$. With the same resisting force, stopping distance is proportional to work done and hence proportional to initial kinetic energy. Therefore $s\\propto\\frac1m$, giving $s_P:s_Q=m_Q:m_P=3:2$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Rewrite KE in terms of momentum.', 'Same resisting force means same work per unit distance.', 'Stopping distance follows from energy loss.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-004',
+    type: 'multiple_choice',
+    question:
+      'A gas molecule of mass $m$ collides with the wall of a container at speed $2\\ \\mathrm{m\\ s^{-1}}$ and rebounds with the same speed. Which of the following is/are true?\n\n(1) The kinetic energy before and after the collision remains unchanged.\n(2) The velocity before and after the collision remains unchanged.\n(3) The momentum before and after the collision remains unchanged.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      'The speed is the same before and after, so kinetic energy is unchanged. Velocity and momentum are vectors; their directions reverse on rebounding, so both change.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Speed and velocity are not the same.', 'Momentum direction follows velocity direction.', 'KE depends on speed squared only.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-004-question.png'],
+  },
+  {
+    id: 'mom-005',
+    type: 'multiple_choice',
+    question:
+      'A system consists of two identical masses travelling in opposite directions with equal speed. They collide elastically at time $t_0$. Which graph correctly shows the total momentum of the system before and after the collision?',
+    options: [
+      '/physics/exercises/momentum/mom-005-option-a.png',
+      '/physics/exercises/momentum/mom-005-option-b.png',
+      '/physics/exercises/momentum/mom-005-option-c.png',
+      '/physics/exercises/momentum/mom-005-option-d.png',
+    ],
+    answer: '/physics/exercises/momentum/mom-005-option-d.png',
+    explanation:
+      'The two equal and opposite momenta cancel, so the total momentum of the system is zero before and after the collision. With no external net force, total momentum remains constant throughout.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Add the two opposite momenta.', 'Elasticity does not affect total momentum conservation.', 'No external force means system momentum stays constant.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-006',
+    type: 'multiple_choice',
+    question:
+      'A trolley of mass 1 kg travelling at $2\\ \\mathrm{m\\ s^{-1}}$ on a smooth horizontal plane has a lump of plasticine dropped vertically onto it from height 5 m. If the mass of the plasticine is 2 kg, the velocity of the loaded trolley will be',
+    options: ['$0.67\\ \\mathrm{m\\ s^{-1}}$', '$1.00\\ \\mathrm{m\\ s^{-1}}$', '$1.50\\ \\mathrm{m\\ s^{-1}}$', '$1.33\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$0.67\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'Only horizontal momentum matters. Initial horizontal momentum is $(1)(2)+(2)(0)=2\\,\\mathrm{kg\\ m\\ s^{-1}}$. After sticking together, total mass is 3 kg, so $v=2/3=0.67\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Vertical drop adds no horizontal momentum.', 'Use conservation of horizontal momentum.', 'Plasticine sticks, so final masses move together.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-007',
+    type: 'multiple_choice',
+    question:
+      'A particle is in motion with a constant force acting on it. Which physical quantities will be changing during the time when the force is acting?\n\n(1) acceleration of the particle\n(2) momentum of the particle\n(3) kinetic energy of the particle',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      'A constant force gives constant acceleration, so (1) is not changing. The velocity changes, so both momentum and kinetic energy change with time.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Constant force gives constant acceleration for constant mass.', 'Momentum depends on velocity.', 'KE depends on $v^2$.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-008',
+    type: 'multiple_choice',
+    question:
+      'A basketball falls freely from rest and hits the ground. It then rebounds to $\\frac14$ of its original height. Neglecting air resistance. Which statements are correct?\n\n(1) Its kinetic energy just before collision is four times its kinetic energy just after collision.\n(2) Its potential energy just before collision is four times its potential energy just after collision.\n(3) The speed just before collision is two times the speed just after collision.',
+    options: ['(1) only', '(2) only', '(2) & (3) only', '(1) & (3) only'],
+    answer: '(1) & (3) only',
+    explanation:
+      'Rebounding to one-quarter of the original height means the rebound kinetic energy just after collision is one-quarter of the kinetic energy just before collision. Thus (1) is true. At the collision point, just before and just after, the ball is at the same height, so potential energies are equal, making (2) false. Since $KE\\propto v^2$, a factor of 4 in KE gives a factor of 2 in speed, so (3) is true.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use rebound height to compare rebound KE.', 'Compare PE at the same location.', 'Relate KE ratio to speed ratio through $v^2$.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-009',
+    type: 'multiple_choice',
+    question:
+      'A ball of mass 2 kg drops from rest from a height 5 m and rebounds to the same height. If the duration of impact with the ground is 0.2 s, what is the force acting on the ball by the ground? (Take $g=10\\ \\mathrm{m\\ s^{-2}}$.)',
+    options: ['20 N', '100 N', '200 N', '220 N'],
+    answer: '220 N',
+    explanation:
+      'Speed just before impact is from $v^2=2gh=2(10)(5)$, so $v=10\\,\\mathrm{m\\ s^{-1}}$. Taking upward as positive, change in momentum during impact is $m(10)-m(-10)=40\\,\\mathrm{kg\\ m\\ s^{-1}}$. Average net force is $40/0.2=200\\,\\mathrm{N}$ upward. Since net force is $R-mg$, we get $R-20=200$, hence $R=220\\,\\mathrm{N}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Find impact speed from free fall.', 'Use change in momentum over impact time.', 'Include the weight when relating net force to ground reaction.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-010',
+    type: 'multiple_choice',
+    question:
+      'What physical quantity does the area of the shaded portion of each of the above graphs represent?\n\nI\nII',
+    options: [
+      'I: acceleration, II: energy',
+      'I: distance, II: power',
+      'I: acceleration, II: change of momentum',
+      'I: distance, II: energy',
+    ],
+    answer: 'I: distance, II: energy',
+    explanation:
+      'For graph I, the shaded area under a speed-time graph represents distance travelled. For graph II, the shaded area under a force-distance graph represents work done, i.e. energy transferred.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Area under speed-time gives distance.', 'Area under force-distance gives work.', 'Work is an energy transfer.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-010-question.png'],
+  },
+  {
+    id: 'mom-011',
+    type: 'multiple_choice',
+    question:
+      'Which of the following is a vector quantity with correct unit?',
+    options: ['speed, $\\mathrm{km\\ h^{-1}}$', 'acceleration, $\\mathrm{m\\ s^{-1}}$', 'power, W', 'momentum, $\\mathrm{kg\\ m\\ s^{-1}}$'],
+    answer: 'momentum, $\\mathrm{kg\\ m\\ s^{-1}}$',
+    explanation:
+      'Speed is a scalar. Acceleration is a vector, but its correct unit is $\\mathrm{m\\ s^{-2}}$, not $\\mathrm{m\\ s^{-1}}$. Power is a scalar. Momentum is a vector and its unit is $\\mathrm{kg\\ m\\ s^{-1}}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Check both the quantity type and the unit.', 'Acceleration unit must include per second squared.', 'Momentum is mass times velocity.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-012',
+    type: 'multiple_choice',
+    question:
+      'A mass of 3 kg initially at rest explodes into two fragments $X$ and $Y$ of masses 1 kg and 2 kg respectively. What is the ratio of the kinetic energy of $X$ to that of $Y$ just after the explosion?',
+    options: ['1:4', '1:2', '2:1', '4:1'],
+    answer: '2:1',
+    explanation:
+      'With no external net force, the two fragments have equal and opposite momenta. For fixed momentum magnitude, $KE=\\frac{p^2}{2m}$, so kinetic energy is inversely proportional to mass. Thus $KE_X:KE_Y=m_Y:m_X=2:1$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Explosion conserves momentum.', 'Fragments have equal momentum magnitudes.', 'Use KE in terms of momentum.'],
+    sectionId: 'momentum',
   },
 ];
 
