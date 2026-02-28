@@ -7651,6 +7651,1068 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Explosion conserves momentum.', 'Fragments have equal momentum magnitudes.', 'Use KE in terms of momentum.'],
     sectionId: 'momentum',
   },
+  {
+    id: 'mom-013',
+    type: 'multiple_choice',
+    question:
+      'Which of the following is/are correct unit(s) for momentum?\n\n(1) $\\mathrm{kg\\ m\\ s^{-1}}$\n(2) $\\mathrm{kg\\ m\\ s^{-2}}$\n(3) $\\mathrm{N\\ s}$',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(1) & (3) only',
+    explanation:
+      'Momentum has unit mass × velocity, so $\\mathrm{kg\\ m\\ s^{-1}}$. Also, since $1\\,\\mathrm{N}=1\\,\\mathrm{kg\\ m\\ s^{-2}}$, multiplying by seconds gives $\\mathrm{N\\ s}=\\mathrm{kg\\ m\\ s^{-1}}$. But $\\mathrm{kg\\ m\\ s^{-2}}$ alone is the unit of force.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Start from momentum = mass × velocity.', 'Relate newton to SI base units.', 'Distinguish force from momentum.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-014',
+    type: 'multiple_choice',
+    question:
+      'A ball moving in a smooth horizontal plane hits a wall and rebounds perfectly elastically. Which graph best represents the variation of kinetic energy with time?',
+    options: [
+      '/physics/exercises/momentum/mom-014-option-a.png',
+      '/physics/exercises/momentum/mom-014-option-b.png',
+      '/physics/exercises/momentum/mom-014-option-c.png',
+      '/physics/exercises/momentum/mom-014-option-d.png',
+    ],
+    answer: '/physics/exercises/momentum/mom-014-option-d.png',
+    explanation:
+      'In a perfectly elastic rebound, no kinetic energy is lost. The kinetic energy is the same before and after the collision, though the direction of motion reverses. The suitable graph is the one showing unchanged KE across the collision, i.e. option D.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Perfectly elastic means total KE is conserved.', 'Rebound changes direction, not speed magnitude here.', 'KE depends on speed, not direction.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-015',
+    type: 'multiple_choice',
+    question:
+      'Two blocks $A$ and $B$ are released simultaneously from rest at $X$ on a smooth plane and slide down to $Y$. Block $A$ has mass $2M$ while block $B$ has mass $M$. On reaching $Y$, which statements are correct?\n\n(1) The velocity of block $A$ is double that of block $B$.\n(2) The momentum of block $A$ is double that of block $B$.\n(3) The time taken by block $A$ is double that of block $B$.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(2) only',
+    explanation:
+      'Both blocks have the same acceleration down the plane and start from rest, so they reach $Y$ with the same final velocity and in the same time. Hence (1) and (3) are false. Since momentum is $mv$, block $A$ with double mass has double momentum at the same velocity, so (2) is true.',
+    difficulty: 2,
+    points: 15,
+    hints: ['On a smooth incline, acceleration is independent of mass.', 'Same motion conditions give same final speed and time.', 'Momentum depends on mass and velocity.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-015-question.png'],
+  },
+  {
+    id: 'mom-016',
+    type: 'multiple_choice',
+    question:
+      'Two trolleys move towards each other along a smooth runway and stick together after collision. What is the total loss in kinetic energy during the collision?',
+    options: ['3 J', '6 J', '9 J', '12 J'],
+    answer: '12 J',
+    explanation:
+      'Using momentum conservation with the given diagram values: $(2)(4)+(1)(-2)=(2+1)v$, so $v=2\\,\\mathrm{m\\ s^{-1}}$. Initial kinetic energy is $\\tfrac12(2)(4^2)+\\tfrac12(1)(2^2)=18\\,\\mathrm{J}$. Final kinetic energy is $\\tfrac12(3)(2^2)=6\\,\\mathrm{J}$. So the loss is $18-6=12\\,\\mathrm{J}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use conservation of momentum to find final speed.', 'Then compare initial and final KE.', 'They stick together, so it is an inelastic collision.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-016-question.png'],
+  },
+  {
+    id: 'mom-017',
+    type: 'multiple_choice',
+    question:
+      'Two metal spheres of unequal masses are released from rest at the same time from a height of 2 m. When they have fallen 1 m, neglecting air resistance, they have the same',
+    options: ['speed.', 'momentum.', 'weight.', 'kinetic energy.'],
+    answer: 'speed.',
+    explanation:
+      'Both fall through the same distance under the same gravitational acceleration, so they reach the same speed. Their masses differ, so momentum, weight, and kinetic energy are different.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Same drop distance in free fall gives same speed.', 'Momentum and KE depend on mass.', 'Weight is proportional to mass.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-018',
+    type: 'multiple_choice',
+    question:
+      'Bullets each of mass $m$ are fired at a rate of $n$ bullets per second. They hit a vertical wall with horizontal speed $v$ and rebound with the same horizontal speed $v$. Which statements are correct?\n\n(1) The total change in momentum of the bullets is zero.\n(2) The total change in momentum of the bullets in one second is $2mnv$.\n(3) The average force exerted on the wall is $2mnv$.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      'For one bullet, momentum changes from $+mv$ to $-mv$, so the change in momentum magnitude is $2mv$ (opposite direction). For $n$ bullets per second, total momentum change per second is $2mnv$. Average force equals rate of change of momentum, so it is also $2mnv$. Statement (1) is false.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Compute momentum change for one rebounding bullet first.', 'Multiply by the number per second.', 'Force equals change of momentum per unit time.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-019',
+    type: 'multiple_choice',
+    question:
+      'A small metal ball is released from a point above the floor and bounces several times. Which graph best represents the variation of the velocity of the ball with time?',
+    options: [
+      '/physics/exercises/momentum/mom-019-option-a.png',
+      '/physics/exercises/momentum/mom-019-option-b.png',
+      '/physics/exercises/momentum/mom-019-option-c.png',
+      '/physics/exercises/momentum/mom-019-option-d.png',
+    ],
+    answer: '/physics/exercises/momentum/mom-019-option-b.png',
+    explanation:
+      'Taking upward as positive, the ball starts from rest, then its velocity becomes increasingly negative under gravity. During each collision, the velocity changes from negative to positive in a very short time, appearing as a near-vertical jump. The repeated sawtooth-like graph is option B.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Choose a sign convention for velocity.', 'Free-fall segments are straight lines on a $v$-$t$ graph.', 'Impacts cause abrupt sign changes.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-020',
+    type: 'multiple_choice',
+    question:
+      'Which of the following statements is/are correct when a collision between two particles is elastic?\n\n(1) None of the original kinetic energy is converted into other forms of energy.\n(2) The linear momentum of each particle is conserved.\n(3) The mechanical energy of each particle is conserved.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      'In an elastic collision, total kinetic energy of the system is conserved, so no original kinetic energy is converted into other forms. However, the momentum of each individual particle is not conserved during the interaction; only the total momentum of the system is conserved. Similarly, the mechanical energy of each individual particle may change as energy transfers between them.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Elastic collision conserves total KE of the system.', 'Momentum conservation applies to the whole isolated system.', 'Individual particles can exchange momentum and energy.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-021',
+    type: 'multiple_choice',
+    question:
+      'A trolley moves with constant speed along a horizontal surface. A lump of plasticine having the same mass as the trolley is dropped onto it and sticks to it. Which ticker-tape best represents the motion of the trolley?',
+    options: [
+      '/physics/exercises/momentum/mom-021-option-a.png',
+      '/physics/exercises/momentum/mom-021-option-b.png',
+      '/physics/exercises/momentum/mom-021-option-c.png',
+      '/physics/exercises/momentum/mom-021-option-d.png',
+    ],
+    answer: '/physics/exercises/momentum/mom-021-option-b.png',
+    explanation:
+      'When the plasticine sticks, momentum is conserved but the total mass increases, so the speed decreases. On a ticker tape this means equal spacing before impact and then smaller equal spacing after impact. That matches option B.',
+    difficulty: 2,
+    points: 15,
+    hints: ['The sticky collision increases mass.', 'Momentum is conserved at impact.', 'Smaller constant speed means smaller equal tape spacing afterwards.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-021-question.png'],
+  },
+  {
+    id: 'mom-022',
+    type: 'multiple_choice',
+    question:
+      'Two particles $A$ and $B$ of masses 2 kg and 1 kg move in opposite directions. The initial velocity of $A$ is $4\\ \\mathrm{m\\ s^{-1}}$ to the right, while that of $B$ is $2\\ \\mathrm{m\\ s^{-1}}$ to the left. They collide head-on. After the collision, the velocity of $A$ becomes $1\\ \\mathrm{m\\ s^{-1}}$ to the right. What is the velocity of $B$?',
+    options: [
+      '$2\\ \\mathrm{m\\ s^{-1}}$ towards the right',
+      '$3\\ \\mathrm{m\\ s^{-1}}$ towards the right',
+      '$4\\ \\mathrm{m\\ s^{-1}}$ towards the right',
+      '$6\\ \\mathrm{m\\ s^{-1}}$ towards the right',
+    ],
+    answer: '$4\\ \\mathrm{m\\ s^{-1}}$ towards the right',
+    explanation:
+      'Taking right as positive, conservation of momentum gives $(2)(4)+(1)(-2)=(2)(1)+(1)v_B$. So $8-2=2+v_B$, hence $v_B=4\\,\\mathrm{m\\ s^{-1}}$ to the right.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Choose a sign convention first.', 'Use momentum conservation for the collision.', 'Substitute the final speed of A and solve for B.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-022-question.png'],
+  },
+  {
+    id: 'mom-023',
+    type: 'multiple_choice',
+    question:
+      'A ball collides with a fixed wall and bounces back with the same speed. Which quantities of the ball remain unchanged before and after the collision?\n\n(1) Kinetic energy\n(2) velocity\n(3) momentum',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      'Same speed before and after means kinetic energy is unchanged. Velocity and momentum are vectors, so reversing direction changes both.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Speed and velocity are different.', 'Momentum follows velocity direction.', 'KE depends on speed squared only.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-024',
+    type: 'multiple_choice',
+    question:
+      'A trolley of mass 2 kg moves with uniform speed $4\\ \\mathrm{m\\ s^{-1}}$ along a horizontal table. A lump of plasticine having the same mass is dropped from just above the trolley and sticks to it. Find the total loss in kinetic energy.',
+    options: ['0 J', '4 J', '8 J', '12 J'],
+    answer: '8 J',
+    explanation:
+      'Conserving horizontal momentum: $(2)(4)+(2)(0)=(2+2)v$, so $v=2\\,\\mathrm{m\\ s^{-1}}$. Initial KE is $\\tfrac12(2)(4^2)=16\\,\\mathrm{J}$. Final KE is $\\tfrac12(4)(2^2)=8\\,\\mathrm{J}$. Loss is $16-8=8\\,\\mathrm{J}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use horizontal momentum conservation.', 'The plasticine has no horizontal speed initially.', 'Compare initial and final KE.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-024-question.png'],
+  },
+  {
+    id: 'mom-025',
+    type: 'multiple_choice',
+    question:
+      'Which of the following pairs of physical quantities has/have the same unit?\n\n(1) Work and potential energy\n(2) Power and momentum\n(3) Specific heat capacity and specific latent heat of fusion',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      'Work and potential energy are both measured in joules. Power has unit watt while momentum has unit newton-second (or kg m s^-1). Specific heat capacity has unit J kg^-1 K^-1 (or °C^-1), while specific latent heat has unit J kg^-1.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Compare SI units directly.', 'Joule is the unit for both work and energy.', 'Watch for the extra temperature term in specific heat capacity.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-026',
+    type: 'multiple_choice',
+    question:
+      'A stone is thrown vertically upwards and finally falls back to the starting point. Assume air resistance is negligible. Which statements are true throughout the motion?\n\n(1) The acceleration of the stone is constant.\n(2) The total mechanical energy of the stone is conserved.\n(3) The momentum of the stone is conserved.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) & (2) only',
+    explanation:
+      'The acceleration is always the constant gravitational acceleration downward. With no air resistance, total mechanical energy is conserved. Momentum is not conserved because an external force (gravity) acts on the stone.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Gravity acts throughout the flight.', 'No air resistance means mechanical energy stays constant.', 'Momentum conservation needs no external net force.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-027',
+    type: 'multiple_choice',
+    question:
+      'Which of the following physical quantities is not a vector?',
+    options: ['Acceleration', 'Momentum', 'Weight', 'Work'],
+    answer: 'Work',
+    explanation:
+      'Acceleration, momentum, and weight (a force) are vectors. Work is a scalar quantity.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Forces are vectors.', 'Momentum includes direction.', 'Work has magnitude only.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-028',
+    type: 'multiple_choice',
+    question:
+      'A particle of mass $m$ is thrown vertically upwards with initial speed $v$. When the particle returns to its starting point, what are the changes in momentum and kinetic energy of the particle?',
+    options: ['Change in momentum: 0, Change in kinetic energy: 0', 'Change in momentum: $mv$, Change in kinetic energy: $mv^2$', 'Change in momentum: $2mv$, Change in kinetic energy: 0', 'Change in momentum: $2mv$, Change in kinetic energy: $mv^2$'],
+    answer: 'Change in momentum: $2mv$, Change in kinetic energy: 0',
+    explanation:
+      'At the starting point on return, the particle has the same speed but opposite direction. So momentum changes from $+mv$ to $-mv$, giving a change in magnitude of $2mv$. The kinetic energy is the same before launch and on return, so the change in kinetic energy is zero.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use direction when comparing momentum.', 'Speed on return equals launch speed if no air resistance.', 'KE depends on speed, not direction.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-029',
+    type: 'multiple_choice',
+    question:
+      'At time $t=0$, a table-tennis ball is released from a point above the ground and bounces several times. The graph shows the variation of velocity $v$ with time $t$. At which point on the graph does the ball reach its maximum height above the ground after the first rebound? (Velocity upwards is taken as positive.)',
+    options: ['Point $P$', 'Point $Q$', 'Point $R$', 'Point $S$'],
+    answer: 'Point $S$',
+    explanation:
+      'After the first rebound, the ball leaves the ground moving upward and then slows under gravity until its upward velocity becomes zero at the highest point. On the given graph, that moment corresponds to point $S$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Maximum height occurs when upward velocity becomes zero.', 'Track the first rebound segment only.', 'Use the sign convention stated on the graph.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-029-question.png'],
+  },
+  {
+    id: 'mom-030',
+    type: 'multiple_choice',
+    question:
+      'A block is pulled by a constant force and moves along a smooth horizontal surface. Which describes the variations of the acceleration and momentum of the block while the force is acting?',
+    options: [
+      'Acceleration remains unchanged; Momentum remains unchanged',
+      'Acceleration remains unchanged; Momentum increases',
+      'Acceleration increases; Momentum remains unchanged',
+      'Acceleration increases; Momentum increases',
+    ],
+    answer: 'Acceleration remains unchanged; Momentum increases',
+    explanation:
+      'A constant force on a constant mass gives constant acceleration. As the block accelerates, its velocity increases, so its momentum increases.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Use Newton second law.', 'Constant force on constant mass means constant acceleration.', 'Momentum rises as speed rises.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-031',
+    type: 'multiple_choice',
+    question:
+      'A rocket is initially at rest in space. It then explodes and breaks into two parts which move in opposite directions. If the mass of the rear part is larger than that of the front part, which statement is correct?',
+    options: [
+      'The speeds of the two parts are equal.',
+      'The speed of the rear part is higher than that of the front part.',
+      'The magnitudes of the momentum of the two parts are equal.',
+      'The magnitude of the momentum of the rear part is larger than that of the front part.',
+    ],
+    answer: 'The magnitudes of the momentum of the two parts are equal.',
+    explanation:
+      'The rocket is initially at rest, so total momentum is zero. With no external force, total momentum remains zero after the explosion. Therefore the two parts must have equal and opposite momenta, so their momentum magnitudes are equal.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Initial total momentum is zero.', 'Explosion in space has no external force on the system.', 'Equal and opposite final momenta are required.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-032',
+    type: 'multiple_choice',
+    question:
+      'The graph shows the variation of the kinetic energy $E$ of an object with the square of its velocity $v^2$. What is the momentum of the object when it is moving at a velocity $4\\ \\mathrm{m\\ s^{-1}}$?',
+    options: [
+      '$4\\ \\mathrm{kg\\ m\\ s^{-1}}$',
+      '$8\\ \\mathrm{kg\\ m\\ s^{-1}}$',
+      '$16\\ \\mathrm{kg\\ m\\ s^{-1}}$',
+      '$32\\ \\mathrm{kg\\ m\\ s^{-1}}$',
+    ],
+    answer: '$16\\ \\mathrm{kg\\ m\\ s^{-1}}$',
+    explanation:
+      'From the graph, when $E=50\\,\\mathrm{J}$, $v^2=25\\,\\mathrm{m^2\\ s^{-2}}$. Using $KE=\\tfrac12mv^2$, we get $50=\\tfrac12m(25)$, so $m=4\\,\\mathrm{kg}$. At $v=4\\,\\mathrm{m\\ s^{-1}}$, momentum is $p=mv=4\\times4=16\\,\\mathrm{kg\\ m\\ s^{-1}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Read one point from the KE vs $v^2$ graph.', 'Use $KE=\\tfrac12mv^2$ to find mass.', 'Then compute $p=mv$ at 4 m/s.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-032-question.png'],
+  },
+  {
+    id: 'mom-033',
+    type: 'multiple_choice',
+    question:
+      'The figure shows the variation of the force acting on a car driver with time when the car hits a wall. The driver is not wearing a seat-belt. Which graph (in dotted lines) best shows the force acting on the driver if he is wearing a seat-belt?',
+    options: [
+      '/physics/exercises/momentum/mom-033-option-a.png',
+      '/physics/exercises/momentum/mom-033-option-b.png',
+      '/physics/exercises/momentum/mom-033-option-c.png',
+      '/physics/exercises/momentum/mom-033-option-d.png',
+    ],
+    answer: '/physics/exercises/momentum/mom-033-option-c.png',
+    explanation:
+      'A seat-belt increases the time over which the driver is brought to rest. For the same change in momentum, increasing impact time reduces the average force. The correct dotted graph is therefore the one spread over a longer time with a lower peak force: option C.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use impulse = change in momentum.', 'Same momentum change over longer time means smaller force.', 'Look for lower, wider force-time curve.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-033-question.png'],
+  },
+  {
+    id: 'mom-034',
+    type: 'multiple_choice',
+    question:
+      'A rocket of mass 5000 kg is at rest in space. It then explodes into two parts $P_1$ and $P_2$ of mass 1000 kg and 4000 kg respectively. Find the ratio of the kinetic energy of $P_1$ to that of $P_2$.',
+    options: ['1:16', '1:64', '4:1', '16:1'],
+    answer: '4:1',
+    explanation:
+      'The two parts have equal and opposite momentum. For equal momentum magnitude $p$, kinetic energy is $KE=\\frac{p^2}{2m}$, so KE is inversely proportional to mass. Hence $KE_{P_1}:KE_{P_2}=m_{P_2}:m_{P_1}=4000:1000=4:1$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Explosion from rest gives equal momentum magnitudes.', 'Use KE in terms of momentum.', 'Smaller mass gets larger KE for same momentum.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-035',
+    type: 'multiple_choice',
+    question:
+      'Grace (50 kg) and Kitty (40 kg) stand on light rollers on a smooth horizontal floor. They are initially at rest with Grace holding a 2 kg ball. Grace throws the ball to Kitty and moves backward with speed $0.8\\ \\mathrm{m\\ s^{-1}}$. After catching the ball, Kitty moves in the opposite direction. Which statements are correct?\n\n(1) The final speed of Kitty is $0.95\\ \\mathrm{m\\ s^{-1}}$.\n(2) The horizontal momentum of the ball is conserved in this process.\n(3) The total kinetic energy of Kitty and the ball decreases when Kitty catches the ball.',
+    options: ['(2) only', '(3) only', '(1) & (2) only', '(1) & (3) only'],
+    answer: '(1) & (3) only',
+    explanation:
+      'For the whole system, momentum is conserved: $(50+2)(0)+(40)(0)=(50)(-0.8)+(40+2)v$, so $v=0.95\\,\\mathrm{m\\ s^{-1}}$ for Kitty after catching the ball. Statement (2) is false because the ball experiences external horizontal forces from Grace and then Kitty. Statement (3) is true because the catch is an inelastic collision, so kinetic energy decreases.',
+    difficulty: 3,
+    points: 20,
+    hints: ['Use conservation of momentum for the whole system.', 'Do not treat the ball as an isolated system.', 'Catching is an inelastic process.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-035-question.png'],
+  },
+  {
+    id: 'mom-036',
+    type: 'multiple_choice',
+    question:
+      'A wooden block of mass $M$ hangs from a light string. A bullet of mass $m$ travelling at speed $v$ hits the block and becomes embedded in it. The block then swings upward. Which of the following are employed in determining the maximum height reached by the block?\n\n(1) Newton\\'s first law\n(2) Law of conservation of energy\n(3) Law of conservation of momentum',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(2) & (3) only',
+    explanation:
+      'The collision itself is analyzed using conservation of momentum to find the speed just after impact. The upward swing after impact is then analyzed using conservation of mechanical energy to find the maximum height. Newton\\'s first law is not needed in the calculation.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Separate the process into collision and swing.', 'Use momentum during the inelastic collision.', 'Use energy during the upward swing.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-036-question.png'],
+  },
+  {
+    id: 'mom-037',
+    type: 'multiple_choice',
+    question:
+      'A trolley moves along a smooth horizontal surface. A lump of plasticine is released from a height slightly above the trolley and sticks to it. Which graph shows the variation of the total horizontal momentum $p$ of the trolley and plasticine with time $t$?',
+    options: [
+      '/physics/exercises/momentum/mom-037-option-a.png',
+      '/physics/exercises/momentum/mom-037-option-b.png',
+      '/physics/exercises/momentum/mom-037-option-c.png',
+      '/physics/exercises/momentum/mom-037-option-d.png',
+    ],
+    answer: '/physics/exercises/momentum/mom-037-option-a.png',
+    explanation:
+      'There is no external horizontal force on the trolley-plasticine system, so total horizontal momentum remains constant throughout. The correct graph is therefore a horizontal straight line: option A.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Consider horizontal momentum only.', 'There is no external horizontal force.', 'Conserved quantity should appear as a constant graph.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-038',
+    type: 'multiple_choice',
+    question:
+      'Three cars $P$, $Q$ and $R$ move along a straight horizontal road. Their displacement-time graphs are shown. Which of the cars experience a change in momentum during the motion?',
+    options: ['$P$ and $Q$ only', '$P$ and $R$ only', '$Q$ and $R$ only', '$P$, $Q$ and $R$'],
+    answer: '$Q$ and $R$ only',
+    explanation:
+      'The slope of a displacement-time graph gives velocity. Car $P$ has constant slope, so constant velocity and no change in momentum. Car $Q$ has decreasing slope and car $R$ has increasing slope, so both have changing velocity and hence changing momentum.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use slope of the $s$-$t$ graph to infer velocity.', 'Momentum changes when velocity changes.', 'Constant slope means constant momentum for constant mass.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-038-question.png'],
+  },
+  {
+    id: 'mom-039',
+    type: 'multiple_choice',
+    question:
+      'The photograph shows an air-cushioned shoe. Which statements about the air-cushion are correct?\n\n(1) It reduces the time of impact between the foot and the ground during running.\n(2) It reduces the impact force acting on the foot during running.\n(3) It reduces the friction between the shoe and the ground during running.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(2) only',
+    explanation:
+      '(1) False: the air cushion increases the impact time. (2) True: for the same change in momentum, increasing impact time reduces force. (3) False: friction depends mainly on the contact surface properties, not the air cushion inside the shoe.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use impulse: same momentum change over longer time.', 'Longer impact time lowers average force.', 'Distinguish cushioning from surface friction.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-039-question.png'],
+  },
+  {
+    id: 'mom-040',
+    type: 'multiple_choice',
+    question:
+      'A car $P$ of mass 1000 kg moves at $20\\ \\mathrm{m\\ s^{-1}}$ and makes a head-on collision with car $Q$ of mass 1500 kg moving at $10\\ \\mathrm{m\\ s^{-1}}$ in the opposite direction. If the two cars stick together, find their common velocity immediately after the collision.',
+    options: [
+      '$2\\ \\mathrm{m\\ s^{-1}}$ along the original direction of $P$',
+      '$2\\ \\mathrm{m\\ s^{-1}}$ along the original direction of $Q$',
+      '$14\\ \\mathrm{m\\ s^{-1}}$ along the original direction of $P$',
+      '$14\\ \\mathrm{m\\ s^{-1}}$ along the original direction of $Q$',
+    ],
+    answer: '$2\\ \\mathrm{m\\ s^{-1}}$ along the original direction of $P$',
+    explanation:
+      'Take the original direction of $P$ as positive. Conservation of momentum gives $(1000)(20)+(1500)(-10)=(1000+1500)v$. So $20000-15000=2500v$, giving $v=+2\\,\\mathrm{m\\ s^{-1}}$, i.e. in the original direction of $P$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Choose a sign convention first.', 'This is a perfectly inelastic collision.', 'Use total initial momentum = total final momentum.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-041',
+    type: 'multiple_choice',
+    question:
+      'An electric fan is installed at one end of a trolley and a card is fixed at the other end with the plane of the card facing the fan. What happens to the trolley when the electric fan is turned on?',
+    options: ['The trolley remains stationary.', 'The trolley moves to the right.', 'The trolley moves to the left.', 'The trolley moves to and fro along the ground.'],
+    answer: 'The trolley remains stationary.',
+    explanation:
+      'The fan pushes air toward the card, and the card stops that air within the same system. Internal forces cancel, and no net external horizontal force acts on the trolley system. Therefore the trolley remains at rest.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Treat fan + card + trolley as one system.', 'Internal forces do not change total momentum of the system.', 'No air leaves carrying net horizontal momentum.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-041-question.png'],
+  },
+  {
+    id: 'mom-042',
+    type: 'multiple_choice',
+    question:
+      'A body initially at rest is exploded into two parts. Which correctly describes the change in total momentum and total kinetic energy?',
+    options: [
+      'Total momentum increases; Total kinetic energy increases',
+      'Total momentum increases; Total kinetic energy remains unchanged',
+      'Total momentum remains unchanged; Total kinetic energy increases',
+      'Total momentum remains unchanged; Total kinetic energy remains unchanged',
+    ],
+    answer: 'Total momentum remains unchanged; Total kinetic energy increases',
+    explanation:
+      'With no external force, total momentum is conserved, so it remains unchanged. Initially the body is at rest, so total kinetic energy is zero. After the explosion, the fragments move, so the total kinetic energy increases.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Explosion does not create external impulse.', 'Initial total momentum is zero.', 'Internal energy is converted into kinetic energy.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-043',
+    type: 'multiple_choice',
+    question:
+      'Tom and John stand on trolleys of negligible mass. Both are initially at rest and Tom holds a ball of 3 kg. The masses of Tom and John are 30 kg and 27 kg respectively. After Tom throws the ball to John, Tom moves backwards with speed $1\\ \\mathrm{m\\ s^{-1}}$. What is the speed of John after he catches the ball?',
+    options: ['$0.90\\ \\mathrm{m\\ s^{-1}}$', '$1.00\\ \\mathrm{m\\ s^{-1}}$', '$1.11\\ \\mathrm{m\\ s^{-1}}$', '$1.22\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$1.00\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'The total momentum of Tom, John and the ball is initially zero. After the throw and catch, conservation of momentum gives $0=(30)(-1)+(27+3)v$, so $v=1\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use the whole system to avoid intermediate steps.', 'Initial total momentum is zero.', 'After the catch, John and the ball move together.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-043-question.png'],
+  },
+  {
+    id: 'mom-044',
+    type: 'multiple_choice',
+    question:
+      'Trolleys $A$ and $B$ of masses $m_A$ and $m_B$ respectively travel along a horizontal road in opposite directions. Later they make a head-on inelastic collision and stick together. The graph shows the velocity-time relationship before and after the collision. What is the ratio $m_A:m_B$?',
+    options: ['1:2', '2:3', '2:1', '3:2'],
+    answer: '3:2',
+    explanation:
+      'From the graph, initial velocities are $+4\\,\\mathrm{m\\ s^{-1}}$ for $A$ and $-1\\,\\mathrm{m\\ s^{-1}}$ for $B$, and the common velocity after collision is $+2\\,\\mathrm{m\\ s^{-1}}$. Conservation of momentum gives $m_A(4)+m_B(-1)=(m_A+m_B)(2)$, so $2m_A=3m_B$, hence $m_A:m_B=3:2$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Read the three speeds from the graph.', 'Use momentum conservation for sticking collision.', 'Solve the linear ratio equation.'],
+    sectionId: 'momentum',
+    imagePaths: [
+      '/physics/exercises/momentum/mom-044-question.png',
+      '/physics/exercises/momentum/mom-044-question-2.png',
+    ],
+  },
+  {
+    id: 'mom-045',
+    type: 'multiple_choice',
+    question:
+      'In an explosion, an object is blown into two pieces, $A$ and $B$, which fly off in opposite directions. The mass of $A$ is 0.3 kg. The graph shows the variation of velocity of $A$ and $B$ with time before and after the explosion. What are the mass of $B$ and the estimated magnitude of the average net force acting on $B$ during the explosion?',
+    options: [
+      'Mass of $B$ = 0.1 kg, Average net force = 0.4 N',
+      'Mass of $B$ = 0.1 kg, Average net force = 0.5 N',
+      'Mass of $B$ = 0.9 kg, Average net force = 3.6 N',
+      'Mass of $B$ = 0.9 kg, Average net force = 4.5 N',
+    ],
+    answer: 'Mass of $B$ = 0.9 kg, Average net force = 4.5 N',
+    explanation:
+      'Initially both are at rest, so total momentum is zero. After the explosion, from the graph, piece $A$ has velocity $+3\\,\\mathrm{m\\ s^{-1}}$ and piece $B$ has velocity $-1\\,\\mathrm{m\\ s^{-1}}$. So $(0.3)(3)+m_B(-1)=0$, giving $m_B=0.9\\,\\mathrm{kg}$. The average net force on $B$ is $F=\\Delta p/\\Delta t=(0.9\\times1)/(0.25-0.05)=4.5\\,\\mathrm{N}$ in magnitude.',
+    difficulty: 3,
+    points: 20,
+    hints: ['Use momentum conservation first to find $m_B$.', 'Then use average force = change in momentum / time.', 'Read the explosion time interval from the graph.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-045-question.png'],
+  },
+  {
+    id: 'mom-046',
+    type: 'multiple_choice',
+    question:
+      'A block slides along a horizontal smooth surface. It collides with a vertical wall and rebounds along its original path. Which graph best shows the variation of its momentum $p$ with time $t$?',
+    options: [
+      '/physics/exercises/momentum/mom-046-option-a.png',
+      '/physics/exercises/momentum/mom-046-option-b.png',
+      '/physics/exercises/momentum/mom-046-option-c.png',
+      '/physics/exercises/momentum/mom-046-option-d.png',
+    ],
+    answer: '/physics/exercises/momentum/mom-046-option-d.png',
+    explanation:
+      'Before collision, the block moves in the positive direction with constant momentum. After rebounding, it moves in the opposite direction, so the momentum becomes negative. The correct graph is the one showing a constant positive value followed by a jump to a constant negative value: option D.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Momentum direction changes on rebound.', 'Smooth surface means constant speed magnitude between collisions.', 'Look for a sign change in momentum.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-046-question.png'],
+  },
+  {
+    id: 'mom-047',
+    type: 'multiple_choice',
+    question:
+      'Ball $A$ and ball $B$ of masses 2 kg and 1 kg respectively collide head-on as shown. Which of the following diagrams show(s) the possible result(s) after the collision?',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      'Check conservation of momentum before and after collision. Taking right as positive, only diagram (3) gives the same total momentum as the initial state. Therefore only (3) is possible.',
+    difficulty: 3,
+    points: 20,
+    hints: ['Use momentum conservation as the test.', 'Assign signs to leftward and rightward motion.', 'Reject any diagram that changes total momentum.'],
+    sectionId: 'momentum',
+    imagePaths: [
+      '/physics/exercises/momentum/mom-047-question.png',
+      '/physics/exercises/momentum/mom-047-question-2.png',
+    ],
+  },
+  {
+    id: 'mom-048',
+    type: 'multiple_choice',
+    question:
+      'An egg will probably break if it lands on a hard surface, but may not break if it lands on a soft cushion from the same height. This is because, when the cushion is used,',
+    options: [
+      'the momentum of the egg just before impact becomes smaller.',
+      'the egg rebounds after hitting the cushion.',
+      'the rate of change of momentum of the egg becomes smaller during the impact.',
+      'the force acting on the egg by the cushion is smaller than the force acting on the cushion by the egg.',
+    ],
+    answer: 'the rate of change of momentum of the egg becomes smaller during the impact.',
+    explanation:
+      'A soft cushion increases the time over which the egg is brought to rest. For the same change in momentum, a longer impact time means a smaller rate of change of momentum and therefore a smaller force.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use impulse ideas: same momentum change over longer time.', 'Rate of change of momentum links to force.', 'Newton third law means interaction forces are equal in magnitude.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-049',
+    type: 'multiple_choice',
+    question:
+      'On a horizontal smooth track, two trolleys $P$ and $Q$ are held at rest with a light compressed spring in between. The masses of $P$ and $Q$ are $m$ and $2m$ respectively. When released, trolley $Q$ moves to the right with speed $v$. Which statements are correct?\n\n(1) After separation, the total momentum of the two trolleys is $4mv$.\n(2) After separation, the kinetic energy of trolley $P$ is twice that of trolley $Q$.\n(3) The energy initially stored in the compressed spring is at least $3mv^2$.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(2) & (3) only',
+    explanation:
+      '(1) False: total momentum is initially zero and remains zero. (2) True: from momentum conservation, $mv_P=(2m)v$, so $v_P=2v$. Then $KE_P=\\tfrac12m(2v)^2=2mv^2$ and $KE_Q=\\tfrac12(2m)v^2=mv^2$, so $KE_P$ is twice $KE_Q$. (3) True: total KE after separation is $3mv^2$, so the initial spring energy must be at least this value.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Initial total momentum is zero.', 'Use momentum conservation to find $v_P$.', 'Spring energy must cover at least the final KE.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-049-question.png'],
+  },
+  {
+    id: 'mom-050',
+    type: 'multiple_choice',
+    question:
+      'In a racing competition, the momentum of each competitor during the race is greater than that before he starts running. Which statement(s) is/are correct?\n\n(1) This violates the law of conservation of momentum.\n(2) The law of conservation of momentum applies only to collisions between two objects.\n(3) A force acts on each competitor to increase his momentum as he starts running.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      '(1) False: the competitor receives an external force from the ground (friction), so momentum need not be conserved for the competitor alone. (2) False: momentum conservation applies to any isolated system, not just collisions. (3) True: the ground exerts a force that increases the runner\\'s momentum.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Momentum conservation needs no external net force.', 'Ground friction provides the external force on the runner.', 'The law applies beyond just collisions.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-051',
+    type: 'multiple_choice',
+    question:
+      'Two objects of masses $m$ and $4m$ move towards each other along a straight line with kinetic energies $K$ and $4K$ respectively. What is the total momentum of the two objects?',
+    options: ['$3\\sqrt{2mK}$', '$4\\sqrt{2mK}$', '$5\\sqrt{2mK}$', '$15\\sqrt{2mK}$'],
+    answer: '$3\\sqrt{2mK}$',
+    explanation:
+      'For mass $m$, $K=\\frac{p^2}{2m}$ so $p_1=\\sqrt{2mK}$. For mass $4m$ with kinetic energy $4K$, $4K=\\frac{p_2^2}{2(4m)}$, giving $p_2=4\\sqrt{2mK}$. They move in opposite directions, so total momentum magnitude is $4\\sqrt{2mK}-\\sqrt{2mK}=3\\sqrt{2mK}$.',
+    difficulty: 3,
+    points: 20,
+    hints: ['Express momentum in terms of mass and kinetic energy.', 'Compute each momentum magnitude first.', 'Subtract because the objects move oppositely.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-052',
+    type: 'multiple_choice',
+    question:
+      'In the absence of external net force, if two bodies undergo an inelastic collision, then',
+    options: [
+      'kinetic energy and momentum are both conserved.',
+      'kinetic energy is not conserved but momentum is conserved.',
+      'kinetic energy is conserved but momentum is not conserved.',
+      'neither kinetic energy nor momentum is conserved.',
+    ],
+    answer: 'kinetic energy is not conserved but momentum is conserved.',
+    explanation:
+      'With no external net force, total momentum is conserved. In an inelastic collision, kinetic energy is not conserved because part of it is transformed into other forms.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Separate momentum conservation from KE conservation.', 'External-force condition controls momentum.', 'Inelastic means KE is not fully retained.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-053',
+    type: 'multiple_choice',
+    question:
+      'Ball $X$ moving with velocity $u$ on a smooth horizontal plane makes an elastic collision with ball $Y$ initially at rest. If the two balls have the same mass, which statements are correct?\n\n(1) Kinetic energy is conserved in the collision.\n(2) Linear momentum is conserved in the collision.\n(3) $X$ and $Y$ stick together and move off with the same velocity after the collision.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) & (2) only',
+    explanation:
+      '(1) True: the collision is elastic, so total kinetic energy is conserved. (2) True: with no external net force, total linear momentum is conserved. (3) False: sticking together would indicate an inelastic collision, not an elastic one.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Elastic collisions conserve KE.', 'Momentum is conserved for an isolated system.', 'Sticking together contradicts elasticity.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-054',
+    type: 'multiple_choice',
+    question:
+      'A box moves at a uniform velocity of $2\\ \\mathrm{m\\ s^{-1}}$ on a frictionless horizontal surface. Sand falls continuously into the box with negligible speed at a rate of 90 kg per minute. To keep the box moving uniformly at $2\\ \\mathrm{m\\ s^{-1}}$, the horizontal force needed is',
+    options: ['0 N', '3 N', '6 N', '90 N'],
+    answer: '3 N',
+    explanation:
+      'The sand has to be accelerated horizontally from 0 to $2\\,\\mathrm{m\\ s^{-1}}$. Required force is rate of change of momentum: $F=\\dot m\\Delta v=(90/60)(2)=3\\,\\mathrm{N}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Convert 90 kg/min to kg/s.', 'New sand enters with zero horizontal speed.', 'Use force = rate of change of momentum.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-055',
+    type: 'multiple_choice',
+    question:
+      'A trolley travels with constant velocity to the right on a smooth horizontal ground and collides with a light spring attached to a wall fixed to the ground (Earth). At the instant the trolley comes momentarily to rest during the collision, what has happened to the initial momentum of the trolley?',
+    options: [
+      'The initial momentum has been transferred to the earth.',
+      'The initial momentum has been stored in the spring.',
+      'The initial momentum has changed into sound and heat.',
+      'The initial momentum has been destroyed by the friction due to the ground.',
+    ],
+    answer: 'The initial momentum has been transferred to the earth.',
+    explanation:
+      'During the collision, the trolley interacts with the Earth through the spring-wall system. Considering the trolley-Earth system, momentum is conserved. The trolley\\'s momentum is transferred to the Earth (which has an imperceptibly small speed change because of its huge mass).',
+    difficulty: 2,
+    points: 15,
+    hints: ['Momentum is not stored like energy.', 'Consider the Earth as part of the interacting system.', 'Smooth ground means friction is not the cause.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-055-question.png'],
+  },
+  {
+    id: 'mom-056',
+    type: 'multiple_choice',
+    question:
+      'Which of the following pairs of quantities of a moving object must be in the same direction?\n\n(1) acceleration and change in momentum\n(2) displacement and instantaneous velocity\n(3) instantaneous velocity and acceleration',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      '(1) True: change in momentum is in the same direction as the net force, and acceleration is also in the direction of the net force. (2) False: an object can have a displacement in one direction while its instantaneous velocity at a particular moment is in the opposite direction. (3) False: an object moving upward under gravity has upward velocity but downward acceleration.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Relate change in momentum to force.', 'Instantaneous velocity need not align with total displacement.', 'Acceleration can oppose velocity.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-057',
+    type: 'multiple_choice',
+    question:
+      '$X$, $Y$ and $Z$ are three balls with masses $m$, $m$ and $2m$ respectively. They lie on a smooth horizontal surface with $Y$ and $Z$ in contact. If $X$ moves to the right with velocity $u$ and collides directly with $Y$, which set of final velocities is possible after all collisions? (All collisions are perfectly elastic; right is positive.)',
+    options: [
+      '$X=0,\\ Y=0,\\ Z=u/2$',
+      '$X=0,\\ Y=u/3,\\ Z=u/3$',
+      '$X=-u/3,\\ Y=0,\\ Z=2u/3$',
+      '$X=0,\\ Y=-u/3,\\ Z=2u/3$',
+    ],
+    answer: '$X=-u/3,\\ Y=0,\\ Z=2u/3$',
+    explanation:
+      'The final velocities must satisfy both momentum conservation and kinetic energy conservation. Options A and B fail energy conservation. Options C and D satisfy momentum and total KE, but in D, ball $Y$ would move left while $X$ is at rest, causing another collision with $X$, so D cannot be the final state after all collisions. Hence only C is possible.',
+    difficulty: 3,
+    points: 20,
+    hints: ['Check momentum and kinetic energy conservation.', 'Perfectly elastic means total KE must be conserved.', 'Eliminate states that would immediately lead to another collision.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-057-question.png'],
+  },
+  {
+    id: 'mom-058',
+    type: 'multiple_choice',
+    question:
+      'A body initially at rest explodes into two parts of unequal mass. The part with smaller mass has a larger\n\n(1) momentum.\n(2) speed.\n(3) kinetic energy.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      'The two parts have equal momentum magnitudes in opposite directions, so (1) is false. Since $p=mv$, the smaller mass must have the larger speed. For equal momentum, $KE=\\frac{p^2}{2m}$, so the smaller mass also has the larger kinetic energy.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Explosion from rest gives equal and opposite momenta.', 'Smaller mass must move faster for the same momentum.', 'Use KE in terms of momentum.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-059',
+    type: 'multiple_choice',
+    question:
+      'An open trolley moves initially on a smooth horizontal surface while rain water falls into it and accumulates there. Ignoring the initial kinetic energy of the rain water, what are the effects on the speed, horizontal momentum and kinetic energy of the trolley together with the rain?',
+    options: [
+      'speed decreased; momentum unchanged; kinetic energy decreased',
+      'speed decreased; momentum unchanged; kinetic energy unchanged',
+      'speed decreased; momentum decreased; kinetic energy decreased',
+      'speed unchanged; momentum unchanged; kinetic energy unchanged',
+    ],
+    answer: 'speed decreased; momentum unchanged; kinetic energy decreased',
+    explanation:
+      'There is no external horizontal force, so the horizontal momentum of the trolley-plus-rain system is conserved. As mass increases, the speed must decrease to keep momentum constant. The process is inelastic, so kinetic energy decreases.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Consider horizontal motion only.', 'Momentum conservation applies to the combined system.', 'Added mass lowers speed and the inelastic process reduces KE.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-059-question.png'],
+  },
+  {
+    id: 'mom-060',
+    type: 'multiple_choice',
+    question:
+      'The graph shows the variation of kinetic energy $E_K$ with the square of velocity $v^2$ of a moving ball of mass $m$. What is the momentum of the ball when it is moving at speed $2\\ \\mathrm{m\\ s^{-1}}$?',
+    options: ['1 Ns', '2 Ns', '4 Ns', '8 Ns'],
+    answer: '4 Ns',
+    explanation:
+      'From the graph, when $v^2=1$, $E_K=1\\,\\mathrm{J}$. Using $E_K=\\tfrac12mv^2$, we get $1=\\tfrac12m(1)$, so $m=2\\,\\mathrm{kg}$. At $v=2\\,\\mathrm{m\\ s^{-1}}$, momentum is $p=mv=2\\times2=4\\,\\mathrm{N\\,s}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Read one graph point to find mass.', 'Use $KE=\\tfrac12mv^2$.', 'Then calculate $p=mv$.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-060-question.png'],
+  },
+  {
+    id: 'mom-061',
+    type: 'multiple_choice',
+    question:
+      'Two bodies $X$ and $Y$ of masses $m$ and $2m$ are initially at rest on a smooth horizontal surface. If a force of the same magnitude acts on each of them for the same period of time, the ratio of the kinetic energy of $X$ to that of $Y$ is',
+    options: ['2:1', '1:2', '1:1', '1:4'],
+    answer: '2:1',
+    explanation:
+      'Equal force acting for equal time gives equal impulse, so both bodies receive the same momentum. For a given momentum, $KE=\\frac{p^2}{2m}$, so kinetic energy is inversely proportional to mass. Hence $KE_X:KE_Y=(2m):m=2:1$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Same force and same time means same impulse.', 'Impulse gives equal change in momentum.', 'Use KE in terms of momentum.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-062',
+    type: 'multiple_choice',
+    question:
+      'David and Candy stand on light skateboards with frictionless rollers and move towards each other. Both have mass 30 kg and speed $1.2\\ \\mathrm{m\\ s^{-1}}$. David holds a ball of mass 1.0 kg and throws it straight towards Candy at horizontal velocity $15\\ \\mathrm{m\\ s^{-1}}$. Determine the velocity of Candy after she catches the ball.',
+    options: [
+      '$0.74\\ \\mathrm{m\\ s^{-1}}$ to the right',
+      '$0.74\\ \\mathrm{m\\ s^{-1}}$ to the left',
+      '$0.68\\ \\mathrm{m\\ s^{-1}}$ to the right',
+      '$0.68\\ \\mathrm{m\\ s^{-1}}$ to the left',
+    ],
+    answer: '$0.68\\ \\mathrm{m\\ s^{-1}}$ to the left',
+    explanation:
+      'Consider the system of Candy and the ball during the catch. Conserving momentum: $(1)(15)+(30)(-1.2)=(1+30)v$. So $15-36=31v$, giving $v=-0.68\\,\\mathrm{m\\ s^{-1}}$, i.e. $0.68\\,\\mathrm{m\\ s^{-1}}$ to the left.',
+    difficulty: 3,
+    points: 20,
+    hints: ['Analyze the catch event only.', 'Take right as positive.', 'Negative velocity means leftward motion.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-062-question.png'],
+  },
+  {
+    id: 'mom-063',
+    type: 'multiple_choice',
+    question:
+      'Which of the following statements concerning the design of cars is/are correct?\n\n(1) The front and rear parts of cars are designed to collapse during a serious traffic accident.\n(2) The collapsible parts can reduce the time of collision when the car is involved in a serious accident.\n(3) The collapsible parts can reduce the change of momentum in a serious accident.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      '(1) True: these parts are designed to crumple. (2) False: crumpling increases the collision time, not reduces it. (3) False: if the car comes to rest, the change in momentum is the same; the design changes the time over which it happens, reducing force instead.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Crumple zones increase stopping time.', 'Change in momentum depends on initial and final momentum.', 'Longer collision time reduces average force.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-064',
+    type: 'multiple_choice',
+    question:
+      'Which of the following statements concerning air-cushioned sports shoes is/are correct?\n\n(1) They can increase the time of impact between the feet and the ground during running.\n(2) They can reduce the change of momentum during jumping and running.\n(3) They can reduce the impact force acting on the feet during jumping and running.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(1) & (3) only',
+    explanation:
+      '(1) True: cushioning lengthens the impact time. (2) False: the change in momentum is set by the motion and remains essentially the same. (3) True: for the same momentum change, longer impact time gives smaller force.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use impulse ideas.', 'Cushioning changes time, not the required momentum change.', 'Longer time means smaller average force.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-065',
+    type: 'multiple_choice',
+    question:
+      'When a lorry makes a head-on collision with a motorcycle, which statements are correct?\n\n(1) The magnitude of the average force exerted by the lorry on the motorcycle equals that exerted by the motorcycle on the lorry.\n(2) The magnitude of the change in momentum of the lorry equals that of the motorcycle.\n(3) The magnitude of the change in velocity of the lorry equals that of the motorcycle.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) & (2) only',
+    explanation:
+      '(1) True by Newton third law: interaction forces are equal and opposite. (2) True: equal force acting over the same collision time gives equal momentum change magnitude. (3) False: since their masses differ, equal momentum changes imply different velocity changes.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use Newton third law for forces.', 'Impulse links force and momentum change.', 'Different masses mean different velocity changes for same impulse.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-066',
+    type: 'multiple_choice',
+    question:
+      'Which of the following concerning the wearing of seat-belts is/are correct?\n\n(1) Wearing seat-belts can reduce the change in momentum of passengers in a car during a collision.\n(2) Wearing seat-belts can reduce the force acting on passengers in a car during a collision.\n(3) Wearing seat-belts can prevent passengers from jerking forwards when the car is suddenly stopped.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      '(1) False: if the passenger is brought to rest, the change in momentum is essentially the same. (2) True: seat-belts increase stopping time and reduce average force. (3) True: they restrain the passenger and prevent forward lurching due to inertia.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Seat-belts do not change the need to stop the passenger.', 'They increase the impact time.', 'They restrain forward motion due to inertia.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-067',
+    type: 'multiple_choice',
+    question:
+      'The graph shows the variation with time $t$ of the resultant force $F$ acting on a body moving along a straight line. The shaded area represents',
+    options: ['the momentum of the body.', 'the change in momentum of the body.', 'the change in the velocity of the body.', 'the change in the kinetic energy of the body.'],
+    answer: 'the change in momentum of the body.',
+    explanation:
+      'Area under a force-time graph is impulse: $Ft=\\Delta p$. Therefore the shaded area represents the change in momentum.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Area under $F$-$t$ graph is impulse.', 'Impulse equals change in momentum.', 'Do not confuse with work, which uses force-distance.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-067-question.png'],
+  },
+  {
+    id: 'mom-068',
+    type: 'multiple_choice',
+    question:
+      'Ball $A$ moving with speed $u$ collides head-on with another ball $B$ initially at rest on a smooth horizontal surface. After collision, $A$ and $B$ move together with common velocity $v$. Which statements concerning the two balls during the collision are correct?\n\n(1) The change of momentum of ball $A$ is equal in magnitude to that of ball $B$.\n(2) The loss of kinetic energy of ball $A$ is equal to the gain of kinetic energy of ball $B$.\n(3) The final velocity $v$ is half of the initial velocity $u$.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      '(1) True: by momentum conservation, the decrease in momentum of $A$ equals the increase in momentum of $B$. (2) False: because they stick together, the collision is inelastic and some kinetic energy becomes internal energy, so $A$\\'s KE loss is not simply equal to $B$\\'s KE gain. (3) False: from $m_Au=(m_A+m_B)v$, $v$ depends on both masses and is not necessarily $u/2$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Momentum conservation always applies to the two-ball system.', 'Sticking together means inelastic collision.', 'Final speed depends on both masses.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-068-question.png'],
+  },
+  {
+    id: 'mom-069',
+    type: 'multiple_choice',
+    question:
+      'A car $P$ of mass 1000 kg moves with a speed of $20\\ \\mathrm{m\\ s^{-1}}$ and makes a head-on collision with a car $Q$ of mass 1500 kg, which was moving with a speed of $10\\ \\mathrm{m\\ s^{-1}}$ in the opposite direction. If the two cars stick together after the collision, find their common velocity immediately after the collision.',
+    options: [
+      '$2\\ \\mathrm{m\\ s^{-1}}$ along the original direction of $P$',
+      '$2\\ \\mathrm{m\\ s^{-1}}$ along the original direction of $Q$',
+      '$14\\ \\mathrm{m\\ s^{-1}}$ along the original direction of $P$',
+      '$14\\ \\mathrm{m\\ s^{-1}}$ along the original direction of $Q$',
+    ],
+    answer: '$2\\ \\mathrm{m\\ s^{-1}}$ along the original direction of $P$',
+    explanation:
+      'Take the original direction of $P$ as positive. Conservation of momentum gives $(1000)(20)+(1500)(-10)=(1000+1500)v$. So $20000-15000=2500v$, hence $v=+2\\,\\mathrm{m\\ s^{-1}}$, i.e. along the original direction of $P$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use a sign convention.', 'This is a sticking collision, so both share one final velocity.', 'Apply momentum conservation directly.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-070',
+    type: 'multiple_choice',
+    question:
+      'A ball of mass 0.2 kg is released from rest. It hits the ground and rebounds. The velocity-time graph of the ball is shown. Which statements are correct?\n\n(1) The magnitude of the change in momentum of the ball during the collision is $1.2\\ \\mathrm{kg\\ m\\ s^{-1}}$.\n(2) The magnitude of the average force acting on the ball by the ground during the collision is 12 N.\n(3) There is mechanical energy loss during the collision.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (3) only',
+    explanation:
+      '(1) True: from the graph, momentum changes from $(0.2)(4)$ downward to $(0.2)(2)$ upward, so magnitude of change is $1.2\\,\\mathrm{kg\\ m\\ s^{-1}}$. (2) False: the net average force is $1.2/0.1=12\\,\\mathrm{N}$, but the ground force must also overcome the ball\\'s weight, so the force by the ground is about $14\\,\\mathrm{N}$. (3) True: rebound speed is smaller than impact speed, so some mechanical energy is lost.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use the graph values for speeds before and after collision.', 'Distinguish net force from ground reaction.', 'Smaller rebound speed means less KE after collision.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-070-question.png'],
+  },
+  {
+    id: 'mom-071',
+    type: 'multiple_choice',
+    question:
+      'Which of the following graphs (velocity-time and displacement-time) best represent the motion of a ball falling from rest under gravity from height $H$ and bouncing back from the ground two times? Assume the collisions with the ground are perfectly elastic and neglect air resistance. (Downward measurement is taken to be negative.)',
+    options: ['(1) and (3) only', '(1) and (4) only', '(2) and (3) only', '(2) and (4) only'],
+    answer: '(1) and (3) only',
+    explanation:
+      'For the velocity-time graph, the ball starts from rest and then accelerates downward, so velocity becomes negative with a constant negative slope; after each perfectly elastic bounce, the sign reverses abruptly with unchanged speed magnitude. For the displacement-time graph, the slope is the velocity, so its magnitude grows during each fall and the correct graph is the one consistent with that behavior. Hence the correct pair is (1) and (3).',
+    difficulty: 3,
+    points: 20,
+    hints: ['Downward is defined as negative.', 'Free-fall gives straight-line segments on the $v$-$t$ graph.', 'Perfectly elastic bounces preserve speed magnitude at impact.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-071-question.png'],
+  },
+  {
+    id: 'mom-072',
+    type: 'multiple_choice',
+    question:
+      'Two identical spheres are moving in opposite directions with speeds $u$ and $v$ (with $u>v$) respectively and make a head-on collision. Which of the following diagrams show(s) a possible situation after collision?',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      'For identical spheres, the total momentum before collision is positive because $u>v$. Any possible outcome must conserve momentum. Diagram (1) gives a final total momentum with the wrong sign or magnitude, so it is impossible. Diagrams (2) and (3) are consistent with momentum conservation and are possible.',
+    difficulty: 3,
+    points: 20,
+    hints: ['Initial total momentum is in the direction of the larger speed $u$.', 'Use momentum conservation to test each diagram.', 'Reject any result with the wrong total momentum.'],
+    sectionId: 'momentum',
+    imagePaths: [
+      '/physics/exercises/momentum/mom-072-question.png',
+      '/physics/exercises/momentum/mom-072-question-2.png',
+    ],
+  },
+  {
+    id: 'mom-073',
+    type: 'multiple_choice',
+    question:
+      'A sphere $P$ of mass 2 kg makes a head-on collision with another sphere $Q$ of mass 1 kg initially at rest. The speed of $P$ just before collision is $6\\ \\mathrm{m\\ s^{-1}}$. If the two spheres move in the same direction after collision, which of the following could be the speed(s) of $Q$ just after collision?\n\n(1) $2\\ \\mathrm{m\\ s^{-1}}$\n(2) $4\\ \\mathrm{m\\ s^{-1}}$\n(3) $6\\ \\mathrm{m\\ s^{-1}}$',
+    options: ['(1) only', '(1) & (2) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(2) & (3) only',
+    explanation:
+      'Conservation of momentum gives $2(6)=2v_P+1v_Q$. For $v_Q=2$, this gives $v_P=5\\,\\mathrm{m\\ s^{-1}}$, which is impossible because $Q$ cannot be ahead moving slower than $P$ while both move in the same direction just after impact. For $v_Q=4$, we get $v_P=4\\,\\mathrm{m\\ s^{-1}}$, which is possible (they may move together in an inelastic collision). For $v_Q=6$, we get $v_P=3\\,\\mathrm{m\\ s^{-1}}$, also possible with some kinetic energy loss. Thus (2) and (3) only.',
+    difficulty: 3,
+    points: 20,
+    hints: ['Use momentum conservation for each candidate value.', 'Check whether the resulting speeds are physically consistent.', 'Collisions need not be perfectly elastic.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-073-question.png'],
+  },
+  {
+    id: 'mom-074',
+    type: 'multiple_choice',
+    question:
+      'An object of mass 3 kg is initially at rest on a smooth horizontal ground. A force $F$ is applied horizontally such that the magnitude $F$ varies with time $t$ as shown. What is the speed of the object at $t=3\\ \\mathrm{s}$? Neglect air resistance.',
+    options: ['$2.5\\ \\mathrm{m\\ s^{-1}}$', '$5.0\\ \\mathrm{m\\ s^{-1}}$', '$10\\ \\mathrm{m\\ s^{-1}}$', '$15\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$5.0\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'Area under the force-time graph gives impulse, which equals change in momentum. From the graph, the area is $\\tfrac12(3)(10)=15\\,\\mathrm{N\\,s}$. Hence $15=(3)v$, so $v=5.0\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use impulse = area under the $F$-$t$ graph.', 'Initial momentum is zero.', 'Then divide by mass to get speed.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-074-question.png'],
+  },
+  {
+    id: 'mom-075',
+    type: 'multiple_choice',
+    question:
+      'A rubber ball bounces vertically up and down from the ground. Which graph best shows the variation of its velocity $v$ with time $t$ if the collisions are elastic? Neglect air resistance.',
+    options: [
+      '/physics/exercises/momentum/mom-075-option-a.png',
+      '/physics/exercises/momentum/mom-075-option-b.png',
+      '/physics/exercises/momentum/mom-075-option-c.png',
+      '/physics/exercises/momentum/mom-075-option-d.png',
+    ],
+    answer: '/physics/exercises/momentum/mom-075-option-b.png',
+    explanation:
+      'Between collisions, the ball moves under constant acceleration $-g$, so the velocity-time graph is made of straight-line segments with constant negative slope. At each elastic collision, the velocity changes sign instantly while keeping the same magnitude. This matches option B.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Free flight gives straight lines on a $v$-$t$ graph.', 'Elastic collisions reverse the sign of velocity without changing its magnitude.', 'Look for repeated straight segments with vertical jumps.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-076',
+    type: 'multiple_choice',
+    question:
+      'On a smooth horizontal surface, a marble $P$ moving with speed $u$ collides head-on with another marble $Q$, which is at rest. After collision, $P$ and $Q$ move with different speeds as shown. Which statements about this collision are correct?\n\n(1) During collision, the force acting on $Q$ by $P$ is equal and opposite to that acting on $P$ by $Q$.\n(2) The total momentum of the two marbles is conserved only when the collision is perfectly elastic.\n(3) The kinetic energy lost by $P$ must be equal to that gained by $Q$.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      '(1) True by Newton third law. (2) False: total momentum is conserved for any collision on a smooth surface with no external net force, not only perfectly elastic ones. (3) False: if the collision is not perfectly elastic, some kinetic energy is transformed into other forms, so $P$\\'s KE loss need not equal $Q$\\'s KE gain.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Newton third law always holds during the collision.', 'Momentum conservation does not require elasticity.', 'Only perfectly elastic collisions conserve total KE.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-076-question.png'],
+  },
+  {
+    id: 'mom-077',
+    type: 'multiple_choice',
+    question:
+      'Players of bubble soccer wear air-filled plastic bubbles. Which statement best explains why the bubble can reduce the chance of injury during a collision?',
+    options: [
+      'The bubble increases the mass of the player, thus the momentum of the player increases.',
+      'The bubble increases the air resistance acting on the player.',
+      'The bubble lengthens the impact time during a collision.',
+      'Like a balloon, the bubble provides a lifting force to the player.',
+    ],
+    answer: 'The bubble lengthens the impact time during a collision.',
+    explanation:
+      'The bubble deforms and increases the collision time. For the same change in momentum, increasing the impact time reduces the average force, so the chance of injury is reduced.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Use impulse: same momentum change over longer time.', 'Longer collision time means smaller average force.', 'The key effect is cushioning, not lift or air resistance.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-077-question.png'],
+  },
 ];
 
 // 互动模拟 - 自由落体计时器
