@@ -9220,6 +9220,527 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     sectionId: 'projectile-motion',
     imagePaths: ['/physics/exercises/projectile-motion/pjm-033-question.png'],
   },
+  {
+    id: 'cm-001',
+    type: 'multiple_choice',
+    question:
+      'In corners of some racing tracks for motor cars, the tracks are banked at an angle to the horizontal. Which of the following is/are the advantage(s) for this feature?\n\n(1) To reduce the friction between the car and the track.\n(2) To reduce the radius of curvature of the track that a car can travel safely at a given speed.\n(3) To increase the component of the weight of the car towards the centre of its path.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) & (2) only',
+    explanation:
+      'On a banked track, the horizontal component of the normal reaction helps provide centripetal force. This reduces the amount of friction needed and allows a given speed to be maintained on a smaller turning radius. The weight acts vertically and does not contribute a horizontal inward component.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Resolve the normal reaction into components.', 'Weight always acts vertically downward.'],
+    sectionId: 'circular-motion',
+  },
+  {
+    id: 'cm-002',
+    type: 'multiple_choice',
+    question:
+      'A particle of weight $W$ tied to an inextensible string is swung in a vertical circle. At the topmost point of its path, the tension in the string is $T$ and the centripetal force is $F$. Which of the following statements is true ?',
+    options: ['$F=W+T$.', '$F=W-T$.', 'The net force acting downwards on the stone is $F+T+W$.', 'The net force acting downwards on the stone is $F-T+W$.'],
+    answer: '$F=W+T$.',
+    explanation:
+      'At the top of the circle, both weight and tension act toward the centre. The centripetal force is the net inward force, so $F=W+T$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['At the top, the centre is downward.', 'Centripetal force is not an extra force.'],
+    sectionId: 'circular-motion',
+  },
+  {
+    id: 'cm-003',
+    type: 'multiple_choice',
+    question:
+      'The diagram represents the front view of a vehicle moving on a level road at a constant speed around a bend of which the centre of curvature is at $P$. Which of the arrows below best represents the direction of the resultant force exerted by the road on the car?',
+    options: [
+      { id: 'option-a', image: '/physics/exercises/circular-motion/cm-003-option-a.png' },
+      { id: 'option-b', image: '/physics/exercises/circular-motion/cm-003-option-b.png' },
+      { id: 'option-c', image: '/physics/exercises/circular-motion/cm-003-option-c.png' },
+      { id: 'option-d', image: '/physics/exercises/circular-motion/cm-003-option-d.png' },
+    ],
+    answer: 'option-d',
+    explanation:
+      'The road exerts an upward normal reaction and a horizontal frictional force toward the centre of the turn. Their resultant therefore points upward and inward toward $P$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Friction provides the horizontal centripetal force.', 'Normal reaction balances weight vertically.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-003-question.png'],
+  },
+  {
+    id: 'cm-004',
+    type: 'multiple_choice',
+    question:
+      'A toy car of mass $m$ is travelling along a track which is an arc of a vertical circle with radius $r$. At the bottom of this arc, the speed of the car is $v$. What is the vertical force exerted on the car by the track at this position?',
+    options: ['$\\frac{mv^2}{r}$', '$mg$', '$\\frac{mv^2}{r}-mg$', '$\\frac{mv^2}{r}+mg$'],
+    answer: '$\\frac{mv^2}{r}+mg$',
+    explanation:
+      'At the bottom, the centripetal force is upward, so $R-mg=\\frac{mv^2}{r}$. Hence the force exerted by the track is $R=mg+\\frac{mv^2}{r}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ["The normal reaction is the track's force on the car.", 'At the bottom, the centre is upward.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-004-question.png'],
+  },
+  {
+    id: 'cm-005',
+    type: 'multiple_choice',
+    question:
+      'A small marble is rotating on a horizontal circle in a smooth conical container with vertical axis $AB$ as shown. The vertical axis makes an angle of $30^{\\circ}$ with the side of the cone. If the speed of the marble is $v$ and the radius of rotation is $r$, which of the following relation must be correct?',
+    options: ['$v^2=gr\\sin30^{\\circ}$.', '$v^2=gr\\tan30^{\\circ}$.', '$v^2=\\frac{gr}{\\tan30^{\\circ}}$.', '$v^2=gr\\cos30^{\\circ}$.'],
+    answer: '$v^2=\\frac{gr}{\\tan30^{\\circ}}$.',
+    explanation:
+      'Resolving the normal reaction, the vertical component balances weight and the horizontal component provides centripetal force. With the side at $30^{\\circ}$ to the vertical, $R\\sin30^{\\circ}=mg$ and $R\\cos30^{\\circ}=\\frac{mv^2}{r}$, giving $v^2=\\frac{gr}{\\tan30^{\\circ}}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Resolve the normal force into vertical and horizontal components.', 'Use one equation for weight balance and one for centripetal force.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-005-question.png'],
+  },
+  {
+    id: 'cm-006',
+    type: 'multiple_choice',
+    question:
+      'A small particle of mass 0.25 kg is attached to an inextensible string, with the other end fixed to the ceiling. When the particle is set to rotate in a horizontal circle, the tension of the string is 3.5 N. The angle between the string and the vertical is',
+    options: ['$25.5^{\\circ}$', '$32.5^{\\circ}$', '$45.5^{\\circ}$', '$58.5^{\\circ}$'],
+    answer: '$45.5^{\\circ}$',
+    explanation:
+      'For a conical pendulum, the vertical component of tension balances weight: $T\\cos\\theta=mg$. So $(3.5)\\cos\\theta=(0.25)(9.81)$, giving $\\theta\\approx45.5^{\\circ}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use only the vertical balance.', 'The horizontal component provides centripetal force, but is not needed here.'],
+    sectionId: 'circular-motion',
+  },
+  {
+    id: 'cm-007',
+    type: 'multiple_choice',
+    question:
+      'A small particle of mass 0.05 kg is released from rest at the rim of a smooth semi-spherical bowl of radius 10 cm. Find the force acting on the object by the bowl when it passes the bottom of the bowl.',
+    options: ['0.5 N', '1.0 N', '1.5 N', '2.0 N'],
+    answer: '1.5 N',
+    explanation:
+      'The particle drops through a height of 0.10 m, so $mgh=\\frac{1}{2}mv^2$ gives $v\\approx1.40\\,\\mathrm{m\\ s^{-1}}$. At the bottom, $R-mg=\\frac{mv^2}{r}$, so $R\\approx1.47\\,\\mathrm{N}$, which rounds to $1.5\\,\\mathrm{N}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use energy to find the speed at the bottom first.', 'Then use centripetal force at the bottom.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-007-question.png'],
+  },
+  {
+    id: 'cm-008',
+    type: 'multiple_choice',
+    question:
+      'An aircraft flies along a horizontal circle of radius 15 km with a constant speed of $175\\ \\mathrm{m\\ s^{-1}}$. Calculate the angle between its wings and the horizontal. Take $g$ to be $10\\ \\mathrm{m\\ s^{-2}}$.',
+    options: ['$11.5^{\\circ}$', '$12.5^{\\circ}$', '$13.0^{\\circ}$', '$13.5^{\\circ}$'],
+    answer: '$11.5^{\\circ}$',
+    explanation:
+      'For a banked aircraft, the lift provides both weight balance and centripetal force: $L\\cos\\theta=mg$ and $L\\sin\\theta=\\frac{mv^2}{r}$. Hence $\\tan\\theta=\\frac{v^2}{gr}=\\frac{175^2}{10\\times15000}$, giving $\\theta\\approx11.5^{\\circ}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Resolve the lift into vertical and horizontal components.', 'Convert 15 km to 15000 m.'],
+    sectionId: 'circular-motion',
+  },
+  {
+    id: 'cm-009',
+    type: 'multiple_choice',
+    question:
+      'The figure shows a car moving round a corner with a radius of 12 m on a banked road of inclination $18^{\\circ}$. At what speed would there be no friction acting on the car along $OA$ ? Take $g$ to be $10\\ \\mathrm{m\\ s^{-2}}$.',
+    options: ['$4.8\\ \\mathrm{m\\ s^{-1}}$', '$5.4\\ \\mathrm{m\\ s^{-1}}$', '$6.2\\ \\mathrm{m\\ s^{-1}}$', '$7.6\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$6.2\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'With no friction, the horizontal component of the normal reaction provides centripetal force and the vertical component balances weight: $R\\sin18^{\\circ}=\\frac{mv^2}{r}$ and $R\\cos18^{\\circ}=mg$. Thus $\\tan18^{\\circ}=\\frac{v^2}{gr}$, so $v=\\sqrt{gr\\tan18^{\\circ}}\\approx6.2\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use the ideal banked-road condition.', 'Eliminate $R$ by dividing the two equations.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-009-question.png'],
+  },
+  {
+    id: 'cm-010',
+    type: 'multiple_choice',
+    question:
+      'Two small identical coins $P$ and $Q$ are placed on a horizontal turntable which is rotating at a constant angular speed about its centre $O$. The radius of $Q$ from the centre is twice that of $P$. Which of the following statements is/are correct ?\n\n(1) The kinetic energy of $Q$ is four times that of $P$.\n(2) The friction acting on $Q$ is double that acting on $P$.\n(3) If the angular speed of the turntable gradually increases, $Q$ will slip before $P$.',
+    options: ['(3) only', '(1) & (2) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      'Both coins have the same angular speed. Since $v=r\\omega$, coin $Q$ has twice the linear speed, so its kinetic energy is four times larger. The required friction is $f=mr\\omega^2$, so coin $Q$ also needs twice the friction. As the angular speed increases, $Q$ reaches the limiting friction first and slips first.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Same turntable means same angular speed.', 'Use $v=r\\omega$ and $f=mr\\omega^2$.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-010-question.png'],
+  },
+  {
+    id: 'cm-011',
+    type: 'multiple_choice',
+    question:
+      'In the experiment of demonstrating centripetal force, a rubber bung is whirled in a horizontal circle. The rubber bung is attached to one end of a string which passes through a glass tube with smooth openings, and attached to a load of weight $W$ hanging at its other end. The rubber bung is set to swirl with angular speed $\\omega$ while the length of the string beyond the upper opening of the glass tube is $L$ and this portion of the string makes an angle $\\theta$ with the vertical as shown. Which of the following statements is/are correct ?\n\n(1) If the length $L$ is kept constant, $\\theta$ will decrease with $\\omega$.\n(2) If the angle $\\theta$ is kept constant, $L$ will increase with $\\omega$.\n(3) If the weight of the load $W$ increases, $\\theta$ will increase.',
+    options: ['(1) only', '(2) only', '(3) only', '(1) & (2) only'],
+    answer: '(3) only',
+    explanation:
+      'For the bung, $T\\cos\\theta=mg$ and $T\\sin\\theta=m(L\\sin\\theta)\\omega^2$. If $L$ is fixed and $\\omega$ increases, the required tension rises, so $\\cos\\theta$ decreases and $\\theta$ increases, not decreases. If $\\theta$ is fixed, then $T$ is fixed from vertical balance, so increasing $\\omega$ requires $L$ to decrease. If the hanging weight $W$ increases, the tension increases, making $\\theta$ increase.',
+    difficulty: 4,
+    points: 15,
+    hints: ['Use vertical balance first: $T\\cos\\theta=mg$.', 'Then relate the horizontal component to centripetal force.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-011-question.png'],
+  },
+  {
+    id: 'cm-012',
+    type: 'multiple_choice',
+    question:
+      'A vehicle of mass $m$ is moving with speed $v$ on a banked road along a circular path of horizontal radius $r$. The angle of inclination of the road is $\\theta$. If the centripetal force is provided entirely from a component of the normal reaction $R$ from the road, which of the following relations is correct ?',
+    options: ['$R\\cos\\theta=mg$', '$R=mg\\cos\\theta$', '$v^2=\\frac{gr}{\\sin\\theta}$', '$v^2=\\frac{gr}{\\tan\\theta}$'],
+    answer: '$R\\cos\\theta=mg$',
+    explanation:
+      'With no friction, the vertical component of the normal reaction balances the weight, so $R\\cos\\theta=mg$. The horizontal component supplies centripetal force, giving $R\\sin\\theta=\\frac{mv^2}{r}$ and hence $v^2=gr\\tan\\theta$, so the listed speed formulas are incorrect.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Resolve the normal reaction into vertical and horizontal components.', 'The vertical component balances weight.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-012-question.png'],
+  },
+  {
+    id: 'cm-013',
+    type: 'multiple_choice',
+    question:
+      'A small bob is attached to an inextensible string. The string is pulled horizontally and then released from rest with the string taut. Which of the following statements about the tension in the string is NOT correct when the string reaches its vertical position?',
+    options: [
+      'The tension equals the weight of the bob in magnitude.',
+      'The tension attains its greatest value.',
+      'The tension does not depend on the length of the string.',
+      'The tension depends on the mass of the bob.',
+    ],
+    answer: 'The tension equals the weight of the bob in magnitude.',
+    explanation:
+      "At the lowest point, the bob has gained speed. From energy, $mgr=\\frac{1}{2}mv^2$, so $v^2=2gr$. Then $T-mg=\\frac{mv^2}{r}=2mg$, giving $T=3mg$. So the tension is greater than the weight, is greatest there, is independent of the string length, and depends on the bob's mass.",
+    difficulty: 3,
+    points: 15,
+    hints: ['Use energy from horizontal to vertical position.', 'At the bottom, tension provides weight support plus centripetal force.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-013-question.png'],
+  },
+  {
+    id: 'cm-014',
+    type: 'multiple_choice',
+    question:
+      'An aircraft flies with a constant speed in a horizontal circle of radius 12 km. If its wings slant at an angle of $23.5^{\\circ}$ to the horizontal, find the speed of the aircraft.',
+    options: ['$280\\ \\mathrm{m\\ s^{-1}}$', '$226\\ \\mathrm{m\\ s^{-1}}$', '$140\\ \\mathrm{m\\ s^{-1}}$', '$100\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$226\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'For a banked aircraft, $\\tan\\theta=\\frac{v^2}{gr}$. Substituting $\\theta=23.5^{\\circ}$, $g=9.81\\,\\mathrm{m\\ s^{-2}}$, and $r=12\\times10^3\\,\\mathrm{m}$ gives $v\\approx226\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use the standard banked-turn relation.', 'Convert 12 km to 12000 m.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-014-question.png'],
+  },
+  {
+    id: 'cm-015',
+    type: 'multiple_choice',
+    question:
+      'Two identical small particles $A$ and $B$ are connected by inextensible threads to a fixed point $O$ as shown. The threads $OA$ and $AB$ are of the same length. Both $A$ and $B$ perform uniform horizontal circular motion about $O$ with the same period. Suppose $T_1$ and $T_2$ denote the tensions in the threads $OA$ and $AB$ respectively. Find the ratio $T_1:T_2$.',
+    options: ['$3:2$', '$2:1$', '$3:1$', '$4:1$'],
+    answer: '$3:2$',
+    explanation:
+      'The two particles have the same angular speed. Let each thread have length $r$. Then particle $A$ moves in a circle of radius $r$ and particle $B$ in a circle of radius $2r$. For $A$, $T_1-T_2=mr\\omega^2$. For $B$, $T_2=2mr\\omega^2$. Hence $2(T_1-T_2)=T_2$, so $T_1:T_2=3:2$.',
+    difficulty: 4,
+    points: 15,
+    hints: ['Same period means same angular speed.', 'Write separate centripetal-force equations for A and B.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-015-question.png'],
+  },
+  {
+    id: 'cm-016',
+    type: 'multiple_choice',
+    question:
+      'A particle is performing uniform horizontal circular motion about a fixed point on a smooth horizontal plane. Which of the following physical quantities of the particle remain(s) unchanged?\n\n(1) the linear momentum of the particle\n(2) the centripetal acceleration of the particle\n(3) the kinetic energy of the particle',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      'In uniform circular motion, the speed is constant, so the kinetic energy remains constant. Linear momentum and centripetal acceleration are vectors whose directions continuously change as the particle moves around the circle, so they do not remain unchanged.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Distinguish between scalar and vector quantities.', 'Uniform circular motion keeps speed constant, not velocity constant.'],
+    sectionId: 'circular-motion',
+  },
+  {
+    id: 'cm-017',
+    type: 'multiple_choice',
+    question:
+      'A heavy bob is suspended from a fixed point $O$ by an inextensible thread of length $L$. A small peg $P$ is fixed at a distance $\\frac{1}{2}L$ vertically below $O$. The bob is pulled to one side and then released from rest as shown. When the thread just touches the peg, which of the following physical quantities will increase suddenly?\n\n(1) the linear speed of the bob\n(2) the centripetal acceleration of the bob\n(3) the tension in the thread',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      'At the instant the thread touches the peg, the speed cannot change suddenly because the kinetic energy is unchanged at that instant. But the radius of motion suddenly halves, so the centripetal acceleration $a=\\frac{v^2}{r}$ doubles. Since the tension must satisfy $T-mg=\\frac{mv^2}{r}$ at that instant, the tension also increases suddenly.',
+    difficulty: 4,
+    points: 15,
+    hints: ['The speed is continuous at the instant the peg is touched.', 'Centripetal terms depend on the instantaneous radius.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-017-question.png'],
+  },
+  {
+    id: 'cm-018',
+    type: 'multiple_choice',
+    question:
+      'The maximum frictional force between the road surface and the wheels of a certain vehicle on a horizontal road is halved when the road is wet. If the maximum safety speed for turning round the bend is $15\\ \\mathrm{m\\ s^{-1}}$ when the road is wet, what is the maximum safety speed when the road is dry ?',
+    options: ['$21.2\\ \\mathrm{m\\ s^{-1}}$', '$22.5\\ \\mathrm{m\\ s^{-1}}$', '$26.0\\ \\mathrm{m\\ s^{-1}}$', '$30.0\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$21.2\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'On a horizontal bend, friction provides the centripetal force, so $f=\\frac{mv^2}{r}$ and hence $f\\propto v^2$. If wet-road friction is half the dry-road value, then $\\frac{1}{2}=\\left(\\frac{15}{v_d}\\right)^2$. Solving gives $v_d\\approx21.2\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use friction as the centripetal force.', 'Relate friction to the square of speed.'],
+    sectionId: 'circular-motion',
+  },
+  {
+    id: 'cm-019',
+    type: 'multiple_choice',
+    question:
+      'Which of the following statements is correct for a particle moving in a horizontal circle with constant angular velocity ?',
+    options: [
+      'The linear momentum is constant but the kinetic energy varies.',
+      'The linear momentum varies but the kinetic energy is constant.',
+      'Both the linear momentum and the kinetic energy are constant.',
+      'Both the linear momentum and the kinetic energy vary.',
+    ],
+    answer: 'The linear momentum varies but the kinetic energy is constant.',
+    explanation:
+      'With constant angular velocity, the speed is constant, so the kinetic energy remains constant. But the velocity direction changes continuously, so the linear momentum vector also changes continuously.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Momentum is a vector.', 'Kinetic energy depends only on speed.'],
+    sectionId: 'circular-motion',
+  },
+  {
+    id: 'cm-020',
+    type: 'multiple_choice',
+    question:
+      'A mass of 2 kg rotates at constant speed in a horizontal circle of radius 5 m and the time for one complete revolution is 3 s. The centripetal force acting on the mass is',
+    options: ['2.19 N', '4.39 N', '43.9 N', '109.7 N'],
+    answer: '43.9 N',
+    explanation:
+      'Use $F=mr\\omega^2$ with $\\omega=\\frac{2\\pi}{T}$. Thus $F=(2)(5)\\left(\\frac{2\\pi}{3}\\right)^2\\approx43.9\\,\\mathrm{N}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Convert period to angular speed first.', 'Then use $F=mr\\omega^2$.'],
+    sectionId: 'circular-motion',
+  },
+  {
+    id: 'cm-021',
+    type: 'multiple_choice',
+    question:
+      'A particle travels in uniform circular motion with constant radius of curvature. Which of the following statements concerning the motion of the particle is/are correct ?\n\n(1) The linear velocity is constant.\n(2) The angular velocity is constant.\n(3) The centripetal acceleration is constant.',
+    options: ['(2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(2) only',
+    explanation:
+      'In uniform circular motion, the angular velocity is constant. The linear velocity is not constant because its direction changes. The centripetal acceleration also changes direction continuously toward the centre, so it is not constant as a vector.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Separate magnitude from direction.', 'Vector constancy requires both magnitude and direction to stay fixed.'],
+    sectionId: 'circular-motion',
+  },
+  {
+    id: 'cm-022',
+    type: 'multiple_choice',
+    question:
+      'An aircraft is moving in a horizontal plane at a constant speed of $650\\ \\mathrm{m\\ s^{-1}}$. The radius of its circular path is 80 km. What is the ratio of the centripetal force to the weight of the aircraft ?',
+    options: ['0.019', '0.54', '1.85', '52'],
+    answer: '0.54',
+    explanation:
+      'The ratio is $\\frac{F}{W}=\\frac{mv^2/r}{mg}=\\frac{v^2}{gr}$. Substituting $v=650\\,\\mathrm{m\\ s^{-1}}$, $r=80\\times10^3\\,\\mathrm{m}$, and $g=9.81\\,\\mathrm{m\\ s^{-2}}$ gives about $0.54$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Mass cancels in the ratio.', 'Convert 80 km to metres.'],
+    sectionId: 'circular-motion',
+  },
+  {
+    id: 'cm-023',
+    type: 'multiple_choice',
+    question:
+      'A particle is attached to an inextensible string and is set into circular motion in a horizontal plane. Which of the following diagrams correctly shows the direction of the resultant force $F$ acting on the particle ?',
+    options: [
+      { id: 'option-a', image: '/physics/exercises/circular-motion/cm-023-option-a.png' },
+      { id: 'option-b', image: '/physics/exercises/circular-motion/cm-023-option-b.png' },
+      { id: 'option-c', image: '/physics/exercises/circular-motion/cm-023-option-c.png' },
+      { id: 'option-d', image: '/physics/exercises/circular-motion/cm-023-option-d.png' },
+    ],
+    answer: 'option-c',
+    explanation:
+      'The resultant force is the centripetal force, and it must always point toward the centre of the circular path.',
+    difficulty: 1,
+    points: 15,
+    hints: ['Centripetal force is always directed inward.'],
+    sectionId: 'circular-motion',
+  },
+  {
+    id: 'cm-024',
+    type: 'multiple_choice',
+    question:
+      'The minute hand of a large clock is 1.2 m long. What is its average angular speed ?',
+    options: [
+      '$0.87\\times10^{-3}\\ \\mathrm{rad\\ s^{-1}}$',
+      '$1.45\\times10^{-3}\\ \\mathrm{rad\\ s^{-1}}$',
+      '$1.75\\times10^{-3}\\ \\mathrm{rad\\ s^{-1}}$',
+      '$2.09\\times10^{-3}\\ \\mathrm{rad\\ s^{-1}}$',
+    ],
+    answer: '$1.75\\times10^{-3}\\ \\mathrm{rad\\ s^{-1}}$',
+    explanation:
+      'The minute hand completes one revolution in 60 minutes, so $T=3600\\,\\mathrm{s}$. Hence $\\omega=\\frac{2\\pi}{T}=\\frac{2\\pi}{3600}\\approx1.75\\times10^{-3}\\,\\mathrm{rad\\ s^{-1}}$.',
+    difficulty: 1,
+    points: 15,
+    hints: ['The hand length is irrelevant for angular speed.', 'One revolution takes 3600 s.'],
+    sectionId: 'circular-motion',
+  },
+  {
+    id: 'cm-025',
+    type: 'multiple_choice',
+    question:
+      'A record on a turntable is rotating at a constant period. Which graph shows correctly the relation between the acceleration $a$ of particles fixed on the surface of the record and their distance $r$ from the centre of rotation ?',
+    options: [
+      { id: 'option-a', image: '/physics/exercises/circular-motion/cm-025-option-a.png' },
+      { id: 'option-b', image: '/physics/exercises/circular-motion/cm-025-option-b.png' },
+      { id: 'option-c', image: '/physics/exercises/circular-motion/cm-025-option-c.png' },
+      { id: 'option-d', image: '/physics/exercises/circular-motion/cm-025-option-d.png' },
+    ],
+    answer: 'option-b',
+    explanation:
+      'With constant period, the angular speed $\\omega=\\frac{2\\pi}{T}$ is constant. Since centripetal acceleration is $a=r\\omega^2$, it is directly proportional to $r$, so the graph is a straight line through the origin.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Constant period means constant angular speed.', 'Use $a=r\\omega^2$.'],
+    sectionId: 'circular-motion',
+  },
+  {
+    id: 'cm-026',
+    type: 'multiple_choice',
+    question:
+      'An aircraft is travelling at constant speed in a horizontal circle with centre $O$. The diagrams below show the tail-view of the aircraft, the dotted line representing the line of the wings and the circle representing the centre of gravity of the aircraft. Which one of the diagrams correctly shows the forces acting on the aircraft ?',
+    options: [
+      { id: 'option-a', image: '/physics/exercises/circular-motion/cm-026-option-a.png' },
+      { id: 'option-b', image: '/physics/exercises/circular-motion/cm-026-option-b.png' },
+      { id: 'option-c', image: '/physics/exercises/circular-motion/cm-026-option-c.png' },
+      { id: 'option-d', image: '/physics/exercises/circular-motion/cm-026-option-d.png' },
+    ],
+    answer: 'option-b',
+    explanation:
+      'Only two real forces act: weight vertically downward and lift perpendicular to the wings. The lift must tilt inward so that its horizontal component provides the centripetal force.',
+    difficulty: 2,
+    points: 15,
+    hints: ["Do not add 'centripetal force' as an extra force.", 'Lift is perpendicular to the wings.'],
+    sectionId: 'circular-motion',
+  },
+  {
+    id: 'cm-027',
+    type: 'multiple_choice',
+    question:
+      'A small ball bearing of mass 0.2 kg is whirling in a horizontal circle with radius 0.8 m inside a smooth inverted cone. What is the linear speed of the ball bearing ?',
+    options: ['$2.1\\ \\mathrm{m\\ s^{-1}}$', '$3.0\\ \\mathrm{m\\ s^{-1}}$', '$3.7\\ \\mathrm{m\\ s^{-1}}$', '$4.0\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$3.7\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'Resolving the normal reaction, $R\\sin30^{\\circ}=mg$ vertically and $R\\cos30^{\\circ}=\\frac{mv^2}{r}$ horizontally. Hence $\\tan30^{\\circ}=\\frac{gr}{v^2}$. Substituting $g=9.81\\,\\mathrm{m\\ s^{-2}}$ and $r=0.8\\,\\mathrm{m}$ gives $v\\approx3.7\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Resolve the normal reaction into vertical and horizontal components.', 'Use the geometry angle given by the cone.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-027-question.png'],
+  },
+  {
+    id: 'cm-028',
+    type: 'multiple_choice',
+    question:
+      'A simple pendulum is pulled horizontally and then released from rest with the string taut. Which of the following statements about the tension in the string is not correct when the pendulum reaches its vertical position?',
+    options: [
+      'The tension equals the weight of the pendulum bob in magnitude.',
+      'The tension attains its greatest value.',
+      'The tension does not depend on the length of the pendulum.',
+      'The tension depends on the mass of the pendulum bob.',
+    ],
+    answer: 'The tension equals the weight of the pendulum bob in magnitude.',
+    explanation:
+      "At the lowest point, $T-W=\\frac{mv^2}{r}$, so the tension must be greater than the weight. From energy, $mgr=\\frac{1}{2}mv^2$, giving $v^2=2gr$, hence $T=mg+\\frac{m(2gr)}{r}=3mg$. So the tension is greatest there, is independent of length, and depends on the bob's mass.",
+    difficulty: 3,
+    points: 15,
+    hints: ['Use energy from horizontal to lowest point.', 'At the bottom, tension supports weight and provides centripetal force.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-028-question.png'],
+  },
+  {
+    id: 'cm-029',
+    type: 'multiple_choice',
+    question:
+      "A man is rotating with constant speed inside a cylindrical 'rotor' and he remains pressed against the wall. The floor of the 'rotor' is smooth. Which of the following forces provides the centripetal force for the man ?",
+    options: [
+      'the weight of the man',
+      'the frictional force from the wall',
+      'the normal reaction from the wall',
+      'the supporting force from the floor.',
+    ],
+    answer: 'the normal reaction from the wall',
+    explanation:
+      'The centripetal force must act horizontally toward the centre of the rotor. The wall exerts a normal reaction on the man directed inward, so this normal reaction provides the centripetal force.',
+    difficulty: 1,
+    points: 15,
+    hints: ['Centripetal force points toward the centre.', 'The floor is smooth, so it does not supply the needed horizontal force.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-029-question.png'],
+  },
+  {
+    id: 'cm-030',
+    type: 'multiple_choice',
+    question:
+      'The figure shows the rear view of a car of mass $m$ which travels along a circular road banked with an angle $\\theta$ to the horizontal. The car moves at a certain speed such that it experiences no frictional force along the inclined surface. Which of the following represents the centripetal force on the car?',
+    options: [
+      '$mg\\sin\\theta$',
+      '$mg\\sin\\theta\\cos\\theta$',
+      '$\\frac{mg\\cos\\theta}{\\sin\\theta}$',
+      '$\\frac{mg\\sin\\theta}{\\cos\\theta}$',
+    ],
+    answer: '$\\frac{mg\\sin\\theta}{\\cos\\theta}$',
+    explanation:
+      'Only weight and the normal reaction act. With no friction, vertical balance gives $R\\cos\\theta=mg$, so $R=\\frac{mg}{\\cos\\theta}$. The horizontal component of the normal reaction provides the centripetal force: $F=R\\sin\\theta=\\frac{mg\\sin\\theta}{\\cos\\theta}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use no-friction banked-road conditions.', 'The horizontal component of the normal reaction is the centripetal force.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-030-question.png'],
+  },
+  {
+    id: 'cm-031',
+    type: 'multiple_choice',
+    question:
+      'Particles $X$ and $Y$ are fixed at distances $r$ and $r/2$ respectively from the centre $O$ of a horizontal circular platform which is rotating uniformly as shown. The ratio of the acceleration of $X$ to that of $Y$ is',
+    options: ['$1:2$', '$2:1$', '$1:4$', '$4:1$'],
+    answer: '$2:1$',
+    explanation:
+      'Both particles have the same angular speed because they are fixed on the same rotating platform. Since centripetal acceleration is $a=r\\omega^2$, it is proportional to the radius. Therefore $a_X:a_Y=r:(r/2)=2:1$.',
+    difficulty: 1,
+    points: 15,
+    hints: ['Same platform means same angular speed.', 'Use $a=r\\omega^2$.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-031-question.png'],
+  },
+  {
+    id: 'cm-032',
+    type: 'multiple_choice',
+    question:
+      'A car travelling at $80\\ \\mathrm{km\\ h^{-1}}$ due east changes direction and travels at $60\\ \\mathrm{km\\ h^{-1}}$ due north. Which diagram represents the change in velocity of the car?',
+    options: [
+      { id: 'option-a', image: '/physics/exercises/circular-motion/cm-032-option-a.png' },
+      { id: 'option-b', image: '/physics/exercises/circular-motion/cm-032-option-b.png' },
+      { id: 'option-c', image: '/physics/exercises/circular-motion/cm-032-option-c.png' },
+      { id: 'option-d', image: '/physics/exercises/circular-motion/cm-032-option-d.png' },
+    ],
+    answer: 'option-d',
+    explanation:
+      'Change in velocity is a vector: $\\Delta v=v_f-v_i$. The initial velocity is $80\\,\\mathrm{km\\ h^{-1}}$ due east, and the final velocity is $60\\,\\mathrm{km\\ h^{-1}}$ due north. Therefore $\\Delta v$ is equivalent to adding $60\\,\\mathrm{km\\ h^{-1}}$ north and $80\\,\\mathrm{km\\ h^{-1}}$ west. Its magnitude is $\\sqrt{80^2+60^2}=100\\,\\mathrm{km\\ h^{-1}}$, and its direction is toward the northwest. Using $\\tan\\theta=80/60$, the angle is about $53^{\\circ}$ west of north. This matches diagram D.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use $\\Delta v=v_f-v_i$.', 'Reverse the initial eastward velocity when subtracting vectors.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-032-question.png'],
+  },
 ];
 
 // 互动模拟 - 自由落体计时器
