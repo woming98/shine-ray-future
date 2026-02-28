@@ -5953,7 +5953,10 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Find total weight from initial readings.', 'Use new support separation after moving $P$.', 'Use force balance after moment equation.'],
     sectionId: 'moment-force',
-    imagePaths: ['/physics/exercises/moment-force/mf-017-question.png'],
+    imagePaths: [
+      '/physics/exercises/moment-force/mf-017-question.png',
+      '/physics/exercises/moment-force/mf-017-question-2.png',
+    ],
   },
   {
     id: 'mf-018',
