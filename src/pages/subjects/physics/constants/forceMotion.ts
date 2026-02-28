@@ -6069,6 +6069,322 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     sectionId: 'moment-force',
     imagePaths: ['/physics/exercises/moment-force/mf-024-question.png'],
   },
+  {
+    id: 'wep-001',
+    type: 'multiple_choice',
+    question:
+      'An object is thrown vertically upwards with initial speed $u$. Which graph represents the variation of its kinetic energy $E_k$ with time $t$?',
+    options: [
+      '/physics/exercises/work-energy-power/wep-001-option-a.png',
+      '/physics/exercises/work-energy-power/wep-001-option-b.png',
+      '/physics/exercises/work-energy-power/wep-001-option-c.png',
+      '/physics/exercises/work-energy-power/wep-001-option-d.png',
+    ],
+    answer: '/physics/exercises/work-energy-power/wep-001-option-b.png',
+    explanation:
+      'At $t=0$, kinetic energy is maximum. At the highest point, speed is zero so kinetic energy is zero. During descent, speed increases again, so $E_k$ decreases to zero and then increases. Since $v=u-gt$, $E_k=\\frac12m(u-gt)^2$, a quadratic curve in time.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use $E_k=\\frac12mv^2$.', 'At the highest point, $v=0$.', 'Velocity varies linearly with time, so kinetic energy varies quadratically.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-002',
+    type: 'multiple_choice',
+    question:
+      'Two masses $m_1$ and $m_2$ ($m_1>m_2$) are hung over a smooth pulley. If the system is released from rest, what is the kinetic energy of the system after mass $m_1$ has descended through distance $h$?',
+    options: ['$m_1gh$', '$m_2gh$', '$(m_1-m_2)gh$', '$(m_2-m_1)gh$'],
+    answer: '$(m_1-m_2)gh$',
+    explanation:
+      'Loss of gravitational potential energy of $m_1$ is $m_1gh$. Gain of gravitational potential energy of $m_2$ is $m_2gh$. The remainder becomes total kinetic energy of the system, so $E_k=(m_1-m_2)gh$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Use energy conservation.', 'One mass loses PE while the other gains PE.', 'The difference becomes total kinetic energy.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-002-question.png'],
+  },
+  {
+    id: 'wep-003',
+    type: 'multiple_choice',
+    question:
+      'A vehicle moves up a road inclined at angle $\\theta$ with constant velocity $10\\ \\mathrm{m\\ s^{-1}}$. If the resisting forces are uniform, the power developed by the engine is',
+    options: ['constant.', 'increasing uniformly.', 'decreasing uniformly.', 'increasing, but not uniformly.'],
+    answer: 'constant.',
+    explanation:
+      'Using $P=Fv$: with constant speed and constant resisting force, the required driving force is constant, so the engine power is constant.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Use $P=Fv$.', 'Velocity is constant.', 'Resistive force is uniform (constant).'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-004',
+    type: 'multiple_choice',
+    question:
+      'Which statements about a body falling freely under gravity are correct?\n\n(1) It gains kinetic energy while falling.\n(2) Its total energy at any point equals the work done in raising it from ground level to that point.\n(3) Its kinetic energy at the end of the flight is all converted into potential energy.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      '(1) True: gravitational potential energy is converted into kinetic energy. (2) False: work done in raising it to that point equals only the potential energy there, not total energy. (3) False: just before reaching ground, potential energy has been converted into kinetic energy, not the reverse.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Separate kinetic and potential energy clearly.', 'Work done to raise from ground gives gravitational PE.', 'In free fall, PE decreases while KE increases.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-005',
+    type: 'multiple_choice',
+    question:
+      'A vehicle moving with uniform speed travels up a road of constant gradient. The power developed by the engine is',
+    options: ['uniformly increasing.', 'increasing, but not uniformly.', 'constant.', 'uniformly decreasing.'],
+    answer: 'constant.',
+    explanation:
+      'Again, $P=Fv$. Uniform speed means constant $v$, and constant gradient with uniform resistive conditions gives constant opposing force, so power is constant.',
+    difficulty: 1,
+    points: 10,
+    hints: ['This is the same power relation as the previous vehicle question.', 'Constant gradient means constant component of weight.', 'Uniform speed implies constant power if force is constant.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-006',
+    type: 'multiple_choice',
+    question:
+      'Two balls $X$ and $Y$ of the same mass are released from rest at $A$. $X$ falls vertically to $B$, while $Y$ moves down a smooth plane to $C$. Which statements are correct?\n\n(1) $X$ reaches $B$ at the same time as $Y$ reaches $C$.\n(2) Velocity of $X$ at $B$ is the same as that of $Y$ at $C$.\n(3) Kinetic energy of $X$ at $B$ is the same as that of $Y$ at $C$.',
+    options: ['(1) only', '(2) only', '(3) only', '(1) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      '(1) False: $X$ has acceleration $g$, while $Y$ has smaller acceleration $g\\sin\\theta$ and travels a longer path. (2) False: their velocity directions differ, so velocities are not the same vectors. (3) True: both lose the same gravitational potential energy, so both gain the same kinetic energy.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Compare both acceleration and distance.', 'Velocity is a vector, not just speed.', 'Use conservation of mechanical energy for KE comparison.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-006-question.png'],
+  },
+  {
+    id: 'wep-007',
+    type: 'multiple_choice',
+    question:
+      'When 40 kg of water falls through a certain distance, its temperature increases by $0.2^{\\circ}\\mathrm{C}$. Given specific heat capacity of water $=4200\\ \\mathrm{J\\ kg^{-1}\\ ^\\circ C^{-1}}$, what is the height fallen?',
+    options: ['20 m', '22 m', '42 m', '86 m'],
+    answer: '86 m',
+    explanation:
+      'Loss of gravitational potential energy equals gain in internal energy: $mgh=mc\\Delta T$. So $gh=c\\Delta T=4200\\times0.2=840$, hence $h=840/9.81\\approx85.6\\,\\mathrm{m}\\approx86\\,\\mathrm{m}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Mass cancels in $mgh=mc\\Delta T$.', 'Use $g=9.81\\ \\mathrm{m\\ s^{-2}}$.', 'Round to nearest option.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-008',
+    type: 'multiple_choice',
+    question:
+      'A student of weight 500 N runs up stairs 15 m high in 20 s. The average power developed is',
+    options: ['37.5 W', '375 W', '750 W', '7500 W'],
+    answer: '375 W',
+    explanation:
+      'Work done against gravity is $Wh=500\\times15=7500\\,\\mathrm{J}$. Average power $P=\\frac{W}{t}=\\frac{7500}{20}=375\\,\\mathrm{W}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Work done = weight × vertical height.', 'Then divide by time.', 'Average power = work/time.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-009',
+    type: 'multiple_choice',
+    question:
+      'A bullet of mass 0.01 kg travelling horizontally at $100\\ \\mathrm{m\\ s^{-1}}$ is stopped by 0.1 m of concrete. What retarding force acts on the bullet?',
+    options: ['0.1 N', '10 N', '500 N', '1000 N'],
+    answer: '500 N',
+    explanation:
+      'Loss of kinetic energy equals work done against retarding force: $\\tfrac12mv^2=Fs$. Thus $\\tfrac12(0.01)(100)^2=F(0.1)$, giving $F=500\\,\\mathrm{N}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Use work-energy theorem.', 'Initial KE is fully lost.', 'Solve for $F$ from $Fs$.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-010',
+    type: 'multiple_choice',
+    question:
+      'A cannon ball hits the wall at the top of a 10 m tower. If the energy needed to destroy the wall is 49000 J and the mass of the ball is 10 kg, what is the minimum initial speed required?',
+    options: ['$100\\ \\mathrm{m\\ s^{-1}}$', '$200\\ \\mathrm{m\\ s^{-1}}$', '$300\\ \\mathrm{m\\ s^{-1}}$', '$400\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$100\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'Initial kinetic energy must supply gain in potential energy plus destruction energy: $\\tfrac12mv^2=mgh+E$. So $\\tfrac12(10)v^2=(10)(9.81)(10)+49000$, giving $v\\approx100\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Add required energies at impact.', 'Include the 10 m height gain.', 'Solve from total initial KE.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-011',
+    type: 'multiple_choice',
+    question:
+      'A bullet hits a target at speed $200\\ \\mathrm{m\\ s^{-1}}$. If 50% of its kinetic energy is converted into the bullet internal energy, what is its temperature rise? (Specific heat capacity $=100\\ \\mathrm{J\\ kg^{-1}\\ ^\\circ C^{-1}}$)',
+    options: ['$10^{\\circ}\\mathrm{C}$', '$20^{\\circ}\\mathrm{C}$', '$100^{\\circ}\\mathrm{C}$', '$200^{\\circ}\\mathrm{C}$'],
+    answer: '$100^{\\circ}\\mathrm{C}$',
+    explanation:
+      'Gain in internal energy is $50\\%$ of kinetic energy: $\\tfrac12mv^2\\times0.5=mc\\Delta T$. Hence $\\tfrac12(200)^2\\times0.5=100\\Delta T$, so $\\Delta T=100^{\\circ}\\mathrm{C}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Mass cancels.', 'Only half the kinetic energy is converted.', 'Set heat gain equal to internal energy increase.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-012',
+    type: 'multiple_choice',
+    question:
+      'A block moves with uniform velocity along a rough horizontal plane. Which statements are true?\n\n(1) Its kinetic energy is increasing.\n(2) Its potential energy is increasing.\n(3) The resultant force acting on it is zero.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      'With uniform velocity, speed is constant so kinetic energy is constant, not increasing. On a horizontal plane, height is constant so potential energy is constant. Zero acceleration means resultant force is zero.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Uniform velocity implies zero acceleration.', 'KE depends on speed.', 'PE on horizontal ground stays unchanged.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-013',
+    type: 'multiple_choice',
+    question:
+      'An object is projected vertically upwards. Which graph correctly describes the variation of kinetic energy $E$ with height $h$?',
+    options: [
+      '/physics/exercises/work-energy-power/wep-013-option-a.png',
+      '/physics/exercises/work-energy-power/wep-013-option-b.png',
+      '/physics/exercises/work-energy-power/wep-013-option-c.png',
+      '/physics/exercises/work-energy-power/wep-013-option-d.png',
+    ],
+    answer: '/physics/exercises/work-energy-power/wep-013-option-d.png',
+    explanation:
+      'As height increases, gravitational potential energy increases linearly, so kinetic energy decreases linearly. At $h=0$, kinetic energy is maximum; then it falls as a straight line with height. Therefore option D is correct.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use conservation of mechanical energy.', '$E_k+E_p$ stays constant.', 'Since $E_p=mgh$, KE changes linearly with $h$.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-014',
+    type: 'multiple_choice',
+    question:
+      'The difference in water temperature between the top and bottom of a waterfall is $0.15^{\\circ}\\mathrm{C}$. Assuming no heat is lost to the surroundings, what is the height of the waterfall? (Specific heat capacity of water is $4200\\ \\mathrm{J\\ kg^{-1}\\ ^\\circ C^{-1}}$.)',
+    options: ['3.6 m', '28 m', '64 m', '360 m'],
+    answer: '64 m',
+    explanation:
+      'Loss of gravitational potential energy equals gain in internal energy: $mgh=mc\\Delta T$. So $gh=4200\\times0.15=630$, hence $h=630/9.81\\approx64\\,\\mathrm{m}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use $mgh=mc\\Delta T$.', 'Mass cancels.', 'Use $g=9.81\\ \\mathrm{m\\ s^{-2}}$.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-015',
+    type: 'multiple_choice',
+    question:
+      'A diver jumps from a high platform into water at point $B$, descends to $C$, and then floats up. Taking potential energy at $B$ as zero, which statements are true concerning the diver at point $C$?\n\n(1) The kinetic energy is at a maximum.\n(2) The kinetic energy is at a minimum.\n(3) The sum of kinetic energy and potential energy is zero.',
+    options: ['(1) only', '(2) only', '(3) only', '(1) & (3) only'],
+    answer: '(2) only',
+    explanation:
+      'At point $C$, the diver is momentarily at rest before rising, so kinetic energy is zero and therefore minimum. Since $C$ is below $B$, potential energy at $C$ is negative (with $B$ defined as zero), so $KE+PE$ is less than zero, not zero.',
+    difficulty: 2,
+    points: 15,
+    hints: ['At the lowest point before rising, speed is momentarily zero.', 'Zero speed means minimum KE.', 'Check the chosen zero level for potential energy.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-015-question.png'],
+  },
+  {
+    id: 'wep-016',
+    type: 'multiple_choice',
+    question:
+      'An escalator can carry 120 passengers to a height of 10 m in one minute. Assuming each passenger has weight 500 N, the possible power output of the escalator must be at least',
+    options: ['1000 W', '5000 W', '10000 W', '50000 W'],
+    answer: '10000 W',
+    explanation:
+      'Total work done in 60 s is $(120)(500)(10)=600000\\,\\mathrm{J}$. Power is $P=E/t=600000/60=10000\\,\\mathrm{W}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Find total gravitational work first.', 'Use all 120 passengers.', 'Then divide by 60 s.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-017',
+    type: 'multiple_choice',
+    question:
+      'An object is projected vertically upwards. Which graph correctly describes the variation of its kinetic energy ($KE$) with height ($h$)?',
+    options: [
+      '/physics/exercises/work-energy-power/wep-017-option-a.png',
+      '/physics/exercises/work-energy-power/wep-017-option-b.png',
+      '/physics/exercises/work-energy-power/wep-017-option-c.png',
+      '/physics/exercises/work-energy-power/wep-017-option-d.png',
+    ],
+    answer: '/physics/exercises/work-energy-power/wep-017-option-b.png',
+    explanation:
+      'Kinetic energy decreases linearly with height because total mechanical energy is constant and $PE=mgh$ increases linearly. At $h=0$, KE is maximum; then it falls along a straight line as $h$ increases.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use conservation of mechanical energy.', 'Since $PE$ is linear in $h$, KE must be linear in $h$.', 'KE is maximum at launch.'],
+    sectionId: 'work-energy-power',
+  },
+  {
+    id: 'wep-018',
+    type: 'multiple_choice',
+    question:
+      'A trolley of mass 1 kg is released from rest from point $X$ on a rough slope. Its speed at $Y$ is $3\\ \\mathrm{m\\ s^{-1}}$. What is the loss in energy when moving from $X$ to $Y$? (Take $g=10\\ \\mathrm{m\\ s^{-2}}$.)',
+    options: ['1.0 J', '4.5 J', '5.5 J', '9.0 J'],
+    answer: '5.5 J',
+    explanation:
+      'Initial potential energy is $mgh=(1)(10)(1)=10\\,\\mathrm{J}$ from the diagram. Final kinetic energy is $\\tfrac12mv^2=\\tfrac12(1)(3^2)=4.5\\,\\mathrm{J}$. Energy lost is $10-4.5=5.5\\,\\mathrm{J}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use the height shown in the diagram for initial PE.', 'Final KE comes from speed at $Y$.', 'Loss = initial mechanical energy - final mechanical energy.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-018-question.png'],
+  },
+  {
+    id: 'wep-019',
+    type: 'multiple_choice',
+    question:
+      'A mass $m$ is connected to mass $M$ by a string over a smooth pulley. The table is smooth. Which statements are correct?\n\n(1) $m$ and $M$ move with the same acceleration magnitude.\n(2) The loss in potential energy of $m$ equals the gain in kinetic energy of $M$.\n(3) If mass of $M$ is doubled, its acceleration is halved.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      '(1) True: connected bodies have the same acceleration magnitude. (2) False: loss of $PE$ of $m$ becomes kinetic energy of both masses, not just $M$. (3) False: $a=\\frac{mg}{M+m}$, so doubling $M$ does not simply halve $a$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use string constraint for acceleration.', 'Energy is shared by both masses.', 'Check the formula $a=mg/(M+m)$.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-019-question.png'],
+  },
+  {
+    id: 'wep-020',
+    type: 'multiple_choice',
+    question:
+      'A smooth inclined plane has $Y$ midway between $X$ and $Z$. Two particles $A$ and $B$ of the same mass are released from rest at $X$ and $Y$ respectively. Which statements are true?\n\n(1) Time for $A$ to reach $Z$ is double that for $B$.\n(2) Potential energy of $A$ at $Z$ is double that for $B$.\n(3) Kinetic energy of $A$ at $Z$ is double that for $B$.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      '(1) False: for motion from rest, $s\\propto t^2$, so doubling distance makes time increase by $\\sqrt2$, not 2. (2) False: both are at the same final level $Z$, so same potential energy there. (3) True: $A$ falls through double the vertical height, so it loses double the potential energy and gains double the kinetic energy.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use $s=\\tfrac12at^2$ for timing.', 'Final PE depends only on final height.', 'KE gain equals PE loss on a smooth plane.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-020-question.png'],
+  },
+  {
+    id: 'wep-021',
+    type: 'multiple_choice',
+    question:
+      'Two equal masses $A$ and $B$ are connected by a light string over a smooth pulley, with $B$ on a smooth incline. Which statements are correct?\n\n(1) Potential energy lost by $A$ equals potential energy gained by $B$.\n(2) Kinetic energy gained by $A$ equals kinetic energy gained by $B$.\n(3) Potential energy lost by $A$ equals the sum of kinetic energies gained by $A$ and $B$.',
+    options: ['(1) only', '(2) only', '(3) only', '(1) & (2) only'],
+    answer: '(2) only',
+    explanation:
+      '(1) False: both move the same distance, but $B$ rises by a smaller vertical height on the incline, so it gains less PE than $A$ loses. (2) True: same masses and same speed imply equal kinetic energies. (3) False: some of the lost PE of $A$ is used to increase the PE of $B$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Same string means same speed.', 'Equal masses with same speed have equal KE.', 'Include PE gain of the mass on the incline in the energy balance.'],
+    sectionId: 'work-energy-power',
+    imagePaths: ['/physics/exercises/work-energy-power/wep-021-question.png'],
+  },
 ];
 
 // 互动模拟 - 自由落体计时器
