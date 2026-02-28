@@ -10226,6 +10226,803 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Diameter ratio is the same as radius ratio.', 'Use the ratio form of $g=GM/R^2$.'],
     sectionId: 'gravitation',
   },
+  {
+    id: 'op-001',
+    type: 'multiple_choice',
+    question:
+      'A transverse wave is travelling steadily from left to right through a series of particles. At a certain instant the wave form is as shown in the figure. Which of the following statements about the particles is/are correct ?\n\n(1) Particle $P$ is moving down.\n(2) Particle $Q$ is moving up.\n(3) Particle $R$ is momentarily at rest.',
+    options: ['(1) only', '(2) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      '$P$ is at a crest, so it is momentarily at rest, not moving down. For a right-moving wave, the particle at $Q$ is moving upward. $R$ is at an extreme position, so it is also momentarily at rest. Therefore (2) and (3) are correct.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Particles at crests and troughs are momentarily at rest.', 'Use the wave direction to infer motion.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-001-question.png'],
+  },
+  {
+    id: 'op-002',
+    type: 'multiple_choice',
+    question:
+      'The figures show a wave in the same section of string at two different instants: $t=0.000\\ \\mathrm{s}$ and $t=0.025\\ \\mathrm{s}$. What is the greatest possible period of the wave ?',
+    options: ['0.025 s', '0.050 s', '0.100 s', '0.200 s'],
+    answer: '0.100 s',
+    explanation:
+      'In $0.025\\,\\mathrm{s}$ the waveform shifts by $\\frac{1}{4}$ of a wavelength. Since a full wavelength shift takes one period, the greatest possible period is $4\\times0.025=0.100\\,\\mathrm{s}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Compare the horizontal shift between the two snapshots.', 'One wavelength shift corresponds to one period.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-002-question.png'],
+  },
+  {
+    id: 'op-003',
+    type: 'multiple_choice',
+    question:
+      'The diagram shows a progressive transverse wave at a certain instant when travelling from left to right. Which of the following correctly shows the direction of motion of the particles at $P$, $Q$ and $R$ ?',
+    options: ['P down, Q down, R down', 'P down, Q up, R down', 'P down, Q up, R up', 'P up, Q down, R up'],
+    answer: 'P down, Q up, R up',
+    explanation:
+      'For a right-moving transverse wave, particle motion is opposite to the local slope of the waveform. From the diagram, $P$ moves downward, while $Q$ and $R$ move upward. So the correct choice is P down, Q up, R up.',
+    difficulty: 2,
+    points: 15,
+    hints: ['For a right-moving wave, particle velocity is opposite to the local slope.', 'Check each labeled particle separately.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-003-question.png'],
+  },
+  {
+    id: 'op-004',
+    type: 'multiple_choice',
+    question:
+      'A vibrator of frequency 5 Hz generates waves on a string. The diagram shows the shape of the string at the instant when the vibrator has made one complete vibration. Which of the following best shows the waveform 0.1 s later?',
+    options: [
+      { id: 'option-a', image: '/physics/exercises/optics-propagation/op-004-option-a.png' },
+      { id: 'option-b', image: '/physics/exercises/optics-propagation/op-004-option-b.png' },
+      { id: 'option-c', image: '/physics/exercises/optics-propagation/op-004-option-c.png' },
+      { id: 'option-d', image: '/physics/exercises/optics-propagation/op-004-option-d.png' },
+    ],
+    answer: 'option-a',
+    explanation:
+      'The period is $T=\\frac{1}{f}=\\frac{1}{5}=0.2\\,\\mathrm{s}$. After $0.1\\,\\mathrm{s}=\\frac{T}{2}$, the progressive wave advances by half a wavelength, which matches option A.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Find the period from the frequency.', 'In half a period, the wave pattern shifts by half a wavelength.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-004-question.png'],
+  },
+  {
+    id: 'op-005',
+    type: 'multiple_choice',
+    question:
+      'The diagram shows a water wave travelling to the right. Which of the following statements is/are true ?\n\n(1) $PQ$ is equal to the wavelength.\n(2) $PR$ represents the amplitude.\n(3) The particle at $P$ will move to $S$ after a quarter of a period.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) & (2) only',
+    explanation:
+      '$P$ and $Q$ are the nearest points in phase, so $PQ$ is one wavelength. $PR$ is the maximum displacement from equilibrium, so it is the amplitude. A particle oscillates about its own position, so $P$ will not move horizontally to $S$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Wavelength is the shortest distance between points in phase.', 'Wave particles oscillate locally; they do not travel with the wave.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-005-question.png'],
+  },
+  {
+    id: 'op-006',
+    type: 'multiple_choice',
+    question:
+      'A water wave travels towards the right. The diagram shows the waveform at a certain instant. Which of the following statements is/are true ?\n\n(1) Particle $P$ is moving downwards.\n(2) Particle $Q$ is moving upwards.\n(3) Particle $R$ is momentarily at rest.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      '$P$ is at maximum displacement, so it is momentarily at rest. For a right-moving wave, $Q$ is moving upward. $R$ is also at an extreme position, so it is momentarily at rest. Therefore only (2) and (3) are true.',
+    difficulty: 2,
+    points: 15,
+    hints: ['A particle at maximum displacement is instantaneously at rest.', 'Use the wave direction to determine the motion at $Q$.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-006-question.png'],
+  },
+  {
+    id: 'op-007',
+    type: 'multiple_choice',
+    question:
+      'A vibrator generates a travelling wave on a string. The diagram shows the shape of the string at a certain instant. Which of the following shows the shape of the string between $P$ and $Q$ after a quarter of a period ?',
+    options: [
+      { id: 'option-a', image: '/physics/exercises/optics-propagation/op-007-option-a.png' },
+      { id: 'option-b', image: '/physics/exercises/optics-propagation/op-007-option-b.png' },
+      { id: 'option-c', image: '/physics/exercises/optics-propagation/op-007-option-c.png' },
+      { id: 'option-d', image: '/physics/exercises/optics-propagation/op-007-option-d.png' },
+    ],
+    answer: 'option-d',
+    explanation:
+      'After a quarter of a period, a progressive wave moves forward by one quarter of a wavelength. So the correct shape is the original waveform shifted to the right by $\\frac{1}{4}\\lambda$, which is option D.',
+    difficulty: 2,
+    points: 15,
+    hints: ['In time $\\frac{T}{4}$, the waveform advances by $\\frac{\\lambda}{4}$.', 'Track the direction of wave travel.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-007-question.png'],
+  },
+  {
+    id: 'op-008',
+    type: 'multiple_choice',
+    question:
+      'A train of water waves is generated in a ripple tank. The graph shows the variation of the displacement of a cork placed in the water with time. Find the frequency of the waves.',
+    options: ['0.2 Hz', '0.25 Hz', '4 Hz', '5 Hz'],
+    answer: '5 Hz',
+    explanation:
+      'From the graph, the period is $T=0.2\\,\\mathrm{s}$. Therefore the frequency is $f=\\frac{1}{T}=\\frac{1}{0.2}=5\\,\\mathrm{Hz}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Read the period from the displacement-time graph.', 'Use $f=1/T$.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-008-question.png'],
+  },
+  {
+    id: 'op-009',
+    type: 'multiple_choice',
+    question:
+      'A vibrator generates a travelling wave on a string. Figure (a) shows the shape of the string at a certain instant. Figure (b) shows the variation of the displacement of a certain particle on the string with time. Which of the following expressions represents the speed of the travelling wave ?',
+    options: ['$x$', '$y$', '$\\frac{x}{y}$', '$\\frac{y}{x}$'],
+    answer: '$\\frac{x}{y}$',
+    explanation:
+      'From figure (a), the wavelength is $\\lambda=x$. From figure (b), the period is $T=y$. Hence the wave speed is $v=f\\lambda=\\frac{\\lambda}{T}=\\frac{x}{y}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Read wavelength from the spatial graph.', 'Read period from the displacement-time graph.'],
+    sectionId: 'optics-propagation',
+    imagePaths: [
+      '/physics/exercises/optics-propagation/op-009-question.png',
+      '/physics/exercises/optics-propagation/op-009-question-2.png',
+    ],
+  },
+  {
+    id: 'op-010',
+    type: 'multiple_choice',
+    question:
+      'A cork in the water vibrates up and down 4 times in $2\\ \\mathrm{s}$ when a wave passes through it. The distance between two successive crests of the wave is 10 cm. Find the speed of the water wave.',
+    options: ['$0.05\\ \\mathrm{m\\ s^{-1}}$', '$0.1\\ \\mathrm{m\\ s^{-1}}$', '$0.2\\ \\mathrm{m\\ s^{-1}}$', '$0.4\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$0.2\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'The frequency is $f=\\frac{4}{2}=2\\,\\mathrm{Hz}$. The wavelength is $\\lambda=10\\,\\mathrm{cm}=0.1\\,\\mathrm{m}$. Therefore $v=f\\lambda=(2)(0.1)=0.2\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Frequency is oscillations per second.', 'The crest-to-crest distance is the wavelength.'],
+    sectionId: 'optics-propagation',
+  },
+  {
+    id: 'op-011',
+    type: 'multiple_choice',
+    question:
+      'The diagram shows a transverse wave travelling along a string. At the instant shown, particle $P$ is moving upwards. Which of the following statements is incorrect ?',
+    options: [
+      'The wave is travelling towards the left.',
+      'Particles $P$ and $Q$ vibrate with the same frequency.',
+      'Particle $Q$ is moving downwards at this instant.',
+      'Particle $R$ is at rest at this instant.',
+    ],
+    answer: 'Particle $R$ is at rest at this instant.',
+    explanation:
+      'If $P$ is moving upward, the wave must be travelling to the left. All particles on the same wave have the same frequency, and $Q$ is moving downward at that instant. $R$ is not at an extreme position, so it is moving downward rather than being at rest. Hence D is the incorrect statement.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use the stated motion of $P$ to infer wave direction.', 'A particle is at rest only at maximum displacement positions.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-011-question.png'],
+  },
+  {
+    id: 'op-012',
+    type: 'multiple_choice',
+    question:
+      'Which of the following statements correctly describe(s) the meaning of the frequency of a wave?\n\n(1) the time taken for the wave to make one complete vibration\n(2) the distance travelled by the wave in one second\n(3) the number of waves produced in one second',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      '(1) describes the period. (2) describes the wave speed. (3) is the correct definition of frequency: the number of waves produced each second.',
+    difficulty: 1,
+    points: 15,
+    hints: ['Frequency counts cycles per second.', 'Do not confuse frequency with period or speed.'],
+    sectionId: 'optics-propagation',
+  },
+  {
+    id: 'op-013',
+    type: 'multiple_choice',
+    question:
+      'Four corks are moving up and down on the surface of a pond as a water wave passes through them. At time $t=0$, the positions of the corks are shown. The figure below shows the displacement-time graph of one of the four corks. Which cork has the motion represented by the graph?',
+    options: ['$P$', '$Q$', '$R$', '$S$'],
+    answer: '$Q$',
+    explanation:
+      'At $t=0$, $P$ and $R$ are at extreme positions and are momentarily at rest. $Q$ is moving upward, while $S$ is moving downward. Since the displacement-time graph shows the cork moving upward at $t=0$, it must represent cork $Q$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Match the initial direction of motion at $t=0$.', 'Corks at maximum displacement are momentarily at rest.'],
+    sectionId: 'optics-propagation',
+    imagePaths: [
+      '/physics/exercises/optics-propagation/op-013-question.png',
+      '/physics/exercises/optics-propagation/op-013-question-2.png',
+    ],
+  },
+  {
+    id: 'op-014',
+    type: 'multiple_choice',
+    question:
+      'A wave source generates waves of frequency 50 Hz. How long does it take for the waves to travel 100 m ?',
+    options: ['0.5 s', '2 s', '5000 s', 'It cannot be determined as insufficient information is given.'],
+    answer: 'It cannot be determined as insufficient information is given.',
+    explanation:
+      'The travel time is $t=\\frac{d}{v}$, so the wave speed $v$ is needed. Since $v=f\\lambda$ and the wavelength is not given, the speed cannot be found. Therefore the time to travel 100 m cannot be determined.',
+    difficulty: 2,
+    points: 15,
+    hints: ['You need the wave speed to find travel time.', 'Frequency alone is not enough without wavelength.'],
+    sectionId: 'optics-propagation',
+  },
+  {
+    id: 'op-015',
+    type: 'multiple_choice',
+    question:
+      'A transverse wave travels along a string with a speed of $1.2\\ \\mathrm{m\\ s^{-1}}$. The diagram below shows the shape of the string at a certain instant.\n\nWhich of the following statements about the transverse wave are correct ?\n\n(1) Its wavelength is 20 cm.\n(2) Its frequency is 6 Hz.\n(3) Its amplitude is 6 cm.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (2) only',
+    explanation:
+      'From the graph, the wavelength is 20 cm and the amplitude is 3 cm, not 6 cm. Using $v=f\\lambda$ gives $1.2=f(0.20)$, so $f=6\\,\\mathrm{Hz}$. Therefore (1) and (2) only are correct.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Read wavelength and amplitude separately from the graph.', 'Convert 20 cm to 0.20 m before using $v=f\\lambda$.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-015-question.png'],
+  },
+  {
+    id: 'op-016',
+    type: 'multiple_choice',
+    question:
+      'A transverse wave travels along a string with a speed of $1.2\\ \\mathrm{m\\ s^{-1}}$. The diagram below shows the shape of the string at a certain instant.\n\nWhich of the following diagrams shows the shape of the string at a quarter of a period later ?',
+    options: [
+      { id: 'option-a', image: '/physics/exercises/optics-propagation/op-016-option-a.png' },
+      { id: 'option-b', image: '/physics/exercises/optics-propagation/op-016-option-b.png' },
+      { id: 'option-c', image: '/physics/exercises/optics-propagation/op-016-option-c.png' },
+      { id: 'option-d', image: '/physics/exercises/optics-propagation/op-016-option-d.png' },
+    ],
+    answer: 'option-d',
+    explanation:
+      'After a quarter of a period, the progressive wave moves forward by one quarter of a wavelength. So the crest initially at 5 cm shifts to 10 cm, which matches option D.',
+    difficulty: 2,
+    points: 15,
+    hints: ['A progressive wave advances by $\\lambda/4$ in $T/4$.', 'Track one crest to locate the correct shifted shape.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-016-question.png'],
+  },
+  {
+    id: 'op-017',
+    type: 'multiple_choice',
+    question:
+      'The solid curve in the diagram shows a transverse wave at a certain instant. After 0.05 s, the wave has travelled a distance of 2 cm and is indicated by the dashed curve. Find the wavelength and frequency of the wave.',
+    options: [
+      '$\\lambda=8\\,\\mathrm{cm},\\ f=2.5\\,\\mathrm{Hz}$',
+      '$\\lambda=8\\,\\mathrm{cm},\\ f=5\\,\\mathrm{Hz}$',
+      '$\\lambda=16\\,\\mathrm{cm},\\ f=2.5\\,\\mathrm{Hz}$',
+      '$\\lambda=16\\,\\mathrm{cm},\\ f=5\\,\\mathrm{Hz}$',
+    ],
+    answer: '$\\lambda=16\\,\\mathrm{cm},\\ f=2.5\\,\\mathrm{Hz}$',
+    explanation:
+      'The 2 cm shift is $\\frac{1}{8}$ of a wavelength, so $\\lambda=2\\times8=16\\,\\mathrm{cm}$. If $\\frac{1}{8}\\lambda$ is travelled in 0.05 s, then one full wavelength takes $8\\times0.05=0.40\\,\\mathrm{s}$, so $T=0.40\\,\\mathrm{s}$ and $f=\\frac{1}{T}=2.5\\,\\mathrm{Hz}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Relate the observed shift to a fraction of one wavelength.', 'Scale the corresponding time to one full period.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-017-question.png'],
+  },
+  {
+    id: 'op-018',
+    type: 'multiple_choice',
+    question:
+      'The displacement-distance graphs of the particles along a travelling wave at time $t=0$ and $t=0.2\\ \\mathrm{s}$ are shown below.\n\nWhich of the following statements about the wave are correct ?\n\n(1) Its amplitude is 6 cm.\n(2) Its wavelength is 8 cm.\n(3) Its frequency is 5 Hz.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (2) only',
+    explanation:
+      'The amplitude is the maximum displacement, giving $3\\times2\\,\\mathrm{cm}=6\\,\\mathrm{cm}$. The minimum repeat distance is $4\\times2\\,\\mathrm{cm}=8\\,\\mathrm{cm}$, so the wavelength is 8 cm. In 0.2 s the wave moves by only $\\frac{1}{4}\\lambda$, so the frequency is not 5 Hz. Therefore (1) and (2) only are correct.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Read amplitude from peak displacement.', 'Use the shift between the two graphs to infer the fraction of a cycle.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-018-question.png'],
+  },
+  {
+    id: 'op-019',
+    type: 'multiple_choice',
+    question:
+      'The displacement-distance graphs of the particles along a travelling wave at time $t=0$ and $t=0.2\\ \\mathrm{s}$ are shown below.\n\nWhat is the speed of the wave ?',
+    options: ['$0.2\\ \\mathrm{m\\ s^{-1}}$', '$0.3\\ \\mathrm{m\\ s^{-1}}$', '$0.4\\ \\mathrm{m\\ s^{-1}}$', '$0.8\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$0.3\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'From the two graphs, the wave has moved by $3\\times2\\,\\mathrm{cm}=6\\,\\mathrm{cm}$ in 0.2 s. Hence $v=\\frac{d}{t}=\\frac{6\\,\\mathrm{cm}}{0.2\\,\\mathrm{s}}=30\\,\\mathrm{cm\\ s^{-1}}=0.3\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Measure the horizontal shift between the two wave profiles.', 'Convert cm/s to m/s at the end.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-019-question.png'],
+  },
+  {
+    id: 'op-020',
+    type: 'multiple_choice',
+    question:
+      'In December 2004, an earthquake in the Indian Ocean caused a tsunami which produced water waves having wavelength about 100 m and frequency about 2 Hz. What was the approximate time taken for these water waves to travel from the earthquake centre to Sri Lanka across a distance of about 1500 km ?',
+    options: ['1 hour', '2 hours', '3 hours', '4 hours'],
+    answer: '2 hours',
+    explanation:
+      'The wave speed is $v=f\\lambda=(2)(100)=200\\,\\mathrm{m\\ s^{-1}}$. The distance is $1500\\,\\mathrm{km}=1.5\\times10^6\\,\\mathrm{m}$. Thus $t=\\frac{d}{v}=\\frac{1.5\\times10^6}{200}=7500\\,\\mathrm{s}\\approx2$ hours.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Find the wave speed first using $v=f\\lambda$.', 'Convert 1500 km to metres before dividing.'],
+    sectionId: 'optics-propagation',
+  },
+  {
+    id: 'op-021',
+    type: 'multiple_choice',
+    question:
+      'A longitudinal wave is travelling from left to right in a medium. Figure (a) shows the equilibrium positions of particles $A$ to $J$ in the medium. At time $t=0$, the positions of the particles are shown in Figure (b). Which of the following correctly shows the displacement-time graph of particle $I$ ? (Displacement to the right is taken to be positive.)',
+    options: [
+      { id: 'option-a', image: '/physics/exercises/optics-propagation/op-021-option-a.png' },
+      { id: 'option-b', image: '/physics/exercises/optics-propagation/op-021-option-b.png' },
+      { id: 'option-c', image: '/physics/exercises/optics-propagation/op-021-option-c.png' },
+      { id: 'option-d', image: '/physics/exercises/optics-propagation/op-021-option-d.png' },
+    ],
+    answer: 'option-c',
+    explanation:
+      'Particle $I$ is initially at its equilibrium position. A short time later, as the wave moves right, particle $I$ moves to the left first, so its displacement becomes negative immediately after $t=0$. The graph that starts at zero and then goes negative is option C.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Check the initial displacement of particle $I$.', 'Then infer its first direction of motion from the wave direction.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-021-question.png'],
+  },
+  {
+    id: 'op-022',
+    type: 'multiple_choice',
+    question:
+      'Figure (a) shows a series of particles uniformly distributed along a slinky spring. Figure (b) shows their positions at a certain instant when a travelling wave passes through the slinky spring from left to right. Which of the following diagrams shows the correct positions of the particles after half a period from the instant shown in Figure (b)?',
+    options: [
+      { id: 'option-a', image: '/physics/exercises/optics-propagation/op-022-option-a.png' },
+      { id: 'option-b', image: '/physics/exercises/optics-propagation/op-022-option-b.png' },
+      { id: 'option-c', image: '/physics/exercises/optics-propagation/op-022-option-c.png' },
+      { id: 'option-d', image: '/physics/exercises/optics-propagation/op-022-option-d.png' },
+    ],
+    answer: 'option-c',
+    explanation:
+      'In Figure (b), particle $a$ is at the centre of compression, which is an equilibrium position. After half a period, each particle is again at the same displacement magnitude but the compression becomes a rarefaction. Option C shows particle $a$ still at the same position but now at the centre of rarefaction, so it is correct.',
+    difficulty: 2,
+    points: 15,
+    hints: ['A particle at the centre of compression is at equilibrium.', 'After half a period, compression changes to rarefaction.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-022-question.png'],
+  },
+  {
+    id: 'op-023',
+    type: 'multiple_choice',
+    question:
+      'Figure (a) shows a series of particles ($a-k$) at their equilibrium positions. Figure (b) shows the positions of the particles at a certain instant when a longitudinal wave travelling to the right passes through the particles. What are the directions of motion of particles $c$ and $f$ at the instant shown in Figure (b) ?',
+    options: [
+      'particle c: to left; particle f: to left',
+      'particle c: to left; particle f: to right',
+      'particle c: to right; particle f: to left',
+      'particle c: to right; particle f: to right',
+    ],
+    answer: 'particle c: to right; particle f: to left',
+    explanation:
+      'Particles near the centre of a compression move with the compression as it travels right. So particle $c$ moves to the right. Particle $f$ is at the centre of a rarefaction, so as the right-moving wave progresses, it moves to the left. Therefore the correct choice is C.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Locate compression and rarefaction regions first.', 'Then infer motion from the rightward wave travel.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-023-question.png'],
+  },
+  {
+    id: 'op-024',
+    type: 'multiple_choice',
+    question:
+      'A wave travels along a string to the left. The figure shows its waveform at time $t=1\\ \\mathrm{s}$. Which of the following displacement-time graphs best represents the motion of particle $P$ ? (Take displacement upwards to be positive.)',
+    options: [
+      { id: 'option-a', image: '/physics/exercises/optics-propagation/op-024-option-a.png' },
+      { id: 'option-b', image: '/physics/exercises/optics-propagation/op-024-option-b.png' },
+      { id: 'option-c', image: '/physics/exercises/optics-propagation/op-024-option-c.png' },
+      { id: 'option-d', image: '/physics/exercises/optics-propagation/op-024-option-d.png' },
+    ],
+    answer: 'option-c',
+    explanation:
+      'At $t=1\\,\\mathrm{s}$, particle $P$ is at the equilibrium position and, because the wave is moving left, it is moving downward at that instant. The correct displacement-time graph must therefore pass through zero at $t=1\\,\\mathrm{s}$ with a negative slope, which is option C.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Match both the displacement and the direction of motion at $t=1\\,\\mathrm{s}$.', 'A negative slope on a displacement-time graph means moving downward.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-024-question.png'],
+  },
+  {
+    id: 'op-025',
+    type: 'multiple_choice',
+    question:
+      'Figure (a) shows the equilibrium positions of particles $E$ to $N$ in a medium. A longitudinal wave is travelling from left to right. At time $t_1$, the positions of the particles are shown in Figure (b). Which of the following particles is momentarily at rest at $t_1$ ?',
+    options: ['$K$', '$L$', '$M$', '$N$'],
+    answer: '$K$',
+    explanation:
+      'Particles at the centres of compression and rarefaction are at equilibrium and moving at greatest speed, not at rest. A particle is momentarily at rest only at an extreme position. From the diagram, particle $K$ is at the leftmost extreme position, so it is momentarily at rest.',
+    difficulty: 2,
+    points: 15,
+    hints: ['In a longitudinal wave, equilibrium points are not where particles stop.', 'Look for the extreme displacement position.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-025-question.png'],
+  },
+  {
+    id: 'op-026',
+    type: 'multiple_choice',
+    question:
+      'The figure below shows the displacement-distance graph of a wave travelling to the right with speed $2\\ \\mathrm{cm\\ s^{-1}}$ at a certain instant. $P$ and $Q$ are two particles at distances $x=8\\ \\mathrm{cm}$ and 18 cm respectively.\n\nWhat is the period of the wave ?',
+    options: ['0.25 s', '4 s', '8 s', '18 s'],
+    answer: '4 s',
+    explanation:
+      'From the graph, the wavelength is $\\lambda=8\\,\\mathrm{cm}$. Using $v=f\\lambda$ gives $2=f(8)$, so $f=0.25\\,\\mathrm{Hz}$. Hence the period is $T=\\frac{1}{f}=\\frac{1}{0.25}=4\\,\\mathrm{s}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Read the wavelength from the graph first.', 'Use $T=1/f$ after finding the frequency.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-026-question.png'],
+  },
+  {
+    id: 'op-027',
+    type: 'multiple_choice',
+    question:
+      'The figure below shows the displacement-distance graph of a wave travelling to the right with speed $2\\ \\mathrm{cm\\ s^{-1}}$ at a certain instant. $P$ and $Q$ are two particles at distances $x=8\\ \\mathrm{cm}$ and 18 cm respectively.\n\nWhat is the shortest time for $P$ to have the same displacement as $Q$ at the instant shown ?',
+    options: ['1 s', '3 s', '4 s', '5 s'],
+    answer: '3 s',
+    explanation:
+      'The wave moves to the right, so particle $P$ is moving downward at the instant shown. To reach the displacement that $Q$ has at that instant (the crest), $P$ must move through $\\frac{3}{4}$ of a cycle. Since the period is 4 s, the shortest time is $\\frac{3}{4}T=\\frac{3}{4}(4)=3\\,\\mathrm{s}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use the result of the previous question for the period.', 'Compare where $P$ must move to in one oscillation cycle.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-027-question.png'],
+  },
+  {
+    id: 'op-028',
+    type: 'multiple_choice',
+    question:
+      'Figure (a) shows a series of particles ($E$-$O$) at their equilibrium positions. Figure (b) shows the positions of the particles at a certain instant when a longitudinal wave travelling to the right passes through the particles. Which of the following statements is incorrect?',
+    options: [
+      'The separation between $F$ and $N$ equals the wavelength of the wave.',
+      'The amplitude of the wave is 4 cm.',
+      '$J$ is momentarily at rest at the instant shown in Figure (b).',
+      '$N$ is at the centre of compression at the instant shown in Figure (b).',
+    ],
+    answer: '$J$ is momentarily at rest at the instant shown in Figure (b).',
+    explanation:
+      'Particle $J$ is at the centre of a rarefaction, so it is at an equilibrium position and moving with maximum speed, not at rest. Therefore statement C is the incorrect one.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Centres of compression and rarefaction are equilibrium positions.', 'Particles are momentarily at rest only at extreme displacements.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-028-question.png'],
+  },
+  {
+    id: 'op-029',
+    type: 'multiple_choice',
+    question:
+      'Figure (a) shows the equilibrium positions of equally spaced particles in a medium. A longitudinal wave travels from left to right through the medium. At a certain instant, the positions of the particles are shown in Figure (b). What will be the directions of motion of particle 1 and particle 7 at this instant ?',
+    options: [
+      'Particle 1: to the right; Particle 7: to the right',
+      'Particle 1: to the right; Particle 7: to the left',
+      'Particle 1: to the left; Particle 7: to the right',
+      'Particle 1: to the left; Particle 7: to the left',
+    ],
+    answer: 'Particle 1: to the left; Particle 7: to the right',
+    explanation:
+      'Taking right as positive, particle 1 is moving in the negative direction, so it moves to the left. Particle 7 is moving in the positive direction, so it moves to the right. Therefore the correct option is C.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Infer the local particle motion from the rightward longitudinal wave.', 'Translate negative/positive direction into left/right.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-029-question.png'],
+  },
+  {
+    id: 'op-030',
+    type: 'multiple_choice',
+    question:
+      'A displacement-time graph of a particle in a travelling wave is shown. What is the frequency of this wave?',
+    options: ['1.43 Hz', '2.00 Hz', '2.22 Hz', '4.00 Hz'],
+    answer: '2.00 Hz',
+    explanation:
+      'From the graph, one complete cycle takes $T=0.70-0.20=0.50\\,\\mathrm{s}$. Therefore the frequency is $f=\\frac{1}{T}=\\frac{1}{0.50}=2.00\\,\\mathrm{Hz}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Read the period from two identical phase points.', 'Then apply $f=1/T$.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-030-question.png'],
+  },
+  {
+    id: 'op-031',
+    type: 'multiple_choice',
+    question:
+      'Figure (a) represents the displacement-position graph of a travelling wave at a certain instant and Figure (b) represents the displacement-time graph of a particle in the wave. Calculate the speed of the wave.',
+    options: ['$300\\ \\mathrm{m\\ s^{-1}}$', '$150\\ \\mathrm{m\\ s^{-1}}$', '$1.2\\ \\mathrm{m\\ s^{-1}}$', '$0.6\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$300\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'From Figure (a), the wavelength is $\\lambda=0.6\\,\\mathrm{m}$. From Figure (b), one full cycle takes $T=2\\times10^{-3}\\,\\mathrm{s}$, so $f=\\frac{1}{T}=500\\,\\mathrm{Hz}$. Hence the wave speed is $v=f\\lambda=(500)(0.6)=300\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Read the wavelength from the position graph.', 'Read the period from the time graph, then use $v=f\\lambda$.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-031-question.png'],
+  },
+  {
+    id: 'op-032',
+    type: 'multiple_choice',
+    question:
+      'The figure shows a longitudinal wave travelling to the right. The particles $A$ and $B$ are at the centre of a compression and a rarefaction respectively. Which of the following gives correctly the directions of motion of $A$ and $B$ at the moment shown?',
+    options: [
+      'Particle A: to the right; Particle B: to the left',
+      'Particle A: to the right; Particle B: at rest',
+      'Particle A: to the right; Particle B: to the right',
+      'Particle A: at rest; Particle B: to the right',
+    ],
+    answer: 'Particle A: to the right; Particle B: to the left',
+    explanation:
+      'Taking rightward as positive, particle $A$ at the centre of compression is moving in the positive direction, so it moves to the right. Particle $B$ at the centre of rarefaction moves in the negative direction, so it moves to the left. Therefore option A is correct.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Infer particle motion from the rightward-moving longitudinal wave.', 'Compression and rarefaction centres are not at rest.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-032-question.png'],
+  },
+  {
+    id: 'op-033',
+    type: 'multiple_choice',
+    question:
+      'The figure shows a transverse wave propagating along a string. At the instant shown, particle $D$ on the string is moving downward. Which of the following deductions is/are correct ?\n\n(1) The wave is propagating to the left.\n(2) Particle $B$ takes longer time to reach its equilibrium position than particle $A$.\n(3) Particles $C$ and $D$ are moving in opposite directions at the instant shown.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      'If $D$ is moving downward at the shown profile, the wave must be travelling to the left. Statement (2) is false because $A$ takes the longer path before reaching equilibrium. Statement (3) is false because $C$ and $D$ are both moving downward at that instant. Therefore only (1) is correct.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use the given motion of $D$ to infer wave direction first.', 'Then compare motions of $A$, $B$, $C$, and $D$ on the same snapshot.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-033-question.png'],
+  },
+  {
+    id: 'op-034',
+    type: 'multiple_choice',
+    question:
+      'The figure shows the displacement-position graph of a longitudinal wave at a certain instant. Take the displacement towards the right as positive. Which of the following statements about particle $P$ at this instant are correct ?\n\n(1) $P$ is a centre of compression.\n(2) $P$ has the greatest kinetic energy.\n(3) $P$ is moving towards the right.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      '$P$ is a centre of compression because particles to its left are displaced rightward and particles to its right are displaced leftward. A centre of compression is an equilibrium point, so the particle there has maximum speed and hence greatest kinetic energy. The later displacement trend shows $P$ moving toward the right. Therefore all three statements are correct.',
+    difficulty: 3,
+    points: 15,
+    hints: ['A particle at equilibrium has maximum speed in SHM.', 'Use neighboring displacements to identify compression.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-034-question.png'],
+  },
+  {
+    id: 'op-035',
+    type: 'multiple_choice',
+    question:
+      'The figure shows three particles $P$, $Q$ and $R$ on a transverse wave travelling towards the right. The three particles will reach their own equilibrium positions at different times in the sequence of',
+    options: ['$R, P, Q$', '$R, Q, P$', '$P, R, Q$', '$P, Q, R$'],
+    answer: '$R, P, Q$',
+    explanation:
+      'At the instant shown, particle $P$ is momentarily at rest, while $Q$ and $R$ are moving downward. $P$ reaches equilibrium after $\\frac{1}{4}T$. Since $R$ is already closer to equilibrium than $P$, it reaches first, while $Q$ is farther and reaches last. Thus the order is $R, P, Q$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Compare how far each particle is from equilibrium and its motion direction.', 'A crest or trough reaches equilibrium after $T/4$.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-035-question.png'],
+  },
+  {
+    id: 'op-036',
+    type: 'multiple_choice',
+    question:
+      'The figure shows the displacement $y$ against the position $x$ of a transverse wave travelling to the right at time $t=0$. $P$ and $Q$ are two particles at $x=1\\ \\mathrm{cm}$ and $x=9\\ \\mathrm{cm}$ respectively. The next time when $P$ reaches its crest position is at $t=0.3\\ \\mathrm{s}$. Which of the following statements are correct ?\n\n(1) The speed of the transverse wave is $10\\ \\mathrm{cm\\ s^{-1}}$.\n(2) Particle $Q$ first reaches its crest position at $t=0.5\\ \\mathrm{s}$.\n(3) When $Q$ reaches its crest position, $P$ also reaches its crest position.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (3) only',
+    explanation:
+      'At $t=0$, $P$ is moving downward. To reach the next crest, it must complete $\\frac{3}{4}$ of a cycle, so $0.3\\,\\mathrm{s}=\\frac{3}{4}T$, giving $T=0.4\\,\\mathrm{s}$. The wavelength is 4 cm, so the speed is $v=\\frac{\\lambda}{T}=\\frac{4}{0.4}=10\\,\\mathrm{cm\\ s^{-1}}$, making (1) true. $Q$ reaches a trough at $t=0.5\\,\\mathrm{s}$, so (2) is false. Since $P$ and $Q$ are separated by two wavelengths, they are in phase, so (3) is true.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use the fraction of a cycle needed for $P$ to reach crest.', 'Particles two wavelengths apart are in phase.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-036-question.png'],
+  },
+  {
+    id: 'op-037',
+    type: 'multiple_choice',
+    question:
+      'The solid curve in the diagram shows a transverse wave at a certain instant. After 0.05 s, the wave has travelled a distance of 2 cm and is indicated by the dashed curve. Find the wavelength and frequency of the wave.',
+    options: [
+      '$\\lambda=8\\,\\mathrm{cm},\\ f=2.5\\,\\mathrm{Hz}$',
+      '$\\lambda=16\\,\\mathrm{cm},\\ f=2.5\\,\\mathrm{Hz}$',
+      '$\\lambda=8\\,\\mathrm{cm},\\ f=5\\,\\mathrm{Hz}$',
+      '$\\lambda=16\\,\\mathrm{cm},\\ f=5\\,\\mathrm{Hz}$',
+    ],
+    answer: '$\\lambda=16\\,\\mathrm{cm},\\ f=2.5\\,\\mathrm{Hz}$',
+    explanation:
+      'The 2 cm shift is $\\frac{1}{8}$ of a wavelength, so $\\lambda=2\\times8=16\\,\\mathrm{cm}$. Therefore $0.05\\,\\mathrm{s}$ corresponds to $\\frac{1}{8}T$, giving $T=0.40\\,\\mathrm{s}$ and $f=\\frac{1}{T}=2.5\\,\\mathrm{Hz}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Relate the 2 cm shift to a fraction of the wavelength.', 'Then scale the time to one full period.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-037-question.png'],
+  },
+  {
+    id: 'op-038',
+    type: 'multiple_choice',
+    question:
+      'The figure shows the shape of a transverse wave travelling along a string at a certain instant. Which statement about the motion of the particles $P$, $Q$ and $R$ on the string at this instant is correct ?',
+    options: [
+      'Particle $P$ is moving downwards.',
+      'Particle $Q$ is stationary.',
+      'Particle $R$ attains its maximum acceleration.',
+      '$P$ and $Q$ are in phase.',
+    ],
+    answer: 'Particle $R$ attains its maximum acceleration.',
+    explanation:
+      '$P$ is at a crest, so it is momentarily at rest, not moving downward. $Q$ is at an equilibrium position, so it has maximum speed and is not stationary. $R$ is at an extreme position, where the restoring acceleration is maximum. $P$ and $Q$ are not separated by an integer number of wavelengths, so they are not in phase. Therefore option C is correct.',
+    difficulty: 2,
+    points: 15,
+    hints: ['A particle at crest or trough is momentarily at rest.', 'Maximum acceleration occurs at extreme displacement.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-038-question.png'],
+  },
+  {
+    id: 'op-039',
+    type: 'multiple_choice',
+    question:
+      'A longitudinal wave travels to the right through a medium containing a series of particles. The figure shows the positions of the particles at a certain instant. The dotted lines indicate the equilibrium positions of the particles. Which of the following statements about the wave at the instant shown is/are correct ?\n\n(1) The wavelength of the longitudinal wave is 16 cm.\n(2) Particles 8 and 10 are moving in the same direction.\n(3) Particle 3 is momentarily at rest.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      'Particles 3 and 11 are at compressions, while particle 7 is at a rarefaction. The distance between adjacent compressions is one wavelength, giving $\\lambda=16\\,\\mathrm{cm}$. Particles 8 and 10 move in opposite directions, not the same. Particle 3 is at an equilibrium position with maximum speed, so it is not momentarily at rest. Therefore only (1) is correct.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Compression-to-compression separation is one wavelength.', 'Equilibrium positions are not rest positions in a travelling wave.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-039-question.png'],
+  },
+  {
+    id: 'op-040',
+    type: 'multiple_choice',
+    question:
+      'A series of particles is uniformly distributed along a slinky spring initially. Figure (a) shows their positions at a certain instant when a travelling wave propagates along the slinky spring from left to right. Figure (b) shows their positions 0.1 s later. Which statement is correct ?',
+    options: [
+      'Particle $e$ is always stationary.',
+      'Particles $a$ and $i$ are in phase.',
+      'The wavelength of the wave is 16 cm.',
+      'The frequency of the wave is 10 Hz.',
+    ],
+    answer: 'Particles $a$ and $i$ are in phase.',
+    explanation:
+      'Particles $a$ and $i$ are both at compression positions, so they are in phase. No particle in a travelling wave is always stationary. The separation between $a$ and $i$ is one wavelength, which is 32 cm, not 16 cm. Since particle $a$ changes from compression to rarefaction in 0.1 s, that is half a cycle, so $T=0.2\\,\\mathrm{s}$ and $f=5\\,\\mathrm{Hz}$, not 10 Hz. Therefore option B is correct.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Compare repeated compression points to determine phase.', 'A change from compression to rarefaction corresponds to half a period.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-040-question.png'],
+  },
+  {
+    id: 'op-041',
+    type: 'multiple_choice',
+    question:
+      'The figure shows a snapshot of a section of a continuous transverse wave travelling along the $x$-direction at time $t=0$. At $t=1.5\\ \\mathrm{s}$, particle $P$ just passes the equilibrium position for a second time at that moment. Find the wave speed.',
+    options: ['$20\\ \\mathrm{cm\\ s^{-1}}$', '$12\\ \\mathrm{cm\\ s^{-1}}$', '$6\\ \\mathrm{cm\\ s^{-1}}$', '$4\\ \\mathrm{cm\\ s^{-1}}$'],
+    answer: '$12\\ \\mathrm{cm\\ s^{-1}}$',
+    explanation:
+      'From the graph, the wavelength is $\\lambda=30-6=24\\,\\mathrm{cm}$. In 1.5 s, particle $P$ completes $\\frac{3}{4}$ of a cycle to pass equilibrium for the second time, so $1.5=\\frac{3}{4}T$, giving $T=2\\,\\mathrm{s}$. Hence $f=\\frac{1}{T}=0.5\\,\\mathrm{Hz}$ and $v=f\\lambda=(0.5)(24)=12\\,\\mathrm{cm\\ s^{-1}}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use the second equilibrium crossing to infer the fraction of a cycle.', 'Then apply $v=f\\lambda$.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-041-question.png'],
+  },
+  {
+    id: 'op-042',
+    type: 'multiple_choice',
+    question:
+      'Figure (1) shows the equilibrium positions of particles $a$ to $k$ separated by 5 cm from each other in a medium. A longitudinal wave is travelling from left to right with a speed of $80\\ \\mathrm{cm\\ s^{-1}}$. At a certain instant, the positions of the particles are shown in Figure (2). Determine the amplitude and frequency of the wave.',
+    options: [
+      'amplitude = 6 cm; frequency = 2 Hz',
+      'amplitude = 6 cm; frequency = 4 Hz',
+      'amplitude = 9 cm; frequency = 2 Hz',
+      'amplitude = 9 cm; frequency = 4 Hz',
+    ],
+    answer: 'amplitude = 6 cm; frequency = 2 Hz',
+    explanation:
+      'Particles $b$ and $j$ are centres of compression, so the separation between them is one wavelength: $\\lambda=8\\times5=40\\,\\mathrm{cm}$. Using $v=f\\lambda$ gives $80=f(40)$, so $f=2\\,\\mathrm{Hz}$. Since $b$ is at compression and $f$ is at rarefaction, both are equilibrium points, so particle $d$ is at an extreme position. Its displacement is 6 cm, which is the amplitude. Therefore option A is correct.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Compression-to-compression separation gives the wavelength.', 'Use an extreme-position particle to read the amplitude.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-042-question.png'],
+  },
+  {
+    id: 'op-043',
+    type: 'multiple_choice',
+    question:
+      'A transverse wave travels towards the left on a long string. $P$, $Q$, $R$ and $S$ are particles on the string. Which of the following statements correctly describe(s) their motions at the instant shown ?\n\n(1) $P$ is moving upwards.\n(2) $Q$ and $S$ are moving in opposite directions.\n(3) $R$ is momentarily at rest.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      'For a left-moving transverse wave, the waveform shifts left, so particle $P$ is moving upward at the instant shown. $Q$ and $S$ move in the same direction, not opposite directions. $R$ is not at an extreme position, so it is moving downward rather than being momentarily at rest. Therefore only (1) is correct.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use the leftward propagation to infer particle motion from the local slope.', 'Only crest and trough positions are instantaneously at rest.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-043-question.png'],
+  },
+  {
+    id: 'op-044',
+    type: 'multiple_choice',
+    question:
+      'A series of particles is uniformly distributed along a slinky spring initially. When a travelling wave propagates along the slinky spring from left to right, Figure (a) shows the positions of the particles at a certain instant. Figures (b) and (c) respectively show their positions 0.05 s and 0.1 s later. Which of the following is/are a possible frequency of the wave ?\n\n(1) 10 Hz\n(2) 20 Hz\n(3) 40 Hz',
+    options: ['(1) only', '(2) only', '(3) only', '(1), (2) & (3)'],
+    answer: '(1) only',
+    explanation:
+      'In Figure (a), particle $e$ is at the centre of compression. If $f=10\\,\\mathrm{Hz}$, then $T=0.1\\,\\mathrm{s}$, so after 0.05 s the particle has moved through half a cycle and the compression becomes a rarefaction as shown in Figure (b). If $f=20\\,\\mathrm{Hz}$ or $40\\,\\mathrm{Hz}$, then 0.05 s corresponds to one or two full cycles, so the compression would return to compression, not rarefaction. Therefore only (1) is possible.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Compare the change from compression to rarefaction after 0.05 s.', 'Use $T=1/f$ for each proposed frequency.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-044-question.png'],
+  },
+  {
+    id: 'op-045',
+    type: 'multiple_choice',
+    question:
+      'The figure shows a snapshot of a transverse wave which travels along a string. Which statement is correct ?',
+    options: [
+      'The wave is travelling to the left if particle $P$ is moving upwards at this instant.',
+      'Particles $P$ and $R$ are moving in the same direction at this instant.',
+      'Particle $Q$ is at rest at this instant.',
+      'Particle $R$ vibrates with an amplitude larger than that of particle $Q$.',
+    ],
+    answer: 'Particles $P$ and $R$ are moving in the same direction at this instant.',
+    explanation:
+      'If particle $P$ is moving upward, the wave would be travelling to the right, not to the left. Regardless of whether the wave travels right or left, $P$ and $R$ move in the same direction at this instant. Particle $Q$ is at an equilibrium position and is moving, not at rest. All particles on the same travelling wave have the same amplitude. Therefore option B is correct.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use the local slope to compare motions of $P$ and $R$.', 'All particles on one travelling wave have the same amplitude.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-045-question.png'],
+  },
+  {
+    id: 'op-046',
+    type: 'multiple_choice',
+    question:
+      'Figure (a) shows the equilibrium positions of particles $E$ to $N$ in a medium. At time $t=0$, a longitudinal wave starts travelling from left to right. At time $t=1\\ \\mathrm{s}$, the positions of the particles are shown in Figure (b). Which of the following statements MUST BE correct ?',
+    options: [
+      'The distance between particles $F$ and $N$ is equal to the wavelength of the wave.',
+      'The period of the wave is 1 s.',
+      'Particle $E$ is always at rest.',
+      'Particle $I$ is momentarily at rest at $t=1\\ \\mathrm{s}$.',
+    ],
+    answer: 'The distance between particles $F$ and $N$ is equal to the wavelength of the wave.',
+    explanation:
+      'From Figure (b), both $E$ and $M$ are at the centres of rarefaction, so the distance between them is one wavelength. Therefore the next pair, $F$ and $N$, are also separated by one wavelength. The figure gives no information to fix the period as 1 s. No particle in a travelling wave is always at rest. Particle $I$ is at the centre of compression, so it is moving, not momentarily at rest. Therefore only option A must be correct.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Rarefaction-to-rarefaction separation is one wavelength.', 'Do not assume a period from a single snapshot.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-046-question.png'],
+  },
+  {
+    id: 'op-047',
+    type: 'multiple_choice',
+    question:
+      'The figure shows the displacement-time graph of particles $P$ and $Q$ on the same transverse travelling wave of wavelength $\\lambda$. Which of the following statements MUST BE correct ? Upward displacement is taken to be positive.\n\n(1) At time $t=2\\,\\mathrm{s}$, $P$ is momentarily at rest.\n(2) At time $t=4\\,\\mathrm{s}$, $Q$ is moving downwards.\n(3) The separation between the equilibrium positions of $P$ and $Q$ is $0.25\\lambda$.',
+    options: ['(2) only', '(3) only', '(1) & (2) only', '(1) & (3) only'],
+    answer: '(1) & (2) only',
+    explanation:
+      'At $t=2\\,\\mathrm{s}$, particle $P$ is at a trough, so it is momentarily at rest. At $t=4\\,\\mathrm{s}$, particle $Q$ is at equilibrium and then goes to a lower displacement, so it is moving downward. From the two displacement-time graphs alone, $P$ and $Q$ are neither guaranteed to be in phase nor in antiphase, so their separation need not be $0.25\\lambda$. Therefore (1) and (2) only are correct.',
+    difficulty: 3,
+    points: 15,
+    hints: ['A particle at crest or trough is instantaneously at rest.', 'Use the slope at the equilibrium crossing to determine direction.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-047-question.png'],
+  },
 ];
 
 // 互动模拟 - 自由落体计时器
