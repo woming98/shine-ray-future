@@ -11937,7 +11937,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     sectionId: 'wave-phenomena',
     imagePaths: ['/physics/exercises/wave-phenomena/wp-072-question.png'],
   },
-  {
+{
     id: 'rr-001',
     type: 'multiple_choice',
     question: 'A light ray passes through a spherical air bubble in water. Which of the following represents the path of the emergent ray?',
@@ -11951,7 +11951,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     sectionId: 'reflection-refraction',
     imagePaths: ['/physics/exercises/reflection-refraction/rr-001-question.png'],
   },
-  {
+{
     id: 'rr-002',
     type: 'multiple_choice',
     question: 'A fixed object is placed in front of a plane mirror. If the mirror is moved 0.10 m away from the fixed object, how far will the image move?',
@@ -11964,7 +11964,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Image distance equals object distance for a plane mirror.', 'A mirror shift affects both sides of the mirror relationship.'],
     sectionId: 'reflection-refraction',
   },
-  {
+{
     id: 'rr-003',
     type: 'multiple_choice',
     question: 'When light enters from one medium into another, which of the following will be changed? (1) The frequency of the light (2) The wavelength of the light (3) The velocity of the light',
@@ -11977,7 +11977,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Frequency is fixed by the source.', 'Use v = f lambda.'],
     sectionId: 'reflection-refraction',
   },
-  {
+{
     id: 'rr-004',
     type: 'multiple_choice',
     question:
@@ -11991,7 +11991,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['The edge ray leaves at the critical angle.', 'Half the diameter is the horizontal radius.'],
     sectionId: 'reflection-refraction',
   },
-  {
+{
     id: 'rr-005',
     type: 'multiple_choice',
     question:
@@ -12006,7 +12006,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     sectionId: 'reflection-refraction',
     imagePaths: ['/physics/exercises/reflection-refraction/rr-005-question.png'],
   },
-  {
+{
     id: 'rr-006',
     type: 'multiple_choice',
     question:
@@ -12020,7 +12020,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Vacuum speed is constant.', 'Frequency is unchanged in refraction.'],
     sectionId: 'reflection-refraction',
   },
-  {
+{
     id: 'rr-007',
     type: 'multiple_choice',
     question:
@@ -12035,7 +12035,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     sectionId: 'reflection-refraction',
     imagePaths: ['/physics/exercises/reflection-refraction/rr-007-question.png'],
   },
-  {
+{
     id: 'rr-008',
     type: 'multiple_choice',
     question:
@@ -12050,7 +12050,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     sectionId: 'reflection-refraction',
     imagePaths: ['/physics/exercises/reflection-refraction/rr-008-question.png'],
   },
-  {
+{
     id: 'rr-009',
     type: 'multiple_choice',
     question:
@@ -12065,7 +12065,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     sectionId: 'reflection-refraction',
     imagePaths: ['/physics/exercises/reflection-refraction/rr-009-question.png'],
   },
-  {
+{
     id: 'rr-010',
     type: 'multiple_choice',
     question:
@@ -12080,7 +12080,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     sectionId: 'reflection-refraction',
     imagePaths: ['/physics/exercises/reflection-refraction/rr-010-question.png'],
   },
-  {
+{
     id: 'rr-011',
     type: 'multiple_choice',
     question: 'Which of the following best describes a ray of light travelling from water to air?',
@@ -12098,7 +12098,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['A reflected ray is always present.', 'From denser to less dense, the transmitted ray bends away from the normal.'],
     sectionId: 'reflection-refraction',
   },
-  {
+{
     id: 'rr-012',
     type: 'multiple_choice',
     question:
@@ -12112,7 +12112,2219 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Check the direction of travel first.', 'The denser medium must be the incident medium.'],
     sectionId: 'reflection-refraction',
     imagePaths: ['/physics/exercises/reflection-refraction/rr-012-question.png'],
-  },];
+  },
+{
+    id: 'rr-013',
+    type: 'multiple_choice',
+    question:
+      'Which of the following phenomena is/are caused by refraction of light? (1) A swimming pool appears shallower than it really is. (2) A metre rule appears bent when dipped in water. (3) A spectrum is formed when white light passes through a prism.',
+    options: ['(3) only', '(1) & (2) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      'All three effects are due to refraction. Apparent depth and the bent-rule effect come from rays changing direction at a boundary, and a prism forms a spectrum because different colours refract by different amounts.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Apparent depth is a refraction effect.', 'Dispersion in a prism is refraction with wavelength dependence.'],
+    sectionId: 'reflection-refraction',
+  },
+{
+    id: 'rr-014',
+    type: 'multiple_choice',
+    question: 'The diagram shows a light ray travelling from liquid to air. Find the refractive index of the liquid.',
+    options: ['0.71', '1.33', '1.41', '1.50'],
+    answer: '1.41',
+    explanation:
+      'Using Snell\'s law for the limiting geometry shown, the refractive index is n = sin 45 degrees / sin 30 degrees = 1.41.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Apply Snell\'s law using the angles shown.', 'The ratio is sine in denser medium over sine in air.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-014-question.png'],
+  },
+{
+    id: 'rr-015',
+    type: 'multiple_choice',
+    question:
+      'Which of the following devices involve(s) total internal reflection of light as they work? (1) Optical fibres (2) A prismatic periscope (3) A plane mirror',
+    options: ['(2) only', '(1) & (2) only', '(1) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (2) only',
+    explanation:
+      'Optical fibres guide light by total internal reflection, and a prismatic periscope uses internal reflections in prisms. A plane mirror uses ordinary reflection, not total internal reflection.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Prisms can replace mirrors using internal reflection.', 'A metal-backed plane mirror is not a TIR device.'],
+    sectionId: 'reflection-refraction',
+  },
+{
+    id: 'rr-016',
+    type: 'multiple_choice',
+    question:
+      'A ray of light travels in air and strikes a semi-circular glass block at an angle of incidence 42 degrees. The critical angle of the glass is 42 degrees. Which of the following diagrams best shows the subsequent path(s) of the ray?',
+    options: [
+      '/physics/exercises/reflection-refraction/rr-016-option-a.png',
+      '/physics/exercises/reflection-refraction/rr-016-option-b.png',
+      '/physics/exercises/reflection-refraction/rr-016-option-c.png',
+      '/physics/exercises/reflection-refraction/rr-016-option-d.png',
+    ],
+    answer: '/physics/exercises/reflection-refraction/rr-016-option-d.png',
+    explanation:
+      'From air into glass, the refracted ray bends towards the normal. At the same time, part of the incident light is reflected. The diagram showing both the reflected ray and the refracted ray bent towards the normal is D.',
+    difficulty: 3,
+    points: 15,
+    hints: ['At the first boundary, there is usually both reflection and refraction.', 'Air to glass means towards the normal.'],
+    sectionId: 'reflection-refraction',
+  },
+{
+    id: 'rr-017',
+    type: 'multiple_choice',
+    question:
+      'A ray of light travelling in air enters a semi-circular glass block as shown. Different values of the angle of incidence theta and the corresponding values of the angle of refraction phi are measured. Which of the below expressions represents the refractive index of the glass?',
+    options: [
+      'the slope of the graph of sin theta against sin phi',
+      'the slope of the graph of sin phi against sin theta',
+      'the slope of the graph of theta against phi',
+      'the slope of the graph of phi against theta',
+    ],
+    answer: 'the slope of the graph of sin theta against sin phi',
+    explanation:
+      'By Snell\'s law, n = sin theta / sin phi for air-to-glass refraction. So if sin theta is plotted against sin phi, the slope equals the refractive index.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Start from Snell\'s law.', 'Put the numerator on the vertical axis to read slope directly as n.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-017-question.png'],
+  },
+{
+    id: 'rr-018',
+    type: 'multiple_choice',
+    question:
+      'A ray of red light travels in air and strikes a triangular glass prism at an angle of incidence 45 degrees. The critical angle of red light for the glass is 42 degrees. Which of the following diagrams best shows the path of the ray?',
+    options: [
+      '/physics/exercises/reflection-refraction/rr-018-option-a.png',
+      '/physics/exercises/reflection-refraction/rr-018-option-b.png',
+      '/physics/exercises/reflection-refraction/rr-018-option-c.png',
+      '/physics/exercises/reflection-refraction/rr-018-option-d.png',
+    ],
+    answer: '/physics/exercises/reflection-refraction/rr-018-option-d.png',
+    explanation:
+      'At entry, air to glass makes the ray bend towards the normal. At exit, glass to air makes it bend away from the normal. The diagram that shows both bends correctly is D.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Decide the bend direction at each face.', 'The critical angle matters only for glass-to-air travel.'],
+    sectionId: 'reflection-refraction',
+  },
+{
+    id: 'rr-019',
+    type: 'multiple_choice',
+    question:
+      'Which of the following phenomena involve(s) total internal reflection of light? (1) The sparkling of a diamond. (2) The formation of a mirage. (3) A ruler appearing bent when dipped in water.',
+    options: ['(2) only', '(1) & (2) only', '(1) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (2) only',
+    explanation:
+      'A diamond sparkles because light undergoes total internal reflection inside it, and a mirage involves light bending through air layers and can include total internal reflection. A bent ruler in water is due to refraction only.',
+    difficulty: 2,
+    points: 15,
+    hints: ['A bent ruler is a standard refraction example.', 'Diamond brilliance depends on trapped light.'],
+    sectionId: 'reflection-refraction',
+  },
+{
+    id: 'rr-020',
+    type: 'multiple_choice',
+    question:
+      'Which of the following phenomena is/are caused by the refraction of light? (1) If a man who is spear-fishing aims his spear at where the fish appears to be, he will miss it. (2) A spectrum is formed when white light passes through a prism. (3) A light ray is transmitted through a curved glass fibre.',
+    options: ['(1) only', '(1) & (2) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (2) only',
+    explanation:
+      'The fish appears displaced because of refraction at the water surface, and a prism forms a spectrum by refracting colours differently. A curved glass fibre guides light mainly by total internal reflection, not ordinary refraction.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Glass fibre transmission is a TIR application.', 'A prism disperses light by refraction.'],
+    sectionId: 'reflection-refraction',
+  },
+{
+    id: 'rr-021',
+    type: 'multiple_choice',
+    question:
+      'A beam consisting of red and violet light travels in a glass block with an air cavity. The cavity is in the shape of a prism as shown above. Which of the following diagrams best shows the subsequent path of the beam?',
+    options: [
+      '/physics/exercises/reflection-refraction/rr-021-option-a.png',
+      '/physics/exercises/reflection-refraction/rr-021-option-b.png',
+      '/physics/exercises/reflection-refraction/rr-021-option-c.png',
+      '/physics/exercises/reflection-refraction/rr-021-option-d.png',
+    ],
+    answer: '/physics/exercises/reflection-refraction/rr-021-option-d.png',
+    explanation:
+      'On entering the air cavity from glass, the beam goes from denser to less dense and bends away from the normal. On leaving the cavity back into glass, it bends towards the normal. Red light deviates less than violet, so the correct diagram is D.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Treat the air cavity like an inverted prism inside glass.', 'Red light deviates least.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-021-question.png'],
+  },
+{
+    id: 'rr-022',
+    type: 'multiple_choice',
+    question:
+      'A ray of light travels in air and strikes a rectangular glass block at an angle of incidence 50 degrees. The critical angle of the glass is 42 degrees. Which of the following diagrams best shows the path of the ray?',
+    options: [
+      '/physics/exercises/reflection-refraction/rr-022-option-a.png',
+      '/physics/exercises/reflection-refraction/rr-022-option-b.png',
+      '/physics/exercises/reflection-refraction/rr-022-option-c.png',
+      '/physics/exercises/reflection-refraction/rr-022-option-d.png',
+    ],
+    answer: '/physics/exercises/reflection-refraction/rr-022-option-d.png',
+    explanation:
+      'At the first boundary, air to glass makes the ray bend towards the normal. At the second boundary, glass to air makes it bend away from the normal. The diagram that shows both correctly is D.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Track the ray at entry and exit separately.', 'Use bend towards normal into glass, away from normal out of glass.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-022-question.png'],
+  },
+{
+    id: 'rr-023',
+    type: 'multiple_choice',
+    question:
+      'A student uses two triangular prisms to construct a periscope as shown above. Which of the following shows the image of the object as seen by the observer?',
+    options: [
+      '/physics/exercises/reflection-refraction/rr-023-option-a.png',
+      '/physics/exercises/reflection-refraction/rr-023-option-b.png',
+      '/physics/exercises/reflection-refraction/rr-023-option-c.png',
+      '/physics/exercises/reflection-refraction/rr-023-option-d.png',
+    ],
+    answer: '/physics/exercises/reflection-refraction/rr-023-option-a.png',
+    explanation:
+      'The two reflections in the prismatic periscope produce an inverted image in the orientation shown. That matches option A.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Trace the image orientation after each reflection.', 'Two reflections do not always restore the original orientation for an asymmetric object.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-023-question.png'],
+  },
+{
+    id: 'rr-024',
+    type: 'multiple_choice',
+    question: 'A ray of light enters a glass prism and travels along the path as shown above. Find the refractive index of the glass.',
+    options: ['1.07', '1.37', '1.47', '1.50'],
+    answer: '1.47',
+    explanation:
+      'The angle with the normal is 90 degrees minus 47 degrees, so the internal incidence angle is 43 degrees. Since the emergent ray is along the surface, 43 degrees is the critical angle. Therefore n = 1 / sin 43 degrees = 1.47.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Convert the angle with the face to the angle with the normal.', 'A ray along the surface corresponds to the critical angle.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-024-question.png'],
+  },
+{
+    id: 'rr-025',
+    type: 'multiple_choice',
+    question:
+      'A ray of light travels in air and strikes a glass block as shown above. Which of the following diagrams best shows the path of the ray?',
+    options: [
+      '/physics/exercises/reflection-refraction/rr-025-option-a.png',
+      '/physics/exercises/reflection-refraction/rr-025-option-b.png',
+      '/physics/exercises/reflection-refraction/rr-025-option-c.png',
+      '/physics/exercises/reflection-refraction/rr-025-option-d.png',
+    ],
+    answer: '/physics/exercises/reflection-refraction/rr-025-option-d.png',
+    explanation:
+      'From air into glass the ray bends towards the normal, and from glass back into air it bends away from the normal. The only diagram consistent with both is D.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use relative optical density at each face.', 'The emergent ray in air must bend away from the normal.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-025-question.png'],
+  },
+{
+    id: 'rr-026',
+    type: 'multiple_choice',
+    question: 'A ray of light travels in air and strikes a glass prism as shown above. Which of the following diagrams best shows the path of the ray?',
+    options: [
+      '/physics/exercises/reflection-refraction/rr-026-option-a.png',
+      '/physics/exercises/reflection-refraction/rr-026-option-b.png',
+      '/physics/exercises/reflection-refraction/rr-026-option-c.png',
+      '/physics/exercises/reflection-refraction/rr-026-option-d.png',
+    ],
+    answer: '/physics/exercises/reflection-refraction/rr-026-option-d.png',
+    explanation:
+      'At entry, the ray goes from air to glass and bends towards the normal. At exit, it goes from glass to air and bends away from the normal. That makes D the correct path.',
+    difficulty: 3,
+    points: 15,
+    hints: ['The prism has two refractions, one at each face.', 'Check bend direction at both boundaries.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-026-question.png'],
+  },
+{
+    id: 'rr-027',
+    type: 'multiple_choice',
+    question:
+      'The photograph shows the image of a tree formed by the surface of a pool of calm water. Which of the following phenomena explains the formation of the image?',
+    options: ['reflection', 'total internal reflection', 'refraction', 'diffraction'],
+    answer: 'reflection',
+    explanation:
+      'A calm water surface behaves like a plane mirror and forms the image by reflection.',
+    difficulty: 1,
+    points: 15,
+    hints: ['A calm surface can act like a mirror.', 'This is ordinary reflection, not refraction.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-027-question.png'],
+  },
+{
+    id: 'rr-028',
+    type: 'multiple_choice',
+    question:
+      'Eric stands 1 m in front of a plane mirror. Martha stands 2 m behind Eric as shown above. Find the distance between Eric and the image of Martha formed by the mirror.',
+    options: ['2 m', '3 m', '4 m', '6 m'],
+    answer: '4 m',
+    explanation:
+      'Martha is 3 m in front of the mirror, so her image is 3 m behind the mirror. Eric is 1 m in front of the mirror. Therefore the distance from Eric to Martha\'s image is 1 + 3 = 4 m.',
+    difficulty: 2,
+    points: 15,
+    hints: ['First find Martha\'s distance from the mirror.', 'For a plane mirror, image distance equals object distance.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-028-question.png'],
+  },
+{
+    id: 'rr-029',
+    type: 'multiple_choice',
+    question: 'The diagram shows the image of a clock formed in a plane mirror. What is the time displayed by the clock at this instant?',
+    options: ['3:58', '4:02', '7:58', '8:02'],
+    answer: '3:58',
+    explanation:
+      'A plane mirror produces lateral inversion. Reversing the mirror image of the clock face gives the actual time 3:58.',
+    difficulty: 2,
+    points: 15,
+    hints: ['A mirror swaps left and right.', 'Convert the mirror reading back to the real clock reading.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-029-question.png'],
+  },
+{
+    id: 'rr-030',
+    type: 'multiple_choice',
+    question:
+      'Which of the following surfaces produce diffuse reflection when parallel light rays fall on them? (1) a blackboard in the classroom (2) a polished metal surface (3) a page in this question book',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (3) only',
+    explanation:
+      'Diffuse reflection is produced by rough surfaces. A blackboard and paper are rough enough to scatter reflected rays in many directions, while a polished metal surface gives regular reflection.',
+    difficulty: 1,
+    points: 15,
+    hints: ['Diffuse reflection comes from rough surfaces.', 'Polished metal is a regular reflector.'],
+    sectionId: 'reflection-refraction',
+  },
+{
+    id: 'rr-031',
+    type: 'multiple_choice',
+    question:
+      'A light ray enters normally from the air into a right-angled prism and is totally internally reflected at face AB as shown below. Based on this optical phenomenon, which of the following is/are the possible value(s) for the refractive index of the material of the prism? (1) 1.35 (2) 1.45 (3) 1.55',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      'The internal incidence angle is 45 degrees. For total internal reflection, the critical angle must be less than 45 degrees. A refractive index of 1.45 gives c = 43.6 degrees and 1.55 gives c = 40.2 degrees, so both work, but 1.35 gives c = 47.8 degrees, which does not.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Total internal reflection requires i > c.', 'Use sin c = 1/n.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-031-question.png'],
+  },
+{
+    id: 'rr-032',
+    type: 'multiple_choice',
+    question: 'A pencil is placed in front of a vertical plane mirror as shown in the figure above. Which of the following shows the correct position of the image?',
+    options: [
+      '/physics/exercises/reflection-refraction/rr-032-option-a.png',
+      '/physics/exercises/reflection-refraction/rr-032-option-b.png',
+      '/physics/exercises/reflection-refraction/rr-032-option-c.png',
+      '/physics/exercises/reflection-refraction/rr-032-option-d.png',
+    ],
+    answer: '/physics/exercises/reflection-refraction/rr-032-option-d.png',
+    explanation:
+      'The image in a plane mirror is virtual, upright, the same size as the object, and the same distance behind the mirror as the object is in front. That matches D.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use the standard properties of a plane-mirror image.', 'The image is upright and laterally inverted.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-032-question.png'],
+  },
+{
+    id: 'rr-033',
+    type: 'multiple_choice',
+    question: 'John wants to estimate the speed of a cloud in the following experiment. The cloud is moving horizontally at a height of 3000 m above the ground. He looks at the image of the cloud in a mirror of 0.6 m wide placed on the horizontal ground 1.5 m below his eye level. He finds that the image of the cloud takes 20 s to move across the mirror. What is the approximate speed of the cloud?',
+    options: ['0.03 m s^-1', '0.06 m s^-1', '60 m s^-1', '150 m s^-1'],
+    answer: '60 m s^-1',
+    explanation: 'Using similar triangles, the cloud moves about 1200 m while its image crosses the 0.6 m mirror. Speed = 1200 / 20 = 60 m s^-1.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use similar triangles between the cloud path and the mirror width.', 'The mirror crossing time is the time interval for the cloud image to sweep across the mirror.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-033-question.png'],
+  },
+{
+    id: 'rr-034',
+    type: 'multiple_choice',
+    question:
+      'A light ray is incident from water onto an air bubble as shown above. Which light ray best represents the emergent ray?',
+    options: ['W', 'X', 'Y', 'Z'],
+    answer: 'W',
+    explanation:
+      'The ray bends away from the normal when going from water to air, then bends towards the normal when leaving the air bubble back into water. The resulting emergent path is W.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Treat the bubble as air surrounded by water.', 'Apply the bend rule at both curved surfaces.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-034-question.png'],
+  },
+{
+    id: 'rr-035',
+    type: 'multiple_choice',
+    question:
+      'Figure (a) shows a light ray travelling from air into medium X. The angle of incidence is 50 degrees and the angle of refraction is r. Another light ray travelling from medium X to air is shown in Figure (b). The angle of incidence is 35 degrees and the angle of refraction is also equal to r. What is angle r?',
+    options: ['26.1 degrees', '41.5 degrees', '42.5 degrees', '48.5 degrees'],
+    answer: '41.5 degrees',
+    explanation:
+      'Using Snell\'s law for both diagrams, sin 50 degrees / sin r = n_x = sin r / sin 35 degrees. Solving gives r = 41.5 degrees.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Write one expression for n_x from each figure.', 'Set the two expressions equal and solve for r.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-035-question.png'],
+  },
+{
+    id: 'rr-036',
+    type: 'multiple_choice',
+    question:
+      'In the figure, a plane mirror MN of height h is mounted in an adjustable vertical position on a vertical wall. E is an observer\'s eye which is 1 m from the wall and 1.5 m above the ground. PQ is a vertical post of height 3 m and is 4 m behind the observer. Looking into the mirror the observer can see the whole image of the post. What is the minimum value of h?',
+    options: ['0.5 m', '0.6 m', '1.5 m', '2.0 m'],
+    answer: '0.5 m',
+    explanation:
+      'The image of the post is the same size and 5 m behind the mirror. Using similar triangles for the eye-to-mirror and eye-to-image geometry gives h / 3 = 1 / (1 + 5), so h = 0.5 m.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use the virtual image of the post behind the mirror.', 'Relate mirror height to the fraction of the image seen from the eye.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-036-question.png'],
+  },
+{
+    id: 'rr-037',
+    type: 'multiple_choice',
+    question: 'A ray of light is traveling from glass to air as shown in the figure. Which of the following ratios is the refractive index of glass?',
+    options: [
+      'sin theta / sin phi',
+      'sin phi / sin theta',
+      'sin (90 degrees - theta) / sin (90 degrees - phi)',
+      'sin (90 degrees - phi) / sin (90 degrees - theta)',
+    ],
+    answer: 'sin (90 degrees - phi) / sin (90 degrees - theta)',
+    explanation:
+      'The angles theta and phi are measured from the surface, not the normal. So the angles to the normal are 90 degrees minus theta and 90 degrees minus phi. By Snell\'s law, n = sin(90 - phi) / sin(90 - theta).',
+    difficulty: 3,
+    points: 15,
+    hints: ['Convert the given angles to angles with the normal.', 'Then apply Snell\'s law.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-037-question.png'],
+  },
+{
+    id: 'rr-038',
+    type: 'multiple_choice',
+    question:
+      'Which of following statements about total internal reflection is/are correct? (1) The angle of incidence is less than the critical angle. (2) Both reflected and refracted rays appear. (3) The ray is travelling from an optically denser medium to an optically less dense medium.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      'For total internal reflection, the incidence angle must be greater than the critical angle and no refracted ray emerges. It only happens when light travels from a denser medium to a less dense medium.',
+    difficulty: 2,
+    points: 15,
+    hints: ['TIR requires i > c.', 'No transmitted ray appears in total internal reflection.'],
+    sectionId: 'reflection-refraction',
+  },
+{
+    id: 'rr-039',
+    type: 'multiple_choice',
+    question:
+      'A light ray undergoes reflection and refraction at an air-glass boundary as shown. PQ is perpendicular to RS. OX, OY and OZ are the paths of the light rays. Which of the following deductions is/are correct? (1) OX is the path of the incident ray. (2) RS is the air-glass boundary. (3) The light ray travels from glass to air.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      'The incident ray is OZ, OY is the reflected ray, and OX is the refracted ray. Since the refracted ray bends away from the normal, the light is going from glass to air. Therefore only statement (3) is correct.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Identify the normal first using PQ perpendicular to RS.', 'A refracted ray bending away from the normal means denser to less dense.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-039-question.png'],
+  },
+{
+    id: 'rr-040',
+    type: 'multiple_choice',
+    question:
+      'X, Y and Z are three 45 degrees-90 degrees-45 degrees triangular prisms made of different transparent materials. A ray incident normally at one face is found to undergo refraction and reflection in each prism as shown in the figures above. Which of the following is the correct order of the refractive indices of the prisms?',
+    options: ['X > Y > Z', 'X > Z > Y', 'Y > Z > X', 'Z > Y > X'],
+    answer: 'X > Z > Y',
+    explanation:
+      'In X, total internal reflection occurs at 45 degrees so its critical angle is less than 45 degrees. In Z, total internal reflection just occurs, so its critical angle is 45 degrees. In Y, total internal reflection does not occur, so its critical angle is greater than 45 degrees. Since refractive index increases as critical angle decreases, the order is X > Z > Y.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Compare the critical angle for each prism from the behavior at 45 degrees.', 'Use n = 1 / sin c.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-040-question.png'],
+  },
+{
+    id: 'rr-041',
+    type: 'multiple_choice',
+    question:
+      'Two coloured lights, X and Y, travel from vacuum to glass. They undergo refraction and travel along the same path in glass. Which of the following descriptions about the two coloured lights is correct?',
+    options: [
+      'Glass has a greater refractive index for X and X travels with the same speed as Y in vacuum.',
+      'Glass has a greater refractive index for X and X travels slower than Y in vacuum.',
+      'Glass has a smaller refractive index for X and X travels with the same speed as Y in vacuum.',
+      'Glass has a smaller refractive index for X and X travels faster than Y in vacuum.',
+    ],
+    answer: 'Glass has a greater refractive index for X and X travels with the same speed as Y in vacuum.',
+    explanation:
+      'Both rays follow the same refracted path, but X has the larger incident angle. Since n = sin i / sin r, that means glass has a larger refractive index for X. In vacuum, all electromagnetic waves travel at the same speed.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Compare the incident angles while the refracted path is the same.', 'All colours of light have the same speed in vacuum.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-041-question.png'],
+  },
+{
+    id: 'rr-042',
+    type: 'multiple_choice',
+    question:
+      'A student performs an experiment to find the refractive index of a material and the result is shown below. Which of the following set of data is likely to be wrong?',
+    options: ['P', 'Q', 'R', 'S'],
+    answer: 'Q',
+    explanation:
+      'For a correct set of refraction data, sin i / sin r should stay approximately constant. Sets P, R and S give values near 1.41, but Q gives about 1.71, so Q is the inconsistent set.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Calculate sin i / sin r for each set.', 'The refractive index should be nearly constant.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-042-question.png'],
+  },
+{
+    id: 'rr-043',
+    type: 'multiple_choice',
+    question: 'A ray of light enters a transparent rectangular block and travels along the path as shown in the figure above. Find angle a.',
+    options: ['33 degrees', '57 degrees', '59 degrees', '75 degrees'],
+    answer: '33 degrees',
+    explanation:
+      'The critical angle shown is 50 degrees, so n = 1 / sin 50 degrees = 1.305. For entry from air with refracted angle 40 degrees, n = sin i / sin 40 degrees gives i = 57 degrees. Therefore the required angle is 90 - 57 = 33 degrees.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Find the refractive index from the critical angle first.', 'Then apply Snell\'s law at the entry face.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-043-question.png'],
+  },
+{
+    id: 'rr-044',
+    type: 'multiple_choice',
+    question:
+      'Telecommunication companies nowadays use optical fibres to transmit data. What are the advantages of using optical fibres over copper wires in transmitting data? (1) Less data loss in the transmission. (2) Data can be transmitted at a higher rate. (3) For the same data transmission rate, optical fibres take up less space.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      'Optical fibres use total internal reflection, so transmission loss is low. Optical signals can carry data at a higher rate, and fibres are thinner than copper wires, so they occupy less space for the same capacity.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Think about loss, bandwidth and cable size.', 'Optical fibres are both efficient and compact.'],
+    sectionId: 'reflection-refraction',
+  },
+{
+    id: 'rr-045',
+    type: 'multiple_choice',
+    question:
+      'When a light ray travels from air to glass, which of the following descriptions about the changes of the speed, the frequency and the wavelength of the ray is correct?',
+    options: [
+      'Speed remains unchanged; frequency increases; wavelength decreases',
+      'Speed remains unchanged; frequency decreases; wavelength increases',
+      'Speed decreases; frequency remains unchanged; wavelength decreases',
+      'Speed increases; frequency remains unchanged; wavelength increases',
+    ],
+    answer: 'Speed decreases; frequency remains unchanged; wavelength decreases',
+    explanation:
+      'In glass, light travels more slowly than in air. The frequency does not change at the boundary, so with v = f lambda, the wavelength must decrease when the speed decreases.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Frequency is unchanged during refraction.', 'Use v = f lambda.'],
+    sectionId: 'reflection-refraction',
+  },
+{
+    id: 'rr-046',
+    type: 'multiple_choice',
+    question:
+      'A clear image of a bird is formed by a calm water surface as shown in the above figure. Which of the following statements about the image is/are correct? (1) The image is real. (2) A clear image is formed as regular reflection occurs. (3) If the bird is closer to the water surface, the size of the image increases.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(2) only',
+    explanation:
+      'A calm water surface acts like a plane mirror, so the image is virtual, not real. The image is clear because regular reflection occurs. A plane-mirror image is the same size as the object regardless of distance.',
+    difficulty: 2,
+    points: 15,
+    hints: ['A calm water surface behaves like a plane mirror.', 'Plane-mirror images are virtual and same size.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-046-question.png'],
+  },
+{
+    id: 'rr-047',
+    type: 'multiple_choice',
+    question:
+      'A ray of light enters a transparent rectangular block from air and emerges. Which of the following ray diagrams is/are impossible? The dotted lines represent normal to the surfaces. (1) (2) (3)',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      'Diagrams (1) and (2) are possible because the given angles are consistent with refraction into and out of the block. Diagram (3) is impossible because it would require a refracted angle larger than allowed by the critical-angle condition stated in the figure.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Check the angle constraints against the critical angle.', 'A physically impossible diagram violates the refraction condition at entry.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-047-question.png'],
+  },
+{
+    id: 'rr-048',
+    type: 'multiple_choice',
+    question: 'The speed of light in a transparent material is 1.6 x 10^8 m s^-1. Find the critical angle for that material.',
+    options: ['28.1 degrees', '32.2 degrees', '41.8 degrees', '48.0 degrees'],
+    answer: '32.2 degrees',
+    explanation:
+      'The refractive index is n = c / v = (3.0 x 10^8) / (1.6 x 10^8) = 1.875. For the critical angle, sin c = 1 / n, so c = 32.2 degrees.',
+    difficulty: 2,
+    points: 15,
+    hints: ['First find the refractive index from the speed.', 'Then use sin c = 1/n.'],
+    sectionId: 'reflection-refraction',
+  },
+{
+    id: 'rr-049',
+    type: 'multiple_choice',
+    question:
+      'A beam of light travels from a medium X to air. When the incident angle theta varies from 0 degrees to 90 degrees, the light intensity of the refracted ray varies as shown in the graph. What is the ratio of the speed of light in air to that in medium X?',
+    options: ['1:2', '1:3', '2:1', '2:3'],
+    answer: '2:1',
+    explanation:
+      'The refracted intensity falls to zero at 30 degrees, so the critical angle is 30 degrees. Then n_x = 1 / sin 30 degrees = 2. Since n_x = v_air / v_x, the speed ratio is 2:1.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Read the critical angle from where the refracted intensity becomes zero.', 'Use n = v_air / v_medium.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-049-question.png'],
+  },
+{
+    id: 'rr-050',
+    type: 'multiple_choice',
+    question:
+      'When a beam of light travels from glass to air, the emergent light in air shows an increase in (1) frequency. (2) speed. (3) wavelength.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      'The frequency of light stays unchanged at refraction. Going from glass to air increases the speed, so the wavelength also increases because wavelength is proportional to speed when frequency is fixed.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Frequency is unchanged across a boundary.', 'Use v proportional to wavelength when f is constant.'],
+    sectionId: 'reflection-refraction',
+  },
+{
+    id: 'rr-051',
+    type: 'multiple_choice',
+    question:
+      'A light ray passes through three media of refractive indexes n1, n2 and n3 respectively as shown. The boundaries between the three media are parallel. Which of the following relations for n1, n2 and n3 is correct?',
+    options: ['n1 > n3 > n2', 'n3 > n1 > n2', 'n1 > n2 > n3', 'n2 > n1 > n3'],
+    answer: 'n3 > n1 > n2',
+    explanation:
+      'For parallel boundaries, Snell\'s law gives n sin theta = constant, so refractive index is inversely proportional to sin theta. From the diagram, theta_2 > theta_1 > theta_3, hence n3 > n1 > n2.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use n sin theta = constant across all three media.', 'Larger ray angle to the normal means smaller refractive index.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-051-question.png'],
+  },
+{
+    id: 'rr-052',
+    type: 'multiple_choice',
+    question:
+      'X and Y are two parallel boundaries separating media (1), (2) and (3). A light ray undergoes total internal reflection at the boundary X and then refracts at Y as shown. Arrange the speeds of light in the three media in descending order.',
+    options: ['(1) > (2) > (3)', '(1) > (3) > (2)', '(2) > (3) > (1)', '(3) > (1) > (2)'],
+    answer: '(1) > (3) > (2)',
+    explanation:
+      'The geometry shows total internal reflection from medium (2) towards (1), so medium (2) is optically denser than medium (1). Comparing the angles in the figure gives sin theta_1 > sin theta_3 > sin theta_2, and since speed is proportional to sin theta in this comparison, the descending order is (1) > (3) > (2).',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use the TIR condition to compare medium (2) with medium (1).', 'Then compare the sines of the ray angles.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-052-question.png'],
+  },
+{
+    id: 'rr-053',
+    type: 'multiple_choice',
+    question:
+      'The refractive indices of water and glass are 1.33 and 1.50 respectively. Which of the following statements is/are correct? (1) Light travels faster in water than in glass. (2) The frequency of light is reduced when it travels from water to glass. (3) Light bends away from the normal when it travels from water to glass.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      'Light speed is inversely proportional to refractive index, so it travels faster in water than in glass. Frequency does not change at refraction, and from water to glass the ray bends towards the normal, not away.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Larger refractive index means lower speed.', 'From less dense to denser means towards the normal.'],
+    sectionId: 'reflection-refraction',
+  },
+{
+    id: 'rr-054',
+    type: 'multiple_choice',
+    question:
+      'A diver at a depth of d below the water surface looks up and finds that the sky appears to be within a circle of radius r. Which correctly gives the expression for the critical angle of water?',
+    options: ['tan c = r/d', 'sin c = r/d', 'tan c = d/r', 'sin c = d/r'],
+    answer: 'tan c = r/d',
+    explanation:
+      'The boundary of the visible sky corresponds to the critical ray. The semi-angle at the diver is the critical angle, so from the right triangle, tan c = opposite / adjacent = r / d.',
+    difficulty: 3,
+    points: 15,
+    hints: ['The edge of the bright circle is set by the critical ray.', 'Use the geometry of the diver\'s cone of view.'],
+    sectionId: 'reflection-refraction',
+  },
+{
+    id: 'rr-055',
+    type: 'multiple_choice',
+    question:
+      'A point source of light is situated at the bottom of a swimming pool. It is found that a circular patch of radius 1.7 m is illuminated on the water surface. Find the depth of water in the pool. Given: refractive index of water = 1.33',
+    options: ['1.2 m', '1.3 m', '1.4 m', '1.5 m'],
+    answer: '1.5 m',
+    explanation:
+      'For water, sin c = 1 / 1.33, so the critical angle is 48.8 degrees. Using the critical-ray geometry, tan c = r / d, so tan 48.8 degrees = 1.7 / d. This gives d = 1.5 m.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Find the critical angle first.', 'Then use the right triangle formed by the illuminated circle radius and the pool depth.'],
+    sectionId: 'reflection-refraction',
+  },
+{
+    id: 'rr-056',
+    type: 'multiple_choice',
+    question: 'The diagram shows the image of a clock formed in a plane mirror. What is the time displayed by the clock?',
+    options: ['3:58', '4:02', '7:58', '8:02'],
+    answer: '3:58',
+    explanation:
+      'A plane mirror forms an upright but laterally inverted image. Reversing the mirror image of the clock face gives the actual time 3:58.',
+    difficulty: 2,
+    points: 15,
+    hints: ['A mirror reverses left and right.', 'Convert the mirror reading back to the real clock reading.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-056-question.png'],
+  },
+{
+    id: 'rr-057',
+    type: 'multiple_choice',
+    question:
+      'As shown in the figure, a ray of light travels from medium 1 to medium 2, and then enters medium 3. The boundaries are parallel to each other. Arrange the speed of light, c, in the three media in ascending order.',
+    options: ['c1 < c2 < c3', 'c1 < c3 < c2', 'c2 < c3 < c1', 'c2 < c1 < c3'],
+    answer: 'c2 < c1 < c3',
+    explanation:
+      'For parallel boundaries, the speed in each medium is proportional to sin theta for the ray angle in that medium. Since theta2 < theta1 < theta3, the speeds are in ascending order c2 < c1 < c3.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Compare the ray angles to the normal in each medium.', 'Larger angle in this setup means higher speed.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-057-question.png'],
+  },
+{
+    id: 'rr-058',
+    type: 'multiple_choice',
+    question: 'A certain monochromatic light passes through medium X as shown above. What is the refractive index of medium X?',
+    options: ['1.25', '1.33', '1.50', '1.65'],
+    answer: '1.33',
+    explanation:
+      'The wavelength is 4 units in air and 3 units in medium X. Since refractive index is the ratio of wavelength in air to wavelength in the medium for the same light, n = 4/3 = 1.33.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use the wavelength ratio for the same light in different media.', 'Frequency stays the same, so wavelength ratio gives the refractive index.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-058-question.png'],
+  },
+{
+    id: 'rr-059',
+    type: 'multiple_choice',
+    question:
+      'A ray of light is travelling from a transparent medium X to air making an angle of 40 degrees with the boundary plane as shown. If the angle between the refracted ray in air and the reflected ray in medium X is 70 degrees, find the refractive index of medium X.',
+    options: [
+      'sin 40 degrees / sin 30 degrees',
+      'sin 30 degrees / sin 40 degrees',
+      'sin 60 degrees / sin 50 degrees',
+      'sin 50 degrees / sin 60 degrees',
+    ],
+    answer: 'sin 60 degrees / sin 50 degrees',
+    explanation:
+      'The incident angle to the normal is 90 - 40 = 50 degrees. The reflected angle is also 50 degrees. Since the reflected and refracted rays make 70 degrees, the refracted angle is 180 - 70 - 50 = 60 degrees. So n = sin 60 degrees / sin 50 degrees.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Convert the given angle with the boundary into an angle with the normal.', 'Use the geometry between the reflected and refracted rays.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-059-question.png'],
+  },
+{
+    id: 'rr-060',
+    type: 'multiple_choice',
+    question:
+      'White light can be resolved into its component colours by using a glass prism. Which of the following statements is/are correct? (1) The refractive indices of glass for different component colours are not the same. (2) Red light travels faster than violet light in a vacuum. (3) The frequencies of all the component colours are reduced when entering the prism.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      'Different colours travel at different speeds in glass, so the refractive indices for different colours are different. In vacuum all colours travel at the same speed, and the frequency does not change when light enters the prism.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Dispersion needs different refractive indices for different colours.', 'Frequency is unchanged across a boundary.'],
+    sectionId: 'reflection-refraction',
+  },
+{
+    id: 'rr-061',
+    type: 'multiple_choice',
+    question:
+      'The figure shows the path of a light ray travelling from medium I to medium III separated by parallel boundaries. Arrange in ascending order the speed of light in the respective media.',
+    options: ['I < III < II', 'II < III < I', 'III < I < II', 'III < II < I'],
+    answer: 'III < I < II',
+    explanation:
+      'From the diagram, theta3 < theta1 < theta2. In this comparison, light speed is proportional to sin theta, so the ascending order is v3 < v1 < v2, i.e. III < I < II.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Compare the angles to the normal in each medium.', 'Larger angle here corresponds to larger speed.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-061-question.png'],
+  },
+{
+    id: 'rr-062',
+    type: 'multiple_choice',
+    question:
+      'A beam of white light is separated into different colours after entering a glass prism because lights of different colours',
+    options: [
+      'are diffracted to different extents by the prism.',
+      'undergo total internal reflection at different angles inside the prism.',
+      'travel at different speeds in vacuum.',
+      'travel at different speeds in glass.',
+    ],
+    answer: 'travel at different speeds in glass.',
+    explanation:
+      'Different colours travel at different speeds in glass, so the prism has different refractive indices for them. That causes different amounts of refraction and hence dispersion.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Dispersion is caused by wavelength-dependent refraction in glass.', 'All colours have the same speed in vacuum.'],
+    sectionId: 'reflection-refraction',
+  },
+{
+    id: 'rr-063',
+    type: 'multiple_choice',
+    question:
+      'A parallel-sided glass sheet separates water from air. A ray of light in water is incident at an angle theta on the glass sheet and finally emerges into air along the glass-air interface as shown. Find theta. Given: refractive index of water is 1.33.',
+    options: ['41.2 degrees', '48.8 degrees', '53.1 degrees', 'It depends on the refractive index of glass.'],
+    answer: '48.8 degrees',
+    explanation:
+      'Since the ray finally emerges along the glass-air interface, the ray in air has angle 90 degrees to the normal. For the full parallel-boundary system, the refractive-index product gives 1.33 sin theta = 1 x sin 90 degrees, so theta = 48.8 degrees.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Treat the final emergent ray as a 90-degree refracted ray in air.', 'Use air refractive index as 1.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-063-question.png'],
+  },
+{
+    id: 'rr-064',
+    type: 'multiple_choice',
+    question:
+      'In the figure above, XO is a light ray incident on the glass-air boundary plane PQ. Which of the following gives the refractive index of glass?',
+    options: [
+      'sin 56 degrees / sin 44 degrees',
+      'sin 44 degrees / sin 34 degrees',
+      'sin 56 degrees / sin 46 degrees',
+      'sin 46 degrees / sin 34 degrees',
+    ],
+    answer: 'sin 46 degrees / sin 34 degrees',
+    explanation:
+      'The given angles are with the boundary, so the angles to the normal are 90 - 44 = 46 degrees and 90 - 56 = 34 degrees. Therefore the refractive index is sin 46 degrees / sin 34 degrees.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Convert boundary-plane angles to normal angles first.', 'Then apply Snell\'s law.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-064-question.png'],
+  },
+{
+    id: 'rr-065',
+    type: 'multiple_choice',
+    question:
+      'The figure shows the image seen when a plane mirror is placed in front of a cardboard with a design on its front surface. Which diagram below shows the design on the cardboard?',
+    options: [
+      '/physics/exercises/reflection-refraction/rr-065-option-a.png',
+      '/physics/exercises/reflection-refraction/rr-065-option-b.png',
+      '/physics/exercises/reflection-refraction/rr-065-option-c.png',
+      '/physics/exercises/reflection-refraction/rr-065-option-d.png',
+    ],
+    answer: '/physics/exercises/reflection-refraction/rr-065-option-d.png',
+    explanation:
+      'A plane mirror forms an upright but laterally inverted image. Reversing the given mirror image gives the original cardboard design shown in option D.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use lateral inversion only; the image stays upright.', 'Mentally reverse left and right.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-065-question.png'],
+  },
+{
+    id: 'lens-001',
+    type: 'multiple_choice',
+    question:
+      'A convex lens is used to form an image of a bright object on a screen. The effect of covering the top half of the lens with a card is to',
+    options: ['remove the top half of the image.', 'remove the bottom half of the image.', 'make the image smaller.', 'make the image dimmer.'],
+    answer: 'make the image dimmer.',
+    explanation:
+      'Each part of a lens contributes light to the whole image. Covering half the lens reduces the amount of light passing through, so the full image is still formed but it becomes dimmer.',
+    difficulty: 1,
+    points: 15,
+    hints: ['A whole image is formed by rays passing through many parts of the lens.', 'Blocking part of the lens mainly reduces brightness.'],
+    sectionId: 'lens',
+  },
+{
+    id: 'lens-002',
+    type: 'multiple_choice',
+    question:
+      'A ray of light falls on a convex lens as shown in the figure. F is the principal focus of the lens. Which of the following represents the path of the emergent ray?',
+    options: ['P', 'Q', 'R', 'S'],
+    answer: 'S',
+    explanation:
+      'A convex lens is a converging lens, so the refracted ray must bend towards the principal axis. The correct emergent path is S.',
+    difficulty: 2,
+    points: 15,
+    hints: ['A convex lens converges parallel rays and bends other rays towards the axis.', 'Pick the path that moves closer to the principal axis after refraction.'],
+    sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-002-question.png'],
+  },
+{
+    id: 'lens-003',
+    type: 'multiple_choice',
+    question:
+      'A convex lens L is placed between a screen and a lamp. A sharp image is formed on the screen as shown in the above figure. Which of the following statements concerning the image are correct? (1) The image is larger than the object. (2) The image is real. (3) The image is inverted.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      'The image forms on a screen, so it is real and therefore inverted. Since the image distance is greater than the object distance in the diagram, the magnification is greater than 1, so the image is larger than the object.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Any image formed on a screen is real.', 'Compare image distance and object distance for magnification.'],
+    sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-003-question.png'],
+  },
+{
+    id: 'lens-004',
+    type: 'multiple_choice',
+    question:
+      'A real image of an object is formed at I by a lens placed at L. If the focus of the lens is at F, the object must have been placed near to',
+    options: ['P', 'Q', 'R', 'S'],
+    answer: 'Q',
+    explanation:
+      'For a convex lens, if the real image is formed beyond 2F, then the object must be between F and 2F. That corresponds to position Q.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use the standard convex-lens object-image position rules.', 'Image beyond 2F means object between F and 2F.'],
+    sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-004-question.png'],
+  },
+{
+    id: 'lens-005',
+    type: 'multiple_choice',
+    question:
+      'A ray of light is incident at a concave lens. F is the focus of the lens. Which of the following diagrams correctly shows the path of the emergent ray?',
+    options: [
+      '/physics/exercises/lens/lens-005-option-a.png',
+      '/physics/exercises/lens/lens-005-option-b.png',
+      '/physics/exercises/lens/lens-005-option-c.png',
+      '/physics/exercises/lens/lens-005-option-d.png',
+    ],
+    answer: '/physics/exercises/lens/lens-005-option-c.png',
+    explanation:
+      'A concave lens is a diverging lens, so the refracted ray bends away from the principal axis. That matches option C.',
+    difficulty: 2,
+    points: 15,
+    hints: ['A concave lens diverges light.', 'The emergent ray should spread away from the axis.'],
+    sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-005-question.png'],
+  },
+{
+    id: 'lens-006',
+    type: 'multiple_choice',
+    question:
+      'A lens gives a sharp image of the lamp at P as shown in the figure above. Which of the following methods could give a sharp image of the filament on the screen? (1) Move the screen towards the lens. (2) Move the lamp closer to the lens. (3) Replacing the lens by another lens of longer focal length.',
+    options: ['(1) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      'Moving the screen to the current image position gives a sharp image. Moving the object closer shifts the real image farther from the lens, and using a lens with longer focal length can also shift the image to the screen position. So all three methods can work.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use the lens formula qualitatively.', 'Any change that brings the image onto the screen is acceptable.'],
+    sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-006-question.png'],
+  },
+{
+    id: 'lens-007',
+    type: 'multiple_choice',
+    question:
+      'Which of the following statements concerning the properties of virtual images formed by a lens is/are correct? (1) Virtual images can be seen by the naked eye. (2) Virtual images can be formed on a screen. (3) Virtual images can be photographed with a camera.',
+    options: ['(1) only', '(3) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(1) & (3) only',
+    explanation:
+      'A virtual image can be seen directly because the eye traces rays back to the apparent source. It cannot be formed on a screen, but it can still be photographed because the camera lens forms a real image on the sensor from the incoming rays.',
+    difficulty: 2,
+    points: 15,
+    hints: ['A screen needs real convergence of light.', 'A camera can re-image what the eye sees.'],
+    sectionId: 'lens',
+  },
+{
+    id: 'lens-008',
+    type: 'multiple_choice',
+    question:
+      'An object is placed 20 cm in front of a converging lens of focal length 30 cm. Which of the following statements about its image is/are correct? (1) The image is real. (2) The image is magnified. (3) The image is erect.',
+    options: ['(2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(2) & (3) only',
+    explanation:
+      'The object is inside the focal length of the converging lens. In this case the image is virtual, magnified and erect. So only statements (2) and (3) are correct.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Compare object distance with focal length.', 'A convex lens with object inside F gives a virtual upright image.'],
+    sectionId: 'lens',
+  },
+{
+    id: 'lens-009',
+    type: 'multiple_choice',
+    question: 'Which of the following will produce a diminished image of an object O? (f is the focal length)',
+    options: [
+      '/physics/exercises/lens/lens-009-option-a.png',
+      '/physics/exercises/lens/lens-009-option-b.png',
+      '/physics/exercises/lens/lens-009-option-c.png',
+      '/physics/exercises/lens/lens-009-option-d.png',
+    ],
+    answer: '/physics/exercises/lens/lens-009-option-d.png',
+    explanation:
+      'For a convex lens, an object placed beyond 2F forms a real, inverted and diminished image between F and 2F. That corresponds to option D.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use the standard object-image rules for a convex lens.', 'A diminished real image occurs when the object is beyond 2F.'],
+    sectionId: 'lens',
+  },
+{
+    id: 'lens-010',
+    type: 'multiple_choice',
+    question:
+      'As shown in the diagram, a narrow parallel beam of light is converted to a wider parallel beam by placing two lenses X and Y in the positions shown. Which of the combinations below when correctly chosen and installed could produce the effect required?',
+    options: ['(2) only', '(3) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      'Lens X must first diverge the narrow parallel beam, so X should be concave. Lens Y must then reconverge the diverging beam into a wider parallel beam, so Y should be convex. Therefore only combination (3) works.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Think of a beam expander: first diverge, then recollimate.', 'Concave lens diverges, convex lens converges.'],
+    sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-010-question.png'],
+  },
+{
+    id: 'lens-011',
+    type: 'multiple_choice',
+    question:
+      'In the above figure, the image I of an object placed at O is produced by a single lens. If the magnification is 2, what kind of lens has been used and where must it have been placed?',
+    options: ['a concave lens placed at A', 'a concave lens placed at B', 'a convex lens placed at C', 'a convex lens placed at D'],
+    answer: 'a convex lens placed at C',
+    explanation:
+      'Joining the tip of the object and the tip of the image gives the principal ray that passes through the optical centre, locating the lens at C. Since the image is magnified, the lens must be convex.',
+    difficulty: 3,
+    points: 15,
+    hints: ['A ray through the optical centre goes straight.', 'A magnified image here requires a convex lens.'],
+    sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-011-question.png'],
+  },
+{
+    id: 'lens-012',
+    type: 'multiple_choice',
+    question:
+      'In the diagram shown, the image I is produced by a lens. The object is placed at O. What is the nature and position of this lens?',
+    options: ['concave and placed at A', 'convex and placed at B', 'concave and placed at C', 'convex and placed at D'],
+    answer: 'convex and placed at D',
+    explanation:
+      'The straight line joining the tops of object and image passes through the optical centre, locating the lens at D. The image is inverted, so the lens must be convex because a concave lens gives only upright virtual images.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use the undeviated central ray to locate the lens.', 'An inverted image from a single lens implies a convex lens.'],
+    sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-012-question.png'],
+  },
+{
+    id: 'lens-013',
+    type: 'multiple_choice',
+    question:
+      'Which of the following ray diagrams correctly show(s) the paths of light rays through the lens? (1) (2) (3)',
+    options: ['(3) only', '(1) & (2) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(2) & (3) only',
+    explanation:
+      'A parallel ray should pass through the principal focus after a convex lens, not through 2F, so diagram (1) is wrong. Diagram (2) is correct because an object between F and 2F gives an image beyond 2F. Diagram (3) is also correct because a converging lens bends rays towards the principal axis.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Check the standard principal-ray rules for a convex lens.', 'A parallel ray does not go through 2F.'],
+    sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-013-question.png'],
+  },
+{
+    id: 'lens-014',
+    type: 'multiple_choice',
+    question:
+      'If points F and F\' represent the focal points of a concave lens, which of the following ray diagrams correctly shows the path of a light ray through the lens?',
+    options: [
+      '/physics/exercises/lens/lens-014-option-a.png',
+      '/physics/exercises/lens/lens-014-option-b.png',
+      '/physics/exercises/lens/lens-014-option-c.png',
+      '/physics/exercises/lens/lens-014-option-d.png',
+    ],
+    answer: '/physics/exercises/lens/lens-014-option-b.png',
+    explanation:
+      'For a concave lens, a ray directed towards the focal point on the far side emerges parallel to the principal axis. That is the path shown in option B.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use the standard ray rule for a diverging lens.', 'A ray aimed at the far focus emerges parallel.'],
+    sectionId: 'lens',
+  },
+{
+    id: 'lens-015',
+    type: 'multiple_choice',
+    question:
+      'A concave lens is placed above the letter "d" which has the size shown in the above figure. The image of the letter "d" appears as',
+    options: [
+      '/physics/exercises/lens/lens-015-option-a.png',
+      '/physics/exercises/lens/lens-015-option-b.png',
+      '/physics/exercises/lens/lens-015-option-c.png',
+      '/physics/exercises/lens/lens-015-option-d.png',
+    ],
+    answer: '/physics/exercises/lens/lens-015-option-a.png',
+    explanation:
+      'A concave lens always forms a virtual, upright and diminished image. Therefore the correct image is the smaller upright version shown in option A.',
+    difficulty: 2,
+    points: 15,
+    hints: ['A concave lens never inverts the image.', 'It always produces a diminished virtual image.'],
+    sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-015-question.png'],
+  },
+{
+    id: 'lens-016',
+    type: 'multiple_choice',
+    question:
+      'An object is placed in front of a convex lens L in the region D\'C\', as shown in the diagram. If F is the focus of the lens, where should the image lie?',
+    options: [
+      'between C\' and F\'',
+      'between F\' and L',
+      'between L and F',
+      'between F and C',
+    ],
+    answer: 'between F and C',
+    explanation:
+      'For a convex lens, an object placed beyond 2F forms a real image between F and 2F on the opposite side of the lens. That corresponds to the region between F and C.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use the standard image-location rule for an object beyond 2F.', 'The image lies on the opposite side between F and 2F.'],
+    sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-016-question.png'],
+  },
+{
+    id: 'lens-017',
+    type: 'multiple_choice',
+    question:
+      'Which of the following ray diagrams is/are correct? (1) (2) (3)',
+    options: ['(1) only', '(1) & (2) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) only',
+    explanation:
+      'Diagram (1) is correct because parallel rays through a convex lens meet at the focal plane. Diagram (2) is wrong because a convex lens should not make the rays diverge in that way. Diagram (3) is wrong because a ray that does not pass through the focus should not emerge parallel to the axis.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use the three standard principal-ray rules.', 'A convex lens is converging, not diverging.'],
+    sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-017-question.png'],
+  },
+{
+    id: 'lens-018',
+    type: 'multiple_choice',
+    question:
+      'The figure shows an object OP placed in front of a convex lens. Which of the following should be its most probable image?',
+    options: ['IQ', 'IR', 'IS', 'IT'],
+    answer: 'IS',
+    explanation:
+      'A real image formed by a convex lens must be inverted, so only IS or IT is possible. Since the top of the object is closer to the lens, the corresponding image point is farther from the lens, which matches IS.',
+    difficulty: 3,
+    points: 15,
+    hints: ['A real image from a convex lens is inverted.', 'Compare how moving a point closer to the lens affects its image position.'],
+    sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-018-question.png'],
+  },
+{
+    id: 'lens-019',
+    type: 'multiple_choice',
+    question:
+      'The figure shows an object O placed in front of a concave lens to give an image I. What is the most probable position of the focus?',
+    options: ['P', 'Q', 'R', 'S'],
+    answer: 'P',
+    explanation:
+      'For a concave lens, a ray parallel to the principal axis emerges diverging as if from the focus. Extending the refracted ray backward meets the principal axis at P, so P is the focus.',
+    difficulty: 2,
+    points: 15,
+    hints: ['A concave lens makes rays diverge as if they come from the focus.', 'Trace the refracted ray backward.'],
+    sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-019-question.png'],
+  },
+{
+    id: 'lens-020',
+    type: 'multiple_choice',
+    question:
+      'The above figure shows a beam of light passing through devices X and Y. What could X and Y be?',
+    options: [
+      'X: concave lens; Y: concave lens',
+      'X: concave lens; Y: convex lens',
+      'X: convex lens; Y: concave lens',
+      'X: convex lens; Y: convex lens',
+    ],
+    answer: 'X: concave lens; Y: convex lens',
+    explanation:
+      'The beam diverges after passing through X, so X must be a concave lens. It then converges after passing through Y, so Y must be a convex lens.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Look at whether the beam spreads out or comes together.', 'Concave diverges, convex converges.'],
+    sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-020-question.png'],
+  },
+{
+    id: 'lens-021',
+    type: 'multiple_choice',
+    question:
+      'Two light rays P and Q pass through an optical system S as shown in the figure above. S probably is',
+    options: [
+      '/physics/exercises/lens/lens-021-option-a.png',
+      '/physics/exercises/lens/lens-021-option-b.png',
+      '/physics/exercises/lens/lens-021-option-c.png',
+      '/physics/exercises/lens/lens-021-option-d.png',
+    ],
+    answer: '/physics/exercises/lens/lens-021-option-c.png',
+    explanation:
+      'Treating the parallel rays on the right as incident rays, they diverge after passing through S. That means S is a diverging optical element, i.e. a concave lens, which is shown in option C.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Reverse the ray direction mentally if needed.', 'A diverging output implies a concave lens.'],
+    sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-021-question.png'],
+  },
+{
+    id: 'lens-022',
+    type: 'multiple_choice',
+    question:
+      'Which of the 4 light rays P, Q, R and S drawn above is NOT possible?',
+    options: ['P', 'Q', 'R', 'S'],
+    answer: 'S',
+    explanation:
+      'All rays from the same object point must appear to come from the same image point after passing through the lens. Extending P, Q and R backward meets at one point, but S does not, so S is not possible.',
+    difficulty: 3,
+    points: 15,
+    hints: ['All image rays from one object point must be consistent with a single image point.', 'Check where the rays intersect when extended.'],
+    sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-022-question.png'],
+  },
+{
+    id: 'lens-023',
+    type: 'multiple_choice',
+    question:
+      'A slide illuminated by a light source is placed in front of a convex lens of focal length f as shown in the figure above. The image seen on the translucent screen is probably',
+    options: [
+      '/physics/exercises/lens/lens-023-option-a.png',
+      '/physics/exercises/lens/lens-023-option-b.png',
+      '/physics/exercises/lens/lens-023-option-c.png',
+      '/physics/exercises/lens/lens-023-option-d.png',
+    ],
+    answer: '/physics/exercises/lens/lens-023-option-c.png',
+    explanation:
+      'With the object between F and 2F of a convex lens, the image formed on a screen is real, inverted and magnified. That corresponds to option C.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Object between F and 2F gives an image beyond 2F.', 'A screen image must be real and therefore inverted.'],
+    sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-023-question.png'],
+  },
+{
+    id: 'lens-024',
+    type: 'multiple_choice',
+    question:
+      'An object AB is placed at a distance of one focal length f in front of a concave lens as shown in the figure above. What is the position and the nature of the image?',
+    options: [
+      'at P; virtual and erect',
+      'at Q; virtual and erect',
+      'at R; real and inverted',
+      'at infinity; virtual and erect',
+    ],
+    answer: 'at Q; virtual and erect',
+    explanation:
+      'A concave lens always forms a virtual, erect and diminished image on the same side as the object. Since the image must be closer to the lens than the object, the correct position is Q.',
+    difficulty: 2,
+    points: 15,
+    hints: ['A concave lens never forms a real image of a real object.', 'The image is always diminished and on the object side.'],
+    sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-024-question.png'],
+  },
+{
+    id: 'lens-025',
+    type: 'multiple_choice',
+    question:
+      'If C and C\' are both at a distance of 2 times the focal length from a convex lens, which of the following ray diagrams is correct?',
+    options: [
+      '/physics/exercises/lens/lens-025-option-a.png',
+      '/physics/exercises/lens/lens-025-option-b.png',
+      '/physics/exercises/lens/lens-025-option-c.png',
+      '/physics/exercises/lens/lens-025-option-d.png',
+    ],
+    answer: '/physics/exercises/lens/lens-025-option-a.png',
+    explanation:
+      'For a convex lens, an object at 2F forms a real image at 2F on the other side. The only diagram consistent with a ray from C converging to C\' is option A.',
+    difficulty: 3,
+    points: 15,
+    hints: ['An object at 2F gives an image at 2F.', 'The correct ray diagram must preserve that symmetry.'],
+    sectionId: 'lens',
+  },
+{
+    id: 'lens-026',
+    type: 'multiple_choice',
+    question:
+      'A convex lens is used as a magnifying glass to read small printing in a book. Which of the following statements is/are true? (1) The image distance is greater than the object distance. (2) The image of the printing is real. (3) The image of the printing is erect.',
+    options: ['(1) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (3) only',
+    explanation:
+      'A magnifying glass uses a convex lens with the object inside the focal length, producing a virtual, enlarged and erect image. The virtual image is on the far side of the lens in the viewing sense, so the image distance is greater than the object distance, and the image is erect but not real.',
+    difficulty: 2,
+    points: 15,
+    hints: ['A magnifying glass forms a virtual upright image.', 'Virtual means not formed on a screen.'],
+    sectionId: 'lens',
+  },
+{
+    id: 'lens-027',
+    question: "If F and F' are foci and C and C' are both at a distance of two times the focal length from the lens, which of the following ray diagrams is/are correct?",
+    options: ['(1) only', '(1) & (2) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) only',
+    explanation: 'For a concave lens, parallel incident rays diverge as if they come from the focus. Diagram (1) fits this. Diagram (2) incorrectly shows convergence after a concave lens, and diagram (3) incorrectly makes parallel rays diverge from C instead of the focus.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['Recall that a concave lens is a diverging lens.', 'Parallel rays through a concave lens appear to come from the focus.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-027-question.png']
+  },
+{
+    id: 'lens-028',
+    question: 'In the figure, F is the focus of the converging lens. Which of the refracted rays is incorrectly drawn?',
+    options: ['P', 'Q', 'S', 'T'],
+    answer: 'S',
+    explanation: 'Ray S comes from the lower part of the object, so after refraction it should go toward the lower part of the image. The path labeled S is therefore incorrect.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['Trace where rays from the top and bottom of the object should go.', 'A convex lens forms a real inverted image when appropriate.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-028-question.png']
+  },
+{
+    id: 'lens-029',
+    question: 'In the diagram, the image I of an object O is produced by a lens. What is the nature and position of this lens?',
+    options: ['concave lens placed at A', 'concave lens placed at B', 'convex lens placed at C', 'convex lens placed at D'],
+    answer: 'convex lens placed at D',
+    explanation: 'A magnified image indicates a convex lens. Joining the top of the object to the top of the image, the line meets the principal axis at D, which gives the lens position.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['Use the straight line through the optical centre.', 'A magnified image is not formed by a concave lens.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-029-question.png']
+  },
+{
+    id: 'lens-030',
+    question: 'A lens is used to look at some print on a paper. The image of the word "PHYSICS" is shown above. Which of the following statements is/are true? (1) The lens is a converging lens. (2) The image lies between the paper and the lens. (3) The image is real.',
+    options: ['(2) only', '(1) & (2) only', '(1) & (3) only', '(1), (2) & (3)'],
+    answer: '(2) only',
+    explanation: 'The image is erect and diminished, which indicates a concave lens. A concave lens forms a virtual image that lies between the object and the lens. So only statement (2) is true.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['An erect image formed by a lens is virtual.', 'A concave lens always forms a diminished virtual image.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-030-question.png']
+  },
+{
+    id: 'lens-031',
+    question: 'Which of the following statements concerning real images formed by a lens is/are correct? (1) Real images are always diminished. (2) Real images can be photographed with a camera. (3) Without a screen, real images cannot be seen by the eye.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(2) only',
+    explanation: 'Real images may be magnified or diminished, so (1) is false. Real images can be photographed by a camera, so (2) is true. A real image can still be seen directly by the eye if the eye intercepts the rays, so (3) is false.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['A camera records a real image on its sensor or film.', 'Do not confuse seeing an image with projecting it on a screen.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'lens-032',
+    question: 'A convex lens is used as a magnifying glass to read some small print in a book. The glass is placed 3 cm from the book and the magnification is 3. What is the distance between the book and the image of the print?',
+    options: ['3 cm', '6 cm', '9 cm', '12 cm'],
+    answer: '6 cm',
+    explanation: 'Magnification m = v/u = 3. With object distance u = 3 cm, the image distance v = 9 cm. The image is on the same side as the object for a magnifying glass, so the separation between object and image is v - u = 6 cm.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['Use m = v/u.', 'For a magnifying glass the image is virtual and on the same side as the object.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'lens-033',
+    question: "In the diagram, F and F' are the foci of the convex lens and AB is an incident ray. Which of the following paths best represents the emergent ray?",
+    options: ['P', 'Q', 'R', 'S'],
+    answer: 'Q',
+    explanation: 'A convex lens bends rays toward the principal axis. The incident ray shown neither passes through the focus nor is parallel to the axis, so the only valid refracted path is Q.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['Check whether the ray is parallel to the axis or passes through a focus before applying special rules.', 'A convex lens is converging.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-033-question.png']
+  },
+{
+    id: 'lens-034',
+    question: 'When an object O is placed in front of a convex lens and a plane mirror as shown, an image I is formed at the same position as the object. Which of the following statements is/are correct? (1) The image I is real. (2) The focal length of the lens is 10 cm. (3) If the distance between the lens and the plane mirror is changed to 2 cm, the position of image I would remain unchanged.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation: 'Because the rays actually pass through the returned image, the image is real. The lens sends parallel rays to the mirror, so the object is at the focal point and the focal length is 10 cm. Changing the lens-mirror separation does not matter because the rays between lens and mirror remain parallel, so the image position stays unchanged.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['A point object at the focus of a convex lens gives a parallel beam.', 'A plane mirror reflects a parallel beam back along itself.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-034-question.png']
+  },
+{
+    id: 'lens-035',
+    question: "In the diagram, A'B' is the image of an object AB formed by an optical device PQ. What is PQ?",
+    options: ['a plane mirror', 'a glass block', 'a concave lens', 'a convex lens'],
+    answer: 'a concave lens',
+    explanation: 'The image is virtual, erect and diminished. That is the standard image formed by a concave lens.',
+    difficulty: 1,
+    sectionId: 'lens',
+    hints: ['A concave lens always forms a virtual erect diminished image.', 'A convex lens does not always do so.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-035-question.png']
+  },
+{
+    id: 'lens-036',
+    question: "If F and F' are the foci of the concave lens, which of the following ray diagrams is incorrect?",
+    options: [
+      '/physics/exercises/lens/lens-036-option-a.png',
+      '/physics/exercises/lens/lens-036-option-b.png',
+      '/physics/exercises/lens/lens-036-option-c.png',
+      '/physics/exercises/lens/lens-036-option-d.png'
+    ],
+    answer: '/physics/exercises/lens/lens-036-option-a.png',
+    explanation: 'For a concave lens, a ray parallel to the principal axis must diverge as if it comes from the focus. Option A violates this rule. The others follow standard concave-lens ray tracing rules.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['A concave lens is diverging.', 'Check whether the backward extension goes through the focal point.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'lens-037',
+    question: "An illuminated letter 'R' is placed in front of a lens as shown and an image is formed on a translucent screen. The object distance is 30 cm and the image distance is 20 cm. Which of the following statements is/are correct? (1) The lens is a converging lens. (2) The image is diminished. (3) The shape of the image seen by the observer is 'G'.",
+    options: ['(1) only', '(1) & (2) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (2) only',
+    explanation: 'A real image on a screen must be formed by a converging lens. Since the image distance is less than the object distance, the magnification is less than 1, so the image is diminished. A real image is inverted, so the image is not the upright shape described in statement (3).',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['Only a converging lens forms a real image on a screen in this setup.', 'Use m = v/u.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-037-question.png']
+  },
+{
+    id: 'lens-038',
+    question: "An illuminated letter 'R' is placed in front of a lens as shown and an image is formed on a translucent screen. The object distance is 30 cm and the image distance is 20 cm. If a piece of paper is used to cover one-half of the lens, which of the following describes the change in the image as seen by the observer?",
+    options: ['The whole image can still be seen but the image becomes dimmer.', 'The whole image can still be seen and its brightness remains unchanged.', 'Only half of the image can be seen and the image becomes dimmer.', 'Only half of the image can be seen but its brightness remains unchanged.'],
+    answer: 'The whole image can still be seen but the image becomes dimmer.',
+    explanation: 'Each part of the lens forms the whole image. Covering half the lens reduces the amount of light reaching the screen, so the image remains complete but becomes dimmer.',
+    difficulty: 1,
+    sectionId: 'lens',
+    hints: ['A lens does not map one half of itself to one half of the image.', 'Blocking light reduces brightness, not image completeness.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-038-question.png']
+  },
+{
+    id: 'lens-039',
+    question: "In the figure, F and F' are the foci of the lens and AB is an incident ray. Which of the following paths best represents the emergent ray?",
+    options: ['P', 'Q', 'R', 'S'],
+    answer: 'S',
+    explanation: 'This is a concave lens, so the emergent ray must bend away from the principal axis. Among the four paths, only S bends away from the principal axis.',
+    difficulty: 1,
+    sectionId: 'lens',
+    hints: ['A concave lens is diverging.', 'Check which ray moves farther away from the axis after refraction.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-039-question.png']
+  },
+{
+    id: 'lens-040',
+    question: 'Which of the following ray diagrams concerning the refraction of light ray by a converging lens is/are incorrect? F denotes the focus of the lens. (1) (2) (3)',
+    options: ['(2) only', '(3) only', '(1) & (2) only', '(1) & (3) only'],
+    answer: '(2) only',
+    explanation: 'For a converging lens, parallel rays should converge after refraction. Diagrams (1) and (3) follow converging-lens behavior, but diagram (2) incorrectly shows divergence after the lens.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['A converging lens bends light toward the principal axis.', 'Parallel rays should meet on the focal plane.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-040-question.png']
+  },
+{
+    id: 'lens-041',
+    question: 'The photograph shows a student using a convex lens of focal length 20 cm to view a distant object. Which of the following statements about the image formed is/are correct? (1) The image will be erect. (2) The image will be diminished. (3) The student must use a screen in order to see the image.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(2) only',
+    explanation: 'For a distant object, a convex lens forms a real inverted image at the focus. Since the image distance is much smaller than the object distance, the image is diminished. The eye can still see a real image directly without requiring a screen.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['A distant object forms its image near the focus of a convex lens.', 'Real images are not necessarily visible only on a screen.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-041-question.png']
+  },
+{
+    id: 'lens-042',
+    question: 'The photograph shows a watch with a lens positioned over the date-display. Which of the following statements are correct? (1) The lens is a convex lens. (2) The image of the date-display formed by the lens is virtual. (3) The date-display and its image lie on the same side of the lens.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation: 'A magnified image is produced here, so the lens is convex. Because the image is upright, it is virtual. A virtual image formed by a magnifier lies on the same side of the lens as the object.',
+    difficulty: 1,
+    sectionId: 'lens',
+    hints: ['A magnifying glass is a convex lens.', 'An erect magnified lens image is virtual.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-042-question.png']
+  },
+{
+    id: 'lens-043',
+    question: "An object O is placed in front of a concave lens. F and F' are the foci of the lens. Which of the following diagrams shows the refracted rays of the three incident rays and the image I formed?",
+    options: [
+      '/physics/exercises/lens/lens-043-option-a.png',
+      '/physics/exercises/lens/lens-043-option-b.png',
+      '/physics/exercises/lens/lens-043-option-c.png',
+      '/physics/exercises/lens/lens-043-option-d.png'
+    ],
+    answer: '/physics/exercises/lens/lens-043-option-b.png',
+    explanation: 'For a concave lens, a ray parallel to the principal axis appears to diverge from the focus, a ray through the optical centre continues straight, and the virtual image is upright and diminished on the object side. Only option B satisfies all three.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['Use the three standard rays for a concave lens.', 'The image must be virtual, upright and diminished.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-043-question.png']
+  },
+{
+    id: 'lens-044',
+    question: 'An object is placed in front of a concave lens. Which of the following statements about the properties of the image formed in the lens must be correct? (1) The image is diminished. (2) The image is virtual. (3) The image distance is smaller than the focal length of the lens.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation: 'A concave lens always produces a virtual, erect and diminished image. The image lies between the lens and the focus, so its image distance is smaller than the focal length in magnitude.',
+    difficulty: 1,
+    sectionId: 'lens',
+    hints: ['A concave lens has fixed image behavior for real objects.', 'The image always forms between the lens and the focus.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'lens-045',
+    question: 'Cecilia uses a magnifying glass to read some small print. Which of the following diagrams shows how the image of the print is formed?',
+    options: [
+      '/physics/exercises/lens/lens-045-option-a.png',
+      '/physics/exercises/lens/lens-045-option-b.png',
+      '/physics/exercises/lens/lens-045-option-c.png',
+      '/physics/exercises/lens/lens-045-option-d.png'
+    ],
+    answer: '/physics/exercises/lens/lens-045-option-a.png',
+    explanation: 'A magnifying glass is a convex lens used with the object inside the focal length. It forms a virtual, erect and magnified image. Only option A shows that correctly.',
+    difficulty: 1,
+    sectionId: 'lens',
+    hints: ['A magnifying glass uses a convex lens.', 'The image must be virtual, upright and enlarged.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-045-question.png']
+  },
+{
+    id: 'lens-046',
+    question: 'An object is placed near a lens and an image is formed as shown. Which of the following statements are correct? (1) The height of the image is half that of the object. (2) The lens is a concave lens. (3) The focal length of the lens is 20 cm.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation: 'The image is diminished and virtual, so the lens must be concave. The image height being half the object height gives magnification 0.5. Drawing a ray parallel to the principal axis and extending the refracted ray backward gives a focal length of 20 cm.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['A concave lens gives a virtual diminished image for a real object.', 'Use the ray parallel to the principal axis to locate the focus.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-046-question.png']
+  },
+{
+    id: 'lens-047',
+    question: 'An illuminated object is placed 20 cm in front of a convex lens and a sharp image is formed on a screen 16 cm from the lens. The focal length of the convex lens is',
+    options: ['less than 8 cm', 'between 8 cm and 10 cm', 'between 10 cm and 16 cm', 'between 16 cm and 20 cm'],
+    answer: 'between 8 cm and 10 cm',
+    explanation: 'Using the lens formula 1/f = 1/u + 1/v with u = 20 cm and v = 16 cm gives f = uv/(u+v) = 320/36 �� 8.9 cm. So the focal length lies between 8 cm and 10 cm.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['Use 1/f = 1/u + 1/v for a real image by a convex lens.', 'Then compare the result with the intervals.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-047-question.png']
+  },
+{
+    id: 'lens-048',
+    question: 'Which of the following examples illustrate(s) a real image? (1) a fish in a pond being observed from above the water (2) a fingerprint left at a crime scene being observed through a magnifying glass (3) a motion picture on the screen being watched in a cinema',
+    options: ['(1) only', '(2) only', '(3) only', '(1), (2) & (3)'],
+    answer: '(3) only',
+    explanation: 'A fish seen in water appears at a virtual apparent depth. A magnifying glass forms a virtual enlarged image. A motion picture formed on a cinema screen is a real image because light actually falls on the screen.',
+    difficulty: 1,
+    sectionId: 'lens',
+    hints: ['A real image can be projected onto a screen.', 'A magnifying glass produces a virtual image.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'lens-049',
+    question: "F and F' are the foci of the above lens and AB is an incident ray. Which light ray best represents the emergent ray?",
+    options: ['P', 'Q', 'R', 'S'],
+    answer: 'S',
+    explanation: 'The lens shown is a convex lens, so the refracted ray must bend towards the principal axis. Among the four choices, only ray S has the correct converging direction.',
+    difficulty: 1,
+    sectionId: 'lens',
+    hints: ['A convex lens is a converging lens.', 'The ray should move closer to the principal axis after refraction.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-049-question.png']
+  },
+{
+    id: 'lens-050',
+    question: 'The figure shows a web cam. A web cam typically includes a lens and an image sensor. The function of the image sensor is similar to that of a film in a conventional camera. The image is formed on the sensor and is then digitised. Which of the following statements is/are correct? (1) The lens is a convex lens. (2) The lens is a concave lens. (3) Image formed on the image sensor is real.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(1) & (3) only',
+    explanation: 'A camera or web cam must form a real image on the sensor, and a real image for a real object is formed by a convex lens, not a concave lens. Therefore statements (1) and (3) are correct.',
+    difficulty: 1,
+    sectionId: 'lens',
+    hints: ['The image sensor plays the role of film.', 'A concave lens does not form a real image of a real object by itself.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-050-question.png']
+  },
+{
+    id: 'lens-051',
+    question: 'A light bulb O is placed in front of a lens L as shown. A sharp and diminished image is formed on the screen S. With the position of L fixed, which of the following methods can form a sharp and magnified image on the screen?',
+    options: ['Move O and S towards L.', 'Move O and S away from L.', 'Move O towards L and move S away from L.', 'Move O away from L and move S towards L.'],
+    answer: 'Move O towards L and move S away from L.',
+    explanation: 'To obtain a magnified real image, the image distance must be greater than the object distance. So the object must move closer to the lens while the screen moves farther from the lens.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['For a larger real image, v > u.', 'That means decrease object distance and increase image distance.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-051-question.png']
+  },
+{
+    id: 'lens-052',
+    question: 'Which of the following ray diagrams concerning the refraction of two light rays by a converging lens is/are possible? (1) (2) (3)',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation: 'For a converging lens, refracted rays should bend toward the principal axis appropriately. In the given set, only diagram (3) shows both rays behaving correctly under refraction by a converging lens.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['A converging lens bends rays toward the principal axis.', 'Check both rays in each diagram, not just one.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-052-question.png']
+  },
+{
+    id: 'lens-053',
+    question: 'A student puts a lens at a certain distance above a paper with the word "TEST" written on it as shown. What is the lens? If the student moves the lens further away from the paper, what will be the change in the size of the image?',
+    options: ['convex; increases', 'convex; decreases', 'concave; increases', 'concave; decreases'],
+    answer: 'concave; decreases',
+    explanation: 'The image is erect and diminished, so the lens must be concave. As the lens moves farther from the object, the virtual image moves closer to the focal region and becomes smaller.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['A concave lens gives an erect diminished virtual image.', 'Increasing object distance reduces magnification for a concave lens.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-053-question.png']
+  },
+{
+    id: 'lens-054',
+    question: 'In the figure, X is a light bulb and L is a convex lens. Which of the following ways can be used to produce a parallel beam of light rays? (1) Moving L closer to X. (2) Replacing L with another convex lens of longer focal length. (3) Replacing L with another concave lens of shorter focal length.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (2) only',
+    explanation: 'A convex lens produces a parallel beam when the source is at its focus. Moving the lens closer can place the bulb at the focus, and using a longer focal length convex lens can also do that. A concave lens cannot produce a parallel beam from a nearby real source in this setup.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['A point source at the focal point of a convex lens gives parallel rays.', 'A concave lens is diverging.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-054-question.png']
+  },
+{
+    id: 'lens-055',
+    question: 'Two parallel rays X and Y meet at P after passing through lens L as shown. Another ray Z parallel to the principal axis is directed to lens L. Which point in the figure will ray Z pass through?',
+    options: ['P', 'Q', 'R', 'S'],
+    answer: 'R',
+    explanation: 'If two parallel rays meet at P after refraction, then P lies on the focal plane. The principal focus is the point on that focal plane located on the principal axis, which is R. So a ray parallel to the principal axis must pass through R.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['The principal focus lies on the principal axis.', 'Parallel to the principal axis means the refracted ray goes through the principal focus.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-055-question.png']
+  },
+{
+    id: 'lens-056',
+    question: 'An object is placed in front of a concave lens. Which of the following descriptions about the image formed by the lens is incorrect?',
+    options: ['It is always virtual.', 'It is always diminished.', 'It is always between the object and the lens.', 'It will be formed at infinity if the object is placed at the focus of the lens.'],
+    answer: 'It will be formed at infinity if the object is placed at the focus of the lens.',
+    explanation: 'A concave lens always forms a virtual, upright, diminished image between the lens and its focus. Even if the object is at the focal position, the image is still finite and remains between the lens and the focus, not at infinity.',
+    difficulty: 1,
+    sectionId: 'lens',
+    hints: ['A concave lens does not produce a real image of a real object.', 'Its image always stays between the lens and the focus.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'lens-057',
+    question: 'The figure shows an object O and its image I formed by a lens. Which of the following about the lens used and its position is correct?',
+    options: ['concave lens at X', 'concave lens at Y', 'convex lens at X', 'convex lens at Y'],
+    answer: 'convex lens at Y',
+    explanation: 'Because the image is magnified, the lens must be convex. Since the image is virtual, it must be on the same side as the object, so the lens must be at position Y.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['Only a convex lens can produce a magnified image of this type.', 'A virtual image lies on the same side as the object.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-057-question.png']
+  },
+{
+    id: 'lens-058',
+    question: 'An object is placed in front of a converging lens of focal length 30 cm. For which of the following object distances would the image be real and magnified?',
+    options: ['10 cm', '20 cm', '40 cm', '80 cm'],
+    answer: '40 cm',
+    explanation: 'A converging lens forms a real magnified image when the object lies between f and 2f. Here f = 30 cm and 2f = 60 cm, so 40 cm satisfies the condition.',
+    difficulty: 1,
+    sectionId: 'lens',
+    hints: ['For real magnified image: f < u < 2f.', 'Compare each option with 30 cm and 60 cm.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'lens-059',
+    question: 'An object with two arrows drawn on a screen is placed at a distance 2f from a convex lens of focal length f. Which of the following diagrams correctly represents the image seen by the eye when the object is viewed through the lens?',
+    options: [
+      '/physics/exercises/lens/lens-059-option-a.png',
+      '/physics/exercises/lens/lens-059-option-b.png',
+      '/physics/exercises/lens/lens-059-option-c.png',
+      '/physics/exercises/lens/lens-059-option-d.png'
+    ],
+    answer: '/physics/exercises/lens/lens-059-option-d.png',
+    explanation: 'For an object placed at 2f of a convex lens, the image forms at 2f on the other side, real, inverted and same size. So both left-right and up-down orientation reverse, matching option D.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['At object distance 2f, image distance is also 2f.', 'A real image by a convex lens is inverted.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-059-question.png']
+  },
+{
+    id: 'lens-060',
+    question: 'Two parallel light rays P and Q are incident onto a convex lens. After refraction, the two light rays meet at point c. The ray XY parallel to the principal axis after passing through the lens will pass through the point',
+    options: ['a', 'b', 'c', 'd'],
+    answer: 'b',
+    explanation: 'The two parallel rays meet on the focal plane, so the vertical line through b and c is the focal plane. The point on the principal axis in that plane is the principal focus, which is b. Therefore a ray parallel to the principal axis must pass through b.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['The principal focus lies on the principal axis.', 'Any ray parallel to the principal axis goes through the principal focus after a convex lens.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-060-question.png']
+  },
+{
+    id: 'lens-061',
+    question: 'An object is placed at the focus of a diverging lens of focal length 10 cm. What is the magnification of the image formed?',
+    options: ['0.5', '1.0', '2.0', 'infinite'],
+    answer: '0.5',
+    explanation: 'For a diverging lens, f = -10 cm and u = 10 cm. Using 1/f = 1/u + 1/v gives v = -5 cm. Hence the magnification magnitude is |v/u| = 5/10 = 0.5.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['Use a negative focal length for a diverging lens.', 'Magnification magnitude is |v/u|.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'lens-062',
+    question: 'An object is placed at different distances in front of a converging lens. The image is formed on the other side of the lens. The graph shows the variation of the linear magnification m of the image with the image distance v. Find the focal length of the converging lens.',
+    options: ['10 cm', '15 cm', '20 cm', '30 cm'],
+    answer: '10 cm',
+    explanation: 'From the lens relation, v/f = m + 1, so the graph of m against v has slope 1/f. Using the given graph values gives slope = (1.5 - 0.5)/(25 - 15) = 0.1, so f = 10 cm. Equivalently, when m = 1, the graph gives v = 20 cm, which means v = 2f, so f = 10 cm.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['Rearrange the lens formula into a linear form.', 'Also note that m = 1 occurs at 2f.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-062-question.png', '/physics/exercises/lens/lens-062-question-2.png']
+  },
+{
+    id: 'lens-063',
+    question: 'An object is placed at 15 cm from a lens. A virtual image magnified 2 times is produced. The lens is a',
+    options: ['concave lens of focal length 10 cm', 'convex lens of focal length 10 cm', 'concave lens of focal length 30 cm', 'convex lens of focal length 30 cm'],
+    answer: 'convex lens of focal length 30 cm',
+    explanation: 'With magnification 2 and object distance 15 cm, the image distance magnitude is 30 cm. Because the image is virtual, v = -30 cm. Then 1/f = 1/15 + 1/(-30) = 1/30, so f = +30 cm. A positive focal length means a convex lens.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['A virtual magnified image for a real object is formed by a convex lens.', 'Use v negative for a virtual image.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'lens-064',
+    question: 'An object is placed 12 cm in front of a converging lens. An image is formed 24 cm from the lens. Find the focal length of the converging lens if the image is (1) real and (2) virtual.',
+    options: ['real: 24 cm; virtual: 8 cm', 'real: 12 cm; virtual: 8 cm', 'real: 8 cm; virtual: 12 cm', 'real: 8 cm; virtual: 24 cm'],
+    answer: 'real: 8 cm; virtual: 24 cm',
+    explanation: 'For a real image, 1/f = 1/12 + 1/24, giving f = 8 cm. For a virtual image, take v = -24 cm, so 1/f = 1/12 + 1/(-24) = 1/24, giving f = 24 cm.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['Use positive v for a real image and negative v for a virtual image.', 'Apply the lens formula separately to the two cases.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'lens-065',
+    question: 'An object is placed at 15 cm from a lens. A real image magnified 2 times is produced. The lens is a',
+    options: ['concave lens of focal length 10 cm', 'convex lens of focal length 10 cm', 'concave lens of focal length 30 cm', 'convex lens of focal length 30 cm'],
+    answer: 'convex lens of focal length 10 cm',
+    explanation: 'With magnification 2 and object distance 15 cm, the real image distance is v = 30 cm. Then 1/f = 1/15 + 1/30 = 1/10, so f = +10 cm. Positive focal length means a convex lens.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['Use positive v for a real image.', 'A real image of a real object is formed by a convex lens.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'lens-066',
+    question: 'An object is placed in front of a convex lens of focal length 20 cm. For which of the following object distances would the image be erect?',
+    options: ['10 cm', '30 cm', '40 cm', '60 cm'],
+    answer: '10 cm',
+    explanation: 'A convex lens forms an erect image only when the object is inside the focal length. Since f = 20 cm, only 10 cm is less than f.',
+    difficulty: 1,
+    sectionId: 'lens',
+    hints: ['A convex lens gives an erect image only for u < f.', 'Compare each option with 20 cm.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'lens-067',
+    question: 'An object is moving at constant speed away from a convex lens of focal length 20 cm. At the moment when it is at 30 cm from the lens, which of the following descriptions of the image is correct?',
+    options: ['away from the lens; faster than that of the object', 'towards the lens; faster than that of the object', 'away from the lens; slower than that of the object', 'towards the lens; slower than that of the object'],
+    answer: 'towards the lens; faster than that of the object',
+    explanation: 'At u = 30 cm with f = 20 cm, the object is between f and 2f, so the image is real, on the other side, and magnified. As the object moves farther away, the real image moves toward the lens. Since the image is magnified at that instant, its speed is greater than that of the object.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['For f < u < 2f, the image is real, magnified and beyond 2f.', 'As u increases, v decreases toward f.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'lens-068',
+    question: 'An object is placed at the focus of a concave lens of focal length 10 cm. What is the magnification of the image formed?',
+    options: ['0.5', '1.0', '2.0', 'infinite'],
+    answer: '0.5',
+    explanation: 'For a concave lens, f = -10 cm and u = 10 cm. Using 1/f = 1/u + 1/v gives v = -5 cm, so the magnification magnitude is |v/u| = 5/10 = 0.5.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['Use negative focal length for a concave lens.', 'Magnification magnitude is |v/u|.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'lens-069',
+    question: 'Cecilia uses a magnifying glass to read some small print. Which of the following diagrams shows how the image of the print is formed?',
+    options: [
+      '/physics/exercises/lens/lens-069-option-a.png',
+      '/physics/exercises/lens/lens-069-option-b.png',
+      '/physics/exercises/lens/lens-069-option-c.png',
+      '/physics/exercises/lens/lens-069-option-d.png'
+    ],
+    answer: '/physics/exercises/lens/lens-069-option-a.png',
+    explanation: 'A magnifying glass is a convex lens used with the object inside the focal length. It forms a virtual, erect and magnified image. That matches option A.',
+    difficulty: 1,
+    sectionId: 'lens',
+    hints: ['A magnifying glass produces a virtual image.', 'The image must be upright and magnified.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-069-question.png']
+  },
+{
+    id: 'lens-070',
+    question: 'A student uses the set-up in Figure (a) to study the relationship between the object distance u and the image distance v of a convex lens. A graph of 1/v against 1/u is plotted in Figure (b). If the lens is replaced by another convex lens of shorter focal length, which of the following graphs (in dotted lines) would be obtained?',
+    options: [
+      '/physics/exercises/lens/lens-070-option-a.png',
+      '/physics/exercises/lens/lens-070-option-b.png',
+      '/physics/exercises/lens/lens-070-option-c.png',
+      '/physics/exercises/lens/lens-070-option-d.png'
+    ],
+    answer: '/physics/exercises/lens/lens-070-option-d.png',
+    explanation: 'From 1/f = 1/u + 1/v, we get 1/v = -1/u + 1/f. The slope stays at -1. A shorter focal length means larger 1/f, so the y-intercept increases. That corresponds to option D.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['Rewrite the lens formula into straight-line form.', 'Only the intercept changes when the focal length changes.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-070-question.png']
+  },
+{
+    id: 'lens-071',
+    question: "In each of the following diagrams, L is a concave lens and its two principal foci are denoted by F and F'. Which of the ray diagrams is/are possible? (1) (2) (3)",
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation: 'A concave lens is diverging. In diagram (1), the ray bends away from the principal axis correctly. In diagram (2), a ray aimed at the far focus should emerge parallel, which is not shown correctly. In diagram (3), a ray whose backward extension passes through the near focus would require a parallel incident ray, which is inconsistent. So only (1) is possible.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['Check the standard rays for a concave lens.', 'A ray directed toward the far focus emerges parallel.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-071-question.png']
+  },
+{
+    id: 'lens-072',
+    question: 'A point light source at X on the principal axis of a thin convex lens emits a ray of light. The ray passes through the lens and reaches the principal axis at point Y as shown. O is the optical centre of the lens such that OX = 20 cm and OY > OX. Which of the following statements is/are correct? (1) The focal length of the lens is shorter than 20 cm. (2) If the point light source is shifted away from the lens, separation OY would increase. (3) An object placed at Y would give a diminished image at X.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(1) & (3) only',
+    explanation: 'Since X forms a real image at Y, the object at X must be beyond the focal point, so the focal length is less than 20 cm. If the object moves farther away, the image distance decreases toward the focus, so OY would decrease, not increase. Reversing the object and image positions, an object at Y forms an image at X, and because OX < OY, the image at X is diminished.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['For a real image by a convex lens, the object must be outside the focal length.', 'Light paths through a thin lens are reversible.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-072-question.png']
+  },
+{
+    id: 'lens-073',
+    question: "An object O placed in front of a concave lens forms an image I as shown. F and F' are the foci of the lens. Which ray diagram is correct?",
+    options: [
+      '/physics/exercises/lens/lens-073-option-a.png',
+      '/physics/exercises/lens/lens-073-option-b.png',
+      '/physics/exercises/lens/lens-073-option-c.png',
+      '/physics/exercises/lens/lens-073-option-d.png'
+    ],
+    answer: '/physics/exercises/lens/lens-073-option-b.png',
+    explanation: 'For a concave lens, the refracted ray from the bottom of the object must appear to diverge from the bottom of the virtual image. Only option B matches the correct geometry.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['A concave lens gives an upright virtual image.', 'The ray should appear to come from the corresponding point on the image.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-073-question.png']
+  },
+{
+    id: 'lens-074',
+    question: 'A student uses a convex lens to investigate the variation of image distance v with object distance u for real image. The graph of 1/v plotted against 1/u is shown. If a convex lens of longer focal length is used, what would be the expected result (in dotted lines)?',
+    options: [
+      '/physics/exercises/lens/lens-074-option-a.png',
+      '/physics/exercises/lens/lens-074-option-b.png',
+      '/physics/exercises/lens/lens-074-option-c.png',
+      '/physics/exercises/lens/lens-074-option-d.png'
+    ],
+    answer: '/physics/exercises/lens/lens-074-option-d.png',
+    explanation: 'From 1/v = -1/u + 1/f, the slope remains -1. A longer focal length means smaller 1/f, so the y-intercept decreases. That matches option D.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['Use the straight-line form of the lens equation.', 'Longer focal length lowers the intercept.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-074-question.png']
+  },
+{
+    id: 'lens-075',
+    question: 'An object is moving at constant speed towards a convex lens of focal length 10 cm. At the moment when it is at 100 cm from the lens, which of the following descriptions of the image is correct?',
+    options: ['away from the lens; faster than that of the object', 'towards the lens; faster than that of the object', 'away from the lens; slower than that of the object', 'towards the lens; slower than that of the object'],
+    answer: 'away from the lens; slower than that of the object',
+    explanation: 'At 100 cm, the object is well beyond 2f, so the image is real, diminished and on the far side of the lens. As the object moves toward the lens, the image also moves away from the lens. Since the image is diminished at that instant, its speed is smaller than that of the object.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['For u > 2f, the real image lies between f and 2f and is diminished.', 'A diminished image moves less than the object in this regime.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'lens-076',
+    question: 'When an object is placed 30 cm in front of a concave lens, an image is formed 20 cm away from the lens. If the concave lens is replaced by a convex lens of the same focal length and the object distance remains unchanged, which of the following descriptions about the image formed is correct?',
+    options: ['real; 20 cm', 'real; 60 cm', 'virtual; 20 cm', 'virtual; 60 cm'],
+    answer: 'virtual; 60 cm',
+    explanation: 'For the original concave lens, f is negative and v = -20 cm, so 1/f = 1/30 + 1/(-20) = -1/60, giving f = -60 cm. Replacing it with a convex lens of the same focal-length magnitude gives f = +60 cm. Then 1/60 = 1/30 + 1/v, so v = -60 cm, which means the image is virtual and 60 cm away.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['Use the original setup to find the focal length first.', 'A negative v indicates a virtual image.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'lens-077',
+    question: 'An object placed 25.0 cm in front of a lens forms a virtual image at a distance 11.1 cm from the lens. The lens is a',
+    options: ['concave lens of focal length 7.7 cm', 'concave lens of focal length 20 cm', 'convex lens of focal length 7.7 cm', 'convex lens of focal length 20 cm'],
+    answer: 'concave lens of focal length 20 cm',
+    explanation: 'For a virtual image, v = -11.1 cm. Using 1/f = 1/25 + 1/(-11.1) gives f �� -20 cm. A negative focal length means the lens is concave.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['Use negative image distance for a virtual image.', 'The sign of the focal length tells you the lens type.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'wol-001',
+    question: 'An electromagnetic wave has a frequency of the order of 10^16 Hz. What should be the type of the electromagnetic wave? Given that the speed of light in vacuum is 3 �� 10^8 m s^-1.',
+    options: ['infra-red rays', 'visible light', 'ultra-violet rays', 'X-rays'],
+    answer: 'ultra-violet rays',
+    explanation: 'Using v = f��, the wavelength is �� = (3 �� 10^8) / (10^16) = 3 �� 10^-8 m. This lies in the ultra-violet region of the electromagnetic spectrum.',
+    difficulty: 1,
+    sectionId: 'wave-nature-of-light',
+    hints: ['Use v = f��.', 'Compare the wavelength with the EM spectrum ranges.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'wol-002',
+    question: 'Given the following types of electromagnetic waves: (1) radio waves (2) yellow light (3) green light. The waves listed in ascending order of their wavelengths are',
+    options: ['(1), (3), (2)', '(2), (1), (3)', '(3), (1), (2)', '(3), (2), (1)'],
+    answer: '(3), (2), (1)',
+    explanation: 'Among visible colours, green has a shorter wavelength than yellow. Radio waves have much longer wavelengths than visible light. So the ascending order is green light, yellow light, radio waves.',
+    difficulty: 1,
+    sectionId: 'wave-nature-of-light',
+    hints: ['Green light has shorter wavelength than yellow light.', 'Radio waves are much longer than visible light.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'wol-003',
+    question: 'Arrange the following electromagnetic waves in descending order of their wavelengths: (1) visible light (2) X-rays (3) radio waves',
+    options: ['(1), (2), (3)', '(1), (3), (2)', '(2), (3), (1)', '(3), (1), (2)'],
+    answer: '(3), (1), (2)',
+    explanation: 'Radio waves have the longest wavelengths, visible light is in the middle, and X-rays have much shorter wavelengths. So the descending order is radio waves, visible light, X-rays.',
+    difficulty: 1,
+    sectionId: 'wave-nature-of-light',
+    hints: ['Radio waves are longest.', 'X-rays are much shorter than visible light.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'wol-004',
+    question: 'Which of the following statements about the properties of light is/are correct? (1) The speed of light in vacuum is independent of its wavelength. (2) The wavelength of light will change when it enters a less dense medium. (3) The frequency of light will change when it enters a less dense medium.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) & (2) only',
+    explanation: 'The speed of light in vacuum is constant for all wavelengths. When light enters a different medium, its speed changes, so its wavelength changes. The frequency remains unchanged across a boundary.',
+    difficulty: 1,
+    sectionId: 'wave-nature-of-light',
+    hints: ['Frequency stays the same during refraction.', 'If speed changes and frequency is fixed, wavelength changes.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'wol-005',
+    question: 'Given that the approximate wavelength of red light is 7 �� 10^-7 m, what is the approximate wavelength of an FM radio wave?',
+    options: ['3 �� 10^2 m', '3 �� 10^-3 m', '3 �� 10^-7 m', '3 �� 10^-9 m'],
+    answer: '3 �� 10^2 m',
+    explanation: 'FM radio waves have wavelengths on the order of 10^2 m, which is far longer than visible light. So the best estimate is 3 �� 10^2 m.',
+    difficulty: 1,
+    sectionId: 'wave-nature-of-light',
+    hints: ['Radio waves are much longer than visible light.', 'This is an order-of-magnitude comparison question.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'wol-006',
+    question: 'When light travels from air to glass, which of the following statements is/are true? (1) The speed of the light changes. (2) The wavelength of the light increases. (3) The frequency of the light remains unchanged.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(1) & (3) only',
+    explanation: 'When light enters glass from air, its speed decreases. The frequency remains unchanged at the boundary. Since v = f�� and f is unchanged while v decreases, the wavelength decreases, not increases.',
+    difficulty: 1,
+    sectionId: 'wave-nature-of-light',
+    hints: ['Frequency is fixed across refraction.', 'A lower speed with the same frequency means a shorter wavelength.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'wol-007',
+    question: 'A short pulse of microwave travelling at 3 �� 10^8 m s^-1 was used to detect the position of a stationary weather balloon. It was found that the microwaves reflected from the balloon were picked up 2 �� 10^-4 s after the pulse had been emitted from the station. The distance of the balloon from the station was',
+    options: ['1.5 �� 10^4 m', '3.0 �� 10^4 m', '1.5 �� 10^12 m', '3.0 �� 10^12 m'],
+    answer: '3.0 �� 10^4 m',
+    explanation: 'The given time is for the round trip. So the one-way distance is d = (1/2)vt = (1/2)(3 �� 10^8)(2 �� 10^-4) = 3 �� 10^4 m.',
+    difficulty: 1,
+    sectionId: 'wave-nature-of-light',
+    hints: ['The pulse travels to the balloon and back.', 'Use half the round-trip distance.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'wol-008',
+    question: 'Which of the following is in the correct order of increasing wavelengths?',
+    options: ['infra-red rays, X-rays, radio waves', 'infra-red rays, radio waves, X-rays', 'X-rays, radio waves, infra-red rays', 'X-rays, infra-red rays, radio waves'],
+    answer: 'X-rays, infra-red rays, radio waves',
+    explanation: 'X-rays have the shortest wavelengths among these three, infra-red is longer, and radio waves are the longest. So the increasing order is X-rays, infra-red rays, radio waves.',
+    difficulty: 1,
+    sectionId: 'wave-nature-of-light',
+    hints: ['Radio waves are longest.', 'X-rays are shortest among the listed choices.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'wol-009',
+    question: 'Which of the following is/are transverse wave(s)? (1) water waves (2) sound waves (3) X-rays',
+    options: ['(1) only', '(1) & (2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(1) & (3) only',
+    explanation: 'Water surface waves are treated as transverse in this syllabus, and X-rays are electromagnetic waves, which are transverse. Sound waves in air are longitudinal.',
+    difficulty: 1,
+    sectionId: 'wave-nature-of-light',
+    hints: ['Electromagnetic waves are transverse.', 'Sound in air is longitudinal.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'wol-010',
+    question: 'Which of the following has the shortest wavelength?',
+    options: ['X-rays', 'Microwaves', 'Radio waves', 'Visible light'],
+    answer: 'X-rays',
+    explanation: 'Among the listed electromagnetic waves, X-rays have much shorter wavelengths than visible light, microwaves and radio waves.',
+    difficulty: 1,
+    sectionId: 'wave-nature-of-light',
+    hints: ['Radio waves and microwaves are long-wavelength EM waves.', 'X-rays are near the short-wavelength end of the spectrum.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'wol-011',
+    question: 'The figure shows the electromagnetic spectrum. Which of the following statements about Y is/are true? (1) The frequency of Y is lower than that of visible light. (2) Y is emitted by hot bodies. (3) Y can be deflected by electric and magnetic field.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) & (2) only',
+    explanation: 'From the spectrum, Y is infra-red. Infra-red has lower frequency than visible light and is emitted by warm or hot bodies. As an electromagnetic wave, it cannot be deflected by electric or magnetic fields.',
+    difficulty: 1,
+    sectionId: 'wave-nature-of-light',
+    hints: ['Infra-red lies just beyond visible red.', 'Electromagnetic waves are not deflected by electric or magnetic fields.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/wave-nature-of-light/wol-011-question.png']
+  },
+{
+    id: 'wol-012',
+    question: 'If the speed of radio waves in air is v1 and the speed of light in air is v2, which of the following is correct?',
+    options: ['v2 > 2v1', '2v1 > v2 > v1', 'v1 = v2', '2v2 > v1 > v2'],
+    answer: 'v1 = v2',
+    explanation: 'Both radio waves and visible light are electromagnetic waves, so in air they travel at essentially the same speed.',
+    difficulty: 1,
+    sectionId: 'wave-nature-of-light',
+    hints: ['All electromagnetic waves travel at the same speed in the same medium.', 'The type of EM wave does not change the speed in air.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'wol-013',
+    question: 'When a light ray travels from air to water, how do the speed, the frequency and the wavelength change?',
+    options: ['speed remains the same; frequency remains the same; wavelength remains the same', 'speed becomes smaller; frequency becomes greater; wavelength remains the same', 'speed becomes smaller; frequency remains the same; wavelength becomes smaller', 'speed becomes greater; frequency remains the same; wavelength becomes smaller'],
+    answer: 'speed becomes smaller; frequency remains the same; wavelength becomes smaller',
+    explanation: 'Light slows down in water compared with air. The frequency stays unchanged at the boundary. Since v = f�� and f is unchanged while v decreases, the wavelength also decreases.',
+    difficulty: 1,
+    sectionId: 'wave-nature-of-light',
+    hints: ['Frequency remains unchanged during refraction.', 'A lower speed with the same frequency means a shorter wavelength.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'wol-014',
+    question: 'A pulse of microwave of speed 3 �� 10^8 m s^-1 is sent out to detect the position of a stationary weather balloon. The reflected microwave was picked up in 2 �� 10^-4 s after emission. What is the distance of the balloon from the station?',
+    options: ['1.5 �� 10^4 m', '3.0 �� 10^4 m', '6.0 �� 10^4 m', '1.5 �� 10^12 m'],
+    answer: '3.0 �� 10^4 m',
+    explanation: 'The time measured is for the wave to go to the balloon and return. So the one-way distance is d = (1/2)vt = (1/2)(3 �� 10^8)(2 �� 10^-4) = 3 �� 10^4 m.',
+    difficulty: 1,
+    sectionId: 'wave-nature-of-light',
+    hints: ['Use half the round-trip distance.', 'Distance = speed �� time.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'wol-015',
+    question: 'Which of the following descriptions about the nature of light is/are correct? (1) The speed of light in a vacuum is independent of its wavelength. (2) There cannot be total internal reflection when light is travelling from air to water. (3) Light travels faster in glass than in air.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) & (2) only',
+    explanation: 'In vacuum, all light travels at the same speed regardless of wavelength. Total internal reflection only occurs when light goes from a denser medium to a less dense medium, so it cannot occur from air to water. Light travels slower in glass than in air.',
+    difficulty: 1,
+    sectionId: 'wave-nature-of-light',
+    hints: ['Glass is optically denser than air.', 'Total internal reflection requires travel from denser to less dense medium.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'wol-016',
+    question: 'Arrange the following in ascending order of wavelengths. (1) X-rays (2) Microwaves (3) Visible light (4) Ultra-violet rays',
+    options: ['(1), (2), (3), (4)', '(2), (3), (4), (1)', '(1), (4), (3), (2)', '(2), (1), (3), (4)'],
+    answer: '(1), (4), (3), (2)',
+    explanation: 'In increasing wavelength order: X-rays, ultra-violet, visible light, microwaves. That corresponds to (1), (4), (3), (2).',
+    difficulty: 1,
+    sectionId: 'wave-nature-of-light',
+    hints: ['X-rays are shorter than ultra-violet.', 'Microwaves are much longer than visible light.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'wol-017',
+    question: 'The diagram shows part of the electromagnetic spectrum. Which of the following statements is/are true? (1) The wavelength of P is longer than that of Q. (2) The velocity of P in a vacuum is smaller than that of Q. (3) Q can be deflected by an electric field.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation: 'In the electromagnetic spectrum, wavelength decreases toward the right, so P has longer wavelength than Q. All electromagnetic waves travel at the same speed in vacuum, and they are not deflected by an electric field.',
+    difficulty: 1,
+    sectionId: 'wave-nature-of-light',
+    hints: ['All electromagnetic waves have the same speed in vacuum.', 'Electromagnetic waves are not charged particles.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/wave-nature-of-light/wol-017-question.png']
+  },
+{
+    id: 'wol-018',
+    question: 'What happens to the wavelength and frequency of a ray of light if it passes from water to air?',
+    options: ['wavelength increases; frequency decreases', 'wavelength decreases; frequency remains unchanged', 'wavelength remains unchanged; frequency increases', 'wavelength increases; frequency remains unchanged'],
+    answer: 'wavelength increases; frequency remains unchanged',
+    explanation: 'Light travels faster in air than in water. The frequency remains unchanged at the boundary. Since v = f�� and f is constant while v increases, the wavelength increases.',
+    difficulty: 1,
+    sectionId: 'wave-nature-of-light',
+    hints: ['Frequency does not change during refraction.', 'A higher speed at the same frequency means a longer wavelength.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'wol-019',
+    question: 'Which of the following graphs correctly shows the variation of speed v against frequency f of the electromagnetic waves in vacuum?',
+    options: [
+      '/physics/exercises/wave-nature-of-light/wol-019-option-a.png',
+      '/physics/exercises/wave-nature-of-light/wol-019-option-b.png',
+      '/physics/exercises/wave-nature-of-light/wol-019-option-c.png',
+      '/physics/exercises/wave-nature-of-light/wol-019-option-d.png'
+    ],
+    answer: '/physics/exercises/wave-nature-of-light/wol-019-option-d.png',
+    explanation: 'All electromagnetic waves travel at the same speed in vacuum, regardless of frequency. So the correct graph is a horizontal line, which is option D.',
+    difficulty: 1,
+    sectionId: 'wave-nature-of-light',
+    hints: ['In vacuum, all EM waves travel at c.', 'The speed does not depend on frequency in vacuum.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+{
+    id: 'wol-020',
+    question: 'Which of the following is an application of microwaves in everyday life?',
+    options: ['Radar', 'Carbon-14 dating', 'Radiotherapy', 'Detecting cracks in railway track'],
+    answer: 'Radar',
+    explanation: 'Microwaves are used in radar systems. Carbon-14 dating involves beta radiation, radiotherapy commonly uses gamma rays or high-energy radiation, and crack detection in rails commonly uses ultrasound.',
+    difficulty: 1,
+    sectionId: 'wave-nature-of-light',
+    hints: ['Radar systems use microwaves.', 'The other options involve different physical methods or wave types.'],
+    type: 'multiple_choice',
+    points: 15
+  }
+];
 // 绔犺妭閰嶇疆
 export const FORCE_MOTION_CHAPTERS: Chapter[] = [
   {
@@ -12126,7 +14338,6 @@ export const FORCE_MOTION_CHAPTERS: Chapter[] = [
     completed: false,
   },
 ];
-
 
 
 
