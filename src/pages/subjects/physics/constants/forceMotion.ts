@@ -10724,7 +10724,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['In a stationary wave, adjacent nodes are separated by $\\lambda/2$.', 'Then use $v=f\\lambda$.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-002-question.png'],
   },
   {
     id: 'wp-003',
@@ -10739,7 +10738,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Read how many full wavelengths fit inside the marked 20 cm.', 'Then use $v=f\\lambda$.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-003-question.png'],
   },
   {
     id: 'wp-004',
@@ -10768,7 +10766,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Particles in the same loop of a stationary wave move in phase.', 'At maximum displacement, the instantaneous velocity is zero.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-005-question.png'],
   },
   {
     id: 'wp-006',
@@ -10788,7 +10785,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Count crest-to-crest intervals, not the number of crests.', 'For the maximum stationary stroboscope setting, flash frequency equals wave frequency.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-006-question.png'],
   },
   {
     id: 'wp-007',
@@ -10803,7 +10799,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['In a stationary wave, all particles stop instantaneously at the extreme shape.', 'Maximum displacement means zero instantaneous velocity.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-007-question.png'],
   },
   {
     id: 'wp-008',
@@ -10842,7 +10837,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Crest-crest or trough-trough gives constructive interference.', 'Crest-trough gives destructive interference.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-009-question.png'],
   },
   {
     id: 'wp-010',
@@ -10862,7 +10856,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Extreme shape to equilibrium takes $T/4$.', 'At equilibrium, the string is straight.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-010-question.png'],
   },
   {
     id: 'wp-011',
@@ -10896,7 +10889,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Use equal angle of incidence and reflection.', 'Reflect the pulse about the normal at the contact point.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-012-question.png'],
   },
   {
     id: 'wp-013',
@@ -10916,7 +10908,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A single edge gives edge diffraction.', 'Wavefront spacing stays the same in the same medium.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-013-question.png'],
   },
   {
     id: 'wp-014',
@@ -10936,7 +10927,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Use the marked 20 cm to count wavelength intervals.', 'Then apply $v=f\\lambda$.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-014-question.png'],
   },
   {
     id: 'wp-015',
@@ -10951,7 +10941,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Constructive interference requires path difference $n\\lambda$.', 'First calculate the path difference.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-015-question.png'],
   },
   {
     id: 'wp-016',
@@ -10971,7 +10960,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Going into deeper water increases wave speed.', 'A small slit causes diffraction.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-016-question.png'],
   },
   {
     id: 'wp-017',
@@ -10986,7 +10974,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['On the perpendicular bisector, the path difference is zero.', 'Antinode means maximum amplitude, not always a crest.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-017-question.png'],
   },
   {
     id: 'wp-018',
@@ -11006,7 +10993,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Reflect the wave direction about the normal.', 'Straight wavefronts remain straight after reflection.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-018-question.png'],
   },
   {
     id: 'wp-019',
@@ -11026,7 +11012,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Nodes in a stationary wave are always stationary.', 'Amplitude is zero at nodes and maximum at antinodes.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-019-question.png'],
   },
   {
     id: 'wp-020',
@@ -11046,10 +11031,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Wave speed increases with water depth.', 'With constant frequency, larger speed means larger wavelength.'],
     sectionId: 'wave-phenomena',
-    imagePaths: [
-      '/physics/exercises/wave-phenomena/wp-020-question.png',
-      '/physics/exercises/wave-phenomena/wp-020-question-2.png',
-    ],
   },
   {
     id: 'wp-021',
@@ -11064,7 +11045,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Compare wavelength with slit width.', 'A narrower effective opening relative to wavelength gives stronger diffraction.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-021-question.png'],
   },
   {
     id: 'wp-022',
@@ -11084,7 +11064,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Amplitude in a stationary wave depends on position.', 'Adjacent nodes are separated by $\\lambda/2$.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-022-question.png'],
   },
   {
     id: 'wp-023',
@@ -11099,7 +11078,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A driven wave has the source frequency.', 'Different media generally give different wave speeds.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-023-question.png'],
   },
   {
     id: 'wp-024',
@@ -11119,7 +11097,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['In a stationary wave, all points stop instantaneously at maximum displacement.', 'Read the number of quarter-wavelength sections along the 1 m string.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-024-question.png'],
   },
   {
     id: 'wp-025',
@@ -11134,7 +11111,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Diffraction is bending around gaps or edges.', 'In the same medium, diffraction does not change wave speed.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-025-question.png'],
   },
   {
     id: 'wp-026',
@@ -11154,7 +11130,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Deep water means higher wave speed.', 'Higher speed at unchanged frequency means larger wavelength.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-026-question.png'],
   },
   {
     id: 'wp-027',
@@ -11169,7 +11144,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Look for both wavefront spreading and a spacing change.', 'A spacing change indicates refraction.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-027-question.png'],
   },
   {
     id: 'wp-028',
@@ -11184,7 +11158,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Wave frequency does not change at a boundary.', 'Use $v=f\\lambda$.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-028-question.png'],
   },
   {
     id: 'wp-029',
@@ -11199,7 +11172,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A boundary does not change the source frequency.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-029-question.png'],
   },
   {
     id: 'wp-030',
@@ -11219,7 +11191,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Treat the two sides of the V as two separate reflecting barriers.', 'The two reflected pulses must be symmetric.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-030-question.png'],
   },
   {
     id: 'wp-031',
@@ -11239,7 +11210,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Compare the ratio $\\lambda/d$.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-031-question.png'],
   },
   {
     id: 'wp-032',
@@ -11259,7 +11229,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Shallow water means lower wave speed.', 'Lower speed means bending towards the normal.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-032-question.png'],
   },
   {
     id: 'wp-033',
@@ -11274,7 +11243,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Reflection changes direction, not the medium.', 'Use $v=f\\lambda$.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-033-question.png'],
   },
   {
     id: 'wp-034',
@@ -11289,7 +11257,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Spreading after a gap is diffraction.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-034-question.png'],
   },
   {
     id: 'wp-035',
@@ -11309,7 +11276,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Use the law of reflection at the reflecting edge.', 'Straight incoming wavefronts remain straight after reflection.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-035-question.png'],
   },
   {
     id: 'wp-036',
@@ -11324,7 +11290,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['The source fixes the frequency.', 'A change of medium changes speed and wavelength.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-036-question.png'],
   },
   {
     id: 'wp-037',
@@ -11339,7 +11304,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Think in terms of the ratio $\\lambda/d$.', 'For the same source, deeper water gives a larger wavelength.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-037-question.png'],
   },
   {
     id: 'wp-038',
@@ -11354,7 +11318,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['For in-phase sources, constructive interference occurs at path difference $n\\lambda$.', 'A path difference of $\\lambda/2$ gives destructive interference.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-038-question.png'],
   },
   {
     id: 'wp-039',
@@ -11374,7 +11337,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['An extreme position becomes equilibrium after $T/4$.', 'A node in a stationary wave is always at rest.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-039-question.png'],
   },
   {
     id: 'wp-040',
@@ -11389,7 +11351,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Fringe position depends on path difference.', 'Amplitude affects intensity, not fringe location.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-040-question.png'],
   },
   {
     id: 'wp-041',
@@ -11409,7 +11370,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Use equal angles with the normal.', 'The reflected wavefronts remain straight.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-041-question.png'],
   },
   {
     id: 'wp-042',
@@ -11424,7 +11384,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A wave transfers energy, not the medium itself over a long distance.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-042-question.png'],
   },
   {
     id: 'wp-043',
@@ -11444,7 +11403,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Frequency is unchanged at the boundary.', 'Use $v=f\\lambda$.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-043-question.png'],
   },
   {
     id: 'wp-044',
@@ -11459,7 +11417,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['The source fixes the frequency.', 'A change of medium changes light speed.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-044-question.png'],
   },
   {
     id: 'wp-045',
@@ -11474,7 +11431,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['First find the wavelength from the 0.4 m section.', 'The cork reaches its highest point when the first crest arrives.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-045-question.png'],
   },
   {
     id: 'wp-046',
@@ -11494,7 +11450,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Decide first whether $P$ is at a node or not.', 'Then read whether the initial displacement is positive, zero or negative.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-046-question.png'],
   },
   {
     id: 'wp-047',
@@ -11509,7 +11464,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A driven wave keeps the source frequency.', 'Different media generally give different wave speeds.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-047-question.png'],
   },
   {
     id: 'wp-048',
@@ -11524,7 +11478,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Nodes in an interference pattern stay at rest.', 'A snapshot crest does not mean a point is always at a crest.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-048-question.png'],
   },
   {
     id: 'wp-049',
@@ -11544,7 +11497,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Narrow gaps cause diffraction.', 'A constructive line is where two in-phase contributions meet.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-049-question.png'],
   },
   {
     id: 'wp-050',
@@ -11559,7 +11511,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Deep water means higher wave speed.', 'Wavefronts are perpendicular to rays.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-050-question.png'],
   },
   {
     id: 'wp-051',
@@ -11574,7 +11525,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['On one string, wave speed depends on tension and linear density.', 'Higher harmonics have more loops.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-051-question.png'],
   },
   {
     id: 'wp-052',
@@ -11589,7 +11539,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Coherence is about phase relationship.', 'Same medium means same frequency implies same wavelength.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-052-question.png'],
   },
   {
     id: 'wp-053',
@@ -11604,7 +11553,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Superposition depends on overlap in a linear medium.', 'It is broader than interference conditions.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-053-question.png'],
   },
   {
     id: 'wp-054',
@@ -11624,7 +11572,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Antinode amplitude in a stationary wave is doubled.', 'Count how many half-wavelengths fit between the fixed ends.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-054-question.png'],
   },
   {
     id: 'wp-055',
@@ -11639,7 +11586,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Compare wavelength before and after the boundary.', 'A shorter wavelength in the second medium means lower speed there.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-055-question.png'],
   },
   {
     id: 'wp-056',
@@ -11659,7 +11605,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Constructive interference can happen at a crest or at a trough.', 'Use the sign of the displacement at $t = 0$.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-056-question.png'],
   },
   {
     id: 'wp-057',
@@ -11679,7 +11624,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Superposition is more general than steady interference.', 'Only the overlap of compatible waves is required.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-057-question.png'],
   },
   {
     id: 'wp-058',
@@ -11699,7 +11643,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['At an antinode, stationary-wave amplitude is doubled.', 'Count half-wavelength sections between the fixed ends.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-058-question.png'],
   },
   {
     id: 'wp-059',
@@ -11714,7 +11657,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['First find the wavelength from the standing-wave pattern.', 'Use $v = f\\lambda$.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-059-question.png'],
   },
   {
     id: 'wp-060',
@@ -11734,7 +11676,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Use the instantaneous position of $P$ as the starting point.', 'A point on a stationary wave still executes SHM.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-060-question.png'],
   },
   {
     id: 'wp-061',
@@ -11749,7 +11690,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Adjacent loops in a stationary wave are in antiphase.', 'A particle is at rest only at an extreme position.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-061-question.png'],
   },
   {
     id: 'wp-062',
@@ -11764,7 +11704,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Think about the ratio of gap width to wavelength.', 'Amplitude does not control diffraction angle.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-062-question.png'],
   },
   {
     id: 'wp-063',
@@ -11784,7 +11723,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Use the idea of an image source behind the barrier.', 'Reflection preserves wavefront shape.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-063-question.png'],
   },
   {
     id: 'wp-064',
@@ -11799,7 +11737,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Compare the periods first.', 'Antiphase requires a half-cycle difference.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-064-question.png'],
   },
   {
     id: 'wp-065',
@@ -11819,7 +11756,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Higher tension gives higher wave speed.', 'With fixed frequency, a larger speed means a larger wavelength.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-065-question.png'],
   },
   {
     id: 'wp-066',
@@ -11834,7 +11770,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Crest-to-trough corresponds to half a cycle.', 'Use $v = \\lambda / T$.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-066-question.png'],
   },
   {
     id: 'wp-067',
@@ -11854,7 +11789,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['On the same string, wave speed stays constant.', 'Doubling frequency halves wavelength.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-067-question.png'],
   },
   {
     id: 'wp-068',
@@ -11874,7 +11808,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Frequency does not change during refraction.', 'A larger wavelength in the second region means a larger speed there.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-068-question.png'],
   },
   {
     id: 'wp-069',
@@ -11889,7 +11822,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A wave can cross a boundary without bending if it enters normally.', 'Diffraction through a narrow gap spreads the wave.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-069-question.png'],
   },
   {
     id: 'wp-070',
@@ -11904,7 +11836,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Diffraction depends on wavelength and obstacle size.', 'Amplitude does not set the diffraction angle.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-070-question.png'],
   },
   {
     id: 'wp-071',
@@ -11919,7 +11850,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Each loop in a stationary wave is half a wavelength.', 'Use $f = v/\\lambda$.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-071-question.png'],
   },
 {
     id: 'rr-001',
@@ -11933,7 +11863,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A spherical surface has a normal through the centre.', 'Compare bending at entry and exit separately.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-001-question.png'],
   },
 {
     id: 'rr-002',
@@ -11988,7 +11917,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Check whether total internal reflection occurs first.', 'From denser to less dense means away from the normal.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-005-question.png'],
   },
 {
     id: 'rr-006',
@@ -12017,7 +11945,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A radius to the point of incidence is the normal.', 'Normal incidence means no bending.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-007-question.png'],
   },
 {
     id: 'rr-008',
@@ -12032,7 +11959,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Think from the diver back-tracing the refracted rays.', 'An object in air appears farther from the surface to an observer in water.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-008-question.png'],
   },
 {
     id: 'rr-009',
@@ -12047,7 +11973,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Decide the bend at each boundary separately.', 'X has smaller refractive index, so it is optically less dense.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-009-question.png'],
   },
 {
     id: 'rr-010',
@@ -12062,7 +11987,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Compare each internal incidence angle with the critical angle.', 'Total internal reflection occurs only inside glass towards air.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-010-question.png'],
   },
 {
     id: 'rr-011',
@@ -12095,7 +12019,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Check the direction of travel first.', 'The denser medium must be the incident medium.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-012-question.png'],
   },
 {
     id: 'rr-013',
@@ -12123,7 +12046,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Apply Snell\'s law using the angles shown.', 'The ratio is sine in denser medium over sine in air.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-014-question.png'],
   },
 {
     id: 'rr-015',
@@ -12176,7 +12098,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Start from Snell\'s law.', 'Put the numerator on the vertical axis to read slope directly as n.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-017-question.png'],
   },
 {
     id: 'rr-018',
@@ -12243,7 +12164,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Treat the air cavity like an inverted prism inside glass.', 'Red light deviates least.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-021-question.png'],
   },
 {
     id: 'rr-022',
@@ -12263,7 +12183,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Track the ray at entry and exit separately.', 'Use bend towards normal into glass, away from normal out of glass.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-022-question.png'],
   },
 {
     id: 'rr-023',
@@ -12283,7 +12202,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Trace the image orientation after each reflection.', 'Two reflections do not always restore the original orientation for an asymmetric object.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-023-question.png'],
   },
 {
     id: 'rr-024',
@@ -12297,7 +12215,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Convert the angle with the face to the angle with the normal.', 'A ray along the surface corresponds to the critical angle.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-024-question.png'],
   },
 {
     id: 'rr-025',
@@ -12317,7 +12234,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Use relative optical density at each face.', 'The emergent ray in air must bend away from the normal.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-025-question.png'],
   },
 {
     id: 'rr-026',
@@ -12336,7 +12252,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['The prism has two refractions, one at each face.', 'Check bend direction at both boundaries.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-026-question.png'],
   },
 {
     id: 'rr-027',
@@ -12351,7 +12266,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A calm surface can act like a mirror.', 'This is ordinary reflection, not refraction.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-027-question.png'],
   },
 {
     id: 'rr-028',
@@ -12366,7 +12280,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['First find Martha\'s distance from the mirror.', 'For a plane mirror, image distance equals object distance.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-028-question.png'],
   },
 {
     id: 'rr-029',
@@ -12380,7 +12293,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A mirror swaps left and right.', 'Convert the mirror reading back to the real clock reading.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-029-question.png'],
   },
 {
     id: 'rr-030',
@@ -12409,7 +12321,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Total internal reflection requires i > c.', 'Use sin c = 1/n.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-031-question.png'],
   },
 {
     id: 'rr-032',
@@ -12428,7 +12339,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Use the standard properties of a plane-mirror image.', 'The image is upright and laterally inverted.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-032-question.png'],
   },
 {
     id: 'rr-033',
@@ -12441,7 +12351,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Use similar triangles between the cloud path and the mirror width.', 'The mirror crossing time is the time interval for the cloud image to sweep across the mirror.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-033-question.png'],
   },
 {
     id: 'rr-034',
@@ -12456,7 +12365,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Treat the bubble as air surrounded by water.', 'Apply the bend rule at both curved surfaces.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-034-question.png'],
   },
 {
     id: 'rr-035',
@@ -12471,7 +12379,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Write one expression for n_x from each figure.', 'Set the two expressions equal and solve for r.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-035-question.png'],
   },
 {
     id: 'rr-036',
@@ -12486,7 +12393,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Use the virtual image of the post behind the mirror.', 'Relate mirror height to the fraction of the image seen from the eye.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-036-question.png'],
   },
 {
     id: 'rr-037',
@@ -12505,7 +12411,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Convert the given angles to angles with the normal.', 'Then apply Snell\'s law.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-037-question.png'],
   },
 {
     id: 'rr-038',
@@ -12534,7 +12439,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Identify the normal first using PQ perpendicular to RS.', 'A refracted ray bending away from the normal means denser to less dense.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-039-question.png'],
   },
 {
     id: 'rr-040',
@@ -12549,7 +12453,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Compare the critical angle for each prism from the behavior at 45 degrees.', 'Use n = 1 / sin c.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-040-question.png'],
   },
 {
     id: 'rr-041',
@@ -12569,7 +12472,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Compare the incident angles while the refracted path is the same.', 'All colours of light have the same speed in vacuum.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-041-question.png'],
   },
 {
     id: 'rr-042',
@@ -12584,7 +12486,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Calculate sin i / sin r for each set.', 'The refractive index should be nearly constant.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-042-question.png'],
   },
 {
     id: 'rr-043',
@@ -12598,7 +12499,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Find the refractive index from the critical angle first.', 'Then apply Snell\'s law at the entry face.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-043-question.png'],
   },
 {
     id: 'rr-044',
@@ -12646,7 +12546,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A calm water surface behaves like a plane mirror.', 'Plane-mirror images are virtual and same size.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-046-question.png'],
   },
 {
     id: 'rr-047',
@@ -12661,7 +12560,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Check the angle constraints against the critical angle.', 'A physically impossible diagram violates the refraction condition at entry.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-047-question.png'],
   },
 {
     id: 'rr-048',
@@ -12689,7 +12587,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Read the critical angle from where the refracted intensity becomes zero.', 'Use n = v_air / v_medium.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-049-question.png'],
   },
 {
     id: 'rr-050',
@@ -12718,7 +12615,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Use n sin theta = constant across all three media.', 'Larger ray angle to the normal means smaller refractive index.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-051-question.png'],
   },
 {
     id: 'rr-052',
@@ -12733,7 +12629,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Use the TIR condition to compare medium (2) with medium (1).', 'Then compare the sines of the ray angles.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-052-question.png'],
   },
 {
     id: 'rr-053',
@@ -12789,7 +12684,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A mirror reverses left and right.', 'Convert the mirror reading back to the real clock reading.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-056-question.png'],
   },
 {
     id: 'rr-057',
@@ -12804,7 +12698,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Compare the ray angles to the normal in each medium.', 'Larger angle in this setup means higher speed.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-057-question.png'],
   },
 {
     id: 'rr-058',
@@ -12818,7 +12711,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Use the wavelength ratio for the same light in different media.', 'Frequency stays the same, so wavelength ratio gives the refractive index.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-058-question.png'],
   },
 {
     id: 'rr-059',
@@ -12838,7 +12730,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Convert the given angle with the boundary into an angle with the normal.', 'Use the geometry between the reflected and refracted rays.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-059-question.png'],
   },
 {
     id: 'rr-060',
@@ -12867,7 +12758,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Compare the angles to the normal in each medium.', 'Larger angle here corresponds to larger speed.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-061-question.png'],
   },
 {
     id: 'rr-062',
@@ -12901,7 +12791,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Treat the final emergent ray as a 90-degree refracted ray in air.', 'Use air refractive index as 1.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-063-question.png'],
   },
 {
     id: 'rr-064',
@@ -12921,7 +12810,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Convert boundary-plane angles to normal angles first.', 'Then apply Snell\'s law.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-064-question.png'],
   },
 {
     id: 'rr-065',
@@ -12941,7 +12829,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Use lateral inversion only; the image stays upright.', 'Mentally reverse left and right.'],
     sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-065-question.png'],
   },
 {
     id: 'lens-001',
@@ -12970,7 +12857,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A convex lens converges parallel rays and bends other rays towards the axis.', 'Pick the path that moves closer to the principal axis after refraction.'],
     sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-002-question.png'],
   },
 {
     id: 'lens-003',
@@ -12985,7 +12871,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Any image formed on a screen is real.', 'Compare image distance and object distance for magnification.'],
     sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-003-question.png'],
   },
 {
     id: 'lens-004',
@@ -13000,7 +12885,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Use the standard convex-lens object-image position rules.', 'Image beyond 2F means object between F and 2F.'],
     sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-004-question.png'],
   },
 {
     id: 'lens-005',
@@ -13020,7 +12904,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A concave lens diverges light.', 'The emergent ray should spread away from the axis.'],
     sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-005-question.png'],
   },
 {
     id: 'lens-006',
@@ -13035,7 +12918,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Use the lens formula qualitatively.', 'Any change that brings the image onto the screen is acceptable.'],
     sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-006-question.png'],
   },
 {
     id: 'lens-007',
@@ -13096,7 +12978,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Think of a beam expander: first diverge, then recollimate.', 'Concave lens diverges, convex lens converges.'],
     sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-010-question.png'],
   },
 {
     id: 'lens-011',
@@ -13111,7 +12992,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A ray through the optical centre goes straight.', 'A magnified image here requires a convex lens.'],
     sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-011-question.png'],
   },
 {
     id: 'lens-012',
@@ -13126,7 +13006,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Use the undeviated central ray to locate the lens.', 'An inverted image from a single lens implies a convex lens.'],
     sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-012-question.png'],
   },
 {
     id: 'lens-013',
@@ -13141,7 +13020,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Check the standard principal-ray rules for a convex lens.', 'A parallel ray does not go through 2F.'],
     sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-013-question.png'],
   },
 {
     id: 'lens-014',
@@ -13180,7 +13058,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A concave lens never inverts the image.', 'It always produces a diminished virtual image.'],
     sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-015-question.png'],
   },
 {
     id: 'lens-016',
@@ -13200,7 +13077,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Use the standard image-location rule for an object beyond 2F.', 'The image lies on the opposite side between F and 2F.'],
     sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-016-question.png'],
   },
 {
     id: 'lens-017',
@@ -13215,7 +13091,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Use the three standard principal-ray rules.', 'A convex lens is converging, not diverging.'],
     sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-017-question.png'],
   },
 {
     id: 'lens-018',
@@ -13230,7 +13105,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A real image from a convex lens is inverted.', 'Compare how moving a point closer to the lens affects its image position.'],
     sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-018-question.png'],
   },
 {
     id: 'lens-019',
@@ -13245,7 +13119,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A concave lens makes rays diverge as if they come from the focus.', 'Trace the refracted ray backward.'],
     sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-019-question.png'],
   },
 {
     id: 'lens-020',
@@ -13265,7 +13138,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Look at whether the beam spreads out or comes together.', 'Concave diverges, convex converges.'],
     sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-020-question.png'],
   },
 {
     id: 'lens-021',
@@ -13285,7 +13157,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Reverse the ray direction mentally if needed.', 'A diverging output implies a concave lens.'],
     sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-021-question.png'],
   },
 {
     id: 'lens-022',
@@ -13300,7 +13171,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['All image rays from one object point must be consistent with a single image point.', 'Check where the rays intersect when extended.'],
     sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-022-question.png'],
   },
 {
     id: 'lens-023',
@@ -13320,7 +13190,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Object between F and 2F gives an image beyond 2F.', 'A screen image must be real and therefore inverted.'],
     sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-023-question.png'],
   },
 {
     id: 'lens-024',
@@ -13340,7 +13209,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A concave lens never forms a real image of a real object.', 'The image is always diminished and on the object side.'],
     sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-024-question.png'],
   },
 {
     id: 'lens-025',
@@ -13386,12 +13254,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Recall that a concave lens is a diverging lens.', 'Parallel rays through a concave lens appear to come from the focus.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-027-question.png']
-  },
-{
-    id: 'lens-028',
-    question: 'In the figure, F is the focus of the converging lens. Which of the refracted rays is incorrectly drawn?',
-    options: ['P', 'Q', 'S', 'T'],
     answer: 'S',
     explanation: 'Ray S comes from the lower part of the object, so after refraction it should go toward the lower part of the image. The path labeled S is therefore incorrect.',
     difficulty: 2,
@@ -13399,12 +13261,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Trace where rays from the top and bottom of the object should go.', 'A convex lens forms a real inverted image when appropriate.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-028-question.png']
-  },
-{
-    id: 'lens-029',
-    question: 'In the diagram, the image I of an object O is produced by a lens. What is the nature and position of this lens?',
-    options: ['concave lens placed at A', 'concave lens placed at B', 'convex lens placed at C', 'convex lens placed at D'],
     answer: 'convex lens placed at D',
     explanation: 'A magnified image indicates a convex lens. Joining the top of the object to the top of the image, the line meets the principal axis at D, which gives the lens position.',
     difficulty: 2,
@@ -13412,12 +13268,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Use the straight line through the optical centre.', 'A magnified image is not formed by a concave lens.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-029-question.png']
-  },
-{
-    id: 'lens-030',
-    question: 'A lens is used to look at some print on a paper. The image of the word "PHYSICS" is shown above. Which of the following statements is/are true? (1) The lens is a converging lens. (2) The image lies between the paper and the lens. (3) The image is real.',
-    options: ['(2) only', '(1) & (2) only', '(1) & (3) only', '(1), (2) & (3)'],
     answer: '(2) only',
     explanation: 'The image is erect and diminished, which indicates a concave lens. A concave lens forms a virtual image that lies between the object and the lens. So only statement (2) is true.',
     difficulty: 2,
@@ -13425,12 +13275,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['An erect image formed by a lens is virtual.', 'A concave lens always forms a diminished virtual image.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-030-question.png']
-  },
-{
-    id: 'lens-031',
-    question: 'Which of the following statements concerning real images formed by a lens is/are correct? (1) Real images are always diminished. (2) Real images can be photographed with a camera. (3) Without a screen, real images cannot be seen by the eye.',
-    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(2) only',
     explanation: 'Real images may be magnified or diminished, so (1) is false. Real images can be photographed by a camera, so (2) is true. A real image can still be seen directly by the eye if the eye intercepts the rays, so (3) is false.',
     difficulty: 2,
@@ -13462,12 +13306,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Check whether the ray is parallel to the axis or passes through a focus before applying special rules.', 'A convex lens is converging.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-033-question.png']
-  },
-{
-    id: 'lens-034',
-    question: 'When an object O is placed in front of a convex lens and a plane mirror as shown, an image I is formed at the same position as the object. Which of the following statements is/are correct? (1) The image I is real. (2) The focal length of the lens is 10 cm. (3) If the distance between the lens and the plane mirror is changed to 2 cm, the position of image I would remain unchanged.',
-    options: ['(1) only', '(3) only', '(1) & (2) only', '(1), (2) & (3)'],
     answer: '(1), (2) & (3)',
     explanation: 'Because the rays actually pass through the returned image, the image is real. The lens sends parallel rays to the mirror, so the object is at the focal point and the focal length is 10 cm. Changing the lens-mirror separation does not matter because the rays between lens and mirror remain parallel, so the image position stays unchanged.',
     difficulty: 2,
@@ -13475,12 +13313,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['A point object at the focus of a convex lens gives a parallel beam.', 'A plane mirror reflects a parallel beam back along itself.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-034-question.png']
-  },
-{
-    id: 'lens-035',
-    question: "In the diagram, A'B' is the image of an object AB formed by an optical device PQ. What is PQ?",
-    options: ['a plane mirror', 'a glass block', 'a concave lens', 'a convex lens'],
     answer: 'a concave lens',
     explanation: 'The image is virtual, erect and diminished. That is the standard image formed by a concave lens.',
     difficulty: 1,
@@ -13488,17 +13320,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['A concave lens always forms a virtual erect diminished image.', 'A convex lens does not always do so.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-035-question.png']
-  },
-{
-    id: 'lens-036',
-    question: "If F and F' are the foci of the concave lens, which of the following ray diagrams is incorrect?",
-    options: [
-      '/physics/exercises/lens/lens-036-option-a.png',
-      '/physics/exercises/lens/lens-036-option-b.png',
-      '/physics/exercises/lens/lens-036-option-c.png',
-      '/physics/exercises/lens/lens-036-option-d.png'
-    ],
     answer: '/physics/exercises/lens/lens-036-option-a.png',
     explanation: 'For a concave lens, a ray parallel to the principal axis must diverge as if it comes from the focus. Option A violates this rule. The others follow standard concave-lens ray tracing rules.',
     difficulty: 2,
@@ -13518,12 +13339,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Only a converging lens forms a real image on a screen in this setup.', 'Use m = v/u.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-037-question.png']
-  },
-{
-    id: 'lens-038',
-    question: "An illuminated letter 'R' is placed in front of a lens as shown and an image is formed on a translucent screen. The object distance is 30 cm and the image distance is 20 cm. If a piece of paper is used to cover one-half of the lens, which of the following describes the change in the image as seen by the observer?",
-    options: ['The whole image can still be seen but the image becomes dimmer.', 'The whole image can still be seen and its brightness remains unchanged.', 'Only half of the image can be seen and the image becomes dimmer.', 'Only half of the image can be seen but its brightness remains unchanged.'],
     answer: 'The whole image can still be seen but the image becomes dimmer.',
     explanation: 'Each part of the lens forms the whole image. Covering half the lens reduces the amount of light reaching the screen, so the image remains complete but becomes dimmer.',
     difficulty: 1,
@@ -13531,12 +13346,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['A lens does not map one half of itself to one half of the image.', 'Blocking light reduces brightness, not image completeness.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-038-question.png']
-  },
-{
-    id: 'lens-039',
-    question: "In the figure, F and F' are the foci of the lens and AB is an incident ray. Which of the following paths best represents the emergent ray?",
-    options: ['P', 'Q', 'R', 'S'],
     answer: 'S',
     explanation: 'This is a concave lens, so the emergent ray must bend away from the principal axis. Among the four paths, only S bends away from the principal axis.',
     difficulty: 1,
@@ -13544,12 +13353,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['A concave lens is diverging.', 'Check which ray moves farther away from the axis after refraction.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-039-question.png']
-  },
-{
-    id: 'lens-040',
-    question: 'Which of the following ray diagrams concerning the refraction of light ray by a converging lens is/are incorrect? F denotes the focus of the lens. (1) (2) (3)',
-    options: ['(2) only', '(3) only', '(1) & (2) only', '(1) & (3) only'],
     answer: '(2) only',
     explanation: 'For a converging lens, parallel rays should converge after refraction. Diagrams (1) and (3) follow converging-lens behavior, but diagram (2) incorrectly shows divergence after the lens.',
     difficulty: 2,
@@ -13557,12 +13360,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['A converging lens bends light toward the principal axis.', 'Parallel rays should meet on the focal plane.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-040-question.png']
-  },
-{
-    id: 'lens-041',
-    question: 'The photograph shows a student using a convex lens of focal length 20 cm to view a distant object. Which of the following statements about the image formed is/are correct? (1) The image will be erect. (2) The image will be diminished. (3) The student must use a screen in order to see the image.',
-    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(2) only',
     explanation: 'For a distant object, a convex lens forms a real inverted image at the focus. Since the image distance is much smaller than the object distance, the image is diminished. The eye can still see a real image directly without requiring a screen.',
     difficulty: 2,
@@ -13570,12 +13367,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['A distant object forms its image near the focus of a convex lens.', 'Real images are not necessarily visible only on a screen.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-041-question.png']
-  },
-{
-    id: 'lens-042',
-    question: 'The photograph shows a watch with a lens positioned over the date-display. Which of the following statements are correct? (1) The lens is a convex lens. (2) The image of the date-display formed by the lens is virtual. (3) The date-display and its image lie on the same side of the lens.',
-    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
     answer: '(1), (2) & (3)',
     explanation: 'A magnified image is produced here, so the lens is convex. Because the image is upright, it is virtual. A virtual image formed by a magnifier lies on the same side of the lens as the object.',
     difficulty: 1,
@@ -13583,17 +13374,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['A magnifying glass is a convex lens.', 'An erect magnified lens image is virtual.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-042-question.png']
-  },
-{
-    id: 'lens-043',
-    question: "An object O is placed in front of a concave lens. F and F' are the foci of the lens. Which of the following diagrams shows the refracted rays of the three incident rays and the image I formed?",
-    options: [
-      '/physics/exercises/lens/lens-043-option-a.png',
-      '/physics/exercises/lens/lens-043-option-b.png',
-      '/physics/exercises/lens/lens-043-option-c.png',
-      '/physics/exercises/lens/lens-043-option-d.png'
-    ],
     answer: '/physics/exercises/lens/lens-043-option-b.png',
     explanation: 'For a concave lens, a ray parallel to the principal axis appears to diverge from the focus, a ray through the optical centre continues straight, and the virtual image is upright and diminished on the object side. Only option B satisfies all three.',
     difficulty: 2,
@@ -13601,12 +13381,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Use the three standard rays for a concave lens.', 'The image must be virtual, upright and diminished.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-043-question.png']
-  },
-{
-    id: 'lens-044',
-    question: 'An object is placed in front of a concave lens. Which of the following statements about the properties of the image formed in the lens must be correct? (1) The image is diminished. (2) The image is virtual. (3) The image distance is smaller than the focal length of the lens.',
-    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
     answer: '(1), (2) & (3)',
     explanation: 'A concave lens always produces a virtual, erect and diminished image. The image lies between the lens and the focus, so its image distance is smaller than the focal length in magnitude.',
     difficulty: 1,
@@ -13631,12 +13405,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['A magnifying glass uses a convex lens.', 'The image must be virtual, upright and enlarged.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-045-question.png']
-  },
-{
-    id: 'lens-046',
-    question: 'An object is placed near a lens and an image is formed as shown. Which of the following statements are correct? (1) The height of the image is half that of the object. (2) The lens is a concave lens. (3) The focal length of the lens is 20 cm.',
-    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
     answer: '(1), (2) & (3)',
     explanation: 'The image is diminished and virtual, so the lens must be concave. The image height being half the object height gives magnification 0.5. Drawing a ray parallel to the principal axis and extending the refracted ray backward gives a focal length of 20 cm.',
     difficulty: 2,
@@ -13644,12 +13412,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['A concave lens gives a virtual diminished image for a real object.', 'Use the ray parallel to the principal axis to locate the focus.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-046-question.png']
-  },
-{
-    id: 'lens-047',
-    question: 'An illuminated object is placed 20 cm in front of a convex lens and a sharp image is formed on a screen 16 cm from the lens. The focal length of the convex lens is',
-    options: ['less than 8 cm', 'between 8 cm and 10 cm', 'between 10 cm and 16 cm', 'between 16 cm and 20 cm'],
     answer: 'between 8 cm and 10 cm',
     explanation: 'Using the lens formula 1/f = 1/u + 1/v with u = 20 cm and v = 16 cm gives f = uv/(u+v) = 320/36, approximately 8.9 cm. So the focal length lies between 8 cm and 10 cm.',
     difficulty: 2,
@@ -13657,12 +13419,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Use 1/f = 1/u + 1/v for a real image by a convex lens.', 'Then compare the result with the intervals.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-047-question.png']
-  },
-{
-    id: 'lens-048',
-    question: 'Which of the following examples illustrate(s) a real image? (1) a fish in a pond being observed from above the water (2) a fingerprint left at a crime scene being observed through a magnifying glass (3) a motion picture on the screen being watched in a cinema',
-    options: ['(1) only', '(2) only', '(3) only', '(1), (2) & (3)'],
     answer: '(3) only',
     explanation: 'A fish seen in water appears at a virtual apparent depth. A magnifying glass forms a virtual enlarged image. A motion picture formed on a cinema screen is a real image because light actually falls on the screen.',
     difficulty: 1,
@@ -13682,12 +13438,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['A convex lens is a converging lens.', 'The ray should move closer to the principal axis after refraction.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-049-question.png']
-  },
-{
-    id: 'lens-050',
-    question: 'The figure shows a web cam. A web cam typically includes a lens and an image sensor. The function of the image sensor is similar to that of a film in a conventional camera. The image is formed on the sensor and is then digitised. Which of the following statements is/are correct? (1) The lens is a convex lens. (2) The lens is a concave lens. (3) Image formed on the image sensor is real.',
-    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(1) & (3) only',
     explanation: 'A camera or web cam must form a real image on the sensor, and a real image for a real object is formed by a convex lens, not a concave lens. Therefore statements (1) and (3) are correct.',
     difficulty: 1,
@@ -13695,12 +13445,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['The image sensor plays the role of film.', 'A concave lens does not form a real image of a real object by itself.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-050-question.png']
-  },
-{
-    id: 'lens-051',
-    question: 'A light bulb O is placed in front of a lens L as shown. A sharp and diminished image is formed on the screen S. With the position of L fixed, which of the following methods can form a sharp and magnified image on the screen?',
-    options: ['Move O and S towards L.', 'Move O and S away from L.', 'Move O towards L and move S away from L.', 'Move O away from L and move S towards L.'],
     answer: 'Move O towards L and move S away from L.',
     explanation: 'To obtain a magnified real image, the image distance must be greater than the object distance. So the object must move closer to the lens while the screen moves farther from the lens.',
     difficulty: 2,
@@ -13708,12 +13452,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['For a larger real image, v > u.', 'That means decrease object distance and increase image distance.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-051-question.png']
-  },
-{
-    id: 'lens-052',
-    question: 'Which of the following ray diagrams concerning the refraction of two light rays by a converging lens is/are possible? (1) (2) (3)',
-    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(3) only',
     explanation: 'For a converging lens, refracted rays should bend toward the principal axis appropriately. In the given set, only diagram (3) shows both rays behaving correctly under refraction by a converging lens.',
     difficulty: 2,
@@ -13721,12 +13459,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['A converging lens bends rays toward the principal axis.', 'Check both rays in each diagram, not just one.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-052-question.png']
-  },
-{
-    id: 'lens-053',
-    question: 'A student puts a lens at a certain distance above a paper with the word "TEST" written on it as shown. What is the lens? If the student moves the lens further away from the paper, what will be the change in the size of the image?',
-    options: ['convex; increases', 'convex; decreases', 'concave; increases', 'concave; decreases'],
     answer: 'concave; decreases',
     explanation: 'The image is erect and diminished, so the lens must be concave. As the lens moves farther from the object, the virtual image moves closer to the focal region and becomes smaller.',
     difficulty: 2,
@@ -13734,12 +13466,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['A concave lens gives an erect diminished virtual image.', 'Increasing object distance reduces magnification for a concave lens.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-053-question.png']
-  },
-{
-    id: 'lens-054',
-    question: 'In the figure, X is a light bulb and L is a convex lens. Which of the following ways can be used to produce a parallel beam of light rays? (1) Moving L closer to X. (2) Replacing L with another convex lens of longer focal length. (3) Replacing L with another concave lens of shorter focal length.',
-    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
     answer: '(1) & (2) only',
     explanation: 'A convex lens produces a parallel beam when the source is at its focus. Moving the lens closer can place the bulb at the focus, and using a longer focal length convex lens can also do that. A concave lens cannot produce a parallel beam from a nearby real source in this setup.',
     difficulty: 2,
@@ -13747,12 +13473,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['A point source at the focal point of a convex lens gives parallel rays.', 'A concave lens is diverging.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-054-question.png']
-  },
-{
-    id: 'lens-055',
-    question: 'Two parallel rays X and Y meet at P after passing through lens L as shown. Another ray Z parallel to the principal axis is directed to lens L. Which point in the figure will ray Z pass through?',
-    options: ['P', 'Q', 'R', 'S'],
     answer: 'R',
     explanation: 'If two parallel rays meet at P after refraction, then P lies on the focal plane. The principal focus is the point on that focal plane located on the principal axis, which is R. So a ray parallel to the principal axis must pass through R.',
     difficulty: 2,
@@ -13760,12 +13480,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['The principal focus lies on the principal axis.', 'Parallel to the principal axis means the refracted ray goes through the principal focus.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-055-question.png']
-  },
-{
-    id: 'lens-056',
-    question: 'An object is placed in front of a concave lens. Which of the following descriptions about the image formed by the lens is incorrect?',
-    options: ['It is always virtual.', 'It is always diminished.', 'It is always between the object and the lens.', 'It will be formed at infinity if the object is placed at the focus of the lens.'],
     answer: 'It will be formed at infinity if the object is placed at the focus of the lens.',
     explanation: 'A concave lens always forms a virtual, upright, diminished image between the lens and its focus. Even if the object is at the focal position, the image is still finite and remains between the lens and the focus, not at infinity.',
     difficulty: 1,
@@ -13785,12 +13499,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Only a convex lens can produce a magnified image of this type.', 'A virtual image lies on the same side as the object.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-057-question.png']
-  },
-{
-    id: 'lens-058',
-    question: 'An object is placed in front of a converging lens of focal length 30 cm. For which of the following object distances would the image be real and magnified?',
-    options: ['10 cm', '20 cm', '40 cm', '80 cm'],
     answer: '40 cm',
     explanation: 'A converging lens forms a real magnified image when the object lies between f and 2f. Here f = 30 cm and 2f = 60 cm, so 40 cm satisfies the condition.',
     difficulty: 1,
@@ -13815,12 +13523,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['At object distance 2f, image distance is also 2f.', 'A real image by a convex lens is inverted.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-059-question.png']
-  },
-{
-    id: 'lens-060',
-    question: 'Two parallel light rays P and Q are incident onto a convex lens. After refraction, the two light rays meet at point c. The ray XY parallel to the principal axis after passing through the lens will pass through the point',
-    options: ['a', 'b', 'c', 'd'],
     answer: 'b',
     explanation: 'The two parallel rays meet on the focal plane, so the vertical line through b and c is the focal plane. The point on the principal axis in that plane is the principal focus, which is b. Therefore a ray parallel to the principal axis must pass through b.',
     difficulty: 2,
@@ -13828,12 +13530,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['The principal focus lies on the principal axis.', 'Any ray parallel to the principal axis goes through the principal focus after a convex lens.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-060-question.png']
-  },
-{
-    id: 'lens-061',
-    question: 'An object is placed at the focus of a diverging lens of focal length 10 cm. What is the magnification of the image formed?',
-    options: ['0.5', '1.0', '2.0', 'infinite'],
     answer: '0.5',
     explanation: 'For a diverging lens, f = -10 cm and u = 10 cm. Using 1/f = 1/u + 1/v gives v = -5 cm. Hence the magnification magnitude is |v/u| = 5/10 = 0.5.',
     difficulty: 2,
@@ -13853,12 +13549,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Rearrange the lens formula into a linear form.', 'Also note that m = 1 occurs at 2f.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-062-question.png', '/physics/exercises/lens/lens-062-question-2.png']
-  },
-{
-    id: 'lens-063',
-    question: 'An object is placed at 15 cm from a lens. A virtual image magnified 2 times is produced. The lens is a',
-    options: ['concave lens of focal length 10 cm', 'convex lens of focal length 10 cm', 'concave lens of focal length 30 cm', 'convex lens of focal length 30 cm'],
     answer: 'convex lens of focal length 30 cm',
     explanation: 'With magnification 2 and object distance 15 cm, the image distance magnitude is 30 cm. Because the image is virtual, v = -30 cm. Then 1/f = 1/15 + 1/(-30) = 1/30, so f = +30 cm. A positive focal length means a convex lens.',
     difficulty: 2,
@@ -13943,17 +13633,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['A magnifying glass produces a virtual image.', 'The image must be upright and magnified.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-069-question.png']
-  },
-{
-    id: 'lens-070',
-    question: 'A student uses the set-up in Figure (a) to study the relationship between the object distance u and the image distance v of a convex lens. A graph of 1/v against 1/u is plotted in Figure (b). If the lens is replaced by another convex lens of shorter focal length, which of the following graphs (in dotted lines) would be obtained?',
-    options: [
-      '/physics/exercises/lens/lens-070-option-a.png',
-      '/physics/exercises/lens/lens-070-option-b.png',
-      '/physics/exercises/lens/lens-070-option-c.png',
-      '/physics/exercises/lens/lens-070-option-d.png'
-    ],
     answer: '/physics/exercises/lens/lens-070-option-d.png',
     explanation: 'From 1/f = 1/u + 1/v, we get 1/v = -1/u + 1/f. The slope stays at -1. A shorter focal length means larger 1/f, so the y-intercept increases. That corresponds to option D.',
     difficulty: 2,
@@ -13961,12 +13640,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Rewrite the lens formula into straight-line form.', 'Only the intercept changes when the focal length changes.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-070-question.png']
-  },
-{
-    id: 'lens-071',
-    question: "In each of the following diagrams, L is a concave lens and its two principal foci are denoted by F and F'. Which of the ray diagrams is/are possible? (1) (2) (3)",
-    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(1) only',
     explanation: 'A concave lens is diverging. In diagram (1), the ray bends away from the principal axis correctly. In diagram (2), a ray aimed at the far focus should emerge parallel, which is not shown correctly. In diagram (3), a ray whose backward extension passes through the near focus would require a parallel incident ray, which is inconsistent. So only (1) is possible.',
     difficulty: 2,
@@ -13974,12 +13647,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Check the standard rays for a concave lens.', 'A ray directed toward the far focus emerges parallel.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-071-question.png']
-  },
-{
-    id: 'lens-072',
-    question: 'A point light source at X on the principal axis of a thin convex lens emits a ray of light. The ray passes through the lens and reaches the principal axis at point Y as shown. O is the optical centre of the lens such that OX = 20 cm and OY > OX. Which of the following statements is/are correct? (1) The focal length of the lens is shorter than 20 cm. (2) If the point light source is shifted away from the lens, separation OY would increase. (3) An object placed at Y would give a diminished image at X.',
-    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(1) & (3) only',
     explanation: 'Since X forms a real image at Y, the object at X must be beyond the focal point, so the focal length is less than 20 cm. If the object moves farther away, the image distance decreases toward the focus, so OY would decrease, not increase. Reversing the object and image positions, an object at Y forms an image at X, and because OX < OY, the image at X is diminished.',
     difficulty: 2,
@@ -13987,17 +13654,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['For a real image by a convex lens, the object must be outside the focal length.', 'Light paths through a thin lens are reversible.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-072-question.png']
-  },
-{
-    id: 'lens-073',
-    question: "An object O placed in front of a concave lens forms an image I as shown. F and F' are the foci of the lens. Which ray diagram is correct?",
-    options: [
-      '/physics/exercises/lens/lens-073-option-a.png',
-      '/physics/exercises/lens/lens-073-option-b.png',
-      '/physics/exercises/lens/lens-073-option-c.png',
-      '/physics/exercises/lens/lens-073-option-d.png'
-    ],
     answer: '/physics/exercises/lens/lens-073-option-b.png',
     explanation: 'For a concave lens, the refracted ray from the bottom of the object must appear to diverge from the bottom of the virtual image. Only option B matches the correct geometry.',
     difficulty: 2,
@@ -14005,17 +13661,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['A concave lens gives an upright virtual image.', 'The ray should appear to come from the corresponding point on the image.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-073-question.png']
-  },
-{
-    id: 'lens-074',
-    question: 'A student uses a convex lens to investigate the variation of image distance v with object distance u for real image. The graph of 1/v plotted against 1/u is shown. If a convex lens of longer focal length is used, what would be the expected result (in dotted lines)?',
-    options: [
-      '/physics/exercises/lens/lens-074-option-a.png',
-      '/physics/exercises/lens/lens-074-option-b.png',
-      '/physics/exercises/lens/lens-074-option-c.png',
-      '/physics/exercises/lens/lens-074-option-d.png'
-    ],
     answer: '/physics/exercises/lens/lens-074-option-d.png',
     explanation: 'From 1/v = -1/u + 1/f, the slope remains -1. A longer focal length means smaller 1/f, so the y-intercept decreases. That matches option D.',
     difficulty: 2,
@@ -14023,12 +13668,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Use the straight-line form of the lens equation.', 'Longer focal length lowers the intercept.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-074-question.png']
-  },
-{
-    id: 'lens-075',
-    question: 'An object is moving at constant speed towards a convex lens of focal length 10 cm. At the moment when it is at 100 cm from the lens, which of the following descriptions of the image is correct?',
-    options: ['away from the lens; faster than that of the object', 'towards the lens; faster than that of the object', 'away from the lens; slower than that of the object', 'towards the lens; slower than that of the object'],
     answer: 'away from the lens; slower than that of the object',
     explanation: 'At 100 cm, the object is well beyond 2f, so the image is real, diminished and on the far side of the lens. As the object moves toward the lens, the image also moves away from the lens. Since the image is diminished at that instant, its speed is smaller than that of the object.',
     difficulty: 2,
@@ -14192,12 +13831,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Infra-red lies just beyond visible red.', 'Electromagnetic waves are not deflected by electric or magnetic fields.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/wave-nature-of-light/wol-011-question.png']
-  },
-{
-    id: 'wol-012',
-    question: 'If the speed of radio waves in air is v1 and the speed of light in air is v2, which of the following is correct?',
-    options: ['v2 > 2v1', '2v1 > v2 > v1', 'v1 = v2', '2v2 > v1 > v2'],
     answer: 'v1 = v2',
     explanation: 'Both radio waves and visible light are electromagnetic waves, so in air they travel at essentially the same speed.',
     difficulty: 1,
@@ -14265,12 +13898,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['All electromagnetic waves have the same speed in vacuum.', 'Electromagnetic waves are not charged particles.'],
     type: 'multiple_choice',
     points: 15,
-    imagePaths: ['/physics/exercises/wave-nature-of-light/wol-017-question.png']
-  },
-{
-    id: 'wol-018',
-    question: 'What happens to the wavelength and frequency of a ray of light if it passes from water to air?',
-    options: ['wavelength increases; frequency decreases', 'wavelength decreases; frequency remains unchanged', 'wavelength remains unchanged; frequency increases', 'wavelength increases; frequency remains unchanged'],
     answer: 'wavelength increases; frequency remains unchanged',
     explanation: 'Light travels faster in air than in water. The frequency remains unchanged at the boundary. Since v = f lambda and f is constant while v increases, the wavelength increases.',
     difficulty: 1,
