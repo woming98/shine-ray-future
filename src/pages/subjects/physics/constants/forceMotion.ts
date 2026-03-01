@@ -1,9 +1,226 @@
 ﻿import { Chapter, Formula, Exercise, Concept, Simulation } from '../types';
 
-// Temporary placeholders to keep the file buildable. The exercises catalog below remains intact.
-export const FORCE_MOTION_FORMULAS: Formula[] = [];
-export const FORCE_MOTION_CONCEPTS: Concept[] = [];
-export const FORCE_MOTION_SIMULATIONS: Simulation[] = [];
+export const FORCE_MOTION_FORMULAS: Formula[] = [
+  {
+    id: 'fm-1',
+    name: 'Displacement from Rest',
+    nameCN: '由静止开始的位移',
+    expression: 's = 1/2 at^2',
+    variables: [
+      { symbol: 's', name: 'displacement', unit: 'm', description: 'displacement travelled' },
+      { symbol: 'a', name: 'acceleration', unit: 'm/s^2', description: 'constant acceleration' },
+      { symbol: 't', name: 'time', unit: 's', description: 'time taken' }
+    ],
+    description: 'Use this when an object starts from rest and moves with constant acceleration.',
+    example: 'A stone dropped from rest with g = 9.81 m/s^2 falls s = 1/2 x 9.81 x 2^2 = 19.6 m in 2 s.'
+  },
+  {
+    id: 'fm-2',
+    name: 'General Displacement Formula',
+    nameCN: '位移公式',
+    expression: 's = ut + 1/2 at^2',
+    variables: [
+      { symbol: 's', name: 'displacement', unit: 'm', description: 'displacement travelled' },
+      { symbol: 'u', name: 'initial velocity', unit: 'm/s', description: 'velocity at the start' },
+      { symbol: 'a', name: 'acceleration', unit: 'm/s^2', description: 'constant acceleration' },
+      { symbol: 't', name: 'time', unit: 's', description: 'time taken' }
+    ],
+    description: 'This is the standard displacement equation for motion with constant acceleration.',
+    example: 'If u = 5 m/s, a = 2 m/s^2 and t = 4 s, then s = 5 x 4 + 1/2 x 2 x 4^2 = 36 m.'
+  },
+  {
+    id: 'fm-3',
+    name: 'Velocity-Time Relation',
+    nameCN: '速度时间关系',
+    expression: 'v = u + at',
+    variables: [
+      { symbol: 'v', name: 'final velocity', unit: 'm/s', description: 'velocity after time t' },
+      { symbol: 'u', name: 'initial velocity', unit: 'm/s', description: 'velocity at the start' },
+      { symbol: 'a', name: 'acceleration', unit: 'm/s^2', description: 'constant acceleration' },
+      { symbol: 't', name: 'time', unit: 's', description: 'time interval' }
+    ],
+    description: 'Use this to connect the initial velocity, final velocity and the time interval.',
+    example: 'A body starting at 3 m/s and accelerating at 4 m/s^2 for 2 s reaches v = 11 m/s.'
+  },
+  {
+    id: 'fm-4',
+    name: 'Velocity-Displacement Relation',
+    nameCN: '速度位移关系',
+    expression: 'v^2 = u^2 + 2as',
+    variables: [
+      { symbol: 'v', name: 'final velocity', unit: 'm/s', description: 'velocity after displacement s' },
+      { symbol: 'u', name: 'initial velocity', unit: 'm/s', description: 'velocity at the start' },
+      { symbol: 'a', name: 'acceleration', unit: 'm/s^2', description: 'constant acceleration' },
+      { symbol: 's', name: 'displacement', unit: 'm', description: 'displacement travelled' }
+    ],
+    description: 'This relation is useful when time is not given in the question.',
+    example: 'For u = 0, a = 10 m/s^2 and s = 20 m, v^2 = 400 so v = 20 m/s.'
+  },
+  {
+    id: 'fm-5',
+    name: 'Average Velocity',
+    nameCN: '平均速度',
+    expression: 'v_avg = displacement / time',
+    variables: [
+      { symbol: 'v_avg', name: 'average velocity', unit: 'm/s', description: 'displacement per unit time' },
+      { symbol: 'displacement', name: 'displacement', unit: 'm', description: 'net change in position' },
+      { symbol: 'time', name: 'time', unit: 's', description: 'total time interval' }
+    ],
+    description: 'Average velocity uses displacement, not the total distance travelled.',
+    example: 'If a runner ends 120 m east of the start after 15 s, the average velocity is 8 m/s east.'
+  },
+  {
+    id: 'fm-6',
+    name: 'Acceleration from a v-t Graph',
+    nameCN: '速度时间图求加速度',
+    expression: 'a = delta v / delta t',
+    variables: [
+      { symbol: 'a', name: 'acceleration', unit: 'm/s^2', description: 'gradient of the graph' },
+      { symbol: 'delta v', name: 'change in velocity', unit: 'm/s', description: 'vertical difference' },
+      { symbol: 'delta t', name: 'change in time', unit: 's', description: 'horizontal difference' }
+    ],
+    description: 'On a velocity-time graph, the gradient gives the acceleration.',
+    example: 'If velocity rises from 2 m/s to 8 m/s in 3 s, then a = (8 - 2) / 3 = 2 m/s^2.'
+  },
+  {
+    id: 'fm-7',
+    name: 'Distance in the nth Second',
+    nameCN: '第 n 秒位移',
+    expression: 'd_n = u + 1/2 a(2n - 1)',
+    variables: [
+      { symbol: 'd_n', name: 'distance in nth second', unit: 'm', description: 'distance covered in second n' },
+      { symbol: 'u', name: 'initial velocity', unit: 'm/s', description: 'velocity at the start' },
+      { symbol: 'a', name: 'acceleration', unit: 'm/s^2', description: 'constant acceleration' },
+      { symbol: 'n', name: 'second number', unit: '', description: 'the second being considered' }
+    ],
+    description: 'This gives the distance covered during the nth one-second interval in uniformly accelerated motion.',
+    example: 'For u = 0, a = 2 m/s^2 and n = 3, d_3 = 5 m.'
+  },
+  {
+    id: 'fm-8',
+    name: 'Speed Unit Conversion',
+    nameCN: '速度单位换算',
+    expression: '1 km/h = 5/18 m/s',
+    variables: [
+      { symbol: 'km/h', name: 'kilometres per hour', unit: 'km/h', description: 'road-speed unit' },
+      { symbol: 'm/s', name: 'metres per second', unit: 'm/s', description: 'SI unit of speed' }
+    ],
+    description: 'Convert between km/h and m/s before substituting into equations.',
+    example: '72 km/h = 72 x 5/18 = 20 m/s.'
+  }
+];
+
+export const FORCE_MOTION_CONCEPTS: Concept[] = [
+  {
+    id: 'fmc-1',
+    title: 'Distance vs Displacement',
+    content: 'Distance is the total path length travelled. Displacement is the net change in position from start to finish and includes direction.',
+    keyPoints: [
+      'Distance is a scalar.',
+      'Displacement is a vector.',
+      'The magnitude of displacement is never greater than the distance travelled.'
+    ],
+    examples: [
+      'Walking 3 m east then 3 m west gives a distance of 6 m but a displacement of 0 m.'
+    ],
+    difficulty: 'basic'
+  },
+  {
+    id: 'fmc-2',
+    title: 'Speed vs Velocity',
+    content: 'Speed tells you how fast something moves. Velocity tells you both how fast it moves and in which direction.',
+    keyPoints: [
+      'Speed is scalar and has no direction.',
+      'Velocity is vector and includes direction.',
+      'A body can move with constant speed but changing velocity if its direction changes.'
+    ],
+    examples: [
+      'A car moving around a bend at constant speed has changing velocity.'
+    ],
+    difficulty: 'basic'
+  },
+  {
+    id: 'fmc-3',
+    title: 'Acceleration',
+    content: 'Acceleration is the rate of change of velocity. It can come from a change in speed, a change in direction, or both.',
+    keyPoints: [
+      'Positive and negative acceleration depend on the chosen sign convention.',
+      'Zero velocity does not always mean zero acceleration.',
+      'Uniform acceleration means acceleration stays constant.'
+    ],
+    examples: [
+      'At the top of a vertical throw, velocity is zero but acceleration is still g downward.'
+    ],
+    difficulty: 'basic'
+  },
+  {
+    id: 'fmc-4',
+    title: 'Free Fall',
+    content: 'In free fall, gravity is the only significant force. Near the Earth, the acceleration is approximately 9.81 m/s^2 downward.',
+    keyPoints: [
+      'Objects in free fall share the same gravitational acceleration if air resistance is negligible.',
+      'A dropped object starts with u = 0.',
+      'An upward-thrown object still has downward acceleration throughout the motion.'
+    ],
+    examples: [
+      'A stone dropped from rest speeds up by about 9.81 m/s every second.'
+    ],
+    difficulty: 'basic'
+  },
+  {
+    id: 'fmc-5',
+    title: 'Motion Graphs',
+    content: 'Displacement-time, velocity-time and acceleration-time graphs each show different information about motion.',
+    keyPoints: [
+      'Gradient of an s-t graph gives velocity.',
+      'Gradient of a v-t graph gives acceleration.',
+      'Area under a v-t graph gives displacement.'
+    ],
+    examples: [
+      'A horizontal line on a v-t graph means constant velocity and zero acceleration.'
+    ],
+    difficulty: 'intermediate'
+  },
+  {
+    id: 'fmc-6',
+    title: 'Sign Conventions',
+    content: 'Choose one direction as positive before using equations. Keep that convention throughout the whole solution.',
+    keyPoints: [
+      'Downward is often taken as positive in free-fall problems.',
+      'If acceleration opposes motion, one of them must carry a negative sign.',
+      'A consistent sign choice prevents most algebra mistakes.'
+    ],
+    examples: [
+      'If upward is positive, gravitational acceleration is -9.81 m/s^2.'
+    ],
+    difficulty: 'intermediate'
+  }
+];
+
+export const FORCE_MOTION_SIMULATIONS: Simulation[] = [
+  {
+    id: 'fms-1',
+    title: 'Uniform Acceleration Calculator',
+    description: 'Explore how displacement and final velocity change when u, a and t are varied.',
+    type: 'calculator',
+    parameters: [
+      { name: 'Initial velocity', symbol: 'u', unit: 'm/s', min: -20, max: 40, default: 0, step: 1 },
+      { name: 'Acceleration', symbol: 'a', unit: 'm/s^2', min: -20, max: 20, default: 9.81, step: 0.1 },
+      { name: 'Time', symbol: 't', unit: 's', min: 0, max: 20, default: 2, step: 0.1 }
+    ]
+  },
+  {
+    id: 'fms-2',
+    title: 'Velocity-Time Graph Explorer',
+    description: 'Visualize how the gradient and area of a v-t graph relate to acceleration and displacement.',
+    type: 'interactive',
+    parameters: [
+      { name: 'Initial velocity', symbol: 'u', unit: 'm/s', min: -10, max: 30, default: 0, step: 1 },
+      { name: 'Acceleration', symbol: 'a', unit: 'm/s^2', min: -10, max: 10, default: 2, step: 0.1 },
+      { name: 'Duration', symbol: 't', unit: 's', min: 1, max: 15, default: 5, step: 0.5 }
+    ]
+  }
+];
 export const FORCE_MOTION_EXERCISES: Exercise[] = [
   {
     id: 'pm-001',
@@ -11901,7 +12118,7 @@ export const FORCE_MOTION_CHAPTERS: Chapter[] = [
   {
     id: 'fm-ch1',
     title: 'Position, Distance and Displacement',
-    titleCN: '浣嶇疆銆佽窛绂讳笌浣嶇Щ',
+    titleCN: '位置、距离与位移',
     concepts: FORCE_MOTION_CONCEPTS,
     formulas: FORCE_MOTION_FORMULAS,
     exercises: FORCE_MOTION_EXERCISES,
@@ -11909,6 +12126,7 @@ export const FORCE_MOTION_CHAPTERS: Chapter[] = [
     completed: false,
   },
 ];
+
 
 
 
