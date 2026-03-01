@@ -13667,7 +13667,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'An illuminated object is placed 20 cm in front of a convex lens and a sharp image is formed on a screen 16 cm from the lens. The focal length of the convex lens is',
     options: ['less than 8 cm', 'between 8 cm and 10 cm', 'between 10 cm and 16 cm', 'between 16 cm and 20 cm'],
     answer: 'between 8 cm and 10 cm',
-    explanation: 'Using the lens formula 1/f = 1/u + 1/v with u = 20 cm and v = 16 cm gives f = uv/(u+v) = 320/36 �� 8.9 cm. So the focal length lies between 8 cm and 10 cm.',
+    explanation: 'Using the lens formula 1/f = 1/u + 1/v with u = 20 cm and v = 16 cm gives f = uv/(u+v) = 320/36, approximately 8.9 cm. So the focal length lies between 8 cm and 10 cm.',
     difficulty: 2,
     sectionId: 'lens',
     hints: ['Use 1/f = 1/u + 1/v for a real image by a convex lens.', 'Then compare the result with the intervals.'],
@@ -14070,7 +14070,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'An object placed 25.0 cm in front of a lens forms a virtual image at a distance 11.1 cm from the lens. The lens is a',
     options: ['concave lens of focal length 7.7 cm', 'concave lens of focal length 20 cm', 'convex lens of focal length 7.7 cm', 'convex lens of focal length 20 cm'],
     answer: 'concave lens of focal length 20 cm',
-    explanation: 'For a virtual image, v = -11.1 cm. Using 1/f = 1/25 + 1/(-11.1) gives f �� -20 cm. A negative focal length means the lens is concave.',
+    explanation: 'For a virtual image, v = -11.1 cm. Using 1/f = 1/25 + 1/(-11.1) gives f approximately -20 cm. A negative focal length means the lens is concave.',
     difficulty: 2,
     sectionId: 'lens',
     hints: ['Use negative image distance for a virtual image.', 'The sign of the focal length tells you the lens type.'],
@@ -14338,7 +14338,6 @@ export const FORCE_MOTION_CHAPTERS: Chapter[] = [
     completed: false,
   },
 ];
-
 
 
 
