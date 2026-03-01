@@ -1,1582 +1,9 @@
-import { Chapter, Formula, Exercise, Concept, Simulation } from '../types';
+﻿import { Chapter, Formula, Exercise, Concept, Simulation } from '../types';
 
-// ============================================
-// Force and Motion 主题内容
-// Chapter 1: Position, Distance and Displacement
-// 基于 DSE 真题风格设计
-// ============================================
-
-// 物理公式 - 位置与运�?export const FORCE_MOTION_FORMULAS: Formula[] = [
-  {
-    id: 'fm-1',
-    name: 'Displacement (from rest, uniform acceleration)',
-    nameCN: '匀加速位移公式（由静止）',
-    expression: 's = ½at²',
-    variables: [
-      { symbol: 's', name: 'displacement', unit: 'm', description: '位移' },
-      { symbol: 'a', name: 'acceleration', unit: 'm/s²', description: '加速度' },
-      { symbol: 't', name: 'time', unit: 's', description: '时间' },
-    ],
-    description: '物体由静止开始做匀加速运动时，位移等于加速度乘以时间平方的一半。这是自由落体问题最常用的公式�?,
-    example: '物体从静止自由下落，g = 10 m/s²�?秒后位移 s = ½ × 10 × 2² = 20 m',
-  },
-  {
-    id: 'fm-2',
-    name: 'Displacement (general form)',
-    nameCN: '匀加速位移公式（通用�?,
-    expression: 's = ut + ½at²',
-    variables: [
-      { symbol: 's', name: 'displacement', unit: 'm', description: '位移' },
-      { symbol: 'u', name: 'initial velocity', unit: 'm/s', description: '初速度' },
-      { symbol: 'a', name: 'acceleration', unit: 'm/s²', description: '加速度' },
-      { symbol: 't', name: 'time', unit: 's', description: '时间' },
-    ],
-    description: '匀加速直线运动的位移公式。当初速度 u = 0 时，简化为 s = ½at²�?,
-    example: '初速度 5 m/s，加速度 2 m/s²�?秒内位移 s = 5×4 + ½×2×4² = 20 + 16 = 36 m',
-  },
-  {
-    id: 'fm-3',
-    name: 'Velocity-Time Relation',
-    nameCN: '速度-时间关系',
-    expression: 'v = u + at',
-    variables: [
-      { symbol: 'v', name: 'final velocity', unit: 'm/s', description: '末速度' },
-      { symbol: 'u', name: 'initial velocity', unit: 'm/s', description: '初速度' },
-      { symbol: 'a', name: 'acceleration', unit: 'm/s²', description: '加速度' },
-      { symbol: 't', name: 'time', unit: 's', description: '时间' },
-    ],
-    description: '匀加速运动中，末速度等于初速度加上加速度与时间的乘积�?,
-    example: '由静止开始，g = 8 m/s²�?秒后速度 v = 0 + 8 × 5 = 40 m/s',
-  },
-  {
-    id: 'fm-4',
-    name: 'Velocity-Displacement Relation',
-    nameCN: '速度-位移关系（不含时间）',
-    expression: 'v² = u² + 2as',
-    variables: [
-      { symbol: 'v', name: 'final velocity', unit: 'm/s', description: '末速度' },
-      { symbol: 'u', name: 'initial velocity', unit: 'm/s', description: '初速度' },
-      { symbol: 'a', name: 'acceleration', unit: 'm/s²', description: '加速度' },
-      { symbol: 's', name: 'displacement', unit: 'm', description: '位移' },
-    ],
-    description: '当题目不涉及时间时使用此公式，常用于求落地速度�?,
-    example: '由静止下�?20m，g = 10 m/s²，v² = 0 + 2×10×20 = 400，v = 20 m/s',
-  },
-  {
-    id: 'fm-5',
-    name: 'Segment Displacement',
-    nameCN: '分段位移计算',
-    expression: 'Δs = s(t�? - s(t�?',
-    variables: [
-      { symbol: 'Δs', name: 'segment displacement', unit: 'm', description: '某段时间内的位移' },
-      { symbol: 's(t�?', name: 'displacement at t�?, unit: 'm', description: 't₂时刻的总位�? },
-      { symbol: 's(t�?', name: 'displacement at t�?, unit: 'm', description: 't₁时刻的总位�? },
-    ],
-    description: '计算某一时间段内的位移，需要用"总时间的位移"减去"之前时间的位�?。这是DSE常见的易错点�?,
-    example: '"再过4�?的位�?= s(5) - s(1) = ½g×5² - ½g×1² = 100 - 4 = 96 m（当 g = 8 m/s²�?,
-  },
-  {
-    id: 'fm-6',
-    name: 'Finding Intermediate Velocity',
-    nameCN: '求中间点速度',
-    expression: 'u = (s - ½at²) / t',
-    variables: [
-      { symbol: 'u', name: 'initial velocity of segment', unit: 'm/s', description: '该段起点速度' },
-      { symbol: 's', name: 'segment displacement', unit: 'm', description: '该段位移' },
-      { symbol: 'a', name: 'acceleration', unit: 'm/s²', description: '加速度' },
-      { symbol: 't', name: 'time for segment', unit: 's', description: '该段用时' },
-    ],
-    description: '�?s = ut + ½at² 变形而来。当已知某段的位移、时间和加速度时，可求出该段起点的速度。这�?逆向求解"的关键公式�?,
-    example: 'A→B: s=100m, t=4s, g=9.81m/s²\nu = (100 - ½×9.81×16) / 4 = (100-78.48)/4 = 5.38 m/s',
-  },
-  {
-    id: 'fm-7',
-    name: 'Time to Reach Velocity',
-    nameCN: '达到某速度所需时间',
-    expression: 't = (v - u) / a',
-    variables: [
-      { symbol: 't', name: 'time', unit: 's', description: '时间' },
-      { symbol: 'v', name: 'final velocity', unit: 'm/s', description: '末速度' },
-      { symbol: 'u', name: 'initial velocity', unit: 'm/s', description: '初速度' },
-      { symbol: 'a', name: 'acceleration', unit: 'm/s²', description: '加速度' },
-    ],
-    description: '�?v = u + at 变形而来。求从某速度加�?减速到另一速度所需的时间�?,
-    example: '由静止加速到 5.38 m/s（g=9.81）：t = (5.38-0)/9.81 = 0.55 s',
-  },
-  {
-    id: 'fm-8',
-    name: 'Average Velocity / Speed',
-    nameCN: '平均速度/平均速率',
-    expression: 'v_avg = s / t',
-    variables: [
-      { symbol: 'v_avg', name: 'average velocity (magnitude)', unit: 'm/s', description: '平均速度/平均速率' },
-      { symbol: 's', name: 'displacement (or distance)', unit: 'm', description: '位移/路程' },
-      { symbol: 't', name: 'time', unit: 's', description: '时间' },
-    ],
-    description:
-      '平均速度（Average velocity�? 位移 / 总时间；平均速率（Average speed�? 路程 / 总时间。做题时先判断题目要的是 displacement 还是 distance�?,
-    example: '直线位移 500 m，用�?36 s：v_avg = 500/36 = 13.9 m/s',
-  },
-  {
-    id: 'fm-9',
-    name: 'Acceleration from v-t Graph (Slope)',
-    nameCN: '�?v–t 图像求加速度（斜率）',
-    expression: 'a = (v�?- v�? / (t�?- t�?',
-    variables: [
-      { symbol: 'a', name: 'acceleration', unit: 'm/s²', description: '加速度' },
-      { symbol: 'v2', name: 'velocity at t�?, unit: 'm/s', description: 't�?时速度 v�? },
-      { symbol: 'v1', name: 'velocity at t�?, unit: 'm/s', description: 't�?时速度 v�? },
-      { symbol: 't2', name: 'time t�?, unit: 's', description: 't�? },
-      { symbol: 't1', name: 'time t�?, unit: 's', description: 't�? },
-    ],
-    description:
-      '在速度-时间（v–t）图像上，斜率（slope）就是加速度。选两点代入即可，注意单位与正负号�?,
-    example: 'v �?0 �?6 m/s，用�?3 s：a = (6-0)/(3-0) = 2 m/s²',
-  },
-  {
-    id: 'fm-10',
-    name: 'Time Interval from Frequency',
-    nameCN: '由频率求时间间隔（频�?打点�?,
-    expression: 'Δt = 1 / f',
-    variables: [
-      { symbol: 'Δt', name: 'time interval', unit: 's', description: '时间间隔 Δt' },
-      { symbol: 'f', name: 'frequency', unit: 'Hz', description: '频率 f' },
-    ],
-    description:
-      '频率 f（Hz）表示每秒次数。频�?打点题的关键是先把“每秒几次”换成“每次间隔多少秒”�?,
-    example: '2 flashes per second：Δt = 1/2 = 0.5 s',
-  },
-  {
-    id: 'fm-11',
-    name: 'Distance in the Nth Second (Uniform Acceleration)',
-    nameCN: '�?n 秒路程（匀加速）',
-    expression: 'd_n = u + ½a(2n - 1)',
-    variables: [
-      { symbol: 'd_n', name: 'distance in nth second', unit: 'm', description: '�?n 秒路�?d_n' },
-      { symbol: 'u', name: 'initial velocity', unit: 'm/s', description: '初速度 u' },
-      { symbol: 'a', name: 'acceleration', unit: 'm/s²', description: '加速度 a' },
-      { symbol: 'n', name: 'nth second', unit: '', description: '�?n 秒（n�? },
-    ],
-    description:
-      '“第 n 秒路程�? s(n) �?s(n�?)。对匀加速运动，可直接用 d_n = u + ½a(2n�?) 快速计算�?,
-    example: '自由落体 u=0，a=g=9.8，n=3：d3 = ½×9.8×5 = 24.5 m',
-  },
-  {
-    id: 'fm-12',
-    name: 'Speed Unit Conversion',
-    nameCN: '速度单位换算（km/h �?m/s�?,
-    expression: 'v_ms = (5/18)v_kmh',
-    variables: [
-      { symbol: 'v_ms', name: 'speed in m/s', unit: 'm/s', description: '速度（m/s�? },
-      { symbol: 'v_kmh', name: 'speed in km/h', unit: 'km/h', description: '速度（km/h�? },
-    ],
-    description:
-      'DSE 常用换算�? km/h = 5/18 m/s，所�?v(m/s) = v(km/h)×5/18；反过来乘以 18/5�?,
-    example: '50 km/h �?v_ms = 50×5/18 = 13.9 m/s',
-  },
-  {
-    id: 'fm-13',
-    name: 'Displacement from v-t Graph (Area of Trapezium)',
-    nameCN: '�?v–t 图像求位移（梯形面积�?,
-    expression: 's = ½(v1 + v2)Δt',
-    variables: [
-      { symbol: 's', name: 'displacement', unit: 'm', description: '位移/路程 s' },
-      { symbol: 'v1', name: 'initial velocity (segment)', unit: 'm/s', description: '该段起始速度 v1' },
-      { symbol: 'v2', name: 'final velocity (segment)', unit: 'm/s', description: '该段末速度 v2' },
-      { symbol: 'Δt', name: 'time interval', unit: 's', description: '时间间隔 Δt' },
-    ],
-    description:
-      '�?v–t 图像中，直线段下方的面积（trapezium）代表该段位移。若速度不变号，面积也等于路程�?,
-    example: '刹车：v1=14, v2=0, Δt=4.2 �?s=½×(14+0)×4.2=29.4 m',
-  },
-  {
-    id: 'fm-14',
-    name: 'Total Stopping Distance (Reaction + Braking)',
-    nameCN: '总停距（反应 + 制动�?,
-    expression: 's_total = v t_r + v² / (2a_d)',
-    variables: [
-      { symbol: 's_total', name: 'total stopping distance', unit: 'm', description: '总停�?s_total' },
-      { symbol: 'v', name: 'initial speed', unit: 'm/s', description: '初速度 v' },
-      { symbol: 't_r', name: 'reaction time', unit: 's', description: '反应时间 t_r' },
-      { symbol: 'a_d', name: 'deceleration magnitude', unit: 'm/s²', description: '制动减速度大小 a_d' },
-    ],
-    description:
-      '常见两段模型：反应阶段匀速（s_r = v t_r），制动阶段匀减速到停下（s_b = v²/(2a_d)，其�?a_d 取“减速度大小”）。总停�?s_total = s_r + s_b�?,
-    example: 'v=18 m/s, t_r=0.5 s, a_d=6 �?s_total=18×0.5+18²/(2×6)=9+27=36 m',
-  },
-  {
-    id: 'rr-013',
-    type: 'multiple_choice',
-    question:
-      'Which of the following phenomena is/are caused by refraction of light? (1) A swimming pool appears shallower than it really is. (2) A metre rule appears bent when dipped in water. (3) A spectrum is formed when white light passes through a prism.',
-    options: ['(3) only', '(1) & (2) only', '(2) & (3) only', '(1), (2) & (3)'],
-    answer: '(1), (2) & (3)',
-    explanation:
-      'All three effects are due to refraction. Apparent depth and the bent-rule effect come from rays changing direction at a boundary, and a prism forms a spectrum because different colours refract by different amounts.',
-    difficulty: 2,
-    points: 15,
-    hints: ['Apparent depth is a refraction effect.', 'Dispersion in a prism is refraction with wavelength dependence.'],
-    sectionId: 'reflection-refraction',
-  },
-  {
-    id: 'rr-014',
-    type: 'multiple_choice',
-    question: 'The diagram shows a light ray travelling from liquid to air. Find the refractive index of the liquid.',
-    options: ['0.71', '1.33', '1.41', '1.50'],
-    answer: '1.41',
-    explanation:
-      'Using Snell\'s law for the limiting geometry shown, the refractive index is n = sin 45 degrees / sin 30 degrees = 1.41.',
-    difficulty: 2,
-    points: 15,
-    hints: ['Apply Snell\'s law using the angles shown.', 'The ratio is sine in denser medium over sine in air.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-014-question.png'],
-  },
-  {
-    id: 'rr-015',
-    type: 'multiple_choice',
-    question:
-      'Which of the following devices involve(s) total internal reflection of light as they work? (1) Optical fibres (2) A prismatic periscope (3) A plane mirror',
-    options: ['(2) only', '(1) & (2) only', '(1) & (3) only', '(1), (2) & (3)'],
-    answer: '(1) & (2) only',
-    explanation:
-      'Optical fibres guide light by total internal reflection, and a prismatic periscope uses internal reflections in prisms. A plane mirror uses ordinary reflection, not total internal reflection.',
-    difficulty: 2,
-    points: 15,
-    hints: ['Prisms can replace mirrors using internal reflection.', 'A metal-backed plane mirror is not a TIR device.'],
-    sectionId: 'reflection-refraction',
-  },
-  {
-    id: 'rr-016',
-    type: 'multiple_choice',
-    question:
-      'A ray of light travels in air and strikes a semi-circular glass block at an angle of incidence 42 degrees. The critical angle of the glass is 42 degrees. Which of the following diagrams best shows the subsequent path(s) of the ray?',
-    options: [
-      '/physics/exercises/reflection-refraction/rr-016-option-a.png',
-      '/physics/exercises/reflection-refraction/rr-016-option-b.png',
-      '/physics/exercises/reflection-refraction/rr-016-option-c.png',
-      '/physics/exercises/reflection-refraction/rr-016-option-d.png',
-    ],
-    answer: '/physics/exercises/reflection-refraction/rr-016-option-d.png',
-    explanation:
-      'From air into glass, the refracted ray bends towards the normal. At the same time, part of the incident light is reflected. The diagram showing both the reflected ray and the refracted ray bent towards the normal is D.',
-    difficulty: 3,
-    points: 15,
-    hints: ['At the first boundary, there is usually both reflection and refraction.', 'Air to glass means towards the normal.'],
-    sectionId: 'reflection-refraction',
-  },
-  {
-    id: 'rr-017',
-    type: 'multiple_choice',
-    question:
-      'A ray of light travelling in air enters a semi-circular glass block as shown. Different values of the angle of incidence theta and the corresponding values of the angle of refraction phi are measured. Which of the below expressions represents the refractive index of the glass?',
-    options: [
-      'the slope of the graph of sin theta against sin phi',
-      'the slope of the graph of sin phi against sin theta',
-      'the slope of the graph of theta against phi',
-      'the slope of the graph of phi against theta',
-    ],
-    answer: 'the slope of the graph of sin theta against sin phi',
-    explanation:
-      'By Snell\'s law, n = sin theta / sin phi for air-to-glass refraction. So if sin theta is plotted against sin phi, the slope equals the refractive index.',
-    difficulty: 2,
-    points: 15,
-    hints: ['Start from Snell\'s law.', 'Put the numerator on the vertical axis to read slope directly as n.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-017-question.png'],
-  },
-  {
-    id: 'rr-018',
-    type: 'multiple_choice',
-    question:
-      'A ray of red light travels in air and strikes a triangular glass prism at an angle of incidence 45 degrees. The critical angle of red light for the glass is 42 degrees. Which of the following diagrams best shows the path of the ray?',
-    options: [
-      '/physics/exercises/reflection-refraction/rr-018-option-a.png',
-      '/physics/exercises/reflection-refraction/rr-018-option-b.png',
-      '/physics/exercises/reflection-refraction/rr-018-option-c.png',
-      '/physics/exercises/reflection-refraction/rr-018-option-d.png',
-    ],
-    answer: '/physics/exercises/reflection-refraction/rr-018-option-d.png',
-    explanation:
-      'At entry, air to glass makes the ray bend towards the normal. At exit, glass to air makes it bend away from the normal. The diagram that shows both bends correctly is D.',
-    difficulty: 3,
-    points: 15,
-    hints: ['Decide the bend direction at each face.', 'The critical angle matters only for glass-to-air travel.'],
-    sectionId: 'reflection-refraction',
-  },
-  {
-    id: 'rr-019',
-    type: 'multiple_choice',
-    question:
-      'Which of the following phenomena involve(s) total internal reflection of light? (1) The sparkling of a diamond. (2) The formation of a mirage. (3) A ruler appearing bent when dipped in water.',
-    options: ['(2) only', '(1) & (2) only', '(1) & (3) only', '(1), (2) & (3)'],
-    answer: '(1) & (2) only',
-    explanation:
-      'A diamond sparkles because light undergoes total internal reflection inside it, and a mirage involves light bending through air layers and can include total internal reflection. A bent ruler in water is due to refraction only.',
-    difficulty: 2,
-    points: 15,
-    hints: ['A bent ruler is a standard refraction example.', 'Diamond brilliance depends on trapped light.'],
-    sectionId: 'reflection-refraction',
-  },
-  {
-    id: 'rr-020',
-    type: 'multiple_choice',
-    question:
-      'Which of the following phenomena is/are caused by the refraction of light? (1) If a man who is spear-fishing aims his spear at where the fish appears to be, he will miss it. (2) A spectrum is formed when white light passes through a prism. (3) A light ray is transmitted through a curved glass fibre.',
-    options: ['(1) only', '(1) & (2) only', '(2) & (3) only', '(1), (2) & (3)'],
-    answer: '(1) & (2) only',
-    explanation:
-      'The fish appears displaced because of refraction at the water surface, and a prism forms a spectrum by refracting colours differently. A curved glass fibre guides light mainly by total internal reflection, not ordinary refraction.',
-    difficulty: 2,
-    points: 15,
-    hints: ['Glass fibre transmission is a TIR application.', 'A prism disperses light by refraction.'],
-    sectionId: 'reflection-refraction',
-  },
-  {
-    id: 'rr-021',
-    type: 'multiple_choice',
-    question:
-      'A beam consisting of red and violet light travels in a glass block with an air cavity. The cavity is in the shape of a prism as shown above. Which of the following diagrams best shows the subsequent path of the beam?',
-    options: [
-      '/physics/exercises/reflection-refraction/rr-021-option-a.png',
-      '/physics/exercises/reflection-refraction/rr-021-option-b.png',
-      '/physics/exercises/reflection-refraction/rr-021-option-c.png',
-      '/physics/exercises/reflection-refraction/rr-021-option-d.png',
-    ],
-    answer: '/physics/exercises/reflection-refraction/rr-021-option-d.png',
-    explanation:
-      'On entering the air cavity from glass, the beam goes from denser to less dense and bends away from the normal. On leaving the cavity back into glass, it bends towards the normal. Red light deviates less than violet, so the correct diagram is D.',
-    difficulty: 3,
-    points: 15,
-    hints: ['Treat the air cavity like an inverted prism inside glass.', 'Red light deviates least.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-021-question.png'],
-  {
-    id: 'lens-045',
-    question: 'Cecilia uses a magnifying glass to read some small print. Which of the following diagrams shows how the image of the print is formed?',
-    options: [
-      '/physics/exercises/lens/lens-045-option-a.png',
-      '/physics/exercises/lens/lens-045-option-b.png',
-      '/physics/exercises/lens/lens-045-option-c.png',
-      '/physics/exercises/lens/lens-045-option-d.png'
-    ],
-    answer: '/physics/exercises/lens/lens-045-option-a.png',
-    explanation: 'A magnifying glass is a convex lens used with the object inside the focal length. It forms a virtual, erect and magnified image. Only option A shows that correctly.',
-    difficulty: 'easy',
-    topic: 'Lens',
-    subtopic: 'Magnifying Glass',
-    sectionId: 'lens',
-    hints: ['A magnifying glass uses a convex lens.', 'The image must be virtual, upright and enlarged.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-045-question.png']
-  },
-  {
-    id: 'lens-046',
-    question: 'An object is placed near a lens and an image is formed as shown. Which of the following statements are correct? (1) The height of the image is half that of the object. (2) The lens is a concave lens. (3) The focal length of the lens is 20 cm.',
-    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
-    answer: '(1), (2) & (3)',
-    explanation: 'The image is diminished and virtual, so the lens must be concave. The image height being half the object height gives magnification 0.5. Drawing a ray parallel to the principal axis and extending the refracted ray backward gives a focal length of 20 cm.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Concave Lens Geometry',
-    sectionId: 'lens',
-    hints: ['A concave lens gives a virtual diminished image for a real object.', 'Use the ray parallel to the principal axis to locate the focus.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-046-question.png']
-  },
-  {
-    id: 'lens-047',
-    question: 'An illuminated object is placed 20 cm in front of a convex lens and a sharp image is formed on a screen 16 cm from the lens. The focal length of the convex lens is',
-    options: ['less than 8 cm', 'between 8 cm and 10 cm', 'between 10 cm and 16 cm', 'between 16 cm and 20 cm'],
-    answer: 'between 8 cm and 10 cm',
-    explanation: 'Using the lens formula 1/f = 1/u + 1/v with u = 20 cm and v = 16 cm gives f = uv/(u+v) = 320/36 �� 8.9 cm. So the focal length lies between 8 cm and 10 cm.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Lens Formula',
-    sectionId: 'lens',
-    hints: ['Use 1/f = 1/u + 1/v for a real image by a convex lens.', 'Then compare the result with the intervals.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-047-question.png']
-  },
-  {
-    id: 'lens-048',
-    question: 'Which of the following examples illustrate(s) a real image? (1) a fish in a pond being observed from above the water (2) a fingerprint left at a crime scene being observed through a magnifying glass (3) a motion picture on the screen being watched in a cinema',
-    options: ['(1) only', '(2) only', '(3) only', '(1), (2) & (3)'],
-    answer: '(3) only',
-    explanation: 'A fish seen in water appears at a virtual apparent depth. A magnifying glass forms a virtual enlarged image. A motion picture formed on a cinema screen is a real image because light actually falls on the screen.',
-    difficulty: 'easy',
-    topic: 'Lens',
-    subtopic: 'Real and Virtual Images',
-    sectionId: 'lens',
-    hints: ['A real image can be projected onto a screen.', 'A magnifying glass produces a virtual image.'],
-    type: 'multiple_choice',
-    points: 15
-  },
-  {
-    id: 'lens-049',
-    question: 'F and F'' are the foci of the above lens and AB is an incident ray. Which light ray best represents the emergent ray?',
-    options: ['P', 'Q', 'R', 'S'],
-    answer: 'S',
-    explanation: 'The lens shown is a convex lens, so the refracted ray must bend towards the principal axis. Among the four choices, only ray S has the correct converging direction.',
-    difficulty: 'easy',
-    topic: 'Lens',
-    subtopic: 'Convex Lens Ray Diagrams',
-    sectionId: 'lens',
-    hints: ['A convex lens is a converging lens.', 'The ray should move closer to the principal axis after refraction.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-049-question.png']
-  },
-  {
-    id: 'lens-050',
-    question: 'The figure shows a web cam. A web cam typically includes a lens and an image sensor. The function of the image sensor is similar to that of a film in a conventional camera. The image is formed on the sensor and is then digitised. Which of the following statements is/are correct? (1) The lens is a convex lens. (2) The lens is a concave lens. (3) Image formed on the image sensor is real.',
-    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
-    answer: '(1) & (3) only',
-    explanation: 'A camera or web cam must form a real image on the sensor, and a real image for a real object is formed by a convex lens, not a concave lens. Therefore statements (1) and (3) are correct.',
-    difficulty: 'easy',
-    topic: 'Lens',
-    subtopic: 'Cameras and Real Images',
-    sectionId: 'lens',
-    hints: ['The image sensor plays the role of film.', 'A concave lens does not form a real image of a real object by itself.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-050-question.png']
-  },  {
-    id: 'lens-051',
-    question: 'A light bulb O is placed in front of a lens L as shown. A sharp and diminished image is formed on the screen S. With the position of L fixed, which of the following methods can form a sharp and magnified image on the screen?',
-    options: ['Move O and S towards L.', 'Move O and S away from L.', 'Move O towards L and move S away from L.', 'Move O away from L and move S towards L.'],
-    answer: 'Move O towards L and move S away from L.',
-    explanation: 'To obtain a magnified real image, the image distance must be greater than the object distance. So the object must move closer to the lens while the screen moves farther from the lens.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Changing Magnification',
-    sectionId: 'lens',
-    hints: ['For a larger real image, v > u.', 'That means decrease object distance and increase image distance.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-051-question.png']
-  },
-  {
-    id: 'lens-052',
-    question: 'Which of the following ray diagrams concerning the refraction of two light rays by a converging lens is/are possible? (1) (2) (3)',
-    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
-    answer: '(3) only',
-    explanation: 'For a converging lens, refracted rays should bend toward the principal axis appropriately. In the given set, only diagram (3) shows both rays behaving correctly under refraction by a converging lens.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Convex Lens Ray Diagrams',
-    sectionId: 'lens',
-    hints: ['A converging lens bends rays toward the principal axis.', 'Check both rays in each diagram, not just one.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-052-question.png']
-  },
-  {
-    id: 'lens-053',
-    question: 'A student puts a lens at a certain distance above a paper with the word "TEST" written on it as shown. What is the lens? If the student moves the lens further away from the paper, what will be the change in the size of the image?',
-    options: ['convex; increases', 'convex; decreases', 'concave; increases', 'concave; decreases'],
-    answer: 'concave; decreases',
-    explanation: 'The image is erect and diminished, so the lens must be concave. As the lens moves farther from the object, the virtual image moves closer to the focal region and becomes smaller.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Concave Lens Images',
-    sectionId: 'lens',
-    hints: ['A concave lens gives an erect diminished virtual image.', 'Increasing object distance reduces magnification for a concave lens.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-053-question.png']
-  },
-  {
-    id: 'lens-054',
-    question: 'In the figure, X is a light bulb and L is a convex lens. Which of the following ways can be used to produce a parallel beam of light rays? (1) Moving L closer to X. (2) Replacing L with another convex lens of longer focal length. (3) Replacing L with another concave lens of shorter focal length.',
-    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
-    answer: '(1) & (2) only',
-    explanation: 'A convex lens produces a parallel beam when the source is at its focus. Moving the lens closer can place the bulb at the focus, and using a longer focal length convex lens can also do that. A concave lens cannot produce a parallel beam from a nearby real source in this setup.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Parallel Beams and Focal Length',
-    sectionId: 'lens',
-    hints: ['A point source at the focal point of a convex lens gives parallel rays.', 'A concave lens is diverging.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-054-question.png']
-  },
-  {
-    id: 'lens-055',
-    question: 'Two parallel rays X and Y meet at P after passing through lens L as shown. Another ray Z parallel to the principal axis is directed to lens L. Which point in the figure will ray Z pass through?',
-    options: ['P', 'Q', 'R', 'S'],
-    answer: 'R',
-    explanation: 'If two parallel rays meet at P after refraction, then P lies on the focal plane. The principal focus is the point on that focal plane located on the principal axis, which is R. So a ray parallel to the principal axis must pass through R.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Principal Focus',
-    sectionId: 'lens',
-    hints: ['The principal focus lies on the principal axis.', 'Parallel to the principal axis means the refracted ray goes through the principal focus.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-055-question.png']
-  },
-  {
-    id: 'lens-056',
-    question: 'An object is placed in front of a concave lens. Which of the following descriptions about the image formed by the lens is incorrect?',
-    options: ['It is always virtual.', 'It is always diminished.', 'It is always between the object and the lens.', 'It will be formed at infinity if the object is placed at the focus of the lens.'],
-    answer: 'It will be formed at infinity if the object is placed at the focus of the lens.',
-    explanation: 'A concave lens always forms a virtual, upright, diminished image between the lens and its focus. Even if the object is at the focal position, the image is still finite and remains between the lens and the focus, not at infinity.',
-    difficulty: 'easy',
-    topic: 'Lens',
-    subtopic: 'Concave Lens Image Properties',
-    sectionId: 'lens',
-    hints: ['A concave lens does not produce a real image of a real object.', 'Its image always stays between the lens and the focus.'],
-    type: 'multiple_choice',
-    points: 15
-  },
-  {
-    id: 'lens-057',
-    question: 'The figure shows an object O and its image I formed by a lens. Which of the following about the lens used and its position is correct?',
-    options: ['concave lens at X', 'concave lens at Y', 'convex lens at X', 'convex lens at Y'],
-    answer: 'convex lens at Y',
-    explanation: 'Because the image is magnified, the lens must be convex. Since the image is virtual, it must be on the same side as the object, so the lens must be at position Y.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Lens Type and Position',
-    sectionId: 'lens',
-    hints: ['Only a convex lens can produce a magnified image of this type.', 'A virtual image lies on the same side as the object.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-057-question.png']
-  },
-  {
-    id: 'lens-058',
-    question: 'An object is placed in front of a converging lens of focal length 30 cm. For which of the following object distances would the image be real and magnified?',
-    options: ['10 cm', '20 cm', '40 cm', '80 cm'],
-    answer: '40 cm',
-    explanation: 'A converging lens forms a real magnified image when the object lies between f and 2f. Here f = 30 cm and 2f = 60 cm, so 40 cm satisfies the condition.',
-    difficulty: 'easy',
-    topic: 'Lens',
-    subtopic: 'Convex Lens Image Conditions',
-    sectionId: 'lens',
-    hints: ['For real magnified image: f < u < 2f.', 'Compare each option with 30 cm and 60 cm.'],
-    type: 'multiple_choice',
-    points: 15
-  },  {
-    id: 'lens-059',
-    question: 'An object with two arrows drawn on a screen is placed at a distance 2f from a convex lens of focal length f. Which of the following diagrams correctly represents the image seen by the eye when the object is viewed through the lens?',
-    options: [
-      '/physics/exercises/lens/lens-059-option-a.png',
-      '/physics/exercises/lens/lens-059-option-b.png',
-      '/physics/exercises/lens/lens-059-option-c.png',
-      '/physics/exercises/lens/lens-059-option-d.png'
-    ],
-    answer: '/physics/exercises/lens/lens-059-option-d.png',
-    explanation: 'For an object placed at 2f of a convex lens, the image forms at 2f on the other side, real, inverted and same size. So both left-right and up-down orientation reverse, matching option D.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Image at 2F',
-    sectionId: 'lens',
-    hints: ['At object distance 2f, image distance is also 2f.', 'A real image by a convex lens is inverted.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-059-question.png']
-  },
-  {
-    id: 'lens-060',
-    question: 'Two parallel light rays P and Q are incident onto a convex lens. After refraction, the two light rays meet at point c. The ray XY parallel to the principal axis after passing through the lens will pass through the point',
-    options: ['a', 'b', 'c', 'd'],
-    answer: 'b',
-    explanation: 'The two parallel rays meet on the focal plane, so the vertical line through b and c is the focal plane. The point on the principal axis in that plane is the principal focus, which is b. Therefore a ray parallel to the principal axis must pass through b.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Principal Focus and Focal Plane',
-    sectionId: 'lens',
-    hints: ['The principal focus lies on the principal axis.', 'Any ray parallel to the principal axis goes through the principal focus after a convex lens.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-060-question.png']
-  },
-  {
-    id: 'lens-061',
-    question: 'An object is placed at the focus of a diverging lens of focal length 10 cm. What is the magnification of the image formed?',
-    options: ['0.5', '1.0', '2.0', 'infinite'],
-    answer: '0.5',
-    explanation: 'For a diverging lens, f = -10 cm and u = 10 cm. Using 1/f = 1/u + 1/v gives v = -5 cm. Hence the magnification magnitude is |v/u| = 5/10 = 0.5.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Diverging Lens Formula',
-    sectionId: 'lens',
-    hints: ['Use a negative focal length for a diverging lens.', 'Magnification magnitude is |v/u|.'],
-    type: 'multiple_choice',
-    points: 15
-  },
-  {
-    id: 'lens-062',
-    question: 'An object is placed at different distances in front of a converging lens. The image is formed on the other side of the lens. The graph shows the variation of the linear magnification m of the image with the image distance v. Find the focal length of the converging lens.',
-    options: ['10 cm', '15 cm', '20 cm', '30 cm'],
-    answer: '10 cm',
-    explanation: 'From the lens relation, v/f = m + 1, so the graph of m against v has slope 1/f. Using the given graph values gives slope = (1.5 - 0.5)/(25 - 15) = 0.1, so f = 10 cm. Equivalently, when m = 1, the graph gives v = 20 cm, which means v = 2f, so f = 10 cm.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Graph Interpretation',
-    sectionId: 'lens',
-    hints: ['Rearrange the lens formula into a linear form.', 'Also note that m = 1 occurs at 2f.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-062-question.png', '/physics/exercises/lens/lens-062-question-2.png']
-  },
-  {
-    id: 'lens-063',
-    question: 'An object is placed at 15 cm from a lens. A virtual image magnified 2 times is produced. The lens is a',
-    options: ['concave lens of focal length 10 cm', 'convex lens of focal length 10 cm', 'concave lens of focal length 30 cm', 'convex lens of focal length 30 cm'],
-    answer: 'convex lens of focal length 30 cm',
-    explanation: 'With magnification 2 and object distance 15 cm, the image distance magnitude is 30 cm. Because the image is virtual, v = -30 cm. Then 1/f = 1/15 + 1/(-30) = 1/30, so f = +30 cm. A positive focal length means a convex lens.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Virtual Magnified Images',
-    sectionId: 'lens',
-    hints: ['A virtual magnified image for a real object is formed by a convex lens.', 'Use v negative for a virtual image.'],
-    type: 'multiple_choice',
-    points: 15
-  },
-  {
-    id: 'lens-064',
-    question: 'An object is placed 12 cm in front of a converging lens. An image is formed 24 cm from the lens. Find the focal length of the converging lens if the image is (1) real and (2) virtual.',
-    options: ['real: 24 cm; virtual: 8 cm', 'real: 12 cm; virtual: 8 cm', 'real: 8 cm; virtual: 12 cm', 'real: 8 cm; virtual: 24 cm'],
-    answer: 'real: 8 cm; virtual: 24 cm',
-    explanation: 'For a real image, 1/f = 1/12 + 1/24, giving f = 8 cm. For a virtual image, take v = -24 cm, so 1/f = 1/12 + 1/(-24) = 1/24, giving f = 24 cm.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Lens Formula with Sign Convention',
-    sectionId: 'lens',
-    hints: ['Use positive v for a real image and negative v for a virtual image.', 'Apply the lens formula separately to the two cases.'],
-    type: 'multiple_choice',
-    points: 15
-  },
-  {
-    id: 'lens-065',
-    question: 'An object is placed at 15 cm from a lens. A real image magnified 2 times is produced. The lens is a',
-    options: ['concave lens of focal length 10 cm', 'convex lens of focal length 10 cm', 'concave lens of focal length 30 cm', 'convex lens of focal length 30 cm'],
-    answer: 'convex lens of focal length 10 cm',
-    explanation: 'With magnification 2 and object distance 15 cm, the real image distance is v = 30 cm. Then 1/f = 1/15 + 1/30 = 1/10, so f = +10 cm. Positive focal length means a convex lens.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Real Magnified Images',
-    sectionId: 'lens',
-    hints: ['Use positive v for a real image.', 'A real image of a real object is formed by a convex lens.'],
-    type: 'multiple_choice',
-    points: 15
-  },
-  {
-    id: 'lens-066',
-    question: 'An object is placed in front of a convex lens of focal length 20 cm. For which of the following object distances would the image be erect?',
-    options: ['10 cm', '30 cm', '40 cm', '60 cm'],
-    answer: '10 cm',
-    explanation: 'A convex lens forms an erect image only when the object is inside the focal length. Since f = 20 cm, only 10 cm is less than f.',
-    difficulty: 'easy',
-    topic: 'Lens',
-    subtopic: 'Erect Images by Convex Lens',
-    sectionId: 'lens',
-    hints: ['A convex lens gives an erect image only for u < f.', 'Compare each option with 20 cm.'],
-    type: 'multiple_choice',
-    points: 15
-  },
-  {
-    id: 'lens-067',
-    question: 'An object is moving at constant speed away from a convex lens of focal length 20 cm. At the moment when it is at 30 cm from the lens, which of the following descriptions of the image is correct?',
-    options: ['away from the lens; faster than that of the object', 'towards the lens; faster than that of the object', 'away from the lens; slower than that of the object', 'towards the lens; slower than that of the object'],
-    answer: 'towards the lens; faster than that of the object',
-    explanation: 'At u = 30 cm with f = 20 cm, the object is between f and 2f, so the image is real, on the other side, and magnified. As the object moves farther away, the real image moves toward the lens. Since the image is magnified at that instant, its speed is greater than that of the object.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Image Motion',
-    sectionId: 'lens',
-    hints: ['For f < u < 2f, the image is real, magnified and beyond 2f.', 'As u increases, v decreases toward f.'],
-    type: 'multiple_choice',
-    points: 15
-  },
-  {
-    id: 'lens-068',
-    question: 'An object is placed at the focus of a concave lens of focal length 10 cm. What is the magnification of the image formed?',
-    options: ['0.5', '1.0', '2.0', 'infinite'],
-    answer: '0.5',
-    explanation: 'For a concave lens, f = -10 cm and u = 10 cm. Using 1/f = 1/u + 1/v gives v = -5 cm, so the magnification magnitude is |v/u| = 5/10 = 0.5.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Concave Lens Formula',
-    sectionId: 'lens',
-    hints: ['Use negative focal length for a concave lens.', 'Magnification magnitude is |v/u|.'],
-    type: 'multiple_choice',
-    points: 15
-  },  {
-    id: 'lens-069',
-    question: 'Cecilia uses a magnifying glass to read some small print. Which of the following diagrams shows how the image of the print is formed?',
-    options: [
-      '/physics/exercises/lens/lens-069-option-a.png',
-      '/physics/exercises/lens/lens-069-option-b.png',
-      '/physics/exercises/lens/lens-069-option-c.png',
-      '/physics/exercises/lens/lens-069-option-d.png'
-    ],
-    answer: '/physics/exercises/lens/lens-069-option-a.png',
-    explanation: 'A magnifying glass is a convex lens used with the object inside the focal length. It forms a virtual, erect and magnified image. That matches option A.',
-    difficulty: 'easy',
-    topic: 'Lens',
-    subtopic: 'Magnifying Glass',
-    sectionId: 'lens',
-    hints: ['A magnifying glass produces a virtual image.', 'The image must be upright and magnified.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-069-question.png']
-  },
-  {
-    id: 'lens-070',
-    question: 'A student uses the set-up in Figure (a) to study the relationship between the object distance u and the image distance v of a convex lens. A graph of 1/v against 1/u is plotted in Figure (b). If the lens is replaced by another convex lens of shorter focal length, which of the following graphs (in dotted lines) would be obtained?',
-    options: [
-      '/physics/exercises/lens/lens-070-option-a.png',
-      '/physics/exercises/lens/lens-070-option-b.png',
-      '/physics/exercises/lens/lens-070-option-c.png',
-      '/physics/exercises/lens/lens-070-option-d.png'
-    ],
-    answer: '/physics/exercises/lens/lens-070-option-d.png',
-    explanation: 'From 1/f = 1/u + 1/v, we get 1/v = -1/u + 1/f. The slope stays at -1. A shorter focal length means larger 1/f, so the y-intercept increases. That corresponds to option D.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Graph of Lens Formula',
-    sectionId: 'lens',
-    hints: ['Rewrite the lens formula into straight-line form.', 'Only the intercept changes when the focal length changes.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-070-question.png']
-  },
-  {
-    id: 'lens-071',
-    question: 'In each of the following diagrams, L is a concave lens and its two principal foci are denoted by F and F''. Which of the ray diagrams is/are possible? (1) (2) (3)',
-    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
-    answer: '(1) only',
-    explanation: 'A concave lens is diverging. In diagram (1), the ray bends away from the principal axis correctly. In diagram (2), a ray aimed at the far focus should emerge parallel, which is not shown correctly. In diagram (3), a ray whose backward extension passes through the near focus would require a parallel incident ray, which is inconsistent. So only (1) is possible.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Concave Lens Ray Diagrams',
-    sectionId: 'lens',
-    hints: ['Check the standard rays for a concave lens.', 'A ray directed toward the far focus emerges parallel.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-071-question.png']
-  },
-  {
-    id: 'lens-072',
-    question: 'A point light source at X on the principal axis of a thin convex lens emits a ray of light. The ray passes through the lens and reaches the principal axis at point Y as shown. O is the optical centre of the lens such that OX = 20 cm and OY > OX. Which of the following statements is/are correct? (1) The focal length of the lens is shorter than 20 cm. (2) If the point light source is shifted away from the lens, separation OY would increase. (3) An object placed at Y would give a diminished image at X.',
-    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
-    answer: '(1) & (3) only',
-    explanation: 'Since X forms a real image at Y, the object at X must be beyond the focal point, so the focal length is less than 20 cm. If the object moves farther away, the image distance decreases toward the focus, so OY would decrease, not increase. Reversing the object and image positions, an object at Y forms an image at X, and because OX < OY, the image at X is diminished.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Object-Image Reversibility',
-    sectionId: 'lens',
-    hints: ['For a real image by a convex lens, the object must be outside the focal length.', 'Light paths through a thin lens are reversible.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-072-question.png']
-  },
-  {
-    id: 'lens-073',
-    question: 'An object O placed in front of a concave lens forms an image I as shown. F and F'' are the foci of the lens. Which ray diagram is correct?',
-    options: [
-      '/physics/exercises/lens/lens-073-option-a.png',
-      '/physics/exercises/lens/lens-073-option-b.png',
-      '/physics/exercises/lens/lens-073-option-c.png',
-      '/physics/exercises/lens/lens-073-option-d.png'
-    ],
-    answer: '/physics/exercises/lens/lens-073-option-b.png',
-    explanation: 'For a concave lens, the refracted ray from the bottom of the object must appear to diverge from the bottom of the virtual image. Only option B matches the correct geometry.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Concave Lens Image Construction',
-    sectionId: 'lens',
-    hints: ['A concave lens gives an upright virtual image.', 'The ray should appear to come from the corresponding point on the image.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-073-question.png']
-  },
-  {
-    id: 'lens-074',
-    question: 'A student uses a convex lens to investigate the variation of image distance v with object distance u for real image. The graph of 1/v plotted against 1/u is shown. If a convex lens of longer focal length is used, what would be the expected result (in dotted lines)?',
-    options: [
-      '/physics/exercises/lens/lens-074-option-a.png',
-      '/physics/exercises/lens/lens-074-option-b.png',
-      '/physics/exercises/lens/lens-074-option-c.png',
-      '/physics/exercises/lens/lens-074-option-d.png'
-    ],
-    answer: '/physics/exercises/lens/lens-074-option-d.png',
-    explanation: 'From 1/v = -1/u + 1/f, the slope remains -1. A longer focal length means smaller 1/f, so the y-intercept decreases. That matches option D.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Graph of Lens Formula',
-    sectionId: 'lens',
-    hints: ['Use the straight-line form of the lens equation.', 'Longer focal length lowers the intercept.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-074-question.png']
-  },
-  {
-    id: 'lens-075',
-    question: 'An object is moving at constant speed towards a convex lens of focal length 10 cm. At the moment when it is at 100 cm from the lens, which of the following descriptions of the image is correct?',
-    options: ['away from the lens; faster than that of the object', 'towards the lens; faster than that of the object', 'away from the lens; slower than that of the object', 'towards the lens; slower than that of the object'],
-    answer: 'away from the lens; slower than that of the object',
-    explanation: 'At 100 cm, the object is well beyond 2f, so the image is real, diminished and on the far side of the lens. As the object moves toward the lens, the image also moves away from the lens. Since the image is diminished at that instant, its speed is smaller than that of the object.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Image Motion',
-    sectionId: 'lens',
-    hints: ['For u > 2f, the real image lies between f and 2f and is diminished.', 'A diminished image moves less than the object in this regime.'],
-    type: 'multiple_choice',
-    points: 15
-  },
-  {
-    id: 'lens-076',
-    question: 'When an object is placed 30 cm in front of a concave lens, an image is formed 20 cm away from the lens. If the concave lens is replaced by a convex lens of the same focal length and the object distance remains unchanged, which of the following descriptions about the image formed is correct?',
-    options: ['real; 20 cm', 'real; 60 cm', 'virtual; 20 cm', 'virtual; 60 cm'],
-    answer: 'virtual; 60 cm',
-    explanation: 'For the original concave lens, f is negative and v = -20 cm, so 1/f = 1/30 + 1/(-20) = -1/60, giving f = -60 cm. Replacing it with a convex lens of the same focal-length magnitude gives f = +60 cm. Then 1/60 = 1/30 + 1/v, so v = -60 cm, which means the image is virtual and 60 cm away.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Changing Lens Type',
-    sectionId: 'lens',
-    hints: ['Use the original setup to find the focal length first.', 'A negative v indicates a virtual image.'],
-    type: 'multiple_choice',
-    points: 15
-  },
-  {
-    id: 'lens-077',
-    question: 'An object placed 25.0 cm in front of a lens forms a virtual image at a distance 11.1 cm from the lens. The lens is a',
-    options: ['concave lens of focal length 7.7 cm', 'concave lens of focal length 20 cm', 'convex lens of focal length 7.7 cm', 'convex lens of focal length 20 cm'],
-    answer: 'concave lens of focal length 20 cm',
-    explanation: 'For a virtual image, v = -11.1 cm. Using 1/f = 1/25 + 1/(-11.1) gives f �� -20 cm. A negative focal length means the lens is concave.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Lens Formula',
-    sectionId: 'lens',
-    hints: ['Use negative image distance for a virtual image.', 'The sign of the focal length tells you the lens type.'],
-    type: 'multiple_choice',
-    points: 15
-  },  {
-    id: 'wol-001',
-    question: 'An electromagnetic wave has a frequency of the order of 10^16 Hz. What should be the type of the electromagnetic wave? Given that the speed of light in vacuum is 3 �� 10^8 m s^-1.',
-    options: ['infra-red rays', 'visible light', 'ultra-violet rays', 'X-rays'],
-    answer: 'ultra-violet rays',
-    explanation: 'Using v = f��, the wavelength is �� = (3 �� 10^8) / (10^16) = 3 �� 10^-8 m. This lies in the ultra-violet region of the electromagnetic spectrum.',
-    difficulty: 'easy',
-    topic: 'Wave Nature of Light',
-    subtopic: 'Electromagnetic Spectrum',
-    sectionId: 'wave-nature-of-light',
-    hints: ['Use v = f��.', 'Compare the wavelength with the EM spectrum ranges.'],
-    type: 'multiple_choice',
-    points: 15
-  },
-  {
-    id: 'wol-002',
-    question: 'Given the following types of electromagnetic waves: (1) radio waves (2) yellow light (3) green light. The waves listed in ascending order of their wavelengths are',
-    options: ['(1), (3), (2)', '(2), (1), (3)', '(3), (1), (2)', '(3), (2), (1)'],
-    answer: '(3), (2), (1)',
-    explanation: 'Among visible colours, green has a shorter wavelength than yellow. Radio waves have much longer wavelengths than visible light. So the ascending order is green light, yellow light, radio waves.',
-    difficulty: 'easy',
-    topic: 'Wave Nature of Light',
-    subtopic: 'Electromagnetic Spectrum',
-    sectionId: 'wave-nature-of-light',
-    hints: ['Green light has shorter wavelength than yellow light.', 'Radio waves are much longer than visible light.'],
-    type: 'multiple_choice',
-    points: 15
-  },
-  {
-    id: 'wol-003',
-    question: 'Arrange the following electromagnetic waves in descending order of their wavelengths: (1) visible light (2) X-rays (3) radio waves',
-    options: ['(1), (2), (3)', '(1), (3), (2)', '(2), (3), (1)', '(3), (1), (2)'],
-    answer: '(3), (1), (2)',
-    explanation: 'Radio waves have the longest wavelengths, visible light is in the middle, and X-rays have much shorter wavelengths. So the descending order is radio waves, visible light, X-rays.',
-    difficulty: 'easy',
-    topic: 'Wave Nature of Light',
-    subtopic: 'Electromagnetic Spectrum',
-    sectionId: 'wave-nature-of-light',
-    hints: ['Radio waves are longest.', 'X-rays are much shorter than visible light.'],
-    type: 'multiple_choice',
-    points: 15
-  },
-  {
-    id: 'wol-004',
-    question: 'Which of the following statements about the properties of light is/are correct? (1) The speed of light in vacuum is independent of its wavelength. (2) The wavelength of light will change when it enters a less dense medium. (3) The frequency of light will change when it enters a less dense medium.',
-    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
-    answer: '(1) & (2) only',
-    explanation: 'The speed of light in vacuum is constant for all wavelengths. When light enters a different medium, its speed changes, so its wavelength changes. The frequency remains unchanged across a boundary.',
-    difficulty: 'easy',
-    topic: 'Wave Nature of Light',
-    subtopic: 'Wave Properties in Media',
-    sectionId: 'wave-nature-of-light',
-    hints: ['Frequency stays the same during refraction.', 'If speed changes and frequency is fixed, wavelength changes.'],
-    type: 'multiple_choice',
-    points: 15
-  },
-  {
-    id: 'wol-005',
-    question: 'Given that the approximate wavelength of red light is 7 �� 10^-7 m, what is the approximate wavelength of an FM radio wave?',
-    options: ['3 �� 10^2 m', '3 �� 10^-3 m', '3 �� 10^-7 m', '3 �� 10^-9 m'],
-    answer: '3 �� 10^2 m',
-    explanation: 'FM radio waves have wavelengths on the order of 10^2 m, which is far longer than visible light. So the best estimate is 3 �� 10^2 m.',
-    difficulty: 'easy',
-    topic: 'Wave Nature of Light',
-    subtopic: 'Electromagnetic Spectrum',
-    sectionId: 'wave-nature-of-light',
-    hints: ['Radio waves are much longer than visible light.', 'This is an order-of-magnitude comparison question.'],
-    type: 'multiple_choice',
-    points: 15
-  },
-  {
-    id: 'wol-006',
-    question: 'When light travels from air to glass, which of the following statements is/are true? (1) The speed of the light changes. (2) The wavelength of the light increases. (3) The frequency of the light remains unchanged.',
-    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
-    answer: '(1) & (3) only',
-    explanation: 'When light enters glass from air, its speed decreases. The frequency remains unchanged at the boundary. Since v = f�� and f is unchanged while v decreases, the wavelength decreases, not increases.',
-    difficulty: 'easy',
-    topic: 'Wave Nature of Light',
-    subtopic: 'Wave Properties in Media',
-    sectionId: 'wave-nature-of-light',
-    hints: ['Frequency is fixed across refraction.', 'A lower speed with the same frequency means a shorter wavelength.'],
-    type: 'multiple_choice',
-    points: 15
-  },
-  {
-    id: 'wol-007',
-    question: 'A short pulse of microwave travelling at 3 �� 10^8 m s^-1 was used to detect the position of a stationary weather balloon. It was found that the microwaves reflected from the balloon were picked up 2 �� 10^-4 s after the pulse had been emitted from the station. The distance of the balloon from the station was',
-    options: ['1.5 �� 10^4 m', '3.0 �� 10^4 m', '1.5 �� 10^12 m', '3.0 �� 10^12 m'],
-    answer: '3.0 �� 10^4 m',
-    explanation: 'The given time is for the round trip. So the one-way distance is d = (1/2)vt = (1/2)(3 �� 10^8)(2 �� 10^-4) = 3 �� 10^4 m.',
-    difficulty: 'easy',
-    topic: 'Wave Nature of Light',
-    subtopic: 'Microwave Reflection and Distance',
-    sectionId: 'wave-nature-of-light',
-    hints: ['The pulse travels to the balloon and back.', 'Use half the round-trip distance.'],
-    type: 'multiple_choice',
-    points: 15
-  },
-  {
-    id: 'wol-008',
-    question: 'Which of the following is in the correct order of increasing wavelengths?',
-    options: ['infra-red rays, X-rays, radio waves', 'infra-red rays, radio waves, X-rays', 'X-rays, radio waves, infra-red rays', 'X-rays, infra-red rays, radio waves'],
-    answer: 'X-rays, infra-red rays, radio waves',
-    explanation: 'X-rays have the shortest wavelengths among these three, infra-red is longer, and radio waves are the longest. So the increasing order is X-rays, infra-red rays, radio waves.',
-    difficulty: 'easy',
-    topic: 'Wave Nature of Light',
-    subtopic: 'Electromagnetic Spectrum',
-    sectionId: 'wave-nature-of-light',
-    hints: ['Radio waves are longest.', 'X-rays are shortest among the listed choices.'],
-    type: 'multiple_choice',
-    points: 15
-  },
-  {
-    id: 'wol-009',
-    question: 'Which of the following is/are transverse wave(s)? (1) water waves (2) sound waves (3) X-rays',
-    options: ['(1) only', '(1) & (2) only', '(1) & (3) only', '(2) & (3) only'],
-    answer: '(1) & (3) only',
-    explanation: 'Water surface waves are treated as transverse in this syllabus, and X-rays are electromagnetic waves, which are transverse. Sound waves in air are longitudinal.',
-    difficulty: 'easy',
-    topic: 'Wave Nature of Light',
-    subtopic: 'Transverse and Longitudinal Waves',
-    sectionId: 'wave-nature-of-light',
-    hints: ['Electromagnetic waves are transverse.', 'Sound in air is longitudinal.'],
-    type: 'multiple_choice',
-    points: 15
-  },  {
-    id: 'wol-010',
-    question: 'Which of the following has the shortest wavelength?',
-    options: ['X-rays', 'Microwaves', 'Radio waves', 'Visible light'],
-    answer: 'X-rays',
-    explanation: 'Among the listed electromagnetic waves, X-rays have much shorter wavelengths than visible light, microwaves and radio waves.',
-    difficulty: 'easy',
-    topic: 'Wave Nature of Light',
-    subtopic: 'Electromagnetic Spectrum',
-    sectionId: 'wave-nature-of-light',
-    hints: ['Radio waves and microwaves are long-wavelength EM waves.', 'X-rays are near the short-wavelength end of the spectrum.'],
-    type: 'multiple_choice',
-    points: 15
-  },
-  {
-    id: 'wol-011',
-    question: 'The figure shows the electromagnetic spectrum. Which of the following statements about Y is/are true? (1) The frequency of Y is lower than that of visible light. (2) Y is emitted by hot bodies. (3) Y can be deflected by electric and magnetic field.',
-    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
-    answer: '(1) & (2) only',
-    explanation: 'From the spectrum, Y is infra-red. Infra-red has lower frequency than visible light and is emitted by warm or hot bodies. As an electromagnetic wave, it cannot be deflected by electric or magnetic fields.',
-    difficulty: 'easy',
-    topic: 'Wave Nature of Light',
-    subtopic: 'Electromagnetic Spectrum',
-    sectionId: 'wave-nature-of-light',
-    hints: ['Infra-red lies just beyond visible red.', 'Electromagnetic waves are not deflected by electric or magnetic fields.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/wave-nature-of-light/wol-011-question.png']
-  },
-  {
-    id: 'wol-012',
-    question: 'If the speed of radio waves in air is v1 and the speed of light in air is v2, which of the following is correct?',
-    options: ['v2 > 2v1', '2v1 > v2 > v1', 'v1 = v2', '2v2 > v1 > v2'],
-    answer: 'v1 = v2',
-    explanation: 'Both radio waves and visible light are electromagnetic waves, so in air they travel at essentially the same speed.',
-    difficulty: 'easy',
-    topic: 'Wave Nature of Light',
-    subtopic: 'Electromagnetic Waves',
-    sectionId: 'wave-nature-of-light',
-    hints: ['All electromagnetic waves travel at the same speed in the same medium.', 'The type of EM wave does not change the speed in air.'],
-    type: 'multiple_choice',
-    points: 15
-  },
-  {
-    id: 'wol-013',
-    question: 'When a light ray travels from air to water, how do the speed, the frequency and the wavelength change?',
-    options: ['speed remains the same; frequency remains the same; wavelength remains the same', 'speed becomes smaller; frequency becomes greater; wavelength remains the same', 'speed becomes smaller; frequency remains the same; wavelength becomes smaller', 'speed becomes greater; frequency remains the same; wavelength becomes smaller'],
-    answer: 'speed becomes smaller; frequency remains the same; wavelength becomes smaller',
-    explanation: 'Light slows down in water compared with air. The frequency stays unchanged at the boundary. Since v = f�� and f is unchanged while v decreases, the wavelength also decreases.',
-    difficulty: 'easy',
-    topic: 'Wave Nature of Light',
-    subtopic: 'Wave Properties in Media',
-    sectionId: 'wave-nature-of-light',
-    hints: ['Frequency remains unchanged during refraction.', 'A lower speed with the same frequency means a shorter wavelength.'],
-    type: 'multiple_choice',
-    points: 15
-  },
-  {
-    id: 'wol-014',
-    question: 'A pulse of microwave of speed 3 �� 10^8 m s^-1 is sent out to detect the position of a stationary weather balloon. The reflected microwave was picked up in 2 �� 10^-4 s after emission. What is the distance of the balloon from the station?',
-    options: ['1.5 �� 10^4 m', '3.0 �� 10^4 m', '6.0 �� 10^4 m', '1.5 �� 10^12 m'],
-    answer: '3.0 �� 10^4 m',
-    explanation: 'The time measured is for the wave to go to the balloon and return. So the one-way distance is d = (1/2)vt = (1/2)(3 �� 10^8)(2 �� 10^-4) = 3 �� 10^4 m.',
-    difficulty: 'easy',
-    topic: 'Wave Nature of Light',
-    subtopic: 'Microwave Reflection and Distance',
-    sectionId: 'wave-nature-of-light',
-    hints: ['Use half the round-trip distance.', 'Distance = speed �� time.'],
-    type: 'multiple_choice',
-    points: 15
-  },
-  {
-    id: 'wol-015',
-    question: 'Which of the following descriptions about the nature of light is/are correct? (1) The speed of light in a vacuum is independent of its wavelength. (2) There cannot be total internal reflection when light is travelling from air to water. (3) Light travels faster in glass than in air.',
-    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
-    answer: '(1) & (2) only',
-    explanation: 'In vacuum, all light travels at the same speed regardless of wavelength. Total internal reflection only occurs when light goes from a denser medium to a less dense medium, so it cannot occur from air to water. Light travels slower in glass than in air.',
-    difficulty: 'easy',
-    topic: 'Wave Nature of Light',
-    subtopic: 'Light in Media',
-    sectionId: 'wave-nature-of-light',
-    hints: ['Glass is optically denser than air.', 'Total internal reflection requires travel from denser to less dense medium.'],
-    type: 'multiple_choice',
-    points: 15
-  },
-  {
-    id: 'wol-016',
-    question: 'Arrange the following in ascending order of wavelengths. (1) X-rays (2) Microwaves (3) Visible light (4) Ultra-violet rays',
-    options: ['(1), (2), (3), (4)', '(2), (3), (4), (1)', '(1), (4), (3), (2)', '(2), (1), (3), (4)'],
-    answer: '(1), (4), (3), (2)',
-    explanation: 'In increasing wavelength order: X-rays, ultra-violet, visible light, microwaves. That corresponds to (1), (4), (3), (2).',
-    difficulty: 'easy',
-    topic: 'Wave Nature of Light',
-    subtopic: 'Electromagnetic Spectrum',
-    sectionId: 'wave-nature-of-light',
-    hints: ['X-rays are shorter than ultra-violet.', 'Microwaves are much longer than visible light.'],
-    type: 'multiple_choice',
-    points: 15
-  },
-  {
-    id: 'wol-017',
-    question: 'The diagram shows part of the electromagnetic spectrum. Which of the following statements is/are true? (1) The wavelength of P is longer than that of Q. (2) The velocity of P in a vacuum is smaller than that of Q. (3) Q can be deflected by an electric field.',
-    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
-    answer: '(1) only',
-    explanation: 'In the electromagnetic spectrum, wavelength decreases toward the right, so P has longer wavelength than Q. All electromagnetic waves travel at the same speed in vacuum, and they are not deflected by an electric field.',
-    difficulty: 'easy',
-    topic: 'Wave Nature of Light',
-    subtopic: 'Electromagnetic Spectrum',
-    sectionId: 'wave-nature-of-light',
-    hints: ['All electromagnetic waves have the same speed in vacuum.', 'Electromagnetic waves are not charged particles.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/wave-nature-of-light/wol-017-question.png']
-  },
-  {
-    id: 'wol-018',
-    question: 'What happens to the wavelength and frequency of a ray of light if it passes from water to air?',
-    options: ['wavelength increases; frequency decreases', 'wavelength decreases; frequency remains unchanged', 'wavelength remains unchanged; frequency increases', 'wavelength increases; frequency remains unchanged'],
-    answer: 'wavelength increases; frequency remains unchanged',
-    explanation: 'Light travels faster in air than in water. The frequency remains unchanged at the boundary. Since v = f�� and f is constant while v increases, the wavelength increases.',
-    difficulty: 'easy',
-    topic: 'Wave Nature of Light',
-    subtopic: 'Wave Properties in Media',
-    sectionId: 'wave-nature-of-light',
-    hints: ['Frequency does not change during refraction.', 'A higher speed at the same frequency means a longer wavelength.'],
-    type: 'multiple_choice',
-    points: 15
-  },
-  {
-    id: 'wol-019',
-    question: 'Which of the following graphs correctly shows the variation of speed v against frequency f of the electromagnetic waves in vacuum?',
-    options: [
-      '/physics/exercises/wave-nature-of-light/wol-019-option-a.png',
-      '/physics/exercises/wave-nature-of-light/wol-019-option-b.png',
-      '/physics/exercises/wave-nature-of-light/wol-019-option-c.png',
-      '/physics/exercises/wave-nature-of-light/wol-019-option-d.png'
-    ],
-    answer: '/physics/exercises/wave-nature-of-light/wol-019-option-d.png',
-    explanation: 'All electromagnetic waves travel at the same speed in vacuum, regardless of frequency. So the correct graph is a horizontal line, which is option D.',
-    difficulty: 'easy',
-    topic: 'Wave Nature of Light',
-    subtopic: 'Speed of EM Waves',
-    sectionId: 'wave-nature-of-light',
-    hints: ['In vacuum, all EM waves travel at c.', 'The speed does not depend on frequency in vacuum.'],
-    type: 'multiple_choice',
-    points: 15
-  },
-  {
-    id: 'wol-020',
-    question: 'Which of the following is an application of microwaves in everyday life?',
-    options: ['Radar', 'Carbon-14 dating', 'Radiotherapy', 'Detecting cracks in railway track'],
-    answer: 'Radar',
-    explanation: 'Microwaves are used in radar systems. Carbon-14 dating involves beta radiation, radiotherapy commonly uses gamma rays or high-energy radiation, and crack detection in rails commonly uses ultrasound.',
-    difficulty: 'easy',
-    topic: 'Wave Nature of Light',
-    subtopic: 'Applications of Electromagnetic Waves',
-    sectionId: 'wave-nature-of-light',
-    hints: ['Radar systems use microwaves.', 'The other options involve different physical methods or wave types.'],
-    type: 'multiple_choice',
-    points: 15
-  },  },];
-
-// 概念知识�?- 位置与运�?export const FORCE_MOTION_CONCEPTS: Concept[] = [
-  {
-    id: 'fmc-1',
-    title: '位移与距离的区别',
-    content: '位移（Displacement）是矢量，表示从起点到终点的直线距离，有方向性；距离（Distance）是标量，表示实际经过的路程长度。在直线运动中，如果方向不变，位移大小等于距离�?,
-    keyPoints: [
-      '位移是矢量，有大小和方向',
-      '距离是标量，只有大小',
-      '位移可以为零（回到原点），但距离不能为零（只要运动过�?,
-      '向下运动时，通常取向下为正方�?,
-    ],
-    examples: [
-      '绕操场跑一圈：距离400m，位�?m',
-      '电梯�?楼到10楼：位移向上，约27m',
-      '自由落体：位移和距离相等（单向运动）',
-    ],
-    difficulty: 'basic',
-  },
-  {
-    id: 'fmc-2',
-    title: '匀加速直线运�?,
-    content: '物体沿直线运动，且加速度恒定不变的运动。自由落体是匀加速直线运动的特例，加速度为重力加速度 g。不同星球的 g 值不同�?,
-    keyPoints: [
-      '加速度 a 恒定不变',
-      's-t 图像是抛物线',
-      'v-t 图像是直线（斜率�?a�?,
-      '每一秒下落的距离越来越大（等时位移递增�?,
-    ],
-    examples: [
-      '地球表面 g �?9.8 m/s²',
-      '月球表面 g �?1.6 m/s²',
-      '题目中行星X：g = 8 m/s²',
-    ],
-    difficulty: 'basic',
-  },
-  {
-    id: 'fmc-3',
-    title: '自由落体运动模型',
-    content: '物体仅在重力作用下由静止开始下落的运动。忽略空气阻力时，所有物体的下落加速度相同，与质量无关。这是牛顿和伽利略的重要发现�?,
-    keyPoints: [
-      '初速度 u = 0',
-      '加速度 a = g（重力加速度�?,
-      '位移公式简化为 s = ½gt²',
-      '速度公式简化为 v = gt',
-    ],
-    examples: [
-      '从悬崖边释放石头',
-      '高空跳伞初期（未开伞时近似�?,
-      '真空管中羽毛和铁球同时落�?,
-    ],
-    difficulty: 'basic',
-  },
-  {
-    id: 'fmc-4',
-    title: '⚠️ 易错点：总时�?vs 分段时间',
-    content: '当题目说"再过 t �?时，必须用总时间代入公式，而不是只�?再过"的那段时间！这是 DSE 最常见的陷阱之一�?,
-    keyPoints: [
-      '"再过4�?意味着总时�?= 原时�?+ 4�?,
-      '位移公式 s = ½gt² 中的 t 是总时�?,
-      '若要�?�?秒的位移"，需�?s(�? - s(之前)',
-      '仔细读题：区�?t秒后的位�?�?t秒内的位�?',
-    ],
-    examples: [
-      '�?秒后位置：s�?= ½g(1)² = 4m',
-      '�?秒后位置：s�?= ½g(5)² = 100m',
-      '�?秒的位移：Δs = 100 - 4 = 96m',
-    ],
-    difficulty: 'intermediate',
-  },
-  {
-    id: 'fmc-5',
-    title: '运动学公式选择策略',
-    content: '根据题目给出的已知量和要求的未知量，选择最合适的公式。避免绕弯路，一步到位�?,
-    keyPoints: [
-      '�?t �?v：用 s = ut + ½at²',
-      '�?v �?t：用 v² = u² + 2as',
-      '�?v �?t：用 v = u + at',
-      '由静止开始：�?u = 0 简化公�?,
-    ],
-    examples: [
-      '知道下落时间求位�?�?s = ½gt²',
-      '知道下落高度求末�?�?v² = 2gs',
-      '知道末速求时间 �?t = v/g',
-    ],
-    difficulty: 'intermediate',
-  },
-  {
-    id: 'fmc-6',
-    title: '速率与速度的区�?,
-    content: 'Speed（速率）是标量，只有大小，表示物体运动的快慢；Velocity（速度）是矢量，有大小和方向。物体可以保持恒定速率但速度变化（如转弯），也可以速度为零但加速度不为零（如抛体最高点）�?,
-    keyPoints: [
-      'Speed 是标量，Velocity 是矢�?,
-      '匀速运动（uniform velocity）意味着加速度为零',
-      '恒定速率（constant speed）不一定是匀速运�?,
-      '方向改变时，即使速率不变，速度也在变化',
-    ],
-    examples: [
-      '汽车转弯：速率不变，但速度方向改变',
-      '圆周运动：速率恒定，但速度不断变化',
-      '抛体最高点：速度为零，但加速度 = g �?0',
-    ],
-    difficulty: 'intermediate',
-  },
-  {
-    id: 'fmc-7',
-    title: '中间点分析法',
-    content: '当题目给出运动过程中某一段（�?A �?B）的数据时，可以先求出该段起点的速度，再利用这个速度反推之前或之后的运动。这�?DSE 常见�?逆向求解"技巧�?,
-    keyPoints: [
-      '把整个运动拆分成多段',
-      '利用已知段的数据求中间点速度',
-      '中间点的末速度 = 下一段的初速度',
-      '公式选择：已�?s、t、a，用 s = ut + ½at² �?u',
-    ],
-    examples: [
-      '已知 A→B 用时4s、位�?00m，先�?A 点速度',
-      '自由落体经过窗户：已知窗户高度和经过时间，求起点高度',
-      '汽车刹车：已知某段刹车数据，求初始速度',
-    ],
-    difficulty: 'intermediate',
-  },
-  {
-    id: 'fmc-8',
-    title: '瞬时状�?vs 过程状�?,
-    content: '物体的瞬时速度和瞬时加速度是独立的量。速度为零不意味着加速度为零；加速度为零也不意味着速度为零。理解这一点是解决运动学概念题的关键�?,
-    keyPoints: [
-      '瞬时速度 v = 0 时，加速度可以不为�?,
-      '加速度 a = 0 时，速度可以不为零（匀速运动）',
-      '速度和加速度的方向可以相同或相反',
-      '速度和加速度方向相反时，物体减�?,
-    ],
-    examples: [
-      '竖直上抛最高点：v = 0，a = g = 9.81 m/s²',
-      '匀速行驶的汽车：v �?0，a = 0',
-      '刹车中的汽车：v �?a 方向相反',
-    ],
-    difficulty: 'intermediate',
-  },
-  {
-    id: 'fmc-9',
-    title: '运动图像三件�?(Motion Graphs Toolkit)',
-    content:
-      '�?DSE 运动学题中，图像往往比公式更关键：看斜率（slope）与面积（area）就能直接读出速度、加速度与位移。掌�?s–t、v–t、a–t 三种图像的对应关系，可以快速做出判断题与图像题�?,
-    keyPoints: [
-      's–t 图像斜率 = v（Velocity is the slope of displacement–time graph�?,
-      'v–t 图像斜率 = a（Acceleration is the slope of velocity–time graph�?,
-      'a–t 图像面积 = Δv（Area under acceleration–time graph gives change in velocity�?,
-      '匀加�?(uniform acceleration) �?v–t 是直线；s–t 是开口向上的曲线 (parabola)',
-    ],
-    examples: [
-      'v–t 直线�?(0,0) �?(3s,6m/s)：a = 6/3 = 2 m/s²',
-      's–t 的斜率越来越大：速度在增�?(speeding up)',
-      'v–t 水平线：a = 0（constant velocity�?,
-    ],
-    difficulty: 'basic',
-  },
-  {
-    id: 'fmc-10',
-    title: 'v–t 图像面积：位�?vs 路程 (Displacement vs Distance)',
-    content:
-      'v–t 图像下面的“带符号面积”（signed area）代表位�?displacement；若要算路程 distance，则要把速度为负时的面积取绝对值再相加。出现掉�?反向（velocity changes sign）时，这是最常见的陷阱之一�?,
-    keyPoints: [
-      '位移 displacement = v–t 图像下的带符号面�?(signed area)',
-      '路程 distance = |面积| 的总和 (sum of absolute areas)',
-      '最大离开起点距离通常发生�?v 首次变为 0 的时刻（turning point�?,
-      '判断“谁领先/追上”→ 比较到同一时刻的累计位移（比较面积�?,
-    ],
-    examples: [
-      '上抛运动：先 v>0 �?v<0；位移可�?0，但路程一�?>0',
-      '速度先正后负：到 v=0 的时刻距离最�?,
-      '两人 v–t 图：面积更大者走得更远（ahead�?,
-    ],
-    difficulty: 'intermediate',
-  },
-  {
-    id: 'fmc-11',
-    title: '单位换算与合理性检�?(Unit & Sanity Check)',
-    content:
-      '很多运动题的坑不在物理，而在单位。DSE 常见混用 km/h、m/s、cm/s、m、s。做题前先统一单位，再用数量级（order of magnitude）检查答案是否合理�?,
-    keyPoints: [
-      'km/h �?m/s：乘�?5/18（Multiply by 5/18�?,
-      'm/s �?km/h：乘�?18/5（Multiply by 18/5�?,
-      'cm/s �?m/s：除/�?100�? m = 100 cm�?,
-      'Sanity check�?0 km/h �?14 m/s�? s 内不可能开出几百米',
-    ],
-    examples: [
-      '50 km/h �?13.9 m/s（常用记忆点�?,
-      '2 flashes per second �?Δt = 0.5 s',
-      '若算�?t = 0.1 s �?500 m：明显不合理',
-    ],
-    difficulty: 'basic',
-  },
-  {
-    id: 'fmc-12',
-    title: '�?n 秒路�?某段位移 (Nth-second Distance & Segment Displacement)',
-    content:
-      '题目问“第 3 秒走了多少”或“后 4 秒位移”时，不能直接把 t=3 �?t=4 代入总位移公式。正确做法是用总位移差：Δs = s(t2) �?s(t1)。匀加速时也可以用更快的思路�?,
-    keyPoints: [
-      '某段位移：Δs = s(t2) �?s(t1)（Segment displacement�?,
-      '�?n 秒路程：d_n = s(n) �?s(n�?)',
-      '匀加速且从静止：s(t)=½at² �?d_n = ½a(2n�?)',
-      '看到 “a further …�?要先变成总时间（convert to total time first�?,
-    ],
-    examples: [
-      '自由落体：第 1 �?4.9 m；第 3 �?= s(3) �?s(2) = 24.5 m',
-      'x=�?秒，y=�?秒：x:y=1:3',
-      '已知 1 s �?4 m，再�?4 s：算 s(5) 不是 s(4)',
-    ],
-    difficulty: 'intermediate',
-  },
-  {
-    id: 'fmc-13',
-    title: '刹车模型：反应距�?+ 制动距离 (Reaction + Braking Distance)',
-    content:
-      '交通安全题一般分两段：看到危险到踩刹车前是“反应段”（匀速），踩下刹车后是“制动段”（匀减速）。总停�?= 反应距离 + 制动距离。很多题会用 speed–time 图像的面积来算距离�?,
-    keyPoints: [
-      '反应距离：s_r = v × t_reaction（constant speed�?,
-      '制动距离：用 v² = u² + 2as，停车时 v=0',
-      '同样制动条件（|a| 相同）⇒ 制动距离 s �?u²',
-      'speed–time 图像面积 = 路程（area gives distance travelled�?,
-    ],
-    examples: [
-      'v=18 m/s，反�?0.5 s：反应距�?9 m，剩余距离才用来制动',
-      '50�?0 km/h：制动距离倍率 = (70/50)²=1.96',
-      '图像拆分：矩�?反应) + 三角�?刹车)',
-    ],
-    difficulty: 'intermediate',
-  },
-  {
-    id: 'fmc-14',
-    title: '线性化图像：s–t² �?v²–s (Linearization Tricks)',
-    content:
-      '有些题故意把图像画成 s �?t² �?v² �?s，让你用“斜率”直接求加速度。核心是把匀加速公式写�?y = mx + c 的线性形式：�?slope（斜率）找参数�?,
-    keyPoints: [
-      '从静止匀加速：s = ½at² �?s–t² 图的 slope = ½a',
-      '一般匀加速：v² = u² + 2as �?v²–s 图的 slope = 2a，intercept = u²',
-      '读斜率要取两点（two points），单位也要跟着�?,
-      '若图像是直线 �?匀加速（constant acceleration）假设成�?,
-    ],
-    examples: [
-      's–t² �?slope=1 �?a=2 m/s²',
-      'v²–s �?slope=1 �?2a=1 �?a=0.5 m/s²',
-      'v²–s �?s=0 的截�?= u²（可反推出初速）',
-    ],
-    difficulty: 'intermediate',
-  },
-  {
-    id: 'fmc-15',
-    title: '追及/相遇：用“位移相同”判�?(Catch-up & Meeting)',
-    content:
-      '同一直线的追�?相遇，本质条件只有一个：同一时刻两者位移相同（same displacement at the same time）。若�?v–t 图，直接比较面积；若给公式，列出 s_A(t)=s_B(t)�?,
-    keyPoints: [
-      '相遇条件：s_A(t) = s_B(t)（meeting condition�?,
-      '�?v–t 图：比较�?0 �?t 的面积（area under v–t�?,
-      '“谁领先”取决于累计位移，而不是瞬时速度大小',
-      '速度相同不一定在同一位置；位置相同必须位移相�?,
-    ],
-    examples: [
-      '车与卡车：t=20 s 追上 �?两条 v–t 图面积相�?,
-      '两人同起点：某时�?v 相同，但面积不同 �?不在同一�?,
-      '用面积看“追上”比解方程更�?,
-    ],
-    difficulty: 'intermediate',
-  },
-  {
-    id: 'fmc-16',
-    title: '实验读图：Ticker-tape / Stroboscope (Equal-time Recording)',
-    content:
-      'ticker-tape（打点纸带）�?stroboscope（频闪）都在“等时间间隔”上记录位置。相邻点距代表该时间段的平均速率；点距按等差增大意味着匀加速；频率决定每次记录的时间间隔�?,
-    keyPoints: [
-      '等时间间�?�?相邻点距 �?平均速度 (spacing �?average speed)',
-      '点距等差增大 �?速度等差增大 �?加速度恒定 (constant acceleration)',
-      '频闪 f（Hz）⇒ Δt = 1/f（time between flashes�?,
-      '位移是“累计”（cumulative），别把单段当总位�?,
-    ],
-    examples: [
-      '2 flashes/s �?Δt = 0.5 s；MN 位移 20 cm �?v_avg = 40 cm/s',
-      '纸带 1,2,3,4,5,6 cm：v 均匀增加 �?a 恒定',
-      '判断 (1)(2)(3)：看“每段长度”与“累计长度”区�?,
-    ],
-    difficulty: 'intermediate',
-  },
-  {
-    id: 'fmc-17',
-    title: '二维位移合成与平均速度 (Vector Displacement & Average Velocity)',
-    content:
-      '很多“走曲线/走多段路”的题，关键是区�?distance �?displacement。平均速度（average velocity）用位移/时间；平均速率（average speed）用路程/时间。二维位移通常用分�?(components) + 勾股 (Pythagoras)�?,
-    keyPoints: [
-      '平均速度 v_avg = displacement / total time（vector�?,
-      '平均速率 speed_avg = distance / total time（scalar�?,
-      '位移用分量合成：s = �?x²+y²)',
-      '平均速度的大�?�?平均速率（displacement �?distance�?,
-    ],
-    examples: [
-      '向西 40m、向�?40m、向�?70m：位�?�?30²+40²)=50m',
-      '走半圆到半圆：平均速度�?AC 的直线位移，不用弧长',
-      '恒定速率 50 km/h：平均速度不可能超�?50 km/h',
-    ],
-    difficulty: 'intermediate',
-  },
-  {
-    id: 'fmc-18',
-    title: '正负号与方向约定 (Sign Convention)',
-    content:
-      '竖直运动、刹车、掉头题的核心是“先定正方向，再全程一致”。只要方向一变，速度/加速度就可能变号。用同一�?sign convention 可以避免“代公式全对但答案全错”�?,
-    keyPoints: [
-      '先选正方向（Choose a positive direction）并保持一�?,
-      '向上为正：重力加速度 a = −g；向下为正：a = +g',
-      '减速：a �?v 方向相反（acceleration opposite to velocity�?,
-      '看图像符号：v<0 表示向负方向运动，别把速度当“负的速率�?,
-    ],
-    examples: [
-      '上抛最高点：v=0，但 a 仍为 −g（若向上为正�?,
-      '从楼顶抛上：到地面位移是负值（若向上为正）',
-      '位移–时间图斜率为负：速度为负（向反方向运动）',
-    ],
-    difficulty: 'intermediate',
-  },
-  {
-    id: 'fmc-19',
-    title: '相对运动：同加速度时“间距不变�?(Relative Motion)',
-    content:
-      '如果两个物体在同一方向上具有相同加速度（例如都在自由落体且忽略空气阻力），它们的相对加速度�?0，因此相对速度保持不变；若初始相对速度�?0，则两者间距始终不变。这类题用相对运动更快�?,
-    keyPoints: [
-      '相对加速度 a_rel = a1 �?a2',
-      '�?a1 = a2 �?a_rel = 0 �?相对速度恒定 (relative velocity constant)',
-      '若初始相对速度也为 0 �?间距保持不变 (separation remains constant)',
-      '同一 g 下自由落体与质量无关（mass independent�?,
-    ],
-    examples: [
-      '两球同时释放：一直保持原来的间距',
-      '同一高度释放不同质量：落地时间相�?,
-      '相对运动能避免写两条 s(t) 方程',
-    ],
-    difficulty: 'advanced',
-  },
-  {
-    id: 'rr-022',
-    type: 'multiple_choice',
-    question:
-      'A ray of light travels in air and strikes a rectangular glass block at an angle of incidence 50 degrees. The critical angle of the glass is 42 degrees. Which of the following diagrams best shows the path of the ray?',
-    options: [
-      '/physics/exercises/reflection-refraction/rr-022-option-a.png',
-      '/physics/exercises/reflection-refraction/rr-022-option-b.png',
-      '/physics/exercises/reflection-refraction/rr-022-option-c.png',
-      '/physics/exercises/reflection-refraction/rr-022-option-d.png',
-    ],
-    answer: '/physics/exercises/reflection-refraction/rr-022-option-d.png',
-    explanation:
-      'At the first boundary, air to glass makes the ray bend towards the normal. At the second boundary, glass to air makes it bend away from the normal. The diagram that shows both correctly is D.',
-    difficulty: 3,
-    points: 15,
-    hints: ['Track the ray at entry and exit separately.', 'Use bend towards normal into glass, away from normal out of glass.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-022-question.png'],
-  },
-  {
-    id: 'rr-023',
-    type: 'multiple_choice',
-    question:
-      'A student uses two triangular prisms to construct a periscope as shown above. Which of the following shows the image of the object as seen by the observer?',
-    options: [
-      '/physics/exercises/reflection-refraction/rr-023-option-a.png',
-      '/physics/exercises/reflection-refraction/rr-023-option-b.png',
-      '/physics/exercises/reflection-refraction/rr-023-option-c.png',
-      '/physics/exercises/reflection-refraction/rr-023-option-d.png',
-    ],
-    answer: '/physics/exercises/reflection-refraction/rr-023-option-a.png',
-    explanation:
-      'The two reflections in the prismatic periscope produce an inverted image in the orientation shown. That matches option A.',
-    difficulty: 2,
-    points: 15,
-    hints: ['Trace the image orientation after each reflection.', 'Two reflections do not always restore the original orientation for an asymmetric object.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-023-question.png'],
-  },
-  {
-    id: 'rr-024',
-    type: 'multiple_choice',
-    question: 'A ray of light enters a glass prism and travels along the path as shown above. Find the refractive index of the glass.',
-    options: ['1.07', '1.37', '1.47', '1.50'],
-    answer: '1.47',
-    explanation:
-      'The angle with the normal is 90 degrees minus 47 degrees, so the internal incidence angle is 43 degrees. Since the emergent ray is along the surface, 43 degrees is the critical angle. Therefore n = 1 / sin 43 degrees = 1.47.',
-    difficulty: 3,
-    points: 15,
-    hints: ['Convert the angle with the face to the angle with the normal.', 'A ray along the surface corresponds to the critical angle.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-024-question.png'],
-  },
-  {
-    id: 'rr-025',
-    type: 'multiple_choice',
-    question:
-      'A ray of light travels in air and strikes a glass block as shown above. Which of the following diagrams best shows the path of the ray?',
-    options: [
-      '/physics/exercises/reflection-refraction/rr-025-option-a.png',
-      '/physics/exercises/reflection-refraction/rr-025-option-b.png',
-      '/physics/exercises/reflection-refraction/rr-025-option-c.png',
-      '/physics/exercises/reflection-refraction/rr-025-option-d.png',
-    ],
-    answer: '/physics/exercises/reflection-refraction/rr-025-option-d.png',
-    explanation:
-      'From air into glass the ray bends towards the normal, and from glass back into air it bends away from the normal. The only diagram consistent with both is D.',
-    difficulty: 3,
-    points: 15,
-    hints: ['Use relative optical density at each face.', 'The emergent ray in air must bend away from the normal.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-025-question.png'],
-  },
-  {
-    id: 'rr-026',
-    type: 'multiple_choice',
-    question: 'A ray of light travels in air and strikes a glass prism as shown above. Which of the following diagrams best shows the path of the ray?',
-    options: [
-      '/physics/exercises/reflection-refraction/rr-026-option-a.png',
-      '/physics/exercises/reflection-refraction/rr-026-option-b.png',
-      '/physics/exercises/reflection-refraction/rr-026-option-c.png',
-      '/physics/exercises/reflection-refraction/rr-026-option-d.png',
-    ],
-    answer: '/physics/exercises/reflection-refraction/rr-026-option-d.png',
-    explanation:
-      'At entry, the ray goes from air to glass and bends towards the normal. At exit, it goes from glass to air and bends away from the normal. That makes D the correct path.',
-    difficulty: 3,
-    points: 15,
-    hints: ['The prism has two refractions, one at each face.', 'Check bend direction at both boundaries.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-026-question.png'],
-  },];
-
-// 练习�?- DSE Style (All in English)
-// Position and Movement 板块
+// Temporary placeholders to keep the file buildable. The exercises catalog below remains intact.
+export const FORCE_MOTION_FORMULAS: Formula[] = [];
+export const FORCE_MOTION_CONCEPTS: Concept[] = [];
+export const FORCE_MOTION_SIMULATIONS: Simulation[] = [];
 export const FORCE_MOTION_EXERCISES: Exercise[] = [
   {
     id: 'pm-001',
@@ -1584,13 +11,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'A body is dropped from rest down a cliff on a planet $X$. After falling for 1 s, it is 4 m below the starting point. How far below the starting point will it be after a further 4 s?',
     options: ['40 m', '64 m', '80 m', '100 m'],
     answer: '100 m',
-    explanation: '⚠️ **Key point:** "a further 4 s" means the total time from the start is 1 + 4 = 5 s, not just 4 s.\n\n**Step 1:** Find the gravitational acceleration g on planet X\nUsing $s = ut + \\frac{1}{2}at^2$:\n$$4 = (0)(1) + \\frac{1}{2}g(1)^2$$\n$$4 = \\frac{1}{2}g$$\n$$g = 8 \\text{ m/s²}$$\n\n**Step 2:** Find the displacement after a total of 5 seconds\nSince the body starts from rest (u = 0) and we now know g = 8 m/s²:\n$$s = ut + \\frac{1}{2}gt^2$$\n$$s = (0)(5) + \\frac{1}{2}(8)(5)^2$$\n$$s = \\frac{1}{2}(8)(25) = 100 \\text{ m}$$\n\n**Verification:**\n- After 1 s: $s_1 = \\frac{1}{2}(8)(1)^2 = 4$ m ✓\n- After 5 s: $s_5 = \\frac{1}{2}(8)(25) = 100$ m ✓\n\n⚠️ **Common mistake:** Using t = 4 s gives $s = \\frac{1}{2}(8)(16) = 64$ m, which is wrong! This would be the displacement from rest in 4 s, not "after a further 4 s".',
+    explanation: '鈿狅笍 **Key point:** "a further 4 s" means the total time from the start is 1 + 4 = 5 s, not just 4 s.\n\n**Step 1:** Find the gravitational acceleration g on planet X\nUsing $s = ut + \\frac{1}{2}at^2$:\n$$4 = (0)(1) + \\frac{1}{2}g(1)^2$$\n$$4 = \\frac{1}{2}g$$\n$$g = 8 \\text{ m/s虏}$$\n\n**Step 2:** Find the displacement after a total of 5 seconds\nSince the body starts from rest (u = 0) and we now know g = 8 m/s虏:\n$$s = ut + \\frac{1}{2}gt^2$$\n$$s = (0)(5) + \\frac{1}{2}(8)(5)^2$$\n$$s = \\frac{1}{2}(8)(25) = 100 \\text{ m}$$\n\n**Verification:**\n- After 1 s: $s_1 = \\frac{1}{2}(8)(1)^2 = 4$ m 鉁揬n- After 5 s: $s_5 = \\frac{1}{2}(8)(25) = 100$ m 鉁揬n\n鈿狅笍 **Common mistake:** Using t = 4 s gives $s = \\frac{1}{2}(8)(16) = 64$ m, which is wrong! This would be the displacement from rest in 4 s, not "after a further 4 s".',
     difficulty: 2,
     points: 15,
     hints: [
       'First, find the gravitational acceleration g using the information from the first second',
       '"A further 4 s" means the total time from the start is 1 + 4 = 5 s',
-      'Use s = ut + ½gt² with u = 0 and the g value you found'
+      'Use s = ut + 陆gt虏 with u = 0 and the g value you found'
     ],
     sectionId: 'position-movement',
   },
@@ -1601,12 +28,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'A particle released from rest at $O$ falls freely under gravity and passes $A$ and $B$, as shown in the figure (not drawn to scale). If the particle takes 4 s to move from $A$ to $B$, where $AB = 100 \\text{ m}$, how long does it take to fall from $O$ to $A$?',
     options: ['0.55 s', '1.10 s', '2.20 s', '4.40 s'],
     answer: '0.55 s',
-    explanation: '⚠️ **Key point:** This is a two-step problem. First, find the velocity at point $A$ using the motion from $A$ to $B$, then use that velocity to find the time from $O$ to $A$.\n\n**Step 1: Find the velocity at point A**\nFrom $A$ to $B$:\n- Displacement: $s = 100 \\text{ m}$\n- Time: $t = 4 \\text{ s}$\n- Acceleration: $a = g = 9.81 \\text{ m/s²}$\n- Initial velocity at $A$: $u$ (unknown)\n\nUsing $s = ut + \\frac{1}{2}at^2$:\n$$100 = u(4) + \\frac{1}{2}(9.81)(4)^2$$\n$$100 = 4u + \\frac{1}{2}(9.81)(16)$$\n$$100 = 4u + 78.48$$\n$$4u = 100 - 78.48 = 21.52$$\n$$u = 5.38 \\text{ m/s}$$\n\n**Step 2: Find the time from O to A**\nFrom $O$ to $A$:\n- Initial velocity at $O$: $u_O = 0$ (released from rest)\n- Final velocity at $A$: $v_A = 5.38 \\text{ m/s}$ (from Step 1)\n- Acceleration: $a = g = 9.81 \\text{ m/s²}$\n- Time: $t$ (unknown)\n\nUsing $v = u + at$:\n$$5.38 = 0 + (9.81)t$$\n$$t = \\frac{5.38}{9.81} = 0.548 \\text{ s} \\approx 0.55 \\text{ s}$$\n\n**Verification:**\n- Check Step 1: Using $s = ut + \\frac{1}{2}at^2$ with $u = 5.38 \\text{ m/s}$:\n  $$s = (5.38)(4) + \\frac{1}{2}(9.81)(16) = 21.52 + 78.48 = 100 \\text{ m} \\checkmark$$\n- Check Step 2: Using $v = u + at$ with $u = 0$:\n  $$v = 0 + (9.81)(0.548) = 5.38 \\text{ m/s} \\checkmark$$\n\n⚠️ **Common mistake:** Do not assume that the time from $O$ to $A$ is half of the time from $A$ to $B$. The motion is not uniform, so the time intervals are not proportional to the distances.',
+    explanation: '鈿狅笍 **Key point:** This is a two-step problem. First, find the velocity at point $A$ using the motion from $A$ to $B$, then use that velocity to find the time from $O$ to $A$.\n\n**Step 1: Find the velocity at point A**\nFrom $A$ to $B$:\n- Displacement: $s = 100 \\text{ m}$\n- Time: $t = 4 \\text{ s}$\n- Acceleration: $a = g = 9.81 \\text{ m/s虏}$\n- Initial velocity at $A$: $u$ (unknown)\n\nUsing $s = ut + \\frac{1}{2}at^2$:\n$$100 = u(4) + \\frac{1}{2}(9.81)(4)^2$$\n$$100 = 4u + \\frac{1}{2}(9.81)(16)$$\n$$100 = 4u + 78.48$$\n$$4u = 100 - 78.48 = 21.52$$\n$$u = 5.38 \\text{ m/s}$$\n\n**Step 2: Find the time from O to A**\nFrom $O$ to $A$:\n- Initial velocity at $O$: $u_O = 0$ (released from rest)\n- Final velocity at $A$: $v_A = 5.38 \\text{ m/s}$ (from Step 1)\n- Acceleration: $a = g = 9.81 \\text{ m/s虏}$\n- Time: $t$ (unknown)\n\nUsing $v = u + at$:\n$$5.38 = 0 + (9.81)t$$\n$$t = \\frac{5.38}{9.81} = 0.548 \\text{ s} \\approx 0.55 \\text{ s}$$\n\n**Verification:**\n- Check Step 1: Using $s = ut + \\frac{1}{2}at^2$ with $u = 5.38 \\text{ m/s}$:\n  $$s = (5.38)(4) + \\frac{1}{2}(9.81)(16) = 21.52 + 78.48 = 100 \\text{ m} \\checkmark$$\n- Check Step 2: Using $v = u + at$ with $u = 0$:\n  $$v = 0 + (9.81)(0.548) = 5.38 \\text{ m/s} \\checkmark$$\n\n鈿狅笍 **Common mistake:** Do not assume that the time from $O$ to $A$ is half of the time from $A$ to $B$. The motion is not uniform, so the time intervals are not proportional to the distances.',
     difficulty: 3,
     points: 20,
     hints: [
       'First, find the velocity at point A using the motion from A to B (s = 100 m, t = 4 s)',
-      'Use the equation s = ut + ½at² to find the initial velocity at A',
+      'Use the equation s = ut + 陆at虏 to find the initial velocity at A',
       'Then use the velocity at A as the final velocity for the motion from O to A',
       'Apply v = u + at with u = 0 (released from rest) to find the time from O to A'
     ],
@@ -1620,7 +47,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'Which of the following statements concerning the motion of a body is/are correct?\n(1) A body has no acceleration when it is moving with a uniform velocity.\n(2) A body can have zero velocity but also be accelerating.\n(3) A body can have a constant speed but a varying velocity.',
     options: ['(1) only', '(1) & (2) only', '(2) & (3) only', '(1), (2) & (3)'],
     answer: '(1), (2) & (3)',
-    explanation: '⚠️ **Key point:** This question tests understanding of the relationships between velocity, speed, and acceleration. All three statements are correct.\n\n**Statement (1): A body has no acceleration when it is moving with a uniform velocity.**\n- **Correct** ✓\n- Uniform velocity means constant speed AND constant direction\n- Since velocity is constant, acceleration $a = 0$\n- **Reason:** Acceleration is the rate of change of velocity. If velocity is constant (both magnitude and direction), then acceleration must be zero.\n\n**Statement (2): A body can have zero velocity but also be accelerating.**\n- **Correct** ✓\n- **Example:** A ball projected vertically upwards\n- At the highest point, the ball\'s velocity is zero ($v = 0$)\n- However, acceleration due to gravity is still present: $a = g = 9.81 \\text{ m/s²} \\neq 0$\n- **Reason:** Velocity and acceleration are independent quantities. Zero velocity does NOT mean zero acceleration. Acceleration is the rate of change of velocity, and it can be non-zero even when velocity is momentarily zero.\n\n**Statement (3): A body can have a constant speed but a varying velocity.**\n- **Correct** ✓\n- **Example:** A car turning around a corner with constant speed\n- Speed (magnitude of velocity) is constant: $|\\vec{v}| = \\text{constant}$\n- However, velocity (vector) is changing because the direction is changing\n- **Reason:** Velocity is a vector quantity with both magnitude and direction. Speed is the magnitude of velocity. If the direction changes, velocity changes, even if speed (magnitude) remains constant.\n\n**Summary:**\n- Statement (1): Uniform velocity �?$a = 0$ ✓\n- Statement (2): $v = 0$ but $a \\neq 0$ is possible ✓\n- Statement (3): Constant speed but varying velocity is possible ✓\n\n**Answer:** All three statements are correct. **D. (1), (2) & (3)**\n\n⚠️ **Common misconceptions:**\n- �?"Zero velocity means zero acceleration" �?Wrong! (See Statement 2)\n- �?"Constant speed means constant velocity" �?Wrong! (See Statement 3)\n- �?"Acceleration always means speed is changing" �?Wrong! Acceleration can change direction without changing speed.',
+    explanation: '鈿狅笍 **Key point:** This question tests understanding of the relationships between velocity, speed, and acceleration. All three statements are correct.\n\n**Statement (1): A body has no acceleration when it is moving with a uniform velocity.**\n- **Correct** 鉁揬n- Uniform velocity means constant speed AND constant direction\n- Since velocity is constant, acceleration $a = 0$\n- **Reason:** Acceleration is the rate of change of velocity. If velocity is constant (both magnitude and direction), then acceleration must be zero.\n\n**Statement (2): A body can have zero velocity but also be accelerating.**\n- **Correct** 鉁揬n- **Example:** A ball projected vertically upwards\n- At the highest point, the ball\'s velocity is zero ($v = 0$)\n- However, acceleration due to gravity is still present: $a = g = 9.81 \\text{ m/s虏} \\neq 0$\n- **Reason:** Velocity and acceleration are independent quantities. Zero velocity does NOT mean zero acceleration. Acceleration is the rate of change of velocity, and it can be non-zero even when velocity is momentarily zero.\n\n**Statement (3): A body can have a constant speed but a varying velocity.**\n- **Correct** 鉁揬n- **Example:** A car turning around a corner with constant speed\n- Speed (magnitude of velocity) is constant: $|\\vec{v}| = \\text{constant}$\n- However, velocity (vector) is changing because the direction is changing\n- **Reason:** Velocity is a vector quantity with both magnitude and direction. Speed is the magnitude of velocity. If the direction changes, velocity changes, even if speed (magnitude) remains constant.\n\n**Summary:**\n- Statement (1): Uniform velocity 鈫?$a = 0$ 鉁揬n- Statement (2): $v = 0$ but $a \\neq 0$ is possible 鉁揬n- Statement (3): Constant speed but varying velocity is possible 鉁揬n\n**Answer:** All three statements are correct. **D. (1), (2) & (3)**\n\n鈿狅笍 **Common misconceptions:**\n- 鉂?"Zero velocity means zero acceleration" 鈫?Wrong! (See Statement 2)\n- 鉂?"Constant speed means constant velocity" 鈫?Wrong! (See Statement 3)\n- 鉂?"Acceleration always means speed is changing" 鈫?Wrong! Acceleration can change direction without changing speed.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1638,13 +65,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'The diagram shows how the velocity of a body varies with time. What is the distance travelled in the first 4 s?',
     options: ['4 m', '8 m', '10 m', '12 m'],
     answer: '12 m',
-    explanation: '⚠️ **Key point:** The distance travelled equals the area under a velocity–time graph.\n\n**Step 1:** Read the velocities from the graph\n- At $t = 0\\text{ s}$, $v = 2\\text{ m/s}$\n- At $t = 4\\text{ s}$, $v = 4\\text{ m/s}$\n\n**Step 2:** Find the area of the trapezium (0 to 4 s)\n$$s = \\frac{(2 + 4)\\times 4}{2} = 12\\text{ m}$$\n\n**Verification:** Average velocity $= \\frac{2 + 4}{2} = 3\\text{ m/s}$, so $s = 3\\times 4 = 12\\text{ m}$ �?,
+    explanation: 'The distance travelled equals the area under the velocity-time graph. Using the trapezium area from 0 to 4 s gives 12 m.',
     difficulty: 1,
     points: 10,
     hints: [
-      'Distance travelled equals the area under a velocity–time graph',
+      'Distance travelled equals the area under a velocity鈥搕ime graph',
       'From 0 to 4 s, the region is a trapezium with parallel sides 2 and 4',
-      'Use area = (sum of parallel sides × height) / 2'
+      'Use area = (sum of parallel sides 脳 height) / 2'
     ],
     sectionId: 'position-movement',
     imagePaths: ['/physics/exercises/position-movement/pm-004-question.png'],
@@ -1661,7 +88,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
       '/physics/exercises/position-movement/pm-005-option-d.png',
     ],
     answer: '/physics/exercises/position-movement/pm-005-option-b.png',
-    explanation: '⚠️ **Key point:** In a vacuum, the ball experiences negligible air resistance, so it falls with constant acceleration $g$.\n\n**Step 1:** Use the free-fall velocity relation\nReleased from rest: $u = 0$\n$$v = u + gt \\;\\Rightarrow\\; v = gt$$\n\n**Step 2:** Interpret the velocity–time graph\n- Constant acceleration means the slope of the $v$-$t$ graph is constant\n- Since $v = 0$ at $t = 0$, the line passes through the origin\n\n**Conclusion:** The correct graph is a straight line starting from the origin �?option B.',
+    explanation: '鈿狅笍 **Key point:** In a vacuum, the ball experiences negligible air resistance, so it falls with constant acceleration $g$.\n\n**Step 1:** Use the free-fall velocity relation\nReleased from rest: $u = 0$\n$$v = u + gt \\;\\Rightarrow\\; v = gt$$\n\n**Step 2:** Interpret the velocity鈥搕ime graph\n- Constant acceleration means the slope of the $v$-$t$ graph is constant\n- Since $v = 0$ at $t = 0$, the line passes through the origin\n\n**Conclusion:** The correct graph is a straight line starting from the origin 鈫?option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1678,11 +105,11 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'A car moving with speed $50\\text{ km h}^{-1}$ can be stopped in a distance of 15 m. In what distance can the car be stopped when its speed is $70\\text{ km h}^{-1}$ under the same condition?',
     options: ['10.9 m', '17.7 m', '21.0 m', '29.4 m'],
     answer: '29.4 m',
-    explanation: '⚠️ **Key point:** Under the same braking condition, the (magnitude of) deceleration is the same, so stopping distance is proportional to the square of the initial speed.\n\n**Step 1:** Use $v^2 = u^2 + 2as$ for stopping\nWhen the car stops, $v = 0$:\n$$0 = u^2 + 2as \\;\\Rightarrow\\; u^2 = -2as$$\nSince $a$ is negative during braking, $u^2 = 2|a|s$.\n\n**Step 2:** Compare the two cases\nWith the same braking condition, $|a|$ is constant, so $s \\propto u^2$.\n$$\\frac{s_2}{s_1} = \\left(\\frac{u_2}{u_1}\\right)^2$$\n\n**Step 3:** Calculate $s_2$\n$$s_2 = 15\\times\\left(\\frac{70}{50}\\right)^2 = 15\\times 1.96 = 29.4\\text{ m}$$\n\n**Conclusion:** The stopping distance is $29.4\\text{ m}$ �?option D.',
+    explanation: '鈿狅笍 **Key point:** Under the same braking condition, the (magnitude of) deceleration is the same, so stopping distance is proportional to the square of the initial speed.\n\n**Step 1:** Use $v^2 = u^2 + 2as$ for stopping\nWhen the car stops, $v = 0$:\n$$0 = u^2 + 2as \\;\\Rightarrow\\; u^2 = -2as$$\nSince $a$ is negative during braking, $u^2 = 2|a|s$.\n\n**Step 2:** Compare the two cases\nWith the same braking condition, $|a|$ is constant, so $s \\propto u^2$.\n$$\\frac{s_2}{s_1} = \\left(\\frac{u_2}{u_1}\\right)^2$$\n\n**Step 3:** Calculate $s_2$\n$$s_2 = 15\\times\\left(\\frac{70}{50}\\right)^2 = 15\\times 1.96 = 29.4\\text{ m}$$\n\n**Conclusion:** The stopping distance is $29.4\\text{ m}$ 鈫?option D.',
     difficulty: 2,
     points: 15,
     hints: [
-      'For stopping, set v = 0 in v² = u² + 2as',
+      'For stopping, set v = 0 in v虏 = u虏 + 2as',
       'Same condition means the deceleration magnitude is the same',
       'Stopping distance is proportional to the square of the speed',
     ],
@@ -1693,9 +120,9 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     id: 'pm-007',
     type: 'multiple_choice',
     question: 'The graph shows the variation of the velocity of a car with time. What is the acceleration of the car?',
-    options: ['0.5 m/s²', '1.5 m/s²', '2.0 m/s²', '4.0 m/s²'],
-    answer: '2.0 m/s²',
-    explanation: '⚠️ **Key point:** The acceleration equals the slope (gradient) of a velocity–time graph.\n\n**Step 1:** Read two points on the straight line\n- At $t = 0\\text{ s}$, $v = 0\\text{ m/s}$\n- At $t = 3\\text{ s}$, $v = 6\\text{ m/s}$\n\n**Step 2:** Calculate the slope\n$$a = \\frac{\\Delta v}{\\Delta t} = \\frac{6 - 0}{3 - 0} = 2\\text{ m/s}^2$$\n\n**Conclusion:** The acceleration is $2.0\\text{ m/s}^2$ �?option C.',
+    options: ['0.5 m/s虏', '1.5 m/s虏', '2.0 m/s虏', '4.0 m/s虏'],
+    answer: '2.0 m/s虏',
+    explanation: '鈿狅笍 **Key point:** The acceleration equals the slope (gradient) of a velocity鈥搕ime graph.\n\n**Step 1:** Read two points on the straight line\n- At $t = 0\\text{ s}$, $v = 0\\text{ m/s}$\n- At $t = 3\\text{ s}$, $v = 6\\text{ m/s}$\n\n**Step 2:** Calculate the slope\n$$a = \\frac{\\Delta v}{\\Delta t} = \\frac{6 - 0}{3 - 0} = 2\\text{ m/s}^2$$\n\n**Conclusion:** The acceleration is $2.0\\text{ m/s}^2$ 鈫?option C.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -1718,12 +145,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
       'First: 9.8 m; Third: 39.2 m',
     ],
     answer: 'First: 4.9 m; Third: 24.5 m',
-    explanation: '⚠️ **Key point:** In free fall from rest, the total displacement after time $t$ is $s = \\frac{1}{2}gt^2$. The distance travelled in the $n$th second is $s(n) - s(n-1)$.\n\n**Step 1:** Use $s = \\frac{1}{2}gt^2$ with $g = 9.81\\text{ m/s}^2$\n$$s \\approx 4.905t^2 \\approx 4.9t^2$$\n\n**Step 2:** Find total displacement after 1 s, 2 s, and 3 s\n$$s_1 = 4.9(1)^2 = 4.9\\text{ m}$$\n$$s_2 = 4.9(2)^2 = 19.6\\text{ m}$$\n$$s_3 = 4.9(3)^2 = 44.1\\text{ m}$$\n\n**Step 3:** Find the distances in the 1st and 3rd second\n- First second: $s_1 = 4.9\\text{ m}$\n- Third second: $s_3 - s_2 = 44.1 - 19.6 = 24.5\\text{ m}$\n\n**Conclusion:** First: $4.9\\text{ m}$, Third: $24.5\\text{ m}$ �?option C.',
+    explanation: '鈿狅笍 **Key point:** In free fall from rest, the total displacement after time $t$ is $s = \\frac{1}{2}gt^2$. The distance travelled in the $n$th second is $s(n) - s(n-1)$.\n\n**Step 1:** Use $s = \\frac{1}{2}gt^2$ with $g = 9.81\\text{ m/s}^2$\n$$s \\approx 4.905t^2 \\approx 4.9t^2$$\n\n**Step 2:** Find total displacement after 1 s, 2 s, and 3 s\n$$s_1 = 4.9(1)^2 = 4.9\\text{ m}$$\n$$s_2 = 4.9(2)^2 = 19.6\\text{ m}$$\n$$s_3 = 4.9(3)^2 = 44.1\\text{ m}$$\n\n**Step 3:** Find the distances in the 1st and 3rd second\n- First second: $s_1 = 4.9\\text{ m}$\n- Third second: $s_3 - s_2 = 44.1 - 19.6 = 24.5\\text{ m}$\n\n**Conclusion:** First: $4.9\\text{ m}$, Third: $24.5\\text{ m}$ 鈫?option C.',
     difficulty: 2,
     points: 15,
     hints: [
-      'For free fall from rest, use s = ½gt²',
-      'The distance in the 3rd second is s(3) �?s(2), not s(3)',
+      'For free fall from rest, use s = 陆gt虏',
+      'The distance in the 3rd second is s(3) 鈭?s(2), not s(3)',
       'Compute s1, s2, s3, then take the differences',
     ],
     sectionId: 'position-movement',
@@ -1735,7 +162,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'The diagram above shows a ticker-tape produced by a trolley being pulled by a rubber band. Which of the following statements about the trolley is/are true?\n(1) Its displacement increases uniformly with time.\n(2) Its velocity increases uniformly with time.\n(3) Its acceleration increases uniformly with time.',
     options: ['(1) only', '(2) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(2) only',
-    explanation: '⚠️ **Key point:** On a ticker-tape, the length of each equal-time section represents the speed (velocity magnitude) during that time interval.\n\n**Step 1:** Check displacement vs time (statement 1)\nFrom the tape, the cumulative displacement after each interval is:\n$1, 1+2=3, 3+3=6, 6+4=10, 10+5=15, 15+6=21$ cm.\nThe increases are not equal, so displacement does **not** increase uniformly with time.\n\n**Step 2:** Check velocity vs time (statement 2)\nThe section lengths are $1,2,3,4,5,6$ cm in equal time intervals.\nSo the velocity increases by the same amount each interval �?velocity increases uniformly with time.\n\n**Step 3:** Check acceleration vs time (statement 3)\nIf velocity increases uniformly, acceleration is constant (does not increase).\nSo statement (3) is false.\n\n**Conclusion:** Only statement (2) is true �?option B.',
+    explanation: '鈿狅笍 **Key point:** On a ticker-tape, the length of each equal-time section represents the speed (velocity magnitude) during that time interval.\n\n**Step 1:** Check displacement vs time (statement 1)\nFrom the tape, the cumulative displacement after each interval is:\n$1, 1+2=3, 3+3=6, 6+4=10, 10+5=15, 15+6=21$ cm.\nThe increases are not equal, so displacement does **not** increase uniformly with time.\n\n**Step 2:** Check velocity vs time (statement 2)\nThe section lengths are $1,2,3,4,5,6$ cm in equal time intervals.\nSo the velocity increases by the same amount each interval 鈫?velocity increases uniformly with time.\n\n**Step 3:** Check acceleration vs time (statement 3)\nIf velocity increases uniformly, acceleration is constant (does not increase).\nSo statement (3) is false.\n\n**Conclusion:** Only statement (2) is true 鈫?option B.',
     difficulty: 3,
     points: 20,
     hints: [
@@ -1752,15 +179,15 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     id: 'pm-010',
     type: 'multiple_choice',
     question: 'An object is accelerated from rest along a straight line. The graph shows the variation of its displacement with the square of time. What is the acceleration of the object?',
-    options: ['0.5 m/s²', '1.0 m/s²', '2.0 m/s²', '4.0 m/s²'],
-    answer: '2.0 m/s²',
-    explanation: '⚠️ **Key point:** For motion from rest with constant acceleration, $s = \\frac{1}{2}at^2$. A straight-line $s$ vs $t^2$ graph has slope $\\frac{1}{2}a$.\n\n**Step 1:** Find the slope of the graph\nFrom the graph, a point is $(t^2, s) = (4\\text{ s}^2, 4\\text{ m})$.\n$$\\text{slope} = \\frac{\\Delta s}{\\Delta (t^2)} = \\frac{4 - 0}{4 - 0} = 1\\text{ m/s}^2$$\n\n**Step 2:** Relate slope to acceleration\nSince $s = \\frac{1}{2}at^2$, we have $\\text{slope} = \\frac{1}{2}a$.\n$$\\frac{1}{2}a = 1 \\;\\Rightarrow\\; a = 2\\text{ m/s}^2$$\n\n**Conclusion:** The acceleration is $2.0\\text{ m/s}^2$ �?option C.',
+    options: ['0.5 m/s虏', '1.0 m/s虏', '2.0 m/s虏', '4.0 m/s虏'],
+    answer: '2.0 m/s虏',
+    explanation: '鈿狅笍 **Key point:** For motion from rest with constant acceleration, $s = \\frac{1}{2}at^2$. A straight-line $s$ vs $t^2$ graph has slope $\\frac{1}{2}a$.\n\n**Step 1:** Find the slope of the graph\nFrom the graph, a point is $(t^2, s) = (4\\text{ s}^2, 4\\text{ m})$.\n$$\\text{slope} = \\frac{\\Delta s}{\\Delta (t^2)} = \\frac{4 - 0}{4 - 0} = 1\\text{ m/s}^2$$\n\n**Step 2:** Relate slope to acceleration\nSince $s = \\frac{1}{2}at^2$, we have $\\text{slope} = \\frac{1}{2}a$.\n$$\\frac{1}{2}a = 1 \\;\\Rightarrow\\; a = 2\\text{ m/s}^2$$\n\n**Conclusion:** The acceleration is $2.0\\text{ m/s}^2$ 鈫?option C.',
     difficulty: 2,
     points: 15,
     hints: [
-      'From rest with constant acceleration: s = ½at²',
-      'A straight-line s vs t² graph has slope = ½a',
-      'Use the point (t², s) = (4, 4) from the graph',
+      'From rest with constant acceleration: s = 陆at虏',
+      'A straight-line s vs t虏 graph has slope = 陆a',
+      'Use the point (t虏, s) = (4, 4) from the graph',
     ],
     sectionId: 'position-movement',
     imagePaths: ['/physics/exercises/position-movement/pm-010-question.png'],
@@ -1772,7 +199,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'The figure shows a stroboscopic photograph of a ball rolling down a slope. If the stroboscope makes 2 flashes per second, in which region does the ball have an average speed of $40\\text{ cm s}^{-1}$?',
     options: ['LM', 'MN', 'NO', 'OP'],
     answer: 'MN',
-    explanation: '⚠️ **Key point:** Average speed over a region equals the displacement between two flashes divided by the time interval between flashes.\n\n**Step 1:** Find the time interval between flashes\nThe stroboscope makes 2 flashes per second, so\n$$\\Delta t = \\frac{1}{2} = 0.5\\text{ s}$$\n\n**Step 2:** Use the displacement marks to find the distance travelled\nFrom the figure:\n- At $M$, displacement = $16\\text{ cm}$\n- At $N$, displacement = $36\\text{ cm}$\nSo distance from $M$ to $N$ is\n$$\\Delta s = 36 - 16 = 20\\text{ cm}$$\n\n**Step 3:** Compute the average speed in region MN\n$$v_{\\text{avg}} = \\frac{\\Delta s}{\\Delta t} = \\frac{20}{0.5} = 40\\text{ cm s}^{-1}$$\n\n**Conclusion:** The region is $MN$ �?option B.',
+    explanation: '鈿狅笍 **Key point:** Average speed over a region equals the displacement between two flashes divided by the time interval between flashes.\n\n**Step 1:** Find the time interval between flashes\nThe stroboscope makes 2 flashes per second, so\n$$\\Delta t = \\frac{1}{2} = 0.5\\text{ s}$$\n\n**Step 2:** Use the displacement marks to find the distance travelled\nFrom the figure:\n- At $M$, displacement = $16\\text{ cm}$\n- At $N$, displacement = $36\\text{ cm}$\nSo distance from $M$ to $N$ is\n$$\\Delta s = 36 - 16 = 20\\text{ cm}$$\n\n**Step 3:** Compute the average speed in region MN\n$$v_{\\text{avg}} = \\frac{\\Delta s}{\\Delta t} = \\frac{20}{0.5} = 40\\text{ cm s}^{-1}$$\n\n**Conclusion:** The region is $MN$ 鈫?option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1790,12 +217,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'An object is falling from rest with an acceleration of $9.8\\text{ m s}^{-2}$. Which of the following statements is/are correct?\n(1) It falls with a constant speed of $9.8\\text{ m s}^{-1}$.\n(2) It falls $9.8\\text{ m}$ every second.\n(3) It has a speed of $19.6\\text{ m s}^{-1}$ after $2\\text{ s}$.',
     options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(3) only',
-    explanation: '⚠️ **Key point:** Acceleration means velocity changes with time. For free fall from rest with constant $g$, $v = gt$ and $s = \\frac{1}{2}gt^2$.\n\n**Statement (1):** False. With acceleration $9.8\\text{ m s}^{-2}$, the speed is increasing, so it is not constant.\n\n**Statement (2):** False. After $1\\text{ s}$,\n$$s = \\frac{1}{2}gt^2 = \\frac{1}{2}(9.8)(1)^2 = 4.9\\text{ m}$$\nAlso, with constant acceleration, the distance travelled each second increases (it is not the same every second).\n\n**Statement (3):** True. After $2\\text{ s}$,\n$$v = gt = 9.8\\times 2 = 19.6\\text{ m s}^{-1}$$\n\n**Conclusion:** Only statement (3) is correct �?option B.',
+    explanation: '鈿狅笍 **Key point:** Acceleration means velocity changes with time. For free fall from rest with constant $g$, $v = gt$ and $s = \\frac{1}{2}gt^2$.\n\n**Statement (1):** False. With acceleration $9.8\\text{ m s}^{-2}$, the speed is increasing, so it is not constant.\n\n**Statement (2):** False. After $1\\text{ s}$,\n$$s = \\frac{1}{2}gt^2 = \\frac{1}{2}(9.8)(1)^2 = 4.9\\text{ m}$$\nAlso, with constant acceleration, the distance travelled each second increases (it is not the same every second).\n\n**Statement (3):** True. After $2\\text{ s}$,\n$$v = gt = 9.8\\times 2 = 19.6\\text{ m s}^{-1}$$\n\n**Conclusion:** Only statement (3) is correct 鈫?option B.',
     difficulty: 2,
     points: 15,
     hints: [
       'Acceleration means velocity changes with time',
-      'From rest with constant acceleration: v = gt and s = ½gt²',
+      'From rest with constant acceleration: v = gt and s = 陆gt虏',
       'Check each statement using t = 1 s and t = 2 s',
     ],
     sectionId: 'position-movement',
@@ -1807,7 +234,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'A particle is thrown vertically upwards. When the particle is at the maximum height, its acceleration is',
     options: ['zero.', 'changing from upwards to downwards.', 'pointing upwards.', 'pointing downwards.'],
     answer: 'pointing downwards.',
-    explanation: '⚠️ **Key point:** Velocity and acceleration are independent. At the highest point, the velocity is momentarily zero, but gravity still acts.\n\nAt maximum height:\n- Velocity: $v = 0$\n- Acceleration: $a = g$ (downwards)\n\n**Conclusion:** The acceleration is still pointing downwards �?option D.',
+    explanation: '鈿狅笍 **Key point:** Velocity and acceleration are independent. At the highest point, the velocity is momentarily zero, but gravity still acts.\n\nAt maximum height:\n- Velocity: $v = 0$\n- Acceleration: $a = g$ (downwards)\n\n**Conclusion:** The acceleration is still pointing downwards 鈫?option D.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -1829,7 +256,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
       'Coin: uniform acceleration; Feather: greater uniform acceleration',
     ],
     answer: 'Coin: uniform acceleration; Feather: same uniform acceleration',
-    explanation: '⚠️ **Key point:** In a vacuum, there is no air resistance, so the only significant force on both objects is gravity.\n\n- Both the coin and the feather fall under the same gravitational acceleration $g$.\n- Since $g$ is constant, their motion is uniformly accelerated (not uniform speed).\n\n**Conclusion:** Coin: uniform acceleration; Feather: same uniform acceleration �?option B.',
+    explanation: '鈿狅笍 **Key point:** In a vacuum, there is no air resistance, so the only significant force on both objects is gravity.\n\n- Both the coin and the feather fall under the same gravitational acceleration $g$.\n- Since $g$ is constant, their motion is uniformly accelerated (not uniform speed).\n\n**Conclusion:** Coin: uniform acceleration; Feather: same uniform acceleration 鈫?option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1844,15 +271,15 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     id: 'pm-015',
     type: 'multiple_choice',
     question: 'The graph shows how the square of velocity of an object undergoing uniform acceleration varies with displacement. The object is initially at rest. From the graph, when $s = 2\\text{ m}$, $v^2 = 4\\text{ m}^2\\text{ s}^{-2}$. What is the acceleration of the object?',
-    options: ['0.5 m/s²', '1.0 m/s²', '2.0 m/s²', '4.0 m/s²'],
-    answer: '1.0 m/s²',
-    explanation: '⚠️ **Key point:** For uniform acceleration, $v^2 = u^2 + 2as$. With the object starting from rest ($u = 0$), $v^2 = 2as$.\n\n**Step 1:** Find the slope of the $v^2$�?s$ graph\nUsing the point $(s, v^2) = (2, 4)$:\n$$\\text{slope} = \\frac{\\Delta (v^2)}{\\Delta s} = \\frac{4}{2} = 2\\text{ m s}^{-2}$$\n\n**Step 2:** Relate slope to acceleration\nSince $v^2 = 2as$, the slope equals $2a$.\n$$2a = 2 \\;\\Rightarrow\\; a = 1\\text{ m s}^{-2}$$\n\n**Conclusion:** The acceleration is $1.0\\text{ m/s}^2$ �?option B.',
+    options: ['0.5 m/s虏', '1.0 m/s虏', '2.0 m/s虏', '4.0 m/s虏'],
+    answer: '1.0 m/s虏',
+    explanation: '鈿狅笍 **Key point:** For uniform acceleration, $v^2 = u^2 + 2as$. With the object starting from rest ($u = 0$), $v^2 = 2as$.\n\n**Step 1:** Find the slope of the $v^2$鈥?s$ graph\nUsing the point $(s, v^2) = (2, 4)$:\n$$\\text{slope} = \\frac{\\Delta (v^2)}{\\Delta s} = \\frac{4}{2} = 2\\text{ m s}^{-2}$$\n\n**Step 2:** Relate slope to acceleration\nSince $v^2 = 2as$, the slope equals $2a$.\n$$2a = 2 \\;\\Rightarrow\\; a = 1\\text{ m s}^{-2}$$\n\n**Conclusion:** The acceleration is $1.0\\text{ m/s}^2$ 鈫?option B.',
     difficulty: 2,
     points: 15,
     hints: [
-      'Use v² = u² + 2as and note that u = 0',
-      'For a v²–s graph, the slope equals 2a',
-      'Use the point (s, v²) = (2, 4) to find the slope',
+      'Use v虏 = u虏 + 2as and note that u = 0',
+      'For a v虏鈥搒 graph, the slope equals 2a',
+      'Use the point (s, v虏) = (2, 4) to find the slope',
     ],
     sectionId: 'position-movement',
     imagePaths: ['/physics/exercises/position-movement/pm-015-question.png'],
@@ -1862,16 +289,16 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     id: 'pm-016',
     type: 'multiple_choice',
     question: 'The figure shows the strobe photograph of a ball rolling down a slope. The stroboscope is flashing at a frequency of $5\\text{ Hz}$. Find the acceleration of the ball.',
-    options: ['0.20 m/s²', '0.50 m/s²', '0.67 m/s²', '1.00 m/s²'],
-    answer: '1.00 m/s²',
-    explanation: '⚠️ **Key point:** Each flash is separated by a constant time interval. Use average speeds over equal intervals to estimate velocities, then apply $a = \\frac{v-u}{t}$.\n\n**Step 1:** Find the time interval between flashes\n$$\\Delta t = \\frac{1}{f} = \\frac{1}{5} = 0.2\\text{ s}$$\n\n**Step 2:** Find the speeds for two intervals\nFrom the figure:\n- Over one interval, distance is $0.04\\text{ m}$, so\n  $$u = \\frac{0.04}{0.2} = 0.2\\text{ m/s}$$\n- Over one interval, distance is $0.12\\text{ m}$, so\n  $$v = \\frac{0.12}{0.2} = 0.6\\text{ m/s}$$\nThese speeds occur at the midpoints of the $4\\text{ cm}$ and $12\\text{ cm}$ intervals respectively.\n\n**Step 3:** Find the time between the two midpoint instants\nThere are 2 time intervals between the midpoints, so\n$$t = 2\\Delta t = 2(0.2) = 0.4\\text{ s}$$\n\n**Step 4:** Compute the acceleration\n$$a = \\frac{v-u}{t} = \\frac{0.6 - 0.2}{0.4} = 1.0\\text{ m/s}^2$$\n\n**Conclusion:** The acceleration is $1.00\\text{ m/s}^2$ �?option D.',
+    options: ['0.20 m/s虏', '0.50 m/s虏', '0.67 m/s虏', '1.00 m/s虏'],
+    answer: '1.00 m/s虏',
+    explanation: '鈿狅笍 **Key point:** Each flash is separated by a constant time interval. Use average speeds over equal intervals to estimate velocities, then apply $a = \\frac{v-u}{t}$.\n\n**Step 1:** Find the time interval between flashes\n$$\\Delta t = \\frac{1}{f} = \\frac{1}{5} = 0.2\\text{ s}$$\n\n**Step 2:** Find the speeds for two intervals\nFrom the figure:\n- Over one interval, distance is $0.04\\text{ m}$, so\n  $$u = \\frac{0.04}{0.2} = 0.2\\text{ m/s}$$\n- Over one interval, distance is $0.12\\text{ m}$, so\n  $$v = \\frac{0.12}{0.2} = 0.6\\text{ m/s}$$\nThese speeds occur at the midpoints of the $4\\text{ cm}$ and $12\\text{ cm}$ intervals respectively.\n\n**Step 3:** Find the time between the two midpoint instants\nThere are 2 time intervals between the midpoints, so\n$$t = 2\\Delta t = 2(0.2) = 0.4\\text{ s}$$\n\n**Step 4:** Compute the acceleration\n$$a = \\frac{v-u}{t} = \\frac{0.6 - 0.2}{0.4} = 1.0\\text{ m/s}^2$$\n\n**Conclusion:** The acceleration is $1.00\\text{ m/s}^2$ 鈫?option D.',
     difficulty: 3,
     points: 20,
     hints: [
       '5 Hz means the flash interval is 0.2 s',
       'Speed over an interval = distance / time for that interval',
       'The speeds correspond to midpoints of the intervals',
-      'Use a = (v �?u) / t with the time between the midpoint instants',
+      'Use a = (v 鈭?u) / t with the time between the midpoint instants',
     ],
     sectionId: 'position-movement',
     imagePaths: ['/physics/exercises/position-movement/pm-016-question.png'],
@@ -1883,7 +310,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'The figure shows the velocity-time graph of an object. Which of the following statements about the object is/are true?\n(1) Its acceleration in the first 10 s is $2\\text{ m s}^{-2}$.\n(2) The total distance travelled is 250 m.\n(3) It returns to its starting point after 25 s.',
     options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(1) only',
-    explanation: '⚠️ **Key point:** On a velocity–time graph, the slope gives acceleration and the area under the graph gives distance travelled.\n\n**Statement (1):** True.\n$$a = \\frac{\\Delta v}{\\Delta t} = \\frac{20 - 0}{10 - 0} = 2\\text{ m/s}^2$$\n\n**Statement (2):** False.\nTotal distance = area under the graph:\n- $0$�?10\\text{ s}$ triangle: $\\tfrac{1}{2}(10)(20)=100$ m\n- $10$�?20\\text{ s}$ rectangle: $(10)(20)=200$ m\n- $20$�?25\\text{ s}$ triangle: $\\tfrac{1}{2}(5)(20)=50$ m\nSo total distance $= 350$ m, not 250 m.\n\n**Statement (3):** False.\nThe velocity is always positive, so displacement is never reduced back to zero.\n\n**Conclusion:** Only statement (1) is true �?option A.',
+    explanation: '鈿狅笍 **Key point:** On a velocity鈥搕ime graph, the slope gives acceleration and the area under the graph gives distance travelled.\n\n**Statement (1):** True.\n$$a = \\frac{\\Delta v}{\\Delta t} = \\frac{20 - 0}{10 - 0} = 2\\text{ m/s}^2$$\n\n**Statement (2):** False.\nTotal distance = area under the graph:\n- $0$鈥?10\\text{ s}$ triangle: $\\tfrac{1}{2}(10)(20)=100$ m\n- $10$鈥?20\\text{ s}$ rectangle: $(10)(20)=200$ m\n- $20$鈥?25\\text{ s}$ triangle: $\\tfrac{1}{2}(5)(20)=50$ m\nSo total distance $= 350$ m, not 250 m.\n\n**Statement (3):** False.\nThe velocity is always positive, so displacement is never reduced back to zero.\n\n**Conclusion:** Only statement (1) is true 鈫?option A.',
     difficulty: 3,
     points: 20,
     hints: [
@@ -1906,7 +333,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
       '/physics/exercises/position-movement/pm-018-option-d.png',
     ],
     answer: '/physics/exercises/position-movement/pm-018-option-c.png',
-    explanation: '⚠️ **Key point:** The slope of a displacement–time graph represents velocity.\n\nFor uniform deceleration:\n- The velocity decreases uniformly with time\n- So the slope of the $s$�?t$ graph decreases uniformly (the curve gradually flattens)\n\n**Conclusion:** The graph with decreasing slope is option C.',
+    explanation: '鈿狅笍 **Key point:** The slope of a displacement鈥搕ime graph represents velocity.\n\nFor uniform deceleration:\n- The velocity decreases uniformly with time\n- So the slope of the $s$鈥?t$ graph decreases uniformly (the curve gradually flattens)\n\n**Conclusion:** The graph with decreasing slope is option C.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1923,7 +350,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'A man takes 2 s to walk from point $A$ to point $B$, and then takes 3 s to walk from point $B$ to point $C$, where $ABC$ is an equilateral triangle of side 3 m. Find the magnitude of his average velocity from $A$ to $C$.',
     options: ['0.60 m/s', '1.00 m/s', '1.20 m/s', '1.25 m/s'],
     answer: '0.60 m/s',
-    explanation: '⚠️ **Key point:** Average velocity depends on displacement, not total distance travelled.\n\n**Step 1:** Find the resultant displacement from $A$ to $C$\nSince $ABC$ is an equilateral triangle with side $3\\text{ m}$, the straight-line displacement $AC = 3\\text{ m}$.\n\n**Step 2:** Find the total time taken\n$$t = 2 + 3 = 5\\text{ s}$$\n\n**Step 3:** Compute the magnitude of average velocity\n$$v_{\\text{avg}} = \\frac{\\text{displacement}}{\\text{time}} = \\frac{3}{5} = 0.6\\text{ m/s}$$\n\n**Conclusion:** The magnitude of the average velocity is $0.60\\text{ m/s}$ �?option A.',
+    explanation: '鈿狅笍 **Key point:** Average velocity depends on displacement, not total distance travelled.\n\n**Step 1:** Find the resultant displacement from $A$ to $C$\nSince $ABC$ is an equilateral triangle with side $3\\text{ m}$, the straight-line displacement $AC = 3\\text{ m}$.\n\n**Step 2:** Find the total time taken\n$$t = 2 + 3 = 5\\text{ s}$$\n\n**Step 3:** Compute the magnitude of average velocity\n$$v_{\\text{avg}} = \\frac{\\text{displacement}}{\\text{time}} = \\frac{3}{5} = 0.6\\text{ m/s}$$\n\n**Conclusion:** The magnitude of the average velocity is $0.60\\text{ m/s}$ 鈫?option A.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1941,7 +368,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'The figure shows a man near the edge of a cliff projecting a stone vertically upwards. The stone reaches the sea after 18 s. The graph shows the velocity-time relation for the motion of the stone. Find the height of the cliff. (Take $g = 10\\text{ m s}^{-2}$.)',
     options: ['180 m', '540 m', '720 m', '900 m'],
     answer: '540 m',
-    explanation: '⚠️ **Key point:** Displacement equals the signed area under a velocity–time graph.\n\nFrom the graph:\n- Initial velocity: $u = 60\\text{ m/s}$\n- Constant acceleration: $a = -10\\text{ m/s}^2$ (slope)\n- Total time: $18\\text{ s}$\nThe velocity becomes zero at\n$$t = \\frac{u}{g} = \\frac{60}{10} = 6\\text{ s}$$\n\n**Step 1:** Area above the time axis (upward displacement, 0�? s)\n$$s_{\\uparrow} = \\frac{1}{2}(6)(60) = 180\\text{ m}$$\n\n**Step 2:** Area below the time axis (downward displacement, 6�?8 s)\nTime duration: $18 - 6 = 12\\text{ s}$\nFinal speed at 18 s: $v = 60 - 10(18) = -120\\text{ m/s}$\n$$s_{\\downarrow} = -\\frac{1}{2}(12)(120) = -720\\text{ m}$$\n\n**Step 3:** Net displacement from the cliff top to the sea\n$$s = s_{\\uparrow} + s_{\\downarrow} = 180 - 720 = -540\\text{ m}$$\nSo the sea is $540\\text{ m}$ below the cliff top.\n\n**Conclusion:** Height of the cliff = $540\\text{ m}$ �?option B.',
+    explanation: '鈿狅笍 **Key point:** Displacement equals the signed area under a velocity鈥搕ime graph.\n\nFrom the graph:\n- Initial velocity: $u = 60\\text{ m/s}$\n- Constant acceleration: $a = -10\\text{ m/s}^2$ (slope)\n- Total time: $18\\text{ s}$\nThe velocity becomes zero at\n$$t = \\frac{u}{g} = \\frac{60}{10} = 6\\text{ s}$$\n\n**Step 1:** Area above the time axis (upward displacement, 0鈥? s)\n$$s_{\\uparrow} = \\frac{1}{2}(6)(60) = 180\\text{ m}$$\n\n**Step 2:** Area below the time axis (downward displacement, 6鈥?8 s)\nTime duration: $18 - 6 = 12\\text{ s}$\nFinal speed at 18 s: $v = 60 - 10(18) = -120\\text{ m/s}$\n$$s_{\\downarrow} = -\\frac{1}{2}(12)(120) = -720\\text{ m}$$\n\n**Step 3:** Net displacement from the cliff top to the sea\n$$s = s_{\\uparrow} + s_{\\downarrow} = 180 - 720 = -540\\text{ m}$$\nSo the sea is $540\\text{ m}$ below the cliff top.\n\n**Conclusion:** Height of the cliff = $540\\text{ m}$ 鈫?option B.',
     difficulty: 3,
     points: 20,
     hints: [
@@ -1959,7 +386,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'An object is thrown vertically upwards from a point $A$. It travels to the highest point $B$ and then falls back to $A$. Neglecting air resistance, which of the following statements is/are true?\n(1) The total displacement of the object is zero.\n(2) The acceleration of the object is constant throughout the motion.\n(3) The time for the upward motion is longer than the time for the downward motion.',
     options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(1) & (2) only',
-    explanation: '⚠️ **Key point:** Displacement depends only on initial and final positions, while acceleration in free flight is due to gravity.\n\n**Statement (1):** True.\nThe object returns to point $A$, so final position = initial position.\nTherefore total displacement $s = 0$.\n\n**Statement (2):** True.\nNeglecting air resistance, the only acceleration is due to gravity:\n$$a = -g$$\nwhich is constant throughout the motion.\n\n**Statement (3):** False.\nWith constant acceleration and no air resistance, the motion is symmetric about the highest point, so\n$$t_{\\uparrow} = t_{\\downarrow}$$\n\n**Conclusion:** Statements (1) and (2) only �?option C.',
+    explanation: '鈿狅笍 **Key point:** Displacement depends only on initial and final positions, while acceleration in free flight is due to gravity.\n\n**Statement (1):** True.\nThe object returns to point $A$, so final position = initial position.\nTherefore total displacement $s = 0$.\n\n**Statement (2):** True.\nNeglecting air resistance, the only acceleration is due to gravity:\n$$a = -g$$\nwhich is constant throughout the motion.\n\n**Statement (3):** False.\nWith constant acceleration and no air resistance, the motion is symmetric about the highest point, so\n$$t_{\\uparrow} = t_{\\downarrow}$$\n\n**Conclusion:** Statements (1) and (2) only 鈫?option C.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1974,16 +401,16 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     id: 'pm-022',
     type: 'multiple_choice',
     question: 'The paper tape shown is obtained from a trolley moving with uniform acceleration. The frequency of the ticker-tape timer is 50 Hz. Find the acceleration of the trolley.',
-    options: ['0.21 m/s²', '0.70 m/s²', '0.73 m/s²', '1.05 m/s²'],
-    answer: '1.05 m/s²',
-    explanation: '⚠️ **Key point:** Each dot represents equal time. Use average speed over a group of dots to estimate velocities at midpoints, then apply $a = \\frac{v-u}{t}$.\n\n**Step 1:** Find the time per tick\nTicker-tape frequency: $50\\text{ Hz}$\n$$\\Delta t = \\frac{1}{50} = 0.02\\text{ s}$$\n\n**Step 2:** Find two velocities using the tape segments\nEach segment shown contains 5 ticks, so time for 5 ticks:\n$$5\\Delta t = 5(0.02) = 0.10\\text{ s}$$\n\n- For the $1.5\\text{ cm}$ segment:\n  $$u = \\frac{0.015}{0.10} = 0.15\\text{ m/s}$$\n- For the $3.6\\text{ cm}$ segment:\n  $$v = \\frac{0.036}{0.10} = 0.36\\text{ m/s}$$\nThese velocities occur at the midpoints of the $1.5\\text{ cm}$ and $3.6\\text{ cm}$ segments.\n\n**Step 3:** Find the time between the two midpoint instants\nFrom the midpoint of the first segment to the midpoint of the second segment, there are 10 ticks:\n$$t = 10\\Delta t = 10(0.02) = 0.20\\text{ s}$$\n\n**Step 4:** Compute the acceleration\n$$a = \\frac{v-u}{t} = \\frac{0.36 - 0.15}{0.20} = 1.05\\text{ m/s}^2$$\n\n**Conclusion:** The acceleration is $1.05\\text{ m/s}^2$ �?option D.',
+    options: ['0.21 m/s虏', '0.70 m/s虏', '0.73 m/s虏', '1.05 m/s虏'],
+    answer: '1.05 m/s虏',
+    explanation: '鈿狅笍 **Key point:** Each dot represents equal time. Use average speed over a group of dots to estimate velocities at midpoints, then apply $a = \\frac{v-u}{t}$.\n\n**Step 1:** Find the time per tick\nTicker-tape frequency: $50\\text{ Hz}$\n$$\\Delta t = \\frac{1}{50} = 0.02\\text{ s}$$\n\n**Step 2:** Find two velocities using the tape segments\nEach segment shown contains 5 ticks, so time for 5 ticks:\n$$5\\Delta t = 5(0.02) = 0.10\\text{ s}$$\n\n- For the $1.5\\text{ cm}$ segment:\n  $$u = \\frac{0.015}{0.10} = 0.15\\text{ m/s}$$\n- For the $3.6\\text{ cm}$ segment:\n  $$v = \\frac{0.036}{0.10} = 0.36\\text{ m/s}$$\nThese velocities occur at the midpoints of the $1.5\\text{ cm}$ and $3.6\\text{ cm}$ segments.\n\n**Step 3:** Find the time between the two midpoint instants\nFrom the midpoint of the first segment to the midpoint of the second segment, there are 10 ticks:\n$$t = 10\\Delta t = 10(0.02) = 0.20\\text{ s}$$\n\n**Step 4:** Compute the acceleration\n$$a = \\frac{v-u}{t} = \\frac{0.36 - 0.15}{0.20} = 1.05\\text{ m/s}^2$$\n\n**Conclusion:** The acceleration is $1.05\\text{ m/s}^2$ 鈫?option D.',
     difficulty: 3,
     points: 20,
     hints: [
       '50 Hz means each tick is 0.02 s',
       'Use speed = distance / time for a 5-tick segment',
       'The speeds correspond to the midpoints of the segments',
-      'Use a = (v �?u) / t with t = 10 ticks',
+      'Use a = (v 鈭?u) / t with t = 10 ticks',
     ],
     sectionId: 'position-movement',
     imagePaths: ['/physics/exercises/position-movement/pm-022-question.png'],
@@ -2000,7 +427,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
       '/physics/exercises/position-movement/pm-023-option-d.png',
     ],
     answer: '/physics/exercises/position-movement/pm-023-option-b.png',
-    explanation: '⚠️ **Key point:** The slope of a velocity–time graph equals acceleration.\n\nFrom the acceleration–time graph:\n- For $t < t_0$, acceleration is positive and constant �?velocity increases linearly from rest (straight line with constant positive slope)\n- For $t > t_0$, acceleration is zero �?velocity stays constant (horizontal line)\n\n**Conclusion:** The correct $v$�?t$ graph is option B.',
+    explanation: '鈿狅笍 **Key point:** The slope of a velocity鈥搕ime graph equals acceleration.\n\nFrom the acceleration鈥搕ime graph:\n- For $t < t_0$, acceleration is positive and constant 鈫?velocity increases linearly from rest (straight line with constant positive slope)\n- For $t > t_0$, acceleration is zero 鈫?velocity stays constant (horizontal line)\n\n**Conclusion:** The correct $v$鈥?t$ graph is option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -2018,7 +445,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'A man takes 30 s to walk 80 m towards the east. He then takes 10 s to run 60 m towards the south. Which of the following statements is/are correct?\n(1) The magnitude of the resultant displacement of the man is 140 m.\n(2) The average speed of the man is $4.3\\text{ m s}^{-1}$.\n(3) The magnitude of the average velocity of the man is $2.5\\text{ m s}^{-1}$.',
     options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(3) only',
-    explanation: '⚠️ **Key point:** Average speed uses total distance, while average velocity uses displacement.\n\n**Step 1:** Resultant displacement\nThe man moves 80 m east and 60 m south, so\n$$s = \\sqrt{80^2 + 60^2} = \\sqrt{10000} = 100\\text{ m}$$\nSo statement (1) is false.\n\n**Step 2:** Average speed\nTotal distance $= 80 + 60 = 140\\text{ m}$\nTotal time $= 30 + 10 = 40\\text{ s}$\n$$\\text{average speed} = \\frac{140}{40} = 3.5\\text{ m/s}$$\nSo statement (2) is false.\n\n**Step 3:** Magnitude of average velocity\n$$|\\vec{v}_{\\text{avg}}| = \\frac{\\text{displacement}}{\\text{time}} = \\frac{100}{40} = 2.5\\text{ m/s}$$\nSo statement (3) is true.\n\n**Conclusion:** Only statement (3) is correct �?option B.',
+    explanation: '鈿狅笍 **Key point:** Average speed uses total distance, while average velocity uses displacement.\n\n**Step 1:** Resultant displacement\nThe man moves 80 m east and 60 m south, so\n$$s = \\sqrt{80^2 + 60^2} = \\sqrt{10000} = 100\\text{ m}$$\nSo statement (1) is false.\n\n**Step 2:** Average speed\nTotal distance $= 80 + 60 = 140\\text{ m}$\nTotal time $= 30 + 10 = 40\\text{ s}$\n$$\\text{average speed} = \\frac{140}{40} = 3.5\\text{ m/s}$$\nSo statement (2) is false.\n\n**Step 3:** Magnitude of average velocity\n$$|\\vec{v}_{\\text{avg}}| = \\frac{\\text{displacement}}{\\text{time}} = \\frac{100}{40} = 2.5\\text{ m/s}$$\nSo statement (3) is true.\n\n**Conclusion:** Only statement (3) is correct 鈫?option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -2035,13 +462,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'The diagram shows the variation of the velocity of an object with time. What is the distance travelled by the object in the first 3 seconds?',
     options: ['5 m', '15 m', '25 m', '30 m'],
     answer: '25 m',
-    explanation: '⚠️ **Key point:** Distance travelled equals the sum of the absolute areas under a velocity–time graph.\n\n**Step 1:** Split the graph into two regions\n- From $0$ to $2\\text{ s}$, the graph is above the time axis\n- From $2$ to $3\\text{ s}$, the graph is below the time axis\n\n**Step 2:** Find the areas (take absolute values)\n- Triangle (0�? s):\n  $$A_1 = \\frac{1}{2}(2)(20) = 20\\text{ m}$$\n- Triangle (2�? s):\n  $$A_2 = \\frac{1}{2}(1)(10) = 5\\text{ m}$$\n\n**Step 3:** Total distance\n$$d = A_1 + A_2 = 20 + 5 = 25\\text{ m}$$\n\n**Conclusion:** The distance travelled in the first 3 s is $25\\text{ m}$ �?option C.',
+    explanation: '鈿狅笍 **Key point:** Distance travelled equals the sum of the absolute areas under a velocity鈥搕ime graph.\n\n**Step 1:** Split the graph into two regions\n- From $0$ to $2\\text{ s}$, the graph is above the time axis\n- From $2$ to $3\\text{ s}$, the graph is below the time axis\n\n**Step 2:** Find the areas (take absolute values)\n- Triangle (0鈥? s):\n  $$A_1 = \\frac{1}{2}(2)(20) = 20\\text{ m}$$\n- Triangle (2鈥? s):\n  $$A_2 = \\frac{1}{2}(1)(10) = 5\\text{ m}$$\n\n**Step 3:** Total distance\n$$d = A_1 + A_2 = 20 + 5 = 25\\text{ m}$$\n\n**Conclusion:** The distance travelled in the first 3 s is $25\\text{ m}$ 鈫?option C.',
     difficulty: 2,
     points: 15,
     hints: [
       'Distance travelled is the total area between the graph and the time axis',
       'If part of the graph is below the axis, take the absolute value of that area',
-      'Split the graph into triangles over 0�? s and 2�? s',
+      'Split the graph into triangles over 0鈥? s and 2鈥? s',
     ],
     sectionId: 'position-movement',
     imagePaths: ['/physics/exercises/position-movement/pm-025-question.png'],
@@ -2053,13 +480,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'An object starts from rest and moves with uniform acceleration along a straight line. Which of the graphs below concerning the motion of the object is/are correct? ($s$ = displacement, $v$ = velocity, $t$ = time)',
     options: ['(1) only', '(1) & (2) only', '(2) & (3) only', '(1), (2) & (3)'],
     answer: '(1), (2) & (3)',
-    explanation: '⚠️ **Key point:** For motion from rest with uniform acceleration:\n- $v = at$ �?$v \\propto t$\n- $s = \\frac{1}{2}at^2$ �?$s \\propto t^2$\n- $v^2 = 2as$ �?$v^2 \\propto s$\n\nTherefore, all three graphs are correct.\n\n**Conclusion:** (1), (2) & (3) �?option D.',
+    explanation: '鈿狅笍 **Key point:** For motion from rest with uniform acceleration:\n- $v = at$ 鈫?$v \\propto t$\n- $s = \\frac{1}{2}at^2$ 鈫?$s \\propto t^2$\n- $v^2 = 2as$ 鈫?$v^2 \\propto s$\n\nTherefore, all three graphs are correct.\n\n**Conclusion:** (1), (2) & (3) 鈫?option D.',
     difficulty: 2,
     points: 15,
     hints: [
       'From rest: u = 0',
-      'Use v = u + at and s = ut + ½at²',
-      'Eliminate t to get v² = u² + 2as',
+      'Use v = u + at and s = ut + 陆at虏',
+      'Eliminate t to get v虏 = u虏 + 2as',
     ],
     sectionId: 'position-movement',
     imagePaths: ['/physics/exercises/position-movement/pm-026-question.png'],
@@ -2071,12 +498,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'A man walks 40 m towards the west. He then walks 40 m towards the south and lastly walks 70 m towards the east. Find the magnitude of the resultant displacement of the man.',
     options: ['30 m', '40 m', '50 m', '70 m'],
     answer: '50 m',
-    explanation: '⚠️ **Key point:** Resultant displacement is the straight-line vector from the start point to the final point.\n\n**Step 1:** Find the net displacement components\n- East–west: $70\\text{ m east} - 40\\text{ m west} = 30\\text{ m east}$\n- North–south: $40\\text{ m south}$\n\n**Step 2:** Use Pythagoras�?theorem\n$$s = \\sqrt{30^2 + 40^2} = \\sqrt{900 + 1600} = \\sqrt{2500} = 50\\text{ m}$$\n\n**Conclusion:** The magnitude of the resultant displacement is $50\\text{ m}$ �?option C.',
+    explanation: '鈿狅笍 **Key point:** Resultant displacement is the straight-line vector from the start point to the final point.\n\n**Step 1:** Find the net displacement components\n- East鈥搘est: $70\\text{ m east} - 40\\text{ m west} = 30\\text{ m east}$\n- North鈥搒outh: $40\\text{ m south}$\n\n**Step 2:** Use Pythagoras鈥?theorem\n$$s = \\sqrt{30^2 + 40^2} = \\sqrt{900 + 1600} = \\sqrt{2500} = 50\\text{ m}$$\n\n**Conclusion:** The magnitude of the resultant displacement is $50\\text{ m}$ 鈫?option C.',
     difficulty: 2,
     points: 15,
     hints: [
       'Resultant displacement is from start to finish',
-      'Combine east–west and north–south components',
+      'Combine east鈥搘est and north鈥搒outh components',
       'Use Pythagoras to find the magnitude',
     ],
     sectionId: 'position-movement',
@@ -2087,16 +514,16 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     id: 'pm-028',
     type: 'multiple_choice',
     question:
-      'An object moves with uniform acceleration along a straight line. The graphs (1)�?3) are shown in the figure. Which of the following graphs correctly describe(s) the motion of the object?',
+      'An object moves with uniform acceleration along a straight line. The graphs (1)鈥?3) are shown in the figure. Which of the following graphs correctly describe(s) the motion of the object?',
     options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(2) & (3) only',
     explanation:
-      '⚠️ **Key point:** The slope of a displacement–time ($s$�?t$) graph is velocity, and the slope of a velocity–time ($v$�?t$) graph is acceleration.\n\n**(1)** In graph (1), the slope decreases with time �?velocity decreases �?this represents uniform deceleration, not acceleration.\n\n**(2)** In graph (2), the $v$�?t$ graph is a straight line with positive slope �?acceleration is constant and positive �?uniform acceleration.\n\n**(3)** In graph (3), acceleration is constant and positive �?uniform acceleration.\n\n**Conclusion:** Graphs (2) and (3) only �?option D.',
+      '鈿狅笍 **Key point:** The slope of a displacement鈥搕ime ($s$鈥?t$) graph is velocity, and the slope of a velocity鈥搕ime ($v$鈥?t$) graph is acceleration.\n\n**(1)** In graph (1), the slope decreases with time 鈫?velocity decreases 鈫?this represents uniform deceleration, not acceleration.\n\n**(2)** In graph (2), the $v$鈥?t$ graph is a straight line with positive slope 鈫?acceleration is constant and positive 鈫?uniform acceleration.\n\n**(3)** In graph (3), acceleration is constant and positive 鈫?uniform acceleration.\n\n**Conclusion:** Graphs (2) and (3) only 鈫?option D.',
     difficulty: 2,
     points: 15,
     hints: [
-      'Slope of s–t gives velocity',
-      'Slope of v–t gives acceleration',
+      'Slope of s鈥搕 gives velocity',
+      'Slope of v鈥搕 gives acceleration',
       'Uniform acceleration means acceleration is constant',
     ],
     sectionId: 'position-movement',
@@ -2108,15 +535,15 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     type: 'multiple_choice',
     question:
       'A student walks along a curve $ABC$, which is made up of two semi-circular parts $AB$ and $BC$ of radius $3\\text{ m}$ and $4\\text{ m}$ respectively. He takes $2\\text{ s}$ to walk from $A$ to $B$ and $5\\text{ s}$ from $B$ to $C$. Find the magnitude of the average velocity of the student from $A$ to $C$.',
-    options: ['1.0 m s⁻�?, '2.0 m s⁻�?, '2.3 m s⁻�?, '3.1 m s⁻�?],
-    answer: '2.0 m s⁻�?,
+    options: ['1.0 m s^-1', '2.0 m s^-1', '2.3 m s^-1', '3.1 m s^-1'],
+    answer: '2.0 m s^-1',
     explanation:
-      '⚠️ **Key point:** Average velocity uses **resultant displacement**, not the distance along the curved path.\n\n**Step 1:** Find the displacement from $A$ to $C$\nThe straight-line displacement equals the sum of the two diameters:\n$$AC = 2(3) + 2(4) = 14\\text{ m}$$\n\n**Step 2:** Divide by total time\nTotal time: $2 + 5 = 7\\text{ s}$.\n$$v_{\\text{avg}} = \\frac{AC}{t} = \\frac{14}{7} = 2.0\\text{ m s}^{-1}$$\n\n**Conclusion:** $2.0\\text{ m s}^{-1}$ �?option B.',
+      '鈿狅笍 **Key point:** Average velocity uses **resultant displacement**, not the distance along the curved path.\n\n**Step 1:** Find the displacement from $A$ to $C$\nThe straight-line displacement equals the sum of the two diameters:\n$$AC = 2(3) + 2(4) = 14\\text{ m}$$\n\n**Step 2:** Divide by total time\nTotal time: $2 + 5 = 7\\text{ s}$.\n$$v_{\\text{avg}} = \\frac{AC}{t} = \\frac{14}{7} = 2.0\\text{ m s}^{-1}$$\n\n**Conclusion:** $2.0\\text{ m s}^{-1}$ 鈫?option B.',
     difficulty: 2,
     points: 15,
     hints: [
       'Average velocity uses displacement, not distance along the curve',
-      'Displacement A→C is the straight-line distance (sum of diameters)',
+      'Displacement A鈫扖 is the straight-line distance (sum of diameters)',
       'Divide by total time: 2 s + 5 s',
     ],
     sectionId: 'position-movement',
@@ -2131,13 +558,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['1 : 1', '1 : 2', '1 : 3', '1 : 4'],
     answer: '1 : 3',
     explanation:
-      '⚠️ **Key point:** The distance in the 2nd second means $s(2) - s(1)$, not the total displacement at $t=2\\text{ s}$.\n\n**Step 1:** Use free-fall displacement from rest\n$$s = \\frac{1}{2}gt^2$$\n\n**Step 2:** Find displacements at $t=1\\text{ s}$ and $t=2\\text{ s}$\n$$s_1 = \\frac{1}{2}g(1)^2 = \\frac{1}{2}g$$\n$$s_2 = \\frac{1}{2}g(2)^2 = 2g$$\n\n**Step 3:** Find $x$ and $y$\n$$x = s_1 = \\frac{1}{2}g$$\n$$y = s_2 - s_1 = 2g - \\frac{1}{2}g = \\frac{3}{2}g$$\n\n**Step 4:** Ratio\n$$x:y = \\left(\\frac{1}{2}g\\right):\\left(\\frac{3}{2}g\\right) = 1:3$$\n\n**Conclusion:** $x:y = 1:3$ �?option C.',
+      '鈿狅笍 **Key point:** The distance in the 2nd second means $s(2) - s(1)$, not the total displacement at $t=2\\text{ s}$.\n\n**Step 1:** Use free-fall displacement from rest\n$$s = \\frac{1}{2}gt^2$$\n\n**Step 2:** Find displacements at $t=1\\text{ s}$ and $t=2\\text{ s}$\n$$s_1 = \\frac{1}{2}g(1)^2 = \\frac{1}{2}g$$\n$$s_2 = \\frac{1}{2}g(2)^2 = 2g$$\n\n**Step 3:** Find $x$ and $y$\n$$x = s_1 = \\frac{1}{2}g$$\n$$y = s_2 - s_1 = 2g - \\frac{1}{2}g = \\frac{3}{2}g$$\n\n**Step 4:** Ratio\n$$x:y = \\left(\\frac{1}{2}g\\right):\\left(\\frac{3}{2}g\\right) = 1:3$$\n\n**Conclusion:** $x:y = 1:3$ 鈫?option C.',
     difficulty: 2,
     points: 15,
     hints: [
-      'Since the particle starts from rest, use s = ½gt²',
+      'Since the particle starts from rest, use s = 陆gt虏',
       'Find s(1) and s(2)',
-      'The distance in the 2nd second is s(2) �?s(1)',
+      'The distance in the 2nd second is s(2) 鈭?s(1)',
     ],
     sectionId: 'position-movement',
   },
@@ -2150,11 +577,11 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['50 m', '80 m', '180 m', '200 m'],
     answer: '80 m',
     explanation:
-      '⚠️ **Key point:** With uniform deceleration, the acceleration $a$ is constant, so you can use $v^2 = u^2 + 2as$ in two stages.\n\n**Step 1:** Find the deceleration using the first part\nFor the first $100\\text{ m}$:\n- $u = 30\\text{ m s}^{-1}$, $v = 20\\text{ m s}^{-1}$, $s = 100\\text{ m}$\n$$20^2 = 30^2 + 2a(100)$$\n$$400 = 900 + 200a \\;\\Rightarrow\\; a = -2.5\\text{ m s}^{-2}$$\n\n**Step 2:** Find the further stopping distance\nFrom $20\\text{ m s}^{-1}$ to rest:\n- $u = 20\\text{ m s}^{-1}$, $v = 0$, $a = -2.5\\text{ m s}^{-2}$\n$$0^2 = 20^2 + 2(-2.5)s$$\n$$0 = 400 - 5s \\;\\Rightarrow\\; s = 80\\text{ m}$$\n\n**Conclusion:** The car travels a further $80\\text{ m}$ �?option B.',
+      '鈿狅笍 **Key point:** With uniform deceleration, the acceleration $a$ is constant, so you can use $v^2 = u^2 + 2as$ in two stages.\n\n**Step 1:** Find the deceleration using the first part\nFor the first $100\\text{ m}$:\n- $u = 30\\text{ m s}^{-1}$, $v = 20\\text{ m s}^{-1}$, $s = 100\\text{ m}$\n$$20^2 = 30^2 + 2a(100)$$\n$$400 = 900 + 200a \\;\\Rightarrow\\; a = -2.5\\text{ m s}^{-2}$$\n\n**Step 2:** Find the further stopping distance\nFrom $20\\text{ m s}^{-1}$ to rest:\n- $u = 20\\text{ m s}^{-1}$, $v = 0$, $a = -2.5\\text{ m s}^{-2}$\n$$0^2 = 20^2 + 2(-2.5)s$$\n$$0 = 400 - 5s \\;\\Rightarrow\\; s = 80\\text{ m}$$\n\n**Conclusion:** The car travels a further $80\\text{ m}$ 鈫?option B.',
     difficulty: 2,
     points: 15,
     hints: [
-      'Use v² = u² + 2as to find the deceleration from the first 100 m',
+      'Use v虏 = u虏 + 2as to find the deceleration from the first 100 m',
       'The deceleration is constant, so use the same a for the stopping phase',
       'For stopping, set v = 0 and solve for s',
     ],
@@ -2174,11 +601,11 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '/physics/exercises/position-movement/pm-032-option-b.png',
     explanation:
-      '⚠️ **Key point:** The slope of a velocity-time ($v$�?t$) graph equals acceleration.\n\n**Step 1:** Understand the relationship\n$$\\text{slope of } v\\text{–}t \\text{ graph} = a$$\n\n**Step 2:** Analyze the $v$�?t$ graph in three time intervals\n\n**For $t = 0\\text{ s}$ to $t = 10\\text{ s}$:**\n- The slope of the $v$�?t$ graph is positive $(+)$\n- Therefore, acceleration $a$ is positive $(+)$\n\n**For $t = 10\\text{ s}$ to $t = 30\\text{ s}$:**\n- The slope of the $v$�?t$ graph is zero (horizontal line)\n- Therefore, acceleration $a = 0$\n\n**For $t = 30\\text{ s}$ to $t = 40\\text{ s}$:**\n- The slope of the $v$�?t$ graph is negative $(-)$\n- Therefore, acceleration $a$ is negative $(-)$\n\n**Step 3:** Match with the acceleration-time graph\nThe correct $a$�?t$ graph should show:\n- Positive acceleration from $0$ to $10\\text{ s}$\n- Zero acceleration from $10$ to $30\\text{ s}$\n- Negative acceleration from $30$ to $40\\text{ s}$\n\n**Conclusion:** Graph B matches this pattern �?option B.',
+      '鈿狅笍 **Key point:** The slope of a velocity-time ($v$鈥?t$) graph equals acceleration.\n\n**Step 1:** Understand the relationship\n$$\\text{slope of } v\\text{鈥搣t \\text{ graph} = a$$\n\n**Step 2:** Analyze the $v$鈥?t$ graph in three time intervals\n\n**For $t = 0\\text{ s}$ to $t = 10\\text{ s}$:**\n- The slope of the $v$鈥?t$ graph is positive $(+)$\n- Therefore, acceleration $a$ is positive $(+)$\n\n**For $t = 10\\text{ s}$ to $t = 30\\text{ s}$:**\n- The slope of the $v$鈥?t$ graph is zero (horizontal line)\n- Therefore, acceleration $a = 0$\n\n**For $t = 30\\text{ s}$ to $t = 40\\text{ s}$:**\n- The slope of the $v$鈥?t$ graph is negative $(-)$\n- Therefore, acceleration $a$ is negative $(-)$\n\n**Step 3:** Match with the acceleration-time graph\nThe correct $a$鈥?t$ graph should show:\n- Positive acceleration from $0$ to $10\\text{ s}$\n- Zero acceleration from $10$ to $30\\text{ s}$\n- Negative acceleration from $30$ to $40\\text{ s}$\n\n**Conclusion:** Graph B matches this pattern 鈫?option B.',
     difficulty: 2,
     points: 15,
     hints: [
-      'The slope of a v–t graph equals acceleration',
+      'The slope of a v鈥搕 graph equals acceleration',
       'A positive slope means positive acceleration',
       'A horizontal line (zero slope) means zero acceleration',
       'A negative slope means negative acceleration',
@@ -2192,16 +619,16 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     type: 'multiple_choice',
     question:
       'A racing car accelerates from rest to a speed of $100\\text{ km h}^{-1}$ in $3.2\\text{ s}$. Find the average acceleration of the car.',
-    options: ['4.34 m/s²', '8.68 m/s²', '15.63 m/s²', '31.25 m/s²'],
-    answer: '8.68 m/s²',
+    options: ['4.34 m/s虏', '8.68 m/s虏', '15.63 m/s虏', '31.25 m/s虏'],
+    answer: '8.68 m/s虏',
     explanation:
-      '⚠️ **Key point:** Average acceleration is $a = \\frac{\\Delta v}{\\Delta t}$. Convert $\\text{km h}^{-1}$ to $\\text{m s}^{-1}$ first.\n\n**Step 1:** Convert speed\n$$v = 100\\times\\frac{1000}{3600} = 27.78\\text{ m s}^{-1}$$\n\n**Step 2:** Use $v = u + at$\nSince the car starts from rest, $u = 0$:\n$$a = \\frac{v-u}{t} = \\frac{27.78 - 0}{3.2} = 8.68\\text{ m s}^{-2}$$\n\n**Conclusion:** The average acceleration is $8.68\\text{ m s}^{-2}$ �?option B.',
+      '鈿狅笍 **Key point:** Average acceleration is $a = \\frac{\\Delta v}{\\Delta t}$. Convert $\\text{km h}^{-1}$ to $\\text{m s}^{-1}$ first.\n\n**Step 1:** Convert speed\n$$v = 100\\times\\frac{1000}{3600} = 27.78\\text{ m s}^{-1}$$\n\n**Step 2:** Use $v = u + at$\nSince the car starts from rest, $u = 0$:\n$$a = \\frac{v-u}{t} = \\frac{27.78 - 0}{3.2} = 8.68\\text{ m s}^{-2}$$\n\n**Conclusion:** The average acceleration is $8.68\\text{ m s}^{-2}$ 鈫?option B.',
     difficulty: 2,
     points: 15,
     hints: [
       'Convert 100 km/h to m/s (multiply by 1000/3600)',
       'Since it starts from rest, u = 0',
-      'Use a = (v �?u) / t',
+      'Use a = (v 鈭?u) / t',
     ],
     sectionId: 'position-movement',
   },
@@ -2211,10 +638,10 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     type: 'multiple_choice',
     question:
       'A girl walks along a straight road from a point $A$ to a point $B$ with an average speed $1\\text{ m s}^{-1}$. She then returns from $B$ to $A$ along the same road with an average speed $2\\text{ m s}^{-1}$. Find the average speed of the girl for the whole journey.',
-    options: ['zero.', '0.67 m s⁻�?, '1.33 m s⁻�?, '1.50 m s⁻�?],
-    answer: '1.33 m s⁻�?,
+    options: ['zero.', '0.67 m s^-1', '1.33 m s^-1', '1.50 m s^-1'],
+    answer: '1.33 m s^-1',
     explanation:
-      '⚠️ **Key point:** Average speed $= \\frac{\\text{total distance}}{\\text{total time}}$. For a round trip with equal distances, do not average the two speeds directly.\n\n**Step 1:** Let the distance $AB = d$\nTime from $A$ to $B$:\n$$t_1 = \\frac{d}{1} = d$$\nTime from $B$ back to $A$:\n$$t_2 = \\frac{d}{2} = \\frac{d}{2}$$\n\n**Step 2:** Total distance and total time\n$$\\text{distance} = 2d$$\n$$\\text{time} = d + \\frac{d}{2} = \\frac{3d}{2}$$\n\n**Step 3:** Average speed\n$$v_{\\text{avg}} = \\frac{2d}{\\frac{3d}{2}} = \\frac{4}{3} = 1.33\\text{ m s}^{-1}$$\n\n**Conclusion:** The average speed for the whole journey is $1.33\\text{ m s}^{-1}$ �?option C.',
+      '鈿狅笍 **Key point:** Average speed $= \\frac{\\text{total distance}}{\\text{total time}}$. For a round trip with equal distances, do not average the two speeds directly.\n\n**Step 1:** Let the distance $AB = d$\nTime from $A$ to $B$:\n$$t_1 = \\frac{d}{1} = d$$\nTime from $B$ back to $A$:\n$$t_2 = \\frac{d}{2} = \\frac{d}{2}$$\n\n**Step 2:** Total distance and total time\n$$\\text{distance} = 2d$$\n$$\\text{time} = d + \\frac{d}{2} = \\frac{3d}{2}$$\n\n**Step 3:** Average speed\n$$v_{\\text{avg}} = \\frac{2d}{\\frac{3d}{2}} = \\frac{4}{3} = 1.33\\text{ m s}^{-1}$$\n\n**Conclusion:** The average speed for the whole journey is $1.33\\text{ m s}^{-1}$ 鈫?option C.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -2238,11 +665,11 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: 'The car is moving towards $P$.',
     explanation:
-      '⚠️ **Key point:** On a distance–time graph, the slope gives the speed (rate of change of distance). A straight line means constant slope �?constant speed.\n\n**A** False. The graph is a straight line, so the slope (speed) is constant, not decreasing.\n\n**B** True. The distance from $P$ is decreasing with time, so the car is moving towards $P$.\n\n**C** False. Constant speed along a straight line means zero acceleration, so the resultant (unbalanced) force is zero.\n\n**D** False. Area under a distance–time graph has no physical meaning.\n\n**Conclusion:** The correct statement is B.',
+      '鈿狅笍 **Key point:** On a distance鈥搕ime graph, the slope gives the speed (rate of change of distance). A straight line means constant slope 鈫?constant speed.\n\n**A** False. The graph is a straight line, so the slope (speed) is constant, not decreasing.\n\n**B** True. The distance from $P$ is decreasing with time, so the car is moving towards $P$.\n\n**C** False. Constant speed along a straight line means zero acceleration, so the resultant (unbalanced) force is zero.\n\n**D** False. Area under a distance鈥搕ime graph has no physical meaning.\n\n**Conclusion:** The correct statement is B.',
     difficulty: 2,
     points: 15,
     hints: [
-      'The slope of a distance–time graph gives speed',
+      'The slope of a distance鈥搕ime graph gives speed',
       'A straight line means the speed is constant',
       'If distance from $P$ decreases, the car moves towards $P$',
     ],
@@ -2258,11 +685,11 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
     answer: '(1) & (2) only',
     explanation:
-      '⚠️ **Key point:** On a distance–time graph, the slope gives speed and the intersection point means the two cars are at the same position at the same time.\n\n**(1)** True. At $s = 20\\text{ m}$, car $P$ corresponds to a smaller time $t$ than car $Q$, so $P$ reaches $20\\text{ m}$ first.\n\n**(2)** True. Before $t=5\\text{ s}$, car $Q$ has a larger distance (it is ahead). At $t=5\\text{ s}$, the two graphs meet, so the cars meet and $P$ is overtaking $Q$ at that instant.\n\n**(3)** False. In the first $5\\text{ s}$, both cars travel the same distance (their distances at $t=5\\text{ s}$ are equal), so their average speeds over $0$�?5\\text{ s}$ are the same.\n\n**Conclusion:** Statements (1) and (2) only �?option A.',
+      '鈿狅笍 **Key point:** On a distance鈥搕ime graph, the slope gives speed and the intersection point means the two cars are at the same position at the same time.\n\n**(1)** True. At $s = 20\\text{ m}$, car $P$ corresponds to a smaller time $t$ than car $Q$, so $P$ reaches $20\\text{ m}$ first.\n\n**(2)** True. Before $t=5\\text{ s}$, car $Q$ has a larger distance (it is ahead). At $t=5\\text{ s}$, the two graphs meet, so the cars meet and $P$ is overtaking $Q$ at that instant.\n\n**(3)** False. In the first $5\\text{ s}$, both cars travel the same distance (their distances at $t=5\\text{ s}$ are equal), so their average speeds over $0$鈥?5\\text{ s}$ are the same.\n\n**Conclusion:** Statements (1) and (2) only 鈫?option A.',
     difficulty: 2,
     points: 15,
     hints: [
-      'On an s–t graph, the slope represents speed',
+      'On an s鈥搕 graph, the slope represents speed',
       'Where the two graphs intersect, the cars are at the same position at the same time',
       'Compare the times when s = 20 m for cars P and Q',
       'Compare the distances at t = 5 s to find average speed over the first 5 s',
@@ -2284,13 +711,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '/physics/exercises/position-movement/pm-037-option-c.png',
     explanation:
-      '⚠️ **Key point:** At the moment the string breaks, the stone has the same upward velocity as the balloon, but afterwards it accelerates downward at a constant rate $g$.\n\n**Step 1:** Initial velocity\nAt $t=0$, the stone is moving upward, so $v$ starts positive.\n\n**Step 2:** Acceleration\nThe only significant force is gravity, so acceleration is constant and downward:\n$$a = -g$$\nSo the $v$�?t$ graph must be a straight line with constant negative slope.\n\n**Step 3:** Direction change\nThe velocity decreases to $0$ at the highest point, then becomes negative as the stone falls.\n\n**Conclusion:** The correct graph is the straight line with slope $-g$ crossing from positive to negative $v$ �?option C.',
+      '鈿狅笍 **Key point:** At the moment the string breaks, the stone has the same upward velocity as the balloon, but afterwards it accelerates downward at a constant rate $g$.\n\n**Step 1:** Initial velocity\nAt $t=0$, the stone is moving upward, so $v$ starts positive.\n\n**Step 2:** Acceleration\nThe only significant force is gravity, so acceleration is constant and downward:\n$$a = -g$$\nSo the $v$鈥?t$ graph must be a straight line with constant negative slope.\n\n**Step 3:** Direction change\nThe velocity decreases to $0$ at the highest point, then becomes negative as the stone falls.\n\n**Conclusion:** The correct graph is the straight line with slope $-g$ crossing from positive to negative $v$ 鈫?option C.',
     difficulty: 2,
     points: 15,
     hints: [
       'At t = 0, the stone still has an upward velocity',
-      'After the string breaks, only gravity acts, so a = −g (constant)',
-      'A constant acceleration gives a straight-line v–t graph',
+      'After the string breaks, only gravity acts, so a = 鈭抔 (constant)',
+      'A constant acceleration gives a straight-line v鈥搕 graph',
     ],
     sectionId: 'position-movement',
   },
@@ -2303,13 +730,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['energy', 'momentum', 'acceleration', 'displacement'],
     answer: 'displacement',
     explanation:
-      '⚠️ **Key point:** For a velocity–time graph, the area under the graph equals displacement.\n\nSince $v = \\frac{ds}{dt}$, we have:\n$$s = \\int v\\,dt$$\nSo the shaded area represents the displacement of the object.\n\n**Conclusion:** The area represents displacement �?option D.',
+      '鈿狅笍 **Key point:** For a velocity鈥搕ime graph, the area under the graph equals displacement.\n\nSince $v = \\frac{ds}{dt}$, we have:\n$$s = \\int v\\,dt$$\nSo the shaded area represents the displacement of the object.\n\n**Conclusion:** The area represents displacement 鈫?option D.',
     difficulty: 1,
     points: 10,
     hints: [
-      'On a v–t graph, the slope gives acceleration',
-      'On a v–t graph, the area gives displacement',
-      'Think of s = �?v dt',
+      'On a v鈥搕 graph, the slope gives acceleration',
+      'On a v鈥搕 graph, the area gives displacement',
+      'Think of s = 鈭?v dt',
     ],
     sectionId: 'position-movement',
     imagePaths: ['/physics/exercises/position-movement/pm-038-question.png'],
@@ -2323,13 +750,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
     answer: '(1) & (2) only',
     explanation:
-      '⚠️ **Key point:** On a $v$�?t$ graph, velocity sign indicates direction and the area gives displacement.\n\n**(1)** True. At $t=t_1$, $v=0$ and the graph crosses the time axis, so the car reverses its direction.\n\n**(2)** True. Before $t_1$, the car moves forward (positive $v$). After $t_1$, $v$ becomes negative, so it travels back. Therefore, the car is farthest from the start at $t=t_1$.\n\n**(3)** False. Displacement from $0$ to $t_2$ equals the signed area under the graph. The forward area (from $0$ to $t_1$) is not equal to the backward area (from $t_1$ to $t_2$), so the net displacement at $t_2$ is not zero.\n\n**Conclusion:** Statements (1) and (2) only �?option A.',
+      '鈿狅笍 **Key point:** On a $v$鈥?t$ graph, velocity sign indicates direction and the area gives displacement.\n\n**(1)** True. At $t=t_1$, $v=0$ and the graph crosses the time axis, so the car reverses its direction.\n\n**(2)** True. Before $t_1$, the car moves forward (positive $v$). After $t_1$, $v$ becomes negative, so it travels back. Therefore, the car is farthest from the start at $t=t_1$.\n\n**(3)** False. Displacement from $0$ to $t_2$ equals the signed area under the graph. The forward area (from $0$ to $t_1$) is not equal to the backward area (from $t_1$ to $t_2$), so the net displacement at $t_2$ is not zero.\n\n**Conclusion:** Statements (1) and (2) only 鈫?option A.',
     difficulty: 2,
     points: 15,
     hints: [
       'A change of direction occurs when velocity changes sign',
-      'At t = t�? check whether v = 0 and whether v becomes negative afterwards',
-      'Displacement equals the signed area under the v–t graph',
+      'At t = t鈧? check whether v = 0 and whether v becomes negative afterwards',
+      'Displacement equals the signed area under the v鈥搕 graph',
       'Returning to the start requires the total signed area to be zero',
     ],
     sectionId: 'position-movement',
@@ -2341,15 +768,15 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     type: 'multiple_choice',
     question:
       'A car starts at point $A$ and travels along a circular path of radius $30\\text{ m}$. After $15\\text{ s}$, the car returns to point $A$. Find the average speed of the car within this period of time.',
-    options: ['zero', '2 m s⁻�?, '6.3 m s⁻�?, '12.6 m s⁻�?],
-    answer: '12.6 m s⁻�?,
+    options: ['zero', '2 m s^-1', '6.3 m s^-1', '12.6 m s^-1'],
+    answer: '12.6 m s^-1',
     explanation:
-      '⚠️ **Key point:** Average speed $= \\frac{\\text{total distance}}{\\text{total time}}$.\n\nSince the car returns to $A$, it completes one full circle.\n\n**Step 1:** Total distance travelled (circumference)\n$$d = 2\\pi r = 2\\pi(30) = 60\\pi \\approx 188.5\\text{ m}$$\n\n**Step 2:** Average speed\n$$v_{\\text{avg}} = \\frac{d}{t} = \\frac{188.5}{15} \\approx 12.6\\text{ m s}^{-1}$$\n\n**Conclusion:** The average speed is $12.6\\text{ m s}^{-1}$ �?option D.',
+      '鈿狅笍 **Key point:** Average speed $= \\frac{\\text{total distance}}{\\text{total time}}$.\n\nSince the car returns to $A$, it completes one full circle.\n\n**Step 1:** Total distance travelled (circumference)\n$$d = 2\\pi r = 2\\pi(30) = 60\\pi \\approx 188.5\\text{ m}$$\n\n**Step 2:** Average speed\n$$v_{\\text{avg}} = \\frac{d}{t} = \\frac{188.5}{15} \\approx 12.6\\text{ m s}^{-1}$$\n\n**Conclusion:** The average speed is $12.6\\text{ m s}^{-1}$ 鈫?option D.',
     difficulty: 2,
     points: 15,
     hints: [
       'Average speed = total distance / total time',
-      'One full circle distance is the circumference: 2πr',
+      'One full circle distance is the circumference: 2蟺r',
       'Use r = 30 m and t = 15 s',
     ],
     sectionId: 'position-movement',
@@ -2364,13 +791,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['450 m', '900 m', '1800 m', '3600 m'],
     answer: '900 m',
     explanation:
-      '⚠️ **Key point:** Use $v^2 = u^2 + 2as$ for motion with constant acceleration.\n\n**Step 1:** Identify known values\n- Initial speed: $u = 0$ (starts from rest)\n- Final speed: $v = 60\\text{ m s}^{-1}$\n- Acceleration: $a = 2\\text{ m s}^{-2}$\n\n**Step 2:** Apply $v^2 = u^2 + 2as$\n$$60^2 = 0^2 + 2(2)s$$\n$$3600 = 4s \\;\\Rightarrow\\; s = 900\\text{ m}$$\n\n**Conclusion:** The minimum take-off distance is $900\\text{ m}$ �?option B.',
+      '鈿狅笍 **Key point:** Use $v^2 = u^2 + 2as$ for motion with constant acceleration.\n\n**Step 1:** Identify known values\n- Initial speed: $u = 0$ (starts from rest)\n- Final speed: $v = 60\\text{ m s}^{-1}$\n- Acceleration: $a = 2\\text{ m s}^{-2}$\n\n**Step 2:** Apply $v^2 = u^2 + 2as$\n$$60^2 = 0^2 + 2(2)s$$\n$$3600 = 4s \\;\\Rightarrow\\; s = 900\\text{ m}$$\n\n**Conclusion:** The minimum take-off distance is $900\\text{ m}$ 鈫?option B.',
     difficulty: 1,
     points: 10,
     hints: [
       'Starts from rest means u = 0',
-      'Use v² = u² + 2as',
-      'Substitute v = 60 m/s and a = 2 m/s², then solve for s',
+      'Use v虏 = u虏 + 2as',
+      'Substitute v = 60 m/s and a = 2 m/s虏, then solve for s',
     ],
     sectionId: 'position-movement',
   },
@@ -2383,14 +810,14 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(1) only',
     explanation:
-      '⚠️ **Key point:** On a velocity–time graph, the area under the curve gives displacement.\n\n**(1)** True. From $t=0$ to $t=t_1$, the area under $P$’s graph is greater than that under $Q$’s graph, so $P$ covers a larger distance in the same time. Therefore, $P$ has a larger average speed.\n\n**(2)** False. At $t=t_1$, the areas (displacements) of $P$ and $Q$ are different, so they are at different positions.\n\n**(3)** False. At $t=t_2$, the area under $P$’s graph is greater, so $P$ has travelled further and is ahead of $Q$, not the other way around.\n\n**Conclusion:** Only statement (1) is correct �?option A.',
+      '鈿狅笍 **Key point:** On a velocity鈥搕ime graph, the area under the curve gives displacement.\n\n**(1)** True. From $t=0$ to $t=t_1$, the area under $P$鈥檚 graph is greater than that under $Q$鈥檚 graph, so $P$ covers a larger distance in the same time. Therefore, $P$ has a larger average speed.\n\n**(2)** False. At $t=t_1$, the areas (displacements) of $P$ and $Q$ are different, so they are at different positions.\n\n**(3)** False. At $t=t_2$, the area under $P$鈥檚 graph is greater, so $P$ has travelled further and is ahead of $Q$, not the other way around.\n\n**Conclusion:** Only statement (1) is correct 鈫?option A.',
     difficulty: 2,
     points: 15,
     hints: [
-      'Area under a v–t graph represents displacement',
-      'Compare the areas under P and Q from 0 to t�?,
-      'Same point at t�?requires equal displacement (equal area) up to t�?,
-      'Compare total areas up to t�?to see who is ahead',
+      'Area under a v鈥搕 graph represents displacement',
+      'Compare the areas under P and Q from 0 to t1',
+      'Being at the same point at t1 requires equal displacement up to t1',
+      'Compare total areas up to t鈧?to see who is ahead',
     ],
     sectionId: 'position-movement',
     imagePaths: ['/physics/exercises/position-movement/pm-042-question.png'],
@@ -2404,12 +831,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['zero', '0.8 s', '4.2 s', '5.0 s'],
     answer: '0.8 s',
     explanation:
-      '⚠️ **Key point:** Reaction time is the time between noticing the accident and starting to brake.\n\nOn a speed–time graph, the car travels at constant speed before braking begins, so the graph is horizontal during the reaction time.\n\nFrom the graph, the length of this initial horizontal segment is $0.8\\text{ s}$.\n\n**Conclusion:** Reaction time = $0.8\\text{ s}$ �?option B.',
+      '鈿狅笍 **Key point:** Reaction time is the time between noticing the accident and starting to brake.\n\nOn a speed鈥搕ime graph, the car travels at constant speed before braking begins, so the graph is horizontal during the reaction time.\n\nFrom the graph, the length of this initial horizontal segment is $0.8\\text{ s}$.\n\n**Conclusion:** Reaction time = $0.8\\text{ s}$ 鈫?option B.',
     difficulty: 1,
     points: 10,
     hints: [
       'Reaction time is the time before the brakes are applied',
-      'On a speed–time graph, this is the initial horizontal segment',
+      'On a speed鈥搕ime graph, this is the initial horizontal segment',
       'Read the duration of the horizontal line from the time axis',
     ],
     sectionId: 'position-movement',
@@ -2424,11 +851,11 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['29.4 m', '40.6 m', '46.2 m', '81.2 m'],
     answer: '40.6 m',
     explanation:
-      '⚠️ **Key point:** On a speed–time graph, the area under the graph equals the distance travelled.\n\nFrom the graph:\n- Speed is $14\\text{ m s}^{-1}$ during the reaction time $0$�?0.8\\text{ s}$ (horizontal segment)\n- Then the car decelerates uniformly to rest at $t=5.0\\text{ s}$\n\n**Step 1:** Split the area into a rectangle and a triangle\nRectangle (0�?.8 s):\n$$A_1 = (0.8)(14) = 11.2\\text{ m}$$\nTriangle (0.8�?.0 s):\n$$A_2 = \\frac{1}{2}(5.0-0.8)(14) = \\frac{1}{2}(4.2)(14) = 29.4\\text{ m}$$\n\n**Step 2:** Total distance\n$$s = A_1 + A_2 = 11.2 + 29.4 = 40.6\\text{ m}$$\n\n**Conclusion:** The distance travelled from $t=0$ to $5.0\\text{ s}$ is $40.6\\text{ m}$ �?option B.',
+      '鈿狅笍 **Key point:** On a speed鈥搕ime graph, the area under the graph equals the distance travelled.\n\nFrom the graph:\n- Speed is $14\\text{ m s}^{-1}$ during the reaction time $0$鈥?0.8\\text{ s}$ (horizontal segment)\n- Then the car decelerates uniformly to rest at $t=5.0\\text{ s}$\n\n**Step 1:** Split the area into a rectangle and a triangle\nRectangle (0鈥?.8 s):\n$$A_1 = (0.8)(14) = 11.2\\text{ m}$$\nTriangle (0.8鈥?.0 s):\n$$A_2 = \\frac{1}{2}(5.0-0.8)(14) = \\frac{1}{2}(4.2)(14) = 29.4\\text{ m}$$\n\n**Step 2:** Total distance\n$$s = A_1 + A_2 = 11.2 + 29.4 = 40.6\\text{ m}$$\n\n**Conclusion:** The distance travelled from $t=0$ to $5.0\\text{ s}$ is $40.6\\text{ m}$ 鈫?option B.',
     difficulty: 2,
     points: 15,
     hints: [
-      'Distance travelled equals the area under a speed–time graph',
+      'Distance travelled equals the area under a speed鈥搕ime graph',
       'Split the graph into a rectangle (reaction time) and a triangle (braking)',
       'Compute areas and add them to get total distance',
     ],
@@ -2444,13 +871,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(2) only',
     explanation:
-      '⚠️ **Key point:** On a $v$�?t$ graph, the area gives displacement, and average acceleration depends only on the change in velocity over time.\n\n**(1) Average velocity**\n$$\\text{average velocity} = \\frac{\\text{displacement}}{\\text{time}}$$\nFrom $0$ to $T$, displacement equals the area under the $v$�?t$ graph. The areas for cars $A$ and $B$ are different, so their displacements (and hence average velocities) are different. Statement (1) is false.\n\n**(2) Average acceleration**\n$$\\text{average acceleration} = \\frac{v-u}{T}$$\nBoth cars start from rest ($u=0$) and, from the graph, have the same final velocity at $t=T$. Therefore, they have the same average acceleration. Statement (2) is true.\n\n**(3) Displacement**\nSince the areas under the two $v$�?t$ graphs from $0$ to $T$ are different, the displacements are different. Statement (3) is false.\n\n**Conclusion:** Only statement (2) is always correct �?option B.',
+      '鈿狅笍 **Key point:** On a $v$鈥?t$ graph, the area gives displacement, and average acceleration depends only on the change in velocity over time.\n\n**(1) Average velocity**\n$$\\text{average velocity} = \\frac{\\text{displacement}}{\\text{time}}$$\nFrom $0$ to $T$, displacement equals the area under the $v$鈥?t$ graph. The areas for cars $A$ and $B$ are different, so their displacements (and hence average velocities) are different. Statement (1) is false.\n\n**(2) Average acceleration**\n$$\\text{average acceleration} = \\frac{v-u}{T}$$\nBoth cars start from rest ($u=0$) and, from the graph, have the same final velocity at $t=T$. Therefore, they have the same average acceleration. Statement (2) is true.\n\n**(3) Displacement**\nSince the areas under the two $v$鈥?t$ graphs from $0$ to $T$ are different, the displacements are different. Statement (3) is false.\n\n**Conclusion:** Only statement (2) is always correct 鈫?option B.',
     difficulty: 2,
     points: 15,
     hints: [
-      'Area under a v–t graph represents displacement',
+      'Area under a v鈥搕 graph represents displacement',
       'Average velocity = displacement / time',
-      'Average acceleration depends on (v �?u) / T',
+      'Average acceleration depends on (v 鈭?u) / T',
       'Check u at t = 0 and v at t = T from the graph',
     ],
     sectionId: 'position-movement',
@@ -2470,14 +897,14 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '$v_1$ is always smaller than $v_2$.',
     explanation:
-      '⚠️ **Key point:** With uniform acceleration, the speed increases with time. In the first half of the time, the car has not yet reached the midpoint in distance.\n\nLet the total travel time be $T$.\n- At $t = \\tfrac{1}{2}T$, the speed is $v_1$.\n- At the midpoint of the distance, the car reaches it at some time $t_m$.\n\nBecause the motion is accelerating, the distance–time graph is concave upward, so the car covers **less than half** the total distance in the first half of the time:\n$$s\\left(\\tfrac{T}{2}\\right) < \\tfrac{1}{2}s(T)$$\nHence $t_m > \\tfrac{1}{2}T$.\n\nSince speed increases with time, a later time corresponds to a larger speed, so\n$$v_2 = v(t_m) > v\\left(\\tfrac{T}{2}\\right) = v_1.$$\n\n**Conclusion:** $v_1$ is always smaller than $v_2$ �?option A.',
+      '鈿狅笍 **Key point:** With uniform acceleration, the speed increases with time. In the first half of the time, the car has not yet reached the midpoint in distance.\n\nLet the total travel time be $T$.\n- At $t = \\tfrac{1}{2}T$, the speed is $v_1$.\n- At the midpoint of the distance, the car reaches it at some time $t_m$.\n\nBecause the motion is accelerating, the distance鈥搕ime graph is concave upward, so the car covers **less than half** the total distance in the first half of the time:\n$$s\\left(\\tfrac{T}{2}\\right) < \\tfrac{1}{2}s(T)$$\nHence $t_m > \\tfrac{1}{2}T$.\n\nSince speed increases with time, a later time corresponds to a larger speed, so\n$$v_2 = v(t_m) > v\\left(\\tfrac{T}{2}\\right) = v_1.$$\n\n**Conclusion:** $v_1$ is always smaller than $v_2$ 鈫?option A.',
     difficulty: 3,
     points: 20,
     hints: [
       'Uniform acceleration means speed increases with time',
-      'In accelerating motion, distance–time graph is concave upward',
+      'In accelerating motion, distance鈥搕ime graph is concave upward',
       'Half the distance is reached after more than half the time',
-      'Later time �?larger speed, so v�?> v�?,
+      'Later time means larger speed, so v2 > v1',
     ],
     sectionId: 'position-movement',
     imagePaths: ['/physics/exercises/position-movement/pm-046-question.png'],
@@ -2497,12 +924,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '/physics/exercises/position-movement/pm-047-option-c.png',
     explanation:
-      "⚠️ **Key point:** On a velocity–time graph, the slope equals acceleration. In free fall from rest, $v = gt$, so the graph is a straight line through the origin with slope $g$.\n\nSince $g_{\\text{Moon}} \\approx \\frac{1}{6}g_{\\text{Earth}}$, the Moon's $v$�?t$ line must be **less steep** than the Earth's line.\n\n**Conclusion:** The correct pair of graphs is option C.",
+      "鈿狅笍 **Key point:** On a velocity鈥搕ime graph, the slope equals acceleration. In free fall from rest, $v = gt$, so the graph is a straight line through the origin with slope $g$.\n\nSince $g_{\\text{Moon}} \\approx \\frac{1}{6}g_{\\text{Earth}}$, the Moon's $v$鈥?t$ line must be **less steep** than the Earth's line.\n\n**Conclusion:** The correct pair of graphs is option C.",
     difficulty: 2,
     points: 15,
     hints: [
       'For free fall from rest, v increases linearly with time',
-      'Slope of a v–t graph gives acceleration (g)',
+      'Slope of a v鈥搕 graph gives acceleration (g)',
       'Smaller g on the Moon means a smaller slope',
     ],
     sectionId: 'position-movement',
@@ -2513,16 +940,16 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     type: 'multiple_choice',
     question:
       'A bicycle finishes a $100$-metre journey in $9.77\\text{ s}$. Assume that the bicycle starts from rest and moves with a uniform acceleration. What is the acceleration of the bicycle throughout the journey?',
-    options: ['1.05 m/s²', '2.10 m/s²', '10.2 m/s²', '20.5 m/s²'],
-    answer: '2.10 m/s²',
+    options: ['1.05 m/s虏', '2.10 m/s虏', '10.2 m/s虏', '20.5 m/s虏'],
+    answer: '2.10 m/s虏',
     explanation:
-      '⚠️ **Key point:** The bicycle starts from rest, so $u = 0$. Use $s = ut + \\frac{1}{2}at^2$ and solve for $a$.\n\n**Step 1:** Substitute $u = 0$\n$$s = \\frac{1}{2}at^2$$\n\n**Step 2:** Solve for $a$\n$$a = \\frac{2s}{t^2}$$\n\n**Step 3:** Substitute $s = 100\\text{ m}$ and $t = 9.77\\text{ s}$\n$$a = \\frac{2(100)}{(9.77)^2} \\approx 2.10\\text{ m/s}^2$$\n\n**Conclusion:** The acceleration is $2.10\\text{ m/s}^2$ �?option B.',
+      '鈿狅笍 **Key point:** The bicycle starts from rest, so $u = 0$. Use $s = ut + \\frac{1}{2}at^2$ and solve for $a$.\n\n**Step 1:** Substitute $u = 0$\n$$s = \\frac{1}{2}at^2$$\n\n**Step 2:** Solve for $a$\n$$a = \\frac{2s}{t^2}$$\n\n**Step 3:** Substitute $s = 100\\text{ m}$ and $t = 9.77\\text{ s}$\n$$a = \\frac{2(100)}{(9.77)^2} \\approx 2.10\\text{ m/s}^2$$\n\n**Conclusion:** The acceleration is $2.10\\text{ m/s}^2$ 鈫?option B.',
     difficulty: 2,
     points: 15,
     hints: [
       'Starts from rest means u = 0',
-      'Use s = ut + ½at²',
-      'Rearrange to a = 2s / t² and substitute s = 100 m, t = 9.77 s',
+      'Use s = ut + 陆at虏',
+      'Rearrange to a = 2s / t虏 and substitute s = 100 m, t = 9.77 s',
     ],
     sectionId: 'position-movement',
   },
@@ -2540,14 +967,14 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '/physics/exercises/position-movement/pm-049-option-d.png',
     explanation:
-      '⚠️ **Key point:** Velocity is the slope of a displacement–time ($s$�?t$) graph, and acceleration is the slope of a velocity–time ($v$�?t$) graph.\n\nFrom the $s$�?t$ graph:\n- **First part:** the slope increases steadily �?velocity increases linearly �?constant positive acceleration (straight line in $v$�?t$).\n- **Second part:** the slope is constant �?velocity is constant �?zero acceleration (horizontal segment in $v$�?t$).\n- **Third part:** the slope increases again but more gently �?velocity increases linearly with a smaller slope �?constant acceleration smaller than in the first part.\n\n**Conclusion:** The matching $v$�?t$ graph is option D.',
+      '鈿狅笍 **Key point:** Velocity is the slope of a displacement鈥搕ime ($s$鈥?t$) graph, and acceleration is the slope of a velocity鈥搕ime ($v$鈥?t$) graph.\n\nFrom the $s$鈥?t$ graph:\n- **First part:** the slope increases steadily 鈫?velocity increases linearly 鈫?constant positive acceleration (straight line in $v$鈥?t$).\n- **Second part:** the slope is constant 鈫?velocity is constant 鈫?zero acceleration (horizontal segment in $v$鈥?t$).\n- **Third part:** the slope increases again but more gently 鈫?velocity increases linearly with a smaller slope 鈫?constant acceleration smaller than in the first part.\n\n**Conclusion:** The matching $v$鈥?t$ graph is option D.',
     difficulty: 2,
     points: 15,
     hints: [
-      'Velocity is the slope of the s–t graph',
-      'Constant acceleration means v–t is a straight line',
-      'Zero acceleration means v–t is horizontal',
-      'Compare how the slope of the s–t graph changes in each section',
+      'Velocity is the slope of the s鈥搕 graph',
+      'Constant acceleration means v鈥搕 is a straight line',
+      'Zero acceleration means v鈥搕 is horizontal',
+      'Compare how the slope of the s鈥搕 graph changes in each section',
     ],
     sectionId: 'position-movement',
     imagePaths: ['/physics/exercises/position-movement/pm-049-question.png'],
@@ -2566,14 +993,14 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '$0.5 \\text{ m s}^{-2}$',
     explanation:
-      '⚠️ **Key point:** For motion with constant acceleration, $v^2 = u^2 + 2as$. The slope of a $v^2$�?s$ graph equals $2a$.\n\n**Step 1:** Identify the equation\nFor constant acceleration:\n$$v^2 = u^2 + 2as$$\n\n**Step 2:** Read two points from the graph\nFrom the graph:\n- When $s = 0$, $v^2 = 1$\n- When $s = 1$, $v^2 = 2$\n\n**Step 3:** Apply the equation\nAt $s = 0$:\n$$v^2 = u^2 + 2a(0) \\;\\Rightarrow\\; u^2 = 1$$\n\nAt $s = 1$:\n$$v^2 = u^2 + 2a(1)$$\n$$2 = 1 + 2a(1)$$\n$$2 = 1 + 2a$$\n$$2a = 2 - 1 = 1$$\n$$a = 0.5 \\text{ m s}^{-2}$$\n\n**Verification:**\nUsing $v^2 = u^2 + 2as$ with $u^2 = 1$ and $a = 0.5$:\n- At $s = 0$: $v^2 = 1 + 2(0.5)(0) = 1$ ✓\n- At $s = 1$: $v^2 = 1 + 2(0.5)(1) = 1 + 1 = 2$ ✓\n\n**Conclusion:** The acceleration is $0.5 \\text{ m s}^{-2}$ �?option A.',
+      '鈿狅笍 **Key point:** For motion with constant acceleration, $v^2 = u^2 + 2as$. The slope of a $v^2$鈥?s$ graph equals $2a$.\n\n**Step 1:** Identify the equation\nFor constant acceleration:\n$$v^2 = u^2 + 2as$$\n\n**Step 2:** Read two points from the graph\nFrom the graph:\n- When $s = 0$, $v^2 = 1$\n- When $s = 1$, $v^2 = 2$\n\n**Step 3:** Apply the equation\nAt $s = 0$:\n$$v^2 = u^2 + 2a(0) \\;\\Rightarrow\\; u^2 = 1$$\n\nAt $s = 1$:\n$$v^2 = u^2 + 2a(1)$$\n$$2 = 1 + 2a(1)$$\n$$2 = 1 + 2a$$\n$$2a = 2 - 1 = 1$$\n$$a = 0.5 \\text{ m s}^{-2}$$\n\n**Verification:**\nUsing $v^2 = u^2 + 2as$ with $u^2 = 1$ and $a = 0.5$:\n- At $s = 0$: $v^2 = 1 + 2(0.5)(0) = 1$ 鉁揬n- At $s = 1$: $v^2 = 1 + 2(0.5)(1) = 1 + 1 = 2$ 鉁揬n\n**Conclusion:** The acceleration is $0.5 \\text{ m s}^{-2}$ 鈫?option A.',
     difficulty: 2,
     points: 15,
     hints: [
-      'Use the equation v² = u² + 2as for constant acceleration',
-      'Read two points from the v²–s graph',
-      'At s = 0, v² gives the initial velocity squared (u²)',
-      'Substitute the values into v² = u² + 2as to find a',
+      'Use the equation v虏 = u虏 + 2as for constant acceleration',
+      'Read two points from the v虏鈥搒 graph',
+      'At s = 0, v虏 gives the initial velocity squared (u虏)',
+      'Substitute the values into v虏 = u虏 + 2as to find a',
     ],
     sectionId: 'position-movement',
     imagePaths: ['/physics/exercises/position-movement/pm-050-question.png'],
@@ -2592,14 +1019,14 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '$3.13 \\text{ m s}^{-1}$',
     explanation:
-      '⚠️ **Key point:** At the maximum height, the vertical velocity is zero. Use $v^2 = u^2 + 2as$ with the known displacement and acceleration.\n\n**Step 1:** Identify known values\n- Maximum height: $s = 0.5\\text{ m}$\n- At maximum height: final velocity $v = 0$ (momentarily stops)\n- Acceleration: $a = -g = -9.81\\text{ m s}^{-2}$ (downward, opposite to motion)\n- Unknown: initial velocity $u$ (speed when leaving surface)\n\n**Step 2:** Apply the equation\nUsing $v^2 = u^2 + 2as$:\n$$(0)^2 = u^2 + 2(-9.81)(0.5)$$\n$$0 = u^2 - 9.81$$\n$$u^2 = 9.81$$\n$$u = \\sqrt{9.81} = 3.13\\text{ m s}^{-1}$$\n\n**Verification:**\nUsing $v^2 = u^2 + 2as$ with $u = 3.13\\text{ m s}^{-1}$:\n$$v^2 = (3.13)^2 + 2(-9.81)(0.5) = 9.80 - 9.81 \\approx 0$$\nAt maximum height, $v = 0$ ✓\n\n**Conclusion:** The speed when the fish just leaves the surface is $3.13\\text{ m s}^{-1}$ �?option A.',
+      '鈿狅笍 **Key point:** At the maximum height, the vertical velocity is zero. Use $v^2 = u^2 + 2as$ with the known displacement and acceleration.\n\n**Step 1:** Identify known values\n- Maximum height: $s = 0.5\\text{ m}$\n- At maximum height: final velocity $v = 0$ (momentarily stops)\n- Acceleration: $a = -g = -9.81\\text{ m s}^{-2}$ (downward, opposite to motion)\n- Unknown: initial velocity $u$ (speed when leaving surface)\n\n**Step 2:** Apply the equation\nUsing $v^2 = u^2 + 2as$:\n$$(0)^2 = u^2 + 2(-9.81)(0.5)$$\n$$0 = u^2 - 9.81$$\n$$u^2 = 9.81$$\n$$u = \\sqrt{9.81} = 3.13\\text{ m s}^{-1}$$\n\n**Verification:**\nUsing $v^2 = u^2 + 2as$ with $u = 3.13\\text{ m s}^{-1}$:\n$$v^2 = (3.13)^2 + 2(-9.81)(0.5) = 9.80 - 9.81 \\approx 0$$\nAt maximum height, $v = 0$ 鉁揬n\n**Conclusion:** The speed when the fish just leaves the surface is $3.13\\text{ m s}^{-1}$ 鈫?option A.',
     difficulty: 2,
     points: 15,
     hints: [
       'At maximum height, the vertical velocity is zero',
-      'Use v² = u² + 2as with v = 0 at the top',
+      'Use v虏 = u虏 + 2as with v = 0 at the top',
       'Acceleration is -g (negative because it opposes upward motion)',
-      'Substitute s = 0.5 m and a = -9.81 m/s² to find u',
+      'Substitute s = 0.5 m and a = -9.81 m/s虏 to find u',
     ],
     sectionId: 'position-movement',
   },
@@ -2617,12 +1044,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: 'A shorter time interval is used.',
     explanation:
-      '⚠️ **Key point:** For free fall from rest, $s = \\frac{1}{2}gt^2$. The displacement depends on time squared, not on mass. A shorter time interval means smaller displacements between consecutive positions.\n\n**Step 1:** Understand the motion equation\nFor a stone released from rest:\n$$s = ut + \\frac{1}{2}at^2$$\nSince $u = 0$ (released from rest) and $a = g$:\n$$s = \\frac{1}{2}gt^2$$\n\n**Step 2:** Analyze Picture (a) vs Picture (b)\n- Picture (a): Positions are more separated (larger distances between consecutive positions)\n- Picture (b): Positions are closer together (smaller distances between consecutive positions)\n\n**Step 3:** Evaluate each option\n\n**Option A: A shorter time interval is used.** �?**Correct**\n- If time interval $T$ is shorter, then $t$ (time from release) is smaller\n- Since $s = \\frac{1}{2}gt^2$ and $s \\propto t^2$, smaller $t$ gives smaller $s$\n- Therefore, positions will be closer together �?matches Picture (b)\n\n**Option B: A longer time interval is used.** �?**Incorrect**\n- If time interval $T$ is longer, then $t$ is larger\n- Larger $t$ gives larger $s$ (since $s \\propto t^2$)\n- Positions will be more separated �?matches Picture (a), not Picture (b)\n\n**Option C: A lighter stone is used.** �?**Incorrect**\n- Acceleration due to gravity $g$ is independent of mass\n- Since $s = \\frac{1}{2}gt^2$ and $g$ is unchanged, the positions remain the same\n- No change in the path �?incorrect\n\n**Option D: A heavier stone is used.** �?**Incorrect**\n- Same reasoning as Option C\n- Acceleration $g$ is independent of mass\n- Positions remain unchanged �?incorrect\n\n**Conclusion:** Only Option A is correct �?option A.',
+      '鈿狅笍 **Key point:** For free fall from rest, $s = \\frac{1}{2}gt^2$. The displacement depends on time squared, not on mass. A shorter time interval means smaller displacements between consecutive positions.\n\n**Step 1:** Understand the motion equation\nFor a stone released from rest:\n$$s = ut + \\frac{1}{2}at^2$$\nSince $u = 0$ (released from rest) and $a = g$:\n$$s = \\frac{1}{2}gt^2$$\n\n**Step 2:** Analyze Picture (a) vs Picture (b)\n- Picture (a): Positions are more separated (larger distances between consecutive positions)\n- Picture (b): Positions are closer together (smaller distances between consecutive positions)\n\n**Step 3:** Evaluate each option\n\n**Option A: A shorter time interval is used.** 鉁?**Correct**\n- If time interval $T$ is shorter, then $t$ (time from release) is smaller\n- Since $s = \\frac{1}{2}gt^2$ and $s \\propto t^2$, smaller $t$ gives smaller $s$\n- Therefore, positions will be closer together 鈫?matches Picture (b)\n\n**Option B: A longer time interval is used.** 鉁?**Incorrect**\n- If time interval $T$ is longer, then $t$ is larger\n- Larger $t$ gives larger $s$ (since $s \\propto t^2$)\n- Positions will be more separated 鈫?matches Picture (a), not Picture (b)\n\n**Option C: A lighter stone is used.** 鉁?**Incorrect**\n- Acceleration due to gravity $g$ is independent of mass\n- Since $s = \\frac{1}{2}gt^2$ and $g$ is unchanged, the positions remain the same\n- No change in the path 鈫?incorrect\n\n**Option D: A heavier stone is used.** 鉁?**Incorrect**\n- Same reasoning as Option C\n- Acceleration $g$ is independent of mass\n- Positions remain unchanged 鈫?incorrect\n\n**Conclusion:** Only Option A is correct 鈫?option A.',
     difficulty: 2,
     points: 15,
     hints: [
-      'For free fall from rest, use s = ½gt²',
-      'Displacement s is proportional to t², not to mass',
+      'For free fall from rest, use s = 陆gt虏',
+      'Displacement s is proportional to t虏, not to mass',
       'Picture (b) shows positions closer together than Picture (a)',
       'A shorter time interval means smaller t, which gives smaller s',
     ],
@@ -2643,11 +1070,11 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: 'At $t=20\\text{ s}$, the car catches up the truck.',
     explanation:
-      '⚠️ **Key point:** The area under a velocity-time ($v$�?t$) graph equals displacement. Compare the areas under each graph to find their relative positions.\n\n**Step 1:** Understand the relationship\n$$\\text{Area under } v\\text{–}t \\text{ graph} = \\text{displacement}$$\n\n**Step 2:** Calculate displacements at $t = 10\\text{ s}$\n\n**Car (triangle from $0$ to $10\\text{ s}$):**\n$$s_{\\text{car}} = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(10)(10) = 50\\text{ m}$$\n\n**Truck (rectangle from $0$ to $10\\text{ s}$):**\n$$s_{\\text{truck}} = \\text{base} \\times \\text{height} = (10)(10) = 100\\text{ m}$$\n\n**Relative position:**\n$$\\Delta s = s_{\\text{truck}} - s_{\\text{car}} = 100 - 50 = 50\\text{ m}$$\nThe car is $50\\text{ m}$ behind the truck (not $100\\text{ m}$).\n\n**Step 3:** Calculate displacements at $t = 20\\text{ s}$\n\n**Car (triangle from $0$ to $20\\text{ s}$):**\n$$s_{\\text{car}} = \\frac{1}{2}(20)(20) = 200\\text{ m}$$\n\n**Truck (rectangle from $0$ to $20\\text{ s}$):**\n$$s_{\\text{truck}} = (10)(20) = 200\\text{ m}$$\n\n**Relative position:**\n$$\\Delta s = s_{\\text{truck}} - s_{\\text{car}} = 200 - 200 = 0\\text{ m}$$\nThe car catches up the truck (displacements are equal).\n\n**Step 4:** Evaluate each option\n\n**Option A:** "At $t=10\\text{ s}$, the car is $100\\text{ m}$ behind the truck." �?**Incorrect**\n- At $t=10\\text{ s}$, the car is $50\\text{ m}$ behind, not $100\\text{ m}$\n\n**Option B:** "At $t=10\\text{ s}$, the car catches up the truck." �?**Incorrect**\n- At $t=10\\text{ s}$, the car is still $50\\text{ m}$ behind\n\n**Option C:** "At $t=20\\text{ s}$, the car is $100\\text{ m}$ behind the truck." �?**Incorrect**\n- At $t=20\\text{ s}$, the car catches up (displacements are equal)\n\n**Option D:** "At $t=20\\text{ s}$, the car catches up the truck." �?**Correct**\n- At $t=20\\text{ s}$, both have displacement $200\\text{ m}$\n- The car catches up the truck\n\n**Conclusion:** Only Option D is correct �?option D.',
+      '鈿狅笍 **Key point:** The area under a velocity-time ($v$鈥?t$) graph equals displacement. Compare the areas under each graph to find their relative positions.\n\n**Step 1:** Understand the relationship\n$$\\text{Area under } v\\text{鈥搣t \\text{ graph} = \\text{displacement}$$\n\n**Step 2:** Calculate displacements at $t = 10\\text{ s}$\n\n**Car (triangle from $0$ to $10\\text{ s}$):**\n$$s_{\\text{car}} = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(10)(10) = 50\\text{ m}$$\n\n**Truck (rectangle from $0$ to $10\\text{ s}$):**\n$$s_{\\text{truck}} = \\text{base} \\times \\text{height} = (10)(10) = 100\\text{ m}$$\n\n**Relative position:**\n$$\\Delta s = s_{\\text{truck}} - s_{\\text{car}} = 100 - 50 = 50\\text{ m}$$\nThe car is $50\\text{ m}$ behind the truck (not $100\\text{ m}$).\n\n**Step 3:** Calculate displacements at $t = 20\\text{ s}$\n\n**Car (triangle from $0$ to $20\\text{ s}$):**\n$$s_{\\text{car}} = \\frac{1}{2}(20)(20) = 200\\text{ m}$$\n\n**Truck (rectangle from $0$ to $20\\text{ s}$):**\n$$s_{\\text{truck}} = (10)(20) = 200\\text{ m}$$\n\n**Relative position:**\n$$\\Delta s = s_{\\text{truck}} - s_{\\text{car}} = 200 - 200 = 0\\text{ m}$$\nThe car catches up the truck (displacements are equal).\n\n**Step 4:** Evaluate each option\n\n**Option A:** "At $t=10\\text{ s}$, the car is $100\\text{ m}$ behind the truck." 鉁?**Incorrect**\n- At $t=10\\text{ s}$, the car is $50\\text{ m}$ behind, not $100\\text{ m}$\n\n**Option B:** "At $t=10\\text{ s}$, the car catches up the truck." 鉁?**Incorrect**\n- At $t=10\\text{ s}$, the car is still $50\\text{ m}$ behind\n\n**Option C:** "At $t=20\\text{ s}$, the car is $100\\text{ m}$ behind the truck." 鉁?**Incorrect**\n- At $t=20\\text{ s}$, the car catches up (displacements are equal)\n\n**Option D:** "At $t=20\\text{ s}$, the car catches up the truck." 鉁?**Correct**\n- At $t=20\\text{ s}$, both have displacement $200\\text{ m}$\n- The car catches up the truck\n\n**Conclusion:** Only Option D is correct 鈫?option D.',
     difficulty: 2,
     points: 15,
     hints: [
-      'Area under a v–t graph equals displacement',
+      'Area under a v鈥搕 graph equals displacement',
       'Car has a triangular area (accelerating), truck has a rectangular area (constant velocity)',
       'Calculate the area for each vehicle at t = 10 s and t = 20 s',
       'Compare the displacements to find when they meet',
@@ -2664,13 +1091,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(2) only', '(3) only', '(1) & (2) only', '(1) & (3) only'],
     answer: '(2) only',
     explanation:
-      '⚠️ **Key point:** On a velocity-time graph, the initial speed is the starting velocity, the horizontal line represents reaction time (constant velocity before braking), and the area under the graph represents total stopping distance.\n\n**Step 1:** Analyze Statement (1): "The two cars have the same initial speeds."\n\n**From the graph:**\n- Car $P$ starts at a higher initial velocity (approximately twice that of car $Q$)\n- Car $Q$ starts at a lower initial velocity\n\n**Conclusion:** Statement (1) is **incorrect** ✗\n\nThe two cars do **not** have the same initial speeds. Car $P$ has approximately twice the initial speed of car $Q$.\n\n**Step 2:** Analyze Statement (2): "The reaction times of John and Mary are the same."\n\n**Understanding reaction time:**\n- Reaction time is the time interval during which the driver reacts before applying brakes\n- On a $v$�?t$ graph, this appears as a horizontal line (constant velocity, no deceleration yet)\n\n**From the graph:**\n- Both cars $P$ and $Q$ have horizontal lines of the same duration\n- The time intervals before the velocity starts decreasing are equal\n\n**Conclusion:** Statement (2) is **correct** ✓\n\nThe reaction times of John and Mary are the same (equal horizontal line durations).\n\n**Step 3:** Analyze Statement (3): "The total stopping distances of the two cars are the same."\n\n**Understanding stopping distance:**\n- Total stopping distance equals the area under the velocity-time graph\n- This includes both the distance travelled during reaction time and the distance travelled during braking\n\n**From the graph:**\n- Car $P$: Larger area under the graph (higher initial speed, longer braking distance)\n- Car $Q$: Smaller area under the graph (lower initial speed, shorter braking distance)\n\n**Conclusion:** Statement (3) is **incorrect** ✗\n\nThe total stopping distance of car $P$ is greater than that of car $Q$ (larger area under the graph).\n\n**Summary:**\n- Statement (1): �?Incorrect (different initial speeds)\n- Statement (2): �?Correct (same reaction times)\n- Statement (3): �?Incorrect (different stopping distances)\n\n**Conclusion:** Only statement (2) is correct �?option A: **(2) only**.',
+      '鈿狅笍 **Key point:** On a velocity-time graph, the initial speed is the starting velocity, the horizontal line represents reaction time (constant velocity before braking), and the area under the graph represents total stopping distance.\n\n**Step 1:** Analyze Statement (1): "The two cars have the same initial speeds."\n\n**From the graph:**\n- Car $P$ starts at a higher initial velocity (approximately twice that of car $Q$)\n- Car $Q$ starts at a lower initial velocity\n\n**Conclusion:** Statement (1) is **incorrect** 鉁梊n\nThe two cars do **not** have the same initial speeds. Car $P$ has approximately twice the initial speed of car $Q$.\n\n**Step 2:** Analyze Statement (2): "The reaction times of John and Mary are the same."\n\n**Understanding reaction time:**\n- Reaction time is the time interval during which the driver reacts before applying brakes\n- On a $v$鈥?t$ graph, this appears as a horizontal line (constant velocity, no deceleration yet)\n\n**From the graph:**\n- Both cars $P$ and $Q$ have horizontal lines of the same duration\n- The time intervals before the velocity starts decreasing are equal\n\n**Conclusion:** Statement (2) is **correct** 鉁揬n\nThe reaction times of John and Mary are the same (equal horizontal line durations).\n\n**Step 3:** Analyze Statement (3): "The total stopping distances of the two cars are the same."\n\n**Understanding stopping distance:**\n- Total stopping distance equals the area under the velocity-time graph\n- This includes both the distance travelled during reaction time and the distance travelled during braking\n\n**From the graph:**\n- Car $P$: Larger area under the graph (higher initial speed, longer braking distance)\n- Car $Q$: Smaller area under the graph (lower initial speed, shorter braking distance)\n\n**Conclusion:** Statement (3) is **incorrect** 鉁梊n\nThe total stopping distance of car $P$ is greater than that of car $Q$ (larger area under the graph).\n\n**Summary:**\n- Statement (1): 鉁?Incorrect (different initial speeds)\n- Statement (2): 鉁?Correct (same reaction times)\n- Statement (3): 鉁?Incorrect (different stopping distances)\n\n**Conclusion:** Only statement (2) is correct 鈫?option A: **(2) only**.',
     difficulty: 2,
     points: 15,
     hints: [
-      'Initial speed is the starting velocity on the v–t graph',
+      'Initial speed is the starting velocity on the v鈥搕 graph',
       'Reaction time appears as a horizontal line (constant velocity before braking)',
-      'Total stopping distance equals the area under the v–t graph',
+      'Total stopping distance equals the area under the v鈥搕 graph',
       'Compare the initial speeds, horizontal line durations, and areas under the graphs',
     ],
     sectionId: 'position-movement',
@@ -2685,7 +1112,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['$0.1\\text{ s}$', '$10\\text{ s}$', '$36\\text{ s}$', '$360\\text{ s}$'],
     answer: '$36\\text{ s}$',
     explanation:
-      '⚠️ **Key point:** When using the equation $s = ut$, ensure all quantities are in consistent SI units (metres and seconds).\n\n**Step 1:** Convert speed from km/h to m/s\n$$50\\text{ km h}^{-1} = 50 \\times \\frac{1000\\text{ m}}{3600\\text{ s}} = 50 \\times \\frac{1000}{3600}\\text{ m s}^{-1}$$\n\nSimplifying:\n$$50 \\times \\frac{1000}{3600} = 50 \\times \\frac{5}{18} = \\frac{250}{18} = \\frac{125}{9} \\approx 13.89\\text{ m s}^{-1}$$\n\n**Step 2:** Apply the equation\nFor constant speed:\n$$s = ut$$\n\nSubstitute known values:\n- Displacement: $s = 500\\text{ m}$\n- Speed: $u = 50 \\times \\frac{1000}{3600}\\text{ m s}^{-1}$\n- Time: $t$ (unknown)\n\n$$500 = \\left(50 \\times \\frac{1000}{3600}\\right) t$$\n\n**Step 3:** Solve for $t$\n$$500 = \\frac{125}{9} t$$\n$$t = 500 \\times \\frac{9}{125} = \\frac{4500}{125} = 36\\text{ s}$$\n\n**Alternative calculation:**\n$$t = \\frac{s}{u} = \\frac{500}{50 \\times \\frac{1000}{3600}} = \\frac{500 \\times 3600}{50 \\times 1000} = \\frac{1,800,000}{50,000} = 36\\text{ s}$$\n\n**Verification:**\nUsing $s = ut$ with $u = \\frac{125}{9}\\text{ m s}^{-1}$ and $t = 36\\text{ s}$:\n$$s = \\frac{125}{9} \\times 36 = \\frac{125 \\times 36}{9} = 125 \\times 4 = 500\\text{ m} \\checkmark$$\n\n**Conclusion:** The time taken is $36\\text{ s}$ �?option C.',
+      '鈿狅笍 **Key point:** When using the equation $s = ut$, ensure all quantities are in consistent SI units (metres and seconds).\n\n**Step 1:** Convert speed from km/h to m/s\n$$50\\text{ km h}^{-1} = 50 \\times \\frac{1000\\text{ m}}{3600\\text{ s}} = 50 \\times \\frac{1000}{3600}\\text{ m s}^{-1}$$\n\nSimplifying:\n$$50 \\times \\frac{1000}{3600} = 50 \\times \\frac{5}{18} = \\frac{250}{18} = \\frac{125}{9} \\approx 13.89\\text{ m s}^{-1}$$\n\n**Step 2:** Apply the equation\nFor constant speed:\n$$s = ut$$\n\nSubstitute known values:\n- Displacement: $s = 500\\text{ m}$\n- Speed: $u = 50 \\times \\frac{1000}{3600}\\text{ m s}^{-1}$\n- Time: $t$ (unknown)\n\n$$500 = \\left(50 \\times \\frac{1000}{3600}\\right) t$$\n\n**Step 3:** Solve for $t$\n$$500 = \\frac{125}{9} t$$\n$$t = 500 \\times \\frac{9}{125} = \\frac{4500}{125} = 36\\text{ s}$$\n\n**Alternative calculation:**\n$$t = \\frac{s}{u} = \\frac{500}{50 \\times \\frac{1000}{3600}} = \\frac{500 \\times 3600}{50 \\times 1000} = \\frac{1,800,000}{50,000} = 36\\text{ s}$$\n\n**Verification:**\nUsing $s = ut$ with $u = \\frac{125}{9}\\text{ m s}^{-1}$ and $t = 36\\text{ s}$:\n$$s = \\frac{125}{9} \\times 36 = \\frac{125 \\times 36}{9} = 125 \\times 4 = 500\\text{ m} \\checkmark$$\n\n**Conclusion:** The time taken is $36\\text{ s}$ 鈫?option C.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -2705,7 +1132,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(1) only',
     explanation:
-      '⚠️ **Key point:** Displacement is a vector (straight-line distance from start to finish), distance is a scalar (length of path travelled), and average speed = distance / time.\n\n**Step 1:** Analyze Statement (1): "displacement"\n\n**Understanding displacement:**\n- Displacement is the straight-line distance from the starting point to the ending point\n- It is a vector quantity with both magnitude and direction\n- Displacement depends only on the initial and final positions, not on the path taken\n\n**From the problem:**\n- All three students start at point $X$ and end at point $Y$\n- The straight-line distance from $X$ to $Y$ is the same regardless of which path ($P_1$, $P_2$, or $P_3$) is taken\n\n**Conclusion:** Statement (1) is **correct** ✓\n\nAll three students have the same displacement (same straight-line distance from $X$ to $Y$).\n\n**Step 2:** Analyze Statement (2): "distance"\n\n**Understanding distance:**\n- Distance is the total length of the path travelled\n- It is a scalar quantity (magnitude only)\n- Distance depends on the actual path taken\n\n**From the problem:**\n- Path $P_1$, $P_2$, and $P_3$ are different paths with different lengths\n- Each student travels along a different path, so they cover different distances\n\n**Conclusion:** Statement (2) is **incorrect** ✗\n\nThe three students have different distances travelled (different path lengths).\n\n**Step 3:** Analyze Statement (3): "average speed"\n\n**Understanding average speed:**\n- Average speed = total distance travelled / total time taken\n- It is a scalar quantity\n- Average speed depends on both distance and time\n\n**From the problem:**\n- All three students take the same time to travel\n- However, they travel different distances (as established in Statement 2)\n- Since average speed = distance / time, and distance is different while time is the same:\n  $$\\text{average speed} = \\frac{\\text{different distance}}{\\text{same time}} = \\text{different values}$$\n\n**Conclusion:** Statement (3) is **incorrect** ✗\n\nThe three students have different average speeds (different distances divided by the same time).\n\n**Summary:**\n- Statement (1): �?Correct (same displacement)\n- Statement (2): �?Incorrect (different distances)\n- Statement (3): �?Incorrect (different average speeds)\n\n**Conclusion:** Only statement (1) is correct �?option A: **(1) only**.',
+      '鈿狅笍 **Key point:** Displacement is a vector (straight-line distance from start to finish), distance is a scalar (length of path travelled), and average speed = distance / time.\n\n**Step 1:** Analyze Statement (1): "displacement"\n\n**Understanding displacement:**\n- Displacement is the straight-line distance from the starting point to the ending point\n- It is a vector quantity with both magnitude and direction\n- Displacement depends only on the initial and final positions, not on the path taken\n\n**From the problem:**\n- All three students start at point $X$ and end at point $Y$\n- The straight-line distance from $X$ to $Y$ is the same regardless of which path ($P_1$, $P_2$, or $P_3$) is taken\n\n**Conclusion:** Statement (1) is **correct** 鉁揬n\nAll three students have the same displacement (same straight-line distance from $X$ to $Y$).\n\n**Step 2:** Analyze Statement (2): "distance"\n\n**Understanding distance:**\n- Distance is the total length of the path travelled\n- It is a scalar quantity (magnitude only)\n- Distance depends on the actual path taken\n\n**From the problem:**\n- Path $P_1$, $P_2$, and $P_3$ are different paths with different lengths\n- Each student travels along a different path, so they cover different distances\n\n**Conclusion:** Statement (2) is **incorrect** 鉁梊n\nThe three students have different distances travelled (different path lengths).\n\n**Step 3:** Analyze Statement (3): "average speed"\n\n**Understanding average speed:**\n- Average speed = total distance travelled / total time taken\n- It is a scalar quantity\n- Average speed depends on both distance and time\n\n**From the problem:**\n- All three students take the same time to travel\n- However, they travel different distances (as established in Statement 2)\n- Since average speed = distance / time, and distance is different while time is the same:\n  $$\\text{average speed} = \\frac{\\text{different distance}}{\\text{same time}} = \\text{different values}$$\n\n**Conclusion:** Statement (3) is **incorrect** 鉁梊n\nThe three students have different average speeds (different distances divided by the same time).\n\n**Summary:**\n- Statement (1): 鉁?Correct (same displacement)\n- Statement (2): 鉁?Incorrect (different distances)\n- Statement (3): 鉁?Incorrect (different average speeds)\n\n**Conclusion:** Only statement (1) is correct 鈫?option A: **(1) only**.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -2722,7 +1149,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     id: 'pm-057',
     type: 'multiple_choice',
     question:
-      'A diver jumps up vertically in the air from a high platform and falls into water. The $v$�?t$ graph below shows the variation of the velocity of the diver against time from the point he jumps $(P)$ until he is at the lowest point $(Q)$ in the water. Which of the following is correct?',
+      'A diver jumps up vertically in the air from a high platform and falls into water. The $v$鈥?t$ graph below shows the variation of the velocity of the diver against time from the point he jumps $(P)$ until he is at the lowest point $(Q)$ in the water. Which of the following is correct?',
     options: [
       'Total distance travelled from $P$ to $Q$: $8.9\\text{ m}$; Height of the platform above water surface: $8\\text{ m}$',
       'Total distance travelled from $P$ to $Q$: $10.6\\text{ m}$; Height of the platform above water surface: $10\\text{ m}$',
@@ -2732,11 +1159,11 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     answer:
       'Total distance travelled from $P$ to $Q$: $11.5\\text{ m}$; Height of the platform above water surface: $8\\text{ m}$',
     explanation:
-      '⚠️ **Key point:** Total distance equals the sum of absolute areas under a $v$�?t$ graph, while displacement equals the signed (net) area. The height of the platform equals the magnitude of displacement from $P$ to the water surface.\n\n**Step 1:** Calculate total distance travelled from $P$ to $Q$\n\n**Understanding total distance:**\n- Total distance = sum of absolute areas under the $v$�?t$ graph\n- This includes both upward and downward motion\n\n**From the graph (from $0\\text{ s}$ to $2\\text{ s}$):**\n- Triangle from $0$ to $0.3\\text{ s}$ (upward motion):\n  $$A_1 = \\frac{1}{2}(0.3)(3) = 0.45\\text{ m}$$\n- Triangle from $0.3\\text{ s}$ to $2\\text{ s}$ (downward motion):\n  $$A_2 = \\frac{1}{2}(2 - 0.3)(13) = \\frac{1}{2}(1.7)(13) = 11.05\\text{ m}$$\n\n**Total distance:**\n$$\\text{Total distance} = A_1 + A_2 = 0.45 + 11.05 = 11.5\\text{ m}$$\n\n**Alternative calculation (as given):**\n$$\\text{Total distance} = \\frac{1}{2}(0.3)(3) + \\frac{1}{2}(2 - 0.3)(13) = 0.45 + 11.05 = 11.5\\text{ m}$$\n\n**Step 2:** Calculate height of the platform above water surface\n\n**Understanding displacement:**\n- Displacement from $P$ to the water surface = signed (net) area under the $v$�?t$ graph from $0\\text{ s}$ to $1.6\\text{ s}$\n- Area above the time axis is positive (upward), area below is negative (downward)\n- Height = magnitude of displacement\n\n**From the graph (from $0\\text{ s}$ to $1.6\\text{ s}$):**\n- Triangle above axis from $0$ to $0.3\\text{ s}$ (upward):\n  $$A_{\\uparrow} = +\\frac{1}{2}(0.3)(3) = +0.45\\text{ m}$$\n- Triangle below axis from $0.3\\text{ s}$ to $1.6\\text{ s}$ (downward):\n  $$A_{\\downarrow} = -\\frac{1}{2}(1.6 - 0.3)(13) = -\\frac{1}{2}(1.3)(13) = -8.45\\text{ m}$$\n\n**Net displacement:**\n$$s = A_{\\uparrow} + A_{\\downarrow} = 0.45 + (-8.45) = -8\\text{ m}$$\n\nThe negative sign indicates downward displacement.\n\n**Height of platform:**\n$$\\text{Height} = |s| = |-8| = 8\\text{ m}$$\n\n**Alternative calculation (as given):**\n$$\\text{Displacement} = \\frac{1}{2}(0.3)(3) - \\frac{1}{2}(1.6 - 0.3)(13) = 0.45 - 8.45 = -8\\text{ m}$$\n$$\\text{Height} = 8\\text{ m}$$\n\n**Step 3:** Match with options\n\n**Total distance:** $11.5\\text{ m}$\n**Height:** $8\\text{ m}$\n\n**Conclusion:** Option C matches: Total distance $11.5\\text{ m}$, Height $8\\text{ m}$ �?option C.',
+      '鈿狅笍 **Key point:** Total distance equals the sum of absolute areas under a $v$鈥?t$ graph, while displacement equals the signed (net) area. The height of the platform equals the magnitude of displacement from $P$ to the water surface.\n\n**Step 1:** Calculate total distance travelled from $P$ to $Q$\n\n**Understanding total distance:**\n- Total distance = sum of absolute areas under the $v$鈥?t$ graph\n- This includes both upward and downward motion\n\n**From the graph (from $0\\text{ s}$ to $2\\text{ s}$):**\n- Triangle from $0$ to $0.3\\text{ s}$ (upward motion):\n  $$A_1 = \\frac{1}{2}(0.3)(3) = 0.45\\text{ m}$$\n- Triangle from $0.3\\text{ s}$ to $2\\text{ s}$ (downward motion):\n  $$A_2 = \\frac{1}{2}(2 - 0.3)(13) = \\frac{1}{2}(1.7)(13) = 11.05\\text{ m}$$\n\n**Total distance:**\n$$\\text{Total distance} = A_1 + A_2 = 0.45 + 11.05 = 11.5\\text{ m}$$\n\n**Alternative calculation (as given):**\n$$\\text{Total distance} = \\frac{1}{2}(0.3)(3) + \\frac{1}{2}(2 - 0.3)(13) = 0.45 + 11.05 = 11.5\\text{ m}$$\n\n**Step 2:** Calculate height of the platform above water surface\n\n**Understanding displacement:**\n- Displacement from $P$ to the water surface = signed (net) area under the $v$鈥?t$ graph from $0\\text{ s}$ to $1.6\\text{ s}$\n- Area above the time axis is positive (upward), area below is negative (downward)\n- Height = magnitude of displacement\n\n**From the graph (from $0\\text{ s}$ to $1.6\\text{ s}$):**\n- Triangle above axis from $0$ to $0.3\\text{ s}$ (upward):\n  $$A_{\\uparrow} = +\\frac{1}{2}(0.3)(3) = +0.45\\text{ m}$$\n- Triangle below axis from $0.3\\text{ s}$ to $1.6\\text{ s}$ (downward):\n  $$A_{\\downarrow} = -\\frac{1}{2}(1.6 - 0.3)(13) = -\\frac{1}{2}(1.3)(13) = -8.45\\text{ m}$$\n\n**Net displacement:**\n$$s = A_{\\uparrow} + A_{\\downarrow} = 0.45 + (-8.45) = -8\\text{ m}$$\n\nThe negative sign indicates downward displacement.\n\n**Height of platform:**\n$$\\text{Height} = |s| = |-8| = 8\\text{ m}$$\n\n**Alternative calculation (as given):**\n$$\\text{Displacement} = \\frac{1}{2}(0.3)(3) - \\frac{1}{2}(1.6 - 0.3)(13) = 0.45 - 8.45 = -8\\text{ m}$$\n$$\\text{Height} = 8\\text{ m}$$\n\n**Step 3:** Match with options\n\n**Total distance:** $11.5\\text{ m}$\n**Height:** $8\\text{ m}$\n\n**Conclusion:** Option C matches: Total distance $11.5\\text{ m}$, Height $8\\text{ m}$ 鈫?option C.',
     difficulty: 3,
     points: 20,
     hints: [
-      'Total distance = sum of absolute areas under the v–t graph',
+      'Total distance = sum of absolute areas under the v鈥搕 graph',
       'Displacement = signed (net) area (positive above axis, negative below axis)',
       'Height of platform = magnitude of displacement from P to water surface',
       'Calculate areas for upward motion (0 to 0.3 s) and downward motion (0.3 s to 1.6 s or 2 s)',
@@ -2758,11 +1185,11 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '/physics/exercises/position-movement/pm-058-option-c.png',
     explanation:
-      '⚠️ **Key point:** On a distance–time graph, the slope represents speed.\n\nSince $XY = YZ = ZX$, Mary travels the same distance on each side.\n- For $XY$: time = $10\\text{ s}$ �?speed is relatively large\n- For $YZ$: time = $20\\text{ s}$ �?speed is smaller, so the slope is smaller\n- For $ZX$: time = $10\\text{ s}$ �?speed returns to the same as in $XY$, so the slope is the same as the first part\n\nSo the correct distance–time graph must have: steep slope (0�?0 s), gentler slope (10�?0 s), then steep slope again (30�?0 s).\n\n**Conclusion:** The correct graph is option C.',
+      '鈿狅笍 **Key point:** On a distance鈥搕ime graph, the slope represents speed.\n\nSince $XY = YZ = ZX$, Mary travels the same distance on each side.\n- For $XY$: time = $10\\text{ s}$ 鈫?speed is relatively large\n- For $YZ$: time = $20\\text{ s}$ 鈫?speed is smaller, so the slope is smaller\n- For $ZX$: time = $10\\text{ s}$ 鈫?speed returns to the same as in $XY$, so the slope is the same as the first part\n\nSo the correct distance鈥搕ime graph must have: steep slope (0鈥?0 s), gentler slope (10鈥?0 s), then steep slope again (30鈥?0 s).\n\n**Conclusion:** The correct graph is option C.',
     difficulty: 2,
     points: 15,
     hints: [
-      'Slope of a distance–time graph represents speed',
+      'Slope of a distance鈥搕ime graph represents speed',
       'All three sides have the same distance',
       'Longer time means smaller speed and smaller slope',
       'The first and third segments should have the same slope',
@@ -2784,12 +1211,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '$t$',
     explanation:
-      '⚠️ **Key point:** In free fall (neglecting air resistance), all objects have the same acceleration $g$, independent of mass.\n\nSince both objects are released from rest from the same height $h$, the time to reach the ground depends only on $h$ and $g$:\n$$h = \\frac{1}{2}gt^2$$\nSo the object of mass $2m$ also takes the same time $t$.\n\n**Conclusion:** The correct answer is $t$ �?option C.',
+      '鈿狅笍 **Key point:** In free fall (neglecting air resistance), all objects have the same acceleration $g$, independent of mass.\n\nSince both objects are released from rest from the same height $h$, the time to reach the ground depends only on $h$ and $g$:\n$$h = \\frac{1}{2}gt^2$$\nSo the object of mass $2m$ also takes the same time $t$.\n\n**Conclusion:** The correct answer is $t$ 鈫?option C.',
     difficulty: 1,
     points: 10,
     hints: [
       'In vacuum, free-fall acceleration g is independent of mass',
-      'Released from rest: use h = ½gt²',
+      'Released from rest: use h = 陆gt虏',
       'Same h and g means the same falling time',
     ],
     sectionId: 'position-movement',
@@ -2808,11 +1235,11 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '/physics/exercises/position-movement/pm-060-option-a.png',
     explanation:
-      '⚠️ **Key point:** The slope of a $v$�?t$ graph equals acceleration. For vertical motion under gravity (neglecting air resistance), the acceleration is constant and equal to $-g$, which does not depend on the initial velocity.\n\nIf the object is thrown upwards with a higher initial velocity:\n- The velocity at $t=0$ is larger (higher intercept)\n- The acceleration remains $-g$, so the slope stays the same\n\nTherefore, the new $v$�?t$ graph is a straight line **parallel** to the original line, but starting at a higher initial velocity. It will cross $v=0$ at a later time.\n\n**Conclusion:** The correct dotted line is option A.',
+      '鈿狅笍 **Key point:** The slope of a $v$鈥?t$ graph equals acceleration. For vertical motion under gravity (neglecting air resistance), the acceleration is constant and equal to $-g$, which does not depend on the initial velocity.\n\nIf the object is thrown upwards with a higher initial velocity:\n- The velocity at $t=0$ is larger (higher intercept)\n- The acceleration remains $-g$, so the slope stays the same\n\nTherefore, the new $v$鈥?t$ graph is a straight line **parallel** to the original line, but starting at a higher initial velocity. It will cross $v=0$ at a later time.\n\n**Conclusion:** The correct dotted line is option A.',
     difficulty: 2,
     points: 15,
     hints: [
-      'Slope of a v–t graph represents acceleration',
+      'Slope of a v鈥搕 graph represents acceleration',
       'For vertical motion under gravity, acceleration is constant and equals -g',
       'Changing the initial velocity changes the intercept, not the slope',
       'The correct dotted line should be parallel to the original line',
@@ -2829,13 +1256,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['1 : 3', '1 : 5', '3 : 5', '5 : 8'],
     answer: '3 : 5',
     explanation:
-      '⚠️ **Key point:** For free fall from rest, the displacement is $s = \\frac{1}{2}gt^2$. The distance in the $n$th second is the difference $s(n) - s(n-1)$.\n\n**Step 1:** Displacements after 1 s, 2 s, 3 s\n$$s(1) = \\frac{1}{2}g(1)^2 = \\frac{1}{2}g$$\n$$s(2) = \\frac{1}{2}g(2)^2 = 2g$$\n$$s(3) = \\frac{1}{2}g(3)^2 = \\frac{9}{2}g$$\n\n**Step 2:** Distances in the 2nd and 3rd seconds\n$$d_2 = s(2) - s(1) = 2g - \\frac{1}{2}g = \\frac{3}{2}g$$\n$$d_3 = s(3) - s(2) = \\frac{9}{2}g - 2g = \\frac{5}{2}g$$\n\n**Step 3:** Ratio\n$$d_2:d_3 = \\left(\\frac{3}{2}g\\right):\\left(\\frac{5}{2}g\\right) = 3:5$$\n\n**Conclusion:** $3:5$ �?option C.',
+      '鈿狅笍 **Key point:** For free fall from rest, the displacement is $s = \\frac{1}{2}gt^2$. The distance in the $n$th second is the difference $s(n) - s(n-1)$.\n\n**Step 1:** Displacements after 1 s, 2 s, 3 s\n$$s(1) = \\frac{1}{2}g(1)^2 = \\frac{1}{2}g$$\n$$s(2) = \\frac{1}{2}g(2)^2 = 2g$$\n$$s(3) = \\frac{1}{2}g(3)^2 = \\frac{9}{2}g$$\n\n**Step 2:** Distances in the 2nd and 3rd seconds\n$$d_2 = s(2) - s(1) = 2g - \\frac{1}{2}g = \\frac{3}{2}g$$\n$$d_3 = s(3) - s(2) = \\frac{9}{2}g - 2g = \\frac{5}{2}g$$\n\n**Step 3:** Ratio\n$$d_2:d_3 = \\left(\\frac{3}{2}g\\right):\\left(\\frac{5}{2}g\\right) = 3:5$$\n\n**Conclusion:** $3:5$ 鈫?option C.',
     difficulty: 2,
     points: 15,
     hints: [
-      'For free fall from rest, use s = ½gt²',
-      'Distance in the 2nd second is s(2) �?s(1)',
-      'Distance in the 3rd second is s(3) �?s(2)',
+      'For free fall from rest, use s = 陆gt虏',
+      'Distance in the 2nd second is s(2) 鈭?s(1)',
+      'Distance in the 3rd second is s(3) 鈭?s(2)',
       'g cancels in the ratio',
     ],
     sectionId: 'position-movement',
@@ -2847,20 +1274,20 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question:
       'A car travels with a speed of $18\\text{ m s}^{-1}$. The driver suddenly sees a girl standing $36\\text{ m}$ in front. If the reaction time of the driver is $0.5\\text{ s}$, what should be the minimum deceleration of the car in order to avoid collision with the girl?',
     options: [
-      '3.0 m s⁻�?,
-      '4.5 m s⁻�?,
-      '6.0 m s⁻�?,
-      '9.0 m s⁻�?,
+      '3.0 m s^-1',
+      '4.5 m s^-1',
+      '6.0 m s^-1',
+      '9.0 m s^-1',
     ],
-    answer: '6.0 m s⁻�?,
+    answer: '6.0 m s^-1',
     explanation:
-      '⚠️ **Key point:** During reaction time the car continues at constant speed. Braking starts only after that, and the car must stop within the remaining distance.\n\n**Step 1:** Distance travelled during reaction time\n$$s_r = vt = 18 \\times 0.5 = 9\\text{ m}$$\n\nSo the remaining distance for braking is:\n$$s = 36 - 9 = 27\\text{ m}$$\n\n**Step 2:** Use $v^2 = u^2 + 2as$ for the braking phase\nFor stopping: $v=0$, $u=18\\text{ m s}^{-1}$, $s=27\\text{ m}$.\n$$0^2 = 18^2 + 2a(27)$$\n$$0 = 324 + 54a \\;\\Rightarrow\\; a = -6\\text{ m s}^{-2}$$\n\nMinimum deceleration is the magnitude: $6.0\\text{ m s}^{-2}$.\n\n**Conclusion:** $6.0\\text{ m s}^{-2}$ �?option C.',
+      '鈿狅笍 **Key point:** During reaction time the car continues at constant speed. Braking starts only after that, and the car must stop within the remaining distance.\n\n**Step 1:** Distance travelled during reaction time\n$$s_r = vt = 18 \\times 0.5 = 9\\text{ m}$$\n\nSo the remaining distance for braking is:\n$$s = 36 - 9 = 27\\text{ m}$$\n\n**Step 2:** Use $v^2 = u^2 + 2as$ for the braking phase\nFor stopping: $v=0$, $u=18\\text{ m s}^{-1}$, $s=27\\text{ m}$.\n$$0^2 = 18^2 + 2a(27)$$\n$$0 = 324 + 54a \\;\\Rightarrow\\; a = -6\\text{ m s}^{-2}$$\n\nMinimum deceleration is the magnitude: $6.0\\text{ m s}^{-2}$.\n\n**Conclusion:** $6.0\\text{ m s}^{-2}$ 鈫?option C.',
     difficulty: 2,
     points: 15,
     hints: [
       'During reaction time, the car keeps moving at 18 m/s',
-      'Compute remaining braking distance: 36 m �?18×0.5 s',
-      'Use v² = u² + 2as with v = 0 to find deceleration',
+      'Compute remaining braking distance: 36 m 鈭?18脳0.5 s',
+      'Use v虏 = u虏 + 2as with v = 0 to find deceleration',
     ],
     sectionId: 'position-movement',
   },
@@ -2873,11 +1300,11 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['100 m', '150 m', '200 m', '250 m'],
     answer: '200 m',
     explanation:
-      '⚠️ **Key point:** Displacement equals the (signed) area under a $v$�?t$ graph. The maximum distance from $P$ occurs at the turning point where $v$ changes sign (i.e. where $v=0$).\n\nFrom the graph, the velocity is positive from $t=0$ to $t=30\\text{ s}$, and becomes negative after $30\\text{ s}$. So the maximum distance from $P$ is the area under the graph from $0$ to $30\\text{ s}$.\n\nThis region is a trapezium with parallel sides $10\\text{ s}$ and $30\\text{ s}$, and height $10\\text{ m s}^{-1}$:\n$$s_{\\max} = \\frac{1}{2}(10 + 30)\\times 10 = 200\\text{ m}$$\n\n**Conclusion:** $200\\text{ m}$ �?option C.',
+      '鈿狅笍 **Key point:** Displacement equals the (signed) area under a $v$鈥?t$ graph. The maximum distance from $P$ occurs at the turning point where $v$ changes sign (i.e. where $v=0$).\n\nFrom the graph, the velocity is positive from $t=0$ to $t=30\\text{ s}$, and becomes negative after $30\\text{ s}$. So the maximum distance from $P$ is the area under the graph from $0$ to $30\\text{ s}$.\n\nThis region is a trapezium with parallel sides $10\\text{ s}$ and $30\\text{ s}$, and height $10\\text{ m s}^{-1}$:\n$$s_{\\max} = \\frac{1}{2}(10 + 30)\\times 10 = 200\\text{ m}$$\n\n**Conclusion:** $200\\text{ m}$ 鈫?option C.',
     difficulty: 2,
     points: 15,
     hints: [
-      'Area under a v–t graph gives displacement',
+      'Area under a v鈥搕 graph gives displacement',
       'Maximum distance occurs when v first becomes 0 before turning back',
       'Use the area from 0 s to 30 s (trapezium)',
     ],
@@ -2893,14 +1320,14 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(2) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(2) & (3) only',
     explanation:
-      '⚠️ **Key point:** On a displacement–time graph, the slope represents velocity (including direction).\n\n**(1)** The two cars have slopes with opposite signs (one moves towards $S$ while the other moves away from $S$). So their velocities are in opposite directions and cannot be the same.\n\n**(2)** At $t=t_0$, the two lines intersect, meaning the cars have the same displacement from $S$ at the same time. Therefore they are at the same position and meet each other.\n\n**(3)** The magnitudes of the two slopes are equal, so the two cars have the same speed. Since they travel for the same time interval from $0$ to $t_0$, they travel the same distance.\n\n**Conclusion:** Statements (2) and (3) are correct �?option D.',
+      '鈿狅笍 **Key point:** On a displacement鈥搕ime graph, the slope represents velocity (including direction).\n\n**(1)** The two cars have slopes with opposite signs (one moves towards $S$ while the other moves away from $S$). So their velocities are in opposite directions and cannot be the same.\n\n**(2)** At $t=t_0$, the two lines intersect, meaning the cars have the same displacement from $S$ at the same time. Therefore they are at the same position and meet each other.\n\n**(3)** The magnitudes of the two slopes are equal, so the two cars have the same speed. Since they travel for the same time interval from $0$ to $t_0$, they travel the same distance.\n\n**Conclusion:** Statements (2) and (3) are correct 鈫?option D.',
     difficulty: 2,
     points: 15,
     hints: [
-      'Slope of an s–t graph gives velocity (with sign for direction)',
-      'Intersection of two s–t lines means they meet',
+      'Slope of an s鈥搕 graph gives velocity (with sign for direction)',
+      'Intersection of two s鈥搕 lines means they meet',
       'Equal |slope| means equal speed',
-      'Same speed × same time gives same distance',
+      'Same speed 脳 same time gives same distance',
     ],
     sectionId: 'position-movement',
     imagePaths: ['/physics/exercises/position-movement/pm-064-question.png'],
@@ -2919,7 +1346,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '(1) & (2) only',
     explanation:
-      '⚠️ **Key point:** Average velocity depends on displacement; average speed depends on total distance.\n\n**(1)** Peter returns to the starting point $P$, so the total displacement is $0$.\n\n**(2)** Average velocity $= \\frac{\\text{total displacement}}{\\text{total time}}$. Since total displacement is $0$, the average velocity is $0\\text{ m s}^{-1}$.\n\n**(3)** Let the distance $PQ = D$.\nTime $P\\to Q$: $t_1 = \\frac{D}{2}$.\nTime $Q\\to P$: $t_2 = \\frac{D}{4}$.\nTotal distance $= 2D$, total time $= \\frac{D}{2} + \\frac{D}{4} = \\frac{3D}{4}$.\n$$v_{\\text{avg speed}} = \\frac{2D}{3D/4} = \\frac{8}{3} \\approx 2.67\\text{ m s}^{-1}$$\nSo it is not $3\\text{ m s}^{-1}$.\n\n**Conclusion:** Statements (1) and (2) only �?option A.',
+      '鈿狅笍 **Key point:** Average velocity depends on displacement; average speed depends on total distance.\n\n**(1)** Peter returns to the starting point $P$, so the total displacement is $0$.\n\n**(2)** Average velocity $= \\frac{\\text{total displacement}}{\\text{total time}}$. Since total displacement is $0$, the average velocity is $0\\text{ m s}^{-1}$.\n\n**(3)** Let the distance $PQ = D$.\nTime $P\\to Q$: $t_1 = \\frac{D}{2}$.\nTime $Q\\to P$: $t_2 = \\frac{D}{4}$.\nTotal distance $= 2D$, total time $= \\frac{D}{2} + \\frac{D}{4} = \\frac{3D}{4}$.\n$$v_{\\text{avg speed}} = \\frac{2D}{3D/4} = \\frac{8}{3} \\approx 2.67\\text{ m s}^{-1}$$\nSo it is not $3\\text{ m s}^{-1}$.\n\n**Conclusion:** Statements (1) and (2) only 鈫?option A.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -2944,7 +1371,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: 'acceleration during the fall',
     explanation:
-      '⚠️ **Key point:** If air resistance is neglected, all objects in free fall have the same constant acceleration due to gravity $g$, regardless of height.\n\nThe two balls fall through different distances, so their times of fall, final speeds, and change in velocity are different. However, during the fall they both experience the same acceleration $g$.\n\n**Conclusion:** The quantity that is the same is the acceleration during the fall �?option B.',
+      '鈿狅笍 **Key point:** If air resistance is neglected, all objects in free fall have the same constant acceleration due to gravity $g$, regardless of height.\n\nThe two balls fall through different distances, so their times of fall, final speeds, and change in velocity are different. However, during the fall they both experience the same acceleration $g$.\n\n**Conclusion:** The quantity that is the same is the acceleration during the fall 鈫?option B.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -2964,13 +1391,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(1) only',
     explanation:
-      '⚠️ **Key point:** For free fall from rest, $s = \\frac{1}{2}gt^2$.\n\n**(1)** In $2\\text{ s}$, the stone falls\n$$s = \\frac{1}{2}(10)(2)^2 = 20\\text{ m}$$\nThis is the mid-height, so the total height is $2\\times 20 = 40\\text{ m}$ ✓\n\n**(2)** For the full height $40\\text{ m}$:\n$$40 = \\frac{1}{2}(10)t^2 \\Rightarrow t^2 = 8 \\Rightarrow t = \\sqrt{8} \\approx 2.83\\text{ s}$$\nSo it is not $4\\text{ s}$ ✗\n\n**(3)** Speed at the bottom:\n$$v = gt = 10(2.83) \\approx 28.3\\text{ m s}^{-1}$$\nSo it is not $40\\text{ m s}^{-1}$ ✗\n\n**Conclusion:** Only statement (1) is correct �?option A.',
+      '鈿狅笍 **Key point:** For free fall from rest, $s = \\frac{1}{2}gt^2$.\n\n**(1)** In $2\\text{ s}$, the stone falls\n$$s = \\frac{1}{2}(10)(2)^2 = 20\\text{ m}$$\nThis is the mid-height, so the total height is $2\\times 20 = 40\\text{ m}$ 鉁揬n\n**(2)** For the full height $40\\text{ m}$:\n$$40 = \\frac{1}{2}(10)t^2 \\Rightarrow t^2 = 8 \\Rightarrow t = \\sqrt{8} \\approx 2.83\\text{ s}$$\nSo it is not $4\\text{ s}$ 鉁梊n\n**(3)** Speed at the bottom:\n$$v = gt = 10(2.83) \\approx 28.3\\text{ m s}^{-1}$$\nSo it is not $40\\text{ m s}^{-1}$ 鉁梊n\n**Conclusion:** Only statement (1) is correct 鈫?option A.',
     difficulty: 2,
     points: 15,
     hints: [
-      'Use s = ½gt² with t = 2 s to find the mid-height',
+      'Use s = 陆gt虏 with t = 2 s to find the mid-height',
       'Total height is twice the mid-height',
-      'For the full height, solve 40 = ½gt² for t',
+      'For the full height, solve 40 = 陆gt虏 for t',
       'Speed at the bottom is v = gt (starts from rest)',
     ],
     sectionId: 'position-movement',
@@ -2981,17 +1408,17 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     type: 'multiple_choice',
     question:
       'The graph shows the velocity of a body travelling in a straight line. What is the average velocity of the body during the first $3\\text{ s}$?',
-    options: ['4 m s⁻�?, '6 m s⁻�?, '9 m s⁻�?, '12 m s⁻�?],
-    answer: '6 m s⁻�?,
+    options: ['4 m s^-1', '6 m s^-1', '9 m s^-1', '12 m s^-1'],
+    answer: '6 m s^-1',
     explanation:
-      '⚠️ **Key point:** Average velocity $= \\frac{\\text{displacement}}{\\text{time}}$, and displacement equals the area under a $v$�?t$ graph.\n\nFrom $0$ to $3\\text{ s}$, the region is a triangle with base $3\\text{ s}$ and height $12\\text{ m s}^{-1}$:\n$$s = \\frac{1}{2} \\times 3 \\times 12 = 18\\text{ m}$$\n\nSo the average velocity is:\n$$v_{\\text{avg}} = \\frac{s}{t} = \\frac{18}{3} = 6\\text{ m s}^{-1}$$\n\n**Conclusion:** $6\\text{ m s}^{-1}$ �?option B.',
+      '鈿狅笍 **Key point:** Average velocity $= \\frac{\\text{displacement}}{\\text{time}}$, and displacement equals the area under a $v$鈥?t$ graph.\n\nFrom $0$ to $3\\text{ s}$, the region is a triangle with base $3\\text{ s}$ and height $12\\text{ m s}^{-1}$:\n$$s = \\frac{1}{2} \\times 3 \\times 12 = 18\\text{ m}$$\n\nSo the average velocity is:\n$$v_{\\text{avg}} = \\frac{s}{t} = \\frac{18}{3} = 6\\text{ m s}^{-1}$$\n\n**Conclusion:** $6\\text{ m s}^{-1}$ 鈫?option B.',
     difficulty: 2,
     points: 15,
     hints: [
-      'Displacement = area under the v–t graph',
+      'Displacement = area under the v鈥搕 graph',
       'From 0 to 3 s the area is a triangle',
-      'Area of triangle = ½ × base × height',
-      'Average velocity = displacement ÷ time',
+      'Area of triangle = 陆 脳 base 脳 height',
+      'Average velocity = displacement 梅 time',
     ],
     sectionId: 'position-movement',
     imagePaths: ['/physics/exercises/position-movement/pm-068-question.png'],
@@ -3003,14 +1430,14 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question:
       'A car takes $20\\text{ s}$ to travel the first $80\\text{ m}$, and another $10\\text{ s}$ to travel a further $70\\text{ m}$. What is the average speed?',
     options: [
-      '2.5 m s⁻�?,
-      '4.0 m s⁻�?,
-      '5.0 m s⁻�?,
-      '5.5 m s⁻�?,
+      '2.5 m s^-1',
+      '4.0 m s^-1',
+      '5.0 m s^-1',
+      '5.5 m s^-1',
     ],
-    answer: '5.0 m s⁻�?,
+    answer: '5.0 m s^-1',
     explanation:
-      '⚠️ **Key point:** Average speed $= \\frac{\\text{total distance}}{\\text{total time}}$.\n\nTotal distance $= 80 + 70 = 150\\text{ m}$.\nTotal time $= 20 + 10 = 30\\text{ s}$.\n$$v_{\\text{avg}} = \\frac{150}{30} = 5.0\\text{ m s}^{-1}$$\n\n**Conclusion:** $5.0\\text{ m s}^{-1}$ �?option C.',
+      '鈿狅笍 **Key point:** Average speed $= \\frac{\\text{total distance}}{\\text{total time}}$.\n\nTotal distance $= 80 + 70 = 150\\text{ m}$.\nTotal time $= 20 + 10 = 30\\text{ s}$.\n$$v_{\\text{avg}} = \\frac{150}{30} = 5.0\\text{ m s}^{-1}$$\n\n**Conclusion:** $5.0\\text{ m s}^{-1}$ 鈫?option C.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -3028,12 +1455,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['29 m', '44 m', '59 m', '88 m'],
     answer: '59 m',
     explanation:
-      '⚠️ **Key point:** Use $s = ut + \\frac{1}{2}at^2$. Take downward as positive so $u=5\\text{ m s}^{-1}$ and $a=g=9.81\\text{ m s}^{-2}$.\n\nWith $t=3\\text{ s}$:\n$$s = (5)(3) + \\frac{1}{2}(9.81)(3)^2 = 15 + 44.145 = 59.145\\text{ m} \\approx 59\\text{ m}$$\n\n**Conclusion:** The height is $59\\text{ m}$ �?option C.',
+      '鈿狅笍 **Key point:** Use $s = ut + \\frac{1}{2}at^2$. Take downward as positive so $u=5\\text{ m s}^{-1}$ and $a=g=9.81\\text{ m s}^{-2}$.\n\nWith $t=3\\text{ s}$:\n$$s = (5)(3) + \\frac{1}{2}(9.81)(3)^2 = 15 + 44.145 = 59.145\\text{ m} \\approx 59\\text{ m}$$\n\n**Conclusion:** The height is $59\\text{ m}$ 鈫?option C.',
     difficulty: 2,
     points: 15,
     hints: [
       'Take downward as positive: a = +g',
-      'Use s = ut + ½at² with u = 5 m/s and t = 3 s',
+      'Use s = ut + 陆at虏 with u = 5 m/s and t = 3 s',
       'Round 59.145 m to 59 m',
     ],
     sectionId: 'position-movement',
@@ -3045,20 +1472,20 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question:
       "A feather is dropped downwards with an initial velocity of $2\\text{ m s}^{-1}$ at a height of $15\\text{ m}$ above the surface of the Moon. It is known that the acceleration due to gravity on the Moon's surface is $16\\%$ of that of the Earth. Calculate the speed of the feather when it reaches the surface of the Moon.",
     options: [
-      '6.85 m s⁻�?,
-      '7.15 m s⁻�?,
-      '8.45 m s⁻�?,
-      '9.25 m s⁻�?,
+      '6.85 m s^-1',
+      '7.15 m s^-1',
+      '8.45 m s^-1',
+      '9.25 m s^-1',
     ],
-    answer: '7.15 m s⁻�?,
+    answer: '7.15 m s^-1',
     explanation:
-      "⚠️ **Key point:** On the Moon, air resistance is negligible, so the feather falls with a constant acceleration $g_{\\text{Moon}} = 0.16g_{\\text{Earth}}$.\n\nTake downward as positive.\n$$a = 0.16(9.81) = 1.5696\\text{ m s}^{-2}$$\n\nUsing $v^2=u^2+2as$ with $u=2\\text{ m s}^{-1}$ and $s=15\\text{ m}$:\n$$v^2 = (2)^2 + 2(1.5696)(15) = 4 + 47.088 = 51.088$$\n$$v = \\sqrt{51.088} \\approx 7.15\\text{ m s}^{-1}$$\n\n**Conclusion:** $7.15\\text{ m s}^{-1}$ �?option B.",
+      "鈿狅笍 **Key point:** On the Moon, air resistance is negligible, so the feather falls with a constant acceleration $g_{\\text{Moon}} = 0.16g_{\\text{Earth}}$.\n\nTake downward as positive.\n$$a = 0.16(9.81) = 1.5696\\text{ m s}^{-2}$$\n\nUsing $v^2=u^2+2as$ with $u=2\\text{ m s}^{-1}$ and $s=15\\text{ m}$:\n$$v^2 = (2)^2 + 2(1.5696)(15) = 4 + 47.088 = 51.088$$\n$$v = \\sqrt{51.088} \\approx 7.15\\text{ m s}^{-1}$$\n\n**Conclusion:** $7.15\\text{ m s}^{-1}$ 鈫?option B.",
     difficulty: 2,
     points: 15,
     hints: [
       'Use g_Moon = 0.16 g_Earth',
       'Take s = 15 m, u = 2 m/s (downwards)',
-      'Apply v² = u² + 2as',
+      'Apply v虏 = u虏 + 2as',
       'Take the square root to get v',
     ],
     sectionId: 'position-movement',
@@ -3077,14 +1504,14 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: 'increases with time.',
     explanation:
-      '⚠️ **Key point:** Both balls fall with the same constant acceleration $g$. The first ball has been falling longer, so its speed is always greater than the second ball’s (after the second is released), causing the separation to increase.\n\nLet the second ball be released $t_0$ seconds after the first. At time $t$ after the first ball is released ($t \\ge t_0$):\n$$s_1 = \\frac{1}{2}gt^2,\\quad s_2 = \\frac{1}{2}g(t-t_0)^2$$\nSo the separation is\n$$\\Delta s = s_1 - s_2 = \\frac{1}{2}gt^2 - \\frac{1}{2}g(t-t_0)^2 = gtt_0 - \\frac{1}{2}gt_0^2$$\nAs $t$ increases, $\\Delta s$ increases.\n\n**Conclusion:** The separation increases with time �?option C.',
+      '鈿狅笍 **Key point:** Both balls fall with the same constant acceleration $g$. The first ball has been falling longer, so its speed is always greater than the second ball鈥檚 (after the second is released), causing the separation to increase.\n\nLet the second ball be released $t_0$ seconds after the first. At time $t$ after the first ball is released ($t \\ge t_0$):\n$$s_1 = \\frac{1}{2}gt^2,\\quad s_2 = \\frac{1}{2}g(t-t_0)^2$$\nSo the separation is\n$$\\Delta s = s_1 - s_2 = \\frac{1}{2}gt^2 - \\frac{1}{2}g(t-t_0)^2 = gtt_0 - \\frac{1}{2}gt_0^2$$\nAs $t$ increases, $\\Delta s$ increases.\n\n**Conclusion:** The separation increases with time 鈫?option C.',
     difficulty: 2,
     points: 15,
     hints: [
       'Both balls have the same acceleration g',
       'The first ball always has a larger speed (after the second is released)',
-      'Write s1 = ½gt² and s2 = ½g(t �?t0)²',
-      'Check how Δs depends on t',
+      'Write s1 = 陆gt虏 and s2 = 陆g(t 鈭?t0)虏',
+      'Check how 螖s depends on t',
     ],
     sectionId: 'position-movement',
   },
@@ -3102,7 +1529,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: 'remain constant.',
     explanation:
-      '⚠️ **Key point:** If both balls are released together from rest and air resistance is negligible, they have the same acceleration $g$ and undergo identical motion. Therefore their relative motion is zero.\n\nLet the lower ball start at height $h$ and the upper ball at $h+\\Delta s$.\nAfter time $t$:\n$$y_{\\text{lower}} = h - \\frac{1}{2}gt^2,\\quad y_{\\text{upper}} = (h+\\Delta s) - \\frac{1}{2}gt^2$$\nSo the separation is\n$$y_{\\text{upper}} - y_{\\text{lower}} = \\Delta s$$\nwhich is constant throughout the flight.\n\n**Conclusion:** The separation remains constant �?option A.',
+      '鈿狅笍 **Key point:** If both balls are released together from rest and air resistance is negligible, they have the same acceleration $g$ and undergo identical motion. Therefore their relative motion is zero.\n\nLet the lower ball start at height $h$ and the upper ball at $h+\\Delta s$.\nAfter time $t$:\n$$y_{\\text{lower}} = h - \\frac{1}{2}gt^2,\\quad y_{\\text{upper}} = (h+\\Delta s) - \\frac{1}{2}gt^2$$\nSo the separation is\n$$y_{\\text{upper}} - y_{\\text{lower}} = \\Delta s$$\nwhich is constant throughout the flight.\n\n**Conclusion:** The separation remains constant 鈫?option A.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -3121,13 +1548,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['0.2 s', '0.4 s', '0.8 s', '1.6 s'],
     answer: '0.8 s',
     explanation:
-      '⚠️ **Key point:** For vertical motion with constant acceleration $-g$, the time to go up equals the time to come down (returning to the same height).\n\n**Step 1:** Find the initial speed using the maximum height\nAt the top, $v=0$ and $h=0.8\\text{ m}$.\nUsing $v^2 = u^2 + 2as$ with $a=-10\\text{ m s}^{-2}$:\n$$0 = u^2 + 2(-10)(0.8) \\Rightarrow u^2 = 16 \\Rightarrow u = 4\\text{ m s}^{-1}$$\n\n**Step 2:** Find the total time above the water\nTime to go up:\n$$t_{\\uparrow} = \\frac{u}{g} = \\frac{4}{10} = 0.4\\text{ s}$$\nSo the total time to return to the same level is\n$$t = 2t_{\\uparrow} = 0.8\\text{ s}$$\n\n**Conclusion:** $0.8\\text{ s}$ �?option C.',
+      '鈿狅笍 **Key point:** For vertical motion with constant acceleration $-g$, the time to go up equals the time to come down (returning to the same height).\n\n**Step 1:** Find the initial speed using the maximum height\nAt the top, $v=0$ and $h=0.8\\text{ m}$.\nUsing $v^2 = u^2 + 2as$ with $a=-10\\text{ m s}^{-2}$:\n$$0 = u^2 + 2(-10)(0.8) \\Rightarrow u^2 = 16 \\Rightarrow u = 4\\text{ m s}^{-1}$$\n\n**Step 2:** Find the total time above the water\nTime to go up:\n$$t_{\\uparrow} = \\frac{u}{g} = \\frac{4}{10} = 0.4\\text{ s}$$\nSo the total time to return to the same level is\n$$t = 2t_{\\uparrow} = 0.8\\text{ s}$$\n\n**Conclusion:** $0.8\\text{ s}$ 鈫?option C.',
     difficulty: 2,
     points: 15,
     hints: [
       'Convert 80 cm to 0.8 m',
       'At maximum height, v = 0',
-      'Use v² = u² + 2as to find u',
+      'Use v虏 = u虏 + 2as to find u',
       'Time above water = 2u/g',
     ],
     sectionId: 'position-movement',
@@ -3141,13 +1568,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['30 m', '40 m', '50 m', '60 m'],
     answer: '30 m',
     explanation:
-      '⚠️ **Key point:** Write the height of each ball as a function of time and set them equal.\n\nTake upward as positive.\n\n**Ball $P$ (from ground):**\n$$y_P = 25t - \\frac{1}{2}(10)t^2 = 25t - 5t^2$$\n\n**Ball $Q$ (from top at 80 m, thrown downward):**\nInitial velocity is downward, so $u=-15\\text{ m s}^{-1}$.\n$$y_Q = 80 - 15t - \\frac{1}{2}(10)t^2 = 80 - 15t - 5t^2$$\n\nAt the meeting point, $y_P = y_Q$:\n$$25t - 5t^2 = 80 - 15t - 5t^2 \\Rightarrow 40t = 80 \\Rightarrow t=2\\text{ s}$$\n\nHeight above the ground:\n$$y = 25(2) - 5(2)^2 = 50 - 20 = 30\\text{ m}$$\n\n**Conclusion:** The balls meet at $30\\text{ m}$ above the ground �?option A.',
+      '鈿狅笍 **Key point:** Write the height of each ball as a function of time and set them equal.\n\nTake upward as positive.\n\n**Ball $P$ (from ground):**\n$$y_P = 25t - \\frac{1}{2}(10)t^2 = 25t - 5t^2$$\n\n**Ball $Q$ (from top at 80 m, thrown downward):**\nInitial velocity is downward, so $u=-15\\text{ m s}^{-1}$.\n$$y_Q = 80 - 15t - \\frac{1}{2}(10)t^2 = 80 - 15t - 5t^2$$\n\nAt the meeting point, $y_P = y_Q$:\n$$25t - 5t^2 = 80 - 15t - 5t^2 \\Rightarrow 40t = 80 \\Rightarrow t=2\\text{ s}$$\n\nHeight above the ground:\n$$y = 25(2) - 5(2)^2 = 50 - 20 = 30\\text{ m}$$\n\n**Conclusion:** The balls meet at $30\\text{ m}$ above the ground 鈫?option A.',
     difficulty: 2,
     points: 15,
     hints: [
       'Let upward be positive',
       'Write yP(t) from ground and yQ(t) from 80 m',
-      'Downward initial velocity means u = �?5 m/s for ball Q',
+      'Downward initial velocity means u = 鈭?5 m/s for ball Q',
       'Set yP(t) = yQ(t) to solve for t',
     ],
     sectionId: 'position-movement',
@@ -3161,13 +1588,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['$3:5$', '$5:9$', '$9:16$', '$9:25$'],
     answer: '$5:9$',
     explanation:
-      '⚠️ **Key point:** For uniform acceleration from rest, $s(t)=\\frac{1}{2}at^2$, so the distance travelled in the $n$th second is $s(n)-s(n-1)$.\n\n$$x = s(3)-s(2)=\\frac{1}{2}a(3^2-2^2)$$\n$$y = s(5)-s(4)=\\frac{1}{2}a(5^2-4^2)$$\n\nSo\n$$x:y=(3^2-2^2):(5^2-4^2)=5:9$$\n\n**Conclusion:** $5:9$ �?option B.',
+      '鈿狅笍 **Key point:** For uniform acceleration from rest, $s(t)=\\frac{1}{2}at^2$, so the distance travelled in the $n$th second is $s(n)-s(n-1)$.\n\n$$x = s(3)-s(2)=\\frac{1}{2}a(3^2-2^2)$$\n$$y = s(5)-s(4)=\\frac{1}{2}a(5^2-4^2)$$\n\nSo\n$$x:y=(3^2-2^2):(5^2-4^2)=5:9$$\n\n**Conclusion:** $5:9$ 鈫?option B.',
     difficulty: 2,
     points: 15,
     hints: [
-      'From rest: s = ½at²',
-      'Distance in nth second = s(n) �?s(n�?)',
-      'Compute s(3)−s(2) and s(5)−s(4), then take the ratio',
+      'From rest: s = 陆at虏',
+      'Distance in nth second = s(n) 鈭?s(n鈭?)',
+      'Compute s(3)鈭抯(2) and s(5)鈭抯(4), then take the ratio',
     ],
     sectionId: 'position-movement',
   },
@@ -3185,7 +1612,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '$75\\text{ km h}^{-1}$',
     explanation:
-      '⚠️ **Key point:** Magnitude of average velocity $= \\frac{\\text{displacement}}{t}$, and displacement can never exceed the distance travelled.\n\nThe distance travelled in time $t$ is\n$$d = vt = 50t$$\nThe displacement $s$ satisfies $0 \\le s \\le d$.\nSo the magnitude of average velocity satisfies\n$$0 \\le v_{\\text{avg}} = \\frac{s}{t} \\le \\frac{d}{t} = 50\\text{ km h}^{-1}$$\n\nTherefore, $75\\text{ km h}^{-1}$ is impossible.\n\n**Conclusion:** $75\\text{ km h}^{-1}$ �?option D.',
+      '鈿狅笍 **Key point:** Magnitude of average velocity $= \\frac{\\text{displacement}}{t}$, and displacement can never exceed the distance travelled.\n\nThe distance travelled in time $t$ is\n$$d = vt = 50t$$\nThe displacement $s$ satisfies $0 \\le s \\le d$.\nSo the magnitude of average velocity satisfies\n$$0 \\le v_{\\text{avg}} = \\frac{s}{t} \\le \\frac{d}{t} = 50\\text{ km h}^{-1}$$\n\nTherefore, $75\\text{ km h}^{-1}$ is impossible.\n\n**Conclusion:** $75\\text{ km h}^{-1}$ 鈫?option D.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -3205,13 +1632,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['2.22 s', '3.33 s', '4.44 s', '5.55 s'],
     answer: '4.44 s',
     explanation:
-      '⚠️ **Key point:** Use $s = ut + \\frac{1}{2}at^2$ with a consistent sign convention.\n\nTake upward as positive.\n- Initial velocity: $u = +15\\text{ m s}^{-1}$\n- Acceleration: $a = -9.81\\text{ m s}^{-2}$\n- Displacement to the ground: $s = -30\\text{ m}$\n\nSubstitute into $s = ut + \\frac{1}{2}at^2$:\n$$-30 = 15t + \\frac{1}{2}(-9.81)t^2$$\nSolving gives $t \\approx 4.44\\text{ s}$.\n\n**Conclusion:** $4.44\\text{ s}$ �?option C.',
+      '鈿狅笍 **Key point:** Use $s = ut + \\frac{1}{2}at^2$ with a consistent sign convention.\n\nTake upward as positive.\n- Initial velocity: $u = +15\\text{ m s}^{-1}$\n- Acceleration: $a = -9.81\\text{ m s}^{-2}$\n- Displacement to the ground: $s = -30\\text{ m}$\n\nSubstitute into $s = ut + \\frac{1}{2}at^2$:\n$$-30 = 15t + \\frac{1}{2}(-9.81)t^2$$\nSolving gives $t \\approx 4.44\\text{ s}$.\n\n**Conclusion:** $4.44\\text{ s}$ 鈫?option C.',
     difficulty: 2,
     points: 15,
     hints: [
-      'Take upward as positive so a = −g',
-      'Displacement from top to ground is �?0 m',
-      'Use s = ut + ½at² and solve for t',
+      'Take upward as positive so a = 鈭抔',
+      'Displacement from top to ground is 鈭?0 m',
+      'Use s = ut + 陆at虏 and solve for t',
     ],
     sectionId: 'position-movement',
   },
@@ -3224,13 +1651,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['12 m', '24 m', '36 m', '48 m'],
     answer: '12 m',
     explanation:
-      '⚠️ **Key point:** The distance in the 4th second means $s(4)-s(3)$.\n\nUsing $s(t)=ut+\\frac{1}{2}at^2$:\n$$s(4)-s(3)=u(4-3)+\\frac{1}{2}a(4^2-3^2)$$\nSubstitute $u=5\\text{ m s}^{-1}$ and $a=2\\text{ m s}^{-2}$:\n$$\\Delta s = (5)(1) + \\frac{1}{2}(2)(16-9) = 5 + 7 = 12\\text{ m}$$\n\n**Conclusion:** $12\\text{ m}$ �?option A.',
+      '鈿狅笍 **Key point:** The distance in the 4th second means $s(4)-s(3)$.\n\nUsing $s(t)=ut+\\frac{1}{2}at^2$:\n$$s(4)-s(3)=u(4-3)+\\frac{1}{2}a(4^2-3^2)$$\nSubstitute $u=5\\text{ m s}^{-1}$ and $a=2\\text{ m s}^{-2}$:\n$$\\Delta s = (5)(1) + \\frac{1}{2}(2)(16-9) = 5 + 7 = 12\\text{ m}$$\n\n**Conclusion:** $12\\text{ m}$ 鈫?option A.',
     difficulty: 2,
     points: 15,
     hints: [
-      'Distance in the 4th second is s(4) �?s(3)',
-      'Use s = ut + ½at² with u = 5 and a = 2',
-      'Compute 4² �?3²',
+      'Distance in the 4th second is s(4) 鈭?s(3)',
+      'Use s = ut + 陆at虏 with u = 5 and a = 2',
+      'Compute 4虏 鈭?3虏',
     ],
     sectionId: 'position-movement',
   },
@@ -3243,13 +1670,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['13 m', '18 m', '26 m', '32 m'],
     answer: '26 m',
     explanation:
-      '⚠️ **Key point:** Total distance travelled = (upward distance) + (downward distance). The upward distance equals the maximum height.\n\nAt the maximum height, $v=0$.\nUsing $v^2=u^2+2as$ with $u=16\\text{ m s}^{-1}$ and $a=-9.81\\text{ m s}^{-2}$:\n$$0 = 16^2 + 2(-9.81)s \\Rightarrow s = \\frac{256}{19.62} \\approx 13.0\\text{ m}$$\n\nSo the total distance is\n$$d = 2s \\approx 2(13.0) = 26\\text{ m}$$\n\n**Conclusion:** $26\\text{ m}$ �?option C.',
+      '鈿狅笍 **Key point:** Total distance travelled = (upward distance) + (downward distance). The upward distance equals the maximum height.\n\nAt the maximum height, $v=0$.\nUsing $v^2=u^2+2as$ with $u=16\\text{ m s}^{-1}$ and $a=-9.81\\text{ m s}^{-2}$:\n$$0 = 16^2 + 2(-9.81)s \\Rightarrow s = \\frac{256}{19.62} \\approx 13.0\\text{ m}$$\n\nSo the total distance is\n$$d = 2s \\approx 2(13.0) = 26\\text{ m}$$\n\n**Conclusion:** $26\\text{ m}$ 鈫?option C.',
     difficulty: 2,
     points: 15,
     hints: [
       'At the top of the flight, v = 0',
-      'Use v² = u² + 2as to find the maximum height',
-      'Total distance = 2 × (maximum height)',
+      'Use v虏 = u虏 + 2as to find the maximum height',
+      'Total distance = 2 脳 (maximum height)',
     ],
     sectionId: 'position-movement',
   },
@@ -3262,13 +1689,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['29.4 m', '40.6 m', '46.2 m', '81.2 m'],
     answer: '40.6 m',
     explanation:
-      '⚠️ **Key point:** Distance travelled equals the area under a speed–time graph.\n\nFrom the graph, the area from $t=0$ to $5.0\\text{ s}$ forms a trapezium with parallel sides $5.0\\text{ s}$ and $0.8\\text{ s}$, and height $14\\text{ m s}^{-1}$.\n$$s = \\frac{1}{2}(5.0 + 0.8)\\times 14 = 40.6\\text{ m}$$\n\n**Conclusion:** $40.6\\text{ m}$ �?option B.',
+      '鈿狅笍 **Key point:** Distance travelled equals the area under a speed鈥搕ime graph.\n\nFrom the graph, the area from $t=0$ to $5.0\\text{ s}$ forms a trapezium with parallel sides $5.0\\text{ s}$ and $0.8\\text{ s}$, and height $14\\text{ m s}^{-1}$.\n$$s = \\frac{1}{2}(5.0 + 0.8)\\times 14 = 40.6\\text{ m}$$\n\n**Conclusion:** $40.6\\text{ m}$ 鈫?option B.',
     difficulty: 2,
     points: 15,
     hints: [
-      'Area under a speed–time graph gives distance',
+      'Area under a speed鈥搕ime graph gives distance',
       'From 0 to 5 s the region is a trapezium',
-      'Use area = ½(sum of parallel sides) × height',
+      'Use area = 陆(sum of parallel sides) 脳 height',
     ],
     sectionId: 'position-movement',
     imagePaths: ['/physics/exercises/position-movement/pm-081-question.png'],
@@ -3282,13 +1709,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['5 m', '10 m', '35 m', '45 m'],
     answer: '35 m',
     explanation:
-      '⚠️ **Key point:** The separation keeps increasing while both objects are falling. The maximum separation occurs when the first object $P$ just reaches the ground.\n\nTake $g=10\\text{ m s}^{-2}$.\n\nLet $t$ be the time after $P$ is released.\nFor $P$ (released from rest):\n$$s_P = \\frac{1}{2}gt^2 = 5t^2$$\n\nFor $Q$ (released 1 s later), for $t\\ge 1$:\n$$s_Q = 5(t-1)^2$$\n\nSo the separation is\n$$\\Delta s = s_P - s_Q = 5t^2 - 5(t-1)^2 = 10t - 5$$\nwhich increases with $t$.\n\n$P$ reaches the ground when $s_P = 80$:\n$$80 = 5t^2 \\Rightarrow t^2 = 16 \\Rightarrow t = 4\\text{ s}$$\n\nTherefore,\n$$\\Delta s_{\\max} = 10(4) - 5 = 35\\text{ m}$$\n\n**Conclusion:** $35\\text{ m}$ �?option C.',
+      '鈿狅笍 **Key point:** The separation keeps increasing while both objects are falling. The maximum separation occurs when the first object $P$ just reaches the ground.\n\nTake $g=10\\text{ m s}^{-2}$.\n\nLet $t$ be the time after $P$ is released.\nFor $P$ (released from rest):\n$$s_P = \\frac{1}{2}gt^2 = 5t^2$$\n\nFor $Q$ (released 1 s later), for $t\\ge 1$:\n$$s_Q = 5(t-1)^2$$\n\nSo the separation is\n$$\\Delta s = s_P - s_Q = 5t^2 - 5(t-1)^2 = 10t - 5$$\nwhich increases with $t$.\n\n$P$ reaches the ground when $s_P = 80$:\n$$80 = 5t^2 \\Rightarrow t^2 = 16 \\Rightarrow t = 4\\text{ s}$$\n\nTherefore,\n$$\\Delta s_{\\max} = 10(4) - 5 = 35\\text{ m}$$\n\n**Conclusion:** $35\\text{ m}$ 鈫?option C.',
     difficulty: 2,
     points: 15,
     hints: [
-      'Take g = 10 m/s² for simplicity',
-      'Use s = ½gt² for each object',
-      'Q is released 1 s later, so use (t �?1) for its time of fall',
+      'Take g = 10 m/s虏 for simplicity',
+      'Use s = 陆gt虏 for each object',
+      'Q is released 1 s later, so use (t 鈭?1) for its time of fall',
       'Maximum separation occurs when P just reaches the ground',
     ],
     sectionId: 'position-movement',
@@ -3302,13 +1729,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['1 : 1', '1 : 2', '1 : 3', '1 : 4'],
     answer: '1 : 3',
     explanation:
-      '⚠️ **Key point:** The distance in the 2nd second means $s(2)-s(1)$.\n\nTake $g=10\\text{ m s}^{-2}$ for simplicity. For free fall from rest:\n$$s(t)=\\frac{1}{2}gt^2=5t^2$$\nSo\n$$s(1)=5\\text{ m},\\quad s(2)=20\\text{ m}$$\nDistance in the 1st second: $d_1=s(1)=5\\text{ m}$.\nDistance in the 2nd second: $d_2=s(2)-s(1)=15\\text{ m}$.\nTherefore,\n$$d_1:d_2 = 5:15 = 1:3$$\n\n**Conclusion:** $1:3$ �?option C.',
+      '鈿狅笍 **Key point:** The distance in the 2nd second means $s(2)-s(1)$.\n\nTake $g=10\\text{ m s}^{-2}$ for simplicity. For free fall from rest:\n$$s(t)=\\frac{1}{2}gt^2=5t^2$$\nSo\n$$s(1)=5\\text{ m},\\quad s(2)=20\\text{ m}$$\nDistance in the 1st second: $d_1=s(1)=5\\text{ m}$.\nDistance in the 2nd second: $d_2=s(2)-s(1)=15\\text{ m}$.\nTherefore,\n$$d_1:d_2 = 5:15 = 1:3$$\n\n**Conclusion:** $1:3$ 鈫?option C.',
     difficulty: 2,
     points: 15,
     hints: [
-      'For free fall from rest, use s = ½gt²',
-      'Distance in the 2nd second is s(2) �?s(1)',
-      'Take g = 10 m/s² to simplify',
+      'For free fall from rest, use s = 陆gt虏',
+      'Distance in the 2nd second is s(2) 鈭?s(1)',
+      'Take g = 10 m/s虏 to simplify',
       'Compute the ratio d1:d2',
     ],
     sectionId: 'position-movement',
@@ -3320,14 +1747,14 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question:
       'A toy car travelled due east for $10\\text{ m}$ in $5\\text{ s}$, then immediately turned north and travelled $5\\text{ m}$ in $1\\text{ s}$. What was the average speed of the car?',
     options: [
-      '1.9 m s⁻�?,
-      '2.2 m s⁻�?,
-      '2.5 m s⁻�?,
-      '3.5 m s⁻�?,
+      '1.9 m s^-1',
+      '2.2 m s^-1',
+      '2.5 m s^-1',
+      '3.5 m s^-1',
     ],
-    answer: '2.5 m s⁻�?,
+    answer: '2.5 m s^-1',
     explanation:
-      '⚠️ **Key point:** Average speed $= \\frac{\\text{total distance}}{\\text{total time}}$.\n\nTotal distance $= 10 + 5 = 15\\text{ m}$.\nTotal time $= 5 + 1 = 6\\text{ s}$.\n$$v_{\\text{avg}} = \\frac{15}{6} = 2.5\\text{ m s}^{-1}$$\n\n**Conclusion:** $2.5\\text{ m s}^{-1}$ �?option C.',
+      '鈿狅笍 **Key point:** Average speed $= \\frac{\\text{total distance}}{\\text{total time}}$.\n\nTotal distance $= 10 + 5 = 15\\text{ m}$.\nTotal time $= 5 + 1 = 6\\text{ s}$.\n$$v_{\\text{avg}} = \\frac{15}{6} = 2.5\\text{ m s}^{-1}$$\n\n**Conclusion:** $2.5\\text{ m s}^{-1}$ 鈫?option C.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -3345,13 +1772,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['$2:3$', '$3:4$', '$4:3$', '$3:2$'],
     answer: '$3:2$',
     explanation:
-      '⚠️ **Key point:** For free fall from rest, displacement is proportional to the square of time: $s=\\frac{1}{2}gt^2$.\n\nFrom $X$ to $Y$:\n$$XY = \\frac{1}{2}gt_1^2$$\nFrom $X$ to $Z$ (total time $t_1+t_2$):\n$$XZ = XY+YZ = \\frac{1}{2}g(t_1+t_2)^2$$\nSo\n$$\\frac{XY}{XY+YZ} = \\left(\\frac{t_1}{t_1+t_2}\\right)^2$$\nGiven $XY:YZ = 9:16$:\n$$\\frac{9}{9+16} = \\left(\\frac{t_1}{t_1+t_2}\\right)^2$$\nTake square root:\n$$\\frac{3}{5} = \\frac{t_1}{t_1+t_2}$$\nSo\n$$\\frac{t_1}{t_2} = \\frac{3}{2}$$\n\n**Conclusion:** $t_1:t_2 = 3:2$ �?option D.',
+      '鈿狅笍 **Key point:** For free fall from rest, displacement is proportional to the square of time: $s=\\frac{1}{2}gt^2$.\n\nFrom $X$ to $Y$:\n$$XY = \\frac{1}{2}gt_1^2$$\nFrom $X$ to $Z$ (total time $t_1+t_2$):\n$$XZ = XY+YZ = \\frac{1}{2}g(t_1+t_2)^2$$\nSo\n$$\\frac{XY}{XY+YZ} = \\left(\\frac{t_1}{t_1+t_2}\\right)^2$$\nGiven $XY:YZ = 9:16$:\n$$\\frac{9}{9+16} = \\left(\\frac{t_1}{t_1+t_2}\\right)^2$$\nTake square root:\n$$\\frac{3}{5} = \\frac{t_1}{t_1+t_2}$$\nSo\n$$\\frac{t_1}{t_2} = \\frac{3}{2}$$\n\n**Conclusion:** $t_1:t_2 = 3:2$ 鈫?option D.',
     difficulty: 2,
     points: 15,
     hints: [
-      'For free fall from rest, use s = ½gt²',
+      'For free fall from rest, use s = 陆gt虏',
       'XY corresponds to time t1; XZ corresponds to time (t1 + t2)',
-      'Use XY/(XY+YZ) = (t1/(t1+t2))²',
+      'Use XY/(XY+YZ) = (t1/(t1+t2))虏',
       'Take square roots carefully',
     ],
     sectionId: 'position-movement',
@@ -3362,16 +1789,16 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     id: 'pm-086',
     type: 'multiple_choice',
     question:
-      'Two particles $P$ and $Q$ start from the same position and travel along the same straight line. The figure above shows the velocity-time ($v$�?t$) graph for $P$ and $Q$. Which of the following descriptions about their motion is/are correct?\n(1) At $t=1\\text{ s}$, $P$ changes its direction of motion.\n(2) At $t=2\\text{ s}$, the separation between $P$ and $Q$ is $4\\text{ m}$.\n(3) At $t=4\\text{ s}$, $P$ and $Q$ meet each other.',
+      'Two particles $P$ and $Q$ start from the same position and travel along the same straight line. The figure above shows the velocity-time ($v$鈥?t$) graph for $P$ and $Q$. Which of the following descriptions about their motion is/are correct?\n(1) At $t=1\\text{ s}$, $P$ changes its direction of motion.\n(2) At $t=2\\text{ s}$, the separation between $P$ and $Q$ is $4\\text{ m}$.\n(3) At $t=4\\text{ s}$, $P$ and $Q$ meet each other.',
     options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(2) only',
     explanation:
-      '⚠️ **Key point:** On a $v$�?t$ graph, the area under the curve gives displacement (signed). Compare displacements to judge separation and meeting.\n\n**(1)** At $t=1\\text{ s}$, $P$ still has negative velocity, so it is still moving in the negative direction. It has not yet changed direction.\n\n**(2)** From the graph, by $t=2\\text{ s}$:\n- Displacement of $P$ is $-2\\text{ m}$\n- Displacement of $Q$ is $+2\\text{ m}$\nSo the separation is $|2 - (-2)| = 4\\text{ m}$.\n\n**(3)** At $t=4\\text{ s}$, the areas (displacements) under the two graphs are not equal, so their displacements are different. Therefore, they do not meet.\n\n**Conclusion:** Only statement (2) is correct �?option B.',
+      '鈿狅笍 **Key point:** On a $v$鈥?t$ graph, the area under the curve gives displacement (signed). Compare displacements to judge separation and meeting.\n\n**(1)** At $t=1\\text{ s}$, $P$ still has negative velocity, so it is still moving in the negative direction. It has not yet changed direction.\n\n**(2)** From the graph, by $t=2\\text{ s}$:\n- Displacement of $P$ is $-2\\text{ m}$\n- Displacement of $Q$ is $+2\\text{ m}$\nSo the separation is $|2 - (-2)| = 4\\text{ m}$.\n\n**(3)** At $t=4\\text{ s}$, the areas (displacements) under the two graphs are not equal, so their displacements are different. Therefore, they do not meet.\n\n**Conclusion:** Only statement (2) is correct 鈫?option B.',
     difficulty: 2,
     points: 15,
     hints: [
       'Direction changes only when velocity changes sign',
-      'Displacement is the signed area under the v–t graph',
+      'Displacement is the signed area under the v鈥搕 graph',
       'Separation at a time is the difference of their displacements',
       'They meet only when their displacements are equal',
     ],
@@ -3391,11 +1818,11 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '$3.0\\text{ m s}^{-2}$',
     explanation:
-      '⚠️ **Key point:** Use $s = ut + \\frac{1}{2}at^2$ for two time intervals and solve simultaneously.\n\nLet the initial velocity be $u$ and acceleration be $a$.\n\n**First 4 s (distance 36 m):**\n$$36 = 4u + \\frac{1}{2}a(4)^2 = 4u + 8a$$\n\n**First 6 s total (distance 72 m):**\n$$72 = 6u + \\frac{1}{2}a(6)^2 = 6u + 18a$$\n\nSolve the two equations:\nFrom the first: $u = 9 - 2a$.\nSubstitute into the second:\n$$72 = 6(9 - 2a) + 18a = 54 - 12a + 18a = 54 + 6a$$\nSo $6a = 18 \\Rightarrow a = 3.0\\text{ m s}^{-2}$.\n\n**Conclusion:** $3.0\\text{ m s}^{-2}$ �?option B.',
+      '鈿狅笍 **Key point:** Use $s = ut + \\frac{1}{2}at^2$ for two time intervals and solve simultaneously.\n\nLet the initial velocity be $u$ and acceleration be $a$.\n\n**First 4 s (distance 36 m):**\n$$36 = 4u + \\frac{1}{2}a(4)^2 = 4u + 8a$$\n\n**First 6 s total (distance 72 m):**\n$$72 = 6u + \\frac{1}{2}a(6)^2 = 6u + 18a$$\n\nSolve the two equations:\nFrom the first: $u = 9 - 2a$.\nSubstitute into the second:\n$$72 = 6(9 - 2a) + 18a = 54 - 12a + 18a = 54 + 6a$$\nSo $6a = 18 \\Rightarrow a = 3.0\\text{ m s}^{-2}$.\n\n**Conclusion:** $3.0\\text{ m s}^{-2}$ 鈫?option B.',
     difficulty: 2,
     points: 15,
     hints: [
-      'Use s = ut + ½at²',
+      'Use s = ut + 陆at虏',
       'Write one equation for the first 4 s (36 m)',
       'Write another equation for the first 6 s (72 m)',
       'Solve the simultaneous equations for a',
@@ -3411,12 +1838,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['3.3 m', '6.0 m', '6.5 m', '12 m'],
     answer: '6.0 m',
     explanation:
-      '⚠️ **Key point:** Use $v^2=u^2+2as$ with $a=g$.\n\nTake downward as positive. Then $a=+g$.\n$$v^2=u^2+2gs$$\n$$s=\\frac{v^2-u^2}{2g}=\\frac{11^2-2^2}{2(9.81)}=\\frac{117}{19.62}\\approx 6.0\\text{ m}$$\n\n**Conclusion:** $6.0\\text{ m}$ �?option B.',
+      '鈿狅笍 **Key point:** Use $v^2=u^2+2as$ with $a=g$.\n\nTake downward as positive. Then $a=+g$.\n$$v^2=u^2+2gs$$\n$$s=\\frac{v^2-u^2}{2g}=\\frac{11^2-2^2}{2(9.81)}=\\frac{117}{19.62}\\approx 6.0\\text{ m}$$\n\n**Conclusion:** $6.0\\text{ m}$ 鈫?option B.',
     difficulty: 1,
     points: 10,
     hints: [
-      'Use v² = u² + 2as with a = g',
-      'Rearrange to s = (v² �?u²) / (2g)',
+      'Use v虏 = u虏 + 2as with a = g',
+      'Rearrange to s = (v虏 鈭?u虏) / (2g)',
       'Substitute u = 2.0, v = 11, g = 9.81',
     ],
     sectionId: 'position-movement',
@@ -3427,7 +1854,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     id: 'pm-089',
     type: 'multiple_choice',
     question:
-      'The figure shows the velocity-time ($v$�?t$) graph of two cars $P$ and $Q$ travelling along the same straight road. At $t=0$, the cars are at the same position. Which deductions about the cars between $t=0$ and $t=t_2$ are correct?\n(1) $P$ and $Q$ are always travelling in the same direction.\n(2) At $t=t_1$, the separation between $P$ and $Q$ is at a maximum.\n(3) At $t=t_2$, $Q$ lags behind $P$.',
+      'The figure shows the velocity-time ($v$鈥?t$) graph of two cars $P$ and $Q$ travelling along the same straight road. At $t=0$, the cars are at the same position. Which deductions about the cars between $t=0$ and $t=t_2$ are correct?\n(1) $P$ and $Q$ are always travelling in the same direction.\n(2) At $t=t_1$, the separation between $P$ and $Q$ is at a maximum.\n(3) At $t=t_2$, $Q$ lags behind $P$.',
     options: [
       '(1) & (2) only',
       '(1) & (3) only',
@@ -3436,13 +1863,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '(1), (2) & (3)',
     explanation:
-      '⚠️ **Key point:** On a $v$�?t$ graph, the sign of $v$ gives direction; the area under the graph gives displacement.\n\n**(1)** From the graph, the velocities of both $P$ and $Q$ are always positive, so both cars always move in the forward direction.\n\n**(2)** From $t=0$ to $t=t_1$, $v_P>v_Q$, so the separation increases. From $t=t_1$ to $t=t_2$, $v_P<v_Q$, so the separation decreases. Therefore, the separation is maximum at $t=t_1$.\n\n**(3)** From $t=0$ to $t=t_2$, the total area under the graph of $P$ is greater than that of $Q$, so $P$ has a larger displacement. Hence, at $t=t_2$, $Q$ is behind $P$.\n\n**Conclusion:** (1), (2) and (3) are all correct �?option D.',
+      '鈿狅笍 **Key point:** On a $v$鈥?t$ graph, the sign of $v$ gives direction; the area under the graph gives displacement.\n\n**(1)** From the graph, the velocities of both $P$ and $Q$ are always positive, so both cars always move in the forward direction.\n\n**(2)** From $t=0$ to $t=t_1$, $v_P>v_Q$, so the separation increases. From $t=t_1$ to $t=t_2$, $v_P<v_Q$, so the separation decreases. Therefore, the separation is maximum at $t=t_1$.\n\n**(3)** From $t=0$ to $t=t_2$, the total area under the graph of $P$ is greater than that of $Q$, so $P$ has a larger displacement. Hence, at $t=t_2$, $Q$ is behind $P$.\n\n**Conclusion:** (1), (2) and (3) are all correct 鈫?option D.',
     difficulty: 2,
     points: 15,
     hints: [
       'Direction is determined by the sign of velocity',
       'Separation increases when vP > vQ and decreases when vP < vQ',
-      'Displacement equals the area under the v–t graph',
+      'Displacement equals the area under the v鈥搕 graph',
     ],
     sectionId: 'position-movement',
     imagePaths: ['/physics/exercises/position-movement/pm-089-question.png'],
@@ -3453,10 +1880,10 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     type: 'multiple_choice',
     question:
       'A particle travels at $2.0\\text{ m s}^{-1}$ due east for $1.5\\text{ s}$ and then travels at $4.0\\text{ m s}^{-1}$ due north for $1.0\\text{ s}$. What is the magnitude of its average velocity for the whole journey?',
-    options: ['2.0 m s⁻�?, '2.8 m s⁻�?, '3.0 m s⁻�?, '5.0 m s⁻�?],
-    answer: '2.0 m s⁻�?,
+    options: ['2.0 m s^-1', '2.8 m s^-1', '3.0 m s^-1', '5.0 m s^-1'],
+    answer: '2.0 m s^-1',
     explanation:
-      '⚠️ **Key point:** Magnitude of average velocity $= \\frac{\\text{resultant displacement}}{\\text{total time}}$.\n\nDisplacement east $= 2.0\\times1.5 = 3.0\\text{ m}$.\nDisplacement north $= 4.0\\times1.0 = 4.0\\text{ m}$.\nResultant displacement:\n$$s=\\sqrt{3^2+4^2}=5\\text{ m}$$\nTotal time $= 1.5+1.0 = 2.5\\text{ s}$.\n$$v_{\\text{avg}}=\\frac{5}{2.5}=2.0\\text{ m s}^{-1}$$\n\n**Conclusion:** $2.0\\text{ m s}^{-1}$ �?option A.',
+      '鈿狅笍 **Key point:** Magnitude of average velocity $= \\frac{\\text{resultant displacement}}{\\text{total time}}$.\n\nDisplacement east $= 2.0\\times1.5 = 3.0\\text{ m}$.\nDisplacement north $= 4.0\\times1.0 = 4.0\\text{ m}$.\nResultant displacement:\n$$s=\\sqrt{3^2+4^2}=5\\text{ m}$$\nTotal time $= 1.5+1.0 = 2.5\\text{ s}$.\n$$v_{\\text{avg}}=\\frac{5}{2.5}=2.0\\text{ m s}^{-1}$$\n\n**Conclusion:** $2.0\\text{ m s}^{-1}$ 鈫?option A.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -3480,7 +1907,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: 'instantaneous speed',
     explanation:
-      "⚠️ **Key point:** A speedometer measures the car's speed at an instant (a scalar).\n\nIt does not indicate direction, so it cannot give the (vector) velocity. It is also not an average over the whole journey.\n\n**Conclusion:** instantaneous speed �?option A.",
+      "鈿狅笍 **Key point:** A speedometer measures the car's speed at an instant (a scalar).\n\nIt does not indicate direction, so it cannot give the (vector) velocity. It is also not an average over the whole journey.\n\n**Conclusion:** instantaneous speed 鈫?option A.",
     difficulty: 1,
     points: 10,
     hints: [
@@ -3506,7 +1933,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     answer:
       'The object that takes a shorter time to complete the same path must have greater average speed.',
     explanation:
-      '⚠️ **Key point:** Average speed $=\\frac{\\text{distance}}{\\text{time}}$ (scalar), but average velocity $=\\frac{\\text{displacement}}{\\text{time}}$ (vector).\n\n**A** Same path means same distance. Shorter time gives larger average speed.\n\n**B** A larger distance in 1 s does not guarantee a larger displacement (direction can change), so average velocity may be smaller.\n\n**C** A larger velocity does not imply a larger acceleration. An object can have a large velocity with zero acceleration (constant velocity).\n\n**D** Two objects can have the same acceleration while moving in opposite directions (e.g., one moving forward and speeding up, another moving backward and slowing down).\n\n**Conclusion:** Only statement A is correct.',
+      '鈿狅笍 **Key point:** Average speed $=\\frac{\\text{distance}}{\\text{time}}$ (scalar), but average velocity $=\\frac{\\text{displacement}}{\\text{time}}$ (vector).\n\n**A** Same path means same distance. Shorter time gives larger average speed.\n\n**B** A larger distance in 1 s does not guarantee a larger displacement (direction can change), so average velocity may be smaller.\n\n**C** A larger velocity does not imply a larger acceleration. An object can have a large velocity with zero acceleration (constant velocity).\n\n**D** Two objects can have the same acceleration while moving in opposite directions (e.g., one moving forward and speeding up, another moving backward and slowing down).\n\n**Conclusion:** Only statement A is correct.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -3530,7 +1957,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: 'descending with uniform acceleration.',
     explanation:
-      '⚠️ **Key point:** Spring balance reading is the apparent weight (normal reaction), not necessarily the true weight.\n\nTrue weight:\n$$W=mg=(20)(9.81)=196\\ \\text{N}.$$\nMeasured reading is $150\\ \\text{N}$, so\n$$R<W.$$ \nThis means acceleration is downward.\n\nIf acceleration is downward, the lift is accelerating downward (not moving at uniform velocity).\n\n**Conclusion:** the lift is descending with uniform acceleration �?option D.',
+      '鈿狅笍 **Key point:** Spring balance reading is the apparent weight (normal reaction), not necessarily the true weight.\n\nTrue weight:\n$$W=mg=(20)(9.81)=196\\ \\text{N}.$$\nMeasured reading is $150\\ \\text{N}$, so\n$$R<W.$$ \nThis means acceleration is downward.\n\nIf acceleration is downward, the lift is accelerating downward (not moving at uniform velocity).\n\n**Conclusion:** the lift is descending with uniform acceleration 鈫?option D.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -3548,11 +1975,11 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['greater than $2a$.', 'equal to $2a$.', 'between $a$ and $2a$.', 'less than $a$.'],
     answer: 'greater than $2a$.',
     explanation:
-      '⚠️ **Key point:** When friction stays constant, doubling the driving force increases net force by **more than** a factor of 2 relative to the original net force.\n\nInitially:\n$$F-f=Ma$$\nAfter doubling force:\n$$2F-f=Ma\'$$\nUse $F=f+Ma$ from the first equation:\n$$2F-f=2(f+Ma)-f=f+2Ma$$\nSo\n$$Ma\'=f+2Ma \\Rightarrow a\'=2a+\\frac{f}{M}.$$\nSince $f>0$ on a rough surface,\n$$a\'>2a.$$\n\n**Conclusion:** option A.',
+      '鈿狅笍 **Key point:** When friction stays constant, doubling the driving force increases net force by **more than** a factor of 2 relative to the original net force.\n\nInitially:\n$$F-f=Ma$$\nAfter doubling force:\n$$2F-f=Ma\'$$\nUse $F=f+Ma$ from the first equation:\n$$2F-f=2(f+Ma)-f=f+2Ma$$\nSo\n$$Ma\'=f+2Ma \\Rightarrow a\'=2a+\\frac{f}{M}.$$\nSince $f>0$ on a rough surface,\n$$a\'>2a.$$\n\n**Conclusion:** option A.',
     difficulty: 3,
     points: 20,
     hints: [
-      'Write Newton’s second law before and after changing the force.',
+      'Write Newton鈥檚 second law before and after changing the force.',
       'Keep friction as the same constant $f$ in both equations.',
       'Substitute from the first equation into the second.',
     ],
@@ -3566,7 +1993,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['4.9 N', '9.8 N', '14.7 N', '19.6 N'],
     answer: '9.8 N',
     explanation:
-      '⚠️ **Key point:** Spring balance reads the string tension $T$.\n\nSince $X$ is held stationary by an external force, the system is in equilibrium. Consider block $Y$ (mass 2 kg) on a smooth $30^{\\circ}$ incline:\n$$T = mg\\sin\\theta = (2)(9.81)\\sin30^{\\circ} = 9.81\\ \\text{N}.$$\nSo the spring balance reading is\n$$S=T\\approx 9.8\\ \\text{N}.$$\n\n**Conclusion:** option B.',
+      '鈿狅笍 **Key point:** Spring balance reads the string tension $T$.\n\nSince $X$ is held stationary by an external force, the system is in equilibrium. Consider block $Y$ (mass 2 kg) on a smooth $30^{\\circ}$ incline:\n$$T = mg\\sin\\theta = (2)(9.81)\\sin30^{\\circ} = 9.81\\ \\text{N}.$$\nSo the spring balance reading is\n$$S=T\\approx 9.8\\ \\text{N}.$$\n\n**Conclusion:** option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -3590,7 +2017,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '$m_2 : m_1$',
     explanation:
-      '⚠️ **Key point:** At release, spring force on the two blocks has equal magnitude (Newton’s third law).\n\nLet the spring force magnitude be $F$ on each block.\nThen\n$$a_A=\\frac{F}{m_1},\\quad a_B=\\frac{F}{m_2}.$$\nSo\n$$\\frac{a_A}{a_B}=\\frac{F/m_1}{F/m_2}=\\frac{m_2}{m_1}.$$\n\n**Conclusion:** $a_A:a_B = m_2:m_1$ �?option B.',
+      '鈿狅笍 **Key point:** At release, spring force on the two blocks has equal magnitude (Newton鈥檚 third law).\n\nLet the spring force magnitude be $F$ on each block.\nThen\n$$a_A=\\frac{F}{m_1},\\quad a_B=\\frac{F}{m_2}.$$\nSo\n$$\\frac{a_A}{a_B}=\\frac{F/m_1}{F/m_2}=\\frac{m_2}{m_1}.$$\n\n**Conclusion:** $a_A:a_B = m_2:m_1$ 鈫?option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -3608,7 +2035,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['1', '$\\theta$', '$\\sin\\theta$', '$\\cos\\theta$'],
     answer: '$\\sin\\theta$',
     explanation:
-      '⚠️ **Key point:** Before sliding, the object is in equilibrium along the slope, so static friction balances the downslope weight component.\n\nAlong the incline:\n$$f=mg\\sin\\theta.$$\nHence\n$$f\\propto\\sin\\theta.$$\n\n**Conclusion:** option C.',
+      '鈿狅笍 **Key point:** Before sliding, the object is in equilibrium along the slope, so static friction balances the downslope weight component.\n\nAlong the incline:\n$$f=mg\\sin\\theta.$$\nHence\n$$f\\propto\\sin\\theta.$$\n\n**Conclusion:** option C.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -3631,7 +2058,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '/physics/exercises/newton-laws/nl-006-option-b.png',
     explanation:
-      '⚠️ **Key point:** On an $s$-$t$ graph, slope is velocity. Motion along a smooth incline has constant acceleration down the plane.\n\nInitially moving up: velocity is positive but decreasing (deceleration), so slope decreases.\nAt highest point: velocity becomes zero, so slope is zero.\nThen moving down: velocity becomes negative with increasing magnitude, so slope becomes negative and steeper.\n\nThus the $s$-$t$ curve is a concave-down parabola, matching option B.',
+      '鈿狅笍 **Key point:** On an $s$-$t$ graph, slope is velocity. Motion along a smooth incline has constant acceleration down the plane.\n\nInitially moving up: velocity is positive but decreasing (deceleration), so slope decreases.\nAt highest point: velocity becomes zero, so slope is zero.\nThen moving down: velocity becomes negative with increasing magnitude, so slope becomes negative and steeper.\n\nThus the $s$-$t$ curve is a concave-down parabola, matching option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -3650,7 +2077,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['$S_1$', '$S_2$', '$S_3$', '$S_4$'],
     answer: '$S_1$',
     explanation:
-      '⚠️ **Key point:** Each string must pull all blocks behind it, so tension is largest in the front string.\n\nLet each block have mass $m$ and acceleration be $a$.\n\nFor block $E$ only:\n$$T_4=ma.$$\nFor $D+E$:\n$$T_3=2ma.$$\nFor $C+D+E$:\n$$T_2=3ma.$$\nFor $B+C+D+E$:\n$$T_1=4ma.$$\nSo\n$$T_1>T_2>T_3>T_4.$$\nSince strings are identical, the one with greatest tension breaks first.\n\n**Conclusion:** $S_1$ �?option A.',
+      '鈿狅笍 **Key point:** Each string must pull all blocks behind it, so tension is largest in the front string.\n\nLet each block have mass $m$ and acceleration be $a$.\n\nFor block $E$ only:\n$$T_4=ma.$$\nFor $D+E$:\n$$T_3=2ma.$$\nFor $C+D+E$:\n$$T_2=3ma.$$\nFor $B+C+D+E$:\n$$T_1=4ma.$$\nSo\n$$T_1>T_2>T_3>T_4.$$\nSince strings are identical, the one with greatest tension breaks first.\n\n**Conclusion:** $S_1$ 鈫?option A.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -3669,7 +2096,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['zero', '$Mg$', '$Mg\\sin\\theta$', '$Mg\\cos\\theta$'],
     answer: '$Mg\\sin\\theta$',
     explanation:
-      '⚠️ **Key point:** In equilibrium on an incline, friction balances the downslope component of weight.\n\nWeight component parallel to slope is\n$$Mg\\sin\\theta.$$\nSince net force along slope is zero,\n$$f=Mg\\sin\\theta.$$\n\n**Conclusion:** option C.',
+      '鈿狅笍 **Key point:** In equilibrium on an incline, friction balances the downslope component of weight.\n\nWeight component parallel to slope is\n$$Mg\\sin\\theta.$$\nSince net force along slope is zero,\n$$f=Mg\\sin\\theta.$$\n\n**Conclusion:** option C.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -3692,7 +2119,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '$2.5\\ \\text{m s}^{-2}$',
     explanation:
-      '⚠️ **Key point:** Treat the trolley + both hanging blocks as one system. Internal tensions cancel.\n\nNet driving force is due to weight difference of hanging masses:\n$$F_{\\text{net}}=(0.75g)-(0.25g)=0.50g.$$\nTotal mass:\n$$m_{\\text{total}}=0.75+1.00+0.25=2.00\\ \\text{kg}.$$\nSo\n$$a=\\frac{F_{\\text{net}}}{m_{\\text{total}}}=\\frac{0.50\\times9.81}{2.00}=2.45\\ \\text{m s}^{-2}\\approx2.5\\ \\text{m s}^{-2}.$$\n\n**Conclusion:** option C.',
+      '鈿狅笍 **Key point:** Treat the trolley + both hanging blocks as one system. Internal tensions cancel.\n\nNet driving force is due to weight difference of hanging masses:\n$$F_{\\text{net}}=(0.75g)-(0.25g)=0.50g.$$\nTotal mass:\n$$m_{\\text{total}}=0.75+1.00+0.25=2.00\\ \\text{kg}.$$\nSo\n$$a=\\frac{F_{\\text{net}}}{m_{\\text{total}}}=\\frac{0.50\\times9.81}{2.00}=2.45\\ \\text{m s}^{-2}\\approx2.5\\ \\text{m s}^{-2}.$$\n\n**Conclusion:** option C.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -3716,7 +2143,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '/physics/exercises/newton-laws/nl-010-option-a.png',
     explanation:
-      '⚠️ **Key point:** Constant leftward force gives constant leftward acceleration (constant negative slope on a $v$-$t$ graph if right is positive).\n\nInitially velocity is positive (moving right), so it decreases linearly to zero.\nAfter reaching zero, acceleration still points left, so velocity becomes negative and its magnitude increases linearly.\n\nHence the correct $v$-$t$ graph is a straight line with constant negative slope crossing the time axis.\n\n**Conclusion:** option A.',
+      '鈿狅笍 **Key point:** Constant leftward force gives constant leftward acceleration (constant negative slope on a $v$-$t$ graph if right is positive).\n\nInitially velocity is positive (moving right), so it decreases linearly to zero.\nAfter reaching zero, acceleration still points left, so velocity becomes negative and its magnitude increases linearly.\n\nHence the correct $v$-$t$ graph is a straight line with constant negative slope crossing the time axis.\n\n**Conclusion:** option A.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -3739,7 +2166,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '$0.73\\ \\text{m s}^{-2}$ towards the right',
     explanation:
-      '⚠️ **Key point:** Resolve forces horizontally and apply Newton’s second law.\n\nHorizontal resultant force:\n$$F_x=P\\cos\\theta-Q.$$ \nWith $P=2\\ \\text{N}$, $Q=1\\ \\text{N}$, $\\theta=30^{\\circ}$:\n$$F_x=2\\cos30^{\\circ}-1=2\\left(\\frac{\\sqrt{3}}{2}\\right)-1\\approx1.732-1=0.732\\ \\text{N}.$$\n\nAcceleration:\n$$a=\\frac{F_x}{m}=\\frac{0.732}{1}=0.73\\ \\text{m s}^{-2}.$$\nDirection is to the right (same as positive $F_x$).\n\n**Conclusion:** option C.',
+      '鈿狅笍 **Key point:** Resolve forces horizontally and apply Newton鈥檚 second law.\n\nHorizontal resultant force:\n$$F_x=P\\cos\\theta-Q.$$ \nWith $P=2\\ \\text{N}$, $Q=1\\ \\text{N}$, $\\theta=30^{\\circ}$:\n$$F_x=2\\cos30^{\\circ}-1=2\\left(\\frac{\\sqrt{3}}{2}\\right)-1\\approx1.732-1=0.732\\ \\text{N}.$$\n\nAcceleration:\n$$a=\\frac{F_x}{m}=\\frac{0.732}{1}=0.73\\ \\text{m s}^{-2}.$$\nDirection is to the right (same as positive $F_x$).\n\n**Conclusion:** option C.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -3763,7 +2190,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: 'The particle is moving with constant velocity.',
     explanation:
-      '⚠️ **Key point:** By Newton’s first law, zero net force means zero acceleration.\n\nWith $a=0$, velocity stays constant (including the special case of zero velocity).\nSo moving with constant velocity is possible.\n\nOther options involve changing velocity (magnitude and/or direction), which requires non-zero net force.\n\n**Conclusion:** option D.',
+      '鈿狅笍 **Key point:** By Newton鈥檚 first law, zero net force means zero acceleration.\n\nWith $a=0$, velocity stays constant (including the special case of zero velocity).\nSo moving with constant velocity is possible.\n\nOther options involve changing velocity (magnitude and/or direction), which requires non-zero net force.\n\n**Conclusion:** option D.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -3786,13 +2213,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '$10\\ \\text{m s}^{-1}$ upwards',
     explanation:
-      '⚠️ **Key point:** At the instant of release, the ball keeps the lift’s instantaneous velocity (inertia).\n\nBefore release, ball and lift move together at $10\\ \\text{m s}^{-1}$ upwards. So at the exact moment it is released, its velocity relative to Earth is still $10\\ \\text{m s}^{-1}$ upwards.\n\n(After that instant, gravity changes its velocity.)\n\n**Conclusion:** option A.',
+      '鈿狅笍 **Key point:** At the instant of release, the ball keeps the lift鈥檚 instantaneous velocity (inertia).\n\nBefore release, ball and lift move together at $10\\ \\text{m s}^{-1}$ upwards. So at the exact moment it is released, its velocity relative to Earth is still $10\\ \\text{m s}^{-1}$ upwards.\n\n(After that instant, gravity changes its velocity.)\n\n**Conclusion:** option A.',
     difficulty: 1,
     points: 10,
     hints: [
       'At release instant, velocity does not suddenly jump.',
       'Use inertia: object keeps its current velocity unless net force changes it over time.',
-      'Distinguish “at the moment of release�?from “later motion�?',
+      'Distinguish 鈥渁t the moment of release鈥?from 鈥渓ater motion鈥?',
     ],
     sectionId: 'newton-laws',
   },
@@ -3804,7 +2231,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(2) only',
     explanation:
-      '⚠️ **Key point:** From a $v$-$t$ graph, slope equals acceleration.\n\n(1) False: velocity increases from zero and then approaches a constant value (terminal speed), not decreasing.\n\n(2) True: the slope of the curve decreases with time, so acceleration decreases.\n\n(3) False: after about 4 s the ball moves at terminal velocity, which is non-zero, so it does not stop.\n\n**Conclusion:** (2) only �?option B.',
+      '鈿狅笍 **Key point:** From a $v$-$t$ graph, slope equals acceleration.\n\n(1) False: velocity increases from zero and then approaches a constant value (terminal speed), not decreasing.\n\n(2) True: the slope of the curve decreases with time, so acceleration decreases.\n\n(3) False: after about 4 s the ball moves at terminal velocity, which is non-zero, so it does not stop.\n\n**Conclusion:** (2) only 鈫?option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -3828,11 +2255,11 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: 'continue to move with uniform velocity.',
     explanation:
-      '⚠️ **Key point:** With engine off (and neglecting external forces), net force on the rocket is zero.\n\nBy Newton’s first law, zero net force means zero acceleration. So the rocket continues in its current state of motion: constant velocity in a straight line.\n\n**Conclusion:** option B.',
+      '鈿狅笍 **Key point:** With engine off (and neglecting external forces), net force on the rocket is zero.\n\nBy Newton鈥檚 first law, zero net force means zero acceleration. So the rocket continues in its current state of motion: constant velocity in a straight line.\n\n**Conclusion:** option B.',
     difficulty: 1,
     points: 10,
     hints: [
-      'Apply Newton’s first law.',
+      'Apply Newton鈥檚 first law.',
       'No net force implies no acceleration.',
       'No acceleration means velocity remains constant.',
     ],
@@ -3851,7 +2278,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '$T_1=10\\ \\text{N},\\ T_2=6\\ \\text{N}$',
     explanation:
-      '⚠️ **Key point:** The spring balance measures the pulling tension directly, so $T_1=10\\ \\text{N}$.\n\nFor blocks $A+B$ as one system:\n$$10=(1+1.5)a \\Rightarrow a=4\\ \\text{m s}^{-2}.$$\n\nFor block $B$ alone:\n$$T_2=m_Ba=(1.5)(4)=6\\ \\text{N}.$$\n\nSo the tensions are $T_1=10\\ \\text{N}$ and $T_2=6\\ \\text{N}$.\n\n**Conclusion:** option B.',
+      '鈿狅笍 **Key point:** The spring balance measures the pulling tension directly, so $T_1=10\\ \\text{N}$.\n\nFor blocks $A+B$ as one system:\n$$10=(1+1.5)a \\Rightarrow a=4\\ \\text{m s}^{-2}.$$\n\nFor block $B$ alone:\n$$T_2=m_Ba=(1.5)(4)=6\\ \\text{N}.$$\n\nSo the tensions are $T_1=10\\ \\text{N}$ and $T_2=6\\ \\text{N}$.\n\n**Conclusion:** option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -3875,7 +2302,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '/physics/exercises/newton-laws/nl-017-option-d.png',
     explanation:
-      '⚠️ **Key point:** On a smooth incline, only the component of weight along the plane acts: $mg\\sin\\theta$ downward.\n\nTaking upward along the plane as positive, acceleration is\n$$a=-g\\sin\\theta,$$\nwhich is constant and negative throughout the motion (both on the way up and on the way down).\n\nSo the $a$-$t$ graph is a horizontal line below zero.\n\n**Conclusion:** option D.',
+      '鈿狅笍 **Key point:** On a smooth incline, only the component of weight along the plane acts: $mg\\sin\\theta$ downward.\n\nTaking upward along the plane as positive, acceleration is\n$$a=-g\\sin\\theta,$$\nwhich is constant and negative throughout the motion (both on the way up and on the way down).\n\nSo the $a$-$t$ graph is a horizontal line below zero.\n\n**Conclusion:** option D.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -3899,7 +2326,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '$29.4\\ \\text{N}$',
     explanation:
-      '⚠️ **Key point:** For the movable pulley connected to the 6 kg mass, two upward tensions support the load.\n\nFor equilibrium of the 6 kg load-pulley system:\n$$2T=mg=(6)(9.81).$$\nSo\n$$T=\\frac{6\\times9.81}{2}=29.4\\ \\text{N}.$$\n\nSince the system is at rest and strings are light/frictionless, the tension in string $S$ equals this string tension.\n\n**Conclusion:** $S=29.4\\ \\text{N}$ �?option C.',
+      '鈿狅笍 **Key point:** For the movable pulley connected to the 6 kg mass, two upward tensions support the load.\n\nFor equilibrium of the 6 kg load-pulley system:\n$$2T=mg=(6)(9.81).$$\nSo\n$$T=\\frac{6\\times9.81}{2}=29.4\\ \\text{N}.$$\n\nSince the system is at rest and strings are light/frictionless, the tension in string $S$ equals this string tension.\n\n**Conclusion:** $S=29.4\\ \\text{N}$ 鈫?option C.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -3923,11 +2350,11 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '/physics/exercises/newton-laws/nl-019-option-d.png',
     explanation:
-      '⚠️ **Key point:** Along a smooth incline,\n$$P-mg\\sin\\theta=ma \\Rightarrow P=mg\\sin\\theta+ma.$$ \nFor fixed mass $m$, required force increases when either $\\theta$ is larger (larger $mg\\sin\\theta$) or required acceleration $a$ is larger.\n\nSo the case with both the largest incline angle and largest acceleration needs the greatest $P$.\n\n**Conclusion:** option D.',
+      '鈿狅笍 **Key point:** Along a smooth incline,\n$$P-mg\\sin\\theta=ma \\Rightarrow P=mg\\sin\\theta+ma.$$ \nFor fixed mass $m$, required force increases when either $\\theta$ is larger (larger $mg\\sin\\theta$) or required acceleration $a$ is larger.\n\nSo the case with both the largest incline angle and largest acceleration needs the greatest $P$.\n\n**Conclusion:** option D.',
     difficulty: 2,
     points: 15,
     hints: [
-      'Write Newton’s second law along the incline.',
+      'Write Newton鈥檚 second law along the incline.',
       'Identify contributions from weight component and target acceleration.',
       'Compare options by both $\\theta$ and $a$.',
     ],
@@ -3941,7 +2368,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(2) only', '(1) & (2) only', '(1) & (3) only'],
     answer: '(1) & (3) only',
     explanation:
-      '⚠️ **Key point:** Feeling heavier means apparent weight (normal reaction) is greater than true weight: $R>mg$, which occurs when acceleration is upward.\n\n(1) Upward with acceleration �?acceleration upward �?feels heavier.\n\n(2) Upward with retardation �?acceleration downward �?feels lighter.\n\n(3) Downward with retardation �?acceleration upward �?feels heavier.\n\n**Conclusion:** (1) and (3) only �?option D.',
+      '鈿狅笍 **Key point:** Feeling heavier means apparent weight (normal reaction) is greater than true weight: $R>mg$, which occurs when acceleration is upward.\n\n(1) Upward with acceleration 鈫?acceleration upward 鈫?feels heavier.\n\n(2) Upward with retardation 鈫?acceleration downward 鈫?feels lighter.\n\n(3) Downward with retardation 鈫?acceleration upward 鈫?feels heavier.\n\n**Conclusion:** (1) and (3) only 鈫?option D.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -3964,7 +2391,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '/physics/exercises/newton-laws/nl-021-option-b.png',
     explanation:
-      '⚠️ **Key point:** $F=ma$, so acceleration follows the same time dependence as force.\n\nBefore $t=t_0$, force is positive, so acceleration is positive and the slope of the $v$-$t$ graph is positive (speed increases).\nAfter $t=t_0$, force becomes zero, so acceleration is zero and $v$ becomes constant (horizontal line).\n\nThe velocity/speed cannot drop instantaneously to zero unless an impulse occurs, which is not shown.\n\n**Conclusion:** option B.',
+      '鈿狅笍 **Key point:** $F=ma$, so acceleration follows the same time dependence as force.\n\nBefore $t=t_0$, force is positive, so acceleration is positive and the slope of the $v$-$t$ graph is positive (speed increases).\nAfter $t=t_0$, force becomes zero, so acceleration is zero and $v$ becomes constant (horizontal line).\n\nThe velocity/speed cannot drop instantaneously to zero unless an impulse occurs, which is not shown.\n\n**Conclusion:** option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -3983,7 +2410,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['0', '$\\frac{1}{3}F$', '$\\frac{1}{2}F$', '$\\frac{2}{3}F$'],
     answer: '$\\frac{1}{3}F$',
     explanation:
-      '⚠️ **Key point:** Treat all three equal-mass blocks as one system first.\n\nIf each block has mass $m$, total mass is $3m$, so acceleration is\n$$a=\\frac{F}{3m}.$$\nFor block $B$ (mass $m$), resultant force is\n$$F_B=ma=m\\cdot\\frac{F}{3m}=\\frac{F}{3}.$$\n\n**Conclusion:** option B.',
+      '鈿狅笍 **Key point:** Treat all three equal-mass blocks as one system first.\n\nIf each block has mass $m$, total mass is $3m$, so acceleration is\n$$a=\\frac{F}{3m}.$$\nFor block $B$ (mass $m$), resultant force is\n$$F_B=ma=m\\cdot\\frac{F}{3m}=\\frac{F}{3}.$$\n\n**Conclusion:** option B.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -4002,7 +2429,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(1) & (2) only',
     explanation:
-      '⚠️ **Key point:** A straight line increasing with time means quantity is proportional to time.\n\n(1) True: constant force on fixed mass gives constant acceleration, so speed from rest increases linearly with time.\n\n(2) True: at constant speed, distance is proportional to time ($s=vt$), giving a straight line through origin.\n\n(3) False for this graph shape: free-fall acceleration is approximately constant, so $a$ vs $t$ is a horizontal line, not an increasing straight line.\n\n**Conclusion:** (1) and (2) only �?option C.',
+      '鈿狅笍 **Key point:** A straight line increasing with time means quantity is proportional to time.\n\n(1) True: constant force on fixed mass gives constant acceleration, so speed from rest increases linearly with time.\n\n(2) True: at constant speed, distance is proportional to time ($s=vt$), giving a straight line through origin.\n\n(3) False for this graph shape: free-fall acceleration is approximately constant, so $a$ vs $t$ is a horizontal line, not an increasing straight line.\n\n**Conclusion:** (1) and (2) only 鈫?option C.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -4025,7 +2452,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: 'remaining at rest',
     explanation:
-      '⚠️ **Key point:** Use the limiting equilibrium case to find maximum static friction first.\n\nAt limiting rest with applied force $F=11\\ \\text{N}$:\n$$F=f_{\\max}+mg\\sin\\theta.$$\nGiven $m=1\\ \\text{kg}$, $g=10\\ \\text{m s}^{-2}$, $\\theta=30^{\\circ}$:\n$$11=f_{\\max}+(1)(10)\\sin30^{\\circ}=f_{\\max}+5$$\n$$f_{\\max}=6\\ \\text{N}.$$\n\nIf $F$ is removed, downslope force is only\n$$mg\\sin30^{\\circ}=5\\ \\text{N}.$$\nSince $5\\ \\text{N}<f_{\\max}(6\\ \\text{N})$, static friction can balance it, so the block remains at rest.\n\n**Conclusion:** option A.',
+      '鈿狅笍 **Key point:** Use the limiting equilibrium case to find maximum static friction first.\n\nAt limiting rest with applied force $F=11\\ \\text{N}$:\n$$F=f_{\\max}+mg\\sin\\theta.$$\nGiven $m=1\\ \\text{kg}$, $g=10\\ \\text{m s}^{-2}$, $\\theta=30^{\\circ}$:\n$$11=f_{\\max}+(1)(10)\\sin30^{\\circ}=f_{\\max}+5$$\n$$f_{\\max}=6\\ \\text{N}.$$\n\nIf $F$ is removed, downslope force is only\n$$mg\\sin30^{\\circ}=5\\ \\text{N}.$$\nSince $5\\ \\text{N}<f_{\\max}(6\\ \\text{N})$, static friction can balance it, so the block remains at rest.\n\n**Conclusion:** option A.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -4044,7 +2471,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(2) only',
     explanation:
-      '⚠️ **Key point:** Constant speed means zero acceleration, so net force on the man is zero.\n\nTherefore $R=W$ in magnitude, so (1) is false.\n$R$ acts upward while $W$ acts downward, so (2) is true.\n\n(3) is false because action-reaction forces act on different bodies; here $R$ and $W$ both act on the man.\n\n**Conclusion:** (2) only �?option B.',
+      '鈿狅笍 **Key point:** Constant speed means zero acceleration, so net force on the man is zero.\n\nTherefore $R=W$ in magnitude, so (1) is false.\n$R$ acts upward while $W$ acts downward, so (2) is true.\n\n(3) is false because action-reaction forces act on different bodies; here $R$ and $W$ both act on the man.\n\n**Conclusion:** (2) only 鈫?option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -4062,13 +2489,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['6 N to the left.', '6 N to the right.', '12 N to the left.', '12 N to the right.'],
     answer: '6 N to the left.',
     explanation:
-      '⚠️ **Key point:** First find common acceleration, then find contact force between the blocks.\n\nLet each block have mass $M$.\nWhole system:\n$$12=(2M)a \\Rightarrow a=\\frac{6}{M}.$$ \nFor block $B$:\n$$R=Ma=M\\left(\\frac{6}{M}\\right)=6\\ \\text{N}.$$ \nThis is force on $B$ by $A$ to the right. Therefore force on $A$ by $B$ is equal and opposite: 6 N to the left.\n\n**Conclusion:** option A.',
+      '鈿狅笍 **Key point:** First find common acceleration, then find contact force between the blocks.\n\nLet each block have mass $M$.\nWhole system:\n$$12=(2M)a \\Rightarrow a=\\frac{6}{M}.$$ \nFor block $B$:\n$$R=Ma=M\\left(\\frac{6}{M}\\right)=6\\ \\text{N}.$$ \nThis is force on $B$ by $A$ to the right. Therefore force on $A$ by $B$ is equal and opposite: 6 N to the left.\n\n**Conclusion:** option A.',
     difficulty: 2,
     points: 15,
     hints: [
       'Use whole-system approach to get acceleration first.',
       'Then isolate one block to get contact force magnitude.',
-      'Apply Newton’s third law for direction on $A$ by $B$.',
+      'Apply Newton鈥檚 third law for direction on $A$ by $B$.',
     ],
     sectionId: 'newton-laws',
     imagePaths: ['/physics/exercises/newton-laws/nl-026-question.png'],
@@ -4086,7 +2513,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '/physics/exercises/newton-laws/nl-027-option-b.png',
     explanation:
-      '⚠️ **Key point:** $F=ma$, so acceleration follows the same time pattern as net force. Slope of the $v$-$t$ graph equals acceleration.\n\nBefore $t=t_1$, net force is zero, so acceleration is zero and velocity stays constant. Since object starts from rest, velocity remains zero (horizontal on time axis).\n\nAfter $t=t_1$, net force is positive, so acceleration is positive and velocity increases with positive slope.\n\n**Conclusion:** option B.',
+      '鈿狅笍 **Key point:** $F=ma$, so acceleration follows the same time pattern as net force. Slope of the $v$-$t$ graph equals acceleration.\n\nBefore $t=t_1$, net force is zero, so acceleration is zero and velocity stays constant. Since object starts from rest, velocity remains zero (horizontal on time axis).\n\nAfter $t=t_1$, net force is positive, so acceleration is positive and velocity increases with positive slope.\n\n**Conclusion:** option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -4110,7 +2537,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '$X$: moves with constant velocity; $Y$: accelerates at $10\\ \\text{m s}^{-2}$',
     explanation:
-      '⚠️ **Key point:** Immediately after the string breaks, constraints are removed and each block follows its own net force.\n\nFor $X$: with no net horizontal force, it continues with its current velocity (Newton’s first law), so it moves with constant velocity.\n\nFor $Y$: once detached, only gravity acts (neglect air resistance), so it is in free fall with acceleration $g=10\\ \\text{m s}^{-2}$ downward.\n\n**Conclusion:** option C.',
+      '鈿狅笍 **Key point:** Immediately after the string breaks, constraints are removed and each block follows its own net force.\n\nFor $X$: with no net horizontal force, it continues with its current velocity (Newton鈥檚 first law), so it moves with constant velocity.\n\nFor $Y$: once detached, only gravity acts (neglect air resistance), so it is in free fall with acceleration $g=10\\ \\text{m s}^{-2}$ downward.\n\n**Conclusion:** option C.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -4129,7 +2556,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['$0.4\\ \\text{N}$', '$0.8\\ \\text{N}$', '$1.0\\ \\text{N}$', '$1.2\\ \\text{N}$'],
     answer: '$1.2\\ \\text{N}$',
     explanation:
-      '⚠️ **Key point:** First find system acceleration, then use one block to find tension.\n\nFor $A+B$ as one system:\n$$2=(2+3)a \\Rightarrow a=0.4\\ \\text{m s}^{-2}.$$\n\nUsing block $B$:\n$$T=m_Ba=(3)(0.4)=1.2\\ \\text{N}.$$\n(Equivalent result from block $A$: $2-T=2(0.4)$.)\n\n**Conclusion:** option D.',
+      '鈿狅笍 **Key point:** First find system acceleration, then use one block to find tension.\n\nFor $A+B$ as one system:\n$$2=(2+3)a \\Rightarrow a=0.4\\ \\text{m s}^{-2}.$$\n\nUsing block $B$:\n$$T=m_Ba=(3)(0.4)=1.2\\ \\text{N}.$$\n(Equivalent result from block $A$: $2-T=2(0.4)$.)\n\n**Conclusion:** option D.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -4148,7 +2575,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(2) only', '(3) only', '(1) & (2) only', '(1) & (3) only'],
     answer: '(3) only',
     explanation:
-      '⚠️ **Key point:** Action-reaction forces are equal and opposite forces acting on **different bodies**.\n\n(1) Not a third-law pair because both forces are on the same block.\n\n(2) Not a third-law pair because both forces are on the same ball.\n\n(3) Is a third-law pair because one force acts on one charge and the other acts on the opposite charge (different objects).\n\n**Conclusion:** (3) only �?option B.',
+      '鈿狅笍 **Key point:** Action-reaction forces are equal and opposite forces acting on **different bodies**.\n\n(1) Not a third-law pair because both forces are on the same block.\n\n(2) Not a third-law pair because both forces are on the same ball.\n\n(3) Is a third-law pair because one force acts on one charge and the other acts on the opposite charge (different objects).\n\n**Conclusion:** (3) only 鈫?option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -4167,7 +2594,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(3) only',
     explanation:
-      '⚠️ **Key point:** In free fall, apparent weight is zero, but true weight $mg$ is not zero.\n\n(1) False: true weight is\n$$W=mg=50\\times9.81\\approx491\\ \\text{N}.$$ \n(2) False: in free fall the man does not press on floor (normal contact force is zero), so force on floor by man is 0.\n(3) True: force on man by floor (normal reaction) is 0.\n\n**Conclusion:** (3) only �?option B.',
+      '鈿狅笍 **Key point:** In free fall, apparent weight is zero, but true weight $mg$ is not zero.\n\n(1) False: true weight is\n$$W=mg=50\\times9.81\\approx491\\ \\text{N}.$$ \n(2) False: in free fall the man does not press on floor (normal contact force is zero), so force on floor by man is 0.\n(3) True: force on man by floor (normal reaction) is 0.\n\n**Conclusion:** (3) only 鈫?option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -4185,7 +2612,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(1) only',
     explanation:
-      '⚠️ **Key point:** Friction-compensated runway means trolley should move at (approximately) constant speed, so equal dot spacing is expected for equal time intervals.\n\n(1) True: a harder initial push gives a larger initial speed, so spacing between dots can become larger while still remaining uniform.\n\n(2) False: increasing slope makes downslope component exceed friction, causing acceleration; dot spacing would increase progressively, not remain equal.\n\n(3) False: higher ticker frequency gives shorter time between dots, so spacing between adjacent dots becomes smaller.\n\n**Conclusion:** (1) only �?option A.',
+      '鈿狅笍 **Key point:** Friction-compensated runway means trolley should move at (approximately) constant speed, so equal dot spacing is expected for equal time intervals.\n\n(1) True: a harder initial push gives a larger initial speed, so spacing between dots can become larger while still remaining uniform.\n\n(2) False: increasing slope makes downslope component exceed friction, causing acceleration; dot spacing would increase progressively, not remain equal.\n\n(3) False: higher ticker frequency gives shorter time between dots, so spacing between adjacent dots becomes smaller.\n\n**Conclusion:** (1) only 鈫?option A.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -4212,7 +2639,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '$T_1=6\\ \\text{N},\\ T_2=14\\ \\text{N}$',
     explanation:
-      '⚠️ **Key point:** System is in equilibrium, so tensions balance downward loads below each string.\n\nFor block $X$:\n$$T_1 = F + W_X = 4 + 2 = 6\\ \\text{N}.$$\n\nFor upper string supporting both $Y$ and the pull from below:\n$$T_2 = T_1 + W_Y = 6 + 8 = 14\\ \\text{N}.$$\n\n**Conclusion:** $T_1=6\\ \\text{N},\\ T_2=14\\ \\text{N}$ �?option D.',
+      '鈿狅笍 **Key point:** System is in equilibrium, so tensions balance downward loads below each string.\n\nFor block $X$:\n$$T_1 = F + W_X = 4 + 2 = 6\\ \\text{N}.$$\n\nFor upper string supporting both $Y$ and the pull from below:\n$$T_2 = T_1 + W_Y = 6 + 8 = 14\\ \\text{N}.$$\n\n**Conclusion:** $T_1=6\\ \\text{N},\\ T_2=14\\ \\text{N}$ 鈫?option D.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -4231,7 +2658,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['12 m', '24 m', '48 m', '72 m'],
     answer: '48 m',
     explanation:
-      '⚠️ **Key point:** Same constant braking force on same car gives same constant deceleration magnitude.\n\nUsing\n$$v^2=u^2+2as,$$\nwith final speed $v=0$:\n$$0=u^2-2as \\Rightarrow s=\\frac{u^2}{2a}\\propto u^2.$$\nSo doubling speed from 30 to 60 km/h makes stopping distance 4 times larger:\n$$s_2=4\\times12=48\\ \\text{m}.$$\n\n**Conclusion:** option C.',
+      '鈿狅笍 **Key point:** Same constant braking force on same car gives same constant deceleration magnitude.\n\nUsing\n$$v^2=u^2+2as,$$\nwith final speed $v=0$:\n$$0=u^2-2as \\Rightarrow s=\\frac{u^2}{2a}\\propto u^2.$$\nSo doubling speed from 30 to 60 km/h makes stopping distance 4 times larger:\n$$s_2=4\\times12=48\\ \\text{m}.$$\n\n**Conclusion:** option C.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -4249,7 +2676,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['$F\\theta$', '$F\\sin\\theta$', '$F\\cos\\theta$', '$F/\\sin\\theta$'],
     answer: '$F\\cos\\theta$',
     explanation:
-      '⚠️ **Key point:** If angle $\\theta$ is measured from the horizontal, horizontal component is the adjacent component.\n\nSo the horizontal component is\n$$F_x=F\\cos\\theta.$$\n\n**Conclusion:** option C.',
+      '鈿狅笍 **Key point:** If angle $\\theta$ is measured from the horizontal, horizontal component is the adjacent component.\n\nSo the horizontal component is\n$$F_x=F\\cos\\theta.$$\n\n**Conclusion:** option C.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -4272,7 +2699,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '2 kg block: $6\\ \\text{m s}^{-2}$, 4 kg block: $0\\ \\text{m s}^{-2}$',
     explanation:
-      '⚠️ **Key point:** First find the pulling force from the initial joint motion.\n\nBefore breaking:\n$$(4+2)(2)=12\\ \\text{N}=F.$$\n\nAfter string breaks:\n- 4 kg block has no horizontal force on smooth surface, so $a=0$.\n- 2 kg block is acted on by $F=12\\ \\text{N}$ alone:\n$$a=\\frac{F}{m}=\\frac{12}{2}=6\\ \\text{m s}^{-2}.$$\n\n**Conclusion:** option A.',
+      '鈿狅笍 **Key point:** First find the pulling force from the initial joint motion.\n\nBefore breaking:\n$$(4+2)(2)=12\\ \\text{N}=F.$$\n\nAfter string breaks:\n- 4 kg block has no horizontal force on smooth surface, so $a=0$.\n- 2 kg block is acted on by $F=12\\ \\text{N}$ alone:\n$$a=\\frac{F}{m}=\\frac{12}{2}=6\\ \\text{m s}^{-2}.$$\n\n**Conclusion:** option A.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -4290,7 +2717,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(2) only', '(3) only', '(1) & (2) only'],
     answer: '(2) only',
     explanation:
-      '⚠️ **Key point:** Newton’s third-law force pairs act on different bodies and are equal in magnitude and opposite in direction.\n\n(1) $R$ and $W$ both act on the same block, so not a third-law pair.\n\n(2) $W$ (Earth on block) and $F$ (block on Earth) are equal and opposite on different bodies, so this is a third-law pair.\n\n(3) $F$ and $R$ are not a valid action-reaction pair.\n\n**Conclusion:** (2) only �?option B.',
+      '鈿狅笍 **Key point:** Newton鈥檚 third-law force pairs act on different bodies and are equal in magnitude and opposite in direction.\n\n(1) $R$ and $W$ both act on the same block, so not a third-law pair.\n\n(2) $W$ (Earth on block) and $F$ (block on Earth) are equal and opposite on different bodies, so this is a third-law pair.\n\n(3) $F$ and $R$ are not a valid action-reaction pair.\n\n**Conclusion:** (2) only 鈫?option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -4309,7 +2736,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
     answer: '(1), (2) & (3)',
     explanation:
-      '⚠️ **Key point:** In free fall (no air resistance), acceleration is $g$ for all masses.\n\n(1) True: weight $W=mg$, so larger mass has larger gravitational force.\n\n(2) True: same initial condition and same acceleration $g$ means same fall time.\n\n(3) True: from the same height with same $g$, final speed is the same ($v=\\sqrt{2gh}$).\n\n**Conclusion:** (1), (2) and (3) are all correct �?option D.',
+      '鈿狅笍 **Key point:** In free fall (no air resistance), acceleration is $g$ for all masses.\n\n(1) True: weight $W=mg$, so larger mass has larger gravitational force.\n\n(2) True: same initial condition and same acceleration $g$ means same fall time.\n\n(3) True: from the same height with same $g$, final speed is the same ($v=\\sqrt{2gh}$).\n\n**Conclusion:** (1), (2) and (3) are all correct 鈫?option D.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -4327,7 +2754,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(2) only', '(3) only', '(1) & (2) only', '(1) & (3) only'],
     answer: '(3) only',
     explanation:
-      '⚠️ **Key point:** If the block is at rest, it is in equilibrium, so resultant force is zero.\n\n(1) False: on an incline, static friction is generally needed to balance the downslope component of weight.\n\n(2) False: since the block is in contact with the plane, normal reaction is non-zero.\n\n(3) True: equilibrium requires net force to be zero.\n\n**Conclusion:** (3) only �?option B.',
+      '鈿狅笍 **Key point:** If the block is at rest, it is in equilibrium, so resultant force is zero.\n\n(1) False: on an incline, static friction is generally needed to balance the downslope component of weight.\n\n(2) False: since the block is in contact with the plane, normal reaction is non-zero.\n\n(3) True: equilibrium requires net force to be zero.\n\n**Conclusion:** (3) only 鈫?option B.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -4345,7 +2772,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(2) only',
     explanation:
-      '⚠️ **Key point:** In vacuum there is no air resistance, so all objects fall with the same gravitational acceleration $g$.\n\n(1) False: vacuum does not change masses; coin and feather still have different masses.\n\n(2) True: both fall with the same acceleration $g$.\n\n(3) False: gravitational force is $W=mg$, so different masses mean different forces.\n\n**Conclusion:** (2) only �?option B.',
+      '鈿狅笍 **Key point:** In vacuum there is no air resistance, so all objects fall with the same gravitational acceleration $g$.\n\n(1) False: vacuum does not change masses; coin and feather still have different masses.\n\n(2) True: both fall with the same acceleration $g$.\n\n(3) False: gravitational force is $W=mg$, so different masses mean different forces.\n\n**Conclusion:** (2) only 鈫?option B.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -4369,7 +2796,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '$F_1 = F_2 > F_3$',
     explanation:
-      '⚠️ **Key point:** Upward acceleration of the ball means upward force on ball is greater than its weight.\n\nFor the ball: upward force $F_1$ (from hand) and downward weight $F_3$ act on it. Since acceleration is upward,\n$$F_1>F_3.$$ \n\n$F_1$ and $F_2$ are Newton’s third-law pair between hand and ball, so\n$$F_1=F_2.$$\nTherefore,\n$$F_1=F_2>F_3.$$\n\n**Conclusion:** option A.',
+      '鈿狅笍 **Key point:** Upward acceleration of the ball means upward force on ball is greater than its weight.\n\nFor the ball: upward force $F_1$ (from hand) and downward weight $F_3$ act on it. Since acceleration is upward,\n$$F_1>F_3.$$ \n\n$F_1$ and $F_2$ are Newton鈥檚 third-law pair between hand and ball, so\n$$F_1=F_2.$$\nTherefore,\n$$F_1=F_2>F_3.$$\n\n**Conclusion:** option A.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -4388,7 +2815,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(2) only', '(3) only', '(1) & (2) only', '(1) & (3) only'],
     answer: '(3) only',
     explanation:
-      '⚠️ **Key point:** Newton’s laws link net force with acceleration.\n\n(1) False: uniform velocity means zero acceleration, so net force must be zero (no unbalanced force needed).\n\n(2) False: uniform acceleration means constant acceleration, so net force should be constant, not increasing.\n\n(3) True: with no unbalanced force, acceleration is zero, so an object may remain at rest (or move with constant velocity).\n\n**Conclusion:** (3) only �?option B.',
+      '鈿狅笍 **Key point:** Newton鈥檚 laws link net force with acceleration.\n\n(1) False: uniform velocity means zero acceleration, so net force must be zero (no unbalanced force needed).\n\n(2) False: uniform acceleration means constant acceleration, so net force should be constant, not increasing.\n\n(3) True: with no unbalanced force, acceleration is zero, so an object may remain at rest (or move with constant velocity).\n\n**Conclusion:** (3) only 鈫?option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -4411,7 +2838,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: 'Both the mass and weight of an object vary slightly at different places on the earth.',
     explanation:
-      '⚠️ **Key point:** Mass is an intrinsic property of an object and does not change with location, while weight depends on local gravitational field strength.\n\nA is correct: mass in kg, weight in N.\nB is correct: mass relates to inertia; weight is gravitational force.\nC is correct: at a given place, $W=mg$ so $W\\propto m$.\nD is incorrect because only weight changes with place; mass stays constant.\n\n**Conclusion:** option D.',
+      '鈿狅笍 **Key point:** Mass is an intrinsic property of an object and does not change with location, while weight depends on local gravitational field strength.\n\nA is correct: mass in kg, weight in N.\nB is correct: mass relates to inertia; weight is gravitational force.\nC is correct: at a given place, $W=mg$ so $W\\propto m$.\nD is incorrect because only weight changes with place; mass stays constant.\n\n**Conclusion:** option D.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -4429,7 +2856,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(2) & (3) only',
     explanation:
-      '⚠️ **Key point:** Newton’s third-law pair must be equal and opposite forces acting on different bodies.\n\n(1) Not a third-law pair: both forces act on the man.\n(2) Yes: Earth-on-moon and moon-on-Earth gravitational forces are a third-law pair.\n(3) Yes: swimmer pushes water backward; water pushes swimmer forward.\n\n**Conclusion:** (2) and (3) only �?option D.',
+      '鈿狅笍 **Key point:** Newton鈥檚 third-law pair must be equal and opposite forces acting on different bodies.\n\n(1) Not a third-law pair: both forces act on the man.\n(2) Yes: Earth-on-moon and moon-on-Earth gravitational forces are a third-law pair.\n(3) Yes: swimmer pushes water backward; water pushes swimmer forward.\n\n**Conclusion:** (2) and (3) only 鈫?option D.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -4452,7 +2879,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '/physics/exercises/newton-laws/nl-045-option-c.png',
     explanation:
-      '⚠️ **Key point:** On a smooth incline, forces on the block are: applied force $P$ along the slope, weight $W=mg$ vertically downward, and normal reaction perpendicular to the plane.\n\nBecause the plane is smooth, friction is absent.\n\nSo the correct free-body diagram is the one showing exactly these three forces with correct directions.\n\n**Conclusion:** option C.',
+      '鈿狅笍 **Key point:** On a smooth incline, forces on the block are: applied force $P$ along the slope, weight $W=mg$ vertically downward, and normal reaction perpendicular to the plane.\n\nBecause the plane is smooth, friction is absent.\n\nSo the correct free-body diagram is the one showing exactly these three forces with correct directions.\n\n**Conclusion:** option C.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -4471,7 +2898,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['0 N', '500 N', '8000 N', '8500 N'],
     answer: '500 N',
     explanation:
-      '⚠️ **Key point:** Constant velocity means zero acceleration, so resultant horizontal force is zero.\n\nHence pull tension balances friction:\n$$T-f=0 \\Rightarrow T=f=500\\ \\text{N}.$$\n\n**Conclusion:** option B.',
+      '鈿狅笍 **Key point:** Constant velocity means zero acceleration, so resultant horizontal force is zero.\n\nHence pull tension balances friction:\n$$T-f=0 \\Rightarrow T=f=500\\ \\text{N}.$$\n\n**Conclusion:** option B.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -4494,7 +2921,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: 'moving downwards with an acceleration',
     explanation:
-      '⚠️ **Key point:** Spring balance reading is the apparent weight (normal reaction) $R$.\n\nAt rest: $R=mg=10\\ \\text{N}$.\nWhen moving: $R=8\\ \\text{N}$, so $R<mg$.\n\nNet force on the object is downward:\n$$mg-R=ma$$\nSo the acceleration is downward.\n\nThis corresponds to the lift having **downward acceleration** (or equivalently, the lift could be moving upward with deceleration, but that option is not given).\n\n**Conclusion:** moving downwards with an acceleration �?option C.',
+      '鈿狅笍 **Key point:** Spring balance reading is the apparent weight (normal reaction) $R$.\n\nAt rest: $R=mg=10\\ \\text{N}$.\nWhen moving: $R=8\\ \\text{N}$, so $R<mg$.\n\nNet force on the object is downward:\n$$mg-R=ma$$\nSo the acceleration is downward.\n\nThis corresponds to the lift having **downward acceleration** (or equivalently, the lift could be moving upward with deceleration, but that option is not given).\n\n**Conclusion:** moving downwards with an acceleration 鈫?option C.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -4512,7 +2939,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['1.4 N', '4.0 N', '4.2 N', '4.5 N'],
     answer: '4.5 N',
     explanation:
-      '⚠️ **Key point:** For equilibrium, the third force must balance the resultant of the other two forces, so $|F_3|=|F|$.\n\nGiven perpendicular components with magnitudes $2\\ \\text{N}$ and $4\\ \\text{N}$:\n$$F=\\sqrt{2^2+4^2}=\\sqrt{20}\\approx4.47\\ \\text{N}$$\nSo the required magnitude is about $4.5\\ \\text{N}$.\n\n**Conclusion:** option D.',
+      '鈿狅笍 **Key point:** For equilibrium, the third force must balance the resultant of the other two forces, so $|F_3|=|F|$.\n\nGiven perpendicular components with magnitudes $2\\ \\text{N}$ and $4\\ \\text{N}$:\n$$F=\\sqrt{2^2+4^2}=\\sqrt{20}\\approx4.47\\ \\text{N}$$\nSo the required magnitude is about $4.5\\ \\text{N}$.\n\n**Conclusion:** option D.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -4605,11 +3032,11 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(3) only', '(1) and (2) only', '(2) and (3) only'],
     answer: '(1) only',
     explanation:
-      '**Key point:** The observation that both balls reach the ground at nearly the same time supports equal free-fall acceleration, not equal force.\n\n(1) True: this suggests both balls have the same acceleration due to gravity (neglecting air resistance).\n\n(2) False as a deduction here: this statement is Newton’s first law, but it is not directly deduced from this falling-ball result.\n\n(3) False: gravitational force is $W=mg$, so different masses have different weights.\n\n**Conclusion:** only (1) is correct, so option A.',
+      '**Key point:** The observation that both balls reach the ground at nearly the same time supports equal free-fall acceleration, not equal force.\n\n(1) True: this suggests both balls have the same acceleration due to gravity (neglecting air resistance).\n\n(2) False as a deduction here: this statement is Newton鈥檚 first law, but it is not directly deduced from this falling-ball result.\n\n(3) False: gravitational force is $W=mg$, so different masses have different weights.\n\n**Conclusion:** only (1) is correct, so option A.',
     difficulty: 1,
     points: 10,
     hints: [
-      'Focus on what “arrive at almost the same time�?implies about acceleration.',
+      'Focus on what 鈥渁rrive at almost the same time鈥?implies about acceleration.',
       'Distinguish acceleration equality from force equality.',
       'Use $W=mg$ to compare gravitational forces on different masses.',
     ],
@@ -4699,7 +3126,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     difficulty: 2,
     points: 15,
     hints: [
-      'Write Newton’s second law including friction.',
+      'Write Newton鈥檚 second law including friction.',
       'Rearrange to make $a$ the subject.',
       'Identify the slope and intercept from the linear form.',
     ],
@@ -4714,7 +3141,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(3) only', '(1) and (2) only', '(2) and (3) only'],
     answer: '(1) only',
     explanation:
-      '**Key point:** Since $W=mg$, and weight on the moon is about one-sixth, the moon’s gravitational acceleration is about $g/6$.\n\n(1) True: for upward throw with same initial speed $u$, from $0=u^2-2gs$ we get $s=\\frac{u^2}{2g}$, so smaller $g$ gives larger maximum height.\n\n(2) False: for free fall from same height with $u=0$, $s=\\frac{1}{2}gt^2$, so smaller $g$ gives a longer time, not shorter.\n\n(3) False in terms of weight: the astronaut can exert about the same maximum force, so maximum **weight** he can lift is not greater; he can lift a greater **mass** on the moon.\n\n**Conclusion:** only (1) is correct, so option A.',
+      '**Key point:** Since $W=mg$, and weight on the moon is about one-sixth, the moon鈥檚 gravitational acceleration is about $g/6$.\n\n(1) True: for upward throw with same initial speed $u$, from $0=u^2-2gs$ we get $s=\\frac{u^2}{2g}$, so smaller $g$ gives larger maximum height.\n\n(2) False: for free fall from same height with $u=0$, $s=\\frac{1}{2}gt^2$, so smaller $g$ gives a longer time, not shorter.\n\n(3) False in terms of weight: the astronaut can exert about the same maximum force, so maximum **weight** he can lift is not greater; he can lift a greater **mass** on the moon.\n\n**Conclusion:** only (1) is correct, so option A.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -4818,7 +3245,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(2) only', '(3) only', '(1) and (2) only', '(1) and (3) only'],
     answer: '(3) only',
     explanation:
-      '**Key point:** The scale reading is the normal reaction $R$, not the weight $mg$.\n\nWeight:\n$$mg=80\\times10=800\\ \\text{N},$$\nso statement (1) is false.\n\nScale force on John equals reading, so $R=600\\ \\text{N}$, not 200 N. Statement (2) is false.\n\nApply Newton’s second law vertically:\n$$mg-R=ma$$\n$$800-600=80a$$\n$$a=2.5\\ \\text{m s}^{-2}$$\nDirection is downward since $mg>R$.\n\n**Conclusion:** only (3) is correct, so option B.',
+      '**Key point:** The scale reading is the normal reaction $R$, not the weight $mg$.\n\nWeight:\n$$mg=80\\times10=800\\ \\text{N},$$\nso statement (1) is false.\n\nScale force on John equals reading, so $R=600\\ \\text{N}$, not 200 N. Statement (2) is false.\n\nApply Newton鈥檚 second law vertically:\n$$mg-R=ma$$\n$$800-600=80a$$\n$$a=2.5\\ \\text{m s}^{-2}$$\nDirection is downward since $mg>R$.\n\n**Conclusion:** only (3) is correct, so option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -4915,12 +3342,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['$mg$', '$mg\\sin\\theta$', '$mg\\cos\\theta$', 'zero'],
     answer: 'zero',
     explanation:
-      '**Key point:** Uniform velocity means zero acceleration.\n\nBy Newton’s second law,\n$$F_{\\text{net}}=ma.$$ \nSince $a=0$,\n$$F_{\\text{net}}=0.$$\n\n**Conclusion:** option D.',
+      '**Key point:** Uniform velocity means zero acceleration.\n\nBy Newton鈥檚 second law,\n$$F_{\\text{net}}=ma.$$ \nSince $a=0$,\n$$F_{\\text{net}}=0.$$\n\n**Conclusion:** option D.',
     difficulty: 1,
     points: 10,
     hints: [
       'Uniform velocity implies acceleration is zero.',
-      'Apply Newton’s second law directly.',
+      'Apply Newton鈥檚 second law directly.',
       'Net force follows from $F_{\\text{net}}=ma$.',
     ],
     sectionId: 'newton-laws',
@@ -4958,7 +3385,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '/physics/exercises/newton-laws/nl-070-option-a.png',
     explanation:
-      '**Key point:** Gravitational force on the passenger is weight, $W=mg$, which remains constant near Earth’s surface.\n\nAlthough the seat’s velocity and acceleration change during the ride, the gravitational force itself does not depend on those motion changes.\n\nSo the $W$-$t$ graph is a horizontal line.\n\n**Conclusion:** option A.',
+      '**Key point:** Gravitational force on the passenger is weight, $W=mg$, which remains constant near Earth鈥檚 surface.\n\nAlthough the seat鈥檚 velocity and acceleration change during the ride, the gravitational force itself does not depend on those motion changes.\n\nSo the $W$-$t$ graph is a horizontal line.\n\n**Conclusion:** option A.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -5170,7 +3597,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     difficulty: 1,
     points: 10,
     hints: [
-      'Apply Newton’s second law along the horizontal direction.',
+      'Apply Newton鈥檚 second law along the horizontal direction.',
       'Use $F-f=ma$.',
       'Substitute $F=5$, $m=1$, $a=2$.',
     ],
@@ -5233,13 +3660,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: 'The force exerted by the string on $Y$ and the force exerted by $Y$ on the string',
     explanation:
-      '**Key point:** A Newton’s third-law pair must be equal and opposite forces acting on two different bodies in the same interaction (A on B, and B on A).\n\nOption B is exactly this pair between string and block $Y$.\n\nOther options either act on different interactions or do not form opposite forces on the same two bodies.\n\n**Conclusion:** option B.',
+      '**Key point:** A Newton鈥檚 third-law pair must be equal and opposite forces acting on two different bodies in the same interaction (A on B, and B on A).\n\nOption B is exactly this pair between string and block $Y$.\n\nOther options either act on different interactions or do not form opposite forces on the same two bodies.\n\n**Conclusion:** option B.',
     difficulty: 1,
     points: 10,
     hints: [
       'Check whether the two forces act on different bodies.',
       'Third-law pair must come from the same interaction.',
-      'Look for “force of A on B�?matched with “force of B on A�?',
+      'Look for 鈥渇orce of A on B鈥?matched with 鈥渇orce of B on A鈥?',
     ],
     sectionId: 'newton-laws',
     imagePaths: ['/physics/exercises/newton-laws/nl-083-question.png'],
@@ -5370,7 +3797,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: 'Horse: forward; Block: backward',
     explanation:
-      '**Key point:** Friction acts to oppose relative slipping tendency at each contact.\n\nFor the block, it is pulled forward by the horse, so it tends to move forward relative to ground; friction on the block is backward.\n\nFor the horse, it pushes the ground backward with its hooves, so ground exerts forward friction on the horse, enabling forward motion.\n\nWith uniform velocity, these effects balance overall, but directions remain as above.\n\n**Conclusion:** Horse forward, Block backward �?option D.',
+      '**Key point:** Friction acts to oppose relative slipping tendency at each contact.\n\nFor the block, it is pulled forward by the horse, so it tends to move forward relative to ground; friction on the block is backward.\n\nFor the horse, it pushes the ground backward with its hooves, so ground exerts forward friction on the horse, enabling forward motion.\n\nWith uniform velocity, these effects balance overall, but directions remain as above.\n\n**Conclusion:** Horse forward, Block backward 鈫?option D.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -5388,12 +3815,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(2) only', '(1) and (3) only', '(2) and (3) only'],
     answer: '(1) only',
     explanation:
-      '**Key point:** A third-law pair must be “force of A on B�?and “force of B on A�?\n\n(1) Correct: child-on-scale and scale-on-child are equal and opposite on different bodies.\n\n(2) Incorrect: Earth-on-child pairs with child-on-Earth, not with scale-on-child.\n\n(3) Incorrect: both listed forces are Earth-on-objects, so they are not action-reaction to each other.\n\n**Conclusion:** only (1) is a valid action-reaction pair, so option A.',
+      '**Key point:** A third-law pair must be 鈥渇orce of A on B鈥?and 鈥渇orce of B on A鈥?\n\n(1) Correct: child-on-scale and scale-on-child are equal and opposite on different bodies.\n\n(2) Incorrect: Earth-on-child pairs with child-on-Earth, not with scale-on-child.\n\n(3) Incorrect: both listed forces are Earth-on-objects, so they are not action-reaction to each other.\n\n**Conclusion:** only (1) is a valid action-reaction pair, so option A.',
     difficulty: 1,
     points: 10,
     hints: [
-      'Match each force with its exact “other-body on first-body�?partner.',
-      'If both forces are “Earth on ...�? they cannot be a third-law pair.',
+      'Match each force with its exact 鈥渙ther-body on first-body鈥?partner.',
+      'If both forces are 鈥淓arth on ...鈥? they cannot be a third-law pair.',
       'Check whether the pair acts on two different bodies in opposite directions.',
     ],
     sectionId: 'newton-laws',
@@ -5431,7 +3858,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(3) only', '(1) and (2) only', '(2) and (3) only'],
     answer: '(1) and (2) only',
     explanation:
-      '**Key point:** The bob inclines opposite to train acceleration direction. Since it inclines to the east, train acceleration is to the west.\n\n(1) Moving east and decelerating means acceleration westward �?possible.\n\n(2) Moving west and accelerating means acceleration westward �?possible.\n\n(3) Starting to move east from rest means acceleration eastward �?not possible.\n\n**Conclusion:** (1) and (2) only, so option C.',
+      '**Key point:** The bob inclines opposite to train acceleration direction. Since it inclines to the east, train acceleration is to the west.\n\n(1) Moving east and decelerating means acceleration westward 鈫?possible.\n\n(2) Moving west and accelerating means acceleration westward 鈫?possible.\n\n(3) Starting to move east from rest means acceleration eastward 鈫?not possible.\n\n**Conclusion:** (1) and (2) only, so option C.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -5493,7 +3920,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['3 N', '6 N', '7 N', '14 N'],
     answer: '7 N',
     explanation:
-      '**Key point:** The two blocks have equal mass and common acceleration, so write Newton’s second law for each.\n\nLet acceleration be $a$ and tension be $T$.\nFor $A$:\n$$10-T=ma.$$ \nFor $B$:\n$$T-4=ma.$$ \nEquate right-hand sides:\n$$10-T=T-4\\Rightarrow 2T=14\\Rightarrow T=7\\ \\text{N}.$$\n\n**Conclusion:** option C.',
+      '**Key point:** The two blocks have equal mass and common acceleration, so write Newton鈥檚 second law for each.\n\nLet acceleration be $a$ and tension be $T$.\nFor $A$:\n$$10-T=ma.$$ \nFor $B$:\n$$T-4=ma.$$ \nEquate right-hand sides:\n$$10-T=T-4\\Rightarrow 2T=14\\Rightarrow T=7\\ \\text{N}.$$\n\n**Conclusion:** option C.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -5695,7 +4122,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(3) only', '(1) and (2) only', '(2) and (3) only'],
     answer: '(3) only',
     explanation:
-      '**Key point:** “Feeling heavier�?means the normal reaction from the floor increases, not weight.\n\n(1) False: gravitational force on the man ($mg$) is unchanged.\n\n(2) False: gravitational force on the lift (its weight) is unchanged.\n\n(3) True: when the lift accelerates upward, for the man\n$$R-mg=ma,$$\nso $R>mg$. The increased normal reaction makes him feel heavier.\n\n**Conclusion:** only (3) is correct, so option B.',
+      '**Key point:** 鈥淔eeling heavier鈥?means the normal reaction from the floor increases, not weight.\n\n(1) False: gravitational force on the man ($mg$) is unchanged.\n\n(2) False: gravitational force on the lift (its weight) is unchanged.\n\n(3) True: when the lift accelerates upward, for the man\n$$R-mg=ma,$$\nso $R>mg$. The increased normal reaction makes him feel heavier.\n\n**Conclusion:** only (3) is correct, so option B.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -5737,7 +4164,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '$2\\ \\text{m s}^{-2}$',
     explanation:
-      '**Key point:** For the man, net downward force is $mg-R$.\n\nApply Newton’s second law:\n$$mg-R=ma.$$ \nSubstitute:\n$$(50\\times10)-400=50a$$\n$$100=50a\\Rightarrow a=2\\ \\text{m s}^{-2}.$$ \n\n**Conclusion:** option A.',
+      '**Key point:** For the man, net downward force is $mg-R$.\n\nApply Newton鈥檚 second law:\n$$mg-R=ma.$$ \nSubstitute:\n$$(50\\times10)-400=50a$$\n$$100=50a\\Rightarrow a=2\\ \\text{m s}^{-2}.$$ \n\n**Conclusion:** option A.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -5799,7 +4226,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(2) only', '(3) only', '(1) and (2) only', '(1) and (3) only'],
     answer: '(1) and (3) only',
     explanation:
-      '**Key point:** At rest implies zero net force, and third-law pairs act on different bodies.\n\n(1) True: the ceiling’s force on the ant is upward, supporting the ant (and transmitted load).\n\n(2) False: both listed forces act on the block, so they are not an action-reaction pair.\n\n(3) True: since the ant is at rest, resultant force on it is zero.\n\n**Conclusion:** (1) and (3) only, so option D.',
+      '**Key point:** At rest implies zero net force, and third-law pairs act on different bodies.\n\n(1) True: the ceiling鈥檚 force on the ant is upward, supporting the ant (and transmitted load).\n\n(2) False: both listed forces act on the block, so they are not an action-reaction pair.\n\n(3) True: since the ant is at rest, resultant force on it is zero.\n\n**Conclusion:** (1) and (3) only, so option D.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -5845,7 +4272,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '/physics/exercises/newton-laws/nl-113-option-a.png',
     explanation:
-      '**Key point:** Applying Newton’s second law on a rough surface gives\n$$F-f=ma\\Rightarrow a=\\frac{1}{m}F-\\frac{f}{m}.$$ \nThis is a straight-line relation of $a$ versus $F$ with positive slope $\\frac{1}{m}$ and negative $a$-intercept $-\\frac{f}{m}$.\n\nSo the correct graph is the one matching that linear form.\n\n**Conclusion:** option A.',
+      '**Key point:** Applying Newton鈥檚 second law on a rough surface gives\n$$F-f=ma\\Rightarrow a=\\frac{1}{m}F-\\frac{f}{m}.$$ \nThis is a straight-line relation of $a$ versus $F$ with positive slope $\\frac{1}{m}$ and negative $a$-intercept $-\\frac{f}{m}$.\n\nSo the correct graph is the one matching that linear form.\n\n**Conclusion:** option A.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -5863,7 +4290,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['$mg$', '$m(g-a)$', '$m(g+a)$', '$m(g+a)-Ma$'],
     answer: '$m(g+a)$',
     explanation:
-      '**Key point:** Apply Newton’s second law to the passenger (not the whole lift system).\n\nFor the passenger accelerating upward with acceleration $a$:\n$$R-mg=ma.$$ \nHence\n$$R=mg+ma=m(g+a).$$\n\n**Conclusion:** option C.',
+      '**Key point:** Apply Newton鈥檚 second law to the passenger (not the whole lift system).\n\nFor the passenger accelerating upward with acceleration $a$:\n$$R-mg=ma.$$ \nHence\n$$R=mg+ma=m(g+a).$$\n\n**Conclusion:** option C.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -5887,7 +4314,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: [
       'Think about tension in strings during free fall.',
       'If string is slack, tension is zero.',
-      'Net force then equals the body’s weight.',
+      'Net force then equals the body鈥檚 weight.',
     ],
     sectionId: 'newton-laws',
     imagePaths: ['/physics/exercises/newton-laws/nl-115-question.png'],
@@ -5900,7 +4327,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['12 N', '15 N', '18 N', '25 N'],
     answer: '12 N',
     explanation:
-      '**Key point:** Write Newton’s second-law equations for both masses along their motion directions.\n\nFor 4 kg on incline:\n$$(4\\times10\\sin30^{\\circ})-T=4a.$$ \nFor 1 kg hanging mass:\n$$T-10=1a.$$ \nSolving simultaneously gives\n$$a=2\\ \\text{m s}^{-2},\\quad T=12\\ \\text{N}.$$\n\n**Conclusion:** option A.',
+      '**Key point:** Write Newton鈥檚 second-law equations for both masses along their motion directions.\n\nFor 4 kg on incline:\n$$(4\\times10\\sin30^{\\circ})-T=4a.$$ \nFor 1 kg hanging mass:\n$$T-10=1a.$$ \nSolving simultaneously gives\n$$a=2\\ \\text{m s}^{-2},\\quad T=12\\ \\text{N}.$$\n\n**Conclusion:** option A.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -5961,7 +4388,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['$mg-ma$', '$mg-ma\\sin\\theta$', '$mg\\sin\\theta-ma$', '$(mg-ma)\\sin\\theta$'],
     answer: '$mg\\sin\\theta-ma$',
     explanation:
-      '**Key point:** Along the slope, component of weight down the plane is $mg\\sin\\theta$ and friction acts up the plane.\n\nApply Newton’s second law along the plane:\n$$mg\\sin\\theta-f=ma.$$ \nSo\n$$f=mg\\sin\\theta-ma.$$ \n\n**Conclusion:** option C.',
+      '**Key point:** Along the slope, component of weight down the plane is $mg\\sin\\theta$ and friction acts up the plane.\n\nApply Newton鈥檚 second law along the plane:\n$$mg\\sin\\theta-f=ma.$$ \nSo\n$$f=mg\\sin\\theta-ma.$$ \n\n**Conclusion:** option C.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -6026,7 +4453,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '/physics/exercises/newton-laws/nl-122-option-a.png',
     explanation:
-      '**Key point:** For a swinging bob in air (neglecting air resistance), only two real forces act:\n- tension along the string toward the pivot,\n- weight vertically downward.\n\nNo separate “centripetal force�?should be added as an extra force; centripetal effect comes from the resultant of real forces.\n\n**Conclusion:** option A.',
+      '**Key point:** For a swinging bob in air (neglecting air resistance), only two real forces act:\n- tension along the string toward the pivot,\n- weight vertically downward.\n\nNo separate 鈥渃entripetal force鈥?should be added as an extra force; centripetal effect comes from the resultant of real forces.\n\n**Conclusion:** option A.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -6130,7 +4557,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '$\\frac{2P+Q}{3}$',
     explanation:
-      '**Key point:** First find system acceleration, then apply Newton’s second law to block $B$.\n\nFor the two-block system (masses $2m$ and $m$):\n$$P-Q=(2m+m)a\\Rightarrow a=\\frac{P-Q}{3m}.$$ \nLet contact force on $B$ by $A$ be $R$.\nFor block $B$:\n$$P-R=ma.$$ \nSo\n$$R=P-m\\left(\\frac{P-Q}{3m}\\right)=\\frac{2P+Q}{3}.$$ \n\n**Conclusion:** option D.',
+      '**Key point:** First find system acceleration, then apply Newton鈥檚 second law to block $B$.\n\nFor the two-block system (masses $2m$ and $m$):\n$$P-Q=(2m+m)a\\Rightarrow a=\\frac{P-Q}{3m}.$$ \nLet contact force on $B$ by $A$ be $R$.\nFor block $B$:\n$$P-R=ma.$$ \nSo\n$$R=P-m\\left(\\frac{P-Q}{3m}\\right)=\\frac{2P+Q}{3}.$$ \n\n**Conclusion:** option D.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -6158,7 +4585,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     difficulty: 1,
     points: 10,
     hints: [
-      'Use the maximum tension in Newton’s second law.',
+      'Use the maximum tension in Newton鈥檚 second law.',
       'Take upward as positive.',
       'Round to one decimal place.',
     ],
@@ -6257,7 +4684,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '$g\\tan\\theta$ to the right',
     explanation:
-      '**Key point:** For a suspended bob in a horizontally accelerating vehicle, component relation gives\n$$\\tan\\theta=\\frac{a}{g}\\Rightarrow a=g\\tan\\theta.$$ \nDirection is opposite to the bob’s tilt; from the shown setup this is to the right.\n\n**Conclusion:** option D.',
+      '**Key point:** For a suspended bob in a horizontally accelerating vehicle, component relation gives\n$$\\tan\\theta=\\frac{a}{g}\\Rightarrow a=g\\tan\\theta.$$ \nDirection is opposite to the bob鈥檚 tilt; from the shown setup this is to the right.\n\n**Conclusion:** option D.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -6319,12 +4746,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['192 m', '144 m', '128 m', '96 m'],
     answer: '128 m',
     explanation:
-      '**Key point:** Convert scale readings to lift acceleration in each phase, then use $v$-$t$ area.\n\nFrom graph: 0�? s gives upward $a=1$, 8�?6 s gives $a=0$, 16�?4 s gives downward $a=1$ (decelerating upward).\nSo peak speed after 8 s is\n$$v=0+1\\times8=8\\ \\text{m s}^{-1}.$$ \nDistance ascended equals area under $v$-$t$ graph:\n$$s=\\frac{1}{2}(8+24)\\times8=128\\ \\text{m}.$$ \n\n**Conclusion:** option C.',
+      '**Key point:** Convert scale readings to lift acceleration in each phase, then use $v$-$t$ area.\n\nFrom graph: 0鈥? s gives upward $a=1$, 8鈥?6 s gives $a=0$, 16鈥?4 s gives downward $a=1$ (decelerating upward).\nSo peak speed after 8 s is\n$$v=0+1\\times8=8\\ \\text{m s}^{-1}.$$ \nDistance ascended equals area under $v$-$t$ graph:\n$$s=\\frac{1}{2}(8+24)\\times8=128\\ \\text{m}.$$ \n\n**Conclusion:** option C.',
     difficulty: 2,
     points: 15,
     hints: [
       'Use $R-mg=ma$ or $mg-R=ma$ by phase.',
-      'Build the velocity-time profile across 0�?4 s.',
+      'Build the velocity-time profile across 0鈥?4 s.',
       'Distance is area under $v$-$t$ graph.',
     ],
     sectionId: 'newton-laws',
@@ -6357,7 +4784,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) and (2) only', '(1) and (3) only', '(2) and (3) only', '(1), (2) and (3)'],
     answer: '(1) and (2) only',
     explanation:
-      '**Key point:** Tension rises with extension.\n\nFrom $P$ to $Q$, tension is still less than weight, so net force is downward and speed keeps increasing �?(1) true.\nAt $Q$, $T=mg$, so acceleration is zero at that instant; after $Q$, $T>mg$ gives upward acceleration, so speed starts decreasing. Hence speed is maximum at $Q$ �?(2) true.\nAt $R$, velocity is momentarily zero but cord is highly stretched so $T>mg$; net force is not zero �?(3) false.\n\n**Conclusion:** (1) and (2) only, so option A.',
+      '**Key point:** Tension rises with extension.\n\nFrom $P$ to $Q$, tension is still less than weight, so net force is downward and speed keeps increasing 鈫?(1) true.\nAt $Q$, $T=mg$, so acceleration is zero at that instant; after $Q$, $T>mg$ gives upward acceleration, so speed starts decreasing. Hence speed is maximum at $Q$ 鈫?(2) true.\nAt $R$, velocity is momentarily zero but cord is highly stretched so $T>mg$; net force is not zero 鈫?(3) false.\n\n**Conclusion:** (1) and (2) only, so option A.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -6732,7 +5159,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
       'Moment of given mass about $F$ is $2\\times2=4$. For equilibrium, opposite moment must also be 4. (1) $4\\times1=4$, (2) $2\\times2=4$, (3) $1\\times4=4$. All work.',
     difficulty: 1,
     points: 10,
-    hints: ['Use moment = force × perpendicular distance.', 'Compute the reference moment first.', 'Check each option against the same moment value.'],
+    hints: ['Use moment = force 脳 perpendicular distance.', 'Compute the reference moment first.', 'Check each option against the same moment value.'],
     sectionId: 'moment-force',
     imagePaths: ['/physics/exercises/moment-force/mf-001-question.png'],
   },
@@ -6762,7 +5189,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
       'Given couple at $Q$ and $S$ has moment $1\\times2=2$ (clockwise). To balance, need anticlockwise couple of 2. With applied force 2 N, required distance is $d=2/2=1$ spacing, which is at point $S$.',
     difficulty: 2,
     points: 15,
-    hints: ['Identify the existing couple first.', 'For a couple, moment = one force × separation.', 'Find where 2 N gives equal opposite moment.'],
+    hints: ['Identify the existing couple first.', 'For a couple, moment = one force 脳 separation.', 'Find where 2 N gives equal opposite moment.'],
     sectionId: 'moment-force',
     imagePaths: ['/physics/exercises/moment-force/mf-003-question.png'],
   },
@@ -6782,7 +5209,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
       'Given couple moment is $2\\times(2\\times10)=40\\,\\mathrm{N\\,cm}$. Required balancing couple must be equal and opposite. With 4 N forces, needed separation is $d=40/4=10\\,\\mathrm{cm}$ and clockwise direction, which matches option D.',
     difficulty: 2,
     points: 15,
-    hints: ['For equilibrium, net force and net moment must be zero.', 'Couple moment = one force × separation.', 'Balancing couple has opposite rotational sense.'],
+    hints: ['For equilibrium, net force and net moment must be zero.', 'Couple moment = one force 脳 separation.', 'Balancing couple has opposite rotational sense.'],
     sectionId: 'moment-force',
     imagePaths: ['/physics/exercises/moment-force/mf-004-question.png'],
   },
@@ -6951,7 +5378,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
       'Rod CG position is fixed, so rod-weight moment about $A$ is unchanged. Moving $W$ farther from $A$ increases its moment. To maintain equilibrium, wire tension must increase.',
     difficulty: 2,
     points: 15,
-    hints: ['Uniform rod CG does not move.', 'Moment is force × perpendicular distance from pivot.', 'Increased clockwise load moment requires increased balancing tension moment.'],
+    hints: ['Uniform rod CG does not move.', 'Moment is force 脳 perpendicular distance from pivot.', 'Increased clockwise load moment requires increased balancing tension moment.'],
     sectionId: 'moment-force',
     imagePaths: ['/physics/exercises/moment-force/mf-015-question.png'],
   },
@@ -7038,7 +5465,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
       'Take moments about $Y$: $R_X\\times0.7=154\\times0.5$, so $R_X=110\\,\\mathrm{N}$.',
     difficulty: 1,
     points: 10,
-    hints: ['Choose pivot at $Y$.', 'Use moment = force × distance.', 'Solve directly for $R_X$.'],
+    hints: ['Choose pivot at $Y$.', 'Use moment = force 脳 distance.', 'Solve directly for $R_X$.'],
     sectionId: 'moment-force',
     imagePaths: ['/physics/exercises/moment-force/mf-020-question.png'],
   },
@@ -7218,7 +5645,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
       'Work done against gravity is $Wh=500\\times15=7500\\,\\mathrm{J}$. Average power $P=\\frac{W}{t}=\\frac{7500}{20}=375\\,\\mathrm{W}$.',
     difficulty: 1,
     points: 10,
-    hints: ['Work done = weight × vertical height.', 'Then divide by time.', 'Average power = work/time.'],
+    hints: ['Work done = weight 脳 vertical height.', 'Then divide by time.', 'Average power = work/time.'],
     sectionId: 'work-energy-power',
   },
   {
@@ -7482,7 +5909,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
       'Constant velocity means pulling force balances friction, so friction is 5 N. Distance in 4 s is $vt=10\\times4=40\\,\\mathrm{m}$. Work done against friction is $Fs=5\\times40=200\\,\\mathrm{J}$.',
     difficulty: 1,
     points: 10,
-    hints: ['At constant velocity, net force is zero.', 'Distance = speed × time.', 'Work = force × distance.'],
+    hints: ['At constant velocity, net force is zero.', 'Distance = speed 脳 time.', 'Work = force 脳 distance.'],
     sectionId: 'work-energy-power',
   },
   {
@@ -7555,7 +5982,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
       'Area under a force-displacement graph is $F\\times s$, which represents work done.',
     difficulty: 1,
     points: 10,
-    hints: ['Interpret the graph as force against displacement.', 'Area = force × distance.', 'That quantity is work.'],
+    hints: ['Interpret the graph as force against displacement.', 'Area = force 脳 distance.', 'That quantity is work.'],
     sectionId: 'work-energy-power',
     imagePaths: ['/physics/exercises/work-energy-power/wep-030-question.png'],
   },
@@ -7668,7 +6095,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
       'Work done is $Fs=(1200)(1.5)=1800\\,\\mathrm{J}$. Average power is $P=1800/2=900\\,\\mathrm{W}$.',
     difficulty: 1,
     points: 10,
-    hints: ['Work done = force × distance.', 'Then divide by time.', 'This is average power, not instantaneous power.'],
+    hints: ['Work done = force 脳 distance.', 'Then divide by time.', 'This is average power, not instantaneous power.'],
     sectionId: 'work-energy-power',
   },
   {
@@ -7725,7 +6152,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
       '(1) True: height increases, so PE increases. (2) True: tension 24 N is greater than weight $mg\\approx19.6\\,\\mathrm{N}$, so the block accelerates upward and KE increases. (3) False: average power is $P=\\frac{Fs}{t}=\\frac{24\\times4}{2}=48\\,\\mathrm{W}$.',
     difficulty: 2,
     points: 15,
-    hints: ['Compare tension with weight.', 'If net force is upward, speed increases.', 'Average power from force × distance / time.'],
+    hints: ['Compare tension with weight.', 'If net force is upward, speed increases.', 'Average power from force 脳 distance / time.'],
     sectionId: 'work-energy-power',
     imagePaths: ['/physics/exercises/work-energy-power/wep-041-question.png'],
   },
@@ -7956,7 +6383,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
       '(1) $s=vt=(15)(8)=120\\,\\mathrm{m}$. (2) Work done is $Fs=(500)(120)=60000\\,\\mathrm{J}=60\\,\\mathrm{kJ}$. (3) Power is $Fv=(500)(15)=7500\\,\\mathrm{W}=7.5\\,\\mathrm{kW}$. All three are correct.',
     difficulty: 1,
     points: 10,
-    hints: ['Use constant-speed formulas directly.', 'Distance is speed × time.', 'Power can be found from $Fv$.'],
+    hints: ['Use constant-speed formulas directly.', 'Distance is speed 脳 time.', 'Power can be found from $Fv$.'],
     sectionId: 'work-energy-power',
   },
   {
@@ -8094,7 +6521,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     id: 'wep-064',
     type: 'multiple_choice',
     question:
-      'An object is released from rest at the top of a building of height $h$. At time $t_1$, the object is at half the height of the building. At time $t_2$, the object just reaches the ground. Which of the following is/are correct? (Neglect air resistance.)\n\n(1) Velocity at $t_2$ = 2 × velocity at $t_1$\n(2) $t_2=2\\times t_1$\n(3) K.E. at $t_2$ = 2 × K.E. at $t_1$',
+      'An object is released from rest at the top of a building of height $h$. At time $t_1$, the object is at half the height of the building. At time $t_2$, the object just reaches the ground. Which of the following is/are correct? (Neglect air resistance.)\n\n(1) Velocity at $t_2$ = 2 脳 velocity at $t_1$\n(2) $t_2=2\\times t_1$\n(3) K.E. at $t_2$ = 2 脳 K.E. at $t_1$',
     options: ['(2) only', '(3) only', '(1) & (2) only', '(1) & (3) only'],
     answer: '(3) only',
     explanation:
@@ -8689,10 +7116,10 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(1) & (3) only',
     explanation:
-      'Momentum has unit mass × velocity, so $\\mathrm{kg\\ m\\ s^{-1}}$. Also, since $1\\,\\mathrm{N}=1\\,\\mathrm{kg\\ m\\ s^{-2}}$, multiplying by seconds gives $\\mathrm{N\\ s}=\\mathrm{kg\\ m\\ s^{-1}}$. But $\\mathrm{kg\\ m\\ s^{-2}}$ alone is the unit of force.',
+      'Momentum has unit mass 脳 velocity, so $\\mathrm{kg\\ m\\ s^{-1}}$. Also, since $1\\,\\mathrm{N}=1\\,\\mathrm{kg\\ m\\ s^{-2}}$, multiplying by seconds gives $\\mathrm{N\\ s}=\\mathrm{kg\\ m\\ s^{-1}}$. But $\\mathrm{kg\\ m\\ s^{-2}}$ alone is the unit of force.',
     difficulty: 1,
     points: 10,
-    hints: ['Start from momentum = mass × velocity.', 'Relate newton to SI base units.', 'Distinguish force from momentum.'],
+    hints: ['Start from momentum = mass 脳 velocity.', 'Relate newton to SI base units.', 'Distinguish force from momentum.'],
     sectionId: 'momentum',
   },
   {
@@ -8882,7 +7309,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(1) only',
     explanation:
-      'Work and potential energy are both measured in joules. Power has unit watt while momentum has unit newton-second (or kg m s^-1). Specific heat capacity has unit J kg^-1 K^-1 (or °C^-1), while specific latent heat has unit J kg^-1.',
+      'Work and potential energy are both measured in joules. Power has unit watt while momentum has unit newton-second (or kg m s^-1). Specific heat capacity has unit J kg^-1 K^-1 (or 掳C^-1), while specific latent heat has unit J kg^-1.',
     difficulty: 1,
     points: 10,
     hints: ['Compare SI units directly.', 'Joule is the unit for both work and energy.', 'Watch for the extra temperature term in specific heat capacity.'],
@@ -9056,11 +7483,11 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     id: 'mom-036',
     type: 'multiple_choice',
     question:
-      'A wooden block of mass $M$ hangs from a light string. A bullet of mass $m$ travelling at speed $v$ hits the block and becomes embedded in it. The block then swings upward. Which of the following are employed in determining the maximum height reached by the block?\n\n(1) Newton\\'s first law\n(2) Law of conservation of energy\n(3) Law of conservation of momentum',
+      'A wooden block of mass $M$ hangs from a light string. A bullet of mass $m$ travelling at speed $v$ hits the block and becomes embedded in it. The block then swings upward. Which of the following are employed in determining the maximum height reached by the block?\n\n(1) Newton\'s first law\n(2) Law of conservation of energy\n(3) Law of conservation of momentum',
     options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
     answer: '(2) & (3) only',
     explanation:
-      'The collision itself is analyzed using conservation of momentum to find the speed just after impact. The upward swing after impact is then analyzed using conservation of mechanical energy to find the maximum height. Newton\\'s first law is not needed in the calculation.',
+      'The collision itself is analyzed using conservation of momentum to find the speed just after impact. The upward swing after impact is then analyzed using conservation of mechanical energy to find the maximum height. Newton\'s first law is not needed in the calculation.',
     difficulty: 2,
     points: 15,
     hints: ['Separate the process into collision and swing.', 'Use momentum during the inelastic collision.', 'Use energy during the upward swing.'],
@@ -9302,7 +7729,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(3) only',
     explanation:
-      '(1) False: the competitor receives an external force from the ground (friction), so momentum need not be conserved for the competitor alone. (2) False: momentum conservation applies to any isolated system, not just collisions. (3) True: the ground exerts a force that increases the runner\\'s momentum.',
+      '(1) False: the competitor receives an external force from the ground (friction), so momentum need not be conserved for the competitor alone. (2) False: momentum conservation applies to any isolated system, not just collisions. (3) True: the ground exerts a force that increases the runner\'s momentum.',
     difficulty: 2,
     points: 15,
     hints: ['Momentum conservation needs no external net force.', 'Ground friction provides the external force on the runner.', 'The law applies beyond just collisions.'],
@@ -9382,7 +7809,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: 'The initial momentum has been transferred to the earth.',
     explanation:
-      'During the collision, the trolley interacts with the Earth through the spring-wall system. Considering the trolley-Earth system, momentum is conserved. The trolley\\'s momentum is transferred to the Earth (which has an imperceptibly small speed change because of its huge mass).',
+      'During the collision, the trolley interacts with the Earth through the spring-wall system. Considering the trolley-Earth system, momentum is conserved. The trolley\'s momentum is transferred to the Earth (which has an imperceptibly small speed change because of its huge mass).',
     difficulty: 2,
     points: 15,
     hints: ['Momentum is not stored like energy.', 'Consider the Earth as part of the interacting system.', 'Smooth ground means friction is not the cause.'],
@@ -9585,7 +8012,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(1) only',
     explanation:
-      '(1) True: by momentum conservation, the decrease in momentum of $A$ equals the increase in momentum of $B$. (2) False: because they stick together, the collision is inelastic and some kinetic energy becomes internal energy, so $A$\\'s KE loss is not simply equal to $B$\\'s KE gain. (3) False: from $m_Au=(m_A+m_B)v$, $v$ depends on both masses and is not necessarily $u/2$.',
+      '(1) True: by momentum conservation, the decrease in momentum of $A$ equals the increase in momentum of $B$. (2) False: because they stick together, the collision is inelastic and some kinetic energy becomes internal energy, so $A$\'s KE loss is not simply equal to $B$\'s KE gain. (3) False: from $m_Au=(m_A+m_B)v$, $v$ depends on both masses and is not necessarily $u/2$.',
     difficulty: 2,
     points: 15,
     hints: ['Momentum conservation always applies to the two-ball system.', 'Sticking together means inelastic collision.', 'Final speed depends on both masses.'],
@@ -9619,7 +8046,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
     answer: '(1) & (3) only',
     explanation:
-      '(1) True: from the graph, momentum changes from $(0.2)(4)$ downward to $(0.2)(2)$ upward, so magnitude of change is $1.2\\,\\mathrm{kg\\ m\\ s^{-1}}$. (2) False: the net average force is $1.2/0.1=12\\,\\mathrm{N}$, but the ground force must also overcome the ball\\'s weight, so the force by the ground is about $14\\,\\mathrm{N}$. (3) True: rebound speed is smaller than impact speed, so some mechanical energy is lost.',
+      '(1) True: from the graph, momentum changes from $(0.2)(4)$ downward to $(0.2)(2)$ upward, so magnitude of change is $1.2\\,\\mathrm{kg\\ m\\ s^{-1}}$. (2) False: the net average force is $1.2/0.1=12\\,\\mathrm{N}$, but the ground force must also overcome the ball\'s weight, so the force by the ground is about $14\\,\\mathrm{N}$. (3) True: rebound speed is smaller than impact speed, so some mechanical energy is lost.',
     difficulty: 2,
     points: 15,
     hints: ['Use the graph values for speeds before and after collision.', 'Distinguish net force from ground reaction.', 'Smaller rebound speed means less KE after collision.'],
@@ -9716,7 +8143,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(1) only',
     explanation:
-      '(1) True by Newton third law. (2) False: total momentum is conserved for any collision on a smooth surface with no external net force, not only perfectly elastic ones. (3) False: if the collision is not perfectly elastic, some kinetic energy is transformed into other forms, so $P$\\'s KE loss need not equal $Q$\\'s KE gain.',
+      '(1) True by Newton third law. (2) False: total momentum is conserved for any collision on a smooth surface with no external net force, not only perfectly elastic ones. (3) False: if the collision is not perfectly elastic, some kinetic energy is transformed into other forms, so $P$\'s KE loss need not equal $Q$\'s KE gain.',
     difficulty: 2,
     points: 15,
     hints: ['Newton third law always holds during the collision.', 'Momentum conservation does not require elasticity.', 'Only perfectly elastic collisions conserve total KE.'],
@@ -9809,7 +8236,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(2) & (3) only',
     explanation:
-      'To hit the monkey, the gun must be aimed directly at the monkey initially, so the launch angle satisfies $\\tan\\theta=h/d$. Both bullet and monkey then fall with the same gravitational acceleration, so the required angle does not depend on the bullet\\'s initial speed $u$. It depends only on $h$ and $d$.',
+      'To hit the monkey, the gun must be aimed directly at the monkey initially, so the launch angle satisfies $\\tan\\theta=h/d$. Both bullet and monkey then fall with the same gravitational acceleration, so the required angle does not depend on the bullet\'s initial speed $u$. It depends only on $h$ and $d$.',
     difficulty: 2,
     points: 15,
     hints: ['This is the classic monkey-and-hunter setup.', 'Both bullet and monkey fall with the same vertical acceleration.', 'The aim direction is set by the initial line of sight.'],
@@ -9837,12 +8264,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question:
       'A bomber is flying horizontally to the right with constant velocity. It releases three bombs one by one at a constant time interval. If air resistance is neglected, which of the following diagrams best shows the positions of the bomber and the bombs at a certain time instant?',
     options: [
-      { id: 'option-a', image: '/physics/exercises/projectile-motion/pjm-007-option-a.png' },
-      { id: 'option-b', image: '/physics/exercises/projectile-motion/pjm-007-option-b.png' },
-      { id: 'option-c', image: '/physics/exercises/projectile-motion/pjm-007-option-c.png' },
-      { id: 'option-d', image: '/physics/exercises/projectile-motion/pjm-007-option-d.png' },
+      '/physics/exercises/projectile-motion/pjm-007-option-a.png',
+      '/physics/exercises/projectile-motion/pjm-007-option-b.png',
+      '/physics/exercises/projectile-motion/pjm-007-option-c.png',
+      '/physics/exercises/projectile-motion/pjm-007-option-d.png',
     ],
-    answer: 'option-d',
+    answer: '/physics/exercises/projectile-motion/pjm-007-option-d.png',
     explanation:
       'The bomber and bombs all have the same horizontal velocity, so they stay vertically aligned at any instant. The bombs released earlier have fallen farther, so the correct arrangement is a vertical line below the bomber.',
     difficulty: 2,
@@ -10186,12 +8613,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question:
       'A particle is projected into the air at time $t=0$ and it performs a parabolic motion before landing on the ground as shown. Which graph represents the variation of the kinetic energy (KE) of the particle with time before landing? Neglect air resistance.',
     options: [
-      { id: 'option-a', image: '/physics/exercises/projectile-motion/pjm-030-option-a.png' },
-      { id: 'option-b', image: '/physics/exercises/projectile-motion/pjm-030-option-b.png' },
-      { id: 'option-c', image: '/physics/exercises/projectile-motion/pjm-030-option-c.png' },
-      { id: 'option-d', image: '/physics/exercises/projectile-motion/pjm-030-option-d.png' },
+      '/physics/exercises/projectile-motion/pjm-030-option-a.png',
+      '/physics/exercises/projectile-motion/pjm-030-option-b.png',
+      '/physics/exercises/projectile-motion/pjm-030-option-c.png',
+      '/physics/exercises/projectile-motion/pjm-030-option-d.png',
     ],
-    answer: 'option-d',
+    answer: '/physics/exercises/projectile-motion/pjm-030-option-d.png',
     explanation:
       'The vertical velocity varies linearly with time, so the vertical kinetic energy varies quadratically with time. The horizontal kinetic energy stays constant. Therefore the total kinetic energy is a quadratic curve with a non-zero minimum at the highest point.',
     difficulty: 3,
@@ -10284,12 +8711,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question:
       'The diagram represents the front view of a vehicle moving on a level road at a constant speed around a bend of which the centre of curvature is at $P$. Which of the arrows below best represents the direction of the resultant force exerted by the road on the car?',
     options: [
-      { id: 'option-a', image: '/physics/exercises/circular-motion/cm-003-option-a.png' },
-      { id: 'option-b', image: '/physics/exercises/circular-motion/cm-003-option-b.png' },
-      { id: 'option-c', image: '/physics/exercises/circular-motion/cm-003-option-c.png' },
-      { id: 'option-d', image: '/physics/exercises/circular-motion/cm-003-option-d.png' },
+      '/physics/exercises/circular-motion/cm-003-option-a.png',
+      '/physics/exercises/circular-motion/cm-003-option-b.png',
+      '/physics/exercises/circular-motion/cm-003-option-c.png',
+      '/physics/exercises/circular-motion/cm-003-option-d.png',
     ],
-    answer: 'option-d',
+    answer: '/physics/exercises/circular-motion/cm-003-option-d.png',
     explanation:
       'The road exerts an upward normal reaction and a horizontal frictional force toward the centre of the turn. Their resultant therefore points upward and inward toward $P$.',
     difficulty: 2,
@@ -10591,12 +9018,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question:
       'A particle is attached to an inextensible string and is set into circular motion in a horizontal plane. Which of the following diagrams correctly shows the direction of the resultant force $F$ acting on the particle ?',
     options: [
-      { id: 'option-a', image: '/physics/exercises/circular-motion/cm-023-option-a.png' },
-      { id: 'option-b', image: '/physics/exercises/circular-motion/cm-023-option-b.png' },
-      { id: 'option-c', image: '/physics/exercises/circular-motion/cm-023-option-c.png' },
-      { id: 'option-d', image: '/physics/exercises/circular-motion/cm-023-option-d.png' },
+      '/physics/exercises/circular-motion/cm-023-option-a.png',
+      '/physics/exercises/circular-motion/cm-023-option-b.png',
+      '/physics/exercises/circular-motion/cm-023-option-c.png',
+      '/physics/exercises/circular-motion/cm-023-option-d.png',
     ],
-    answer: 'option-c',
+    answer: '/physics/exercises/circular-motion/cm-023-option-c.png',
     explanation:
       'The resultant force is the centripetal force, and it must always point toward the centre of the circular path.',
     difficulty: 1,
@@ -10629,12 +9056,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question:
       'A record on a turntable is rotating at a constant period. Which graph shows correctly the relation between the acceleration $a$ of particles fixed on the surface of the record and their distance $r$ from the centre of rotation ?',
     options: [
-      { id: 'option-a', image: '/physics/exercises/circular-motion/cm-025-option-a.png' },
-      { id: 'option-b', image: '/physics/exercises/circular-motion/cm-025-option-b.png' },
-      { id: 'option-c', image: '/physics/exercises/circular-motion/cm-025-option-c.png' },
-      { id: 'option-d', image: '/physics/exercises/circular-motion/cm-025-option-d.png' },
+      '/physics/exercises/circular-motion/cm-025-option-a.png',
+      '/physics/exercises/circular-motion/cm-025-option-b.png',
+      '/physics/exercises/circular-motion/cm-025-option-c.png',
+      '/physics/exercises/circular-motion/cm-025-option-d.png',
     ],
-    answer: 'option-b',
+    answer: '/physics/exercises/circular-motion/cm-025-option-b.png',
     explanation:
       'With constant period, the angular speed $\\omega=\\frac{2\\pi}{T}$ is constant. Since centripetal acceleration is $a=r\\omega^2$, it is directly proportional to $r$, so the graph is a straight line through the origin.',
     difficulty: 2,
@@ -10648,12 +9075,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question:
       'An aircraft is travelling at constant speed in a horizontal circle with centre $O$. The diagrams below show the tail-view of the aircraft, the dotted line representing the line of the wings and the circle representing the centre of gravity of the aircraft. Which one of the diagrams correctly shows the forces acting on the aircraft ?',
     options: [
-      { id: 'option-a', image: '/physics/exercises/circular-motion/cm-026-option-a.png' },
-      { id: 'option-b', image: '/physics/exercises/circular-motion/cm-026-option-b.png' },
-      { id: 'option-c', image: '/physics/exercises/circular-motion/cm-026-option-c.png' },
-      { id: 'option-d', image: '/physics/exercises/circular-motion/cm-026-option-d.png' },
+      '/physics/exercises/circular-motion/cm-026-option-a.png',
+      '/physics/exercises/circular-motion/cm-026-option-b.png',
+      '/physics/exercises/circular-motion/cm-026-option-c.png',
+      '/physics/exercises/circular-motion/cm-026-option-d.png',
     ],
-    answer: 'option-b',
+    answer: '/physics/exercises/circular-motion/cm-026-option-b.png',
     explanation:
       'Only two real forces act: weight vertically downward and lift perpendicular to the wings. The lift must tilt inward so that its horizontal component provides the centripetal force.',
     difficulty: 2,
@@ -10757,12 +9184,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question:
       'A car travelling at $80\\ \\mathrm{km\\ h^{-1}}$ due east changes direction and travels at $60\\ \\mathrm{km\\ h^{-1}}$ due north. Which diagram represents the change in velocity of the car?',
     options: [
-      { id: 'option-a', image: '/physics/exercises/circular-motion/cm-032-option-a.png' },
-      { id: 'option-b', image: '/physics/exercises/circular-motion/cm-032-option-b.png' },
-      { id: 'option-c', image: '/physics/exercises/circular-motion/cm-032-option-c.png' },
-      { id: 'option-d', image: '/physics/exercises/circular-motion/cm-032-option-d.png' },
+      '/physics/exercises/circular-motion/cm-032-option-a.png',
+      '/physics/exercises/circular-motion/cm-032-option-b.png',
+      '/physics/exercises/circular-motion/cm-032-option-c.png',
+      '/physics/exercises/circular-motion/cm-032-option-d.png',
     ],
-    answer: 'option-d',
+    answer: '/physics/exercises/circular-motion/cm-032-option-d.png',
     explanation:
       'Change in velocity is a vector: $\\Delta v=v_f-v_i$. The initial velocity is $80\\,\\mathrm{km\\ h^{-1}}$ due east, and the final velocity is $60\\,\\mathrm{km\\ h^{-1}}$ due north. Therefore $\\Delta v$ is equivalent to adding $60\\,\\mathrm{km\\ h^{-1}}$ north and $80\\,\\mathrm{km\\ h^{-1}}$ west. Its magnitude is $\\sqrt{80^2+60^2}=100\\,\\mathrm{km\\ h^{-1}}$, and its direction is toward the northwest. Using $\\tan\\theta=80/60$, the angle is about $53^{\\circ}$ west of north. This matches diagram D.',
     difficulty: 2,
@@ -10793,7 +9220,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(1) & (2) only',
     explanation:
-      'At greater distance from Earth’s centre, $g$ is smaller, so it is weaker on top of a high mountain than at sea level. Also, $g=\\frac{GM}{R^2}$ and for uniform density $M\\propto\\rho R^3$, so $g\\propto\\rho R$. Thus increasing density at fixed radius increases $g$, while increasing radius at fixed density would increase, not decrease, $g$.',
+      'At greater distance from Earth鈥檚 centre, $g$ is smaller, so it is weaker on top of a high mountain than at sea level. Also, $g=\\frac{GM}{R^2}$ and for uniform density $M\\propto\\rho R^3$, so $g\\propto\\rho R$. Thus increasing density at fixed radius increases $g$, while increasing radius at fixed density would increase, not decrease, $g$.',
     difficulty: 3,
     points: 15,
     hints: ['Use $g=GM/R^2$.', 'For uniform density, mass scales with $R^3$.'],
@@ -10891,10 +9318,10 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['$5.5\\times10^3\\ \\mathrm{kg\\ m^{-3}}$', '$7.3\\times10^3\\ \\mathrm{kg\\ m^{-3}}$', '$2.3\\times10^4\\ \\mathrm{kg\\ m^{-3}}$', '$6.0\\times10^{24}\\ \\mathrm{kg\\ m^{-3}}$'],
     answer: '$5.5\\times10^3\\ \\mathrm{kg\\ m^{-3}}$',
     explanation:
-      'Using $g=\\frac{GM}{R^2}$ with $g=9.81\\,\\mathrm{N\\ kg^{-1}}$ and $R=6.4\\times10^6\\,\\mathrm{m}$ gives the Earth’s mass as about $6.0\\times10^{24}\\,\\mathrm{kg}$. Dividing this by the Earth’s volume $\\frac{4}{3}\\pi R^3$ gives an average density of about $5.5\\times10^3\\,\\mathrm{kg\\ m^{-3}}$.',
+      'Using $g=\\frac{GM}{R^2}$ with $g=9.81\\,\\mathrm{N\\ kg^{-1}}$ and $R=6.4\\times10^6\\,\\mathrm{m}$ gives the Earth鈥檚 mass as about $6.0\\times10^{24}\\,\\mathrm{kg}$. Dividing this by the Earth鈥檚 volume $\\frac{4}{3}\\pi R^3$ gives an average density of about $5.5\\times10^3\\,\\mathrm{kg\\ m^{-3}}$.',
     difficulty: 4,
     points: 15,
-    hints: ['Find Earth’s mass from $g=GM/R^2$ first.', 'Then use density = mass / volume.'],
+    hints: ['Find Earth鈥檚 mass from $g=GM/R^2$ first.', 'Then use density = mass / volume.'],
     sectionId: 'gravitation',
   },
   {
@@ -10915,7 +9342,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     id: 'grav-011',
     type: 'multiple_choice',
     question:
-      'A planet has a mass 3 times that of the Earth and a diameter 2 times that of the Earth. What is the gravitational field strength on the planet\\'s surface?',
+      'A planet has a mass 3 times that of the Earth and a diameter 2 times that of the Earth. What is the gravitational field strength on the planet\'s surface?',
     options: ['7.36', '9.81', '14.7', '19.6'],
     answer: '7.36',
     explanation:
@@ -11214,12 +9641,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question:
       'A small object is released from rest at a point very far away from a planet $X$. The object then starts moving towards $X$. $X$ does not have an atmosphere. Neglect the effect of other celestial bodies. Which of the following graphs best shows the variation of the velocity $v$ of the object with time $t$ before it hits $X$ ?',
     options: [
-      { id: 'option-a', image: '/physics/exercises/gravitation/grav-031-option-a.png' },
-      { id: 'option-b', image: '/physics/exercises/gravitation/grav-031-option-b.png' },
-      { id: 'option-c', image: '/physics/exercises/gravitation/grav-031-option-c.png' },
-      { id: 'option-d', image: '/physics/exercises/gravitation/grav-031-option-d.png' },
+      '/physics/exercises/gravitation/grav-031-option-a.png',
+      '/physics/exercises/gravitation/grav-031-option-b.png',
+      '/physics/exercises/gravitation/grav-031-option-c.png',
+      '/physics/exercises/gravitation/grav-031-option-d.png',
     ],
-    answer: 'option-c',
+    answer: '/physics/exercises/gravitation/grav-031-option-c.png',
     explanation:
       'The gravitational acceleration is $a=\\frac{GM}{r^2}$. As the object gets closer to the planet, $r$ decreases, so the acceleration increases. Since the slope of a $v$-$t$ graph is acceleration, the slope must increase progressively, which matches graph C.',
     difficulty: 2,
@@ -11307,12 +9734,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question:
       'A vibrator of frequency 5 Hz generates waves on a string. The diagram shows the shape of the string at the instant when the vibrator has made one complete vibration. Which of the following best shows the waveform 0.1 s later?',
     options: [
-      { id: 'option-a', image: '/physics/exercises/optics-propagation/op-004-option-a.png' },
-      { id: 'option-b', image: '/physics/exercises/optics-propagation/op-004-option-b.png' },
-      { id: 'option-c', image: '/physics/exercises/optics-propagation/op-004-option-c.png' },
-      { id: 'option-d', image: '/physics/exercises/optics-propagation/op-004-option-d.png' },
+      '/physics/exercises/optics-propagation/op-004-option-a.png',
+      '/physics/exercises/optics-propagation/op-004-option-b.png',
+      '/physics/exercises/optics-propagation/op-004-option-c.png',
+      '/physics/exercises/optics-propagation/op-004-option-d.png',
     ],
-    answer: 'option-a',
+    answer: '/physics/exercises/optics-propagation/op-004-option-a.png',
     explanation:
       'The period is $T=\\frac{1}{f}=\\frac{1}{5}=0.2\\,\\mathrm{s}$. After $0.1\\,\\mathrm{s}=\\frac{T}{2}$, the progressive wave advances by half a wavelength, which matches option A.',
     difficulty: 2,
@@ -11357,12 +9784,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question:
       'A vibrator generates a travelling wave on a string. The diagram shows the shape of the string at a certain instant. Which of the following shows the shape of the string between $P$ and $Q$ after a quarter of a period ?',
     options: [
-      { id: 'option-a', image: '/physics/exercises/optics-propagation/op-007-option-a.png' },
-      { id: 'option-b', image: '/physics/exercises/optics-propagation/op-007-option-b.png' },
-      { id: 'option-c', image: '/physics/exercises/optics-propagation/op-007-option-c.png' },
-      { id: 'option-d', image: '/physics/exercises/optics-propagation/op-007-option-d.png' },
+      '/physics/exercises/optics-propagation/op-007-option-a.png',
+      '/physics/exercises/optics-propagation/op-007-option-b.png',
+      '/physics/exercises/optics-propagation/op-007-option-c.png',
+      '/physics/exercises/optics-propagation/op-007-option-d.png',
     ],
-    answer: 'option-d',
+    answer: '/physics/exercises/optics-propagation/op-007-option-d.png',
     explanation:
       'After a quarter of a period, a progressive wave moves forward by one quarter of a wavelength. So the correct shape is the original waveform shifted to the right by $\\frac{1}{4}\\lambda$, which is option D.',
     difficulty: 2,
@@ -11505,12 +9932,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question:
       'A transverse wave travels along a string with a speed of $1.2\\ \\mathrm{m\\ s^{-1}}$. The diagram below shows the shape of the string at a certain instant.\n\nWhich of the following diagrams shows the shape of the string at a quarter of a period later ?',
     options: [
-      { id: 'option-a', image: '/physics/exercises/optics-propagation/op-016-option-a.png' },
-      { id: 'option-b', image: '/physics/exercises/optics-propagation/op-016-option-b.png' },
-      { id: 'option-c', image: '/physics/exercises/optics-propagation/op-016-option-c.png' },
-      { id: 'option-d', image: '/physics/exercises/optics-propagation/op-016-option-d.png' },
+      '/physics/exercises/optics-propagation/op-016-option-a.png',
+      '/physics/exercises/optics-propagation/op-016-option-b.png',
+      '/physics/exercises/optics-propagation/op-016-option-c.png',
+      '/physics/exercises/optics-propagation/op-016-option-d.png',
     ],
-    answer: 'option-d',
+    answer: '/physics/exercises/optics-propagation/op-016-option-d.png',
     explanation:
       'After a quarter of a period, the progressive wave moves forward by one quarter of a wavelength. So the crest initially at 5 cm shifts to 10 cm, which matches option D.',
     difficulty: 2,
@@ -11589,12 +10016,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question:
       'A longitudinal wave is travelling from left to right in a medium. Figure (a) shows the equilibrium positions of particles $A$ to $J$ in the medium. At time $t=0$, the positions of the particles are shown in Figure (b). Which of the following correctly shows the displacement-time graph of particle $I$ ? (Displacement to the right is taken to be positive.)',
     options: [
-      { id: 'option-a', image: '/physics/exercises/optics-propagation/op-021-option-a.png' },
-      { id: 'option-b', image: '/physics/exercises/optics-propagation/op-021-option-b.png' },
-      { id: 'option-c', image: '/physics/exercises/optics-propagation/op-021-option-c.png' },
-      { id: 'option-d', image: '/physics/exercises/optics-propagation/op-021-option-d.png' },
+      '/physics/exercises/optics-propagation/op-021-option-a.png',
+      '/physics/exercises/optics-propagation/op-021-option-b.png',
+      '/physics/exercises/optics-propagation/op-021-option-c.png',
+      '/physics/exercises/optics-propagation/op-021-option-d.png',
     ],
-    answer: 'option-c',
+    answer: '/physics/exercises/optics-propagation/op-021-option-c.png',
     explanation:
       'Particle $I$ is initially at its equilibrium position. A short time later, as the wave moves right, particle $I$ moves to the left first, so its displacement becomes negative immediately after $t=0$. The graph that starts at zero and then goes negative is option C.',
     difficulty: 2,
@@ -11609,12 +10036,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question:
       'Figure (a) shows a series of particles uniformly distributed along a slinky spring. Figure (b) shows their positions at a certain instant when a travelling wave passes through the slinky spring from left to right. Which of the following diagrams shows the correct positions of the particles after half a period from the instant shown in Figure (b)?',
     options: [
-      { id: 'option-a', image: '/physics/exercises/optics-propagation/op-022-option-a.png' },
-      { id: 'option-b', image: '/physics/exercises/optics-propagation/op-022-option-b.png' },
-      { id: 'option-c', image: '/physics/exercises/optics-propagation/op-022-option-c.png' },
-      { id: 'option-d', image: '/physics/exercises/optics-propagation/op-022-option-d.png' },
+      '/physics/exercises/optics-propagation/op-022-option-a.png',
+      '/physics/exercises/optics-propagation/op-022-option-b.png',
+      '/physics/exercises/optics-propagation/op-022-option-c.png',
+      '/physics/exercises/optics-propagation/op-022-option-d.png',
     ],
-    answer: 'option-c',
+    answer: '/physics/exercises/optics-propagation/op-022-option-c.png',
     explanation:
       'In Figure (b), particle $a$ is at the centre of compression, which is an equilibrium position. After half a period, each particle is again at the same displacement magnitude but the compression becomes a rarefaction. Option C shows particle $a$ still at the same position but now at the centre of rarefaction, so it is correct.',
     difficulty: 2,
@@ -11649,12 +10076,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question:
       'A wave travels along a string to the left. The figure shows its waveform at time $t=1\\ \\mathrm{s}$. Which of the following displacement-time graphs best represents the motion of particle $P$ ? (Take displacement upwards to be positive.)',
     options: [
-      { id: 'option-a', image: '/physics/exercises/optics-propagation/op-024-option-a.png' },
-      { id: 'option-b', image: '/physics/exercises/optics-propagation/op-024-option-b.png' },
-      { id: 'option-c', image: '/physics/exercises/optics-propagation/op-024-option-c.png' },
-      { id: 'option-d', image: '/physics/exercises/optics-propagation/op-024-option-d.png' },
+      '/physics/exercises/optics-propagation/op-024-option-a.png',
+      '/physics/exercises/optics-propagation/op-024-option-b.png',
+      '/physics/exercises/optics-propagation/op-024-option-c.png',
+      '/physics/exercises/optics-propagation/op-024-option-d.png',
     ],
-    answer: 'option-c',
+    answer: '/physics/exercises/optics-propagation/op-024-option-c.png',
     explanation:
       'At $t=1\\,\\mathrm{s}$, particle $P$ is at the equilibrium position and, because the wave is moving left, it is moving downward at that instant. The correct displacement-time graph must therefore pass through zero at $t=1\\,\\mathrm{s}$ with a negative slope, which is option C.',
     difficulty: 2,
@@ -12787,7 +11214,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     id: 'wp-043',
     type: 'multiple_choice',
     question:
-      'A series of plane waves travel from medium A into medium B. The figure above shows the positions, $PQ$ and $P\\'Q\\'$, of a wavefront before and after entering the medium B. What would happen to the speed and the wavelength of the wave when it travels from medium A to medium B?',
+      'A series of plane waves travel from medium A into medium B. The figure above shows the positions, $PQ$ and $P\'Q\'$, of a wavefront before and after entering the medium B. What would happen to the speed and the wavelength of the wave when it travels from medium A to medium B?',
     options: [
       'speed increases; wavelength increases',
       'speed increases; wavelength remains unchanged',
@@ -13469,1370 +11896,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     sectionId: 'reflection-refraction',
     imagePaths: ['/physics/exercises/reflection-refraction/rr-012-question.png'],
   },];
-
-// 互动模拟 - 自由落体计时�?export const FORCE_MOTION_SIMULATIONS: Simulation[] = [
-  {
-    id: 'fms-1',
-    title: '自由落体计时�?,
-    description: '模拟物体在不同星球上的自由落体运动。调整重力加速度和时间，观察位移和速度的变化。特别展�?总时�?�?分段时间"的区别�?,
-    type: 'interactive',
-    parameters: [
-      { name: '重力加速度', symbol: 'g', unit: 'm/s²', min: 1, max: 20, default: 8, step: 0.5 },
-      { name: '第一段时�?, symbol: 't�?, unit: 's', min: 0, max: 10, default: 1, step: 0.5 },
-      { name: '再过时间', symbol: 'Δt', unit: 's', min: 0, max: 10, default: 4, step: 0.5 },
-    ],
-  },
-  {
-    id: 'fms-2',
-    title: '等时位移对比',
-    description: '观察自由落体每一秒内下落距离的变化，验证"等时位移递增"规律（比例为 1:3:5:7...�?,
-    type: 'interactive',
-    parameters: [
-      { name: '重力加速度', symbol: 'g', unit: 'm/s²', min: 5, max: 15, default: 10, step: 1 },
-      { name: '观察秒数', symbol: 'n', unit: 's', min: 1, max: 10, default: 5, step: 1 },
-    ],
-  },
-  {
-    id: 'fms-3',
-    title: 's-t �?v-t 图像绘制�?,
-    description: '实时绘制自由落体的位�?时间图（抛物线）和速度-时间图（直线），帮助理解运动学图像�?,
-    type: 'interactive',
-    parameters: [
-      { name: '重力加速度', symbol: 'g', unit: 'm/s²', min: 5, max: 15, default: 10, step: 1 },
-      { name: '总时�?, symbol: 't', unit: 's', min: 1, max: 10, default: 5, step: 0.5 },
-    ],
-  },
-  {
-    id: 'fms-4',
-    title: '多点自由落体分析�?,
-    description: '模拟物体经过多个标记点（O→A→B）的自由落体运动。输入某段数据，反推其他段的运动参数。演�?中间点分析法"�?,
-    type: 'interactive',
-    parameters: [
-      { name: '重力加速度', symbol: 'g', unit: 'm/s²', min: 1, max: 15, default: 9.81, step: 0.01 },
-      { name: 'A→B 位移', symbol: 'sAB', unit: 'm', min: 10, max: 200, default: 100, step: 5 },
-      { name: 'A→B 用时', symbol: 'tAB', unit: 's', min: 1, max: 10, default: 4, step: 0.5 },
-    ],
-  },
-  {
-    id: 'fms-5',
-    title: '竖直上抛运动分析',
-    description: '观察竖直上抛运动中速度和加速度的变化。特别展示最高点�?v=0 �?a=g 的情况，理解瞬时状态与过程状态的区别�?,
-    type: 'interactive',
-    parameters: [
-      { name: '初速度', symbol: 'u', unit: 'm/s', min: 5, max: 30, default: 15, step: 1 },
-      { name: '重力加速度', symbol: 'g', unit: 'm/s²', min: 5, max: 15, default: 10, step: 0.5 },
-    ],
-  },
-  {
-    id: 'rr-027',
-    type: 'multiple_choice',
-    question:
-      'The photograph shows the image of a tree formed by the surface of a pool of calm water. Which of the following phenomena explains the formation of the image?',
-    options: ['reflection', 'total internal reflection', 'refraction', 'diffraction'],
-    answer: 'reflection',
-    explanation:
-      'A calm water surface behaves like a plane mirror and forms the image by reflection.',
-    difficulty: 1,
-    points: 15,
-    hints: ['A calm surface can act like a mirror.', 'This is ordinary reflection, not refraction.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-027-question.png'],
-  },
-  {
-    id: 'rr-028',
-    type: 'multiple_choice',
-    question:
-      'Eric stands 1 m in front of a plane mirror. Martha stands 2 m behind Eric as shown above. Find the distance between Eric and the image of Martha formed by the mirror.',
-    options: ['2 m', '3 m', '4 m', '6 m'],
-    answer: '4 m',
-    explanation:
-      'Martha is 3 m in front of the mirror, so her image is 3 m behind the mirror. Eric is 1 m in front of the mirror. Therefore the distance from Eric to Martha\'s image is 1 + 3 = 4 m.',
-    difficulty: 2,
-    points: 15,
-    hints: ['First find Martha\'s distance from the mirror.', 'For a plane mirror, image distance equals object distance.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-028-question.png'],
-  },
-  {
-    id: 'rr-029',
-    type: 'multiple_choice',
-    question: 'The diagram shows the image of a clock formed in a plane mirror. What is the time displayed by the clock at this instant?',
-    options: ['3:58', '4:02', '7:58', '8:02'],
-    answer: '3:58',
-    explanation:
-      'A plane mirror produces lateral inversion. Reversing the mirror image of the clock face gives the actual time 3:58.',
-    difficulty: 2,
-    points: 15,
-    hints: ['A mirror swaps left and right.', 'Convert the mirror reading back to the real clock reading.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-029-question.png'],
-  },
-  {
-    id: 'rr-030',
-    type: 'multiple_choice',
-    question:
-      'Which of the following surfaces produce diffuse reflection when parallel light rays fall on them? (1) a blackboard in the classroom (2) a polished metal surface (3) a page in this question book',
-    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
-    answer: '(1) & (3) only',
-    explanation:
-      'Diffuse reflection is produced by rough surfaces. A blackboard and paper are rough enough to scatter reflected rays in many directions, while a polished metal surface gives regular reflection.',
-    difficulty: 1,
-    points: 15,
-    hints: ['Diffuse reflection comes from rough surfaces.', 'Polished metal is a regular reflector.'],
-    sectionId: 'reflection-refraction',
-  },
-  {
-    id: 'rr-031',
-    type: 'multiple_choice',
-    question:
-      'A light ray enters normally from the air into a right-angled prism and is totally internally reflected at face AB as shown below. Based on this optical phenomenon, which of the following is/are the possible value(s) for the refractive index of the material of the prism? (1) 1.35 (2) 1.45 (3) 1.55',
-    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
-    answer: '(2) & (3) only',
-    explanation:
-      'The internal incidence angle is 45 degrees. For total internal reflection, the critical angle must be less than 45 degrees. A refractive index of 1.45 gives c = 43.6 degrees and 1.55 gives c = 40.2 degrees, so both work, but 1.35 gives c = 47.8 degrees, which does not.',
-    difficulty: 3,
-    points: 15,
-    hints: ['Total internal reflection requires i > c.', 'Use sin c = 1/n.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-031-question.png'],
-  },
-  {
-    id: 'rr-032',
-    type: 'multiple_choice',
-    question: 'A pencil is placed in front of a vertical plane mirror as shown in the figure above. Which of the following shows the correct position of the image?',
-    options: [
-      '/physics/exercises/reflection-refraction/rr-032-option-a.png',
-      '/physics/exercises/reflection-refraction/rr-032-option-b.png',
-      '/physics/exercises/reflection-refraction/rr-032-option-c.png',
-      '/physics/exercises/reflection-refraction/rr-032-option-d.png',
-    ],
-    answer: '/physics/exercises/reflection-refraction/rr-032-option-d.png',
-    explanation:
-      'The image in a plane mirror is virtual, upright, the same size as the object, and the same distance behind the mirror as the object is in front. That matches D.',
-    difficulty: 2,
-    points: 15,
-    hints: ['Use the standard properties of a plane-mirror image.', 'The image is upright and laterally inverted.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-032-question.png'],
-  },
-  {
-    id: 'rr-033',
-    type: 'multiple_choice',
-    question:
-      'John wants to estimate the speed of a cloud in the following experiment. The cloud is moving horizontally at a height of 3000 m above the ground. He looks at the image of the cloud in a mirror of 0.6 m wide placed on the horizontal ground 1.5 m below his eye level. He finds that the image of the cloud takes 20 s to move across the mirror. What is the approximate speed of the cloud?',
-    options: ['0.03 m s^-1', '0.06 m s^-1', '60 m s^-1', '150 m s^-1'],
-    answer: '60 m s^-1',
-    explanation:
-      'Using similar triangles, the cloud displacement corresponding to 0.6 m across the mirror is d / 0.6 = 3001.5 / 1.5, so d is about 1200 m. Therefore the speed is 1200 / 20 = 60 m s^-1.',
-    difficulty: 3,
-    points: 15,
-    hints: ['Use the mirror image as a geometric similar-triangle problem.', 'Convert the mirror width to the corresponding cloud displacement.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-033-question.png'],
-  {
-    id: 'rr-034',
-    type: 'multiple_choice',
-    question:
-      'A light ray is incident from water onto an air bubble as shown above. Which light ray best represents the emergent ray?',
-    options: ['W', 'X', 'Y', 'Z'],
-    answer: 'W',
-    explanation:
-      'The ray bends away from the normal when going from water to air, then bends towards the normal when leaving the air bubble back into water. The resulting emergent path is W.',
-    difficulty: 2,
-    points: 15,
-    hints: ['Treat the bubble as air surrounded by water.', 'Apply the bend rule at both curved surfaces.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-034-question.png'],
-  },
-  {
-    id: 'rr-035',
-    type: 'multiple_choice',
-    question:
-      'Figure (a) shows a light ray travelling from air into medium X. The angle of incidence is 50 degrees and the angle of refraction is r. Another light ray travelling from medium X to air is shown in Figure (b). The angle of incidence is 35 degrees and the angle of refraction is also equal to r. What is angle r?',
-    options: ['26.1 degrees', '41.5 degrees', '42.5 degrees', '48.5 degrees'],
-    answer: '41.5 degrees',
-    explanation:
-      'Using Snell\'s law for both diagrams, sin 50 degrees / sin r = n_x = sin r / sin 35 degrees. Solving gives r = 41.5 degrees.',
-    difficulty: 3,
-    points: 15,
-    hints: ['Write one expression for n_x from each figure.', 'Set the two expressions equal and solve for r.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-035-question.png'],
-  },
-  {
-    id: 'rr-036',
-    type: 'multiple_choice',
-    question:
-      'In the figure, a plane mirror MN of height h is mounted in an adjustable vertical position on a vertical wall. E is an observer\'s eye which is 1 m from the wall and 1.5 m above the ground. PQ is a vertical post of height 3 m and is 4 m behind the observer. Looking into the mirror the observer can see the whole image of the post. What is the minimum value of h?',
-    options: ['0.5 m', '0.6 m', '1.5 m', '2.0 m'],
-    answer: '0.5 m',
-    explanation:
-      'The image of the post is the same size and 5 m behind the mirror. Using similar triangles for the eye-to-mirror and eye-to-image geometry gives h / 3 = 1 / (1 + 5), so h = 0.5 m.',
-    difficulty: 3,
-    points: 15,
-    hints: ['Use the virtual image of the post behind the mirror.', 'Relate mirror height to the fraction of the image seen from the eye.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-036-question.png'],
-  },
-  {
-    id: 'rr-037',
-    type: 'multiple_choice',
-    question: 'A ray of light is traveling from glass to air as shown in the figure. Which of the following ratios is the refractive index of glass?',
-    options: [
-      'sin theta / sin phi',
-      'sin phi / sin theta',
-      'sin (90 degrees - theta) / sin (90 degrees - phi)',
-      'sin (90 degrees - phi) / sin (90 degrees - theta)',
-    ],
-    answer: 'sin (90 degrees - phi) / sin (90 degrees - theta)',
-    explanation:
-      'The angles theta and phi are measured from the surface, not the normal. So the angles to the normal are 90 degrees minus theta and 90 degrees minus phi. By Snell\'s law, n = sin(90 - phi) / sin(90 - theta).',
-    difficulty: 3,
-    points: 15,
-    hints: ['Convert the given angles to angles with the normal.', 'Then apply Snell\'s law.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-037-question.png'],
-  },
-  {
-    id: 'rr-038',
-    type: 'multiple_choice',
-    question:
-      'Which of following statements about total internal reflection is/are correct? (1) The angle of incidence is less than the critical angle. (2) Both reflected and refracted rays appear. (3) The ray is travelling from an optically denser medium to an optically less dense medium.',
-    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
-    answer: '(3) only',
-    explanation:
-      'For total internal reflection, the incidence angle must be greater than the critical angle and no refracted ray emerges. It only happens when light travels from a denser medium to a less dense medium.',
-    difficulty: 2,
-    points: 15,
-    hints: ['TIR requires i > c.', 'No transmitted ray appears in total internal reflection.'],
-    sectionId: 'reflection-refraction',
-  },
-  {
-    id: 'rr-039',
-    type: 'multiple_choice',
-    question:
-      'A light ray undergoes reflection and refraction at an air-glass boundary as shown. PQ is perpendicular to RS. OX, OY and OZ are the paths of the light rays. Which of the following deductions is/are correct? (1) OX is the path of the incident ray. (2) RS is the air-glass boundary. (3) The light ray travels from glass to air.',
-    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
-    answer: '(3) only',
-    explanation:
-      'The incident ray is OZ, OY is the reflected ray, and OX is the refracted ray. Since the refracted ray bends away from the normal, the light is going from glass to air. Therefore only statement (3) is correct.',
-    difficulty: 3,
-    points: 15,
-    hints: ['Identify the normal first using PQ perpendicular to RS.', 'A refracted ray bending away from the normal means denser to less dense.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-039-question.png'],
-  },
-  {
-    id: 'rr-040',
-    type: 'multiple_choice',
-    question:
-      'X, Y and Z are three 45 degrees-90 degrees-45 degrees triangular prisms made of different transparent materials. A ray incident normally at one face is found to undergo refraction and reflection in each prism as shown in the figures above. Which of the following is the correct order of the refractive indices of the prisms?',
-    options: ['X > Y > Z', 'X > Z > Y', 'Y > Z > X', 'Z > Y > X'],
-    answer: 'X > Z > Y',
-    explanation:
-      'In X, total internal reflection occurs at 45 degrees so its critical angle is less than 45 degrees. In Z, total internal reflection just occurs, so its critical angle is 45 degrees. In Y, total internal reflection does not occur, so its critical angle is greater than 45 degrees. Since refractive index increases as critical angle decreases, the order is X > Z > Y.',
-    difficulty: 3,
-    points: 15,
-    hints: ['Compare the critical angle for each prism from the behavior at 45 degrees.', 'Use n = 1 / sin c.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-040-question.png'],
-  },  {
-    id: 'rr-041',
-    type: 'multiple_choice',
-    question:
-      'Two coloured lights, X and Y, travel from vacuum to glass. They undergo refraction and travel along the same path in glass. Which of the following descriptions about the two coloured lights is correct?',
-    options: [
-      'Glass has a greater refractive index for X and X travels with the same speed as Y in vacuum.',
-      'Glass has a greater refractive index for X and X travels slower than Y in vacuum.',
-      'Glass has a smaller refractive index for X and X travels with the same speed as Y in vacuum.',
-      'Glass has a smaller refractive index for X and X travels faster than Y in vacuum.',
-    ],
-    answer: 'Glass has a greater refractive index for X and X travels with the same speed as Y in vacuum.',
-    explanation:
-      'Both rays follow the same refracted path, but X has the larger incident angle. Since n = sin i / sin r, that means glass has a larger refractive index for X. In vacuum, all electromagnetic waves travel at the same speed.',
-    difficulty: 2,
-    points: 15,
-    hints: ['Compare the incident angles while the refracted path is the same.', 'All colours of light have the same speed in vacuum.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-041-question.png'],
-  },
-  {
-    id: 'rr-042',
-    type: 'multiple_choice',
-    question:
-      'A student performs an experiment to find the refractive index of a material and the result is shown below. Which of the following set of data is likely to be wrong?',
-    options: ['P', 'Q', 'R', 'S'],
-    answer: 'Q',
-    explanation:
-      'For a correct set of refraction data, sin i / sin r should stay approximately constant. Sets P, R and S give values near 1.41, but Q gives about 1.71, so Q is the inconsistent set.',
-    difficulty: 3,
-    points: 15,
-    hints: ['Calculate sin i / sin r for each set.', 'The refractive index should be nearly constant.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-042-question.png'],
-  },
-  {
-    id: 'rr-043',
-    type: 'multiple_choice',
-    question: 'A ray of light enters a transparent rectangular block and travels along the path as shown in the figure above. Find angle a.',
-    options: ['33 degrees', '57 degrees', '59 degrees', '75 degrees'],
-    answer: '33 degrees',
-    explanation:
-      'The critical angle shown is 50 degrees, so n = 1 / sin 50 degrees = 1.305. For entry from air with refracted angle 40 degrees, n = sin i / sin 40 degrees gives i = 57 degrees. Therefore the required angle is 90 - 57 = 33 degrees.',
-    difficulty: 3,
-    points: 15,
-    hints: ['Find the refractive index from the critical angle first.', 'Then apply Snell\'s law at the entry face.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-043-question.png'],
-  },
-  {
-    id: 'rr-044',
-    type: 'multiple_choice',
-    question:
-      'Telecommunication companies nowadays use optical fibres to transmit data. What are the advantages of using optical fibres over copper wires in transmitting data? (1) Less data loss in the transmission. (2) Data can be transmitted at a higher rate. (3) For the same data transmission rate, optical fibres take up less space.',
-    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
-    answer: '(1), (2) & (3)',
-    explanation:
-      'Optical fibres use total internal reflection, so transmission loss is low. Optical signals can carry data at a higher rate, and fibres are thinner than copper wires, so they occupy less space for the same capacity.',
-    difficulty: 2,
-    points: 15,
-    hints: ['Think about loss, bandwidth and cable size.', 'Optical fibres are both efficient and compact.'],
-    sectionId: 'reflection-refraction',
-  },
-  {
-    id: 'rr-045',
-    type: 'multiple_choice',
-    question:
-      'When a light ray travels from air to glass, which of the following descriptions about the changes of the speed, the frequency and the wavelength of the ray is correct?',
-    options: [
-      'Speed remains unchanged; frequency increases; wavelength decreases',
-      'Speed remains unchanged; frequency decreases; wavelength increases',
-      'Speed decreases; frequency remains unchanged; wavelength decreases',
-      'Speed increases; frequency remains unchanged; wavelength increases',
-    ],
-    answer: 'Speed decreases; frequency remains unchanged; wavelength decreases',
-    explanation:
-      'In glass, light travels more slowly than in air. The frequency does not change at the boundary, so with v = f lambda, the wavelength must decrease when the speed decreases.',
-    difficulty: 2,
-    points: 15,
-    hints: ['Frequency is unchanged during refraction.', 'Use v = f lambda.'],
-    sectionId: 'reflection-refraction',
-  },
-  {
-    id: 'rr-046',
-    type: 'multiple_choice',
-    question:
-      'A clear image of a bird is formed by a calm water surface as shown in the above figure. Which of the following statements about the image is/are correct? (1) The image is real. (2) A clear image is formed as regular reflection occurs. (3) If the bird is closer to the water surface, the size of the image increases.',
-    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
-    answer: '(2) only',
-    explanation:
-      'A calm water surface acts like a plane mirror, so the image is virtual, not real. The image is clear because regular reflection occurs. A plane-mirror image is the same size as the object regardless of distance.',
-    difficulty: 2,
-    points: 15,
-    hints: ['A calm water surface behaves like a plane mirror.', 'Plane-mirror images are virtual and same size.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-046-question.png'],
-  },
-  {
-    id: 'rr-047',
-    type: 'multiple_choice',
-    question:
-      'A ray of light enters a transparent rectangular block from air and emerges. Which of the following ray diagrams is/are impossible? The dotted lines represent normal to the surfaces. (1) (2) (3)',
-    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
-    answer: '(3) only',
-    explanation:
-      'Diagrams (1) and (2) are possible because the given angles are consistent with refraction into and out of the block. Diagram (3) is impossible because it would require a refracted angle larger than allowed by the critical-angle condition stated in the figure.',
-    difficulty: 3,
-    points: 15,
-    hints: ['Check the angle constraints against the critical angle.', 'A physically impossible diagram violates the refraction condition at entry.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-047-question.png'],
-  },  {
-    id: 'rr-048',
-    type: 'multiple_choice',
-    question: 'The speed of light in a transparent material is 1.6 x 10^8 m s^-1. Find the critical angle for that material.',
-    options: ['28.1 degrees', '32.2 degrees', '41.8 degrees', '48.0 degrees'],
-    answer: '32.2 degrees',
-    explanation:
-      'The refractive index is n = c / v = (3.0 x 10^8) / (1.6 x 10^8) = 1.875. For the critical angle, sin c = 1 / n, so c = 32.2 degrees.',
-    difficulty: 2,
-    points: 15,
-    hints: ['First find the refractive index from the speed.', 'Then use sin c = 1/n.'],
-    sectionId: 'reflection-refraction',
-  },
-  {
-    id: 'rr-049',
-    type: 'multiple_choice',
-    question:
-      'A beam of light travels from a medium X to air. When the incident angle theta varies from 0 degrees to 90 degrees, the light intensity of the refracted ray varies as shown in the graph. What is the ratio of the speed of light in air to that in medium X?',
-    options: ['1:2', '1:3', '2:1', '2:3'],
-    answer: '2:1',
-    explanation:
-      'The refracted intensity falls to zero at 30 degrees, so the critical angle is 30 degrees. Then n_x = 1 / sin 30 degrees = 2. Since n_x = v_air / v_x, the speed ratio is 2:1.',
-    difficulty: 3,
-    points: 15,
-    hints: ['Read the critical angle from where the refracted intensity becomes zero.', 'Use n = v_air / v_medium.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-049-question.png'],
-  },
-  {
-    id: 'rr-050',
-    type: 'multiple_choice',
-    question:
-      'When a beam of light travels from glass to air, the emergent light in air shows an increase in (1) frequency. (2) speed. (3) wavelength.',
-    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
-    answer: '(2) & (3) only',
-    explanation:
-      'The frequency of light stays unchanged at refraction. Going from glass to air increases the speed, so the wavelength also increases because wavelength is proportional to speed when frequency is fixed.',
-    difficulty: 2,
-    points: 15,
-    hints: ['Frequency is unchanged across a boundary.', 'Use v proportional to wavelength when f is constant.'],
-    sectionId: 'reflection-refraction',
-  },
-  {
-    id: 'rr-051',
-    type: 'multiple_choice',
-    question:
-      'A light ray passes through three media of refractive indexes n1, n2 and n3 respectively as shown. The boundaries between the three media are parallel. Which of the following relations for n1, n2 and n3 is correct?',
-    options: ['n1 > n3 > n2', 'n3 > n1 > n2', 'n1 > n2 > n3', 'n2 > n1 > n3'],
-    answer: 'n3 > n1 > n2',
-    explanation:
-      'For parallel boundaries, Snell\'s law gives n sin theta = constant, so refractive index is inversely proportional to sin theta. From the diagram, theta_2 > theta_1 > theta_3, hence n3 > n1 > n2.',
-    difficulty: 3,
-    points: 15,
-    hints: ['Use n sin theta = constant across all three media.', 'Larger ray angle to the normal means smaller refractive index.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-051-question.png'],
-  },
-  {
-    id: 'rr-052',
-    type: 'multiple_choice',
-    question:
-      'X and Y are two parallel boundaries separating media (1), (2) and (3). A light ray undergoes total internal reflection at the boundary X and then refracts at Y as shown. Arrange the speeds of light in the three media in descending order.',
-    options: ['(1) > (2) > (3)', '(1) > (3) > (2)', '(2) > (3) > (1)', '(3) > (1) > (2)'],
-    answer: '(1) > (3) > (2)',
-    explanation:
-      'The geometry shows total internal reflection from medium (2) towards (1), so medium (2) is optically denser than medium (1). Comparing the angles in the figure gives sin theta_1 > sin theta_3 > sin theta_2, and since speed is proportional to sin theta in this comparison, the descending order is (1) > (3) > (2).',
-    difficulty: 3,
-    points: 15,
-    hints: ['Use the TIR condition to compare medium (2) with medium (1).', 'Then compare the sines of the ray angles.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-052-question.png'],
-  },
-  {
-    id: 'rr-053',
-    type: 'multiple_choice',
-    question:
-      'The refractive indices of water and glass are 1.33 and 1.50 respectively. Which of the following statements is/are correct? (1) Light travels faster in water than in glass. (2) The frequency of light is reduced when it travels from water to glass. (3) Light bends away from the normal when it travels from water to glass.',
-    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
-    answer: '(1) only',
-    explanation:
-      'Light speed is inversely proportional to refractive index, so it travels faster in water than in glass. Frequency does not change at refraction, and from water to glass the ray bends towards the normal, not away.',
-    difficulty: 2,
-    points: 15,
-    hints: ['Larger refractive index means lower speed.', 'From less dense to denser means towards the normal.'],
-    sectionId: 'reflection-refraction',
-  },
-  {
-    id: 'rr-054',
-    type: 'multiple_choice',
-    question:
-      'A diver at a depth of d below the water surface looks up and finds that the sky appears to be within a circle of radius r. Which correctly gives the expression for the critical angle of water?',
-    options: ['tan c = r/d', 'sin c = r/d', 'tan c = d/r', 'sin c = d/r'],
-    answer: 'tan c = r/d',
-    explanation:
-      'The boundary of the visible sky corresponds to the critical ray. The semi-angle at the diver is the critical angle, so from the right triangle, tan c = opposite / adjacent = r / d.',
-    difficulty: 3,
-    points: 15,
-    hints: ['The edge of the bright circle is set by the critical ray.', 'Use the geometry of the diver\'s cone of view.'],
-    sectionId: 'reflection-refraction',
-  },
-  {
-    id: 'rr-055',
-    type: 'multiple_choice',
-    question:
-      'A point source of light is situated at the bottom of a swimming pool. It is found that a circular patch of radius 1.7 m is illuminated on the water surface. Find the depth of water in the pool. Given: refractive index of water = 1.33',
-    options: ['1.2 m', '1.3 m', '1.4 m', '1.5 m'],
-    answer: '1.5 m',
-    explanation:
-      'For water, sin c = 1 / 1.33, so the critical angle is 48.8 degrees. Using the critical-ray geometry, tan c = r / d, so tan 48.8 degrees = 1.7 / d. This gives d = 1.5 m.',
-    difficulty: 3,
-    points: 15,
-    hints: ['Find the critical angle first.', 'Then use the right triangle formed by the illuminated circle radius and the pool depth.'],
-    sectionId: 'reflection-refraction',
-  },  {
-    id: 'rr-056',
-    type: 'multiple_choice',
-    question: 'The diagram shows the image of a clock formed in a plane mirror. What is the time displayed by the clock?',
-    options: ['3:58', '4:02', '7:58', '8:02'],
-    answer: '3:58',
-    explanation:
-      'A plane mirror forms an upright but laterally inverted image. Reversing the mirror image of the clock face gives the actual time 3:58.',
-    difficulty: 2,
-    points: 15,
-    hints: ['A mirror reverses left and right.', 'Convert the mirror reading back to the real clock reading.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-056-question.png'],
-  },
-  {
-    id: 'rr-057',
-    type: 'multiple_choice',
-    question:
-      'As shown in the figure, a ray of light travels from medium 1 to medium 2, and then enters medium 3. The boundaries are parallel to each other. Arrange the speed of light, c, in the three media in ascending order.',
-    options: ['c1 < c2 < c3', 'c1 < c3 < c2', 'c2 < c3 < c1', 'c2 < c1 < c3'],
-    answer: 'c2 < c1 < c3',
-    explanation:
-      'For parallel boundaries, the speed in each medium is proportional to sin theta for the ray angle in that medium. Since theta2 < theta1 < theta3, the speeds are in ascending order c2 < c1 < c3.',
-    difficulty: 3,
-    points: 15,
-    hints: ['Compare the ray angles to the normal in each medium.', 'Larger angle in this setup means higher speed.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-057-question.png'],
-  },
-  {
-    id: 'rr-058',
-    type: 'multiple_choice',
-    question: 'A certain monochromatic light passes through medium X as shown above. What is the refractive index of medium X?',
-    options: ['1.25', '1.33', '1.50', '1.65'],
-    answer: '1.33',
-    explanation:
-      'The wavelength is 4 units in air and 3 units in medium X. Since refractive index is the ratio of wavelength in air to wavelength in the medium for the same light, n = 4/3 = 1.33.',
-    difficulty: 2,
-    points: 15,
-    hints: ['Use the wavelength ratio for the same light in different media.', 'Frequency stays the same, so wavelength ratio gives the refractive index.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-058-question.png'],
-  },
-  {
-    id: 'rr-059',
-    type: 'multiple_choice',
-    question:
-      'A ray of light is travelling from a transparent medium X to air making an angle of 40 degrees with the boundary plane as shown. If the angle between the refracted ray in air and the reflected ray in medium X is 70 degrees, find the refractive index of medium X.',
-    options: [
-      'sin 40 degrees / sin 30 degrees',
-      'sin 30 degrees / sin 40 degrees',
-      'sin 60 degrees / sin 50 degrees',
-      'sin 50 degrees / sin 60 degrees',
-    ],
-    answer: 'sin 60 degrees / sin 50 degrees',
-    explanation:
-      'The incident angle to the normal is 90 - 40 = 50 degrees. The reflected angle is also 50 degrees. Since the reflected and refracted rays make 70 degrees, the refracted angle is 180 - 70 - 50 = 60 degrees. So n = sin 60 degrees / sin 50 degrees.',
-    difficulty: 3,
-    points: 15,
-    hints: ['Convert the given angle with the boundary into an angle with the normal.', 'Use the geometry between the reflected and refracted rays.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-059-question.png'],
-  },
-  {
-    id: 'rr-060',
-    type: 'multiple_choice',
-    question:
-      'White light can be resolved into its component colours by using a glass prism. Which of the following statements is/are correct? (1) The refractive indices of glass for different component colours are not the same. (2) Red light travels faster than violet light in a vacuum. (3) The frequencies of all the component colours are reduced when entering the prism.',
-    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
-    answer: '(1) only',
-    explanation:
-      'Different colours travel at different speeds in glass, so the refractive indices for different colours are different. In vacuum all colours travel at the same speed, and the frequency does not change when light enters the prism.',
-    difficulty: 2,
-    points: 15,
-    hints: ['Dispersion needs different refractive indices for different colours.', 'Frequency is unchanged across a boundary.'],
-    sectionId: 'reflection-refraction',
-  },
-  {
-    id: 'rr-061',
-    type: 'multiple_choice',
-    question:
-      'The figure shows the path of a light ray travelling from medium I to medium III separated by parallel boundaries. Arrange in ascending order the speed of light in the respective media.',
-    options: ['I < III < II', 'II < III < I', 'III < I < II', 'III < II < I'],
-    answer: 'III < I < II',
-    explanation:
-      'From the diagram, theta3 < theta1 < theta2. In this comparison, light speed is proportional to sin theta, so the ascending order is v3 < v1 < v2, i.e. III < I < II.',
-    difficulty: 3,
-    points: 15,
-    hints: ['Compare the angles to the normal in each medium.', 'Larger angle here corresponds to larger speed.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-061-question.png'],
-  },
-  {
-    id: 'rr-062',
-    type: 'multiple_choice',
-    question:
-      'A beam of white light is separated into different colours after entering a glass prism because lights of different colours',
-    options: [
-      'are diffracted to different extents by the prism.',
-      'undergo total internal reflection at different angles inside the prism.',
-      'travel at different speeds in vacuum.',
-      'travel at different speeds in glass.',
-    ],
-    answer: 'travel at different speeds in glass.',
-    explanation:
-      'Different colours travel at different speeds in glass, so the prism has different refractive indices for them. That causes different amounts of refraction and hence dispersion.',
-    difficulty: 2,
-    points: 15,
-    hints: ['Dispersion is caused by wavelength-dependent refraction in glass.', 'All colours have the same speed in vacuum.'],
-    sectionId: 'reflection-refraction',
-  },  {
-    id: 'rr-063',
-    type: 'multiple_choice',
-    question:
-      'A parallel-sided glass sheet separates water from air. A ray of light in water is incident at an angle theta on the glass sheet and finally emerges into air along the glass-air interface as shown. Find theta. Given: refractive index of water is 1.33.',
-    options: ['41.2 degrees', '48.8 degrees', '53.1 degrees', 'It depends on the refractive index of glass.'],
-    answer: '48.8 degrees',
-    explanation:
-      'Since the ray finally emerges along the glass-air interface, the ray in air has angle 90 degrees to the normal. For the full parallel-boundary system, the refractive-index product gives 1.33 sin theta = 1 x sin 90 degrees, so theta = 48.8 degrees.',
-    difficulty: 3,
-    points: 15,
-    hints: ['Treat the final emergent ray as a 90-degree refracted ray in air.', 'Use air refractive index as 1.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-063-question.png'],
-  },
-  {
-    id: 'rr-064',
-    type: 'multiple_choice',
-    question:
-      'In the figure above, XO is a light ray incident on the glass-air boundary plane PQ. Which of the following gives the refractive index of glass?',
-    options: [
-      'sin 56 degrees / sin 44 degrees',
-      'sin 44 degrees / sin 34 degrees',
-      'sin 56 degrees / sin 46 degrees',
-      'sin 46 degrees / sin 34 degrees',
-    ],
-    answer: 'sin 46 degrees / sin 34 degrees',
-    explanation:
-      'The given angles are with the boundary, so the angles to the normal are 90 - 44 = 46 degrees and 90 - 56 = 34 degrees. Therefore the refractive index is sin 46 degrees / sin 34 degrees.',
-    difficulty: 3,
-    points: 15,
-    hints: ['Convert boundary-plane angles to normal angles first.', 'Then apply Snell\'s law.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-064-question.png'],
-  },
-  {
-    id: 'rr-065',
-    type: 'multiple_choice',
-    question:
-      'The figure shows the image seen when a plane mirror is placed in front of a cardboard with a design on its front surface. Which diagram below shows the design on the cardboard?',
-    options: [
-      '/physics/exercises/reflection-refraction/rr-065-option-a.png',
-      '/physics/exercises/reflection-refraction/rr-065-option-b.png',
-      '/physics/exercises/reflection-refraction/rr-065-option-c.png',
-      '/physics/exercises/reflection-refraction/rr-065-option-d.png',
-    ],
-    answer: '/physics/exercises/reflection-refraction/rr-065-option-d.png',
-    explanation:
-      'A plane mirror forms an upright but laterally inverted image. Reversing the given mirror image gives the original cardboard design shown in option D.',
-    difficulty: 2,
-    points: 15,
-    hints: ['Use lateral inversion only; the image stays upright.', 'Mentally reverse left and right.'],
-    sectionId: 'reflection-refraction',
-    imagePaths: ['/physics/exercises/reflection-refraction/rr-065-question.png'],
-  },  {
-    id: 'lens-001',
-    type: 'multiple_choice',
-    question:
-      'A convex lens is used to form an image of a bright object on a screen. The effect of covering the top half of the lens with a card is to',
-    options: ['remove the top half of the image.', 'remove the bottom half of the image.', 'make the image smaller.', 'make the image dimmer.'],
-    answer: 'make the image dimmer.',
-    explanation:
-      'Each part of a lens contributes light to the whole image. Covering half the lens reduces the amount of light passing through, so the full image is still formed but it becomes dimmer.',
-    difficulty: 1,
-    points: 15,
-    hints: ['A whole image is formed by rays passing through many parts of the lens.', 'Blocking part of the lens mainly reduces brightness.'],
-    sectionId: 'lens',
-  },
-  {
-    id: 'lens-002',
-    type: 'multiple_choice',
-    question:
-      'A ray of light falls on a convex lens as shown in the figure. F is the principal focus of the lens. Which of the following represents the path of the emergent ray?',
-    options: ['P', 'Q', 'R', 'S'],
-    answer: 'S',
-    explanation:
-      'A convex lens is a converging lens, so the refracted ray must bend towards the principal axis. The correct emergent path is S.',
-    difficulty: 2,
-    points: 15,
-    hints: ['A convex lens converges parallel rays and bends other rays towards the axis.', 'Pick the path that moves closer to the principal axis after refraction.'],
-    sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-002-question.png'],
-  },
-  {
-    id: 'lens-003',
-    type: 'multiple_choice',
-    question:
-      'A convex lens L is placed between a screen and a lamp. A sharp image is formed on the screen as shown in the above figure. Which of the following statements concerning the image are correct? (1) The image is larger than the object. (2) The image is real. (3) The image is inverted.',
-    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
-    answer: '(1), (2) & (3)',
-    explanation:
-      'The image forms on a screen, so it is real and therefore inverted. Since the image distance is greater than the object distance in the diagram, the magnification is greater than 1, so the image is larger than the object.',
-    difficulty: 2,
-    points: 15,
-    hints: ['Any image formed on a screen is real.', 'Compare image distance and object distance for magnification.'],
-    sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-003-question.png'],
-  },
-  {
-    id: 'lens-004',
-    type: 'multiple_choice',
-    question:
-      'A real image of an object is formed at I by a lens placed at L. If the focus of the lens is at F, the object must have been placed near to',
-    options: ['P', 'Q', 'R', 'S'],
-    answer: 'Q',
-    explanation:
-      'For a convex lens, if the real image is formed beyond 2F, then the object must be between F and 2F. That corresponds to position Q.',
-    difficulty: 2,
-    points: 15,
-    hints: ['Use the standard convex-lens object-image position rules.', 'Image beyond 2F means object between F and 2F.'],
-    sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-004-question.png'],
-  },
-  {
-    id: 'lens-005',
-    type: 'multiple_choice',
-    question:
-      'A ray of light is incident at a concave lens. F is the focus of the lens. Which of the following diagrams correctly shows the path of the emergent ray?',
-    options: [
-      '/physics/exercises/lens/lens-005-option-a.png',
-      '/physics/exercises/lens/lens-005-option-b.png',
-      '/physics/exercises/lens/lens-005-option-c.png',
-      '/physics/exercises/lens/lens-005-option-d.png',
-    ],
-    answer: '/physics/exercises/lens/lens-005-option-c.png',
-    explanation:
-      'A concave lens is a diverging lens, so the refracted ray bends away from the principal axis. That matches option C.',
-    difficulty: 2,
-    points: 15,
-    hints: ['A concave lens diverges light.', 'The emergent ray should spread away from the axis.'],
-    sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-005-question.png'],
-  },
-  {
-    id: 'lens-006',
-    type: 'multiple_choice',
-    question:
-      'A lens gives a sharp image of the lamp at P as shown in the figure above. Which of the following methods could give a sharp image of the filament on the screen? (1) Move the screen towards the lens. (2) Move the lamp closer to the lens. (3) Replacing the lens by another lens of longer focal length.',
-    options: ['(1) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
-    answer: '(1), (2) & (3)',
-    explanation:
-      'Moving the screen to the current image position gives a sharp image. Moving the object closer shifts the real image farther from the lens, and using a lens with longer focal length can also shift the image to the screen position. So all three methods can work.',
-    difficulty: 3,
-    points: 15,
-    hints: ['Use the lens formula qualitatively.', 'Any change that brings the image onto the screen is acceptable.'],
-    sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-006-question.png'],
-  },  {
-    id: 'lens-007',
-    type: 'multiple_choice',
-    question:
-      'Which of the following statements concerning the properties of virtual images formed by a lens is/are correct? (1) Virtual images can be seen by the naked eye. (2) Virtual images can be formed on a screen. (3) Virtual images can be photographed with a camera.',
-    options: ['(1) only', '(3) only', '(1) & (3) only', '(2) & (3) only'],
-    answer: '(1) & (3) only',
-    explanation:
-      'A virtual image can be seen directly because the eye traces rays back to the apparent source. It cannot be formed on a screen, but it can still be photographed because the camera lens forms a real image on the sensor from the incoming rays.',
-    difficulty: 2,
-    points: 15,
-    hints: ['A screen needs real convergence of light.', 'A camera can re-image what the eye sees.'],
-    sectionId: 'lens',
-  },
-  {
-    id: 'lens-008',
-    type: 'multiple_choice',
-    question:
-      'An object is placed 20 cm in front of a converging lens of focal length 30 cm. Which of the following statements about its image is/are correct? (1) The image is real. (2) The image is magnified. (3) The image is erect.',
-    options: ['(2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
-    answer: '(2) & (3) only',
-    explanation:
-      'The object is inside the focal length of the converging lens. In this case the image is virtual, magnified and erect. So only statements (2) and (3) are correct.',
-    difficulty: 2,
-    points: 15,
-    hints: ['Compare object distance with focal length.', 'A convex lens with object inside F gives a virtual upright image.'],
-    sectionId: 'lens',
-  },
-  {
-    id: 'lens-009',
-    type: 'multiple_choice',
-    question: 'Which of the following will produce a diminished image of an object O? (f is the focal length)',
-    options: [
-      '/physics/exercises/lens/lens-009-option-a.png',
-      '/physics/exercises/lens/lens-009-option-b.png',
-      '/physics/exercises/lens/lens-009-option-c.png',
-      '/physics/exercises/lens/lens-009-option-d.png',
-    ],
-    answer: '/physics/exercises/lens/lens-009-option-d.png',
-    explanation:
-      'For a convex lens, an object placed beyond 2F forms a real, inverted and diminished image between F and 2F. That corresponds to option D.',
-    difficulty: 2,
-    points: 15,
-    hints: ['Use the standard object-image rules for a convex lens.', 'A diminished real image occurs when the object is beyond 2F.'],
-    sectionId: 'lens',
-  },
-  {
-    id: 'lens-010',
-    type: 'multiple_choice',
-    question:
-      'As shown in the diagram, a narrow parallel beam of light is converted to a wider parallel beam by placing two lenses X and Y in the positions shown. Which of the combinations below when correctly chosen and installed could produce the effect required?',
-    options: ['(2) only', '(3) only', '(1) & (3) only', '(2) & (3) only'],
-    answer: '(3) only',
-    explanation:
-      'Lens X must first diverge the narrow parallel beam, so X should be concave. Lens Y must then reconverge the diverging beam into a wider parallel beam, so Y should be convex. Therefore only combination (3) works.',
-    difficulty: 3,
-    points: 15,
-    hints: ['Think of a beam expander: first diverge, then recollimate.', 'Concave lens diverges, convex lens converges.'],
-    sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-010-question.png'],
-  },
-  {
-    id: 'lens-011',
-    type: 'multiple_choice',
-    question:
-      'In the above figure, the image I of an object placed at O is produced by a single lens. If the magnification is 2, what kind of lens has been used and where must it have been placed?',
-    options: ['a concave lens placed at A', 'a concave lens placed at B', 'a convex lens placed at C', 'a convex lens placed at D'],
-    answer: 'a convex lens placed at C',
-    explanation:
-      'Joining the tip of the object and the tip of the image gives the principal ray that passes through the optical centre, locating the lens at C. Since the image is magnified, the lens must be convex.',
-    difficulty: 3,
-    points: 15,
-    hints: ['A ray through the optical centre goes straight.', 'A magnified image here requires a convex lens.'],
-    sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-011-question.png'],
-  },
-  {
-    id: 'lens-012',
-    type: 'multiple_choice',
-    question:
-      'In the diagram shown, the image I is produced by a lens. The object is placed at O. What is the nature and position of this lens?',
-    options: ['concave and placed at A', 'convex and placed at B', 'concave and placed at C', 'convex and placed at D'],
-    answer: 'convex and placed at D',
-    explanation:
-      'The straight line joining the tops of object and image passes through the optical centre, locating the lens at D. The image is inverted, so the lens must be convex because a concave lens gives only upright virtual images.',
-    difficulty: 3,
-    points: 15,
-    hints: ['Use the undeviated central ray to locate the lens.', 'An inverted image from a single lens implies a convex lens.'],
-    sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-012-question.png'],
-  },  {
-    id: 'lens-013',
-    type: 'multiple_choice',
-    question:
-      'Which of the following ray diagrams correctly show(s) the paths of light rays through the lens? (1) (2) (3)',
-    options: ['(3) only', '(1) & (2) only', '(2) & (3) only', '(1), (2) & (3)'],
-    answer: '(2) & (3) only',
-    explanation:
-      'A parallel ray should pass through the principal focus after a convex lens, not through 2F, so diagram (1) is wrong. Diagram (2) is correct because an object between F and 2F gives an image beyond 2F. Diagram (3) is also correct because a converging lens bends rays towards the principal axis.',
-    difficulty: 3,
-    points: 15,
-    hints: ['Check the standard principal-ray rules for a convex lens.', 'A parallel ray does not go through 2F.'],
-    sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-013-question.png'],
-  },
-  {
-    id: 'lens-014',
-    type: 'multiple_choice',
-    question:
-      'If points F and F\' represent the focal points of a concave lens, which of the following ray diagrams correctly shows the path of a light ray through the lens?',
-    options: [
-      '/physics/exercises/lens/lens-014-option-a.png',
-      '/physics/exercises/lens/lens-014-option-b.png',
-      '/physics/exercises/lens/lens-014-option-c.png',
-      '/physics/exercises/lens/lens-014-option-d.png',
-    ],
-    answer: '/physics/exercises/lens/lens-014-option-b.png',
-    explanation:
-      'For a concave lens, a ray directed towards the focal point on the far side emerges parallel to the principal axis. That is the path shown in option B.',
-    difficulty: 2,
-    points: 15,
-    hints: ['Use the standard ray rule for a diverging lens.', 'A ray aimed at the far focus emerges parallel.'],
-    sectionId: 'lens',
-  },
-  {
-    id: 'lens-015',
-    type: 'multiple_choice',
-    question:
-      'A concave lens is placed above the letter "d" which has the size shown in the above figure. The image of the letter "d" appears as',
-    options: [
-      '/physics/exercises/lens/lens-015-option-a.png',
-      '/physics/exercises/lens/lens-015-option-b.png',
-      '/physics/exercises/lens/lens-015-option-c.png',
-      '/physics/exercises/lens/lens-015-option-d.png',
-    ],
-    answer: '/physics/exercises/lens/lens-015-option-a.png',
-    explanation:
-      'A concave lens always forms a virtual, upright and diminished image. Therefore the correct image is the smaller upright version shown in option A.',
-    difficulty: 2,
-    points: 15,
-    hints: ['A concave lens never inverts the image.', 'It always produces a diminished virtual image.'],
-    sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-015-question.png'],
-  },
-  {
-    id: 'lens-016',
-    type: 'multiple_choice',
-    question:
-      'An object is placed in front of a convex lens L in the region D\'C\', as shown in the diagram. If F is the focus of the lens, where should the image lie?',
-    options: [
-      'between C\' and F\'',
-      'between F\' and L',
-      'between L and F',
-      'between F and C',
-    ],
-    answer: 'between F and C',
-    explanation:
-      'For a convex lens, an object placed beyond 2F forms a real image between F and 2F on the opposite side of the lens. That corresponds to the region between F and C.',
-    difficulty: 2,
-    points: 15,
-    hints: ['Use the standard image-location rule for an object beyond 2F.', 'The image lies on the opposite side between F and 2F.'],
-    sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-016-question.png'],
-  },
-  {
-    id: 'lens-017',
-    type: 'multiple_choice',
-    question:
-      'Which of the following ray diagrams is/are correct? (1) (2) (3)',
-    options: ['(1) only', '(1) & (2) only', '(2) & (3) only', '(1), (2) & (3)'],
-    answer: '(1) only',
-    explanation:
-      'Diagram (1) is correct because parallel rays through a convex lens meet at the focal plane. Diagram (2) is wrong because a convex lens should not make the rays diverge in that way. Diagram (3) is wrong because a ray that does not pass through the focus should not emerge parallel to the axis.',
-    difficulty: 3,
-    points: 15,
-    hints: ['Use the three standard principal-ray rules.', 'A convex lens is converging, not diverging.'],
-    sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-017-question.png'],
-  },
-  {
-    id: 'lens-018',
-    type: 'multiple_choice',
-    question:
-      'The figure shows an object OP placed in front of a convex lens. Which of the following should be its most probable image?',
-    options: ['IQ', 'IR', 'IS', 'IT'],
-    answer: 'IS',
-    explanation:
-      'A real image formed by a convex lens must be inverted, so only IS or IT is possible. Since the top of the object is closer to the lens, the corresponding image point is farther from the lens, which matches IS.',
-    difficulty: 3,
-    points: 15,
-    hints: ['A real image from a convex lens is inverted.', 'Compare how moving a point closer to the lens affects its image position.'],
-    sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-018-question.png'],
-  },  {
-    id: 'lens-019',
-    type: 'multiple_choice',
-    question:
-      'The figure shows an object O placed in front of a concave lens to give an image I. What is the most probable position of the focus?',
-    options: ['P', 'Q', 'R', 'S'],
-    answer: 'P',
-    explanation:
-      'For a concave lens, a ray parallel to the principal axis emerges diverging as if from the focus. Extending the refracted ray backward meets the principal axis at P, so P is the focus.',
-    difficulty: 2,
-    points: 15,
-    hints: ['A concave lens makes rays diverge as if they come from the focus.', 'Trace the refracted ray backward.'],
-    sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-019-question.png'],
-  },
-  {
-    id: 'lens-020',
-    type: 'multiple_choice',
-    question:
-      'The above figure shows a beam of light passing through devices X and Y. What could X and Y be?',
-    options: [
-      'X: concave lens; Y: concave lens',
-      'X: concave lens; Y: convex lens',
-      'X: convex lens; Y: concave lens',
-      'X: convex lens; Y: convex lens',
-    ],
-    answer: 'X: concave lens; Y: convex lens',
-    explanation:
-      'The beam diverges after passing through X, so X must be a concave lens. It then converges after passing through Y, so Y must be a convex lens.',
-    difficulty: 2,
-    points: 15,
-    hints: ['Look at whether the beam spreads out or comes together.', 'Concave diverges, convex converges.'],
-    sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-020-question.png'],
-  },
-  {
-    id: 'lens-021',
-    type: 'multiple_choice',
-    question:
-      'Two light rays P and Q pass through an optical system S as shown in the figure above. S probably is',
-    options: [
-      '/physics/exercises/lens/lens-021-option-a.png',
-      '/physics/exercises/lens/lens-021-option-b.png',
-      '/physics/exercises/lens/lens-021-option-c.png',
-      '/physics/exercises/lens/lens-021-option-d.png',
-    ],
-    answer: '/physics/exercises/lens/lens-021-option-c.png',
-    explanation:
-      'Treating the parallel rays on the right as incident rays, they diverge after passing through S. That means S is a diverging optical element, i.e. a concave lens, which is shown in option C.',
-    difficulty: 2,
-    points: 15,
-    hints: ['Reverse the ray direction mentally if needed.', 'A diverging output implies a concave lens.'],
-    sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-021-question.png'],
-  },
-  {
-    id: 'lens-022',
-    type: 'multiple_choice',
-    question:
-      'Which of the 4 light rays P, Q, R and S drawn above is NOT possible?',
-    options: ['P', 'Q', 'R', 'S'],
-    answer: 'S',
-    explanation:
-      'All rays from the same object point must appear to come from the same image point after passing through the lens. Extending P, Q and R backward meets at one point, but S does not, so S is not possible.',
-    difficulty: 3,
-    points: 15,
-    hints: ['All image rays from one object point must be consistent with a single image point.', 'Check where the rays intersect when extended.'],
-    sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-022-question.png'],
-  },
-  {
-    id: 'lens-023',
-    type: 'multiple_choice',
-    question:
-      'A slide illuminated by a light source is placed in front of a convex lens of focal length f as shown in the figure above. The image seen on the translucent screen is probably',
-    options: [
-      '/physics/exercises/lens/lens-023-option-a.png',
-      '/physics/exercises/lens/lens-023-option-b.png',
-      '/physics/exercises/lens/lens-023-option-c.png',
-      '/physics/exercises/lens/lens-023-option-d.png',
-    ],
-    answer: '/physics/exercises/lens/lens-023-option-c.png',
-    explanation:
-      'With the object between F and 2F of a convex lens, the image formed on a screen is real, inverted and magnified. That corresponds to option C.',
-    difficulty: 2,
-    points: 15,
-    hints: ['Object between F and 2F gives an image beyond 2F.', 'A screen image must be real and therefore inverted.'],
-    sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-023-question.png'],
-  },
-  {
-    id: 'lens-024',
-    type: 'multiple_choice',
-    question:
-      'An object AB is placed at a distance of one focal length f in front of a concave lens as shown in the figure above. What is the position and the nature of the image?',
-    options: [
-      'at P; virtual and erect',
-      'at Q; virtual and erect',
-      'at R; real and inverted',
-      'at infinity; virtual and erect',
-    ],
-    answer: 'at Q; virtual and erect',
-    explanation:
-      'A concave lens always forms a virtual, erect and diminished image on the same side as the object. Since the image must be closer to the lens than the object, the correct position is Q.',
-    difficulty: 2,
-    points: 15,
-    hints: ['A concave lens never forms a real image of a real object.', 'The image is always diminished and on the object side.'],
-    sectionId: 'lens',
-    imagePaths: ['/physics/exercises/lens/lens-024-question.png'],
-  },
-  {
-    id: 'lens-025',
-    type: 'multiple_choice',
-    question:
-      'If C and C\' are both at a distance of 2 times the focal length from a convex lens, which of the following ray diagrams is correct?',
-    options: [
-      '/physics/exercises/lens/lens-025-option-a.png',
-      '/physics/exercises/lens/lens-025-option-b.png',
-      '/physics/exercises/lens/lens-025-option-c.png',
-      '/physics/exercises/lens/lens-025-option-d.png',
-    ],
-    answer: '/physics/exercises/lens/lens-025-option-a.png',
-    explanation:
-      'For a convex lens, an object at 2F forms a real image at 2F on the other side. The only diagram consistent with a ray from C converging to C\' is option A.',
-    difficulty: 3,
-    points: 15,
-    hints: ['An object at 2F gives an image at 2F.', 'The correct ray diagram must preserve that symmetry.'],
-    sectionId: 'lens',
-  },
-  {
-    id: 'lens-026',
-    type: 'multiple_choice',
-    question:
-      'A convex lens is used as a magnifying glass to read small printing in a book. Which of the following statements is/are true? (1) The image distance is greater than the object distance. (2) The image of the printing is real. (3) The image of the printing is erect.',
-    options: ['(1) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
-    answer: '(1) & (3) only',
-    explanation:
-      'A magnifying glass uses a convex lens with the object inside the focal length, producing a virtual, enlarged and erect image. The virtual image is on the far side of the lens in the viewing sense, so the image distance is greater than the object distance, and the image is erect but not real.',
-    difficulty: 2,
-    points: 15,
-    hints: ['A magnifying glass forms a virtual upright image.', 'Virtual means not formed on a screen.'],
-    sectionId: 'lens',
-  },  {
-    id: 'lens-027',
-    question: 'If F and F'' are foci and C and C'' are both at a distance of two times the focal length from the lens, which of the following ray diagrams is/are correct?',
-    options: ['(1) only', '(1) & (2) only', '(2) & (3) only', '(1), (2) & (3)'],
-    answer: '(1) only',
-    explanation: 'For a concave lens, parallel incident rays diverge as if they come from the focus. Diagram (1) fits this. Diagram (2) incorrectly shows convergence after a concave lens, and diagram (3) incorrectly makes parallel rays diverge from C instead of the focus.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Concave Lens Ray Diagrams',
-    sectionId: 'lens',
-    hints: ['Recall that a concave lens is a diverging lens.', 'Parallel rays through a concave lens appear to come from the focus.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-027-question.png']
-  },
-  {
-    id: 'lens-028',
-    question: 'In the figure, F is the focus of the converging lens. Which of the refracted rays is incorrectly drawn?',
-    options: ['P', 'Q', 'S', 'T'],
-    answer: 'S',
-    explanation: 'Ray S comes from the lower part of the object, so after refraction it should go toward the lower part of the image. The path labeled S is therefore incorrect.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Convex Lens Ray Diagrams',
-    sectionId: 'lens',
-    hints: ['Trace where rays from the top and bottom of the object should go.', 'A convex lens forms a real inverted image when appropriate.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-028-question.png']
-  },
-  {
-    id: 'lens-029',
-    question: 'In the diagram, the image I of an object O is produced by a lens. What is the nature and position of this lens?',
-    options: ['concave lens placed at A', 'concave lens placed at B', 'convex lens placed at C', 'convex lens placed at D'],
-    answer: 'convex lens placed at D',
-    explanation: 'A magnified image indicates a convex lens. Joining the top of the object to the top of the image, the line meets the principal axis at D, which gives the lens position.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Locating Lenses from Image Geometry',
-    sectionId: 'lens',
-    hints: ['Use the straight line through the optical centre.', 'A magnified image is not formed by a concave lens.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-029-question.png']
-  },
-  {
-    id: 'lens-030',
-    question: 'A lens is used to look at some print on a paper. The image of the word "PHYSICS" is shown above. Which of the following statements is/are true? (1) The lens is a converging lens. (2) The image lies between the paper and the lens. (3) The image is real.',
-    options: ['(2) only', '(1) & (2) only', '(1) & (3) only', '(1), (2) & (3)'],
-    answer: '(2) only',
-    explanation: 'The image is erect and diminished, which indicates a concave lens. A concave lens forms a virtual image that lies between the object and the lens. So only statement (2) is true.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Concave Lens Images',
-    sectionId: 'lens',
-    hints: ['An erect image formed by a lens is virtual.', 'A concave lens always forms a diminished virtual image.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-030-question.png']
-  },
-  {
-    id: 'lens-031',
-    question: 'Which of the following statements concerning real images formed by a lens is/are correct? (1) Real images are always diminished. (2) Real images can be photographed with a camera. (3) Without a screen, real images cannot be seen by the eye.',
-    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
-    answer: '(2) only',
-    explanation: 'Real images may be magnified or diminished, so (1) is false. Real images can be photographed by a camera, so (2) is true. A real image can still be seen directly by the eye if the eye intercepts the rays, so (3) is false.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Real and Virtual Images',
-    sectionId: 'lens',
-    hints: ['A camera records a real image on its sensor or film.', 'Do not confuse seeing an image with projecting it on a screen.'],
-    type: 'multiple_choice',
-    points: 15
-  },
-  {
-    id: 'lens-032',
-    question: 'A convex lens is used as a magnifying glass to read some small print in a book. The glass is placed 3 cm from the book and the magnification is 3. What is the distance between the book and the image of the print?',
-    options: ['3 cm', '6 cm', '9 cm', '12 cm'],
-    answer: '6 cm',
-    explanation: 'Magnification m = v/u = 3. With object distance u = 3 cm, the image distance v = 9 cm. The image is on the same side as the object for a magnifying glass, so the separation between object and image is v - u = 6 cm.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Magnifying Glass',
-    sectionId: 'lens',
-    hints: ['Use m = v/u.', 'For a magnifying glass the image is virtual and on the same side as the object.'],
-    type: 'multiple_choice',
-    points: 15
-  },
-  {
-    id: 'lens-033',
-    question: 'In the diagram, F and F'' are the foci of the convex lens and AB is an incident ray. Which of the following paths best represents the emergent ray?',
-    options: ['P', 'Q', 'R', 'S'],
-    answer: 'Q',
-    explanation: 'A convex lens bends rays toward the principal axis. The incident ray shown neither passes through the focus nor is parallel to the axis, so the only valid refracted path is Q.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Convex Lens Ray Diagrams',
-    sectionId: 'lens',
-    hints: ['Check whether the ray is parallel to the axis or passes through a focus before applying special rules.', 'A convex lens is converging.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-033-question.png']
-  },  {
-    id: 'lens-034',
-    question: 'When an object O is placed in front of a convex lens and a plane mirror as shown, an image I is formed at the same position as the object. Which of the following statements is/are correct? (1) The image I is real. (2) The focal length of the lens is 10 cm. (3) If the distance between the lens and the plane mirror is changed to 2 cm, the position of image I would remain unchanged.',
-    options: ['(1) only', '(3) only', '(1) & (2) only', '(1), (2) & (3)'],
-    answer: '(1), (2) & (3)',
-    explanation: 'Because the rays actually pass through the returned image, the image is real. The lens sends parallel rays to the mirror, so the object is at the focal point and the focal length is 10 cm. Changing the lens-mirror separation does not matter because the rays between lens and mirror remain parallel, so the image position stays unchanged.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Convex Lens with Plane Mirror',
-    sectionId: 'lens',
-    hints: ['A point object at the focus of a convex lens gives a parallel beam.', 'A plane mirror reflects a parallel beam back along itself.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-034-question.png']
-  },
-  {
-    id: 'lens-035',
-    question: 'In the diagram, A''B'' is the image of an object AB formed by an optical device PQ. What is PQ?',
-    options: ['a plane mirror', 'a glass block', 'a concave lens', 'a convex lens'],
-    answer: 'a concave lens',
-    explanation: 'The image is virtual, erect and diminished. That is the standard image formed by a concave lens.',
-    difficulty: 'easy',
-    topic: 'Lens',
-    subtopic: 'Image Nature and Lens Type',
-    sectionId: 'lens',
-    hints: ['A concave lens always forms a virtual erect diminished image.', 'A convex lens does not always do so.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-035-question.png']
-  },
-  {
-    id: 'lens-036',
-    question: 'If F and F'' are the foci of the concave lens, which of the following ray diagrams is incorrect?',
-    options: [
-      '/physics/exercises/lens/lens-036-option-a.png',
-      '/physics/exercises/lens/lens-036-option-b.png',
-      '/physics/exercises/lens/lens-036-option-c.png',
-      '/physics/exercises/lens/lens-036-option-d.png'
-    ],
-    answer: '/physics/exercises/lens/lens-036-option-a.png',
-    explanation: 'For a concave lens, a ray parallel to the principal axis must diverge as if it comes from the focus. Option A violates this rule. The others follow standard concave-lens ray tracing rules.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Concave Lens Ray Diagrams',
-    sectionId: 'lens',
-    hints: ['A concave lens is diverging.', 'Check whether the backward extension goes through the focal point.'],
-    type: 'multiple_choice',
-    points: 15
-  },
-  {
-    id: 'lens-037',
-    question: 'An illuminated letter ''R'' is placed in front of a lens as shown and an image is formed on a translucent screen. The object distance is 30 cm and the image distance is 20 cm. Which of the following statements is/are correct? (1) The lens is a converging lens. (2) The image is diminished. (3) The shape of the image seen by the observer is ''G''.',
-    options: ['(1) only', '(1) & (2) only', '(2) & (3) only', '(1), (2) & (3)'],
-    answer: '(1) & (2) only',
-    explanation: 'A real image on a screen must be formed by a converging lens. Since the image distance is less than the object distance, the magnification is less than 1, so the image is diminished. A real image is inverted, so the image is not the upright shape described in statement (3).',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Real Images by Convex Lens',
-    sectionId: 'lens',
-    hints: ['Only a converging lens forms a real image on a screen in this setup.', 'Use m = v/u.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-037-question.png']
-  },
-  {
-    id: 'lens-038',
-    question: 'An illuminated letter ''R'' is placed in front of a lens as shown and an image is formed on a translucent screen. The object distance is 30 cm and the image distance is 20 cm. If a piece of paper is used to cover one-half of the lens, which of the following describes the change in the image as seen by the observer?',
-    options: ['The whole image can still be seen but the image becomes dimmer.', 'The whole image can still be seen and its brightness remains unchanged.', 'Only half of the image can be seen and the image becomes dimmer.', 'Only half of the image can be seen but its brightness remains unchanged.'],
-    answer: 'The whole image can still be seen but the image becomes dimmer.',
-    explanation: 'Each part of the lens forms the whole image. Covering half the lens reduces the amount of light reaching the screen, so the image remains complete but becomes dimmer.',
-    difficulty: 'easy',
-    topic: 'Lens',
-    subtopic: 'Partial Obstruction of Lens',
-    sectionId: 'lens',
-    hints: ['A lens does not map one half of itself to one half of the image.', 'Blocking light reduces brightness, not image completeness.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-038-question.png']
-  },
-  {
-    id: 'lens-039',
-    question: 'In the figure, F and F'' are the foci of the lens and AB is an incident ray. Which of the following paths best represents the emergent ray?',
-    options: ['P', 'Q', 'R', 'S'],
-    answer: 'S',
-    explanation: 'This is a concave lens, so the emergent ray must bend away from the principal axis. Among the four paths, only S bends away from the principal axis.',
-    difficulty: 'easy',
-    topic: 'Lens',
-    subtopic: 'Concave Lens Ray Diagrams',
-    sectionId: 'lens',
-    hints: ['A concave lens is diverging.', 'Check which ray moves farther away from the axis after refraction.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-039-question.png']
-  },  {
-    id: 'lens-040',
-    question: 'Which of the following ray diagrams concerning the refraction of light ray by a converging lens is/are incorrect? F denotes the focus of the lens. (1) (2) (3)',
-    options: ['(2) only', '(3) only', '(1) & (2) only', '(1) & (3) only'],
-    answer: '(2) only',
-    explanation: 'For a converging lens, parallel rays should converge after refraction. Diagrams (1) and (3) follow converging-lens behavior, but diagram (2) incorrectly shows divergence after the lens.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Convex Lens Ray Diagrams',
-    sectionId: 'lens',
-    hints: ['A converging lens bends light toward the principal axis.', 'Parallel rays should meet on the focal plane.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-040-question.png']
-  },
-  {
-    id: 'lens-041',
-    question: 'The photograph shows a student using a convex lens of focal length 20 cm to view a distant object. Which of the following statements about the image formed is/are correct? (1) The image will be erect. (2) The image will be diminished. (3) The student must use a screen in order to see the image.',
-    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
-    answer: '(2) only',
-    explanation: 'For a distant object, a convex lens forms a real inverted image at the focus. Since the image distance is much smaller than the object distance, the image is diminished. The eye can still see a real image directly without requiring a screen.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Images of Distant Objects',
-    sectionId: 'lens',
-    hints: ['A distant object forms its image near the focus of a convex lens.', 'Real images are not necessarily visible only on a screen.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-041-question.png']
-  },
-  {
-    id: 'lens-042',
-    question: 'The photograph shows a watch with a lens positioned over the date-display. Which of the following statements are correct? (1) The lens is a convex lens. (2) The image of the date-display formed by the lens is virtual. (3) The date-display and its image lie on the same side of the lens.',
-    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
-    answer: '(1), (2) & (3)',
-    explanation: 'A magnified image is produced here, so the lens is convex. Because the image is upright, it is virtual. A virtual image formed by a magnifier lies on the same side of the lens as the object.',
-    difficulty: 'easy',
-    topic: 'Lens',
-    subtopic: 'Magnifying Lens',
-    sectionId: 'lens',
-    hints: ['A magnifying glass is a convex lens.', 'An erect magnified lens image is virtual.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-042-question.png']
-  },
-  {
-    id: 'lens-043',
-    question: 'An object O is placed in front of a concave lens. F and F'' are the foci of the lens. Which of the following diagrams shows the refracted rays of the three incident rays and the image I formed?',
-    options: [
-      '/physics/exercises/lens/lens-043-option-a.png',
-      '/physics/exercises/lens/lens-043-option-b.png',
-      '/physics/exercises/lens/lens-043-option-c.png',
-      '/physics/exercises/lens/lens-043-option-d.png'
-    ],
-    answer: '/physics/exercises/lens/lens-043-option-b.png',
-    explanation: 'For a concave lens, a ray parallel to the principal axis appears to diverge from the focus, a ray through the optical centre continues straight, and the virtual image is upright and diminished on the object side. Only option B satisfies all three.',
-    difficulty: 'medium',
-    topic: 'Lens',
-    subtopic: 'Concave Lens Image Construction',
-    sectionId: 'lens',
-    hints: ['Use the three standard rays for a concave lens.', 'The image must be virtual, upright and diminished.'],
-    type: 'multiple_choice',
-    points: 15,
-    imagePaths: ['/physics/exercises/lens/lens-043-question.png']
-  },
-  {
-    id: 'lens-044',
-    question: 'An object is placed in front of a concave lens. Which of the following statements about the properties of the image formed in the lens must be correct? (1) The image is diminished. (2) The image is virtual. (3) The image distance is smaller than the focal length of the lens.',
-    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
-    answer: '(1), (2) & (3)',
-    explanation: 'A concave lens always produces a virtual, erect and diminished image. The image lies between the lens and the focus, so its image distance is smaller than the focal length in magnitude.',
-    difficulty: 'easy',
-    topic: 'Lens',
-    subtopic: 'Concave Lens Image Properties',
-    sectionId: 'lens',
-    hints: ['A concave lens has fixed image behavior for real objects.', 'The image always forms between the lens and the focus.'],
-    type: 'multiple_choice',
-    points: 15
-  },  },];
-
-// 章节配置
+// 绔犺妭閰嶇疆
 export const FORCE_MOTION_CHAPTERS: Chapter[] = [
   {
     id: 'fm-ch1',
     title: 'Position, Distance and Displacement',
-    titleCN: '位置、距离与位移',
+    titleCN: '浣嶇疆銆佽窛绂讳笌浣嶇Щ',
     concepts: FORCE_MOTION_CONCEPTS,
     formulas: FORCE_MOTION_FORMULAS,
     exercises: FORCE_MOTION_EXERCISES,
@@ -14840,5 +11909,8 @@ export const FORCE_MOTION_CHAPTERS: Chapter[] = [
     completed: false,
   },
 ];
+
+
+
 
 
