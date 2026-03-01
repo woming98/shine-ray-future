@@ -204,7 +204,154 @@ import { Chapter, Formula, Exercise, Concept, Simulation } from '../types';
       '常见两段模型：反应阶段匀速（s_r = v t_r），制动阶段匀减速到停下（s_b = v²/(2a_d)，其�?a_d 取“减速度大小”）。总停�?s_total = s_r + s_b�?,
     example: 'v=18 m/s, t_r=0.5 s, a_d=6 �?s_total=18×0.5+18²/(2×6)=9+27=36 m',
   },
-];
+  {
+    id: 'rr-013',
+    type: 'multiple_choice',
+    question:
+      'Which of the following phenomena is/are caused by refraction of light? (1) A swimming pool appears shallower than it really is. (2) A metre rule appears bent when dipped in water. (3) A spectrum is formed when white light passes through a prism.',
+    options: ['(3) only', '(1) & (2) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      'All three effects are due to refraction. Apparent depth and the bent-rule effect come from rays changing direction at a boundary, and a prism forms a spectrum because different colours refract by different amounts.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Apparent depth is a refraction effect.', 'Dispersion in a prism is refraction with wavelength dependence.'],
+    sectionId: 'reflection-refraction',
+  },
+  {
+    id: 'rr-014',
+    type: 'multiple_choice',
+    question: 'The diagram shows a light ray travelling from liquid to air. Find the refractive index of the liquid.',
+    options: ['0.71', '1.33', '1.41', '1.50'],
+    answer: '1.41',
+    explanation:
+      'Using Snell\'s law for the limiting geometry shown, the refractive index is n = sin 45 degrees / sin 30 degrees = 1.41.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Apply Snell\'s law using the angles shown.', 'The ratio is sine in denser medium over sine in air.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-014-question.png'],
+  },
+  {
+    id: 'rr-015',
+    type: 'multiple_choice',
+    question:
+      'Which of the following devices involve(s) total internal reflection of light as they work? (1) Optical fibres (2) A prismatic periscope (3) A plane mirror',
+    options: ['(2) only', '(1) & (2) only', '(1) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (2) only',
+    explanation:
+      'Optical fibres guide light by total internal reflection, and a prismatic periscope uses internal reflections in prisms. A plane mirror uses ordinary reflection, not total internal reflection.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Prisms can replace mirrors using internal reflection.', 'A metal-backed plane mirror is not a TIR device.'],
+    sectionId: 'reflection-refraction',
+  },
+  {
+    id: 'rr-016',
+    type: 'multiple_choice',
+    question:
+      'A ray of light travels in air and strikes a semi-circular glass block at an angle of incidence 42 degrees. The critical angle of the glass is 42 degrees. Which of the following diagrams best shows the subsequent path(s) of the ray?',
+    options: [
+      '/physics/exercises/reflection-refraction/rr-016-option-a.png',
+      '/physics/exercises/reflection-refraction/rr-016-option-b.png',
+      '/physics/exercises/reflection-refraction/rr-016-option-c.png',
+      '/physics/exercises/reflection-refraction/rr-016-option-d.png',
+    ],
+    answer: '/physics/exercises/reflection-refraction/rr-016-option-d.png',
+    explanation:
+      'From air into glass, the refracted ray bends towards the normal. At the same time, part of the incident light is reflected. The diagram showing both the reflected ray and the refracted ray bent towards the normal is D.',
+    difficulty: 3,
+    points: 15,
+    hints: ['At the first boundary, there is usually both reflection and refraction.', 'Air to glass means towards the normal.'],
+    sectionId: 'reflection-refraction',
+  },
+  {
+    id: 'rr-017',
+    type: 'multiple_choice',
+    question:
+      'A ray of light travelling in air enters a semi-circular glass block as shown. Different values of the angle of incidence theta and the corresponding values of the angle of refraction phi are measured. Which of the below expressions represents the refractive index of the glass?',
+    options: [
+      'the slope of the graph of sin theta against sin phi',
+      'the slope of the graph of sin phi against sin theta',
+      'the slope of the graph of theta against phi',
+      'the slope of the graph of phi against theta',
+    ],
+    answer: 'the slope of the graph of sin theta against sin phi',
+    explanation:
+      'By Snell\'s law, n = sin theta / sin phi for air-to-glass refraction. So if sin theta is plotted against sin phi, the slope equals the refractive index.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Start from Snell\'s law.', 'Put the numerator on the vertical axis to read slope directly as n.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-017-question.png'],
+  },
+  {
+    id: 'rr-018',
+    type: 'multiple_choice',
+    question:
+      'A ray of red light travels in air and strikes a triangular glass prism at an angle of incidence 45 degrees. The critical angle of red light for the glass is 42 degrees. Which of the following diagrams best shows the path of the ray?',
+    options: [
+      '/physics/exercises/reflection-refraction/rr-018-option-a.png',
+      '/physics/exercises/reflection-refraction/rr-018-option-b.png',
+      '/physics/exercises/reflection-refraction/rr-018-option-c.png',
+      '/physics/exercises/reflection-refraction/rr-018-option-d.png',
+    ],
+    answer: '/physics/exercises/reflection-refraction/rr-018-option-d.png',
+    explanation:
+      'At entry, air to glass makes the ray bend towards the normal. At exit, glass to air makes it bend away from the normal. The diagram that shows both bends correctly is D.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Decide the bend direction at each face.', 'The critical angle matters only for glass-to-air travel.'],
+    sectionId: 'reflection-refraction',
+  },
+  {
+    id: 'rr-019',
+    type: 'multiple_choice',
+    question:
+      'Which of the following phenomena involve(s) total internal reflection of light? (1) The sparkling of a diamond. (2) The formation of a mirage. (3) A ruler appearing bent when dipped in water.',
+    options: ['(2) only', '(1) & (2) only', '(1) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (2) only',
+    explanation:
+      'A diamond sparkles because light undergoes total internal reflection inside it, and a mirage involves light bending through air layers and can include total internal reflection. A bent ruler in water is due to refraction only.',
+    difficulty: 2,
+    points: 15,
+    hints: ['A bent ruler is a standard refraction example.', 'Diamond brilliance depends on trapped light.'],
+    sectionId: 'reflection-refraction',
+  },
+  {
+    id: 'rr-020',
+    type: 'multiple_choice',
+    question:
+      'Which of the following phenomena is/are caused by the refraction of light? (1) If a man who is spear-fishing aims his spear at where the fish appears to be, he will miss it. (2) A spectrum is formed when white light passes through a prism. (3) A light ray is transmitted through a curved glass fibre.',
+    options: ['(1) only', '(1) & (2) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (2) only',
+    explanation:
+      'The fish appears displaced because of refraction at the water surface, and a prism forms a spectrum by refracting colours differently. A curved glass fibre guides light mainly by total internal reflection, not ordinary refraction.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Glass fibre transmission is a TIR application.', 'A prism disperses light by refraction.'],
+    sectionId: 'reflection-refraction',
+  },
+  {
+    id: 'rr-021',
+    type: 'multiple_choice',
+    question:
+      'A beam consisting of red and violet light travels in a glass block with an air cavity. The cavity is in the shape of a prism as shown above. Which of the following diagrams best shows the subsequent path of the beam?',
+    options: [
+      '/physics/exercises/reflection-refraction/rr-021-option-a.png',
+      '/physics/exercises/reflection-refraction/rr-021-option-b.png',
+      '/physics/exercises/reflection-refraction/rr-021-option-c.png',
+      '/physics/exercises/reflection-refraction/rr-021-option-d.png',
+    ],
+    answer: '/physics/exercises/reflection-refraction/rr-021-option-d.png',
+    explanation:
+      'On entering the air cavity from glass, the beam goes from denser to less dense and bends away from the normal. On leaving the cavity back into glass, it bends towards the normal. Red light deviates less than violet, so the correct diagram is D.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Treat the air cavity like an inverted prism inside glass.', 'Red light deviates least.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-021-question.png'],
+  },];
 
 // 概念知识�?- 位置与运�?export const FORCE_MOTION_CONCEPTS: Concept[] = [
   {
@@ -541,7 +688,99 @@ import { Chapter, Formula, Exercise, Concept, Simulation } from '../types';
     ],
     difficulty: 'advanced',
   },
-];
+  {
+    id: 'rr-022',
+    type: 'multiple_choice',
+    question:
+      'A ray of light travels in air and strikes a rectangular glass block at an angle of incidence 50 degrees. The critical angle of the glass is 42 degrees. Which of the following diagrams best shows the path of the ray?',
+    options: [
+      '/physics/exercises/reflection-refraction/rr-022-option-a.png',
+      '/physics/exercises/reflection-refraction/rr-022-option-b.png',
+      '/physics/exercises/reflection-refraction/rr-022-option-c.png',
+      '/physics/exercises/reflection-refraction/rr-022-option-d.png',
+    ],
+    answer: '/physics/exercises/reflection-refraction/rr-022-option-d.png',
+    explanation:
+      'At the first boundary, air to glass makes the ray bend towards the normal. At the second boundary, glass to air makes it bend away from the normal. The diagram that shows both correctly is D.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Track the ray at entry and exit separately.', 'Use bend towards normal into glass, away from normal out of glass.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-022-question.png'],
+  },
+  {
+    id: 'rr-023',
+    type: 'multiple_choice',
+    question:
+      'A student uses two triangular prisms to construct a periscope as shown above. Which of the following shows the image of the object as seen by the observer?',
+    options: [
+      '/physics/exercises/reflection-refraction/rr-023-option-a.png',
+      '/physics/exercises/reflection-refraction/rr-023-option-b.png',
+      '/physics/exercises/reflection-refraction/rr-023-option-c.png',
+      '/physics/exercises/reflection-refraction/rr-023-option-d.png',
+    ],
+    answer: '/physics/exercises/reflection-refraction/rr-023-option-a.png',
+    explanation:
+      'The two reflections in the prismatic periscope produce an inverted image in the orientation shown. That matches option A.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Trace the image orientation after each reflection.', 'Two reflections do not always restore the original orientation for an asymmetric object.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-023-question.png'],
+  },
+  {
+    id: 'rr-024',
+    type: 'multiple_choice',
+    question: 'A ray of light enters a glass prism and travels along the path as shown above. Find the refractive index of the glass.',
+    options: ['1.07', '1.37', '1.47', '1.50'],
+    answer: '1.47',
+    explanation:
+      'The angle with the normal is 90 degrees minus 47 degrees, so the internal incidence angle is 43 degrees. Since the emergent ray is along the surface, 43 degrees is the critical angle. Therefore n = 1 / sin 43 degrees = 1.47.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Convert the angle with the face to the angle with the normal.', 'A ray along the surface corresponds to the critical angle.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-024-question.png'],
+  },
+  {
+    id: 'rr-025',
+    type: 'multiple_choice',
+    question:
+      'A ray of light travels in air and strikes a glass block as shown above. Which of the following diagrams best shows the path of the ray?',
+    options: [
+      '/physics/exercises/reflection-refraction/rr-025-option-a.png',
+      '/physics/exercises/reflection-refraction/rr-025-option-b.png',
+      '/physics/exercises/reflection-refraction/rr-025-option-c.png',
+      '/physics/exercises/reflection-refraction/rr-025-option-d.png',
+    ],
+    answer: '/physics/exercises/reflection-refraction/rr-025-option-d.png',
+    explanation:
+      'From air into glass the ray bends towards the normal, and from glass back into air it bends away from the normal. The only diagram consistent with both is D.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use relative optical density at each face.', 'The emergent ray in air must bend away from the normal.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-025-question.png'],
+  },
+  {
+    id: 'rr-026',
+    type: 'multiple_choice',
+    question: 'A ray of light travels in air and strikes a glass prism as shown above. Which of the following diagrams best shows the path of the ray?',
+    options: [
+      '/physics/exercises/reflection-refraction/rr-026-option-a.png',
+      '/physics/exercises/reflection-refraction/rr-026-option-b.png',
+      '/physics/exercises/reflection-refraction/rr-026-option-c.png',
+      '/physics/exercises/reflection-refraction/rr-026-option-d.png',
+    ],
+    answer: '/physics/exercises/reflection-refraction/rr-026-option-d.png',
+    explanation:
+      'At entry, the ray goes from air to glass and bends towards the normal. At exit, it goes from glass to air and bends away from the normal. That makes D the correct path.',
+    difficulty: 3,
+    points: 15,
+    hints: ['The prism has two refractions, one at each face.', 'Check bend direction at both boundaries.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-026-question.png'],
+  },];
 
 // 练习�?- DSE Style (All in English)
 // Position and Movement 板块
@@ -12261,7 +12500,182 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     sectionId: 'wave-phenomena',
     imagePaths: ['/physics/exercises/wave-phenomena/wp-072-question.png'],
   },
-];
+  {
+    id: 'rr-001',
+    type: 'multiple_choice',
+    question: 'A light ray passes through a spherical air bubble in water. Which of the following represents the path of the emergent ray?',
+    options: ['P', 'Q', 'R', 'S'],
+    answer: 'P',
+    explanation:
+      'At the water-to-air boundary, the ray bends away from the normal. At the air-to-water boundary, it bends towards the normal. The path labeled P matches both refractions.',
+    difficulty: 2,
+    points: 15,
+    hints: ['A spherical surface has a normal through the centre.', 'Compare bending at entry and exit separately.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-001-question.png'],
+  },
+  {
+    id: 'rr-002',
+    type: 'multiple_choice',
+    question: 'A fixed object is placed in front of a plane mirror. If the mirror is moved 0.10 m away from the fixed object, how far will the image move?',
+    options: ['0.05 m', '0.10 m', '0.20 m', '0.40 m'],
+    answer: '0.20 m',
+    explanation:
+      'For a plane mirror, the image is as far behind the mirror as the object is in front. Moving the mirror by 0.10 m increases the image position by 0.20 m relative to the fixed object.',
+    difficulty: 1,
+    points: 15,
+    hints: ['Image distance equals object distance for a plane mirror.', 'A mirror shift affects both sides of the mirror relationship.'],
+    sectionId: 'reflection-refraction',
+  },
+  {
+    id: 'rr-003',
+    type: 'multiple_choice',
+    question: 'When light enters from one medium into another, which of the following will be changed? (1) The frequency of the light (2) The wavelength of the light (3) The velocity of the light',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      'Across a boundary, the frequency of light remains unchanged. Since speed changes from one medium to another, the wavelength must also change because v = f lambda.',
+    difficulty: 1,
+    points: 15,
+    hints: ['Frequency is fixed by the source.', 'Use v = f lambda.'],
+    sectionId: 'reflection-refraction',
+  },
+  {
+    id: 'rr-004',
+    type: 'multiple_choice',
+    question:
+      'A point light source is placed in a liquid. Rays from the source leave the liquid surface through a circular area of diameter 24 cm. The refractive index of the liquid is 1.25. The depth of the source below the liquid surface is',
+    options: ['9 cm', '15 cm', '16 cm', '18 cm'],
+    answer: '9 cm',
+    explanation:
+      'The boundary circle is formed by the critical ray. With sin c = 1/1.25, the critical angle is 53.1 degrees. Using tan c = 12/d gives d = 9 cm.',
+    difficulty: 3,
+    points: 15,
+    hints: ['The edge ray leaves at the critical angle.', 'Half the diameter is the horizontal radius.'],
+    sectionId: 'reflection-refraction',
+  },
+  {
+    id: 'rr-005',
+    type: 'multiple_choice',
+    question:
+      'A ray of light I passes from a liquid L into air and makes an angle of incidence of 42 degrees. If the refractive index of the liquid L is 1.35, the most probable emergent ray of light is',
+    options: ['P', 'Q', 'R', 'S'],
+    answer: 'Q',
+    explanation:
+      'For the liquid, sin c = 1/1.35, so the critical angle is about 45 degrees. Since 42 degrees is below the critical angle, the ray refracts into air and bends away from the normal, matching Q.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Check whether total internal reflection occurs first.', 'From denser to less dense means away from the normal.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-005-question.png'],
+  },
+  {
+    id: 'rr-006',
+    type: 'multiple_choice',
+    question:
+      'Which of the following statements about the properties of light is/are correct? (1) The speed of light in vacuum is independent of its wavelength. (2) The wavelength of light will change when it enters a less dense medium. (3) The frequency of light will change when it enters a less dense medium.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) & (2) only',
+    explanation:
+      'The speed of light in vacuum is constant. Entering a less dense medium changes the speed, so the wavelength changes. The frequency stays the same at the boundary.',
+    difficulty: 1,
+    points: 15,
+    hints: ['Vacuum speed is constant.', 'Frequency is unchanged in refraction.'],
+    sectionId: 'reflection-refraction',
+  },
+  {
+    id: 'rr-007',
+    type: 'multiple_choice',
+    question:
+      'In the diagram, PQR represents the path of a ray of light incident on a semi-circular glass slab. Q is the centre of the slab. Which of the directions W, X, Y or Z correctly indicates the subsequent path of the refracted ray?',
+    options: ['W', 'X', 'Y', 'Z'],
+    answer: 'X',
+    explanation:
+      'Because the incident ray passes through the centre Q, it meets the curved surface normally. The angle of incidence is 0 degrees, so the ray continues undeviated and emerges along X.',
+    difficulty: 2,
+    points: 15,
+    hints: ['A radius to the point of incidence is the normal.', 'Normal incidence means no bending.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-007-question.png'],
+  },
+  {
+    id: 'rr-008',
+    type: 'multiple_choice',
+    question:
+      'As shown in the diagram, the apparent position of the aeroplane seen by the diver at the bottom of the small pond is at',
+    options: ['P', 'Q', 'R', 'S'],
+    answer: 'P',
+    explanation:
+      'The diver is in water looking at an object in air. The light refracts towards the normal on entering water, so the object appears higher than its real position. That gives apparent position P.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Think from the diver back-tracing the refracted rays.', 'An object in air appears farther from the surface to an observer in water.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-008-question.png'],
+  },
+  {
+    id: 'rr-009',
+    type: 'multiple_choice',
+    question:
+      'In the diagram shown, a light ray passes from medium Y to medium X and emerges to medium Y again. The refractive index of medium X is smaller than that of medium Y. Which of the following represents the path of the emergent ray?',
+    options: ['P', 'Q', 'R', 'S'],
+    answer: 'R',
+    explanation:
+      'From Y to X, the ray goes from denser to less dense and bends away from the normal. From X back to Y, it bends towards the normal. The path labeled R matches that behavior.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Decide the bend at each boundary separately.', 'X has smaller refractive index, so it is optically less dense.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-009-question.png'],
+  },
+  {
+    id: 'rr-010',
+    type: 'multiple_choice',
+    question:
+      'A ray of light passes from air into a glass block. Which of the following ray diagrams is/are correct? (Given that the critical angle of glass is 42 degrees.)',
+    options: ['(2) only', '(3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(2) & (3) only',
+    explanation:
+      'In the valid cases the internal incidence angle exceeds the critical angle of 42 degrees, so total internal reflection occurs and no refracted ray emerges from that boundary. That matches diagrams (2) and (3).',
+    difficulty: 3,
+    points: 15,
+    hints: ['Compare each internal incidence angle with the critical angle.', 'Total internal reflection occurs only inside glass towards air.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-010-question.png'],
+  },
+  {
+    id: 'rr-011',
+    type: 'multiple_choice',
+    question: 'Which of the following best describes a ray of light travelling from water to air?',
+    options: [
+      '/physics/exercises/reflection-refraction/rr-011-option-a.png',
+      '/physics/exercises/reflection-refraction/rr-011-option-b.png',
+      '/physics/exercises/reflection-refraction/rr-011-option-c.png',
+      '/physics/exercises/reflection-refraction/rr-011-option-d.png',
+    ],
+    answer: '/physics/exercises/reflection-refraction/rr-011-option-c.png',
+    explanation:
+      'For water to air, the reflected ray must satisfy angle of reflection equals angle of incidence, and the refracted ray bends away from the normal. The diagram in option C is the only one that shows both correctly.',
+    difficulty: 2,
+    points: 15,
+    hints: ['A reflected ray is always present.', 'From denser to less dense, the transmitted ray bends away from the normal.'],
+    sectionId: 'reflection-refraction',
+  },
+  {
+    id: 'rr-012',
+    type: 'multiple_choice',
+    question:
+      'The refractive indices of water and glass are 1.33 and 1.5 respectively. In which of the following cases will total internal reflection occur?',
+    options: ['(2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(2) only',
+    explanation:
+      'Total internal reflection happens only when light travels from a denser medium to a less dense one and the incidence angle exceeds the critical angle. Among the three cases, only case (2) satisfies that condition.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Check the direction of travel first.', 'The denser medium must be the incident medium.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-012-question.png'],
+  },];
 
 // 互动模拟 - 自由落体计时�?export const FORCE_MOTION_SIMULATIONS: Simulation[] = [
   {
@@ -12316,7 +12730,608 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
       { name: '重力加速度', symbol: 'g', unit: 'm/s²', min: 5, max: 15, default: 10, step: 0.5 },
     ],
   },
-];
+  {
+    id: 'rr-027',
+    type: 'multiple_choice',
+    question:
+      'The photograph shows the image of a tree formed by the surface of a pool of calm water. Which of the following phenomena explains the formation of the image?',
+    options: ['reflection', 'total internal reflection', 'refraction', 'diffraction'],
+    answer: 'reflection',
+    explanation:
+      'A calm water surface behaves like a plane mirror and forms the image by reflection.',
+    difficulty: 1,
+    points: 15,
+    hints: ['A calm surface can act like a mirror.', 'This is ordinary reflection, not refraction.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-027-question.png'],
+  },
+  {
+    id: 'rr-028',
+    type: 'multiple_choice',
+    question:
+      'Eric stands 1 m in front of a plane mirror. Martha stands 2 m behind Eric as shown above. Find the distance between Eric and the image of Martha formed by the mirror.',
+    options: ['2 m', '3 m', '4 m', '6 m'],
+    answer: '4 m',
+    explanation:
+      'Martha is 3 m in front of the mirror, so her image is 3 m behind the mirror. Eric is 1 m in front of the mirror. Therefore the distance from Eric to Martha\'s image is 1 + 3 = 4 m.',
+    difficulty: 2,
+    points: 15,
+    hints: ['First find Martha\'s distance from the mirror.', 'For a plane mirror, image distance equals object distance.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-028-question.png'],
+  },
+  {
+    id: 'rr-029',
+    type: 'multiple_choice',
+    question: 'The diagram shows the image of a clock formed in a plane mirror. What is the time displayed by the clock at this instant?',
+    options: ['3:58', '4:02', '7:58', '8:02'],
+    answer: '3:58',
+    explanation:
+      'A plane mirror produces lateral inversion. Reversing the mirror image of the clock face gives the actual time 3:58.',
+    difficulty: 2,
+    points: 15,
+    hints: ['A mirror swaps left and right.', 'Convert the mirror reading back to the real clock reading.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-029-question.png'],
+  },
+  {
+    id: 'rr-030',
+    type: 'multiple_choice',
+    question:
+      'Which of the following surfaces produce diffuse reflection when parallel light rays fall on them? (1) a blackboard in the classroom (2) a polished metal surface (3) a page in this question book',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (3) only',
+    explanation:
+      'Diffuse reflection is produced by rough surfaces. A blackboard and paper are rough enough to scatter reflected rays in many directions, while a polished metal surface gives regular reflection.',
+    difficulty: 1,
+    points: 15,
+    hints: ['Diffuse reflection comes from rough surfaces.', 'Polished metal is a regular reflector.'],
+    sectionId: 'reflection-refraction',
+  },
+  {
+    id: 'rr-031',
+    type: 'multiple_choice',
+    question:
+      'A light ray enters normally from the air into a right-angled prism and is totally internally reflected at face AB as shown below. Based on this optical phenomenon, which of the following is/are the possible value(s) for the refractive index of the material of the prism? (1) 1.35 (2) 1.45 (3) 1.55',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      'The internal incidence angle is 45 degrees. For total internal reflection, the critical angle must be less than 45 degrees. A refractive index of 1.45 gives c = 43.6 degrees and 1.55 gives c = 40.2 degrees, so both work, but 1.35 gives c = 47.8 degrees, which does not.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Total internal reflection requires i > c.', 'Use sin c = 1/n.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-031-question.png'],
+  },
+  {
+    id: 'rr-032',
+    type: 'multiple_choice',
+    question: 'A pencil is placed in front of a vertical plane mirror as shown in the figure above. Which of the following shows the correct position of the image?',
+    options: [
+      '/physics/exercises/reflection-refraction/rr-032-option-a.png',
+      '/physics/exercises/reflection-refraction/rr-032-option-b.png',
+      '/physics/exercises/reflection-refraction/rr-032-option-c.png',
+      '/physics/exercises/reflection-refraction/rr-032-option-d.png',
+    ],
+    answer: '/physics/exercises/reflection-refraction/rr-032-option-d.png',
+    explanation:
+      'The image in a plane mirror is virtual, upright, the same size as the object, and the same distance behind the mirror as the object is in front. That matches D.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use the standard properties of a plane-mirror image.', 'The image is upright and laterally inverted.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-032-question.png'],
+  },
+  {
+    id: 'rr-033',
+    type: 'multiple_choice',
+    question:
+      'John wants to estimate the speed of a cloud in the following experiment. The cloud is moving horizontally at a height of 3000 m above the ground. He looks at the image of the cloud in a mirror of 0.6 m wide placed on the horizontal ground 1.5 m below his eye level. He finds that the image of the cloud takes 20 s to move across the mirror. What is the approximate speed of the cloud?',
+    options: ['0.03 m s^-1', '0.06 m s^-1', '60 m s^-1', '150 m s^-1'],
+    answer: '60 m s^-1',
+    explanation:
+      'Using similar triangles, the cloud displacement corresponding to 0.6 m across the mirror is d / 0.6 = 3001.5 / 1.5, so d is about 1200 m. Therefore the speed is 1200 / 20 = 60 m s^-1.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use the mirror image as a geometric similar-triangle problem.', 'Convert the mirror width to the corresponding cloud displacement.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-033-question.png'],
+  {
+    id: 'rr-034',
+    type: 'multiple_choice',
+    question:
+      'A light ray is incident from water onto an air bubble as shown above. Which light ray best represents the emergent ray?',
+    options: ['W', 'X', 'Y', 'Z'],
+    answer: 'W',
+    explanation:
+      'The ray bends away from the normal when going from water to air, then bends towards the normal when leaving the air bubble back into water. The resulting emergent path is W.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Treat the bubble as air surrounded by water.', 'Apply the bend rule at both curved surfaces.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-034-question.png'],
+  },
+  {
+    id: 'rr-035',
+    type: 'multiple_choice',
+    question:
+      'Figure (a) shows a light ray travelling from air into medium X. The angle of incidence is 50 degrees and the angle of refraction is r. Another light ray travelling from medium X to air is shown in Figure (b). The angle of incidence is 35 degrees and the angle of refraction is also equal to r. What is angle r?',
+    options: ['26.1 degrees', '41.5 degrees', '42.5 degrees', '48.5 degrees'],
+    answer: '41.5 degrees',
+    explanation:
+      'Using Snell\'s law for both diagrams, sin 50 degrees / sin r = n_x = sin r / sin 35 degrees. Solving gives r = 41.5 degrees.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Write one expression for n_x from each figure.', 'Set the two expressions equal and solve for r.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-035-question.png'],
+  },
+  {
+    id: 'rr-036',
+    type: 'multiple_choice',
+    question:
+      'In the figure, a plane mirror MN of height h is mounted in an adjustable vertical position on a vertical wall. E is an observer\'s eye which is 1 m from the wall and 1.5 m above the ground. PQ is a vertical post of height 3 m and is 4 m behind the observer. Looking into the mirror the observer can see the whole image of the post. What is the minimum value of h?',
+    options: ['0.5 m', '0.6 m', '1.5 m', '2.0 m'],
+    answer: '0.5 m',
+    explanation:
+      'The image of the post is the same size and 5 m behind the mirror. Using similar triangles for the eye-to-mirror and eye-to-image geometry gives h / 3 = 1 / (1 + 5), so h = 0.5 m.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use the virtual image of the post behind the mirror.', 'Relate mirror height to the fraction of the image seen from the eye.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-036-question.png'],
+  },
+  {
+    id: 'rr-037',
+    type: 'multiple_choice',
+    question: 'A ray of light is traveling from glass to air as shown in the figure. Which of the following ratios is the refractive index of glass?',
+    options: [
+      'sin theta / sin phi',
+      'sin phi / sin theta',
+      'sin (90 degrees - theta) / sin (90 degrees - phi)',
+      'sin (90 degrees - phi) / sin (90 degrees - theta)',
+    ],
+    answer: 'sin (90 degrees - phi) / sin (90 degrees - theta)',
+    explanation:
+      'The angles theta and phi are measured from the surface, not the normal. So the angles to the normal are 90 degrees minus theta and 90 degrees minus phi. By Snell\'s law, n = sin(90 - phi) / sin(90 - theta).',
+    difficulty: 3,
+    points: 15,
+    hints: ['Convert the given angles to angles with the normal.', 'Then apply Snell\'s law.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-037-question.png'],
+  },
+  {
+    id: 'rr-038',
+    type: 'multiple_choice',
+    question:
+      'Which of following statements about total internal reflection is/are correct? (1) The angle of incidence is less than the critical angle. (2) Both reflected and refracted rays appear. (3) The ray is travelling from an optically denser medium to an optically less dense medium.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      'For total internal reflection, the incidence angle must be greater than the critical angle and no refracted ray emerges. It only happens when light travels from a denser medium to a less dense medium.',
+    difficulty: 2,
+    points: 15,
+    hints: ['TIR requires i > c.', 'No transmitted ray appears in total internal reflection.'],
+    sectionId: 'reflection-refraction',
+  },
+  {
+    id: 'rr-039',
+    type: 'multiple_choice',
+    question:
+      'A light ray undergoes reflection and refraction at an air-glass boundary as shown. PQ is perpendicular to RS. OX, OY and OZ are the paths of the light rays. Which of the following deductions is/are correct? (1) OX is the path of the incident ray. (2) RS is the air-glass boundary. (3) The light ray travels from glass to air.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      'The incident ray is OZ, OY is the reflected ray, and OX is the refracted ray. Since the refracted ray bends away from the normal, the light is going from glass to air. Therefore only statement (3) is correct.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Identify the normal first using PQ perpendicular to RS.', 'A refracted ray bending away from the normal means denser to less dense.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-039-question.png'],
+  },
+  {
+    id: 'rr-040',
+    type: 'multiple_choice',
+    question:
+      'X, Y and Z are three 45 degrees-90 degrees-45 degrees triangular prisms made of different transparent materials. A ray incident normally at one face is found to undergo refraction and reflection in each prism as shown in the figures above. Which of the following is the correct order of the refractive indices of the prisms?',
+    options: ['X > Y > Z', 'X > Z > Y', 'Y > Z > X', 'Z > Y > X'],
+    answer: 'X > Z > Y',
+    explanation:
+      'In X, total internal reflection occurs at 45 degrees so its critical angle is less than 45 degrees. In Z, total internal reflection just occurs, so its critical angle is 45 degrees. In Y, total internal reflection does not occur, so its critical angle is greater than 45 degrees. Since refractive index increases as critical angle decreases, the order is X > Z > Y.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Compare the critical angle for each prism from the behavior at 45 degrees.', 'Use n = 1 / sin c.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-040-question.png'],
+  },  {
+    id: 'rr-041',
+    type: 'multiple_choice',
+    question:
+      'Two coloured lights, X and Y, travel from vacuum to glass. They undergo refraction and travel along the same path in glass. Which of the following descriptions about the two coloured lights is correct?',
+    options: [
+      'Glass has a greater refractive index for X and X travels with the same speed as Y in vacuum.',
+      'Glass has a greater refractive index for X and X travels slower than Y in vacuum.',
+      'Glass has a smaller refractive index for X and X travels with the same speed as Y in vacuum.',
+      'Glass has a smaller refractive index for X and X travels faster than Y in vacuum.',
+    ],
+    answer: 'Glass has a greater refractive index for X and X travels with the same speed as Y in vacuum.',
+    explanation:
+      'Both rays follow the same refracted path, but X has the larger incident angle. Since n = sin i / sin r, that means glass has a larger refractive index for X. In vacuum, all electromagnetic waves travel at the same speed.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Compare the incident angles while the refracted path is the same.', 'All colours of light have the same speed in vacuum.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-041-question.png'],
+  },
+  {
+    id: 'rr-042',
+    type: 'multiple_choice',
+    question:
+      'A student performs an experiment to find the refractive index of a material and the result is shown below. Which of the following set of data is likely to be wrong?',
+    options: ['P', 'Q', 'R', 'S'],
+    answer: 'Q',
+    explanation:
+      'For a correct set of refraction data, sin i / sin r should stay approximately constant. Sets P, R and S give values near 1.41, but Q gives about 1.71, so Q is the inconsistent set.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Calculate sin i / sin r for each set.', 'The refractive index should be nearly constant.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-042-question.png'],
+  },
+  {
+    id: 'rr-043',
+    type: 'multiple_choice',
+    question: 'A ray of light enters a transparent rectangular block and travels along the path as shown in the figure above. Find angle a.',
+    options: ['33 degrees', '57 degrees', '59 degrees', '75 degrees'],
+    answer: '33 degrees',
+    explanation:
+      'The critical angle shown is 50 degrees, so n = 1 / sin 50 degrees = 1.305. For entry from air with refracted angle 40 degrees, n = sin i / sin 40 degrees gives i = 57 degrees. Therefore the required angle is 90 - 57 = 33 degrees.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Find the refractive index from the critical angle first.', 'Then apply Snell\'s law at the entry face.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-043-question.png'],
+  },
+  {
+    id: 'rr-044',
+    type: 'multiple_choice',
+    question:
+      'Telecommunication companies nowadays use optical fibres to transmit data. What are the advantages of using optical fibres over copper wires in transmitting data? (1) Less data loss in the transmission. (2) Data can be transmitted at a higher rate. (3) For the same data transmission rate, optical fibres take up less space.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      'Optical fibres use total internal reflection, so transmission loss is low. Optical signals can carry data at a higher rate, and fibres are thinner than copper wires, so they occupy less space for the same capacity.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Think about loss, bandwidth and cable size.', 'Optical fibres are both efficient and compact.'],
+    sectionId: 'reflection-refraction',
+  },
+  {
+    id: 'rr-045',
+    type: 'multiple_choice',
+    question:
+      'When a light ray travels from air to glass, which of the following descriptions about the changes of the speed, the frequency and the wavelength of the ray is correct?',
+    options: [
+      'Speed remains unchanged; frequency increases; wavelength decreases',
+      'Speed remains unchanged; frequency decreases; wavelength increases',
+      'Speed decreases; frequency remains unchanged; wavelength decreases',
+      'Speed increases; frequency remains unchanged; wavelength increases',
+    ],
+    answer: 'Speed decreases; frequency remains unchanged; wavelength decreases',
+    explanation:
+      'In glass, light travels more slowly than in air. The frequency does not change at the boundary, so with v = f lambda, the wavelength must decrease when the speed decreases.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Frequency is unchanged during refraction.', 'Use v = f lambda.'],
+    sectionId: 'reflection-refraction',
+  },
+  {
+    id: 'rr-046',
+    type: 'multiple_choice',
+    question:
+      'A clear image of a bird is formed by a calm water surface as shown in the above figure. Which of the following statements about the image is/are correct? (1) The image is real. (2) A clear image is formed as regular reflection occurs. (3) If the bird is closer to the water surface, the size of the image increases.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(2) only',
+    explanation:
+      'A calm water surface acts like a plane mirror, so the image is virtual, not real. The image is clear because regular reflection occurs. A plane-mirror image is the same size as the object regardless of distance.',
+    difficulty: 2,
+    points: 15,
+    hints: ['A calm water surface behaves like a plane mirror.', 'Plane-mirror images are virtual and same size.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-046-question.png'],
+  },
+  {
+    id: 'rr-047',
+    type: 'multiple_choice',
+    question:
+      'A ray of light enters a transparent rectangular block from air and emerges. Which of the following ray diagrams is/are impossible? The dotted lines represent normal to the surfaces. (1) (2) (3)',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      'Diagrams (1) and (2) are possible because the given angles are consistent with refraction into and out of the block. Diagram (3) is impossible because it would require a refracted angle larger than allowed by the critical-angle condition stated in the figure.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Check the angle constraints against the critical angle.', 'A physically impossible diagram violates the refraction condition at entry.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-047-question.png'],
+  },  {
+    id: 'rr-048',
+    type: 'multiple_choice',
+    question: 'The speed of light in a transparent material is 1.6 x 10^8 m s^-1. Find the critical angle for that material.',
+    options: ['28.1 degrees', '32.2 degrees', '41.8 degrees', '48.0 degrees'],
+    answer: '32.2 degrees',
+    explanation:
+      'The refractive index is n = c / v = (3.0 x 10^8) / (1.6 x 10^8) = 1.875. For the critical angle, sin c = 1 / n, so c = 32.2 degrees.',
+    difficulty: 2,
+    points: 15,
+    hints: ['First find the refractive index from the speed.', 'Then use sin c = 1/n.'],
+    sectionId: 'reflection-refraction',
+  },
+  {
+    id: 'rr-049',
+    type: 'multiple_choice',
+    question:
+      'A beam of light travels from a medium X to air. When the incident angle theta varies from 0 degrees to 90 degrees, the light intensity of the refracted ray varies as shown in the graph. What is the ratio of the speed of light in air to that in medium X?',
+    options: ['1:2', '1:3', '2:1', '2:3'],
+    answer: '2:1',
+    explanation:
+      'The refracted intensity falls to zero at 30 degrees, so the critical angle is 30 degrees. Then n_x = 1 / sin 30 degrees = 2. Since n_x = v_air / v_x, the speed ratio is 2:1.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Read the critical angle from where the refracted intensity becomes zero.', 'Use n = v_air / v_medium.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-049-question.png'],
+  },
+  {
+    id: 'rr-050',
+    type: 'multiple_choice',
+    question:
+      'When a beam of light travels from glass to air, the emergent light in air shows an increase in (1) frequency. (2) speed. (3) wavelength.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      'The frequency of light stays unchanged at refraction. Going from glass to air increases the speed, so the wavelength also increases because wavelength is proportional to speed when frequency is fixed.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Frequency is unchanged across a boundary.', 'Use v proportional to wavelength when f is constant.'],
+    sectionId: 'reflection-refraction',
+  },
+  {
+    id: 'rr-051',
+    type: 'multiple_choice',
+    question:
+      'A light ray passes through three media of refractive indexes n1, n2 and n3 respectively as shown. The boundaries between the three media are parallel. Which of the following relations for n1, n2 and n3 is correct?',
+    options: ['n1 > n3 > n2', 'n3 > n1 > n2', 'n1 > n2 > n3', 'n2 > n1 > n3'],
+    answer: 'n3 > n1 > n2',
+    explanation:
+      'For parallel boundaries, Snell\'s law gives n sin theta = constant, so refractive index is inversely proportional to sin theta. From the diagram, theta_2 > theta_1 > theta_3, hence n3 > n1 > n2.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use n sin theta = constant across all three media.', 'Larger ray angle to the normal means smaller refractive index.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-051-question.png'],
+  },
+  {
+    id: 'rr-052',
+    type: 'multiple_choice',
+    question:
+      'X and Y are two parallel boundaries separating media (1), (2) and (3). A light ray undergoes total internal reflection at the boundary X and then refracts at Y as shown. Arrange the speeds of light in the three media in descending order.',
+    options: ['(1) > (2) > (3)', '(1) > (3) > (2)', '(2) > (3) > (1)', '(3) > (1) > (2)'],
+    answer: '(1) > (3) > (2)',
+    explanation:
+      'The geometry shows total internal reflection from medium (2) towards (1), so medium (2) is optically denser than medium (1). Comparing the angles in the figure gives sin theta_1 > sin theta_3 > sin theta_2, and since speed is proportional to sin theta in this comparison, the descending order is (1) > (3) > (2).',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use the TIR condition to compare medium (2) with medium (1).', 'Then compare the sines of the ray angles.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-052-question.png'],
+  },
+  {
+    id: 'rr-053',
+    type: 'multiple_choice',
+    question:
+      'The refractive indices of water and glass are 1.33 and 1.50 respectively. Which of the following statements is/are correct? (1) Light travels faster in water than in glass. (2) The frequency of light is reduced when it travels from water to glass. (3) Light bends away from the normal when it travels from water to glass.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      'Light speed is inversely proportional to refractive index, so it travels faster in water than in glass. Frequency does not change at refraction, and from water to glass the ray bends towards the normal, not away.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Larger refractive index means lower speed.', 'From less dense to denser means towards the normal.'],
+    sectionId: 'reflection-refraction',
+  },
+  {
+    id: 'rr-054',
+    type: 'multiple_choice',
+    question:
+      'A diver at a depth of d below the water surface looks up and finds that the sky appears to be within a circle of radius r. Which correctly gives the expression for the critical angle of water?',
+    options: ['tan c = r/d', 'sin c = r/d', 'tan c = d/r', 'sin c = d/r'],
+    answer: 'tan c = r/d',
+    explanation:
+      'The boundary of the visible sky corresponds to the critical ray. The semi-angle at the diver is the critical angle, so from the right triangle, tan c = opposite / adjacent = r / d.',
+    difficulty: 3,
+    points: 15,
+    hints: ['The edge of the bright circle is set by the critical ray.', 'Use the geometry of the diver\'s cone of view.'],
+    sectionId: 'reflection-refraction',
+  },
+  {
+    id: 'rr-055',
+    type: 'multiple_choice',
+    question:
+      'A point source of light is situated at the bottom of a swimming pool. It is found that a circular patch of radius 1.7 m is illuminated on the water surface. Find the depth of water in the pool. Given: refractive index of water = 1.33',
+    options: ['1.2 m', '1.3 m', '1.4 m', '1.5 m'],
+    answer: '1.5 m',
+    explanation:
+      'For water, sin c = 1 / 1.33, so the critical angle is 48.8 degrees. Using the critical-ray geometry, tan c = r / d, so tan 48.8 degrees = 1.7 / d. This gives d = 1.5 m.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Find the critical angle first.', 'Then use the right triangle formed by the illuminated circle radius and the pool depth.'],
+    sectionId: 'reflection-refraction',
+  },  {
+    id: 'rr-056',
+    type: 'multiple_choice',
+    question: 'The diagram shows the image of a clock formed in a plane mirror. What is the time displayed by the clock?',
+    options: ['3:58', '4:02', '7:58', '8:02'],
+    answer: '3:58',
+    explanation:
+      'A plane mirror forms an upright but laterally inverted image. Reversing the mirror image of the clock face gives the actual time 3:58.',
+    difficulty: 2,
+    points: 15,
+    hints: ['A mirror reverses left and right.', 'Convert the mirror reading back to the real clock reading.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-056-question.png'],
+  },
+  {
+    id: 'rr-057',
+    type: 'multiple_choice',
+    question:
+      'As shown in the figure, a ray of light travels from medium 1 to medium 2, and then enters medium 3. The boundaries are parallel to each other. Arrange the speed of light, c, in the three media in ascending order.',
+    options: ['c1 < c2 < c3', 'c1 < c3 < c2', 'c2 < c3 < c1', 'c2 < c1 < c3'],
+    answer: 'c2 < c1 < c3',
+    explanation:
+      'For parallel boundaries, the speed in each medium is proportional to sin theta for the ray angle in that medium. Since theta2 < theta1 < theta3, the speeds are in ascending order c2 < c1 < c3.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Compare the ray angles to the normal in each medium.', 'Larger angle in this setup means higher speed.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-057-question.png'],
+  },
+  {
+    id: 'rr-058',
+    type: 'multiple_choice',
+    question: 'A certain monochromatic light passes through medium X as shown above. What is the refractive index of medium X?',
+    options: ['1.25', '1.33', '1.50', '1.65'],
+    answer: '1.33',
+    explanation:
+      'The wavelength is 4 units in air and 3 units in medium X. Since refractive index is the ratio of wavelength in air to wavelength in the medium for the same light, n = 4/3 = 1.33.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use the wavelength ratio for the same light in different media.', 'Frequency stays the same, so wavelength ratio gives the refractive index.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-058-question.png'],
+  },
+  {
+    id: 'rr-059',
+    type: 'multiple_choice',
+    question:
+      'A ray of light is travelling from a transparent medium X to air making an angle of 40 degrees with the boundary plane as shown. If the angle between the refracted ray in air and the reflected ray in medium X is 70 degrees, find the refractive index of medium X.',
+    options: [
+      'sin 40 degrees / sin 30 degrees',
+      'sin 30 degrees / sin 40 degrees',
+      'sin 60 degrees / sin 50 degrees',
+      'sin 50 degrees / sin 60 degrees',
+    ],
+    answer: 'sin 60 degrees / sin 50 degrees',
+    explanation:
+      'The incident angle to the normal is 90 - 40 = 50 degrees. The reflected angle is also 50 degrees. Since the reflected and refracted rays make 70 degrees, the refracted angle is 180 - 70 - 50 = 60 degrees. So n = sin 60 degrees / sin 50 degrees.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Convert the given angle with the boundary into an angle with the normal.', 'Use the geometry between the reflected and refracted rays.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-059-question.png'],
+  },
+  {
+    id: 'rr-060',
+    type: 'multiple_choice',
+    question:
+      'White light can be resolved into its component colours by using a glass prism. Which of the following statements is/are correct? (1) The refractive indices of glass for different component colours are not the same. (2) Red light travels faster than violet light in a vacuum. (3) The frequencies of all the component colours are reduced when entering the prism.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      'Different colours travel at different speeds in glass, so the refractive indices for different colours are different. In vacuum all colours travel at the same speed, and the frequency does not change when light enters the prism.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Dispersion needs different refractive indices for different colours.', 'Frequency is unchanged across a boundary.'],
+    sectionId: 'reflection-refraction',
+  },
+  {
+    id: 'rr-061',
+    type: 'multiple_choice',
+    question:
+      'The figure shows the path of a light ray travelling from medium I to medium III separated by parallel boundaries. Arrange in ascending order the speed of light in the respective media.',
+    options: ['I < III < II', 'II < III < I', 'III < I < II', 'III < II < I'],
+    answer: 'III < I < II',
+    explanation:
+      'From the diagram, theta3 < theta1 < theta2. In this comparison, light speed is proportional to sin theta, so the ascending order is v3 < v1 < v2, i.e. III < I < II.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Compare the angles to the normal in each medium.', 'Larger angle here corresponds to larger speed.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-061-question.png'],
+  },
+  {
+    id: 'rr-062',
+    type: 'multiple_choice',
+    question:
+      'A beam of white light is separated into different colours after entering a glass prism because lights of different colours',
+    options: [
+      'are diffracted to different extents by the prism.',
+      'undergo total internal reflection at different angles inside the prism.',
+      'travel at different speeds in vacuum.',
+      'travel at different speeds in glass.',
+    ],
+    answer: 'travel at different speeds in glass.',
+    explanation:
+      'Different colours travel at different speeds in glass, so the prism has different refractive indices for them. That causes different amounts of refraction and hence dispersion.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Dispersion is caused by wavelength-dependent refraction in glass.', 'All colours have the same speed in vacuum.'],
+    sectionId: 'reflection-refraction',
+  },  {
+    id: 'rr-063',
+    type: 'multiple_choice',
+    question:
+      'A parallel-sided glass sheet separates water from air. A ray of light in water is incident at an angle theta on the glass sheet and finally emerges into air along the glass-air interface as shown. Find theta. Given: refractive index of water is 1.33.',
+    options: ['41.2 degrees', '48.8 degrees', '53.1 degrees', 'It depends on the refractive index of glass.'],
+    answer: '48.8 degrees',
+    explanation:
+      'Since the ray finally emerges along the glass-air interface, the ray in air has angle 90 degrees to the normal. For the full parallel-boundary system, the refractive-index product gives 1.33 sin theta = 1 x sin 90 degrees, so theta = 48.8 degrees.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Treat the final emergent ray as a 90-degree refracted ray in air.', 'Use air refractive index as 1.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-063-question.png'],
+  },
+  {
+    id: 'rr-064',
+    type: 'multiple_choice',
+    question:
+      'In the figure above, XO is a light ray incident on the glass-air boundary plane PQ. Which of the following gives the refractive index of glass?',
+    options: [
+      'sin 56 degrees / sin 44 degrees',
+      'sin 44 degrees / sin 34 degrees',
+      'sin 56 degrees / sin 46 degrees',
+      'sin 46 degrees / sin 34 degrees',
+    ],
+    answer: 'sin 46 degrees / sin 34 degrees',
+    explanation:
+      'The given angles are with the boundary, so the angles to the normal are 90 - 44 = 46 degrees and 90 - 56 = 34 degrees. Therefore the refractive index is sin 46 degrees / sin 34 degrees.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Convert boundary-plane angles to normal angles first.', 'Then apply Snell\'s law.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-064-question.png'],
+  },
+  {
+    id: 'rr-065',
+    type: 'multiple_choice',
+    question:
+      'The figure shows the image seen when a plane mirror is placed in front of a cardboard with a design on its front surface. Which diagram below shows the design on the cardboard?',
+    options: [
+      '/physics/exercises/reflection-refraction/rr-065-option-a.png',
+      '/physics/exercises/reflection-refraction/rr-065-option-b.png',
+      '/physics/exercises/reflection-refraction/rr-065-option-c.png',
+      '/physics/exercises/reflection-refraction/rr-065-option-d.png',
+    ],
+    answer: '/physics/exercises/reflection-refraction/rr-065-option-d.png',
+    explanation:
+      'A plane mirror forms an upright but laterally inverted image. Reversing the given mirror image gives the original cardboard design shown in option D.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use lateral inversion only; the image stays upright.', 'Mentally reverse left and right.'],
+    sectionId: 'reflection-refraction',
+    imagePaths: ['/physics/exercises/reflection-refraction/rr-065-question.png'],
+  },  },];
 
 // 章节配置
 export const FORCE_MOTION_CHAPTERS: Chapter[] = [
