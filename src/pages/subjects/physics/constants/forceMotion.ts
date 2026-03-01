@@ -6900,8 +6900,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     type: 'multiple_choice',
     question:
       'A skier slides down a slope. Assume constant friction along the slope. Which graph best describes the change of energy of the skier with distance down the slope?',
-    options: ['A', 'B', 'C', 'D'],
-    answer: 'D',
+    options: [
+      '/physics/exercises/work-energy-power/wep-054-option-a.png',
+      '/physics/exercises/work-energy-power/wep-054-option-b.png',
+      '/physics/exercises/work-energy-power/wep-054-option-c.png',
+      '/physics/exercises/work-energy-power/wep-054option-d.png',
+    ],
+    answer: '/physics/exercises/work-energy-power/wep-054option-d.png',
     explanation:
       'Energy against distance should be represented by straight lines. As the skier moves down, gravitational potential energy is converted into kinetic energy plus work done against friction. Therefore the gain in KE is less than the loss in PE, which matches option D.',
     difficulty: 2,
@@ -7465,6 +7470,3558 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Use conservation of mechanical energy.', 'Both blocks have the same speed.', 'Include KE of both masses.'],
     sectionId: 'work-energy-power',
     imagePaths: ['/physics/exercises/work-energy-power/wep-090-question.png'],
+  },
+  {
+    id: 'mom-001',
+    type: 'multiple_choice',
+    question:
+      'When a constant unbalanced force is applied to a particle, which of the following will change with time?\n\n(1) The acceleration of the particle\n(2) The momentum of the particle\n(3) The kinetic energy of the particle',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      'A constant net force gives constant acceleration, so (1) is false. With constant acceleration, velocity changes with time, so momentum changes and kinetic energy also changes.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use Newton second law for acceleration.', 'Momentum depends on velocity.', 'Kinetic energy depends on $v^2$.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-002',
+    type: 'multiple_choice',
+    question:
+      'A ball is dropped from a height $h$ above the ground. Each time it hits the ground, one-half of the original kinetic energy is lost. How high will the ball rise above the ground after the second impact?',
+    options: ['$\\frac{h}{8}$', '$\\frac{h}{4}$', '$\\frac{h}{2}$', '$\\frac{h}{\\sqrt2}$'],
+    answer: '$\\frac{h}{4}$',
+    explanation:
+      'After each impact, the remaining kinetic energy is half the value just before that impact. After the second impact, the available rebound kinetic energy is $\\tfrac12\\times\\tfrac12=\\tfrac14$ of the original. Since maximum height is proportional to gravitational potential energy, the rebound height is $\\tfrac14 h$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Relate rebound height to rebound KE.', 'Each collision keeps only half the previous KE.', 'PE at top equals KE just after impact.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-003',
+    type: 'multiple_choice',
+    question:
+      'Two objects $P$ and $Q$ of mass 2 kg and 3 kg respectively have the same momentum. They are then subjected to the same constant resisting force and gradually brought to rest. What is the ratio of the stopping distance of $P$ to that of $Q$?',
+    options: ['4:9', '2:3', '3:2', '9:4'],
+    answer: '3:2',
+    explanation:
+      'For the same momentum $p$, kinetic energy is $KE=\\frac{p^2}{2m}$, so $KE\\propto\\frac1m$. With the same resisting force, stopping distance is proportional to work done and hence proportional to initial kinetic energy. Therefore $s\\propto\\frac1m$, giving $s_P:s_Q=m_Q:m_P=3:2$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Rewrite KE in terms of momentum.', 'Same resisting force means same work per unit distance.', 'Stopping distance follows from energy loss.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-004',
+    type: 'multiple_choice',
+    question:
+      'A gas molecule of mass $m$ collides with the wall of a container at speed $2\\ \\mathrm{m\\ s^{-1}}$ and rebounds with the same speed. Which of the following is/are true?\n\n(1) The kinetic energy before and after the collision remains unchanged.\n(2) The velocity before and after the collision remains unchanged.\n(3) The momentum before and after the collision remains unchanged.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      'The speed is the same before and after, so kinetic energy is unchanged. Velocity and momentum are vectors; their directions reverse on rebounding, so both change.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Speed and velocity are not the same.', 'Momentum direction follows velocity direction.', 'KE depends on speed squared only.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-004-question.png'],
+  },
+  {
+    id: 'mom-005',
+    type: 'multiple_choice',
+    question:
+      'A system consists of two identical masses travelling in opposite directions with equal speed. They collide elastically at time $t_0$. Which graph correctly shows the total momentum of the system before and after the collision?',
+    options: [
+      '/physics/exercises/momentum/mom-005-option-a.png',
+      '/physics/exercises/momentum/mom-005-option-b.png',
+      '/physics/exercises/momentum/mom-005-option-c.png',
+      '/physics/exercises/momentum/mom-005-option-d.png',
+    ],
+    answer: '/physics/exercises/momentum/mom-005-option-d.png',
+    explanation:
+      'The two equal and opposite momenta cancel, so the total momentum of the system is zero before and after the collision. With no external net force, total momentum remains constant throughout.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Add the two opposite momenta.', 'Elasticity does not affect total momentum conservation.', 'No external force means system momentum stays constant.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-006',
+    type: 'multiple_choice',
+    question:
+      'A trolley of mass 1 kg travelling at $2\\ \\mathrm{m\\ s^{-1}}$ on a smooth horizontal plane has a lump of plasticine dropped vertically onto it from height 5 m. If the mass of the plasticine is 2 kg, the velocity of the loaded trolley will be',
+    options: ['$0.67\\ \\mathrm{m\\ s^{-1}}$', '$1.00\\ \\mathrm{m\\ s^{-1}}$', '$1.50\\ \\mathrm{m\\ s^{-1}}$', '$1.33\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$0.67\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'Only horizontal momentum matters. Initial horizontal momentum is $(1)(2)+(2)(0)=2\\,\\mathrm{kg\\ m\\ s^{-1}}$. After sticking together, total mass is 3 kg, so $v=2/3=0.67\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Vertical drop adds no horizontal momentum.', 'Use conservation of horizontal momentum.', 'Plasticine sticks, so final masses move together.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-007',
+    type: 'multiple_choice',
+    question:
+      'A particle is in motion with a constant force acting on it. Which physical quantities will be changing during the time when the force is acting?\n\n(1) acceleration of the particle\n(2) momentum of the particle\n(3) kinetic energy of the particle',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      'A constant force gives constant acceleration, so (1) is not changing. The velocity changes, so both momentum and kinetic energy change with time.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Constant force gives constant acceleration for constant mass.', 'Momentum depends on velocity.', 'KE depends on $v^2$.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-008',
+    type: 'multiple_choice',
+    question:
+      'A basketball falls freely from rest and hits the ground. It then rebounds to $\\frac14$ of its original height. Neglecting air resistance. Which statements are correct?\n\n(1) Its kinetic energy just before collision is four times its kinetic energy just after collision.\n(2) Its potential energy just before collision is four times its potential energy just after collision.\n(3) The speed just before collision is two times the speed just after collision.',
+    options: ['(1) only', '(2) only', '(2) & (3) only', '(1) & (3) only'],
+    answer: '(1) & (3) only',
+    explanation:
+      'Rebounding to one-quarter of the original height means the rebound kinetic energy just after collision is one-quarter of the kinetic energy just before collision. Thus (1) is true. At the collision point, just before and just after, the ball is at the same height, so potential energies are equal, making (2) false. Since $KE\\propto v^2$, a factor of 4 in KE gives a factor of 2 in speed, so (3) is true.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use rebound height to compare rebound KE.', 'Compare PE at the same location.', 'Relate KE ratio to speed ratio through $v^2$.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-009',
+    type: 'multiple_choice',
+    question:
+      'A ball of mass 2 kg drops from rest from a height 5 m and rebounds to the same height. If the duration of impact with the ground is 0.2 s, what is the force acting on the ball by the ground? (Take $g=10\\ \\mathrm{m\\ s^{-2}}$.)',
+    options: ['20 N', '100 N', '200 N', '220 N'],
+    answer: '220 N',
+    explanation:
+      'Speed just before impact is from $v^2=2gh=2(10)(5)$, so $v=10\\,\\mathrm{m\\ s^{-1}}$. Taking upward as positive, change in momentum during impact is $m(10)-m(-10)=40\\,\\mathrm{kg\\ m\\ s^{-1}}$. Average net force is $40/0.2=200\\,\\mathrm{N}$ upward. Since net force is $R-mg$, we get $R-20=200$, hence $R=220\\,\\mathrm{N}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Find impact speed from free fall.', 'Use change in momentum over impact time.', 'Include the weight when relating net force to ground reaction.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-010',
+    type: 'multiple_choice',
+    question:
+      'What physical quantity does the area of the shaded portion of each of the above graphs represent?\n\nI\nII',
+    options: [
+      'I: acceleration, II: energy',
+      'I: distance, II: power',
+      'I: acceleration, II: change of momentum',
+      'I: distance, II: energy',
+    ],
+    answer: 'I: distance, II: energy',
+    explanation:
+      'For graph I, the shaded area under a speed-time graph represents distance travelled. For graph II, the shaded area under a force-distance graph represents work done, i.e. energy transferred.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Area under speed-time gives distance.', 'Area under force-distance gives work.', 'Work is an energy transfer.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-010-question.png'],
+  },
+  {
+    id: 'mom-011',
+    type: 'multiple_choice',
+    question:
+      'Which of the following is a vector quantity with correct unit?',
+    options: ['speed, $\\mathrm{km\\ h^{-1}}$', 'acceleration, $\\mathrm{m\\ s^{-1}}$', 'power, W', 'momentum, $\\mathrm{kg\\ m\\ s^{-1}}$'],
+    answer: 'momentum, $\\mathrm{kg\\ m\\ s^{-1}}$',
+    explanation:
+      'Speed is a scalar. Acceleration is a vector, but its correct unit is $\\mathrm{m\\ s^{-2}}$, not $\\mathrm{m\\ s^{-1}}$. Power is a scalar. Momentum is a vector and its unit is $\\mathrm{kg\\ m\\ s^{-1}}$.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Check both the quantity type and the unit.', 'Acceleration unit must include per second squared.', 'Momentum is mass times velocity.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-012',
+    type: 'multiple_choice',
+    question:
+      'A mass of 3 kg initially at rest explodes into two fragments $X$ and $Y$ of masses 1 kg and 2 kg respectively. What is the ratio of the kinetic energy of $X$ to that of $Y$ just after the explosion?',
+    options: ['1:4', '1:2', '2:1', '4:1'],
+    answer: '2:1',
+    explanation:
+      'With no external net force, the two fragments have equal and opposite momenta. For fixed momentum magnitude, $KE=\\frac{p^2}{2m}$, so kinetic energy is inversely proportional to mass. Thus $KE_X:KE_Y=m_Y:m_X=2:1$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Explosion conserves momentum.', 'Fragments have equal momentum magnitudes.', 'Use KE in terms of momentum.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-013',
+    type: 'multiple_choice',
+    question:
+      'Which of the following is/are correct unit(s) for momentum?\n\n(1) $\\mathrm{kg\\ m\\ s^{-1}}$\n(2) $\\mathrm{kg\\ m\\ s^{-2}}$\n(3) $\\mathrm{N\\ s}$',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(1) & (3) only',
+    explanation:
+      'Momentum has unit mass × velocity, so $\\mathrm{kg\\ m\\ s^{-1}}$. Also, since $1\\,\\mathrm{N}=1\\,\\mathrm{kg\\ m\\ s^{-2}}$, multiplying by seconds gives $\\mathrm{N\\ s}=\\mathrm{kg\\ m\\ s^{-1}}$. But $\\mathrm{kg\\ m\\ s^{-2}}$ alone is the unit of force.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Start from momentum = mass × velocity.', 'Relate newton to SI base units.', 'Distinguish force from momentum.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-014',
+    type: 'multiple_choice',
+    question:
+      'A ball moving in a smooth horizontal plane hits a wall and rebounds perfectly elastically. Which graph best represents the variation of kinetic energy with time?',
+    options: [
+      '/physics/exercises/momentum/mom-014-option-a.png',
+      '/physics/exercises/momentum/mom-014-option-b.png',
+      '/physics/exercises/momentum/mom-014-option-c.png',
+      '/physics/exercises/momentum/mom-014-option-d.png',
+    ],
+    answer: '/physics/exercises/momentum/mom-014-option-d.png',
+    explanation:
+      'In a perfectly elastic rebound, no kinetic energy is lost. The kinetic energy is the same before and after the collision, though the direction of motion reverses. The suitable graph is the one showing unchanged KE across the collision, i.e. option D.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Perfectly elastic means total KE is conserved.', 'Rebound changes direction, not speed magnitude here.', 'KE depends on speed, not direction.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-015',
+    type: 'multiple_choice',
+    question:
+      'Two blocks $A$ and $B$ are released simultaneously from rest at $X$ on a smooth plane and slide down to $Y$. Block $A$ has mass $2M$ while block $B$ has mass $M$. On reaching $Y$, which statements are correct?\n\n(1) The velocity of block $A$ is double that of block $B$.\n(2) The momentum of block $A$ is double that of block $B$.\n(3) The time taken by block $A$ is double that of block $B$.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(2) only',
+    explanation:
+      'Both blocks have the same acceleration down the plane and start from rest, so they reach $Y$ with the same final velocity and in the same time. Hence (1) and (3) are false. Since momentum is $mv$, block $A$ with double mass has double momentum at the same velocity, so (2) is true.',
+    difficulty: 2,
+    points: 15,
+    hints: ['On a smooth incline, acceleration is independent of mass.', 'Same motion conditions give same final speed and time.', 'Momentum depends on mass and velocity.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-015-question.png'],
+  },
+  {
+    id: 'mom-016',
+    type: 'multiple_choice',
+    question:
+      'Two trolleys move towards each other along a smooth runway and stick together after collision. What is the total loss in kinetic energy during the collision?',
+    options: ['3 J', '6 J', '9 J', '12 J'],
+    answer: '12 J',
+    explanation:
+      'Using momentum conservation with the given diagram values: $(2)(4)+(1)(-2)=(2+1)v$, so $v=2\\,\\mathrm{m\\ s^{-1}}$. Initial kinetic energy is $\\tfrac12(2)(4^2)+\\tfrac12(1)(2^2)=18\\,\\mathrm{J}$. Final kinetic energy is $\\tfrac12(3)(2^2)=6\\,\\mathrm{J}$. So the loss is $18-6=12\\,\\mathrm{J}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use conservation of momentum to find final speed.', 'Then compare initial and final KE.', 'They stick together, so it is an inelastic collision.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-016-question.png'],
+  },
+  {
+    id: 'mom-017',
+    type: 'multiple_choice',
+    question:
+      'Two metal spheres of unequal masses are released from rest at the same time from a height of 2 m. When they have fallen 1 m, neglecting air resistance, they have the same',
+    options: ['speed.', 'momentum.', 'weight.', 'kinetic energy.'],
+    answer: 'speed.',
+    explanation:
+      'Both fall through the same distance under the same gravitational acceleration, so they reach the same speed. Their masses differ, so momentum, weight, and kinetic energy are different.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Same drop distance in free fall gives same speed.', 'Momentum and KE depend on mass.', 'Weight is proportional to mass.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-018',
+    type: 'multiple_choice',
+    question:
+      'Bullets each of mass $m$ are fired at a rate of $n$ bullets per second. They hit a vertical wall with horizontal speed $v$ and rebound with the same horizontal speed $v$. Which statements are correct?\n\n(1) The total change in momentum of the bullets is zero.\n(2) The total change in momentum of the bullets in one second is $2mnv$.\n(3) The average force exerted on the wall is $2mnv$.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      'For one bullet, momentum changes from $+mv$ to $-mv$, so the change in momentum magnitude is $2mv$ (opposite direction). For $n$ bullets per second, total momentum change per second is $2mnv$. Average force equals rate of change of momentum, so it is also $2mnv$. Statement (1) is false.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Compute momentum change for one rebounding bullet first.', 'Multiply by the number per second.', 'Force equals change of momentum per unit time.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-019',
+    type: 'multiple_choice',
+    question:
+      'A small metal ball is released from a point above the floor and bounces several times. Which graph best represents the variation of the velocity of the ball with time?',
+    options: [
+      '/physics/exercises/momentum/mom-019-option-a.png',
+      '/physics/exercises/momentum/mom-019-option-b.png',
+      '/physics/exercises/momentum/mom-019-option-c.png',
+      '/physics/exercises/momentum/mom-019-option-d.png',
+    ],
+    answer: '/physics/exercises/momentum/mom-019-option-b.png',
+    explanation:
+      'Taking upward as positive, the ball starts from rest, then its velocity becomes increasingly negative under gravity. During each collision, the velocity changes from negative to positive in a very short time, appearing as a near-vertical jump. The repeated sawtooth-like graph is option B.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Choose a sign convention for velocity.', 'Free-fall segments are straight lines on a $v$-$t$ graph.', 'Impacts cause abrupt sign changes.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-020',
+    type: 'multiple_choice',
+    question:
+      'Which of the following statements is/are correct when a collision between two particles is elastic?\n\n(1) None of the original kinetic energy is converted into other forms of energy.\n(2) The linear momentum of each particle is conserved.\n(3) The mechanical energy of each particle is conserved.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      'In an elastic collision, total kinetic energy of the system is conserved, so no original kinetic energy is converted into other forms. However, the momentum of each individual particle is not conserved during the interaction; only the total momentum of the system is conserved. Similarly, the mechanical energy of each individual particle may change as energy transfers between them.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Elastic collision conserves total KE of the system.', 'Momentum conservation applies to the whole isolated system.', 'Individual particles can exchange momentum and energy.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-021',
+    type: 'multiple_choice',
+    question:
+      'A trolley moves with constant speed along a horizontal surface. A lump of plasticine having the same mass as the trolley is dropped onto it and sticks to it. Which ticker-tape best represents the motion of the trolley?',
+    options: [
+      '/physics/exercises/momentum/mom-021-option-a.png',
+      '/physics/exercises/momentum/mom-021-option-b.png',
+      '/physics/exercises/momentum/mom-021-option-c.png',
+      '/physics/exercises/momentum/mom-021-option-d.png',
+    ],
+    answer: '/physics/exercises/momentum/mom-021-option-b.png',
+    explanation:
+      'When the plasticine sticks, momentum is conserved but the total mass increases, so the speed decreases. On a ticker tape this means equal spacing before impact and then smaller equal spacing after impact. That matches option B.',
+    difficulty: 2,
+    points: 15,
+    hints: ['The sticky collision increases mass.', 'Momentum is conserved at impact.', 'Smaller constant speed means smaller equal tape spacing afterwards.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-021-question.png'],
+  },
+  {
+    id: 'mom-022',
+    type: 'multiple_choice',
+    question:
+      'Two particles $A$ and $B$ of masses 2 kg and 1 kg move in opposite directions. The initial velocity of $A$ is $4\\ \\mathrm{m\\ s^{-1}}$ to the right, while that of $B$ is $2\\ \\mathrm{m\\ s^{-1}}$ to the left. They collide head-on. After the collision, the velocity of $A$ becomes $1\\ \\mathrm{m\\ s^{-1}}$ to the right. What is the velocity of $B$?',
+    options: [
+      '$2\\ \\mathrm{m\\ s^{-1}}$ towards the right',
+      '$3\\ \\mathrm{m\\ s^{-1}}$ towards the right',
+      '$4\\ \\mathrm{m\\ s^{-1}}$ towards the right',
+      '$6\\ \\mathrm{m\\ s^{-1}}$ towards the right',
+    ],
+    answer: '$4\\ \\mathrm{m\\ s^{-1}}$ towards the right',
+    explanation:
+      'Taking right as positive, conservation of momentum gives $(2)(4)+(1)(-2)=(2)(1)+(1)v_B$. So $8-2=2+v_B$, hence $v_B=4\\,\\mathrm{m\\ s^{-1}}$ to the right.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Choose a sign convention first.', 'Use momentum conservation for the collision.', 'Substitute the final speed of A and solve for B.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-022-question.png'],
+  },
+  {
+    id: 'mom-023',
+    type: 'multiple_choice',
+    question:
+      'A ball collides with a fixed wall and bounces back with the same speed. Which quantities of the ball remain unchanged before and after the collision?\n\n(1) Kinetic energy\n(2) velocity\n(3) momentum',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      'Same speed before and after means kinetic energy is unchanged. Velocity and momentum are vectors, so reversing direction changes both.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Speed and velocity are different.', 'Momentum follows velocity direction.', 'KE depends on speed squared only.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-024',
+    type: 'multiple_choice',
+    question:
+      'A trolley of mass 2 kg moves with uniform speed $4\\ \\mathrm{m\\ s^{-1}}$ along a horizontal table. A lump of plasticine having the same mass is dropped from just above the trolley and sticks to it. Find the total loss in kinetic energy.',
+    options: ['0 J', '4 J', '8 J', '12 J'],
+    answer: '8 J',
+    explanation:
+      'Conserving horizontal momentum: $(2)(4)+(2)(0)=(2+2)v$, so $v=2\\,\\mathrm{m\\ s^{-1}}$. Initial KE is $\\tfrac12(2)(4^2)=16\\,\\mathrm{J}$. Final KE is $\\tfrac12(4)(2^2)=8\\,\\mathrm{J}$. Loss is $16-8=8\\,\\mathrm{J}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use horizontal momentum conservation.', 'The plasticine has no horizontal speed initially.', 'Compare initial and final KE.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-024-question.png'],
+  },
+  {
+    id: 'mom-025',
+    type: 'multiple_choice',
+    question:
+      'Which of the following pairs of physical quantities has/have the same unit?\n\n(1) Work and potential energy\n(2) Power and momentum\n(3) Specific heat capacity and specific latent heat of fusion',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      'Work and potential energy are both measured in joules. Power has unit watt while momentum has unit newton-second (or kg m s^-1). Specific heat capacity has unit J kg^-1 K^-1 (or °C^-1), while specific latent heat has unit J kg^-1.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Compare SI units directly.', 'Joule is the unit for both work and energy.', 'Watch for the extra temperature term in specific heat capacity.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-026',
+    type: 'multiple_choice',
+    question:
+      'A stone is thrown vertically upwards and finally falls back to the starting point. Assume air resistance is negligible. Which statements are true throughout the motion?\n\n(1) The acceleration of the stone is constant.\n(2) The total mechanical energy of the stone is conserved.\n(3) The momentum of the stone is conserved.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) & (2) only',
+    explanation:
+      'The acceleration is always the constant gravitational acceleration downward. With no air resistance, total mechanical energy is conserved. Momentum is not conserved because an external force (gravity) acts on the stone.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Gravity acts throughout the flight.', 'No air resistance means mechanical energy stays constant.', 'Momentum conservation needs no external net force.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-027',
+    type: 'multiple_choice',
+    question:
+      'Which of the following physical quantities is not a vector?',
+    options: ['Acceleration', 'Momentum', 'Weight', 'Work'],
+    answer: 'Work',
+    explanation:
+      'Acceleration, momentum, and weight (a force) are vectors. Work is a scalar quantity.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Forces are vectors.', 'Momentum includes direction.', 'Work has magnitude only.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-028',
+    type: 'multiple_choice',
+    question:
+      'A particle of mass $m$ is thrown vertically upwards with initial speed $v$. When the particle returns to its starting point, what are the changes in momentum and kinetic energy of the particle?',
+    options: ['Change in momentum: 0, Change in kinetic energy: 0', 'Change in momentum: $mv$, Change in kinetic energy: $mv^2$', 'Change in momentum: $2mv$, Change in kinetic energy: 0', 'Change in momentum: $2mv$, Change in kinetic energy: $mv^2$'],
+    answer: 'Change in momentum: $2mv$, Change in kinetic energy: 0',
+    explanation:
+      'At the starting point on return, the particle has the same speed but opposite direction. So momentum changes from $+mv$ to $-mv$, giving a change in magnitude of $2mv$. The kinetic energy is the same before launch and on return, so the change in kinetic energy is zero.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use direction when comparing momentum.', 'Speed on return equals launch speed if no air resistance.', 'KE depends on speed, not direction.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-029',
+    type: 'multiple_choice',
+    question:
+      'At time $t=0$, a table-tennis ball is released from a point above the ground and bounces several times. The graph shows the variation of velocity $v$ with time $t$. At which point on the graph does the ball reach its maximum height above the ground after the first rebound? (Velocity upwards is taken as positive.)',
+    options: ['Point $P$', 'Point $Q$', 'Point $R$', 'Point $S$'],
+    answer: 'Point $S$',
+    explanation:
+      'After the first rebound, the ball leaves the ground moving upward and then slows under gravity until its upward velocity becomes zero at the highest point. On the given graph, that moment corresponds to point $S$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Maximum height occurs when upward velocity becomes zero.', 'Track the first rebound segment only.', 'Use the sign convention stated on the graph.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-029-question.png'],
+  },
+  {
+    id: 'mom-030',
+    type: 'multiple_choice',
+    question:
+      'A block is pulled by a constant force and moves along a smooth horizontal surface. Which describes the variations of the acceleration and momentum of the block while the force is acting?',
+    options: [
+      'Acceleration remains unchanged; Momentum remains unchanged',
+      'Acceleration remains unchanged; Momentum increases',
+      'Acceleration increases; Momentum remains unchanged',
+      'Acceleration increases; Momentum increases',
+    ],
+    answer: 'Acceleration remains unchanged; Momentum increases',
+    explanation:
+      'A constant force on a constant mass gives constant acceleration. As the block accelerates, its velocity increases, so its momentum increases.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Use Newton second law.', 'Constant force on constant mass means constant acceleration.', 'Momentum rises as speed rises.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-031',
+    type: 'multiple_choice',
+    question:
+      'A rocket is initially at rest in space. It then explodes and breaks into two parts which move in opposite directions. If the mass of the rear part is larger than that of the front part, which statement is correct?',
+    options: [
+      'The speeds of the two parts are equal.',
+      'The speed of the rear part is higher than that of the front part.',
+      'The magnitudes of the momentum of the two parts are equal.',
+      'The magnitude of the momentum of the rear part is larger than that of the front part.',
+    ],
+    answer: 'The magnitudes of the momentum of the two parts are equal.',
+    explanation:
+      'The rocket is initially at rest, so total momentum is zero. With no external force, total momentum remains zero after the explosion. Therefore the two parts must have equal and opposite momenta, so their momentum magnitudes are equal.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Initial total momentum is zero.', 'Explosion in space has no external force on the system.', 'Equal and opposite final momenta are required.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-032',
+    type: 'multiple_choice',
+    question:
+      'The graph shows the variation of the kinetic energy $E$ of an object with the square of its velocity $v^2$. What is the momentum of the object when it is moving at a velocity $4\\ \\mathrm{m\\ s^{-1}}$?',
+    options: [
+      '$4\\ \\mathrm{kg\\ m\\ s^{-1}}$',
+      '$8\\ \\mathrm{kg\\ m\\ s^{-1}}$',
+      '$16\\ \\mathrm{kg\\ m\\ s^{-1}}$',
+      '$32\\ \\mathrm{kg\\ m\\ s^{-1}}$',
+    ],
+    answer: '$16\\ \\mathrm{kg\\ m\\ s^{-1}}$',
+    explanation:
+      'From the graph, when $E=50\\,\\mathrm{J}$, $v^2=25\\,\\mathrm{m^2\\ s^{-2}}$. Using $KE=\\tfrac12mv^2$, we get $50=\\tfrac12m(25)$, so $m=4\\,\\mathrm{kg}$. At $v=4\\,\\mathrm{m\\ s^{-1}}$, momentum is $p=mv=4\\times4=16\\,\\mathrm{kg\\ m\\ s^{-1}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Read one point from the KE vs $v^2$ graph.', 'Use $KE=\\tfrac12mv^2$ to find mass.', 'Then compute $p=mv$ at 4 m/s.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-032-question.png'],
+  },
+  {
+    id: 'mom-033',
+    type: 'multiple_choice',
+    question:
+      'The figure shows the variation of the force acting on a car driver with time when the car hits a wall. The driver is not wearing a seat-belt. Which graph (in dotted lines) best shows the force acting on the driver if he is wearing a seat-belt?',
+    options: [
+      '/physics/exercises/momentum/mom-033-option-a.png',
+      '/physics/exercises/momentum/mom-033-option-b.png',
+      '/physics/exercises/momentum/mom-033-option-c.png',
+      '/physics/exercises/momentum/mom-033-option-d.png',
+    ],
+    answer: '/physics/exercises/momentum/mom-033-option-c.png',
+    explanation:
+      'A seat-belt increases the time over which the driver is brought to rest. For the same change in momentum, increasing impact time reduces the average force. The correct dotted graph is therefore the one spread over a longer time with a lower peak force: option C.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use impulse = change in momentum.', 'Same momentum change over longer time means smaller force.', 'Look for lower, wider force-time curve.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-033-question.png'],
+  },
+  {
+    id: 'mom-034',
+    type: 'multiple_choice',
+    question:
+      'A rocket of mass 5000 kg is at rest in space. It then explodes into two parts $P_1$ and $P_2$ of mass 1000 kg and 4000 kg respectively. Find the ratio of the kinetic energy of $P_1$ to that of $P_2$.',
+    options: ['1:16', '1:64', '4:1', '16:1'],
+    answer: '4:1',
+    explanation:
+      'The two parts have equal and opposite momentum. For equal momentum magnitude $p$, kinetic energy is $KE=\\frac{p^2}{2m}$, so KE is inversely proportional to mass. Hence $KE_{P_1}:KE_{P_2}=m_{P_2}:m_{P_1}=4000:1000=4:1$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Explosion from rest gives equal momentum magnitudes.', 'Use KE in terms of momentum.', 'Smaller mass gets larger KE for same momentum.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-035',
+    type: 'multiple_choice',
+    question:
+      'Grace (50 kg) and Kitty (40 kg) stand on light rollers on a smooth horizontal floor. They are initially at rest with Grace holding a 2 kg ball. Grace throws the ball to Kitty and moves backward with speed $0.8\\ \\mathrm{m\\ s^{-1}}$. After catching the ball, Kitty moves in the opposite direction. Which statements are correct?\n\n(1) The final speed of Kitty is $0.95\\ \\mathrm{m\\ s^{-1}}$.\n(2) The horizontal momentum of the ball is conserved in this process.\n(3) The total kinetic energy of Kitty and the ball decreases when Kitty catches the ball.',
+    options: ['(2) only', '(3) only', '(1) & (2) only', '(1) & (3) only'],
+    answer: '(1) & (3) only',
+    explanation:
+      'For the whole system, momentum is conserved: $(50+2)(0)+(40)(0)=(50)(-0.8)+(40+2)v$, so $v=0.95\\,\\mathrm{m\\ s^{-1}}$ for Kitty after catching the ball. Statement (2) is false because the ball experiences external horizontal forces from Grace and then Kitty. Statement (3) is true because the catch is an inelastic collision, so kinetic energy decreases.',
+    difficulty: 3,
+    points: 20,
+    hints: ['Use conservation of momentum for the whole system.', 'Do not treat the ball as an isolated system.', 'Catching is an inelastic process.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-035-question.png'],
+  },
+  {
+    id: 'mom-036',
+    type: 'multiple_choice',
+    question:
+      'A wooden block of mass $M$ hangs from a light string. A bullet of mass $m$ travelling at speed $v$ hits the block and becomes embedded in it. The block then swings upward. Which of the following are employed in determining the maximum height reached by the block?\n\n(1) Newton\\'s first law\n(2) Law of conservation of energy\n(3) Law of conservation of momentum',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(2) & (3) only',
+    explanation:
+      'The collision itself is analyzed using conservation of momentum to find the speed just after impact. The upward swing after impact is then analyzed using conservation of mechanical energy to find the maximum height. Newton\\'s first law is not needed in the calculation.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Separate the process into collision and swing.', 'Use momentum during the inelastic collision.', 'Use energy during the upward swing.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-036-question.png'],
+  },
+  {
+    id: 'mom-037',
+    type: 'multiple_choice',
+    question:
+      'A trolley moves along a smooth horizontal surface. A lump of plasticine is released from a height slightly above the trolley and sticks to it. Which graph shows the variation of the total horizontal momentum $p$ of the trolley and plasticine with time $t$?',
+    options: [
+      '/physics/exercises/momentum/mom-037-option-a.png',
+      '/physics/exercises/momentum/mom-037-option-b.png',
+      '/physics/exercises/momentum/mom-037-option-c.png',
+      '/physics/exercises/momentum/mom-037-option-d.png',
+    ],
+    answer: '/physics/exercises/momentum/mom-037-option-a.png',
+    explanation:
+      'There is no external horizontal force on the trolley-plasticine system, so total horizontal momentum remains constant throughout. The correct graph is therefore a horizontal straight line: option A.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Consider horizontal momentum only.', 'There is no external horizontal force.', 'Conserved quantity should appear as a constant graph.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-038',
+    type: 'multiple_choice',
+    question:
+      'Three cars $P$, $Q$ and $R$ move along a straight horizontal road. Their displacement-time graphs are shown. Which of the cars experience a change in momentum during the motion?',
+    options: ['$P$ and $Q$ only', '$P$ and $R$ only', '$Q$ and $R$ only', '$P$, $Q$ and $R$'],
+    answer: '$Q$ and $R$ only',
+    explanation:
+      'The slope of a displacement-time graph gives velocity. Car $P$ has constant slope, so constant velocity and no change in momentum. Car $Q$ has decreasing slope and car $R$ has increasing slope, so both have changing velocity and hence changing momentum.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use slope of the $s$-$t$ graph to infer velocity.', 'Momentum changes when velocity changes.', 'Constant slope means constant momentum for constant mass.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-038-question.png'],
+  },
+  {
+    id: 'mom-039',
+    type: 'multiple_choice',
+    question:
+      'The photograph shows an air-cushioned shoe. Which statements about the air-cushion are correct?\n\n(1) It reduces the time of impact between the foot and the ground during running.\n(2) It reduces the impact force acting on the foot during running.\n(3) It reduces the friction between the shoe and the ground during running.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(2) only',
+    explanation:
+      '(1) False: the air cushion increases the impact time. (2) True: for the same change in momentum, increasing impact time reduces force. (3) False: friction depends mainly on the contact surface properties, not the air cushion inside the shoe.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use impulse: same momentum change over longer time.', 'Longer impact time lowers average force.', 'Distinguish cushioning from surface friction.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-039-question.png'],
+  },
+  {
+    id: 'mom-040',
+    type: 'multiple_choice',
+    question:
+      'A car $P$ of mass 1000 kg moves at $20\\ \\mathrm{m\\ s^{-1}}$ and makes a head-on collision with car $Q$ of mass 1500 kg moving at $10\\ \\mathrm{m\\ s^{-1}}$ in the opposite direction. If the two cars stick together, find their common velocity immediately after the collision.',
+    options: [
+      '$2\\ \\mathrm{m\\ s^{-1}}$ along the original direction of $P$',
+      '$2\\ \\mathrm{m\\ s^{-1}}$ along the original direction of $Q$',
+      '$14\\ \\mathrm{m\\ s^{-1}}$ along the original direction of $P$',
+      '$14\\ \\mathrm{m\\ s^{-1}}$ along the original direction of $Q$',
+    ],
+    answer: '$2\\ \\mathrm{m\\ s^{-1}}$ along the original direction of $P$',
+    explanation:
+      'Take the original direction of $P$ as positive. Conservation of momentum gives $(1000)(20)+(1500)(-10)=(1000+1500)v$. So $20000-15000=2500v$, giving $v=+2\\,\\mathrm{m\\ s^{-1}}$, i.e. in the original direction of $P$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Choose a sign convention first.', 'This is a perfectly inelastic collision.', 'Use total initial momentum = total final momentum.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-041',
+    type: 'multiple_choice',
+    question:
+      'An electric fan is installed at one end of a trolley and a card is fixed at the other end with the plane of the card facing the fan. What happens to the trolley when the electric fan is turned on?',
+    options: ['The trolley remains stationary.', 'The trolley moves to the right.', 'The trolley moves to the left.', 'The trolley moves to and fro along the ground.'],
+    answer: 'The trolley remains stationary.',
+    explanation:
+      'The fan pushes air toward the card, and the card stops that air within the same system. Internal forces cancel, and no net external horizontal force acts on the trolley system. Therefore the trolley remains at rest.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Treat fan + card + trolley as one system.', 'Internal forces do not change total momentum of the system.', 'No air leaves carrying net horizontal momentum.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-041-question.png'],
+  },
+  {
+    id: 'mom-042',
+    type: 'multiple_choice',
+    question:
+      'A body initially at rest is exploded into two parts. Which correctly describes the change in total momentum and total kinetic energy?',
+    options: [
+      'Total momentum increases; Total kinetic energy increases',
+      'Total momentum increases; Total kinetic energy remains unchanged',
+      'Total momentum remains unchanged; Total kinetic energy increases',
+      'Total momentum remains unchanged; Total kinetic energy remains unchanged',
+    ],
+    answer: 'Total momentum remains unchanged; Total kinetic energy increases',
+    explanation:
+      'With no external force, total momentum is conserved, so it remains unchanged. Initially the body is at rest, so total kinetic energy is zero. After the explosion, the fragments move, so the total kinetic energy increases.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Explosion does not create external impulse.', 'Initial total momentum is zero.', 'Internal energy is converted into kinetic energy.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-043',
+    type: 'multiple_choice',
+    question:
+      'Tom and John stand on trolleys of negligible mass. Both are initially at rest and Tom holds a ball of 3 kg. The masses of Tom and John are 30 kg and 27 kg respectively. After Tom throws the ball to John, Tom moves backwards with speed $1\\ \\mathrm{m\\ s^{-1}}$. What is the speed of John after he catches the ball?',
+    options: ['$0.90\\ \\mathrm{m\\ s^{-1}}$', '$1.00\\ \\mathrm{m\\ s^{-1}}$', '$1.11\\ \\mathrm{m\\ s^{-1}}$', '$1.22\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$1.00\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'The total momentum of Tom, John and the ball is initially zero. After the throw and catch, conservation of momentum gives $0=(30)(-1)+(27+3)v$, so $v=1\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use the whole system to avoid intermediate steps.', 'Initial total momentum is zero.', 'After the catch, John and the ball move together.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-043-question.png'],
+  },
+  {
+    id: 'mom-044',
+    type: 'multiple_choice',
+    question:
+      'Trolleys $A$ and $B$ of masses $m_A$ and $m_B$ respectively travel along a horizontal road in opposite directions. Later they make a head-on inelastic collision and stick together. The graph shows the velocity-time relationship before and after the collision. What is the ratio $m_A:m_B$?',
+    options: ['1:2', '2:3', '2:1', '3:2'],
+    answer: '3:2',
+    explanation:
+      'From the graph, initial velocities are $+4\\,\\mathrm{m\\ s^{-1}}$ for $A$ and $-1\\,\\mathrm{m\\ s^{-1}}$ for $B$, and the common velocity after collision is $+2\\,\\mathrm{m\\ s^{-1}}$. Conservation of momentum gives $m_A(4)+m_B(-1)=(m_A+m_B)(2)$, so $2m_A=3m_B$, hence $m_A:m_B=3:2$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Read the three speeds from the graph.', 'Use momentum conservation for sticking collision.', 'Solve the linear ratio equation.'],
+    sectionId: 'momentum',
+    imagePaths: [
+      '/physics/exercises/momentum/mom-044-question.png',
+      '/physics/exercises/momentum/mom-044-question-2.png',
+    ],
+  },
+  {
+    id: 'mom-045',
+    type: 'multiple_choice',
+    question:
+      'In an explosion, an object is blown into two pieces, $A$ and $B$, which fly off in opposite directions. The mass of $A$ is 0.3 kg. The graph shows the variation of velocity of $A$ and $B$ with time before and after the explosion. What are the mass of $B$ and the estimated magnitude of the average net force acting on $B$ during the explosion?',
+    options: [
+      'Mass of $B$ = 0.1 kg, Average net force = 0.4 N',
+      'Mass of $B$ = 0.1 kg, Average net force = 0.5 N',
+      'Mass of $B$ = 0.9 kg, Average net force = 3.6 N',
+      'Mass of $B$ = 0.9 kg, Average net force = 4.5 N',
+    ],
+    answer: 'Mass of $B$ = 0.9 kg, Average net force = 4.5 N',
+    explanation:
+      'Initially both are at rest, so total momentum is zero. After the explosion, from the graph, piece $A$ has velocity $+3\\,\\mathrm{m\\ s^{-1}}$ and piece $B$ has velocity $-1\\,\\mathrm{m\\ s^{-1}}$. So $(0.3)(3)+m_B(-1)=0$, giving $m_B=0.9\\,\\mathrm{kg}$. The average net force on $B$ is $F=\\Delta p/\\Delta t=(0.9\\times1)/(0.25-0.05)=4.5\\,\\mathrm{N}$ in magnitude.',
+    difficulty: 3,
+    points: 20,
+    hints: ['Use momentum conservation first to find $m_B$.', 'Then use average force = change in momentum / time.', 'Read the explosion time interval from the graph.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-045-question.png'],
+  },
+  {
+    id: 'mom-046',
+    type: 'multiple_choice',
+    question:
+      'A block slides along a horizontal smooth surface. It collides with a vertical wall and rebounds along its original path. Which graph best shows the variation of its momentum $p$ with time $t$?',
+    options: [
+      '/physics/exercises/momentum/mom-046-option-a.png',
+      '/physics/exercises/momentum/mom-046-option-b.png',
+      '/physics/exercises/momentum/mom-046-option-c.png',
+      '/physics/exercises/momentum/mom-046-option-d.png',
+    ],
+    answer: '/physics/exercises/momentum/mom-046-option-d.png',
+    explanation:
+      'Before collision, the block moves in the positive direction with constant momentum. After rebounding, it moves in the opposite direction, so the momentum becomes negative. The correct graph is the one showing a constant positive value followed by a jump to a constant negative value: option D.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Momentum direction changes on rebound.', 'Smooth surface means constant speed magnitude between collisions.', 'Look for a sign change in momentum.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-046-question.png'],
+  },
+  {
+    id: 'mom-047',
+    type: 'multiple_choice',
+    question:
+      'Ball $A$ and ball $B$ of masses 2 kg and 1 kg respectively collide head-on as shown. Which of the following diagrams show(s) the possible result(s) after the collision?',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      'Check conservation of momentum before and after collision. Taking right as positive, only diagram (3) gives the same total momentum as the initial state. Therefore only (3) is possible.',
+    difficulty: 3,
+    points: 20,
+    hints: ['Use momentum conservation as the test.', 'Assign signs to leftward and rightward motion.', 'Reject any diagram that changes total momentum.'],
+    sectionId: 'momentum',
+    imagePaths: [
+      '/physics/exercises/momentum/mom-047-question.png',
+      '/physics/exercises/momentum/mom-047-question-2.png',
+    ],
+  },
+  {
+    id: 'mom-048',
+    type: 'multiple_choice',
+    question:
+      'An egg will probably break if it lands on a hard surface, but may not break if it lands on a soft cushion from the same height. This is because, when the cushion is used,',
+    options: [
+      'the momentum of the egg just before impact becomes smaller.',
+      'the egg rebounds after hitting the cushion.',
+      'the rate of change of momentum of the egg becomes smaller during the impact.',
+      'the force acting on the egg by the cushion is smaller than the force acting on the cushion by the egg.',
+    ],
+    answer: 'the rate of change of momentum of the egg becomes smaller during the impact.',
+    explanation:
+      'A soft cushion increases the time over which the egg is brought to rest. For the same change in momentum, a longer impact time means a smaller rate of change of momentum and therefore a smaller force.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use impulse ideas: same momentum change over longer time.', 'Rate of change of momentum links to force.', 'Newton third law means interaction forces are equal in magnitude.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-049',
+    type: 'multiple_choice',
+    question:
+      'On a horizontal smooth track, two trolleys $P$ and $Q$ are held at rest with a light compressed spring in between. The masses of $P$ and $Q$ are $m$ and $2m$ respectively. When released, trolley $Q$ moves to the right with speed $v$. Which statements are correct?\n\n(1) After separation, the total momentum of the two trolleys is $4mv$.\n(2) After separation, the kinetic energy of trolley $P$ is twice that of trolley $Q$.\n(3) The energy initially stored in the compressed spring is at least $3mv^2$.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(2) & (3) only',
+    explanation:
+      '(1) False: total momentum is initially zero and remains zero. (2) True: from momentum conservation, $mv_P=(2m)v$, so $v_P=2v$. Then $KE_P=\\tfrac12m(2v)^2=2mv^2$ and $KE_Q=\\tfrac12(2m)v^2=mv^2$, so $KE_P$ is twice $KE_Q$. (3) True: total KE after separation is $3mv^2$, so the initial spring energy must be at least this value.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Initial total momentum is zero.', 'Use momentum conservation to find $v_P$.', 'Spring energy must cover at least the final KE.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-049-question.png'],
+  },
+  {
+    id: 'mom-050',
+    type: 'multiple_choice',
+    question:
+      'In a racing competition, the momentum of each competitor during the race is greater than that before he starts running. Which statement(s) is/are correct?\n\n(1) This violates the law of conservation of momentum.\n(2) The law of conservation of momentum applies only to collisions between two objects.\n(3) A force acts on each competitor to increase his momentum as he starts running.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      '(1) False: the competitor receives an external force from the ground (friction), so momentum need not be conserved for the competitor alone. (2) False: momentum conservation applies to any isolated system, not just collisions. (3) True: the ground exerts a force that increases the runner\\'s momentum.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Momentum conservation needs no external net force.', 'Ground friction provides the external force on the runner.', 'The law applies beyond just collisions.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-051',
+    type: 'multiple_choice',
+    question:
+      'Two objects of masses $m$ and $4m$ move towards each other along a straight line with kinetic energies $K$ and $4K$ respectively. What is the total momentum of the two objects?',
+    options: ['$3\\sqrt{2mK}$', '$4\\sqrt{2mK}$', '$5\\sqrt{2mK}$', '$15\\sqrt{2mK}$'],
+    answer: '$3\\sqrt{2mK}$',
+    explanation:
+      'For mass $m$, $K=\\frac{p^2}{2m}$ so $p_1=\\sqrt{2mK}$. For mass $4m$ with kinetic energy $4K$, $4K=\\frac{p_2^2}{2(4m)}$, giving $p_2=4\\sqrt{2mK}$. They move in opposite directions, so total momentum magnitude is $4\\sqrt{2mK}-\\sqrt{2mK}=3\\sqrt{2mK}$.',
+    difficulty: 3,
+    points: 20,
+    hints: ['Express momentum in terms of mass and kinetic energy.', 'Compute each momentum magnitude first.', 'Subtract because the objects move oppositely.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-052',
+    type: 'multiple_choice',
+    question:
+      'In the absence of external net force, if two bodies undergo an inelastic collision, then',
+    options: [
+      'kinetic energy and momentum are both conserved.',
+      'kinetic energy is not conserved but momentum is conserved.',
+      'kinetic energy is conserved but momentum is not conserved.',
+      'neither kinetic energy nor momentum is conserved.',
+    ],
+    answer: 'kinetic energy is not conserved but momentum is conserved.',
+    explanation:
+      'With no external net force, total momentum is conserved. In an inelastic collision, kinetic energy is not conserved because part of it is transformed into other forms.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Separate momentum conservation from KE conservation.', 'External-force condition controls momentum.', 'Inelastic means KE is not fully retained.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-053',
+    type: 'multiple_choice',
+    question:
+      'Ball $X$ moving with velocity $u$ on a smooth horizontal plane makes an elastic collision with ball $Y$ initially at rest. If the two balls have the same mass, which statements are correct?\n\n(1) Kinetic energy is conserved in the collision.\n(2) Linear momentum is conserved in the collision.\n(3) $X$ and $Y$ stick together and move off with the same velocity after the collision.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) & (2) only',
+    explanation:
+      '(1) True: the collision is elastic, so total kinetic energy is conserved. (2) True: with no external net force, total linear momentum is conserved. (3) False: sticking together would indicate an inelastic collision, not an elastic one.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Elastic collisions conserve KE.', 'Momentum is conserved for an isolated system.', 'Sticking together contradicts elasticity.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-054',
+    type: 'multiple_choice',
+    question:
+      'A box moves at a uniform velocity of $2\\ \\mathrm{m\\ s^{-1}}$ on a frictionless horizontal surface. Sand falls continuously into the box with negligible speed at a rate of 90 kg per minute. To keep the box moving uniformly at $2\\ \\mathrm{m\\ s^{-1}}$, the horizontal force needed is',
+    options: ['0 N', '3 N', '6 N', '90 N'],
+    answer: '3 N',
+    explanation:
+      'The sand has to be accelerated horizontally from 0 to $2\\,\\mathrm{m\\ s^{-1}}$. Required force is rate of change of momentum: $F=\\dot m\\Delta v=(90/60)(2)=3\\,\\mathrm{N}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Convert 90 kg/min to kg/s.', 'New sand enters with zero horizontal speed.', 'Use force = rate of change of momentum.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-055',
+    type: 'multiple_choice',
+    question:
+      'A trolley travels with constant velocity to the right on a smooth horizontal ground and collides with a light spring attached to a wall fixed to the ground (Earth). At the instant the trolley comes momentarily to rest during the collision, what has happened to the initial momentum of the trolley?',
+    options: [
+      'The initial momentum has been transferred to the earth.',
+      'The initial momentum has been stored in the spring.',
+      'The initial momentum has changed into sound and heat.',
+      'The initial momentum has been destroyed by the friction due to the ground.',
+    ],
+    answer: 'The initial momentum has been transferred to the earth.',
+    explanation:
+      'During the collision, the trolley interacts with the Earth through the spring-wall system. Considering the trolley-Earth system, momentum is conserved. The trolley\\'s momentum is transferred to the Earth (which has an imperceptibly small speed change because of its huge mass).',
+    difficulty: 2,
+    points: 15,
+    hints: ['Momentum is not stored like energy.', 'Consider the Earth as part of the interacting system.', 'Smooth ground means friction is not the cause.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-055-question.png'],
+  },
+  {
+    id: 'mom-056',
+    type: 'multiple_choice',
+    question:
+      'Which of the following pairs of quantities of a moving object must be in the same direction?\n\n(1) acceleration and change in momentum\n(2) displacement and instantaneous velocity\n(3) instantaneous velocity and acceleration',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      '(1) True: change in momentum is in the same direction as the net force, and acceleration is also in the direction of the net force. (2) False: an object can have a displacement in one direction while its instantaneous velocity at a particular moment is in the opposite direction. (3) False: an object moving upward under gravity has upward velocity but downward acceleration.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Relate change in momentum to force.', 'Instantaneous velocity need not align with total displacement.', 'Acceleration can oppose velocity.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-057',
+    type: 'multiple_choice',
+    question:
+      '$X$, $Y$ and $Z$ are three balls with masses $m$, $m$ and $2m$ respectively. They lie on a smooth horizontal surface with $Y$ and $Z$ in contact. If $X$ moves to the right with velocity $u$ and collides directly with $Y$, which set of final velocities is possible after all collisions? (All collisions are perfectly elastic; right is positive.)',
+    options: [
+      '$X=0,\\ Y=0,\\ Z=u/2$',
+      '$X=0,\\ Y=u/3,\\ Z=u/3$',
+      '$X=-u/3,\\ Y=0,\\ Z=2u/3$',
+      '$X=0,\\ Y=-u/3,\\ Z=2u/3$',
+    ],
+    answer: '$X=-u/3,\\ Y=0,\\ Z=2u/3$',
+    explanation:
+      'The final velocities must satisfy both momentum conservation and kinetic energy conservation. Options A and B fail energy conservation. Options C and D satisfy momentum and total KE, but in D, ball $Y$ would move left while $X$ is at rest, causing another collision with $X$, so D cannot be the final state after all collisions. Hence only C is possible.',
+    difficulty: 3,
+    points: 20,
+    hints: ['Check momentum and kinetic energy conservation.', 'Perfectly elastic means total KE must be conserved.', 'Eliminate states that would immediately lead to another collision.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-057-question.png'],
+  },
+  {
+    id: 'mom-058',
+    type: 'multiple_choice',
+    question:
+      'A body initially at rest explodes into two parts of unequal mass. The part with smaller mass has a larger\n\n(1) momentum.\n(2) speed.\n(3) kinetic energy.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      'The two parts have equal momentum magnitudes in opposite directions, so (1) is false. Since $p=mv$, the smaller mass must have the larger speed. For equal momentum, $KE=\\frac{p^2}{2m}$, so the smaller mass also has the larger kinetic energy.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Explosion from rest gives equal and opposite momenta.', 'Smaller mass must move faster for the same momentum.', 'Use KE in terms of momentum.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-059',
+    type: 'multiple_choice',
+    question:
+      'An open trolley moves initially on a smooth horizontal surface while rain water falls into it and accumulates there. Ignoring the initial kinetic energy of the rain water, what are the effects on the speed, horizontal momentum and kinetic energy of the trolley together with the rain?',
+    options: [
+      'speed decreased; momentum unchanged; kinetic energy decreased',
+      'speed decreased; momentum unchanged; kinetic energy unchanged',
+      'speed decreased; momentum decreased; kinetic energy decreased',
+      'speed unchanged; momentum unchanged; kinetic energy unchanged',
+    ],
+    answer: 'speed decreased; momentum unchanged; kinetic energy decreased',
+    explanation:
+      'There is no external horizontal force, so the horizontal momentum of the trolley-plus-rain system is conserved. As mass increases, the speed must decrease to keep momentum constant. The process is inelastic, so kinetic energy decreases.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Consider horizontal motion only.', 'Momentum conservation applies to the combined system.', 'Added mass lowers speed and the inelastic process reduces KE.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-059-question.png'],
+  },
+  {
+    id: 'mom-060',
+    type: 'multiple_choice',
+    question:
+      'The graph shows the variation of kinetic energy $E_K$ with the square of velocity $v^2$ of a moving ball of mass $m$. What is the momentum of the ball when it is moving at speed $2\\ \\mathrm{m\\ s^{-1}}$?',
+    options: ['1 Ns', '2 Ns', '4 Ns', '8 Ns'],
+    answer: '4 Ns',
+    explanation:
+      'From the graph, when $v^2=1$, $E_K=1\\,\\mathrm{J}$. Using $E_K=\\tfrac12mv^2$, we get $1=\\tfrac12m(1)$, so $m=2\\,\\mathrm{kg}$. At $v=2\\,\\mathrm{m\\ s^{-1}}$, momentum is $p=mv=2\\times2=4\\,\\mathrm{N\\,s}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Read one graph point to find mass.', 'Use $KE=\\tfrac12mv^2$.', 'Then calculate $p=mv$.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-060-question.png'],
+  },
+  {
+    id: 'mom-061',
+    type: 'multiple_choice',
+    question:
+      'Two bodies $X$ and $Y$ of masses $m$ and $2m$ are initially at rest on a smooth horizontal surface. If a force of the same magnitude acts on each of them for the same period of time, the ratio of the kinetic energy of $X$ to that of $Y$ is',
+    options: ['2:1', '1:2', '1:1', '1:4'],
+    answer: '2:1',
+    explanation:
+      'Equal force acting for equal time gives equal impulse, so both bodies receive the same momentum. For a given momentum, $KE=\\frac{p^2}{2m}$, so kinetic energy is inversely proportional to mass. Hence $KE_X:KE_Y=(2m):m=2:1$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Same force and same time means same impulse.', 'Impulse gives equal change in momentum.', 'Use KE in terms of momentum.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-062',
+    type: 'multiple_choice',
+    question:
+      'David and Candy stand on light skateboards with frictionless rollers and move towards each other. Both have mass 30 kg and speed $1.2\\ \\mathrm{m\\ s^{-1}}$. David holds a ball of mass 1.0 kg and throws it straight towards Candy at horizontal velocity $15\\ \\mathrm{m\\ s^{-1}}$. Determine the velocity of Candy after she catches the ball.',
+    options: [
+      '$0.74\\ \\mathrm{m\\ s^{-1}}$ to the right',
+      '$0.74\\ \\mathrm{m\\ s^{-1}}$ to the left',
+      '$0.68\\ \\mathrm{m\\ s^{-1}}$ to the right',
+      '$0.68\\ \\mathrm{m\\ s^{-1}}$ to the left',
+    ],
+    answer: '$0.68\\ \\mathrm{m\\ s^{-1}}$ to the left',
+    explanation:
+      'Consider the system of Candy and the ball during the catch. Conserving momentum: $(1)(15)+(30)(-1.2)=(1+30)v$. So $15-36=31v$, giving $v=-0.68\\,\\mathrm{m\\ s^{-1}}$, i.e. $0.68\\,\\mathrm{m\\ s^{-1}}$ to the left.',
+    difficulty: 3,
+    points: 20,
+    hints: ['Analyze the catch event only.', 'Take right as positive.', 'Negative velocity means leftward motion.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-062-question.png'],
+  },
+  {
+    id: 'mom-063',
+    type: 'multiple_choice',
+    question:
+      'Which of the following statements concerning the design of cars is/are correct?\n\n(1) The front and rear parts of cars are designed to collapse during a serious traffic accident.\n(2) The collapsible parts can reduce the time of collision when the car is involved in a serious accident.\n(3) The collapsible parts can reduce the change of momentum in a serious accident.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      '(1) True: these parts are designed to crumple. (2) False: crumpling increases the collision time, not reduces it. (3) False: if the car comes to rest, the change in momentum is the same; the design changes the time over which it happens, reducing force instead.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Crumple zones increase stopping time.', 'Change in momentum depends on initial and final momentum.', 'Longer collision time reduces average force.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-064',
+    type: 'multiple_choice',
+    question:
+      'Which of the following statements concerning air-cushioned sports shoes is/are correct?\n\n(1) They can increase the time of impact between the feet and the ground during running.\n(2) They can reduce the change of momentum during jumping and running.\n(3) They can reduce the impact force acting on the feet during jumping and running.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(1) & (3) only',
+    explanation:
+      '(1) True: cushioning lengthens the impact time. (2) False: the change in momentum is set by the motion and remains essentially the same. (3) True: for the same momentum change, longer impact time gives smaller force.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use impulse ideas.', 'Cushioning changes time, not the required momentum change.', 'Longer time means smaller average force.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-065',
+    type: 'multiple_choice',
+    question:
+      'When a lorry makes a head-on collision with a motorcycle, which statements are correct?\n\n(1) The magnitude of the average force exerted by the lorry on the motorcycle equals that exerted by the motorcycle on the lorry.\n(2) The magnitude of the change in momentum of the lorry equals that of the motorcycle.\n(3) The magnitude of the change in velocity of the lorry equals that of the motorcycle.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) & (2) only',
+    explanation:
+      '(1) True by Newton third law: interaction forces are equal and opposite. (2) True: equal force acting over the same collision time gives equal momentum change magnitude. (3) False: since their masses differ, equal momentum changes imply different velocity changes.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use Newton third law for forces.', 'Impulse links force and momentum change.', 'Different masses mean different velocity changes for same impulse.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-066',
+    type: 'multiple_choice',
+    question:
+      'Which of the following concerning the wearing of seat-belts is/are correct?\n\n(1) Wearing seat-belts can reduce the change in momentum of passengers in a car during a collision.\n(2) Wearing seat-belts can reduce the force acting on passengers in a car during a collision.\n(3) Wearing seat-belts can prevent passengers from jerking forwards when the car is suddenly stopped.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      '(1) False: if the passenger is brought to rest, the change in momentum is essentially the same. (2) True: seat-belts increase stopping time and reduce average force. (3) True: they restrain the passenger and prevent forward lurching due to inertia.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Seat-belts do not change the need to stop the passenger.', 'They increase the impact time.', 'They restrain forward motion due to inertia.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-067',
+    type: 'multiple_choice',
+    question:
+      'The graph shows the variation with time $t$ of the resultant force $F$ acting on a body moving along a straight line. The shaded area represents',
+    options: ['the momentum of the body.', 'the change in momentum of the body.', 'the change in the velocity of the body.', 'the change in the kinetic energy of the body.'],
+    answer: 'the change in momentum of the body.',
+    explanation:
+      'Area under a force-time graph is impulse: $Ft=\\Delta p$. Therefore the shaded area represents the change in momentum.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Area under $F$-$t$ graph is impulse.', 'Impulse equals change in momentum.', 'Do not confuse with work, which uses force-distance.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-067-question.png'],
+  },
+  {
+    id: 'mom-068',
+    type: 'multiple_choice',
+    question:
+      'Ball $A$ moving with speed $u$ collides head-on with another ball $B$ initially at rest on a smooth horizontal surface. After collision, $A$ and $B$ move together with common velocity $v$. Which statements concerning the two balls during the collision are correct?\n\n(1) The change of momentum of ball $A$ is equal in magnitude to that of ball $B$.\n(2) The loss of kinetic energy of ball $A$ is equal to the gain of kinetic energy of ball $B$.\n(3) The final velocity $v$ is half of the initial velocity $u$.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      '(1) True: by momentum conservation, the decrease in momentum of $A$ equals the increase in momentum of $B$. (2) False: because they stick together, the collision is inelastic and some kinetic energy becomes internal energy, so $A$\\'s KE loss is not simply equal to $B$\\'s KE gain. (3) False: from $m_Au=(m_A+m_B)v$, $v$ depends on both masses and is not necessarily $u/2$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Momentum conservation always applies to the two-ball system.', 'Sticking together means inelastic collision.', 'Final speed depends on both masses.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-068-question.png'],
+  },
+  {
+    id: 'mom-069',
+    type: 'multiple_choice',
+    question:
+      'A car $P$ of mass 1000 kg moves with a speed of $20\\ \\mathrm{m\\ s^{-1}}$ and makes a head-on collision with a car $Q$ of mass 1500 kg, which was moving with a speed of $10\\ \\mathrm{m\\ s^{-1}}$ in the opposite direction. If the two cars stick together after the collision, find their common velocity immediately after the collision.',
+    options: [
+      '$2\\ \\mathrm{m\\ s^{-1}}$ along the original direction of $P$',
+      '$2\\ \\mathrm{m\\ s^{-1}}$ along the original direction of $Q$',
+      '$14\\ \\mathrm{m\\ s^{-1}}$ along the original direction of $P$',
+      '$14\\ \\mathrm{m\\ s^{-1}}$ along the original direction of $Q$',
+    ],
+    answer: '$2\\ \\mathrm{m\\ s^{-1}}$ along the original direction of $P$',
+    explanation:
+      'Take the original direction of $P$ as positive. Conservation of momentum gives $(1000)(20)+(1500)(-10)=(1000+1500)v$. So $20000-15000=2500v$, hence $v=+2\\,\\mathrm{m\\ s^{-1}}$, i.e. along the original direction of $P$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use a sign convention.', 'This is a sticking collision, so both share one final velocity.', 'Apply momentum conservation directly.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-070',
+    type: 'multiple_choice',
+    question:
+      'A ball of mass 0.2 kg is released from rest. It hits the ground and rebounds. The velocity-time graph of the ball is shown. Which statements are correct?\n\n(1) The magnitude of the change in momentum of the ball during the collision is $1.2\\ \\mathrm{kg\\ m\\ s^{-1}}$.\n(2) The magnitude of the average force acting on the ball by the ground during the collision is 12 N.\n(3) There is mechanical energy loss during the collision.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (3) only',
+    explanation:
+      '(1) True: from the graph, momentum changes from $(0.2)(4)$ downward to $(0.2)(2)$ upward, so magnitude of change is $1.2\\,\\mathrm{kg\\ m\\ s^{-1}}$. (2) False: the net average force is $1.2/0.1=12\\,\\mathrm{N}$, but the ground force must also overcome the ball\\'s weight, so the force by the ground is about $14\\,\\mathrm{N}$. (3) True: rebound speed is smaller than impact speed, so some mechanical energy is lost.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use the graph values for speeds before and after collision.', 'Distinguish net force from ground reaction.', 'Smaller rebound speed means less KE after collision.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-070-question.png'],
+  },
+  {
+    id: 'mom-071',
+    type: 'multiple_choice',
+    question:
+      'Which of the following graphs (velocity-time and displacement-time) best represent the motion of a ball falling from rest under gravity from height $H$ and bouncing back from the ground two times? Assume the collisions with the ground are perfectly elastic and neglect air resistance. (Downward measurement is taken to be negative.)',
+    options: ['(1) and (3) only', '(1) and (4) only', '(2) and (3) only', '(2) and (4) only'],
+    answer: '(1) and (3) only',
+    explanation:
+      'For the velocity-time graph, the ball starts from rest and then accelerates downward, so velocity becomes negative with a constant negative slope; after each perfectly elastic bounce, the sign reverses abruptly with unchanged speed magnitude. For the displacement-time graph, the slope is the velocity, so its magnitude grows during each fall and the correct graph is the one consistent with that behavior. Hence the correct pair is (1) and (3).',
+    difficulty: 3,
+    points: 20,
+    hints: ['Downward is defined as negative.', 'Free-fall gives straight-line segments on the $v$-$t$ graph.', 'Perfectly elastic bounces preserve speed magnitude at impact.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-071-question.png'],
+  },
+  {
+    id: 'mom-072',
+    type: 'multiple_choice',
+    question:
+      'Two identical spheres are moving in opposite directions with speeds $u$ and $v$ (with $u>v$) respectively and make a head-on collision. Which of the following diagrams show(s) a possible situation after collision?',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      'For identical spheres, the total momentum before collision is positive because $u>v$. Any possible outcome must conserve momentum. Diagram (1) gives a final total momentum with the wrong sign or magnitude, so it is impossible. Diagrams (2) and (3) are consistent with momentum conservation and are possible.',
+    difficulty: 3,
+    points: 20,
+    hints: ['Initial total momentum is in the direction of the larger speed $u$.', 'Use momentum conservation to test each diagram.', 'Reject any result with the wrong total momentum.'],
+    sectionId: 'momentum',
+    imagePaths: [
+      '/physics/exercises/momentum/mom-072-question.png',
+      '/physics/exercises/momentum/mom-072-question-2.png',
+    ],
+  },
+  {
+    id: 'mom-073',
+    type: 'multiple_choice',
+    question:
+      'A sphere $P$ of mass 2 kg makes a head-on collision with another sphere $Q$ of mass 1 kg initially at rest. The speed of $P$ just before collision is $6\\ \\mathrm{m\\ s^{-1}}$. If the two spheres move in the same direction after collision, which of the following could be the speed(s) of $Q$ just after collision?\n\n(1) $2\\ \\mathrm{m\\ s^{-1}}$\n(2) $4\\ \\mathrm{m\\ s^{-1}}$\n(3) $6\\ \\mathrm{m\\ s^{-1}}$',
+    options: ['(1) only', '(1) & (2) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(2) & (3) only',
+    explanation:
+      'Conservation of momentum gives $2(6)=2v_P+1v_Q$. For $v_Q=2$, this gives $v_P=5\\,\\mathrm{m\\ s^{-1}}$, which is impossible because $Q$ cannot be ahead moving slower than $P$ while both move in the same direction just after impact. For $v_Q=4$, we get $v_P=4\\,\\mathrm{m\\ s^{-1}}$, which is possible (they may move together in an inelastic collision). For $v_Q=6$, we get $v_P=3\\,\\mathrm{m\\ s^{-1}}$, also possible with some kinetic energy loss. Thus (2) and (3) only.',
+    difficulty: 3,
+    points: 20,
+    hints: ['Use momentum conservation for each candidate value.', 'Check whether the resulting speeds are physically consistent.', 'Collisions need not be perfectly elastic.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-073-question.png'],
+  },
+  {
+    id: 'mom-074',
+    type: 'multiple_choice',
+    question:
+      'An object of mass 3 kg is initially at rest on a smooth horizontal ground. A force $F$ is applied horizontally such that the magnitude $F$ varies with time $t$ as shown. What is the speed of the object at $t=3\\ \\mathrm{s}$? Neglect air resistance.',
+    options: ['$2.5\\ \\mathrm{m\\ s^{-1}}$', '$5.0\\ \\mathrm{m\\ s^{-1}}$', '$10\\ \\mathrm{m\\ s^{-1}}$', '$15\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$5.0\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'Area under the force-time graph gives impulse, which equals change in momentum. From the graph, the area is $\\tfrac12(3)(10)=15\\,\\mathrm{N\\,s}$. Hence $15=(3)v$, so $v=5.0\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use impulse = area under the $F$-$t$ graph.', 'Initial momentum is zero.', 'Then divide by mass to get speed.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-074-question.png'],
+  },
+  {
+    id: 'mom-075',
+    type: 'multiple_choice',
+    question:
+      'A rubber ball bounces vertically up and down from the ground. Which graph best shows the variation of its velocity $v$ with time $t$ if the collisions are elastic? Neglect air resistance.',
+    options: [
+      '/physics/exercises/momentum/mom-075-option-a.png',
+      '/physics/exercises/momentum/mom-075-option-b.png',
+      '/physics/exercises/momentum/mom-075-option-c.png',
+      '/physics/exercises/momentum/mom-075-option-d.png',
+    ],
+    answer: '/physics/exercises/momentum/mom-075-option-b.png',
+    explanation:
+      'Between collisions, the ball moves under constant acceleration $-g$, so the velocity-time graph is made of straight-line segments with constant negative slope. At each elastic collision, the velocity changes sign instantly while keeping the same magnitude. This matches option B.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Free flight gives straight lines on a $v$-$t$ graph.', 'Elastic collisions reverse the sign of velocity without changing its magnitude.', 'Look for repeated straight segments with vertical jumps.'],
+    sectionId: 'momentum',
+  },
+  {
+    id: 'mom-076',
+    type: 'multiple_choice',
+    question:
+      'On a smooth horizontal surface, a marble $P$ moving with speed $u$ collides head-on with another marble $Q$, which is at rest. After collision, $P$ and $Q$ move with different speeds as shown. Which statements about this collision are correct?\n\n(1) During collision, the force acting on $Q$ by $P$ is equal and opposite to that acting on $P$ by $Q$.\n(2) The total momentum of the two marbles is conserved only when the collision is perfectly elastic.\n(3) The kinetic energy lost by $P$ must be equal to that gained by $Q$.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      '(1) True by Newton third law. (2) False: total momentum is conserved for any collision on a smooth surface with no external net force, not only perfectly elastic ones. (3) False: if the collision is not perfectly elastic, some kinetic energy is transformed into other forms, so $P$\\'s KE loss need not equal $Q$\\'s KE gain.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Newton third law always holds during the collision.', 'Momentum conservation does not require elasticity.', 'Only perfectly elastic collisions conserve total KE.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-076-question.png'],
+  },
+  {
+    id: 'mom-077',
+    type: 'multiple_choice',
+    question:
+      'Players of bubble soccer wear air-filled plastic bubbles. Which statement best explains why the bubble can reduce the chance of injury during a collision?',
+    options: [
+      'The bubble increases the mass of the player, thus the momentum of the player increases.',
+      'The bubble increases the air resistance acting on the player.',
+      'The bubble lengthens the impact time during a collision.',
+      'Like a balloon, the bubble provides a lifting force to the player.',
+    ],
+    answer: 'The bubble lengthens the impact time during a collision.',
+    explanation:
+      'The bubble deforms and increases the collision time. For the same change in momentum, increasing the impact time reduces the average force, so the chance of injury is reduced.',
+    difficulty: 1,
+    points: 10,
+    hints: ['Use impulse: same momentum change over longer time.', 'Longer collision time means smaller average force.', 'The key effect is cushioning, not lift or air resistance.'],
+    sectionId: 'momentum',
+    imagePaths: ['/physics/exercises/momentum/mom-077-question.png'],
+  },
+  {
+    id: 'pjm-001',
+    type: 'multiple_choice',
+    question:
+      'Two small balls $A$ and $B$ are launched simultaneously from the top of a building. $A$ is projected horizontally with an initial velocity of $10\\ \\mathrm{m\\ s^{-1}}$ and $B$ is projected at an angle of $60^{\\circ}$ above the horizontal with an initial velocity of $20\\ \\mathrm{m\\ s^{-1}}$. The motion of both $A$ and $B$ is in the same plane and air resistance is negligible. Which of the following statements is/are correct when they are travelling in air?\n\n(1) Balls $A$ and $B$ travel equal vertical distances in equal times.\n(2) Balls $A$ and $B$ travel equal horizontal distances in equal times.\n(3) Balls $A$ and $B$ never meet.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      '(1) False: $A$ has zero initial vertical velocity, while $B$ has initial vertical velocity $20\\sin60^{\\circ}=17.3\\,\\mathrm{m\\ s^{-1}}$, so their vertical displacements in equal times are different. (2) True: both have the same horizontal component, $10\\,\\mathrm{m\\ s^{-1}}$, so they cover equal horizontal distances in equal times. (3) True: with the same downward acceleration but $B$ always starting with greater upward vertical speed, $B$ stays above $A$, so they do not meet.',
+    difficulty: 3,
+    points: 20,
+    hints: ['Resolve the second launch into components.', 'Compare horizontal components first.', 'Compare vertical motions under the same gravitational acceleration.'],
+    sectionId: 'projectile-motion',
+  },
+  {
+    id: 'pjm-002',
+    type: 'multiple_choice',
+    question:
+      'A small particle is released from $P$ and slips down a smooth curve to $Q$, at the edge of a table 2 m high, where it travels horizontally. It then leaves the table and travels freely under gravity until it hits the ground at $R$, at a horizontal distance of 3 m from $Q$. What is the vertical distance $h$ of $P$ above $Q$?',
+    options: ['1.13 m', '1.33 m', '2.50 m', '3.00 m'],
+    answer: '1.13 m',
+    explanation:
+      'From $Q$ to $R$: vertical motion gives $2=\\tfrac12(9.81)t^2$, so $t=0.6386\\,\\mathrm{s}$. Horizontal motion gives $3=ut$, so $u=4.70\\,\\mathrm{m\\ s^{-1}}$. From $P$ to $Q$, loss of PE equals gain of KE: $mgh=\\tfrac12mu^2$. Hence $9.81h=\\tfrac12(4.70)^2$, giving $h=1.13\\,\\mathrm{m}$.',
+    difficulty: 3,
+    points: 20,
+    hints: ['Solve the projectile part first to find speed at $Q$.', 'Use horizontal and vertical projectile equations separately.', 'Then use energy from $P$ to $Q$.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-002-question.png'],
+  },
+  {
+    id: 'pjm-003',
+    type: 'multiple_choice',
+    question:
+      'A ball is thrown horizontally from the top of a building at a speed of $20\\ \\mathrm{m\\ s^{-1}}$. What will be the speed of the object after $3\\ \\mathrm{s}$?',
+    options: ['$20.0\\ \\mathrm{m\\ s^{-1}}$', '$25.0\\ \\mathrm{m\\ s^{-1}}$', '$30.0\\ \\mathrm{m\\ s^{-1}}$', '$35.6\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$35.6\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'Horizontal speed stays $20\\,\\mathrm{m\\ s^{-1}}$. Vertical speed after 3 s is $gt=(9.81)(3)=29.43\\,\\mathrm{m\\ s^{-1}}$. Resultant speed is $v=\\sqrt{20^2+29.43^2}=35.6\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Treat horizontal and vertical components separately.', 'Horizontal velocity is constant.', 'Combine components with Pythagoras.'],
+    sectionId: 'projectile-motion',
+  },
+  {
+    id: 'pjm-004',
+    type: 'multiple_choice',
+    question:
+      'A particle is projected with speed $10\\ \\mathrm{m\\ s^{-1}}$ downward from $P$ at an angle of $30^{\\circ}$ to the horizontal. The particle rebounds from the ground at $Q$. If the collision is perfectly elastic and the ground is smooth, what is the horizontal distance $QR$ when it reaches the ground again at $R$? (Take $g=10\\ \\mathrm{m\\ s^{-2}}$.)',
+    options: ['10.0 m', '13.0 m', '26.0 m', '43.5 m'],
+    answer: '26.0 m',
+    explanation:
+      'From $P$ to $Q$, the downward vertical component at launch is $10\\sin30^{\\circ}=5\\,\\mathrm{m\\ s^{-1}}$. Using $v_y^2=u_y^2+2ay$, with drop 10 m from the diagram: $v_y^2=5^2+2(10)(10)$, so $v_y=15\\,\\mathrm{m\\ s^{-1}}$. After a perfectly elastic rebound on a smooth ground, the upward vertical speed is also $15\\,\\mathrm{m\\ s^{-1}}$ and the horizontal speed remains $10\\cos30^{\\circ}$. From $Q$ to $R$, $0=(15)t-\\tfrac12(10)t^2$ gives $t=3\\,\\mathrm{s}$. Hence $QR=(10\\cos30^{\\circ})(3)=26.0\\,\\mathrm{m}$.',
+    difficulty: 3,
+    points: 20,
+    hints: ['Use the given geometry to find the impact vertical speed.', 'Smooth ground preserves horizontal speed.', 'Perfectly elastic rebound reverses the vertical component without losing magnitude.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-004-question.png'],
+  },
+  {
+    id: 'pjm-005',
+    type: 'multiple_choice',
+    question:
+      'A hunter aims his gun at a monkey at rest at point $M$. The gun makes an angle $\\theta$ with the horizontal. When the gun is fired, the monkey lets go and falls with zero initial velocity. In order that the bullet can hit the monkey, the angle $\\theta$ depends on\n\n(1) $u$, the initial speed of the bullet.\n(2) $h$, the vertical height of the monkey above the level of the gun.\n(3) $d$, the horizontal distance of the gun from the monkey.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      'To hit the monkey, the gun must be aimed directly at the monkey initially, so the launch angle satisfies $\\tan\\theta=h/d$. Both bullet and monkey then fall with the same gravitational acceleration, so the required angle does not depend on the bullet\\'s initial speed $u$. It depends only on $h$ and $d$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['This is the classic monkey-and-hunter setup.', 'Both bullet and monkey fall with the same vertical acceleration.', 'The aim direction is set by the initial line of sight.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-005-question.png'],
+  },
+  {
+    id: 'pjm-006',
+    type: 'multiple_choice',
+    question:
+      'Two small balls $A$ and $B$ are placed at the edge of a table. Ball $A$ is pushed slightly and falls vertically to the ground, while ball $B$ is projected horizontally at the same instant and follows a parabolic path. If air resistance is neglected, which statements are correct?\n\n(1) Balls $A$ and $B$ reach the ground at the same time.\n(2) Balls $A$ and $B$ have the same acceleration during their motion in air.\n(3) Balls $A$ and $B$ have the same vertical velocity on reaching the ground.',
+    options: ['(3) only', '(1) & (2) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      'Both balls start with zero initial vertical velocity and fall through the same vertical distance under the same gravitational acceleration, so they reach the ground at the same time and with the same final vertical velocity. During motion in air, both have the same acceleration due to gravity.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Compare vertical motion only.', 'Horizontal motion does not affect fall time.', 'Both experience the same gravitational acceleration.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-006-question.png'],
+  },
+  {
+    id: 'pjm-007',
+    type: 'multiple_choice',
+    question:
+      'A bomber is flying horizontally to the right with constant velocity. It releases three bombs one by one at a constant time interval. If air resistance is neglected, which of the following diagrams best shows the positions of the bomber and the bombs at a certain time instant?',
+    options: [
+      { id: 'option-a', image: '/physics/exercises/projectile-motion/pjm-007-option-a.png' },
+      { id: 'option-b', image: '/physics/exercises/projectile-motion/pjm-007-option-b.png' },
+      { id: 'option-c', image: '/physics/exercises/projectile-motion/pjm-007-option-c.png' },
+      { id: 'option-d', image: '/physics/exercises/projectile-motion/pjm-007-option-d.png' },
+    ],
+    answer: 'option-d',
+    explanation:
+      'The bomber and bombs all have the same horizontal velocity, so they stay vertically aligned at any instant. The bombs released earlier have fallen farther, so the correct arrangement is a vertical line below the bomber.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Horizontal motion is unchanged after release.', 'Compare only the vertical drop of each bomb.'],
+    sectionId: 'projectile-motion',
+  },
+  {
+    id: 'pjm-008',
+    type: 'multiple_choice',
+    question:
+      'A ball is projected horizontally from a table surface with an initial speed $u$. It hits the ground with a speed $v$. If air resistance is neglected, what is the time of flight of the ball in air ?',
+    options: ['$\\frac{v-u}{2g}$', '$\\frac{v-u}{g}$', '$\\frac{\\sqrt{v^2-u^2}}{2g}$', '$\\frac{\\sqrt{v^2-u^2}}{g}$'],
+    answer: '$\\frac{\\sqrt{v^2-u^2}}{g}$',
+    explanation:
+      'The horizontal speed remains $u$. At impact, the vertical component is $v_y=\\sqrt{v^2-u^2}$. Using $v_y=gt$ gives $t=\\frac{\\sqrt{v^2-u^2}}{g}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Resolve the final velocity into horizontal and vertical components.', 'The vertical initial speed is zero.'],
+    sectionId: 'projectile-motion',
+  },
+  {
+    id: 'pjm-009',
+    type: 'multiple_choice',
+    question:
+      'A particle is projected horizontally towards a vertical wall at a horizontal distance of 1.2 m away. It hits the wall at a point which is 0.8 m below its initial horizontal level. If air resistance is neglected, what is the speed of the particle when it hits the wall ?',
+    options: ['$2.65\\ \\mathrm{m\\ s^{-1}}$', '$3.45\\ \\mathrm{m\\ s^{-1}}$', '$3.95\\ \\mathrm{m\\ s^{-1}}$', '$4.95\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$4.95\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'From vertical motion, $0.8=\\frac{1}{2}gt^2$ gives $t\\approx0.404\\,\\mathrm{s}$. Then $v_x=1.2/0.404\\approx2.97\\,\\mathrm{m\\ s^{-1}}$ and $v_y=gt\\approx3.96\\,\\mathrm{m\\ s^{-1}}$. The resultant speed is about $4.95\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Find the time from the vertical drop first.', 'Then combine horizontal and vertical velocity components.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-009-question.png'],
+  },
+  {
+    id: 'pjm-010',
+    type: 'multiple_choice',
+    question:
+      'A ball is projected at an elevation angle of $45^{\\circ}$ to the horizontal with an initial kinetic energy $E_0$. Neglecting air resistance, what is the kinetic energy of the ball when it is moving halfway up?',
+    options: ['$\\frac{1}{4}E_0$', '$\\frac{1}{2}E_0$', '$\\frac{1}{3}E_0$', '$\\frac{3}{4}E_0$'],
+    answer: '$\\frac{3}{4}E_0$',
+    explanation:
+      'At $45^{\\circ}$, the initial kinetic energy is split equally between horizontal and vertical motion, so each has $\\frac{1}{2}E_0$. At halfway up, half of the vertical-motion kinetic energy has changed into gravitational potential energy, leaving $\\frac{1}{4}E_0$ vertically plus $\\frac{1}{2}E_0$ horizontally, totaling $\\frac{3}{4}E_0$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Split the initial kinetic energy into horizontal and vertical parts.', 'Horizontal kinetic energy stays constant.'],
+    sectionId: 'projectile-motion',
+  },
+  {
+    id: 'pjm-011',
+    type: 'multiple_choice',
+    question:
+      'A small particle is projected horizontally into the air. The figure shows part of the stroboscopic picture. The side of each square of the grid is 5 cm long. Estimate the frequency of the stroboscopic lamp used. (Neglect air resistance and take $g$ to be $10\\ \\mathrm{m\\ s^{-2}}$.)',
+    options: ['5.8 Hz', '7.1 Hz', '10.0 Hz', '12.5 Hz'],
+    answer: '10.0 Hz',
+    explanation:
+      'Using the vertical displacements between successive images and $y=u_yt+\\frac{1}{2}gt^2$, the time interval between flashes is $0.1\\,\\mathrm{s}$. Hence the lamp frequency is $1/0.1=10.0\\,\\mathrm{Hz}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use the change in vertical separation between flashes.', 'Frequency is the reciprocal of the time interval.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-011-question.png'],
+  },
+  {
+    id: 'pjm-012',
+    type: 'multiple_choice',
+    question:
+      'As shown in the figure, a gun aims directly at a point $P$ which is 40 m from the gun. The barrel of the gun makes an angle $\\theta$ with the vertical. If the speed of the bullet is $50\\ \\mathrm{m\\ s^{-1}}$, what is the separation between the bullet and point $P$ when the bullet is vertically below $P$ ? (Neglect air resistance and take $g$ to be $10\\ \\mathrm{m\\ s^{-2}}$.)',
+    options: ['3.2 m', '4.8 m', '7.8 m', 'It cannot be found as the value of $\\theta$ is not known.'],
+    answer: '3.2 m',
+    explanation:
+      'The time to reach the vertical line through $P$ is $t=40/50=0.8\\,\\mathrm{s}$ because both horizontal distance and horizontal speed carry the same factor of $\\sin\\theta$. In this time, the projectile falls $\\frac{1}{2}gt^2=\\frac{1}{2}(10)(0.8)^2=3.2\\,\\mathrm{m}$ below the straight aiming line.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Treat it like the monkey-and-hunter setup.', 'The extra drop is purely gravitational.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-012-question.png'],
+  },
+  {
+    id: 'pjm-013',
+    type: 'multiple_choice',
+    question:
+      'Five bombs are released from a bomber flying horizontally with a constant velocity. They are released one by one at one-second intervals. Neglecting air resistance, state\n(1) the positions of the five bombs in the air at any instant before landing on the ground,\n(2) the landing positions of the five bombs on the ground?',
+    options: [
+      '(1) They lie on a parabola. (2) They are evenly spaced.',
+      '(1) They lie on a parabola. (2) They are unevenly spaced.',
+      '(1) They lie on a straight line. (2) They are evenly spaced.',
+      '(1) They lie on a straight line. (2) They are unevenly spaced.',
+    ],
+    answer: '(1) They lie on a straight line. (2) They are evenly spaced.',
+    explanation:
+      'At any instant all bombs have the same horizontal position as the bomber, so they line up vertically, i.e. on a straight line. Equal release intervals and constant horizontal speed mean equal horizontal spacing between landing points.',
+    difficulty: 2,
+    points: 15,
+    hints: ["All bombs keep the bomber's horizontal speed.", 'Horizontal spacing equals $v_x\\Delta t$.'],
+    sectionId: 'projectile-motion',
+  },
+  {
+    id: 'pjm-014',
+    type: 'multiple_choice',
+    question:
+      'As shown in the figure, a small ball is projected horizontally with a speed of $1.6\\ \\mathrm{m\\ s^{-1}}$ from the point $P$ on a wall inside a room. The ball hits the smooth horizontal floor at $Q$ and rebounds to the point $R$ on the opposite wall. If air resistance is neglected, which of the following statements must be true?',
+    options: [
+      'There is no loss of kinetic energy of the ball for the collision at $Q$.',
+      'The ball hits $R$ with a horizontal velocity.',
+      'The total time of flight along the path $PQR$ is 0.5 s.',
+      'If the ball is projected with the same horizontal speed at a point $P^\\prime$, vertically above $P$, the total time of flight from $P^\\prime$ to the opposite wall would be longer.',
+    ],
+    answer: 'The total time of flight along the path $PQR$ is 0.5 s.',
+    explanation:
+      'The horizontal speed stays at $1.6\\,\\mathrm{m\\ s^{-1}}$, so the total travel time is horizontal distance divided by horizontal speed: $(0.6+0.2)/1.6=0.5\\,\\mathrm{s}$. The other statements depend on collision details or impact position and are not guaranteed.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use only the total horizontal distance and constant horizontal speed.', 'You do not need the vertical motion to get total time here.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-014-question.png'],
+  },
+  {
+    id: 'pjm-015',
+    type: 'multiple_choice',
+    question:
+      'A small particle is projected horizontally towards a vertical wall 2.5 m away. It hits the wall 1.5 m below the initial horizontal level. At what angle to the vertical does the particle hit the wall ?',
+    options: ['$34^{\\circ}$', '$40^{\\circ}$', '$53^{\\circ}$', '$56^{\\circ}$'],
+    answer: '$40^{\\circ}$',
+    explanation:
+      'From vertical motion, $1.5=\\frac{1}{2}gt^2$ gives $t\\approx0.553\\,\\mathrm{s}$. Then $v_x=2.5/0.553\\approx4.52\\,\\mathrm{m\\ s^{-1}}$ and $v_y=gt\\approx5.42\\,\\mathrm{m\\ s^{-1}}$. The angle to the vertical satisfies $\\tan\\theta=v_x/v_y$, giving $\\theta\\approx40^{\\circ}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Find the time from the vertical drop.', 'Angle to the vertical uses $\\tan\\theta=v_x/v_y$.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-015-question.png'],
+  },
+  {
+    id: 'pjm-016',
+    type: 'multiple_choice',
+    question:
+      'As shown in the figure, a small ball is released from the point $A$. It makes a perfectly elastic collision at $B$ on a slope and then rebounds horizontally. The ball finally reaches $C$ on the ground. The vertical separation of $AB$ and $BC$ are both equal to $h$. If air resistance is neglected, which of the following statements is/are correct?\n\n(1) The acceleration of the ball is constant throughout the motion from $A$ to $C$.\n(2) The time for the ball to move from $A$ to $B$ is equal to that for it to move from $B$ to $C$.\n(3) The kinetic energy of the ball just before colliding at $C$ is twice that at $B$.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      'During free flight the acceleration is $g$, but at the collision point $B$ there is an additional contact force, so the acceleration is not constant throughout. The vertical motion for $A\\to B$ and $B\\to C$ both starts with zero vertical speed and covers the same drop $h$, so the times are equal. The total drop from $A$ to $C$ is $2h$, so the kinetic energy just before reaching $C$ is twice that at $B$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Treat the motion in separate stages.', 'Compare the vertical drops for the two free-flight segments.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-016-question.png'],
+  },
+  {
+    id: 'pjm-017',
+    type: 'multiple_choice',
+    question:
+      'As shown in the figure, a small ball is projected from the point $A$ on the ground with an angle of elevation. It rebounds at $B$ on the incline and travels back to $A$ along the same path. Which statements about the ball must be correct ?\n\n(1) The ball hits the incline at $B$ normally.\n(2) The ball undergoes perfectly elastic collision at $B$.\n(3) The time taken for the ball to go from $A$ to $B$ is equal to that for it to return from $B$ to $A$.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      'If the ball returns along the same path, it must strike the incline normally. To retrace the path and return to the same starting point, no kinetic energy can be lost at the collision, so the collision must be perfectly elastic. With the same path traversed in reverse and the same speeds at corresponding points, the travel times are equal.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Retracing the exact same path is a strong constraint.', 'Think about what the collision must do to the velocity direction and magnitude.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-017-question.png'],
+  },
+  {
+    id: 'pjm-018',
+    type: 'multiple_choice',
+    question:
+      'A small ball of mass 0.2 kg is projected from point $O$ on the ground with a certain initial velocity as shown. It reaches a maximum height of 1.8 m at point $P$. Find the magnitude of the change in momentum, in N s, of the ball from $O$ to $P$. Neglect air resistance and take $g$ to be $10\\ \\mathrm{m\\ s^{-2}}$.',
+    options: ['1.2', '1.6', '2.4', 'It cannot be determined since the angle of projection is not given.'],
+    answer: '1.2',
+    explanation:
+      'At the highest point, the vertical component of velocity is zero. Using $0=u_y^2-2gh$ with $h=1.8\\,\\mathrm{m}$ gives $u_y=6\\,\\mathrm{m\\ s^{-1}}$. The horizontal momentum is unchanged, so the momentum change is purely vertical: $\\Delta p=mu_y=(0.2)(6)=1.2\\,\\mathrm{N\\ s}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Only the vertical component changes.', 'Use the maximum height to find the initial vertical component.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-018-question.png'],
+  },
+  {
+    id: 'pjm-019',
+    type: 'multiple_choice',
+    question:
+      'A small ball is released from rest at the top of a building. After a while another ball is projected horizontally from the same position. Before reaching the ground, which quantity of the two balls will remain unchanged? Neglect air resistance.\n\n(1) their acceleration\n(2) the difference in the vertical component of their velocities\n(3) the difference in their heights above the ground',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) & (2) only',
+    explanation:
+      'Both balls always have the same acceleration due to gravity. Their vertical velocities differ by a constant amount because they have the same vertical acceleration after the second ball is launched. Their height difference does not remain constant; it changes with time.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Compare only vertical motion.', 'Same acceleration means relative vertical acceleration is zero.'],
+    sectionId: 'projectile-motion',
+  },
+  {
+    id: 'pjm-020',
+    type: 'multiple_choice',
+    question:
+      'A ball of mass 2 kg is projected upwards at an angle of $30^{\\circ}$ to the horizontal. It is found that the kinetic energy of the ball at the maximum height is 108 J. What is the initial speed of the ball ?',
+    options: ['$8\\ \\mathrm{m\\ s^{-1}}$', '$12\\ \\mathrm{m\\ s^{-1}}$', '$15\\ \\mathrm{m\\ s^{-1}}$', '$18\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$12\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'At the maximum height, the vertical component of velocity is zero, so the speed is the horizontal component $u\\cos30^{\\circ}$. Hence $108=\\frac{1}{2}(2)(u\\cos30^{\\circ})^2=u^2\\cdot\\frac{3}{4}$, giving $u=12\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['At the top, only horizontal motion remains.', 'Use kinetic energy of the horizontal component only.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-020-question.png'],
+  },
+  {
+    id: 'pjm-021',
+    type: 'multiple_choice',
+    question:
+      'A ball is projected horizontally from the top of a building. It reaches the ground at a point 40 m from the building, making an angle of $45^{\\circ}$ with the horizontal as shown in the figure. What is the height of the building ? Take the acceleration due to gravity $g$ to be $10\\ \\mathrm{m\\ s^{-2}}$.',
+    options: ['20 m', '30 m', '40 m', '80 m'],
+    answer: '20 m',
+    explanation:
+      'At impact, the angle is $45^{\\circ}$, so the horizontal and vertical speed components are equal: $v_y=v_x=u$. Since $v_y=gt$, we have $u=10t$. Also, horizontal motion gives $40=ut=10t^2$, so $t=2\\,\\mathrm{s}$. The height is then $h=\\frac{1}{2}gt^2=\\frac{1}{2}(10)(2)^2=20\\,\\mathrm{m}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use the 45 degree impact angle to relate horizontal and vertical speed.', 'Then solve horizontal motion before finding the height.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-021-question.png'],
+  },
+  {
+    id: 'pjm-022',
+    type: 'multiple_choice',
+    question:
+      'An angry bird is at a height of 10 m above the ground. A green pig is at a horizontal distance of 55 m from the angry bird with a height of 12 m above the ground. In order that the angry bird can hit the green pig, what should be the launch angle (made with the horizontal) of the shot if the time of flight is $2.5\\ \\mathrm{s}$ ?',
+    options: ['$28.5^{\\circ}$', '$30.7^{\\circ}$', '$32.5^{\\circ}$', '$35.2^{\\circ}$'],
+    answer: '$30.7^{\\circ}$',
+    explanation:
+      'Horizontally, $55=u_x(2.5)$ so $u_x=22\\,\\mathrm{m\\ s^{-1}}$. Vertically, $12-10=u_y(2.5)-\\frac{1}{2}(9.81)(2.5)^2$, giving $u_y\\approx13.06\\,\\mathrm{m\\ s^{-1}}$. Hence $\\tan\\theta=u_y/u_x=13.06/22$, so $\\theta\\approx30.7^{\\circ}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Resolve the launch velocity into horizontal and vertical components.', 'Use the given total flight time in both directions.'],
+    sectionId: 'projectile-motion',
+  },
+  {
+    id: 'pjm-023',
+    type: 'multiple_choice',
+    question:
+      'A ball is projected horizontally with an initial speed of $u$ at a certain height above the ground. It then reaches the ground after a time $t$ and the landing position is at a horizontal distance $R$ from the starting point. What would the corresponding values be if the initial speed of the ball is changed to $2u$ ?',
+    options: ['$2t$, $2R$', '$2t$, $R$', '$t$, $4R$', '$t$, $2R$'],
+    answer: '$t$, $2R$',
+    explanation:
+      'The time of flight depends only on the vertical motion and the height, so it is unchanged. The horizontal range is $R=ut$, so doubling the horizontal speed doubles the horizontal distance to $2R$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Horizontal and vertical motions are independent.', 'Only the horizontal speed changes.'],
+    sectionId: 'projectile-motion',
+  },
+  {
+    id: 'pjm-024',
+    type: 'multiple_choice',
+    question:
+      'A particle is projected from the ground with a certain speed making an angle of $35^{\\circ}$ with the ground. After 4.5 s, it reaches the ground. Determine the horizontal distance moved by the particle.',
+    options: ['128 m', '142 m', '164 m', '186 m'],
+    answer: '142 m',
+    explanation:
+      'Using vertical motion with total flight time $4.5\\,\\mathrm{s}$, $0=(u\\sin35^{\\circ})(4.5)-\\frac{1}{2}(9.81)(4.5)^2$, so $u\\approx38.48\\,\\mathrm{m\\ s^{-1}}$. The horizontal range is then $(u\\cos35^{\\circ})(4.5)\\approx142\\,\\mathrm{m}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['First find the initial speed from the vertical motion.', 'Then use the horizontal component for the range.'],
+    sectionId: 'projectile-motion',
+  },
+  {
+    id: 'pjm-025',
+    type: 'multiple_choice',
+    question:
+      'A heavy ball is projected horizontally from the top of a building with an initial speed of $10\\ \\mathrm{m\\ s^{-1}}$. It hits the ground with a speed of $15\\ \\mathrm{m\\ s^{-1}}$. If air resistance is neglected, what is the height of the building ?',
+    options: ['3.09 m', '6.37 m', '8.15 m', '9.28 m'],
+    answer: '6.37 m',
+    explanation:
+      'The horizontal component stays at $10\\,\\mathrm{m\\ s^{-1}}$. At impact, $15^2=10^2+v_y^2$, so $v_y\\approx11.18\\,\\mathrm{m\\ s^{-1}}$. Using $v_y^2=2gh$ gives $h=11.18^2/(2\\times9.81)\\approx6.37\\,\\mathrm{m}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Find the final vertical component from the resultant speed.', 'Then use vertical kinematics.'],
+    sectionId: 'projectile-motion',
+  },
+  {
+    id: 'pjm-026',
+    type: 'multiple_choice',
+    question:
+      'A particle is projected with speed $25\\ \\mathrm{m\\ s^{-1}}$ at an angle of dip of $30^{\\circ}$ on the edge of a vertical cliff 20 m above point $P$ as shown in the figure. The particle then follows a parabolic path to reach the point $Q$ at the bottom of an incline which makes an angle of $30^{\\circ}$ with the horizontal. Calculate the distance $PQ$ of the incline. Take $g$ to be $10\\ \\mathrm{m\\ s^{-2}}$.',
+    options: ['40 m', '50 m', '60 m', '70 m'],
+    answer: '50 m',
+    explanation:
+      'Let $PQ=d$. Horizontally, $d\\cos30^{\\circ}=(25\\cos30^{\\circ})t$, so $d=25t$. Vertically, $20+d\\sin30^{\\circ}=(25\\sin30^{\\circ})t+\\frac{1}{2}(10)t^2$. Substituting $d=25t$ gives $20=5t^2$, so $t=2\\,\\mathrm{s}$ and hence $d=25(2)=50\\,\\mathrm{m}$.',
+    difficulty: 4,
+    points: 15,
+    hints: ['Express the incline distance in terms of time using horizontal motion first.', 'Then substitute into the vertical equation.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-026-question.png'],
+  },
+  {
+    id: 'pjm-027',
+    type: 'multiple_choice',
+    question:
+      'A ball is projected horizontally at the top of a building with a speed of $12\\ \\mathrm{m\\ s^{-1}}$. The height of the building above the ground is 18 m. What is the speed of the ball when it lands on the ground if air resistance is negligible ?',
+    options: ['$15.6\\ \\mathrm{m\\ s^{-1}}$', '$22.3\\ \\mathrm{m\\ s^{-1}}$', '$25.6\\ \\mathrm{m\\ s^{-1}}$', '$28.9\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$22.3\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'Using energy conservation, $\\frac{1}{2}u^2+gh=\\frac{1}{2}v^2$. Substituting $u=12\\,\\mathrm{m\\ s^{-1}}$ and $h=18\\,\\mathrm{m}$ gives $\\frac{1}{2}(12)^2+(9.81)(18)=\\frac{1}{2}v^2$, so $v\\approx22.3\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['The horizontal launch speed contributes to the initial kinetic energy.', 'Use conservation of mechanical energy.'],
+    sectionId: 'projectile-motion',
+  },
+  {
+    id: 'pjm-028',
+    type: 'multiple_choice',
+    question:
+      'A football player kicks a ball on the ground. The ball leaves the ground with speed $v$ and hits the bar at $X$ with a speed of $17\\ \\mathrm{m\\ s^{-1}}$. $X$ is 2 m above the ground. Neglect air resistance, what is the value of $v$ ?',
+    options: ['$15.8\\ \\mathrm{m\\ s^{-1}}$', '$18.1\\ \\mathrm{m\\ s^{-1}}$', '$19.0\\ \\mathrm{m\\ s^{-1}}$', '$23.3\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$18.1\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'By energy conservation, $\\frac{1}{2}mv^2=\\frac{1}{2}m(17)^2+mg(2)$. So $\\frac{1}{2}v^2=\\frac{1}{2}(17)^2+(9.81)(2)$, giving $v\\approx18.1\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['The ball is higher at X than at launch.', 'Use conservation of mechanical energy.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-028-question.png'],
+  },
+  {
+    id: 'pjm-029',
+    type: 'multiple_choice',
+    question:
+      'A bomber aircraft is 1 km above the ground and is flying horizontally at a speed of $200\\ \\mathrm{m\\ s^{-1}}$. The aircraft is going to release a bomb to destroy a target on the ground. How long before flying over the target should the bomb be released ? Assume that the bomber aircraft and the target are in the same vertical plane and neglect air resistance.',
+    options: ['5.6 s', '10.1 s', '14.3 s', 'It cannot be calculated as the horizontal distance between the aircraft and the target is not known.'],
+    answer: '14.3 s',
+    explanation:
+      'The required lead time is the vertical fall time. Using $1000=\\frac{1}{2}(9.81)t^2$ gives $t\\approx14.3\\,\\mathrm{s}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['The release time depends only on the vertical drop.', 'Ignore horizontal speed when finding the time.'],
+    sectionId: 'projectile-motion',
+  },
+  {
+    id: 'pjm-030',
+    type: 'multiple_choice',
+    question:
+      'A particle is projected into the air at time $t=0$ and it performs a parabolic motion before landing on the ground as shown. Which graph represents the variation of the kinetic energy (KE) of the particle with time before landing? Neglect air resistance.',
+    options: [
+      { id: 'option-a', image: '/physics/exercises/projectile-motion/pjm-030-option-a.png' },
+      { id: 'option-b', image: '/physics/exercises/projectile-motion/pjm-030-option-b.png' },
+      { id: 'option-c', image: '/physics/exercises/projectile-motion/pjm-030-option-c.png' },
+      { id: 'option-d', image: '/physics/exercises/projectile-motion/pjm-030-option-d.png' },
+    ],
+    answer: 'option-d',
+    explanation:
+      'The vertical velocity varies linearly with time, so the vertical kinetic energy varies quadratically with time. The horizontal kinetic energy stays constant. Therefore the total kinetic energy is a quadratic curve with a non-zero minimum at the highest point.',
+    difficulty: 3,
+    points: 15,
+    hints: ['At the highest point, the speed is not zero.', 'Horizontal kinetic energy is constant throughout.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-030-question.png'],
+  },
+  {
+    id: 'pjm-031',
+    type: 'multiple_choice',
+    question:
+      'A particle is projected horizontally towards a vertical wall 1.0 m away. It hits the wall at a position 0.8 m vertically below its point of projection. At what speed is it projected? Neglect air resistance.',
+    options: ['$2.0\\ \\mathrm{m\\ s^{-1}}$', '$2.5\\ \\mathrm{m\\ s^{-1}}$', '$5.0\\ \\mathrm{m\\ s^{-1}}$', '$6.3\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$2.5\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'From the vertical motion, $0.8=\\frac{1}{2}(9.81)t^2$, so $t\\approx0.404\\,\\mathrm{s}$. The horizontal speed is then $u=1.0/0.404\\approx2.5\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['First find the fall time from the vertical drop.', 'Then use horizontal motion.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-031-question.png'],
+  },
+  {
+    id: 'pjm-032',
+    type: 'multiple_choice',
+    question:
+      "The stroboscopic picture shows a particle projected horizontally at position $P$ into the air in a vertical plane. Subsequently the particle reaches positions $Q$ and $R$ such that the time interval between $P$ and $Q$ is equal to that between $Q$ and $R$. Each square of the grid measures $1.25\\ \\mathrm{cm} \\times 1.25\\ \\mathrm{cm}$. Find the particle's speed of projection at $P$. Neglect air resistance.",
+    options: ['$0.3\\ \\mathrm{m\\ s^{-1}}$', '$0.4\\ \\mathrm{m\\ s^{-1}}$', '$0.5\\ \\mathrm{m\\ s^{-1}}$', '$0.6\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$0.5\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'The first vertical drop is $1.25\\,\\mathrm{cm}=0.0125\\,\\mathrm{m}$. Using $y=\\frac{1}{2}gt^2$ gives $T\\approx0.0505\\,\\mathrm{s}$. The first horizontal spacing is $2.5\\,\\mathrm{cm}=0.025\\,\\mathrm{m}$, so $u=0.025/0.0505\\approx0.5\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use the first interval only.', 'Convert cm to m before calculating.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-032-question.png'],
+  },
+  {
+    id: 'pjm-033',
+    type: 'multiple_choice',
+    question:
+      'Marbles $P$ and $Q$ of the same mass are shot horizontally. They hit the horizontal ground at points $R$ and $S$ respectively as shown. Neglect air resistance. Which of the following statements is INCORRECT ?',
+    options: [
+      'The initial speed of marble $P$ is smaller than that of marble $Q$.',
+      'The time of flight of marble $P$ is shorter than that of marble $Q$.',
+      'The potential energy loss of marble $P$ is greater than that of marble $Q$.',
+      'The acceleration of marbles $P$ and $Q$ is the same during the flight.',
+    ],
+    answer: 'The time of flight of marble $P$ is shorter than that of marble $Q$.',
+    explanation:
+      'If marble $P$ falls from a greater height, its time of flight must be longer, not shorter, because vertical fall time depends on height through $y=\\frac{1}{2}gt^2$. The other statements are consistent with projectile motion under gravity.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Check how time of flight depends on height.', 'Both marbles have the same acceleration in air.'],
+    sectionId: 'projectile-motion',
+    imagePaths: ['/physics/exercises/projectile-motion/pjm-033-question.png'],
+  },
+  {
+    id: 'cm-001',
+    type: 'multiple_choice',
+    question:
+      'In corners of some racing tracks for motor cars, the tracks are banked at an angle to the horizontal. Which of the following is/are the advantage(s) for this feature?\n\n(1) To reduce the friction between the car and the track.\n(2) To reduce the radius of curvature of the track that a car can travel safely at a given speed.\n(3) To increase the component of the weight of the car towards the centre of its path.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) & (2) only',
+    explanation:
+      'On a banked track, the horizontal component of the normal reaction helps provide centripetal force. This reduces the amount of friction needed and allows a given speed to be maintained on a smaller turning radius. The weight acts vertically and does not contribute a horizontal inward component.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Resolve the normal reaction into components.', 'Weight always acts vertically downward.'],
+    sectionId: 'circular-motion',
+  },
+  {
+    id: 'cm-002',
+    type: 'multiple_choice',
+    question:
+      'A particle of weight $W$ tied to an inextensible string is swung in a vertical circle. At the topmost point of its path, the tension in the string is $T$ and the centripetal force is $F$. Which of the following statements is true ?',
+    options: ['$F=W+T$.', '$F=W-T$.', 'The net force acting downwards on the stone is $F+T+W$.', 'The net force acting downwards on the stone is $F-T+W$.'],
+    answer: '$F=W+T$.',
+    explanation:
+      'At the top of the circle, both weight and tension act toward the centre. The centripetal force is the net inward force, so $F=W+T$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['At the top, the centre is downward.', 'Centripetal force is not an extra force.'],
+    sectionId: 'circular-motion',
+  },
+  {
+    id: 'cm-003',
+    type: 'multiple_choice',
+    question:
+      'The diagram represents the front view of a vehicle moving on a level road at a constant speed around a bend of which the centre of curvature is at $P$. Which of the arrows below best represents the direction of the resultant force exerted by the road on the car?',
+    options: [
+      { id: 'option-a', image: '/physics/exercises/circular-motion/cm-003-option-a.png' },
+      { id: 'option-b', image: '/physics/exercises/circular-motion/cm-003-option-b.png' },
+      { id: 'option-c', image: '/physics/exercises/circular-motion/cm-003-option-c.png' },
+      { id: 'option-d', image: '/physics/exercises/circular-motion/cm-003-option-d.png' },
+    ],
+    answer: 'option-d',
+    explanation:
+      'The road exerts an upward normal reaction and a horizontal frictional force toward the centre of the turn. Their resultant therefore points upward and inward toward $P$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Friction provides the horizontal centripetal force.', 'Normal reaction balances weight vertically.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-003-question.png'],
+  },
+  {
+    id: 'cm-004',
+    type: 'multiple_choice',
+    question:
+      'A toy car of mass $m$ is travelling along a track which is an arc of a vertical circle with radius $r$. At the bottom of this arc, the speed of the car is $v$. What is the vertical force exerted on the car by the track at this position?',
+    options: ['$\\frac{mv^2}{r}$', '$mg$', '$\\frac{mv^2}{r}-mg$', '$\\frac{mv^2}{r}+mg$'],
+    answer: '$\\frac{mv^2}{r}+mg$',
+    explanation:
+      'At the bottom, the centripetal force is upward, so $R-mg=\\frac{mv^2}{r}$. Hence the force exerted by the track is $R=mg+\\frac{mv^2}{r}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ["The normal reaction is the track's force on the car.", 'At the bottom, the centre is upward.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-004-question.png'],
+  },
+  {
+    id: 'cm-005',
+    type: 'multiple_choice',
+    question:
+      'A small marble is rotating on a horizontal circle in a smooth conical container with vertical axis $AB$ as shown. The vertical axis makes an angle of $30^{\\circ}$ with the side of the cone. If the speed of the marble is $v$ and the radius of rotation is $r$, which of the following relation must be correct?',
+    options: ['$v^2=gr\\sin30^{\\circ}$.', '$v^2=gr\\tan30^{\\circ}$.', '$v^2=\\frac{gr}{\\tan30^{\\circ}}$.', '$v^2=gr\\cos30^{\\circ}$.'],
+    answer: '$v^2=\\frac{gr}{\\tan30^{\\circ}}$.',
+    explanation:
+      'Resolving the normal reaction, the vertical component balances weight and the horizontal component provides centripetal force. With the side at $30^{\\circ}$ to the vertical, $R\\sin30^{\\circ}=mg$ and $R\\cos30^{\\circ}=\\frac{mv^2}{r}$, giving $v^2=\\frac{gr}{\\tan30^{\\circ}}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Resolve the normal force into vertical and horizontal components.', 'Use one equation for weight balance and one for centripetal force.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-005-question.png'],
+  },
+  {
+    id: 'cm-006',
+    type: 'multiple_choice',
+    question:
+      'A small particle of mass 0.25 kg is attached to an inextensible string, with the other end fixed to the ceiling. When the particle is set to rotate in a horizontal circle, the tension of the string is 3.5 N. The angle between the string and the vertical is',
+    options: ['$25.5^{\\circ}$', '$32.5^{\\circ}$', '$45.5^{\\circ}$', '$58.5^{\\circ}$'],
+    answer: '$45.5^{\\circ}$',
+    explanation:
+      'For a conical pendulum, the vertical component of tension balances weight: $T\\cos\\theta=mg$. So $(3.5)\\cos\\theta=(0.25)(9.81)$, giving $\\theta\\approx45.5^{\\circ}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use only the vertical balance.', 'The horizontal component provides centripetal force, but is not needed here.'],
+    sectionId: 'circular-motion',
+  },
+  {
+    id: 'cm-007',
+    type: 'multiple_choice',
+    question:
+      'A small particle of mass 0.05 kg is released from rest at the rim of a smooth semi-spherical bowl of radius 10 cm. Find the force acting on the object by the bowl when it passes the bottom of the bowl.',
+    options: ['0.5 N', '1.0 N', '1.5 N', '2.0 N'],
+    answer: '1.5 N',
+    explanation:
+      'The particle drops through a height of 0.10 m, so $mgh=\\frac{1}{2}mv^2$ gives $v\\approx1.40\\,\\mathrm{m\\ s^{-1}}$. At the bottom, $R-mg=\\frac{mv^2}{r}$, so $R\\approx1.47\\,\\mathrm{N}$, which rounds to $1.5\\,\\mathrm{N}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use energy to find the speed at the bottom first.', 'Then use centripetal force at the bottom.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-007-question.png'],
+  },
+  {
+    id: 'cm-008',
+    type: 'multiple_choice',
+    question:
+      'An aircraft flies along a horizontal circle of radius 15 km with a constant speed of $175\\ \\mathrm{m\\ s^{-1}}$. Calculate the angle between its wings and the horizontal. Take $g$ to be $10\\ \\mathrm{m\\ s^{-2}}$.',
+    options: ['$11.5^{\\circ}$', '$12.5^{\\circ}$', '$13.0^{\\circ}$', '$13.5^{\\circ}$'],
+    answer: '$11.5^{\\circ}$',
+    explanation:
+      'For a banked aircraft, the lift provides both weight balance and centripetal force: $L\\cos\\theta=mg$ and $L\\sin\\theta=\\frac{mv^2}{r}$. Hence $\\tan\\theta=\\frac{v^2}{gr}=\\frac{175^2}{10\\times15000}$, giving $\\theta\\approx11.5^{\\circ}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Resolve the lift into vertical and horizontal components.', 'Convert 15 km to 15000 m.'],
+    sectionId: 'circular-motion',
+  },
+  {
+    id: 'cm-009',
+    type: 'multiple_choice',
+    question:
+      'The figure shows a car moving round a corner with a radius of 12 m on a banked road of inclination $18^{\\circ}$. At what speed would there be no friction acting on the car along $OA$ ? Take $g$ to be $10\\ \\mathrm{m\\ s^{-2}}$.',
+    options: ['$4.8\\ \\mathrm{m\\ s^{-1}}$', '$5.4\\ \\mathrm{m\\ s^{-1}}$', '$6.2\\ \\mathrm{m\\ s^{-1}}$', '$7.6\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$6.2\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'With no friction, the horizontal component of the normal reaction provides centripetal force and the vertical component balances weight: $R\\sin18^{\\circ}=\\frac{mv^2}{r}$ and $R\\cos18^{\\circ}=mg$. Thus $\\tan18^{\\circ}=\\frac{v^2}{gr}$, so $v=\\sqrt{gr\\tan18^{\\circ}}\\approx6.2\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use the ideal banked-road condition.', 'Eliminate $R$ by dividing the two equations.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-009-question.png'],
+  },
+  {
+    id: 'cm-010',
+    type: 'multiple_choice',
+    question:
+      'Two small identical coins $P$ and $Q$ are placed on a horizontal turntable which is rotating at a constant angular speed about its centre $O$. The radius of $Q$ from the centre is twice that of $P$. Which of the following statements is/are correct ?\n\n(1) The kinetic energy of $Q$ is four times that of $P$.\n(2) The friction acting on $Q$ is double that acting on $P$.\n(3) If the angular speed of the turntable gradually increases, $Q$ will slip before $P$.',
+    options: ['(3) only', '(1) & (2) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      'Both coins have the same angular speed. Since $v=r\\omega$, coin $Q$ has twice the linear speed, so its kinetic energy is four times larger. The required friction is $f=mr\\omega^2$, so coin $Q$ also needs twice the friction. As the angular speed increases, $Q$ reaches the limiting friction first and slips first.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Same turntable means same angular speed.', 'Use $v=r\\omega$ and $f=mr\\omega^2$.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-010-question.png'],
+  },
+  {
+    id: 'cm-011',
+    type: 'multiple_choice',
+    question:
+      'In the experiment of demonstrating centripetal force, a rubber bung is whirled in a horizontal circle. The rubber bung is attached to one end of a string which passes through a glass tube with smooth openings, and attached to a load of weight $W$ hanging at its other end. The rubber bung is set to swirl with angular speed $\\omega$ while the length of the string beyond the upper opening of the glass tube is $L$ and this portion of the string makes an angle $\\theta$ with the vertical as shown. Which of the following statements is/are correct ?\n\n(1) If the length $L$ is kept constant, $\\theta$ will decrease with $\\omega$.\n(2) If the angle $\\theta$ is kept constant, $L$ will increase with $\\omega$.\n(3) If the weight of the load $W$ increases, $\\theta$ will increase.',
+    options: ['(1) only', '(2) only', '(3) only', '(1) & (2) only'],
+    answer: '(3) only',
+    explanation:
+      'For the bung, $T\\cos\\theta=mg$ and $T\\sin\\theta=m(L\\sin\\theta)\\omega^2$. If $L$ is fixed and $\\omega$ increases, the required tension rises, so $\\cos\\theta$ decreases and $\\theta$ increases, not decreases. If $\\theta$ is fixed, then $T$ is fixed from vertical balance, so increasing $\\omega$ requires $L$ to decrease. If the hanging weight $W$ increases, the tension increases, making $\\theta$ increase.',
+    difficulty: 4,
+    points: 15,
+    hints: ['Use vertical balance first: $T\\cos\\theta=mg$.', 'Then relate the horizontal component to centripetal force.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-011-question.png'],
+  },
+  {
+    id: 'cm-012',
+    type: 'multiple_choice',
+    question:
+      'A vehicle of mass $m$ is moving with speed $v$ on a banked road along a circular path of horizontal radius $r$. The angle of inclination of the road is $\\theta$. If the centripetal force is provided entirely from a component of the normal reaction $R$ from the road, which of the following relations is correct ?',
+    options: ['$R\\cos\\theta=mg$', '$R=mg\\cos\\theta$', '$v^2=\\frac{gr}{\\sin\\theta}$', '$v^2=\\frac{gr}{\\tan\\theta}$'],
+    answer: '$R\\cos\\theta=mg$',
+    explanation:
+      'With no friction, the vertical component of the normal reaction balances the weight, so $R\\cos\\theta=mg$. The horizontal component supplies centripetal force, giving $R\\sin\\theta=\\frac{mv^2}{r}$ and hence $v^2=gr\\tan\\theta$, so the listed speed formulas are incorrect.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Resolve the normal reaction into vertical and horizontal components.', 'The vertical component balances weight.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-012-question.png'],
+  },
+  {
+    id: 'cm-013',
+    type: 'multiple_choice',
+    question:
+      'A small bob is attached to an inextensible string. The string is pulled horizontally and then released from rest with the string taut. Which of the following statements about the tension in the string is NOT correct when the string reaches its vertical position?',
+    options: [
+      'The tension equals the weight of the bob in magnitude.',
+      'The tension attains its greatest value.',
+      'The tension does not depend on the length of the string.',
+      'The tension depends on the mass of the bob.',
+    ],
+    answer: 'The tension equals the weight of the bob in magnitude.',
+    explanation:
+      "At the lowest point, the bob has gained speed. From energy, $mgr=\\frac{1}{2}mv^2$, so $v^2=2gr$. Then $T-mg=\\frac{mv^2}{r}=2mg$, giving $T=3mg$. So the tension is greater than the weight, is greatest there, is independent of the string length, and depends on the bob's mass.",
+    difficulty: 3,
+    points: 15,
+    hints: ['Use energy from horizontal to vertical position.', 'At the bottom, tension provides weight support plus centripetal force.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-013-question.png'],
+  },
+  {
+    id: 'cm-014',
+    type: 'multiple_choice',
+    question:
+      'An aircraft flies with a constant speed in a horizontal circle of radius 12 km. If its wings slant at an angle of $23.5^{\\circ}$ to the horizontal, find the speed of the aircraft.',
+    options: ['$280\\ \\mathrm{m\\ s^{-1}}$', '$226\\ \\mathrm{m\\ s^{-1}}$', '$140\\ \\mathrm{m\\ s^{-1}}$', '$100\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$226\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'For a banked aircraft, $\\tan\\theta=\\frac{v^2}{gr}$. Substituting $\\theta=23.5^{\\circ}$, $g=9.81\\,\\mathrm{m\\ s^{-2}}$, and $r=12\\times10^3\\,\\mathrm{m}$ gives $v\\approx226\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use the standard banked-turn relation.', 'Convert 12 km to 12000 m.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-014-question.png'],
+  },
+  {
+    id: 'cm-015',
+    type: 'multiple_choice',
+    question:
+      'Two identical small particles $A$ and $B$ are connected by inextensible threads to a fixed point $O$ as shown. The threads $OA$ and $AB$ are of the same length. Both $A$ and $B$ perform uniform horizontal circular motion about $O$ with the same period. Suppose $T_1$ and $T_2$ denote the tensions in the threads $OA$ and $AB$ respectively. Find the ratio $T_1:T_2$.',
+    options: ['$3:2$', '$2:1$', '$3:1$', '$4:1$'],
+    answer: '$3:2$',
+    explanation:
+      'The two particles have the same angular speed. Let each thread have length $r$. Then particle $A$ moves in a circle of radius $r$ and particle $B$ in a circle of radius $2r$. For $A$, $T_1-T_2=mr\\omega^2$. For $B$, $T_2=2mr\\omega^2$. Hence $2(T_1-T_2)=T_2$, so $T_1:T_2=3:2$.',
+    difficulty: 4,
+    points: 15,
+    hints: ['Same period means same angular speed.', 'Write separate centripetal-force equations for A and B.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-015-question.png'],
+  },
+  {
+    id: 'cm-016',
+    type: 'multiple_choice',
+    question:
+      'A particle is performing uniform horizontal circular motion about a fixed point on a smooth horizontal plane. Which of the following physical quantities of the particle remain(s) unchanged?\n\n(1) the linear momentum of the particle\n(2) the centripetal acceleration of the particle\n(3) the kinetic energy of the particle',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      'In uniform circular motion, the speed is constant, so the kinetic energy remains constant. Linear momentum and centripetal acceleration are vectors whose directions continuously change as the particle moves around the circle, so they do not remain unchanged.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Distinguish between scalar and vector quantities.', 'Uniform circular motion keeps speed constant, not velocity constant.'],
+    sectionId: 'circular-motion',
+  },
+  {
+    id: 'cm-017',
+    type: 'multiple_choice',
+    question:
+      'A heavy bob is suspended from a fixed point $O$ by an inextensible thread of length $L$. A small peg $P$ is fixed at a distance $\\frac{1}{2}L$ vertically below $O$. The bob is pulled to one side and then released from rest as shown. When the thread just touches the peg, which of the following physical quantities will increase suddenly?\n\n(1) the linear speed of the bob\n(2) the centripetal acceleration of the bob\n(3) the tension in the thread',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      'At the instant the thread touches the peg, the speed cannot change suddenly because the kinetic energy is unchanged at that instant. But the radius of motion suddenly halves, so the centripetal acceleration $a=\\frac{v^2}{r}$ doubles. Since the tension must satisfy $T-mg=\\frac{mv^2}{r}$ at that instant, the tension also increases suddenly.',
+    difficulty: 4,
+    points: 15,
+    hints: ['The speed is continuous at the instant the peg is touched.', 'Centripetal terms depend on the instantaneous radius.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-017-question.png'],
+  },
+  {
+    id: 'cm-018',
+    type: 'multiple_choice',
+    question:
+      'The maximum frictional force between the road surface and the wheels of a certain vehicle on a horizontal road is halved when the road is wet. If the maximum safety speed for turning round the bend is $15\\ \\mathrm{m\\ s^{-1}}$ when the road is wet, what is the maximum safety speed when the road is dry ?',
+    options: ['$21.2\\ \\mathrm{m\\ s^{-1}}$', '$22.5\\ \\mathrm{m\\ s^{-1}}$', '$26.0\\ \\mathrm{m\\ s^{-1}}$', '$30.0\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$21.2\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'On a horizontal bend, friction provides the centripetal force, so $f=\\frac{mv^2}{r}$ and hence $f\\propto v^2$. If wet-road friction is half the dry-road value, then $\\frac{1}{2}=\\left(\\frac{15}{v_d}\\right)^2$. Solving gives $v_d\\approx21.2\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use friction as the centripetal force.', 'Relate friction to the square of speed.'],
+    sectionId: 'circular-motion',
+  },
+  {
+    id: 'cm-019',
+    type: 'multiple_choice',
+    question:
+      'Which of the following statements is correct for a particle moving in a horizontal circle with constant angular velocity ?',
+    options: [
+      'The linear momentum is constant but the kinetic energy varies.',
+      'The linear momentum varies but the kinetic energy is constant.',
+      'Both the linear momentum and the kinetic energy are constant.',
+      'Both the linear momentum and the kinetic energy vary.',
+    ],
+    answer: 'The linear momentum varies but the kinetic energy is constant.',
+    explanation:
+      'With constant angular velocity, the speed is constant, so the kinetic energy remains constant. But the velocity direction changes continuously, so the linear momentum vector also changes continuously.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Momentum is a vector.', 'Kinetic energy depends only on speed.'],
+    sectionId: 'circular-motion',
+  },
+  {
+    id: 'cm-020',
+    type: 'multiple_choice',
+    question:
+      'A mass of 2 kg rotates at constant speed in a horizontal circle of radius 5 m and the time for one complete revolution is 3 s. The centripetal force acting on the mass is',
+    options: ['2.19 N', '4.39 N', '43.9 N', '109.7 N'],
+    answer: '43.9 N',
+    explanation:
+      'Use $F=mr\\omega^2$ with $\\omega=\\frac{2\\pi}{T}$. Thus $F=(2)(5)\\left(\\frac{2\\pi}{3}\\right)^2\\approx43.9\\,\\mathrm{N}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Convert period to angular speed first.', 'Then use $F=mr\\omega^2$.'],
+    sectionId: 'circular-motion',
+  },
+  {
+    id: 'cm-021',
+    type: 'multiple_choice',
+    question:
+      'A particle travels in uniform circular motion with constant radius of curvature. Which of the following statements concerning the motion of the particle is/are correct ?\n\n(1) The linear velocity is constant.\n(2) The angular velocity is constant.\n(3) The centripetal acceleration is constant.',
+    options: ['(2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(2) only',
+    explanation:
+      'In uniform circular motion, the angular velocity is constant. The linear velocity is not constant because its direction changes. The centripetal acceleration also changes direction continuously toward the centre, so it is not constant as a vector.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Separate magnitude from direction.', 'Vector constancy requires both magnitude and direction to stay fixed.'],
+    sectionId: 'circular-motion',
+  },
+  {
+    id: 'cm-022',
+    type: 'multiple_choice',
+    question:
+      'An aircraft is moving in a horizontal plane at a constant speed of $650\\ \\mathrm{m\\ s^{-1}}$. The radius of its circular path is 80 km. What is the ratio of the centripetal force to the weight of the aircraft ?',
+    options: ['0.019', '0.54', '1.85', '52'],
+    answer: '0.54',
+    explanation:
+      'The ratio is $\\frac{F}{W}=\\frac{mv^2/r}{mg}=\\frac{v^2}{gr}$. Substituting $v=650\\,\\mathrm{m\\ s^{-1}}$, $r=80\\times10^3\\,\\mathrm{m}$, and $g=9.81\\,\\mathrm{m\\ s^{-2}}$ gives about $0.54$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Mass cancels in the ratio.', 'Convert 80 km to metres.'],
+    sectionId: 'circular-motion',
+  },
+  {
+    id: 'cm-023',
+    type: 'multiple_choice',
+    question:
+      'A particle is attached to an inextensible string and is set into circular motion in a horizontal plane. Which of the following diagrams correctly shows the direction of the resultant force $F$ acting on the particle ?',
+    options: [
+      { id: 'option-a', image: '/physics/exercises/circular-motion/cm-023-option-a.png' },
+      { id: 'option-b', image: '/physics/exercises/circular-motion/cm-023-option-b.png' },
+      { id: 'option-c', image: '/physics/exercises/circular-motion/cm-023-option-c.png' },
+      { id: 'option-d', image: '/physics/exercises/circular-motion/cm-023-option-d.png' },
+    ],
+    answer: 'option-c',
+    explanation:
+      'The resultant force is the centripetal force, and it must always point toward the centre of the circular path.',
+    difficulty: 1,
+    points: 15,
+    hints: ['Centripetal force is always directed inward.'],
+    sectionId: 'circular-motion',
+  },
+  {
+    id: 'cm-024',
+    type: 'multiple_choice',
+    question:
+      'The minute hand of a large clock is 1.2 m long. What is its average angular speed ?',
+    options: [
+      '$0.87\\times10^{-3}\\ \\mathrm{rad\\ s^{-1}}$',
+      '$1.45\\times10^{-3}\\ \\mathrm{rad\\ s^{-1}}$',
+      '$1.75\\times10^{-3}\\ \\mathrm{rad\\ s^{-1}}$',
+      '$2.09\\times10^{-3}\\ \\mathrm{rad\\ s^{-1}}$',
+    ],
+    answer: '$1.75\\times10^{-3}\\ \\mathrm{rad\\ s^{-1}}$',
+    explanation:
+      'The minute hand completes one revolution in 60 minutes, so $T=3600\\,\\mathrm{s}$. Hence $\\omega=\\frac{2\\pi}{T}=\\frac{2\\pi}{3600}\\approx1.75\\times10^{-3}\\,\\mathrm{rad\\ s^{-1}}$.',
+    difficulty: 1,
+    points: 15,
+    hints: ['The hand length is irrelevant for angular speed.', 'One revolution takes 3600 s.'],
+    sectionId: 'circular-motion',
+  },
+  {
+    id: 'cm-025',
+    type: 'multiple_choice',
+    question:
+      'A record on a turntable is rotating at a constant period. Which graph shows correctly the relation between the acceleration $a$ of particles fixed on the surface of the record and their distance $r$ from the centre of rotation ?',
+    options: [
+      { id: 'option-a', image: '/physics/exercises/circular-motion/cm-025-option-a.png' },
+      { id: 'option-b', image: '/physics/exercises/circular-motion/cm-025-option-b.png' },
+      { id: 'option-c', image: '/physics/exercises/circular-motion/cm-025-option-c.png' },
+      { id: 'option-d', image: '/physics/exercises/circular-motion/cm-025-option-d.png' },
+    ],
+    answer: 'option-b',
+    explanation:
+      'With constant period, the angular speed $\\omega=\\frac{2\\pi}{T}$ is constant. Since centripetal acceleration is $a=r\\omega^2$, it is directly proportional to $r$, so the graph is a straight line through the origin.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Constant period means constant angular speed.', 'Use $a=r\\omega^2$.'],
+    sectionId: 'circular-motion',
+  },
+  {
+    id: 'cm-026',
+    type: 'multiple_choice',
+    question:
+      'An aircraft is travelling at constant speed in a horizontal circle with centre $O$. The diagrams below show the tail-view of the aircraft, the dotted line representing the line of the wings and the circle representing the centre of gravity of the aircraft. Which one of the diagrams correctly shows the forces acting on the aircraft ?',
+    options: [
+      { id: 'option-a', image: '/physics/exercises/circular-motion/cm-026-option-a.png' },
+      { id: 'option-b', image: '/physics/exercises/circular-motion/cm-026-option-b.png' },
+      { id: 'option-c', image: '/physics/exercises/circular-motion/cm-026-option-c.png' },
+      { id: 'option-d', image: '/physics/exercises/circular-motion/cm-026-option-d.png' },
+    ],
+    answer: 'option-b',
+    explanation:
+      'Only two real forces act: weight vertically downward and lift perpendicular to the wings. The lift must tilt inward so that its horizontal component provides the centripetal force.',
+    difficulty: 2,
+    points: 15,
+    hints: ["Do not add 'centripetal force' as an extra force.", 'Lift is perpendicular to the wings.'],
+    sectionId: 'circular-motion',
+  },
+  {
+    id: 'cm-027',
+    type: 'multiple_choice',
+    question:
+      'A small ball bearing of mass 0.2 kg is whirling in a horizontal circle with radius 0.8 m inside a smooth inverted cone. What is the linear speed of the ball bearing ?',
+    options: ['$2.1\\ \\mathrm{m\\ s^{-1}}$', '$3.0\\ \\mathrm{m\\ s^{-1}}$', '$3.7\\ \\mathrm{m\\ s^{-1}}$', '$4.0\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$3.7\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'Resolving the normal reaction, $R\\sin30^{\\circ}=mg$ vertically and $R\\cos30^{\\circ}=\\frac{mv^2}{r}$ horizontally. Hence $\\tan30^{\\circ}=\\frac{gr}{v^2}$. Substituting $g=9.81\\,\\mathrm{m\\ s^{-2}}$ and $r=0.8\\,\\mathrm{m}$ gives $v\\approx3.7\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Resolve the normal reaction into vertical and horizontal components.', 'Use the geometry angle given by the cone.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-027-question.png'],
+  },
+  {
+    id: 'cm-028',
+    type: 'multiple_choice',
+    question:
+      'A simple pendulum is pulled horizontally and then released from rest with the string taut. Which of the following statements about the tension in the string is not correct when the pendulum reaches its vertical position?',
+    options: [
+      'The tension equals the weight of the pendulum bob in magnitude.',
+      'The tension attains its greatest value.',
+      'The tension does not depend on the length of the pendulum.',
+      'The tension depends on the mass of the pendulum bob.',
+    ],
+    answer: 'The tension equals the weight of the pendulum bob in magnitude.',
+    explanation:
+      "At the lowest point, $T-W=\\frac{mv^2}{r}$, so the tension must be greater than the weight. From energy, $mgr=\\frac{1}{2}mv^2$, giving $v^2=2gr$, hence $T=mg+\\frac{m(2gr)}{r}=3mg$. So the tension is greatest there, is independent of length, and depends on the bob's mass.",
+    difficulty: 3,
+    points: 15,
+    hints: ['Use energy from horizontal to lowest point.', 'At the bottom, tension supports weight and provides centripetal force.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-028-question.png'],
+  },
+  {
+    id: 'cm-029',
+    type: 'multiple_choice',
+    question:
+      "A man is rotating with constant speed inside a cylindrical 'rotor' and he remains pressed against the wall. The floor of the 'rotor' is smooth. Which of the following forces provides the centripetal force for the man ?",
+    options: [
+      'the weight of the man',
+      'the frictional force from the wall',
+      'the normal reaction from the wall',
+      'the supporting force from the floor.',
+    ],
+    answer: 'the normal reaction from the wall',
+    explanation:
+      'The centripetal force must act horizontally toward the centre of the rotor. The wall exerts a normal reaction on the man directed inward, so this normal reaction provides the centripetal force.',
+    difficulty: 1,
+    points: 15,
+    hints: ['Centripetal force points toward the centre.', 'The floor is smooth, so it does not supply the needed horizontal force.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-029-question.png'],
+  },
+  {
+    id: 'cm-030',
+    type: 'multiple_choice',
+    question:
+      'The figure shows the rear view of a car of mass $m$ which travels along a circular road banked with an angle $\\theta$ to the horizontal. The car moves at a certain speed such that it experiences no frictional force along the inclined surface. Which of the following represents the centripetal force on the car?',
+    options: [
+      '$mg\\sin\\theta$',
+      '$mg\\sin\\theta\\cos\\theta$',
+      '$\\frac{mg\\cos\\theta}{\\sin\\theta}$',
+      '$\\frac{mg\\sin\\theta}{\\cos\\theta}$',
+    ],
+    answer: '$\\frac{mg\\sin\\theta}{\\cos\\theta}$',
+    explanation:
+      'Only weight and the normal reaction act. With no friction, vertical balance gives $R\\cos\\theta=mg$, so $R=\\frac{mg}{\\cos\\theta}$. The horizontal component of the normal reaction provides the centripetal force: $F=R\\sin\\theta=\\frac{mg\\sin\\theta}{\\cos\\theta}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use no-friction banked-road conditions.', 'The horizontal component of the normal reaction is the centripetal force.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-030-question.png'],
+  },
+  {
+    id: 'cm-031',
+    type: 'multiple_choice',
+    question:
+      'Particles $X$ and $Y$ are fixed at distances $r$ and $r/2$ respectively from the centre $O$ of a horizontal circular platform which is rotating uniformly as shown. The ratio of the acceleration of $X$ to that of $Y$ is',
+    options: ['$1:2$', '$2:1$', '$1:4$', '$4:1$'],
+    answer: '$2:1$',
+    explanation:
+      'Both particles have the same angular speed because they are fixed on the same rotating platform. Since centripetal acceleration is $a=r\\omega^2$, it is proportional to the radius. Therefore $a_X:a_Y=r:(r/2)=2:1$.',
+    difficulty: 1,
+    points: 15,
+    hints: ['Same platform means same angular speed.', 'Use $a=r\\omega^2$.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-031-question.png'],
+  },
+  {
+    id: 'cm-032',
+    type: 'multiple_choice',
+    question:
+      'A car travelling at $80\\ \\mathrm{km\\ h^{-1}}$ due east changes direction and travels at $60\\ \\mathrm{km\\ h^{-1}}$ due north. Which diagram represents the change in velocity of the car?',
+    options: [
+      { id: 'option-a', image: '/physics/exercises/circular-motion/cm-032-option-a.png' },
+      { id: 'option-b', image: '/physics/exercises/circular-motion/cm-032-option-b.png' },
+      { id: 'option-c', image: '/physics/exercises/circular-motion/cm-032-option-c.png' },
+      { id: 'option-d', image: '/physics/exercises/circular-motion/cm-032-option-d.png' },
+    ],
+    answer: 'option-d',
+    explanation:
+      'Change in velocity is a vector: $\\Delta v=v_f-v_i$. The initial velocity is $80\\,\\mathrm{km\\ h^{-1}}$ due east, and the final velocity is $60\\,\\mathrm{km\\ h^{-1}}$ due north. Therefore $\\Delta v$ is equivalent to adding $60\\,\\mathrm{km\\ h^{-1}}$ north and $80\\,\\mathrm{km\\ h^{-1}}$ west. Its magnitude is $\\sqrt{80^2+60^2}=100\\,\\mathrm{km\\ h^{-1}}$, and its direction is toward the northwest. Using $\\tan\\theta=80/60$, the angle is about $53^{\\circ}$ west of north. This matches diagram D.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use $\\Delta v=v_f-v_i$.', 'Reverse the initial eastward velocity when subtracting vectors.'],
+    sectionId: 'circular-motion',
+    imagePaths: ['/physics/exercises/circular-motion/cm-032-question.png'],
+  },
+  {
+    id: 'grav-001',
+    type: 'multiple_choice',
+    question:
+      'Two identical spheres, each of mass $M$ and radius $r$ are in contact. One sphere is displaced by a distance $4r$, along the line of centres, away from the first sphere. What is the ratio of the final gravitational force between the spheres to the initial gravitational force between them ?',
+    options: ['$1:3$', '$1:9$', '$1:16$', '$1:25$'],
+    answer: '$1:9$',
+    explanation:
+      'Initially the centres are $2r$ apart. After one sphere is moved by $4r$, the centre-to-centre distance becomes $6r$. Since gravitational force varies inversely as the square of separation, $\\frac{F_2}{F_1}=\\left(\\frac{2r}{6r}\\right)^2=\\frac{1}{9}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Treat each sphere as a point mass at its centre.', 'Use the inverse-square law.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-002',
+    type: 'multiple_choice',
+    question:
+      'Taking the Earth to be a perfect sphere with uniform density, which of the following statements concerning the gravitational field $g$ of the Earth is/are correct ?\n\n(1) The gravitational field at the surface of the Earth is greater than that at the top of a high mountain.\n(2) If the density of the Earth increases with its radius remaining unchanged, $g$ at the surface increases.\n(3) If the radius of the Earth increases with its density remaining unchanged, $g$ at the surface decreases.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) & (2) only',
+    explanation:
+      'At greater distance from Earth’s centre, $g$ is smaller, so it is weaker on top of a high mountain than at sea level. Also, $g=\\frac{GM}{R^2}$ and for uniform density $M\\propto\\rho R^3$, so $g\\propto\\rho R$. Thus increasing density at fixed radius increases $g$, while increasing radius at fixed density would increase, not decrease, $g$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use $g=GM/R^2$.', 'For uniform density, mass scales with $R^3$.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-003',
+    type: 'multiple_choice',
+    question:
+      'In which of the following situations is the magnitude of the normal reaction $R$ of the supporting surface equal to the weight $mg$ of the body?\n\n(1) A body is resting on a rough inclined plane.\n(2) A body placed on the floor inside a spacecraft in circular orbit around the Earth.\n(3) A body placed on the floor of a lift moving upwards with uniform velocity.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      'On an inclined plane, the normal reaction is $mg\\cos\\theta$, not $mg$. In a spacecraft orbiting Earth, the body is effectively weightless relative to the floor, so the normal reaction is zero. In a lift moving upward with uniform velocity, acceleration is zero, so the forces balance and $R=mg$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Uniform velocity means zero acceleration.', 'Normal reaction is perpendicular to the supporting surface.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-004',
+    type: 'multiple_choice',
+    question:
+      'A parking satellite appears stationary vertically above an observer at the equator of the Earth. The radius of the satellite from the Earth is $4.24\\times10^7\\ \\mathrm{m}$. Calculate the mass of the Earth.',
+    options: ['$4.5\\times10^{24}\\ \\mathrm{kg}$', '$5.0\\times10^{24}\\ \\mathrm{kg}$', '$5.5\\times10^{24}\\ \\mathrm{kg}$', '$6.0\\times10^{24}\\ \\mathrm{kg}$'],
+    answer: '$6.0\\times10^{24}\\ \\mathrm{kg}$',
+    explanation:
+      'For a geostationary satellite, gravitational force provides centripetal force: $\\frac{GMm}{r^2}=mr\\omega^2$, with $\\omega=\\frac{2\\pi}{T}$ and $T=24\\times60\\times60\\,\\mathrm{s}$. Substituting the given orbital radius gives $M\\approx6.0\\times10^{24}\\,\\mathrm{kg}$.',
+    difficulty: 4,
+    points: 15,
+    hints: ['Use geostationary period = 24 hours.', 'Equate gravity to centripetal force.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-005',
+    type: 'multiple_choice',
+    question:
+      'In which of the following cases would the resultant force on the object become zero ?\n\n(1) a satellite moving round the Earth\n(2) a feather falling freely in a vacuum cylinder in a laboratory\n(3) a parachutist falling with terminal velocity in air',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      'A satellite in orbit requires a centripetal force, so its resultant force is not zero. A feather falling freely in vacuum has only weight acting, so its resultant force is also not zero. A parachutist at terminal velocity has zero acceleration, so the forces balance and the resultant force is zero.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Terminal velocity means constant velocity.', 'Circular motion needs a centripetal resultant force.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-006',
+    type: 'multiple_choice',
+    question:
+      "A close-orbit satellite near the Earth's surface has a speed of $7900\\ \\mathrm{m\\ s^{-1}}$. The radius of the Earth is 4 times that of the Moon and the ratio of the average density of the Earth to that of the Moon is $5:4$. What would be the speed of a close-orbit satellite near the Moon's surface ?",
+    options: ['$1770\\ \\mathrm{m\\ s^{-1}}$', '$2210\\ \\mathrm{m\\ s^{-1}}$', '$2470\\ \\mathrm{m\\ s^{-1}}$', '$3570\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$1770\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'For a close-orbit satellite, $v=\\sqrt{\\frac{GM}{R}}$. Since $M\\propto\\rho R^3$, this gives $v\\propto\\sqrt{\\rho R^2}=R\\sqrt{\\rho}$. Hence $\\frac{v_m}{v_e}=\\frac{R_m}{R_e}\\sqrt{\\frac{\\rho_m}{\\rho_e}}=\\frac{1}{4}\\sqrt{\\frac{4}{5}}$. Multiplying by $7900\\,\\mathrm{m\\ s^{-1}}$ gives about $1770\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 4,
+    points: 15,
+    hints: ['Start from $v=\\sqrt{GM/R}$.', 'Rewrite mass in terms of density and radius.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-007',
+    type: 'multiple_choice',
+    question:
+      'There are two planets $X$ and $Y$. Each of them has a close-orbit satellite revolving close to the planet. If the two satellites are observed to have the same period, then $X$ and $Y$ must have nearly the same',
+    options: ['mass.', 'average density.', 'radius.', "acceleration due to gravity at the planet's surface."],
+    answer: 'average density.',
+    explanation:
+      'For a close-orbit satellite, $\\frac{GM}{R^2}=R\\omega^2$, so $\\frac{GM}{R^3}=\\omega^2$. Since $\\omega=2\\pi/T$, the same period means the same $\\omega$, hence the same $M/R^3$. Because $M/R^3$ is proportional to average density, the planets must have nearly the same average density.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use the close-orbit condition near the surface.', 'Relate $M/R^3$ to density.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-008',
+    type: 'multiple_choice',
+    question:
+      'In the following situations, which of the cases would the normal reaction acting on a body and the weight of the body have the same magnitude ?\n\n(1) A ball bouncing vertically on a horizontal ground is in contact with the ground.\n(2) An astronaut in a spacecraft which performs circular motion around the Earth.\n(3) A boy standing in a lift which is moving vertically upward with a uniform velocity.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      'A bouncing ball in contact with the ground has a large upward acceleration, so the normal reaction is greater than its weight. An astronaut in orbit is in free fall and does not press on the floor, so the normal reaction is zero. In a lift moving upward with uniform velocity, acceleration is zero, so the normal reaction equals the weight.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Uniform velocity means balanced forces.', 'Objects in orbit are effectively in free fall.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-009',
+    type: 'multiple_choice',
+    question:
+      'Assume that the Earth is a perfect sphere. If the radius of the Earth is $6.4\\times10^6\\ \\mathrm{m}$, what is its average density?',
+    options: ['$5.5\\times10^3\\ \\mathrm{kg\\ m^{-3}}$', '$7.3\\times10^3\\ \\mathrm{kg\\ m^{-3}}$', '$2.3\\times10^4\\ \\mathrm{kg\\ m^{-3}}$', '$6.0\\times10^{24}\\ \\mathrm{kg\\ m^{-3}}$'],
+    answer: '$5.5\\times10^3\\ \\mathrm{kg\\ m^{-3}}$',
+    explanation:
+      'Using $g=\\frac{GM}{R^2}$ with $g=9.81\\,\\mathrm{N\\ kg^{-1}}$ and $R=6.4\\times10^6\\,\\mathrm{m}$ gives the Earth’s mass as about $6.0\\times10^{24}\\,\\mathrm{kg}$. Dividing this by the Earth’s volume $\\frac{4}{3}\\pi R^3$ gives an average density of about $5.5\\times10^3\\,\\mathrm{kg\\ m^{-3}}$.',
+    difficulty: 4,
+    points: 15,
+    hints: ['Find Earth’s mass from $g=GM/R^2$ first.', 'Then use density = mass / volume.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-010',
+    type: 'multiple_choice',
+    question:
+      'There are many satellites revolving around Saturn. Different satellites have different speed $v$ and radius $r$. Which of the following correctly expresses the relation between these two values?',
+    options: ['$v\\propto r$', '$v\\propto\\sqrt{r}$', '$v\\propto\\frac{1}{r}$', '$v\\propto\\frac{1}{\\sqrt{r}}$'],
+    answer: '$v\\propto\\frac{1}{\\sqrt{r}}$',
+    explanation:
+      'For circular orbit, gravity provides centripetal force: $\\frac{GMm}{r^2}=\\frac{mv^2}{r}$. Hence $v^2=\\frac{GM}{r}$, so $v\\propto\\frac{1}{\\sqrt{r}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Set gravitational force equal to centripetal force.', 'Rearrange for $v$ in terms of $r$.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-011',
+    type: 'multiple_choice',
+    question:
+      'A planet has a mass 3 times that of the Earth and a diameter 2 times that of the Earth. What is the gravitational field strength on the planet\\'s surface?',
+    options: ['7.36', '9.81', '14.7', '19.6'],
+    answer: '7.36',
+    explanation:
+      "Surface gravitational field scales as $g\\propto\\frac{M}{R^2}$. The planet has mass ratio $3$ and radius ratio $2$, so $\\frac{g_p}{g_E}=3\\left(\\frac{1}{2}\\right)^2=\\frac{3}{4}$. Therefore $g_p=\\frac{3}{4}\\times9.81\\approx7.36\\,\\mathrm{N\\ kg^{-1}}$.",
+    difficulty: 2,
+    points: 15,
+    hints: ['Use $g=GM/R^2$.', 'Diameter doubled means radius doubled.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-012',
+    type: 'multiple_choice',
+    question:
+      'An object of mass 25 kg has a weight of 41 N on the surface of the moon. The radius of the moon is $R$. What is the gravitational field strength in $\\mathrm{N\\ kg^{-1}}$, at a point distance $2R$ from the centre of the moon?',
+    options: ['1.64', '0.82', '0.41', '0.21'],
+    answer: '0.41',
+    explanation:
+      "On the moon's surface, $W=mg$, so $41=(25)g$ and $g=1.64\\,\\mathrm{N\\ kg^{-1}}$. Gravitational field varies as $1/r^2$, so at distance $2R$, the field becomes $1.64\\left(\\frac{R}{2R}\\right)^2=0.41\\,\\mathrm{N\\ kg^{-1}}$.",
+    difficulty: 2,
+    points: 15,
+    hints: ['Find lunar surface $g$ from the given weight first.', 'Then apply the inverse-square law.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-013',
+    type: 'multiple_choice',
+    question:
+      'The Earth is at a distance $r$ from the centre of the Sun. It takes 365 days for the Earth to revolve once around the sun in a circular path. Find the mass of the Sun in terms of $r$.',
+    options: ['$2.45\\times10^{-4}r^3$', '$5.95\\times10^{-4}r^3$', '$3.85\\times10^4r^3$', '$1.75\\times10^6r^3$'],
+    answer: '$5.95\\times10^{-4}r^3$',
+    explanation:
+      'Using $\\frac{GMm}{r^2}=mr\\omega^2$ with $\\omega=\\frac{2\\pi}{T}$ gives $M=\\frac{4\\pi^2r^3}{GT^2}$. Substituting $G=6.67\\times10^{-11}$ and $T=365\\times24\\times3600\\,\\mathrm{s}$ gives $M\\approx5.95\\times10^{-4}r^3$.',
+    difficulty: 4,
+    points: 15,
+    hints: ['Use gravitational force as centripetal force.', 'Convert 365 days to seconds.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-014',
+    type: 'multiple_choice',
+    question:
+      "In which of the following situations does the person concerned experience 'weightlessness' ?\n\n(1) an astronaut in a spacecraft which is decelerating to make a soft landing on the moon\n(2) a parachutist descending with a constant velocity in the air\n(3) an astronaut in a spacecraft which is orbiting around the Earth with its rocket engines shut off",
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      'Weightlessness means no normal reaction is felt. During a soft landing deceleration, the astronaut is supported by the spacecraft and feels a normal reaction. A parachutist at terminal velocity still feels air resistance supporting him. In a spacecraft orbiting Earth with engines off, the astronaut and spacecraft are in free fall together, so no normal reaction acts and he feels weightless.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Weightlessness means absence of support force, not absence of gravity.', 'Objects in orbit are in continuous free fall.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-015',
+    type: 'multiple_choice',
+    question:
+      'Which of the following statements about parking orbits around the Earth are correct?\n\n(1) All satellites in a parking orbit must have the same speed.\n(2) No satellite in a parking orbit can pass vertically above Hong Kong.\n(3) There is only one parking orbit around the Earth.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      'A parking orbit here means geostationary orbit. Its radius is fixed, so all such satellites have the same orbital speed. It lies in the equatorial plane, so it cannot pass vertically above Hong Kong. Since the equatorial plane and orbital radius are fixed, there is only one such orbit.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Treat parking orbit as geostationary orbit.', 'Geostationary satellites must stay above the equator.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-016',
+    type: 'multiple_choice',
+    question:
+      'The figure shows a binary star system in which $X$ and $Y$ are two stars revolving about $O$ with uniform circular motion under their mutual gravitational attraction. If the radius of the orbit of $X$ is twice that of $Y$, which of the following deductions are correct ?\n\n(1) The acceleration of $X$ is twice that of $Y$.\n(2) The orbital speed of $X$ is equal to that of $Y$.\n(3) The mass of $X$ is half that of $Y$.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (3) only',
+    explanation:
+      'Both stars complete each revolution in the same period, so they have the same angular speed. Since $a=r\\omega^2$, the star with twice the orbital radius has twice the centripetal acceleration, so (1) is true. Also $v=r\\omega$, so the star with twice the radius has twice the speed, not the same speed, so (2) is false. Because the mutual gravitational force is the same on both stars and $F=mr\\omega^2$, the star with twice the radius must have half the mass, so (3) is true.',
+    difficulty: 4,
+    points: 15,
+    hints: ['The two stars share the same angular speed.', 'Use $F=mr\\omega^2$ for each star.'],
+    sectionId: 'gravitation',
+    imagePaths: ['/physics/exercises/gravitation/grav-016-question.png'],
+  },
+  {
+    id: 'grav-017',
+    type: 'multiple_choice',
+    question:
+      "Ganymede is one of the satellites of Jupiter. The radius of Ganymede's orbit around Jupiter is about 3 times that of the Moon around the Earth. The mass of Jupiter is 318 times that of the Earth. If the period of the Moon around the Earth is 27.3 days, what is the period of Ganymede revolving around Jupiter ?",
+    options: ['2.7 days', '8.0 days', '91 days', '273 days'],
+    answer: '8.0 days',
+    explanation:
+      'For orbital motion, $T^2=\\frac{4\\pi^2r^3}{GM}$, so $T^2\\propto\\frac{r^3}{M}$. Therefore $\\left(\\frac{T_G}{27.3}\\right)^2=\\frac{3^3}{318}$. This gives $T_G\\approx8.0$ days.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use Kepler-type scaling $T^2\\propto r^3/M$.', 'Substitute the given radius and mass ratios directly.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-018',
+    type: 'multiple_choice',
+    question:
+      'Two identical satellites $X$ and $Y$ are moving in two circular orbits around the Earth as shown. Which statement is/are correct ?\n\n(1) The period of $X$ is greater than that of $Y$.\n(2) The speed of $X$ is smaller than that of $Y$.\n(3) The gravitational force on $X$ is smaller than that on $Y$.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      'For orbital motion, $T^2\\propto r^3$, so the satellite in the larger orbit has a longer period. Also $v^2=\\frac{GM}{r}$, so the satellite farther from Earth has a smaller speed. Finally, $F=\\frac{GMm}{r^2}$, so the gravitational force is smaller at the larger orbital radius. Therefore all three statements are correct.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use $T^2\\propto r^3$ and $v^2\\propto1/r$.', 'Gravitational force follows the inverse-square law.'],
+    sectionId: 'gravitation',
+    imagePaths: ['/physics/exercises/gravitation/grav-018-question.png'],
+  },
+  {
+    id: 'grav-019',
+    type: 'multiple_choice',
+    question:
+      'Given that the radius of the Earth is 6380 km. Find the acceleration due to gravity at a height of 3200 km.',
+    options: ['$3.65\\ \\mathrm{N\\ kg^{-1}}$', '$4.35\\ \\mathrm{N\\ kg^{-1}}$', '$5.85\\ \\mathrm{N\\ kg^{-1}}$', '$6.75\\ \\mathrm{N\\ kg^{-1}}$'],
+    answer: '$4.35\\ \\mathrm{N\\ kg^{-1}}$',
+    explanation:
+      'Gravitational field strength varies as $1/r^2$. Hence $g=9.81\\left(\\frac{6380}{6380+3200}\\right)^2\\approx4.35\\,\\mathrm{N\\ kg^{-1}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ["Use the inverse-square dependence of $g$ on distance from Earth's centre.", "Add the height to Earth's radius first."],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-020',
+    type: 'multiple_choice',
+    question:
+      'The radius of the Earth is $R$. Satellite $X$ orbits around the Earth at a height of $R$, while satellite $Y$ orbits around the Earth at a height of $2R$. Find the ratio of the speed of $X$ to that of $Y$.',
+    options: ['$\\sqrt{\\frac{1}{2}}$', '$\\sqrt{\\frac{2}{1}}$', '$\\sqrt{\\frac{2}{3}}$', '$\\sqrt{\\frac{3}{2}}$'],
+    answer: '$\\sqrt{\\frac{3}{2}}$',
+    explanation:
+      'Orbital speed satisfies $v\\propto\\frac{1}{\\sqrt{r}}$. The orbital radii are $r_X=R+R=2R$ and $r_Y=R+2R=3R$. Hence $\\frac{v_X}{v_Y}=\\sqrt{\\frac{r_Y}{r_X}}=\\sqrt{\\frac{3R}{2R}}=\\sqrt{\\frac{3}{2}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Convert orbital heights to orbital radii first.', 'Use $v\\propto1/\\sqrt{r}$.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-021',
+    type: 'multiple_choice',
+    question:
+      'On a certain planet, an object is thrown vertically upwards with an initial velocity of $v_1$ and it returns to the ground after time $t$. If $v_2$ is the orbital speed of a satellite circling close to the planet, what is the radius of the planet ?',
+    options: ['$\\frac{2v_1^2t}{v_2}$', '$\\frac{4v_1^2t}{v_2}$', '$\\frac{2v_2^2t}{v_1}$', '$\\frac{v_2^2t}{2v_1}$'],
+    answer: '$\\frac{v_2^2t}{2v_1}$',
+    explanation:
+      'For the vertical throw, total flight time gives $0=v_1t-\\frac{1}{2}gt^2$, so $g=\\frac{2v_1}{t}$. For a close-orbit satellite, $g=\\frac{v_2^2}{R}$. Equating these gives $\\frac{v_2^2}{R}=\\frac{2v_1}{t}$, so $R=\\frac{v_2^2t}{2v_1}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ["Find the planet's $g$ from the up-and-down motion first.", 'Relate close-orbit speed to surface gravity.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-022',
+    type: 'multiple_choice',
+    question:
+      'If the gravitational constant $G$ becomes larger while the orbital radius of the Moon around the Earth and the masses of the Moon and the Earth remain unchanged, which physical quantity of the Moon would change ?\n\n(1) orbital speed\n(2) period revolving around the Earth\n(3) acceleration',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      'From $\\frac{GMm}{r^2}=\\frac{mv^2}{r}$, the orbital speed depends on $G$. From $\\frac{GMm}{r^2}=mr\\omega^2$, the angular speed and hence the period also depend on $G$. The centripetal acceleration is $a=\\frac{GM}{r^2}$, so it changes as well. Therefore all three quantities change.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Keep orbital radius fixed and vary only $G$.', 'Use the orbit relations for speed, period, and acceleration.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-023',
+    type: 'multiple_choice',
+    question:
+      'A small sphere $X$ of mass $M$ is placed at a distance $d$ from a point mass. The gravitational force on sphere $X$ is 120 N. The sphere $X$ is removed and another sphere $Y$ of mass $3M$ is placed at a distance $2d$ from the same point mass. What would then be the gravitational force on sphere $Y$ ?',
+    options: ['80 N', '90 N', '160 N', '180 N'],
+    answer: '90 N',
+    explanation:
+      'Gravitational force is proportional to $\\frac{M}{r^2}$. Replacing $M$ by $3M$ and $d$ by $2d$ multiplies the force by $\\frac{3}{(2)^2}=\\frac{3}{4}$. Therefore the new force is $\\frac{3}{4}\\times120=90\\,\\mathrm{N}$.',
+    difficulty: 1,
+    points: 15,
+    hints: ['Compare proportional changes only.', 'Mass triples, distance doubles.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-024',
+    type: 'multiple_choice',
+    question:
+      'A parking satellite is moving at a constant speed in a circular orbit around the Earth. At any instant, the resultant force acting on the satellite is',
+    options: ['zero.', 'equal to the gravitational force on the satellite.', 'equal to the resultant force of the gravitational force on the satellite and the centripetal force.', 'equal to the force exerted by the rockets of the satellite.'],
+    answer: 'equal to the gravitational force on the satellite.',
+    explanation:
+      "The only significant force acting on the parking satellite is Earth's gravitational force. This gravitational force is itself the resultant inward force and provides the required centripetal force for the circular motion.",
+    difficulty: 2,
+    points: 15,
+    hints: ['Centripetal force is not an extra force.', 'A parking satellite does not need rockets firing continuously.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-025',
+    type: 'multiple_choice',
+    question:
+      "Two satellites move in circular orbits of the same radius $R$ around the Earth (mass $M$). The orbits are in two different planes $P$ and $Q$. Plane $P$ coincides with the Earth's equator while plane $Q$ is inclined to the equator. Which of the following statement is INCORRECT?",
+    options: [
+      'The speed of satellite $P$ is $\\sqrt{\\frac{GM}{R}}$.',
+      'The centripetal force acting on satellite $Q$ is pointing along the plane $Q$.',
+      'The acceleration of both satellites is the same in magnitude.',
+      'The period of satellite $Q$ is longer than that of satellite $P$.',
+    ],
+    answer: 'The period of satellite $Q$ is longer than that of satellite $P$.',
+    explanation:
+      "For circular orbits of the same radius around the same Earth, both satellites have the same orbital speed, same centripetal acceleration magnitude, and same period, regardless of orbital plane. The centripetal force on satellite $Q$ points toward Earth's centre and lies in the orbital plane. Therefore the claim that satellite $Q$ has a longer period is incorrect.",
+    difficulty: 3,
+    points: 15,
+    hints: ['Orbital period depends on orbital radius, not orbital plane.', 'Compare two circular orbits with the same radius.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-026',
+    type: 'multiple_choice',
+    question:
+      "It is known that the mass of Mars is about $\\frac{1}{10}$ of that of the Earth while its radius is about $\\frac{1}{2}$ of the Earth's radius. In terms of the gravitational acceleration $g$ on the Earth's surface, the approximate gravitational acceleration on the surface of Mars is",
+    options: ['0.2 g', '0.4 g', '2.5 g', '4 g'],
+    answer: '0.4 g',
+    explanation:
+      'Surface gravity scales as $g\\propto\\frac{M}{R^2}$. So for Mars, $g_M=\\frac{(1/10)}{(1/2)^2}g_E=\\frac{1/10}{1/4}g_E=0.4g$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use the ratio form of $g=GM/R^2$.', 'Square the radius ratio.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-027',
+    type: 'multiple_choice',
+    question:
+      'An astronaut inside a spacecraft moving in a circular orbit around the Earth is apparently weightless because',
+    options: [
+      "the astronaut is too far from the Earth to feel the Earth's gravitational force.",
+      'the astronaut and the spacecraft are both moving with the same acceleration due to gravity towards the Earth.',
+      "the Earth's gravitational force on the astronaut is balanced by the reaction force of the spacecraft's floor.",
+      "the Earth's gravitational force on the astronaut is balanced by the centripetal force.",
+    ],
+    answer: 'the astronaut and the spacecraft are both moving with the same acceleration due to gravity towards the Earth.',
+    explanation:
+      'The astronaut and the spacecraft are both in free fall together, each accelerating toward the Earth under gravity. Because they share the same gravitational acceleration, the astronaut does not press on the floor, so there is no normal reaction and he feels weightless.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Weightlessness means no support force is felt.', 'Centripetal force is provided by gravity here, not something that balances gravity.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-028',
+    type: 'multiple_choice',
+    question:
+      "An artificial satellite revolves in a circular orbit above the Earth's surface at a height equal to the radius of the Earth. Find the acceleration of the satellite in terms of the acceleration due to gravity $g$ on the Earth's surface.",
+    options: ['$\\frac{1}{8}g$', '$\\frac{1}{4}g$', '$\\frac{1}{2}g$', '$g$'],
+    answer: '$\\frac{1}{4}g$',
+    explanation:
+      "The satellite is at distance $2R$ from Earth's centre. Since gravitational acceleration varies as $1/r^2$, the acceleration there is $g\\left(\\frac{R}{2R}\\right)^2=\\frac{1}{4}g$.",
+    difficulty: 1,
+    points: 15,
+    hints: ["Convert the orbital height to distance from Earth's centre.", 'Use the inverse-square law for gravitational field strength.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-029',
+    type: 'multiple_choice',
+    question:
+      'The gravitational force exerted on the Earth by the Sun is $F_0$. The gravitational force exerted on the Sun by the Earth is',
+    options: [
+      'equal to $F_0$ and in the same direction.',
+      'equal to $F_0$ and in the opposite direction.',
+      'much smaller than $F_0$ and in the same direction.',
+      'much smaller than $F_0$ and in the opposite direction.',
+    ],
+    answer: 'equal to $F_0$ and in the opposite direction.',
+    explanation:
+      "These two gravitational forces form a Newton's third-law pair. Therefore they are equal in magnitude and opposite in direction.",
+    difficulty: 1,
+    points: 15,
+    hints: ["Apply Newton's third law to the Earth-Sun interaction."],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-030',
+    type: 'multiple_choice',
+    question:
+      'A satellite orbits the Earth in a circular path of radius $7.2\\times10^6\\ \\mathrm{m}$. What is the period of the satellite ? Given : mass of the Earth $=6.0\\times10^{24}\\ \\mathrm{kg}$',
+    options: ['1.4 hours', '1.7 hours', '1 day', 'Answer cannot be found as the mass of the satellite is not known.'],
+    answer: '1.7 hours',
+    explanation:
+      'For circular orbit, $\\frac{GMm}{r^2}=mr\\omega^2$, so $\\frac{GM}{r^3}=\\left(\\frac{2\\pi}{T}\\right)^2$. Substituting $G=6.67\\times10^{-11}$, $M=6.0\\times10^{24}$, and $r=7.2\\times10^6\\,\\mathrm{m}$ gives $T\\approx6067\\,\\mathrm{s}\\approx1.7$ hours. The satellite mass cancels out.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use gravity as centripetal force.', 'The satellite mass cancels.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-031',
+    type: 'multiple_choice',
+    question:
+      'A small object is released from rest at a point very far away from a planet $X$. The object then starts moving towards $X$. $X$ does not have an atmosphere. Neglect the effect of other celestial bodies. Which of the following graphs best shows the variation of the velocity $v$ of the object with time $t$ before it hits $X$ ?',
+    options: [
+      { id: 'option-a', image: '/physics/exercises/gravitation/grav-031-option-a.png' },
+      { id: 'option-b', image: '/physics/exercises/gravitation/grav-031-option-b.png' },
+      { id: 'option-c', image: '/physics/exercises/gravitation/grav-031-option-c.png' },
+      { id: 'option-d', image: '/physics/exercises/gravitation/grav-031-option-d.png' },
+    ],
+    answer: 'option-c',
+    explanation:
+      'The gravitational acceleration is $a=\\frac{GM}{r^2}$. As the object gets closer to the planet, $r$ decreases, so the acceleration increases. Since the slope of a $v$-$t$ graph is acceleration, the slope must increase progressively, which matches graph C.',
+    difficulty: 2,
+    points: 15,
+    hints: ['The slope of a $v$-$t$ graph is acceleration.', 'Gravitational acceleration increases as distance decreases.'],
+    sectionId: 'gravitation',
+    imagePaths: ['/physics/exercises/gravitation/grav-031-question.png'],
+  },
+  {
+    id: 'grav-032',
+    type: 'multiple_choice',
+    question:
+      'A satellite of mass $m$ moves around a planet of mass $M$ in circular orbit of radius $r$. What does the angular velocity of the satellite depend on ?\n\n(1) $r$\n(2) $m$\n(3) $M$',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
+    answer: '(1) & (3) only',
+    explanation:
+      'Using $\\frac{GMm}{r^2}=mr\\omega^2$ gives $\\omega^2=\\frac{GM}{r^3}$. So the angular velocity depends on the orbital radius $r$ and the planet mass $M$, but not on the satellite mass $m$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Set gravitational force equal to centripetal force.', 'Check which quantities cancel.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'grav-033',
+    type: 'multiple_choice',
+    question:
+      "The diameter of Neptune is about 4 times that of the Earth and its mass is about 17 times that of the Earth. Estimate the acceleration due to gravity on Neptune's surface. Given: acceleration due to gravity on Earth's surface $g=9.81\\ \\mathrm{m\\ s^{-2}}$",
+    options: ['$2.3\\ \\mathrm{m\\ s^{-2}}$', '$9.2\\ \\mathrm{m\\ s^{-2}}$', '$10.4\\ \\mathrm{m\\ s^{-2}}$', '$41.7\\ \\mathrm{m\\ s^{-2}}$'],
+    answer: '$10.4\\ \\mathrm{m\\ s^{-2}}$',
+    explanation:
+      "Surface gravity scales as $g\\propto\\frac{M}{R^2}$. Neptune's mass is $17$ times Earth's and its radius is $4$ times Earth's, so $g_N=\\frac{17}{4^2}g_E=\\frac{17}{16}\\times9.81\\approx10.4\\,\\mathrm{m\\ s^{-2}}$.",
+    difficulty: 2,
+    points: 15,
+    hints: ['Diameter ratio is the same as radius ratio.', 'Use the ratio form of $g=GM/R^2$.'],
+    sectionId: 'gravitation',
+  },
+  {
+    id: 'op-001',
+    type: 'multiple_choice',
+    question:
+      'A transverse wave is travelling steadily from left to right through a series of particles. At a certain instant the wave form is as shown in the figure. Which of the following statements about the particles is/are correct ?\n\n(1) Particle $P$ is moving down.\n(2) Particle $Q$ is moving up.\n(3) Particle $R$ is momentarily at rest.',
+    options: ['(1) only', '(2) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      '$P$ is at a crest, so it is momentarily at rest, not moving down. For a right-moving wave, the particle at $Q$ is moving upward. $R$ is at an extreme position, so it is also momentarily at rest. Therefore (2) and (3) are correct.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Particles at crests and troughs are momentarily at rest.', 'Use the wave direction to infer motion.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-001-question.png'],
+  },
+  {
+    id: 'op-002',
+    type: 'multiple_choice',
+    question:
+      'The figures show a wave in the same section of string at two different instants: $t=0.000\\ \\mathrm{s}$ and $t=0.025\\ \\mathrm{s}$. What is the greatest possible period of the wave ?',
+    options: ['0.025 s', '0.050 s', '0.100 s', '0.200 s'],
+    answer: '0.100 s',
+    explanation:
+      'In $0.025\\,\\mathrm{s}$ the waveform shifts by $\\frac{1}{4}$ of a wavelength. Since a full wavelength shift takes one period, the greatest possible period is $4\\times0.025=0.100\\,\\mathrm{s}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Compare the horizontal shift between the two snapshots.', 'One wavelength shift corresponds to one period.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-002-question.png'],
+  },
+  {
+    id: 'op-003',
+    type: 'multiple_choice',
+    question:
+      'The diagram shows a progressive transverse wave at a certain instant when travelling from left to right. Which of the following correctly shows the direction of motion of the particles at $P$, $Q$ and $R$ ?',
+    options: ['P down, Q down, R down', 'P down, Q up, R down', 'P down, Q up, R up', 'P up, Q down, R up'],
+    answer: 'P down, Q up, R up',
+    explanation:
+      'For a right-moving transverse wave, particle motion is opposite to the local slope of the waveform. From the diagram, $P$ moves downward, while $Q$ and $R$ move upward. So the correct choice is P down, Q up, R up.',
+    difficulty: 2,
+    points: 15,
+    hints: ['For a right-moving wave, particle velocity is opposite to the local slope.', 'Check each labeled particle separately.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-003-question.png'],
+  },
+  {
+    id: 'op-004',
+    type: 'multiple_choice',
+    question:
+      'A vibrator of frequency 5 Hz generates waves on a string. The diagram shows the shape of the string at the instant when the vibrator has made one complete vibration. Which of the following best shows the waveform 0.1 s later?',
+    options: [
+      { id: 'option-a', image: '/physics/exercises/optics-propagation/op-004-option-a.png' },
+      { id: 'option-b', image: '/physics/exercises/optics-propagation/op-004-option-b.png' },
+      { id: 'option-c', image: '/physics/exercises/optics-propagation/op-004-option-c.png' },
+      { id: 'option-d', image: '/physics/exercises/optics-propagation/op-004-option-d.png' },
+    ],
+    answer: 'option-a',
+    explanation:
+      'The period is $T=\\frac{1}{f}=\\frac{1}{5}=0.2\\,\\mathrm{s}$. After $0.1\\,\\mathrm{s}=\\frac{T}{2}$, the progressive wave advances by half a wavelength, which matches option A.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Find the period from the frequency.', 'In half a period, the wave pattern shifts by half a wavelength.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-004-question.png'],
+  },
+  {
+    id: 'op-005',
+    type: 'multiple_choice',
+    question:
+      'The diagram shows a water wave travelling to the right. Which of the following statements is/are true ?\n\n(1) $PQ$ is equal to the wavelength.\n(2) $PR$ represents the amplitude.\n(3) The particle at $P$ will move to $S$ after a quarter of a period.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) & (2) only',
+    explanation:
+      '$P$ and $Q$ are the nearest points in phase, so $PQ$ is one wavelength. $PR$ is the maximum displacement from equilibrium, so it is the amplitude. A particle oscillates about its own position, so $P$ will not move horizontally to $S$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Wavelength is the shortest distance between points in phase.', 'Wave particles oscillate locally; they do not travel with the wave.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-005-question.png'],
+  },
+  {
+    id: 'op-006',
+    type: 'multiple_choice',
+    question:
+      'A water wave travels towards the right. The diagram shows the waveform at a certain instant. Which of the following statements is/are true ?\n\n(1) Particle $P$ is moving downwards.\n(2) Particle $Q$ is moving upwards.\n(3) Particle $R$ is momentarily at rest.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(2) & (3) only',
+    explanation:
+      '$P$ is at maximum displacement, so it is momentarily at rest. For a right-moving wave, $Q$ is moving upward. $R$ is also at an extreme position, so it is momentarily at rest. Therefore only (2) and (3) are true.',
+    difficulty: 2,
+    points: 15,
+    hints: ['A particle at maximum displacement is instantaneously at rest.', 'Use the wave direction to determine the motion at $Q$.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-006-question.png'],
+  },
+  {
+    id: 'op-007',
+    type: 'multiple_choice',
+    question:
+      'A vibrator generates a travelling wave on a string. The diagram shows the shape of the string at a certain instant. Which of the following shows the shape of the string between $P$ and $Q$ after a quarter of a period ?',
+    options: [
+      { id: 'option-a', image: '/physics/exercises/optics-propagation/op-007-option-a.png' },
+      { id: 'option-b', image: '/physics/exercises/optics-propagation/op-007-option-b.png' },
+      { id: 'option-c', image: '/physics/exercises/optics-propagation/op-007-option-c.png' },
+      { id: 'option-d', image: '/physics/exercises/optics-propagation/op-007-option-d.png' },
+    ],
+    answer: 'option-d',
+    explanation:
+      'After a quarter of a period, a progressive wave moves forward by one quarter of a wavelength. So the correct shape is the original waveform shifted to the right by $\\frac{1}{4}\\lambda$, which is option D.',
+    difficulty: 2,
+    points: 15,
+    hints: ['In time $\\frac{T}{4}$, the waveform advances by $\\frac{\\lambda}{4}$.', 'Track the direction of wave travel.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-007-question.png'],
+  },
+  {
+    id: 'op-008',
+    type: 'multiple_choice',
+    question:
+      'A train of water waves is generated in a ripple tank. The graph shows the variation of the displacement of a cork placed in the water with time. Find the frequency of the waves.',
+    options: ['0.2 Hz', '0.25 Hz', '4 Hz', '5 Hz'],
+    answer: '5 Hz',
+    explanation:
+      'From the graph, the period is $T=0.2\\,\\mathrm{s}$. Therefore the frequency is $f=\\frac{1}{T}=\\frac{1}{0.2}=5\\,\\mathrm{Hz}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Read the period from the displacement-time graph.', 'Use $f=1/T$.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-008-question.png'],
+  },
+  {
+    id: 'op-009',
+    type: 'multiple_choice',
+    question:
+      'A vibrator generates a travelling wave on a string. Figure (a) shows the shape of the string at a certain instant. Figure (b) shows the variation of the displacement of a certain particle on the string with time. Which of the following expressions represents the speed of the travelling wave ?',
+    options: ['$x$', '$y$', '$\\frac{x}{y}$', '$\\frac{y}{x}$'],
+    answer: '$\\frac{x}{y}$',
+    explanation:
+      'From figure (a), the wavelength is $\\lambda=x$. From figure (b), the period is $T=y$. Hence the wave speed is $v=f\\lambda=\\frac{\\lambda}{T}=\\frac{x}{y}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Read wavelength from the spatial graph.', 'Read period from the displacement-time graph.'],
+    sectionId: 'optics-propagation',
+    imagePaths: [
+      '/physics/exercises/optics-propagation/op-009-question.png',
+      '/physics/exercises/optics-propagation/op-009-question-2.png',
+    ],
+  },
+  {
+    id: 'op-010',
+    type: 'multiple_choice',
+    question:
+      'A cork in the water vibrates up and down 4 times in $2\\ \\mathrm{s}$ when a wave passes through it. The distance between two successive crests of the wave is 10 cm. Find the speed of the water wave.',
+    options: ['$0.05\\ \\mathrm{m\\ s^{-1}}$', '$0.1\\ \\mathrm{m\\ s^{-1}}$', '$0.2\\ \\mathrm{m\\ s^{-1}}$', '$0.4\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$0.2\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'The frequency is $f=\\frac{4}{2}=2\\,\\mathrm{Hz}$. The wavelength is $\\lambda=10\\,\\mathrm{cm}=0.1\\,\\mathrm{m}$. Therefore $v=f\\lambda=(2)(0.1)=0.2\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Frequency is oscillations per second.', 'The crest-to-crest distance is the wavelength.'],
+    sectionId: 'optics-propagation',
+  },
+  {
+    id: 'op-011',
+    type: 'multiple_choice',
+    question:
+      'The diagram shows a transverse wave travelling along a string. At the instant shown, particle $P$ is moving upwards. Which of the following statements is incorrect ?',
+    options: [
+      'The wave is travelling towards the left.',
+      'Particles $P$ and $Q$ vibrate with the same frequency.',
+      'Particle $Q$ is moving downwards at this instant.',
+      'Particle $R$ is at rest at this instant.',
+    ],
+    answer: 'Particle $R$ is at rest at this instant.',
+    explanation:
+      'If $P$ is moving upward, the wave must be travelling to the left. All particles on the same wave have the same frequency, and $Q$ is moving downward at that instant. $R$ is not at an extreme position, so it is moving downward rather than being at rest. Hence D is the incorrect statement.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use the stated motion of $P$ to infer wave direction.', 'A particle is at rest only at maximum displacement positions.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-011-question.png'],
+  },
+  {
+    id: 'op-012',
+    type: 'multiple_choice',
+    question:
+      'Which of the following statements correctly describe(s) the meaning of the frequency of a wave?\n\n(1) the time taken for the wave to make one complete vibration\n(2) the distance travelled by the wave in one second\n(3) the number of waves produced in one second',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(3) only',
+    explanation:
+      '(1) describes the period. (2) describes the wave speed. (3) is the correct definition of frequency: the number of waves produced each second.',
+    difficulty: 1,
+    points: 15,
+    hints: ['Frequency counts cycles per second.', 'Do not confuse frequency with period or speed.'],
+    sectionId: 'optics-propagation',
+  },
+  {
+    id: 'op-013',
+    type: 'multiple_choice',
+    question:
+      'Four corks are moving up and down on the surface of a pond as a water wave passes through them. At time $t=0$, the positions of the corks are shown. The figure below shows the displacement-time graph of one of the four corks. Which cork has the motion represented by the graph?',
+    options: ['$P$', '$Q$', '$R$', '$S$'],
+    answer: '$Q$',
+    explanation:
+      'At $t=0$, $P$ and $R$ are at extreme positions and are momentarily at rest. $Q$ is moving upward, while $S$ is moving downward. Since the displacement-time graph shows the cork moving upward at $t=0$, it must represent cork $Q$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Match the initial direction of motion at $t=0$.', 'Corks at maximum displacement are momentarily at rest.'],
+    sectionId: 'optics-propagation',
+    imagePaths: [
+      '/physics/exercises/optics-propagation/op-013-question.png',
+      '/physics/exercises/optics-propagation/op-013-question-2.png',
+    ],
+  },
+  {
+    id: 'op-014',
+    type: 'multiple_choice',
+    question:
+      'A wave source generates waves of frequency 50 Hz. How long does it take for the waves to travel 100 m ?',
+    options: ['0.5 s', '2 s', '5000 s', 'It cannot be determined as insufficient information is given.'],
+    answer: 'It cannot be determined as insufficient information is given.',
+    explanation:
+      'The travel time is $t=\\frac{d}{v}$, so the wave speed $v$ is needed. Since $v=f\\lambda$ and the wavelength is not given, the speed cannot be found. Therefore the time to travel 100 m cannot be determined.',
+    difficulty: 2,
+    points: 15,
+    hints: ['You need the wave speed to find travel time.', 'Frequency alone is not enough without wavelength.'],
+    sectionId: 'optics-propagation',
+  },
+  {
+    id: 'op-015',
+    type: 'multiple_choice',
+    question:
+      'A transverse wave travels along a string with a speed of $1.2\\ \\mathrm{m\\ s^{-1}}$. The diagram below shows the shape of the string at a certain instant.\n\nWhich of the following statements about the transverse wave are correct ?\n\n(1) Its wavelength is 20 cm.\n(2) Its frequency is 6 Hz.\n(3) Its amplitude is 6 cm.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (2) only',
+    explanation:
+      'From the graph, the wavelength is 20 cm and the amplitude is 3 cm, not 6 cm. Using $v=f\\lambda$ gives $1.2=f(0.20)$, so $f=6\\,\\mathrm{Hz}$. Therefore (1) and (2) only are correct.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Read wavelength and amplitude separately from the graph.', 'Convert 20 cm to 0.20 m before using $v=f\\lambda$.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-015-question.png'],
+  },
+  {
+    id: 'op-016',
+    type: 'multiple_choice',
+    question:
+      'A transverse wave travels along a string with a speed of $1.2\\ \\mathrm{m\\ s^{-1}}$. The diagram below shows the shape of the string at a certain instant.\n\nWhich of the following diagrams shows the shape of the string at a quarter of a period later ?',
+    options: [
+      { id: 'option-a', image: '/physics/exercises/optics-propagation/op-016-option-a.png' },
+      { id: 'option-b', image: '/physics/exercises/optics-propagation/op-016-option-b.png' },
+      { id: 'option-c', image: '/physics/exercises/optics-propagation/op-016-option-c.png' },
+      { id: 'option-d', image: '/physics/exercises/optics-propagation/op-016-option-d.png' },
+    ],
+    answer: 'option-d',
+    explanation:
+      'After a quarter of a period, the progressive wave moves forward by one quarter of a wavelength. So the crest initially at 5 cm shifts to 10 cm, which matches option D.',
+    difficulty: 2,
+    points: 15,
+    hints: ['A progressive wave advances by $\\lambda/4$ in $T/4$.', 'Track one crest to locate the correct shifted shape.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-016-question.png'],
+  },
+  {
+    id: 'op-017',
+    type: 'multiple_choice',
+    question:
+      'The solid curve in the diagram shows a transverse wave at a certain instant. After 0.05 s, the wave has travelled a distance of 2 cm and is indicated by the dashed curve. Find the wavelength and frequency of the wave.',
+    options: [
+      '$\\lambda=8\\,\\mathrm{cm},\\ f=2.5\\,\\mathrm{Hz}$',
+      '$\\lambda=8\\,\\mathrm{cm},\\ f=5\\,\\mathrm{Hz}$',
+      '$\\lambda=16\\,\\mathrm{cm},\\ f=2.5\\,\\mathrm{Hz}$',
+      '$\\lambda=16\\,\\mathrm{cm},\\ f=5\\,\\mathrm{Hz}$',
+    ],
+    answer: '$\\lambda=16\\,\\mathrm{cm},\\ f=2.5\\,\\mathrm{Hz}$',
+    explanation:
+      'The 2 cm shift is $\\frac{1}{8}$ of a wavelength, so $\\lambda=2\\times8=16\\,\\mathrm{cm}$. If $\\frac{1}{8}\\lambda$ is travelled in 0.05 s, then one full wavelength takes $8\\times0.05=0.40\\,\\mathrm{s}$, so $T=0.40\\,\\mathrm{s}$ and $f=\\frac{1}{T}=2.5\\,\\mathrm{Hz}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Relate the observed shift to a fraction of one wavelength.', 'Scale the corresponding time to one full period.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-017-question.png'],
+  },
+  {
+    id: 'op-018',
+    type: 'multiple_choice',
+    question:
+      'The displacement-distance graphs of the particles along a travelling wave at time $t=0$ and $t=0.2\\ \\mathrm{s}$ are shown below.\n\nWhich of the following statements about the wave are correct ?\n\n(1) Its amplitude is 6 cm.\n(2) Its wavelength is 8 cm.\n(3) Its frequency is 5 Hz.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (2) only',
+    explanation:
+      'The amplitude is the maximum displacement, giving $3\\times2\\,\\mathrm{cm}=6\\,\\mathrm{cm}$. The minimum repeat distance is $4\\times2\\,\\mathrm{cm}=8\\,\\mathrm{cm}$, so the wavelength is 8 cm. In 0.2 s the wave moves by only $\\frac{1}{4}\\lambda$, so the frequency is not 5 Hz. Therefore (1) and (2) only are correct.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Read amplitude from peak displacement.', 'Use the shift between the two graphs to infer the fraction of a cycle.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-018-question.png'],
+  },
+  {
+    id: 'op-019',
+    type: 'multiple_choice',
+    question:
+      'The displacement-distance graphs of the particles along a travelling wave at time $t=0$ and $t=0.2\\ \\mathrm{s}$ are shown below.\n\nWhat is the speed of the wave ?',
+    options: ['$0.2\\ \\mathrm{m\\ s^{-1}}$', '$0.3\\ \\mathrm{m\\ s^{-1}}$', '$0.4\\ \\mathrm{m\\ s^{-1}}$', '$0.8\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$0.3\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'From the two graphs, the wave has moved by $3\\times2\\,\\mathrm{cm}=6\\,\\mathrm{cm}$ in 0.2 s. Hence $v=\\frac{d}{t}=\\frac{6\\,\\mathrm{cm}}{0.2\\,\\mathrm{s}}=30\\,\\mathrm{cm\\ s^{-1}}=0.3\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Measure the horizontal shift between the two wave profiles.', 'Convert cm/s to m/s at the end.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-019-question.png'],
+  },
+  {
+    id: 'op-020',
+    type: 'multiple_choice',
+    question:
+      'In December 2004, an earthquake in the Indian Ocean caused a tsunami which produced water waves having wavelength about 100 m and frequency about 2 Hz. What was the approximate time taken for these water waves to travel from the earthquake centre to Sri Lanka across a distance of about 1500 km ?',
+    options: ['1 hour', '2 hours', '3 hours', '4 hours'],
+    answer: '2 hours',
+    explanation:
+      'The wave speed is $v=f\\lambda=(2)(100)=200\\,\\mathrm{m\\ s^{-1}}$. The distance is $1500\\,\\mathrm{km}=1.5\\times10^6\\,\\mathrm{m}$. Thus $t=\\frac{d}{v}=\\frac{1.5\\times10^6}{200}=7500\\,\\mathrm{s}\\approx2$ hours.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Find the wave speed first using $v=f\\lambda$.', 'Convert 1500 km to metres before dividing.'],
+    sectionId: 'optics-propagation',
+  },
+  {
+    id: 'op-021',
+    type: 'multiple_choice',
+    question:
+      'A longitudinal wave is travelling from left to right in a medium. Figure (a) shows the equilibrium positions of particles $A$ to $J$ in the medium. At time $t=0$, the positions of the particles are shown in Figure (b). Which of the following correctly shows the displacement-time graph of particle $I$ ? (Displacement to the right is taken to be positive.)',
+    options: [
+      { id: 'option-a', image: '/physics/exercises/optics-propagation/op-021-option-a.png' },
+      { id: 'option-b', image: '/physics/exercises/optics-propagation/op-021-option-b.png' },
+      { id: 'option-c', image: '/physics/exercises/optics-propagation/op-021-option-c.png' },
+      { id: 'option-d', image: '/physics/exercises/optics-propagation/op-021-option-d.png' },
+    ],
+    answer: 'option-c',
+    explanation:
+      'Particle $I$ is initially at its equilibrium position. A short time later, as the wave moves right, particle $I$ moves to the left first, so its displacement becomes negative immediately after $t=0$. The graph that starts at zero and then goes negative is option C.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Check the initial displacement of particle $I$.', 'Then infer its first direction of motion from the wave direction.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-021-question.png'],
+  },
+  {
+    id: 'op-022',
+    type: 'multiple_choice',
+    question:
+      'Figure (a) shows a series of particles uniformly distributed along a slinky spring. Figure (b) shows their positions at a certain instant when a travelling wave passes through the slinky spring from left to right. Which of the following diagrams shows the correct positions of the particles after half a period from the instant shown in Figure (b)?',
+    options: [
+      { id: 'option-a', image: '/physics/exercises/optics-propagation/op-022-option-a.png' },
+      { id: 'option-b', image: '/physics/exercises/optics-propagation/op-022-option-b.png' },
+      { id: 'option-c', image: '/physics/exercises/optics-propagation/op-022-option-c.png' },
+      { id: 'option-d', image: '/physics/exercises/optics-propagation/op-022-option-d.png' },
+    ],
+    answer: 'option-c',
+    explanation:
+      'In Figure (b), particle $a$ is at the centre of compression, which is an equilibrium position. After half a period, each particle is again at the same displacement magnitude but the compression becomes a rarefaction. Option C shows particle $a$ still at the same position but now at the centre of rarefaction, so it is correct.',
+    difficulty: 2,
+    points: 15,
+    hints: ['A particle at the centre of compression is at equilibrium.', 'After half a period, compression changes to rarefaction.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-022-question.png'],
+  },
+  {
+    id: 'op-023',
+    type: 'multiple_choice',
+    question:
+      'Figure (a) shows a series of particles ($a-k$) at their equilibrium positions. Figure (b) shows the positions of the particles at a certain instant when a longitudinal wave travelling to the right passes through the particles. What are the directions of motion of particles $c$ and $f$ at the instant shown in Figure (b) ?',
+    options: [
+      'particle c: to left; particle f: to left',
+      'particle c: to left; particle f: to right',
+      'particle c: to right; particle f: to left',
+      'particle c: to right; particle f: to right',
+    ],
+    answer: 'particle c: to right; particle f: to left',
+    explanation:
+      'Particles near the centre of a compression move with the compression as it travels right. So particle $c$ moves to the right. Particle $f$ is at the centre of a rarefaction, so as the right-moving wave progresses, it moves to the left. Therefore the correct choice is C.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Locate compression and rarefaction regions first.', 'Then infer motion from the rightward wave travel.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-023-question.png'],
+  },
+  {
+    id: 'op-024',
+    type: 'multiple_choice',
+    question:
+      'A wave travels along a string to the left. The figure shows its waveform at time $t=1\\ \\mathrm{s}$. Which of the following displacement-time graphs best represents the motion of particle $P$ ? (Take displacement upwards to be positive.)',
+    options: [
+      { id: 'option-a', image: '/physics/exercises/optics-propagation/op-024-option-a.png' },
+      { id: 'option-b', image: '/physics/exercises/optics-propagation/op-024-option-b.png' },
+      { id: 'option-c', image: '/physics/exercises/optics-propagation/op-024-option-c.png' },
+      { id: 'option-d', image: '/physics/exercises/optics-propagation/op-024-option-d.png' },
+    ],
+    answer: 'option-c',
+    explanation:
+      'At $t=1\\,\\mathrm{s}$, particle $P$ is at the equilibrium position and, because the wave is moving left, it is moving downward at that instant. The correct displacement-time graph must therefore pass through zero at $t=1\\,\\mathrm{s}$ with a negative slope, which is option C.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Match both the displacement and the direction of motion at $t=1\\,\\mathrm{s}$.', 'A negative slope on a displacement-time graph means moving downward.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-024-question.png'],
+  },
+  {
+    id: 'op-025',
+    type: 'multiple_choice',
+    question:
+      'Figure (a) shows the equilibrium positions of particles $E$ to $N$ in a medium. A longitudinal wave is travelling from left to right. At time $t_1$, the positions of the particles are shown in Figure (b). Which of the following particles is momentarily at rest at $t_1$ ?',
+    options: ['$K$', '$L$', '$M$', '$N$'],
+    answer: '$K$',
+    explanation:
+      'Particles at the centres of compression and rarefaction are at equilibrium and moving at greatest speed, not at rest. A particle is momentarily at rest only at an extreme position. From the diagram, particle $K$ is at the leftmost extreme position, so it is momentarily at rest.',
+    difficulty: 2,
+    points: 15,
+    hints: ['In a longitudinal wave, equilibrium points are not where particles stop.', 'Look for the extreme displacement position.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-025-question.png'],
+  },
+  {
+    id: 'op-026',
+    type: 'multiple_choice',
+    question:
+      'The figure below shows the displacement-distance graph of a wave travelling to the right with speed $2\\ \\mathrm{cm\\ s^{-1}}$ at a certain instant. $P$ and $Q$ are two particles at distances $x=8\\ \\mathrm{cm}$ and 18 cm respectively.\n\nWhat is the period of the wave ?',
+    options: ['0.25 s', '4 s', '8 s', '18 s'],
+    answer: '4 s',
+    explanation:
+      'From the graph, the wavelength is $\\lambda=8\\,\\mathrm{cm}$. Using $v=f\\lambda$ gives $2=f(8)$, so $f=0.25\\,\\mathrm{Hz}$. Hence the period is $T=\\frac{1}{f}=\\frac{1}{0.25}=4\\,\\mathrm{s}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Read the wavelength from the graph first.', 'Use $T=1/f$ after finding the frequency.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-026-question.png'],
+  },
+  {
+    id: 'op-027',
+    type: 'multiple_choice',
+    question:
+      'The figure below shows the displacement-distance graph of a wave travelling to the right with speed $2\\ \\mathrm{cm\\ s^{-1}}$ at a certain instant. $P$ and $Q$ are two particles at distances $x=8\\ \\mathrm{cm}$ and 18 cm respectively.\n\nWhat is the shortest time for $P$ to have the same displacement as $Q$ at the instant shown ?',
+    options: ['1 s', '3 s', '4 s', '5 s'],
+    answer: '3 s',
+    explanation:
+      'The wave moves to the right, so particle $P$ is moving downward at the instant shown. To reach the displacement that $Q$ has at that instant (the crest), $P$ must move through $\\frac{3}{4}$ of a cycle. Since the period is 4 s, the shortest time is $\\frac{3}{4}T=\\frac{3}{4}(4)=3\\,\\mathrm{s}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use the result of the previous question for the period.', 'Compare where $P$ must move to in one oscillation cycle.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-027-question.png'],
+  },
+  {
+    id: 'op-028',
+    type: 'multiple_choice',
+    question:
+      'Figure (a) shows a series of particles ($E$-$O$) at their equilibrium positions. Figure (b) shows the positions of the particles at a certain instant when a longitudinal wave travelling to the right passes through the particles. Which of the following statements is incorrect?',
+    options: [
+      'The separation between $F$ and $N$ equals the wavelength of the wave.',
+      'The amplitude of the wave is 4 cm.',
+      '$J$ is momentarily at rest at the instant shown in Figure (b).',
+      '$N$ is at the centre of compression at the instant shown in Figure (b).',
+    ],
+    answer: '$J$ is momentarily at rest at the instant shown in Figure (b).',
+    explanation:
+      'Particle $J$ is at the centre of a rarefaction, so it is at an equilibrium position and moving with maximum speed, not at rest. Therefore statement C is the incorrect one.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Centres of compression and rarefaction are equilibrium positions.', 'Particles are momentarily at rest only at extreme displacements.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-028-question.png'],
+  },
+  {
+    id: 'op-029',
+    type: 'multiple_choice',
+    question:
+      'Figure (a) shows the equilibrium positions of equally spaced particles in a medium. A longitudinal wave travels from left to right through the medium. At a certain instant, the positions of the particles are shown in Figure (b). What will be the directions of motion of particle 1 and particle 7 at this instant ?',
+    options: [
+      'Particle 1: to the right; Particle 7: to the right',
+      'Particle 1: to the right; Particle 7: to the left',
+      'Particle 1: to the left; Particle 7: to the right',
+      'Particle 1: to the left; Particle 7: to the left',
+    ],
+    answer: 'Particle 1: to the left; Particle 7: to the right',
+    explanation:
+      'Taking right as positive, particle 1 is moving in the negative direction, so it moves to the left. Particle 7 is moving in the positive direction, so it moves to the right. Therefore the correct option is C.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Infer the local particle motion from the rightward longitudinal wave.', 'Translate negative/positive direction into left/right.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-029-question.png'],
+  },
+  {
+    id: 'op-030',
+    type: 'multiple_choice',
+    question:
+      'A displacement-time graph of a particle in a travelling wave is shown. What is the frequency of this wave?',
+    options: ['1.43 Hz', '2.00 Hz', '2.22 Hz', '4.00 Hz'],
+    answer: '2.00 Hz',
+    explanation:
+      'From the graph, one complete cycle takes $T=0.70-0.20=0.50\\,\\mathrm{s}$. Therefore the frequency is $f=\\frac{1}{T}=\\frac{1}{0.50}=2.00\\,\\mathrm{Hz}$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Read the period from two identical phase points.', 'Then apply $f=1/T$.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-030-question.png'],
+  },
+  {
+    id: 'op-031',
+    type: 'multiple_choice',
+    question:
+      'Figure (a) represents the displacement-position graph of a travelling wave at a certain instant and Figure (b) represents the displacement-time graph of a particle in the wave. Calculate the speed of the wave.',
+    options: ['$300\\ \\mathrm{m\\ s^{-1}}$', '$150\\ \\mathrm{m\\ s^{-1}}$', '$1.2\\ \\mathrm{m\\ s^{-1}}$', '$0.6\\ \\mathrm{m\\ s^{-1}}$'],
+    answer: '$300\\ \\mathrm{m\\ s^{-1}}$',
+    explanation:
+      'From Figure (a), the wavelength is $\\lambda=0.6\\,\\mathrm{m}$. From Figure (b), one full cycle takes $T=2\\times10^{-3}\\,\\mathrm{s}$, so $f=\\frac{1}{T}=500\\,\\mathrm{Hz}$. Hence the wave speed is $v=f\\lambda=(500)(0.6)=300\\,\\mathrm{m\\ s^{-1}}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Read the wavelength from the position graph.', 'Read the period from the time graph, then use $v=f\\lambda$.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-031-question.png'],
+  },
+  {
+    id: 'op-032',
+    type: 'multiple_choice',
+    question:
+      'The figure shows a longitudinal wave travelling to the right. The particles $A$ and $B$ are at the centre of a compression and a rarefaction respectively. Which of the following gives correctly the directions of motion of $A$ and $B$ at the moment shown?',
+    options: [
+      'Particle A: to the right; Particle B: to the left',
+      'Particle A: to the right; Particle B: at rest',
+      'Particle A: to the right; Particle B: to the right',
+      'Particle A: at rest; Particle B: to the right',
+    ],
+    answer: 'Particle A: to the right; Particle B: to the left',
+    explanation:
+      'Taking rightward as positive, particle $A$ at the centre of compression is moving in the positive direction, so it moves to the right. Particle $B$ at the centre of rarefaction moves in the negative direction, so it moves to the left. Therefore option A is correct.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Infer particle motion from the rightward-moving longitudinal wave.', 'Compression and rarefaction centres are not at rest.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-032-question.png'],
+  },
+  {
+    id: 'op-033',
+    type: 'multiple_choice',
+    question:
+      'The figure shows a transverse wave propagating along a string. At the instant shown, particle $D$ on the string is moving downward. Which of the following deductions is/are correct ?\n\n(1) The wave is propagating to the left.\n(2) Particle $B$ takes longer time to reach its equilibrium position than particle $A$.\n(3) Particles $C$ and $D$ are moving in opposite directions at the instant shown.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      'If $D$ is moving downward at the shown profile, the wave must be travelling to the left. Statement (2) is false because $A$ takes the longer path before reaching equilibrium. Statement (3) is false because $C$ and $D$ are both moving downward at that instant. Therefore only (1) is correct.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use the given motion of $D$ to infer wave direction first.', 'Then compare motions of $A$, $B$, $C$, and $D$ on the same snapshot.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-033-question.png'],
+  },
+  {
+    id: 'op-034',
+    type: 'multiple_choice',
+    question:
+      'The figure shows the displacement-position graph of a longitudinal wave at a certain instant. Take the displacement towards the right as positive. Which of the following statements about particle $P$ at this instant are correct ?\n\n(1) $P$ is a centre of compression.\n(2) $P$ has the greatest kinetic energy.\n(3) $P$ is moving towards the right.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1), (2) & (3)',
+    explanation:
+      '$P$ is a centre of compression because particles to its left are displaced rightward and particles to its right are displaced leftward. A centre of compression is an equilibrium point, so the particle there has maximum speed and hence greatest kinetic energy. The later displacement trend shows $P$ moving toward the right. Therefore all three statements are correct.',
+    difficulty: 3,
+    points: 15,
+    hints: ['A particle at equilibrium has maximum speed in SHM.', 'Use neighboring displacements to identify compression.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-034-question.png'],
+  },
+  {
+    id: 'op-035',
+    type: 'multiple_choice',
+    question:
+      'The figure shows three particles $P$, $Q$ and $R$ on a transverse wave travelling towards the right. The three particles will reach their own equilibrium positions at different times in the sequence of',
+    options: ['$R, P, Q$', '$R, Q, P$', '$P, R, Q$', '$P, Q, R$'],
+    answer: '$R, P, Q$',
+    explanation:
+      'At the instant shown, particle $P$ is momentarily at rest, while $Q$ and $R$ are moving downward. $P$ reaches equilibrium after $\\frac{1}{4}T$. Since $R$ is already closer to equilibrium than $P$, it reaches first, while $Q$ is farther and reaches last. Thus the order is $R, P, Q$.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Compare how far each particle is from equilibrium and its motion direction.', 'A crest or trough reaches equilibrium after $T/4$.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-035-question.png'],
+  },
+  {
+    id: 'op-036',
+    type: 'multiple_choice',
+    question:
+      'The figure shows the displacement $y$ against the position $x$ of a transverse wave travelling to the right at time $t=0$. $P$ and $Q$ are two particles at $x=1\\ \\mathrm{cm}$ and $x=9\\ \\mathrm{cm}$ respectively. The next time when $P$ reaches its crest position is at $t=0.3\\ \\mathrm{s}$. Which of the following statements are correct ?\n\n(1) The speed of the transverse wave is $10\\ \\mathrm{cm\\ s^{-1}}$.\n(2) Particle $Q$ first reaches its crest position at $t=0.5\\ \\mathrm{s}$.\n(3) When $Q$ reaches its crest position, $P$ also reaches its crest position.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
+    answer: '(1) & (3) only',
+    explanation:
+      'At $t=0$, $P$ is moving downward. To reach the next crest, it must complete $\\frac{3}{4}$ of a cycle, so $0.3\\,\\mathrm{s}=\\frac{3}{4}T$, giving $T=0.4\\,\\mathrm{s}$. The wavelength is 4 cm, so the speed is $v=\\frac{\\lambda}{T}=\\frac{4}{0.4}=10\\,\\mathrm{cm\\ s^{-1}}$, making (1) true. $Q$ reaches a trough at $t=0.5\\,\\mathrm{s}$, so (2) is false. Since $P$ and $Q$ are separated by two wavelengths, they are in phase, so (3) is true.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use the fraction of a cycle needed for $P$ to reach crest.', 'Particles two wavelengths apart are in phase.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-036-question.png'],
+  },
+  {
+    id: 'op-037',
+    type: 'multiple_choice',
+    question:
+      'The solid curve in the diagram shows a transverse wave at a certain instant. After 0.05 s, the wave has travelled a distance of 2 cm and is indicated by the dashed curve. Find the wavelength and frequency of the wave.',
+    options: [
+      '$\\lambda=8\\,\\mathrm{cm},\\ f=2.5\\,\\mathrm{Hz}$',
+      '$\\lambda=16\\,\\mathrm{cm},\\ f=2.5\\,\\mathrm{Hz}$',
+      '$\\lambda=8\\,\\mathrm{cm},\\ f=5\\,\\mathrm{Hz}$',
+      '$\\lambda=16\\,\\mathrm{cm},\\ f=5\\,\\mathrm{Hz}$',
+    ],
+    answer: '$\\lambda=16\\,\\mathrm{cm},\\ f=2.5\\,\\mathrm{Hz}$',
+    explanation:
+      'The 2 cm shift is $\\frac{1}{8}$ of a wavelength, so $\\lambda=2\\times8=16\\,\\mathrm{cm}$. Therefore $0.05\\,\\mathrm{s}$ corresponds to $\\frac{1}{8}T$, giving $T=0.40\\,\\mathrm{s}$ and $f=\\frac{1}{T}=2.5\\,\\mathrm{Hz}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Relate the 2 cm shift to a fraction of the wavelength.', 'Then scale the time to one full period.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-037-question.png'],
+  },
+  {
+    id: 'op-038',
+    type: 'multiple_choice',
+    question:
+      'The figure shows the shape of a transverse wave travelling along a string at a certain instant. Which statement about the motion of the particles $P$, $Q$ and $R$ on the string at this instant is correct ?',
+    options: [
+      'Particle $P$ is moving downwards.',
+      'Particle $Q$ is stationary.',
+      'Particle $R$ attains its maximum acceleration.',
+      '$P$ and $Q$ are in phase.',
+    ],
+    answer: 'Particle $R$ attains its maximum acceleration.',
+    explanation:
+      '$P$ is at a crest, so it is momentarily at rest, not moving downward. $Q$ is at an equilibrium position, so it has maximum speed and is not stationary. $R$ is at an extreme position, where the restoring acceleration is maximum. $P$ and $Q$ are not separated by an integer number of wavelengths, so they are not in phase. Therefore option C is correct.',
+    difficulty: 2,
+    points: 15,
+    hints: ['A particle at crest or trough is momentarily at rest.', 'Maximum acceleration occurs at extreme displacement.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-038-question.png'],
+  },
+  {
+    id: 'op-039',
+    type: 'multiple_choice',
+    question:
+      'A longitudinal wave travels to the right through a medium containing a series of particles. The figure shows the positions of the particles at a certain instant. The dotted lines indicate the equilibrium positions of the particles. Which of the following statements about the wave at the instant shown is/are correct ?\n\n(1) The wavelength of the longitudinal wave is 16 cm.\n(2) Particles 8 and 10 are moving in the same direction.\n(3) Particle 3 is momentarily at rest.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      'Particles 3 and 11 are at compressions, while particle 7 is at a rarefaction. The distance between adjacent compressions is one wavelength, giving $\\lambda=16\\,\\mathrm{cm}$. Particles 8 and 10 move in opposite directions, not the same. Particle 3 is at an equilibrium position with maximum speed, so it is not momentarily at rest. Therefore only (1) is correct.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Compression-to-compression separation is one wavelength.', 'Equilibrium positions are not rest positions in a travelling wave.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-039-question.png'],
+  },
+  {
+    id: 'op-040',
+    type: 'multiple_choice',
+    question:
+      'A series of particles is uniformly distributed along a slinky spring initially. Figure (a) shows their positions at a certain instant when a travelling wave propagates along the slinky spring from left to right. Figure (b) shows their positions 0.1 s later. Which statement is correct ?',
+    options: [
+      'Particle $e$ is always stationary.',
+      'Particles $a$ and $i$ are in phase.',
+      'The wavelength of the wave is 16 cm.',
+      'The frequency of the wave is 10 Hz.',
+    ],
+    answer: 'Particles $a$ and $i$ are in phase.',
+    explanation:
+      'Particles $a$ and $i$ are both at compression positions, so they are in phase. No particle in a travelling wave is always stationary. The separation between $a$ and $i$ is one wavelength, which is 32 cm, not 16 cm. Since particle $a$ changes from compression to rarefaction in 0.1 s, that is half a cycle, so $T=0.2\\,\\mathrm{s}$ and $f=5\\,\\mathrm{Hz}$, not 10 Hz. Therefore option B is correct.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Compare repeated compression points to determine phase.', 'A change from compression to rarefaction corresponds to half a period.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-040-question.png'],
+  },
+  {
+    id: 'op-041',
+    type: 'multiple_choice',
+    question:
+      'The figure shows a snapshot of a section of a continuous transverse wave travelling along the $x$-direction at time $t=0$. At $t=1.5\\ \\mathrm{s}$, particle $P$ just passes the equilibrium position for a second time at that moment. Find the wave speed.',
+    options: ['$20\\ \\mathrm{cm\\ s^{-1}}$', '$12\\ \\mathrm{cm\\ s^{-1}}$', '$6\\ \\mathrm{cm\\ s^{-1}}$', '$4\\ \\mathrm{cm\\ s^{-1}}$'],
+    answer: '$12\\ \\mathrm{cm\\ s^{-1}}$',
+    explanation:
+      'From the graph, the wavelength is $\\lambda=30-6=24\\,\\mathrm{cm}$. In 1.5 s, particle $P$ completes $\\frac{3}{4}$ of a cycle to pass equilibrium for the second time, so $1.5=\\frac{3}{4}T$, giving $T=2\\,\\mathrm{s}$. Hence $f=\\frac{1}{T}=0.5\\,\\mathrm{Hz}$ and $v=f\\lambda=(0.5)(24)=12\\,\\mathrm{cm\\ s^{-1}}$.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Use the second equilibrium crossing to infer the fraction of a cycle.', 'Then apply $v=f\\lambda$.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-041-question.png'],
+  },
+  {
+    id: 'op-042',
+    type: 'multiple_choice',
+    question:
+      'Figure (1) shows the equilibrium positions of particles $a$ to $k$ separated by 5 cm from each other in a medium. A longitudinal wave is travelling from left to right with a speed of $80\\ \\mathrm{cm\\ s^{-1}}$. At a certain instant, the positions of the particles are shown in Figure (2). Determine the amplitude and frequency of the wave.',
+    options: [
+      'amplitude = 6 cm; frequency = 2 Hz',
+      'amplitude = 6 cm; frequency = 4 Hz',
+      'amplitude = 9 cm; frequency = 2 Hz',
+      'amplitude = 9 cm; frequency = 4 Hz',
+    ],
+    answer: 'amplitude = 6 cm; frequency = 2 Hz',
+    explanation:
+      'Particles $b$ and $j$ are centres of compression, so the separation between them is one wavelength: $\\lambda=8\\times5=40\\,\\mathrm{cm}$. Using $v=f\\lambda$ gives $80=f(40)$, so $f=2\\,\\mathrm{Hz}$. Since $b$ is at compression and $f$ is at rarefaction, both are equilibrium points, so particle $d$ is at an extreme position. Its displacement is 6 cm, which is the amplitude. Therefore option A is correct.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Compression-to-compression separation gives the wavelength.', 'Use an extreme-position particle to read the amplitude.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-042-question.png'],
+  },
+  {
+    id: 'op-043',
+    type: 'multiple_choice',
+    question:
+      'A transverse wave travels towards the left on a long string. $P$, $Q$, $R$ and $S$ are particles on the string. Which of the following statements correctly describe(s) their motions at the instant shown ?\n\n(1) $P$ is moving upwards.\n(2) $Q$ and $S$ are moving in opposite directions.\n(3) $R$ is momentarily at rest.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
+    answer: '(1) only',
+    explanation:
+      'For a left-moving transverse wave, the waveform shifts left, so particle $P$ is moving upward at the instant shown. $Q$ and $S$ move in the same direction, not opposite directions. $R$ is not at an extreme position, so it is moving downward rather than being momentarily at rest. Therefore only (1) is correct.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use the leftward propagation to infer particle motion from the local slope.', 'Only crest and trough positions are instantaneously at rest.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-043-question.png'],
+  },
+  {
+    id: 'op-044',
+    type: 'multiple_choice',
+    question:
+      'A series of particles is uniformly distributed along a slinky spring initially. When a travelling wave propagates along the slinky spring from left to right, Figure (a) shows the positions of the particles at a certain instant. Figures (b) and (c) respectively show their positions 0.05 s and 0.1 s later. Which of the following is/are a possible frequency of the wave ?\n\n(1) 10 Hz\n(2) 20 Hz\n(3) 40 Hz',
+    options: ['(1) only', '(2) only', '(3) only', '(1), (2) & (3)'],
+    answer: '(1) only',
+    explanation:
+      'In Figure (a), particle $e$ is at the centre of compression. If $f=10\\,\\mathrm{Hz}$, then $T=0.1\\,\\mathrm{s}$, so after 0.05 s the particle has moved through half a cycle and the compression becomes a rarefaction as shown in Figure (b). If $f=20\\,\\mathrm{Hz}$ or $40\\,\\mathrm{Hz}$, then 0.05 s corresponds to one or two full cycles, so the compression would return to compression, not rarefaction. Therefore only (1) is possible.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Compare the change from compression to rarefaction after 0.05 s.', 'Use $T=1/f$ for each proposed frequency.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-044-question.png'],
+  },
+  {
+    id: 'op-045',
+    type: 'multiple_choice',
+    question:
+      'The figure shows a snapshot of a transverse wave which travels along a string. Which statement is correct ?',
+    options: [
+      'The wave is travelling to the left if particle $P$ is moving upwards at this instant.',
+      'Particles $P$ and $R$ are moving in the same direction at this instant.',
+      'Particle $Q$ is at rest at this instant.',
+      'Particle $R$ vibrates with an amplitude larger than that of particle $Q$.',
+    ],
+    answer: 'Particles $P$ and $R$ are moving in the same direction at this instant.',
+    explanation:
+      'If particle $P$ is moving upward, the wave would be travelling to the right, not to the left. Regardless of whether the wave travels right or left, $P$ and $R$ move in the same direction at this instant. Particle $Q$ is at an equilibrium position and is moving, not at rest. All particles on the same travelling wave have the same amplitude. Therefore option B is correct.',
+    difficulty: 2,
+    points: 15,
+    hints: ['Use the local slope to compare motions of $P$ and $R$.', 'All particles on one travelling wave have the same amplitude.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-045-question.png'],
+  },
+  {
+    id: 'op-046',
+    type: 'multiple_choice',
+    question:
+      'Figure (a) shows the equilibrium positions of particles $E$ to $N$ in a medium. At time $t=0$, a longitudinal wave starts travelling from left to right. At time $t=1\\ \\mathrm{s}$, the positions of the particles are shown in Figure (b). Which of the following statements MUST BE correct ?',
+    options: [
+      'The distance between particles $F$ and $N$ is equal to the wavelength of the wave.',
+      'The period of the wave is 1 s.',
+      'Particle $E$ is always at rest.',
+      'Particle $I$ is momentarily at rest at $t=1\\ \\mathrm{s}$.',
+    ],
+    answer: 'The distance between particles $F$ and $N$ is equal to the wavelength of the wave.',
+    explanation:
+      'From Figure (b), both $E$ and $M$ are at the centres of rarefaction, so the distance between them is one wavelength. Therefore the next pair, $F$ and $N$, are also separated by one wavelength. The figure gives no information to fix the period as 1 s. No particle in a travelling wave is always at rest. Particle $I$ is at the centre of compression, so it is moving, not momentarily at rest. Therefore only option A must be correct.',
+    difficulty: 3,
+    points: 15,
+    hints: ['Rarefaction-to-rarefaction separation is one wavelength.', 'Do not assume a period from a single snapshot.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-046-question.png'],
+  },
+  {
+    id: 'op-047',
+    type: 'multiple_choice',
+    question:
+      'The figure shows the displacement-time graph of particles $P$ and $Q$ on the same transverse travelling wave of wavelength $\\lambda$. Which of the following statements MUST BE correct ? Upward displacement is taken to be positive.\n\n(1) At time $t=2\\,\\mathrm{s}$, $P$ is momentarily at rest.\n(2) At time $t=4\\,\\mathrm{s}$, $Q$ is moving downwards.\n(3) The separation between the equilibrium positions of $P$ and $Q$ is $0.25\\lambda$.',
+    options: ['(2) only', '(3) only', '(1) & (2) only', '(1) & (3) only'],
+    answer: '(1) & (2) only',
+    explanation:
+      'At $t=2\\,\\mathrm{s}$, particle $P$ is at a trough, so it is momentarily at rest. At $t=4\\,\\mathrm{s}$, particle $Q$ is at equilibrium and then goes to a lower displacement, so it is moving downward. From the two displacement-time graphs alone, $P$ and $Q$ are neither guaranteed to be in phase nor in antiphase, so their separation need not be $0.25\\lambda$. Therefore (1) and (2) only are correct.',
+    difficulty: 3,
+    points: 15,
+    hints: ['A particle at crest or trough is instantaneously at rest.', 'Use the slope at the equilibrium crossing to determine direction.'],
+    sectionId: 'optics-propagation',
+    imagePaths: ['/physics/exercises/optics-propagation/op-047-question.png'],
   },
 ];
 
