@@ -27,6 +27,7 @@ import {
 import { TEMPERATURE_GAS_EXERCISES } from '../constants/temperatureGas';
 import { TEMPERATURE_GAS_SECTIONS } from '../constants/temperatureGasSections';
 import { TEMPERATURE_GAS_CHAPTERS, TEMPERATURE_GAS_FORMULAS } from '../constants/temperatureGasTheory';
+import { WAVE_MOTION_SECTIONS } from '../constants/waveMotionSections';
 import { useStore } from '../store/useStore';
 import { Button } from '../components/UI/Button';
 import { Card } from '../components/UI/Card';
@@ -37,12 +38,25 @@ import ForceMotionQuizPage from './ForceMotionQuizPage';
 
 type TabType = 'theory' | 'simulation' | 'calculator' | 'exercise' | 'quiz';
 
+const WAVE_MOTION_CHAPTERS: Chapter[] = WAVE_MOTION_SECTIONS.map((section, index) => ({
+  id: `wm-ch${index + 1}`,
+  title: section.name,
+  titleCN: section.nameCN,
+  concepts: [],
+  formulas: [],
+  exercises: [],
+  simulations: [],
+  completed: false,
+}));
+
 export default function TopicPage() {
   const { topicId } = useParams<{ topicId: string }>();
   const navigate = useNavigate();
   const { getTopicProgress, progress } = useStore();
   
-  const [activeTab, setActiveTab] = useState<TabType>('theory');
+  const [activeTab, setActiveTab] = useState<TabType>(
+    topicId === 'wave-motion' ? 'exercise' : 'theory'
+  );
   const [activeChapter, setActiveChapter] = useState<string | null>(null);
   const [expandedFormula, setExpandedFormula] = useState<string | null>(null);
 
@@ -52,6 +66,8 @@ export default function TopicPage() {
   const chapters =
     topicId === 'force-motion'
       ? FORCE_MOTION_CHAPTERS
+      : topicId === 'wave-motion'
+        ? WAVE_MOTION_CHAPTERS
       : topicId === 'electricity-magnetism'
         ? ELECTRICITY_MAGNETISM_CHAPTERS
       : topicId === 'temperature-gas'
@@ -60,11 +76,17 @@ export default function TopicPage() {
   const formulas =
     topicId === 'force-motion'
       ? FORCE_MOTION_FORMULAS
+      : topicId === 'wave-motion'
+        ? []
       : topicId === 'electricity-magnetism'
         ? ELECTRICITY_MAGNETISM_FORMULAS
       : topicId === 'temperature-gas'
         ? TEMPERATURE_GAS_FORMULAS
         : [];
+
+  useEffect(() => {
+    setActiveTab(topicId === 'wave-motion' ? 'exercise' : 'theory');
+  }, [topicId]);
 
   useEffect(() => {
     if (chapters.length === 0) {
@@ -99,6 +121,13 @@ export default function TopicPage() {
           { id: 'exercise', label: 'Exercise', icon: FileQuestion },
           { id: 'quiz', label: 'Quiz', icon: Award },
         ]
+      : topicId === 'wave-motion'
+        ? [
+            { id: 'theory', label: '理论学习', icon: BookOpen },
+            { id: 'simulation', label: '互动模拟', icon: FlaskConical },
+            { id: 'calculator', label: '公式计算', icon: Calculator },
+            { id: 'exercise', label: 'Exercise', icon: FileQuestion },
+          ]
       : topicId === 'electricity-magnetism'
         ? [
             { id: 'theory', label: '理论学习', icon: BookOpen },
@@ -2548,13 +2577,13 @@ function ExerciseTab({ topicId }: { topicId: string }) {
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      className="h-full"
-    >
-      <ExercisePage embedded={true} />
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        className="h-full"
+      >
+      <ExercisePage embedded={true} topicId={topicId} />
     </motion.div>
   );
 }

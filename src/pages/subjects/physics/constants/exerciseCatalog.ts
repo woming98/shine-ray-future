@@ -4,6 +4,7 @@ import { FORCE_MOTION_EXERCISES } from './forceMotion'
 import { FORCE_MOTION_SECTIONS } from './forceMotionSections'
 import { TEMPERATURE_GAS_EXERCISES } from './temperatureGas'
 import { TEMPERATURE_GAS_SECTIONS } from './temperatureGasSections'
+import { WAVE_MOTION_SECTIONS } from './waveMotionSections'
 import { Exercise } from '../types'
 
 export interface PhysicsExerciseCatalogEntry {
@@ -33,6 +34,15 @@ export const PHYSICS_EXERCISE_CATALOG: Record<string, PhysicsExerciseCatalogEntr
     defaultSectionId: 'position-movement',
     sections: FORCE_MOTION_SECTIONS,
     exercises: FORCE_MOTION_EXERCISES,
+  },
+  'wave-motion': {
+    topicId: 'wave-motion',
+    chapterId: 'wm-ch1',
+    defaultSectionId: 'optics-propagation',
+    sections: WAVE_MOTION_SECTIONS,
+    exercises: FORCE_MOTION_EXERCISES.filter((exercise) =>
+      WAVE_MOTION_SECTIONS.some((section) => section.id === exercise.sectionId)
+    ),
   },
   'electricity-magnetism': {
     topicId: 'electricity-magnetism',
