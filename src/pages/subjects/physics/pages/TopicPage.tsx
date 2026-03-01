@@ -308,7 +308,10 @@ export default function TopicPage() {
               />
             )}
             {activeTab === 'exercise' &&
-              (topicId === 'force-motion' || topicId === 'electricity-magnetism' || topicId === 'temperature-gas') && (
+              (topicId === 'force-motion' ||
+                topicId === 'wave-motion' ||
+                topicId === 'electricity-magnetism' ||
+                topicId === 'temperature-gas') && (
                 <ExerciseTab topicId={topicId} />
               )}
             {activeTab === 'quiz' && topicId === 'force-motion' && (
