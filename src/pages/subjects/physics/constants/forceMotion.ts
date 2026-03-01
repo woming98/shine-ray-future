@@ -11046,7 +11046,10 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Wave speed increases with water depth.', 'With constant frequency, larger speed means larger wavelength.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-020-question.png'],
+    imagePaths: [
+      '/physics/exercises/wave-phenomena/wp-020-question.png',
+      '/physics/exercises/wave-phenomena/wp-020-question-2.png',
+    ],
   },
   {
     id: 'wp-021',
