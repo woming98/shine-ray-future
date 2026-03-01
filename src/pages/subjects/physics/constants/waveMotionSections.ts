@@ -17,12 +17,6 @@ export const WAVE_MOTION_SECTIONS: WaveMotionSection[] = [
     description: 'Basic wave motion, propagation, and simple optical behavior',
   },
   {
-    id: 'wave-phenomena',
-    name: 'Wave Phenomena',
-    nameCN: '波动现象',
-    description: 'Reflection, refraction, interference, and stationary waves',
-  },
-  {
     id: 'reflection-refraction',
     name: 'Reflection and Refraction of Light',
     nameCN: '光的反射与折射',
