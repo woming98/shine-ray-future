@@ -15943,7 +15943,7 @@ export const FORCE_MOTION_CHAPTERS: Chapter[] = [
   {
     id: 'fm-ch1',
     title: 'Position, Distance and Displacement',
-    titleCN: 'λ�á�������λ��',
+    titleCN: '位置、距离与位移',
     concepts: FORCE_MOTION_CONCEPTS,
     formulas: FORCE_MOTION_FORMULAS,
     exercises: FORCE_MOTION_EXERCISES,
