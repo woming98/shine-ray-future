@@ -10710,7 +10710,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Wave frequency is set by the source.', 'Use $v=f\\lambda$ when speed changes across the boundary.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-001-question.png'],
   },
   {
     id: 'wp-002',
@@ -10755,7 +10754,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Diffraction changes shape, not source frequency.', 'Wave speed stays unchanged if the medium is unchanged.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-004-question.png'],
   },
   {
     id: 'wp-005',
@@ -10790,7 +10788,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Count crest-to-crest intervals, not the number of crests.', 'For the maximum stationary stroboscope setting, flash frequency equals wave frequency.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-006-question.png'],
   },
   {
     id: 'wp-007',
@@ -10825,7 +10822,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Diffraction changes the pattern, not the source frequency.', 'Same medium means same wave speed.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-008-question.png'],
   },
   {
     id: 'wp-009',
@@ -10880,7 +10876,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A slit changes direction by diffraction.', 'Speed and frequency do not change if the medium and source do not change.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-011-question.png'],
   },
   {
     id: 'wp-012',
@@ -11135,7 +11130,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Diffraction is bending around gaps or edges.', 'In the same medium, diffraction does not change wave speed.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-025-question.png'],
   },
   {
     id: 'wp-026',
@@ -11185,7 +11179,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Wave frequency does not change at a boundary.', 'Use $v=f\\lambda$.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-028-question.png'],
   },
   {
     id: 'wp-029',
@@ -11200,7 +11193,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A boundary does not change the source frequency.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-029-question.png'],
   },
   {
     id: 'wp-030',
@@ -11275,7 +11267,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Reflection changes direction, not the medium.', 'Use $v=f\\lambda$.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-033-question.png'],
   },
   {
     id: 'wp-034',
@@ -11390,7 +11381,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Fringe position depends on path difference.', 'Amplitude affects intensity, not fringe location.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-040-question.png'],
   },
   {
     id: 'wp-041',
@@ -11510,7 +11500,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A driven wave keeps the source frequency.', 'Different media generally give different wave speeds.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-047-question.png'],
   },
   {
     id: 'wp-048',
@@ -11590,7 +11579,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Coherence is about phase relationship.', 'Same medium means same frequency implies same wavelength.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-052-question.png'],
   },
   {
     id: 'wp-053',
@@ -11605,7 +11593,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Superposition depends on overlap in a linear medium.', 'It is broader than interference conditions.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-053-question.png'],
   },
   {
     id: 'wp-054',
@@ -11680,7 +11667,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Superposition is more general than steady interference.', 'Only the overlap of compatible waves is required.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-057-question.png'],
   },
   {
     id: 'wp-058',
@@ -11890,7 +11876,6 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A wave can cross a boundary without bending if it enters normally.', 'Diffraction through a narrow gap spreads the wave.'],
     sectionId: 'wave-phenomena',
-    imagePaths: ['/physics/exercises/wave-phenomena/wp-069-question.png'],
   },
   {
     id: 'wp-070',
