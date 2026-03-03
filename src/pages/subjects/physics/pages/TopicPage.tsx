@@ -28,6 +28,7 @@ import { TEMPERATURE_GAS_EXERCISES } from '../constants/temperatureGas';
 import { TEMPERATURE_GAS_SECTIONS } from '../constants/temperatureGasSections';
 import { TEMPERATURE_GAS_CHAPTERS, TEMPERATURE_GAS_FORMULAS } from '../constants/temperatureGasTheory';
 import { WAVE_MOTION_SECTIONS } from '../constants/waveMotionSections';
+import { WAVE_MOTION_FORMULAS } from '../constants/waveMotionTheory';
 import { useStore } from '../store/useStore';
 import { Button } from '../components/UI/Button';
 import { Card } from '../components/UI/Card';
@@ -77,7 +78,7 @@ export default function TopicPage() {
     topicId === 'force-motion'
       ? FORCE_MOTION_FORMULAS
       : topicId === 'wave-motion'
-        ? []
+        ? WAVE_MOTION_FORMULAS
       : topicId === 'electricity-magnetism'
         ? ELECTRICITY_MAGNETISM_FORMULAS
       : topicId === 'temperature-gas'
