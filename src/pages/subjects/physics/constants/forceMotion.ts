@@ -4,7 +4,7 @@ export const FORCE_MOTION_FORMULAS: Formula[] = [
   {
     id: 'fm-1',
     name: 'Displacement from Rest',
-    nameCN: '�ɾ�ֹ��ʼ��λ��',
+    nameCN: '由静止开始的位移',
     expression: 's = 1/2 at^2',
     variables: [
       { symbol: 's', name: 'displacement', unit: 'm', description: 'displacement travelled' },
@@ -17,7 +17,7 @@ export const FORCE_MOTION_FORMULAS: Formula[] = [
   {
     id: 'fm-2',
     name: 'General Displacement Formula',
-    nameCN: 'λ�ƹ�ʽ',
+    nameCN: '位移公式',
     expression: 's = ut + 1/2 at^2',
     variables: [
       { symbol: 's', name: 'displacement', unit: 'm', description: 'displacement travelled' },
@@ -31,7 +31,7 @@ export const FORCE_MOTION_FORMULAS: Formula[] = [
   {
     id: 'fm-3',
     name: 'Velocity-Time Relation',
-    nameCN: '�ٶ�ʱ���ϵ',
+    nameCN: '速度时间关系',
     expression: 'v = u + at',
     variables: [
       { symbol: 'v', name: 'final velocity', unit: 'm/s', description: 'velocity after time t' },
@@ -45,7 +45,7 @@ export const FORCE_MOTION_FORMULAS: Formula[] = [
   {
     id: 'fm-4',
     name: 'Velocity-Displacement Relation',
-    nameCN: '�ٶ�λ�ƹ�ϵ',
+    nameCN: '速度位移关系',
     expression: 'v^2 = u^2 + 2as',
     variables: [
       { symbol: 'v', name: 'final velocity', unit: 'm/s', description: 'velocity after displacement s' },
@@ -59,7 +59,7 @@ export const FORCE_MOTION_FORMULAS: Formula[] = [
   {
     id: 'fm-5',
     name: 'Average Velocity',
-    nameCN: 'ƽ���ٶ�',
+    nameCN: '平均速度',
     expression: 'v_avg = displacement / time',
     variables: [
       { symbol: 'v_avg', name: 'average velocity', unit: 'm/s', description: 'displacement per unit time' },
@@ -72,7 +72,7 @@ export const FORCE_MOTION_FORMULAS: Formula[] = [
   {
     id: 'fm-6',
     name: 'Acceleration from a v-t Graph',
-    nameCN: '�ٶ�ʱ��ͼ����ٶ�',
+    nameCN: '速度时间图求加速度',
     expression: 'a = delta v / delta t',
     variables: [
       { symbol: 'a', name: 'acceleration', unit: 'm/s^2', description: 'gradient of the graph' },
@@ -85,7 +85,7 @@ export const FORCE_MOTION_FORMULAS: Formula[] = [
   {
     id: 'fm-7',
     name: 'Distance in the nth Second',
-    nameCN: '�� n ��λ��',
+    nameCN: '第 n 秒位移',
     expression: 'd_n = u + 1/2 a(2n - 1)',
     variables: [
       { symbol: 'd_n', name: 'distance in nth second', unit: 'm', description: 'distance covered in second n' },
@@ -99,7 +99,7 @@ export const FORCE_MOTION_FORMULAS: Formula[] = [
   {
     id: 'fm-8',
     name: 'Speed Unit Conversion',
-    nameCN: '�ٶȵ�λ����',
+    nameCN: '速度单位换算',
     expression: '1 km/h = 5/18 m/s',
     variables: [
       { symbol: 'km/h', name: 'kilometres per hour', unit: 'km/h', description: 'road-speed unit' },
