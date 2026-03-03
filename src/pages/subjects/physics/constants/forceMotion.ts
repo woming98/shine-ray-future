@@ -10701,15 +10701,16 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     id: 'wp-001',
     type: 'multiple_choice',
     question:
-      'A train of water waves is travelling from a deep water region to a shallow water region. Which of the following properties of the water waves will be changed?\n\n(1) wavelength\n(2) frequency\n(3) velocity',
+      'A train of water waves is travelling from a deep water region to a shallow water region. Which of the following properties of the water waves will be changed ?\n\n(1) wavelength\n(2) frequency\n(3) velocity',
     options: ['(1) only', '(3) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(1) & (3) only',
     explanation:
-      'From deep to shallow water, the wave speed decreases. The source does not change, so the frequency remains unchanged. Since $v=f\\lambda$, a lower speed with the same frequency means the wavelength also decreases. Therefore wavelength and velocity change, but frequency does not.',
+      'When water waves move from deep to shallow water, their speed decreases. The source frequency stays unchanged across the boundary. Since $v=f\\lambda$, a lower speed with the same frequency means the wavelength also decreases. Therefore wavelength and velocity change, but frequency does not.',
     difficulty: 2,
     points: 15,
     hints: ['Wave frequency is set by the source.', 'Use $v=f\\lambda$ when speed changes across the boundary.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-001-question.png'],
   },
   {
     id: 'wp-002',
@@ -10719,59 +10720,63 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['$0.1\\ \\mathrm{m\\ s^{-1}}$', '$0.2\\ \\mathrm{m\\ s^{-1}}$', '$5\\ \\mathrm{m\\ s^{-1}}$', '$10\\ \\mathrm{m\\ s^{-1}}$'],
     answer: '$10\\ \\mathrm{m\\ s^{-1}}$',
     explanation:
-      'The marked 0.1 m is half a wavelength. Hence $\\lambda=0.2\\,\\mathrm{m}$. Using $v=f\\lambda=(50)(0.2)$ gives $v=10\\,\\mathrm{m\\ s^{-1}}$.',
+      'The marked 0.1 m in the stationary-wave diagram is the distance between two adjacent nodes, which is $\\frac{\\lambda}{2}$. Hence $\\lambda=0.2\\,\\mathrm{m}$. Using $v=f\\lambda=(50)(0.2)$ gives $v=10\\,\\mathrm{m\\ s^{-1}}$.',
     difficulty: 3,
     points: 15,
     hints: ['In a stationary wave, adjacent nodes are separated by $\\lambda/2$.', 'Then use $v=f\\lambda$.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-002-question.png'],
   },
   {
     id: 'wp-003',
     type: 'multiple_choice',
     question:
-      'A stationary wave is set up along a string by a vibrator as shown in the diagram. If the frequency of the vibrator is 5 Hz, what is the velocity of the wave set up in the string?',
+      'A stationary wave is set up along a string by a vibrator as shown in the diagram. If the frequency of the vibrator is 5 Hz, what is the velocity of the wave set up in the string ?',
     options: ['$25\\ \\mathrm{cm\\ s^{-1}}$', '$50\\ \\mathrm{cm\\ s^{-1}}$', '$75\\ \\mathrm{cm\\ s^{-1}}$', '$100\\ \\mathrm{cm\\ s^{-1}}$'],
     answer: '$50\\ \\mathrm{cm\\ s^{-1}}$',
     explanation:
-      'The distance between two adjacent nodes is half a wavelength. From the diagram, four half-wavelengths make 20 cm, so $\\lambda=10\\,\\mathrm{cm}$. Using $v=f\\lambda=(5)(10)$ gives $v=50\\,\\mathrm{cm\\ s^{-1}}$.',
+      'From the standing-wave pattern, the marked 20 cm spans two full wavelengths. Hence $\\lambda=10\\,\\mathrm{cm}$. Using $v=f\\lambda=(5)(10)$ gives $v=50\\,\\mathrm{cm\\ s^{-1}}$.',
     difficulty: 3,
     points: 15,
     hints: ['Read how many full wavelengths fit inside the marked 20 cm.', 'Then use $v=f\\lambda$.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-003-question.png'],
   },
   {
     id: 'wp-004',
     type: 'multiple_choice',
     question:
-      'In a ripple tank experiment, a series of plane water waves are sent through a narrow slit. Which of the following will have changed when the water waves emerge from the slit?\n\n(1) wave speed\n(2) wave pattern\n(3) frequency',
+      'In a ripple tank experiment, a series of plane water waves are sent through a narrow slit. Which of the following will have changed when the water waves emerge from the slit ?\n\n(1) wave speed\n(2) wave pattern\n(3) frequency',
     options: ['(1) only', '(2) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(2) only',
     explanation:
-      'Passing through a narrow slit causes diffraction, so the wave pattern changes. The medium is unchanged, so the wave speed stays the same. The source also stays the same, so the frequency is unchanged. Therefore only the wave pattern changes.',
+      'Passing through a narrow slit causes diffraction. The wave pattern changes from plane wavefronts to curved wavefronts. Since the water medium is the same on both sides, the wave speed stays the same, and the frequency also remains the same. Therefore only the wave pattern changes.',
     difficulty: 2,
     points: 15,
     hints: ['Diffraction changes shape, not source frequency.', 'Wave speed stays unchanged if the medium is unchanged.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-004-question.png'],
   },
   {
     id: 'wp-005',
     type: 'multiple_choice',
     question:
-      'A stationary wave is produced in a string by a vertical vibrator as shown in the diagram. If $P$ is at the crest of an antinode at a certain instant, what is the direction of motion of point $A$ at that instant?',
+      'A stationary wave is produced in a string by a vertical vibrator as shown in the diagram. If $P$ is the crest of an antinode at a certain instant, what is the direction of motion of point $A$ at the instant ?',
     options: ['upwards', 'downwards', 'to the right', 'momentarily at rest'],
     answer: 'momentarily at rest',
     explanation:
-      'At a crest, point $P$ is at maximum displacement, so it is momentarily at rest. In a stationary wave, all particles in the same loop are in phase. Therefore point $A$ is also at an extreme position at that instant and is momentarily at rest.',
+      'In a stationary wave, all particles between the same adjacent nodes oscillate in phase. If the antinode crest $P$ is at its maximum displacement, that whole segment is at an extreme position at that instant. At an extreme position, every particle in that segment is momentarily at rest. Therefore point $A$ is momentarily at rest.',
     difficulty: 2,
     points: 15,
     hints: ['Particles in the same loop of a stationary wave move in phase.', 'At maximum displacement, the instantaneous velocity is zero.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-005-question.png'],
   },
   {
     id: 'wp-006',
     type: 'multiple_choice',
     question:
-      'Straight waves in a ripple tank are observed using a hand stroboscope with a single slit. The maximum frequency of rotation of the stroboscope at which a stationary pattern can be observed is 2 revolutions per second. The distance between the first crest and the eleventh crest is found to be 0.2 m. What is the speed of the wave?',
+      'Straight waves in a ripple tank are observed using a hand stroboscope with a single slit. The maximum rotation frequency of the stroboscope at which a stationary pattern can be observed is 2 revolutions per second. The distance between the first crest and the eleventh crest is 0.2 m. What is the speed of the wave?',
     options: [
       '$\\dfrac{0.2}{11}\\ \\mathrm{m\\ s^{-1}}$',
       '$\\dfrac{0.2}{10}\\ \\mathrm{m\\ s^{-1}}$',
@@ -10785,12 +10790,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Count crest-to-crest intervals, not the number of crests.', 'For the maximum stationary stroboscope setting, flash frequency equals wave frequency.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-006-question.png'],
   },
   {
     id: 'wp-007',
     type: 'multiple_choice',
     question:
-      'The figure shows a stationary water wave at its maximum vibration. What is the direction of the motion of a particle $P$ at this instant?',
+      'The figure shows a stationary wave at its maximum vibration. What is the direction of the motion of a particle $P$ at this instant?',
     options: ['towards the right', 'upwards', 'downwards', 'momentarily at rest'],
     answer: 'momentarily at rest',
     explanation:
@@ -10799,12 +10805,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['In a stationary wave, all particles stop instantaneously at the extreme shape.', 'Maximum displacement means zero instantaneous velocity.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-007-question.png'],
   },
   {
     id: 'wp-008',
     type: 'multiple_choice',
     question:
-      'In a ripple tank, when water waves pass through a narrow gap in a barrier, what happens to its frequency and wavelength?',
+      'In a ripple tank, when water waves pass through a narrow gap in a barrier, what happens to their frequency and wavelength?',
     options: [
       'frequency increases; wavelength decreases',
       'frequency decreases; wavelength increases',
@@ -10818,6 +10825,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Diffraction changes the pattern, not the source frequency.', 'Same medium means same wave speed.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-008-question.png'],
   },
   {
     id: 'wp-009',
@@ -10832,17 +10840,18 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: 'X: no interference, Y: constructive, Z: constructive',
     explanation:
-      'At $X$, the path difference is $1\\dfrac{3}{4}\\lambda-1\\lambda=\\dfrac{3}{4}\\lambda$, so neither constructive nor destructive interference occurs. At $Y$, the path difference is $1\\dfrac{1}{2}\\lambda-1\\dfrac{1}{2}\\lambda=0$, so the interference is constructive. At $Z$, the path difference is $2\\lambda-1\\lambda=1\\lambda$, so the interference is also constructive.',
+      'Points $Y$ and $Z$ lie at intersections of similar wavefronts from the two coherent sources, so the interference there is constructive. Point $X$ lies on a single wavefront rather than at a crossing of two wavefronts, so it is not an interference point. Therefore the correct description is: no interference at $X$, constructive at $Y$, and constructive at $Z$.',
     difficulty: 4,
     points: 15,
     hints: ['Crest-crest or trough-trough gives constructive interference.', 'Crest-trough gives destructive interference.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-009-question.png'],
   },
   {
     id: 'wp-010',
     type: 'multiple_choice',
     question:
-      'A stationary wave is formed in a string. The above diagram shows the string at the instant of maximum displacement. What will be the shape of the wave pattern one quarter of a period later?',
+      'A stationary wave is formed in a string. The diagram shows the string at the instant of maximum displacement. What will be the shape of the wave pattern one quarter of a period later?',
     options: [
       '/physics/exercises/wave-phenomena/wp-010-option-a.png',
       '/physics/exercises/wave-phenomena/wp-010-option-b.png',
@@ -10856,12 +10865,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Extreme shape to equilibrium takes $T/4$.', 'At equilibrium, the string is straight.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-010-question.png'],
   },
   {
     id: 'wp-011',
     type: 'multiple_choice',
     question:
-      'In a ripple tank experiment, a series of plane water waves passes through a narrow slit. Which of the following properties of the waves will remain unchanged ?\n\n(1) speed\n(2) direction of travel\n(3) frequency',
+      'In a ripple tank experiment, a series of plane water waves passes through a narrow slit. Which of the following properties of the waves will remain unchanged?\n\n(1) speed\n(2) direction of travel\n(3) frequency',
     options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(1) & (3) only',
     explanation:
@@ -10870,12 +10880,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A slit changes direction by diffraction.', 'Speed and frequency do not change if the medium and source do not change.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-011-question.png'],
   },
   {
     id: 'wp-012',
     type: 'multiple_choice',
     question:
-      'A straight pulse $AB$ is travelling towards a straight barrier $PQ$ in a ripple tank as shown above. Which of the following figures best shows the reflected pulse?',
+      'A straight pulse $AB$ is travelling towards a straight barrier $PQ$ in a ripple tank as shown. Which figure best shows the reflected pulse?',
     options: [
       '/physics/exercises/wave-phenomena/wp-012-option-a.png',
       '/physics/exercises/wave-phenomena/wp-012-option-b.png',
@@ -10884,17 +10895,18 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '/physics/exercises/wave-phenomena/wp-012-option-d.png',
     explanation:
-      'Reflect the incident pulse about the normal to the barrier. The reflected pulse should appear on the right side of the barrier with the correct mirrored orientation. Diagram D matches the correct reflected pulse.',
+      'Reflection in a ripple tank obeys the law of reflection. The reflected pulse must make the same angle with the barrier as the incident pulse and travel away from the barrier on the reflected side. Diagram D matches the correct reflected orientation.',
     difficulty: 3,
     points: 15,
     hints: ['Use equal angle of incidence and reflection.', 'Reflect the pulse about the normal at the contact point.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-012-question.png'],
   },
   {
     id: 'wp-013',
     type: 'multiple_choice',
     question:
-      'A series of water waves, generated in water of uniform depth, is travelling towards an obstacle as shown above. Which of the following diagrams best shows the wave pattern after passing the obstacle?',
+      'A series of water waves, generated in water of uniform depth, is travelling towards an obstacle as shown above. Which diagram best shows the wave pattern after passing the obstacle?',
     options: [
       '/physics/exercises/wave-phenomena/wp-013-option-a.png',
       '/physics/exercises/wave-phenomena/wp-013-option-b.png',
@@ -10908,6 +10920,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A single edge gives edge diffraction.', 'Wavefront spacing stays the same in the same medium.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-013-question.png'],
   },
   {
     id: 'wp-014',
@@ -10915,18 +10928,19 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question:
       'In a ripple tank experiment, the pattern of plane water waves is frozen by using a stroboscopic lamp flashing at a frequency of 50 Hz as shown above. If the frequency of the vibrator is 50 Hz, find the wavelength and speed of the waves.',
     options: [
-      '$4\\ \\mathrm{cm};\\ 2\\ \\mathrm{m\\ s^{-1}}$',
-      '$4\\ \\mathrm{cm};\\ 12.5\\ \\mathrm{m\\ s^{-1}}$',
-      '$5\\ \\mathrm{cm};\\ 2.5\\ \\mathrm{m\\ s^{-1}}$',
-      '$5\\ \\mathrm{cm};\\ 10\\ \\mathrm{m\\ s^{-1}}$',
+      '$\\lambda=4\\,\\mathrm{cm},\\ v=2\\,\\mathrm{m\\ s^{-1}}$',
+      '$\\lambda=4\\,\\mathrm{cm},\\ v=12.5\\,\\mathrm{m\\ s^{-1}}$',
+      '$\\lambda=5\\,\\mathrm{cm},\\ v=2.5\\,\\mathrm{m\\ s^{-1}}$',
+      '$\\lambda=5\\,\\mathrm{cm},\\ v=10\\,\\mathrm{m\\ s^{-1}}$',
     ],
-    answer: '$5\\ \\mathrm{cm};\\ 2.5\\ \\mathrm{m\\ s^{-1}}$',
+    answer: '$\\lambda=5\\,\\mathrm{cm},\\ v=2.5\\,\\mathrm{m\\ s^{-1}}$',
     explanation:
       'From the diagram, 20 cm spans four wavelength intervals, so $\\lambda=20/4=5\\,\\mathrm{cm}=0.05\\,\\mathrm{m}$. Since the stroboscope and vibrator are both at 50 Hz, the wave frequency is $50\\,\\mathrm{Hz}$. Hence $v=f\\lambda=(50)(0.05)=2.5\\,\\mathrm{m\\ s^{-1}}$.',
     difficulty: 3,
     points: 15,
     hints: ['Use the marked 20 cm to count wavelength intervals.', 'Then apply $v=f\\lambda$.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-014-question.png'],
   },
   {
     id: 'wp-015',
@@ -10936,17 +10950,18 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['1 cm', '2 cm', '4 cm', '6 cm'],
     answer: '1 cm',
     explanation:
-      'The path difference is $\\Delta=53-50=3\\,\\mathrm{cm}$. For constructive interference, $\\Delta=n\\lambda$ where $n=0,1,2,\\ldots$. Only $\\lambda=1\\,\\mathrm{cm}$ makes $3\\,\\mathrm{cm}=3\\lambda$, so constructive interference occurs.',
+      'The path difference at $M$ is $53-50=3\\,\\mathrm{cm}$. For constructive interference, the path difference must be an integer multiple of the wavelength: $3=n\\lambda$. Among the options, only $1\\,\\mathrm{cm}$ can satisfy this condition.',
     difficulty: 2,
     points: 15,
     hints: ['Constructive interference requires path difference $n\\lambda$.', 'First calculate the path difference.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-015-question.png'],
   },
   {
     id: 'wp-016',
     type: 'multiple_choice',
     question:
-      'The figure above shows a series of plane water waves travelling in a shallow region of water. The waves pass through a small slit to a deep region of water. Which of the following diagrams shows the wave pattern in the deep region ?',
+      'The figure above shows a series of plane water waves travelling in a shallow region of water. The waves pass through a small slit to a deep region of water. Which diagram shows the wave pattern in the deep region?',
     options: [
       '/physics/exercises/wave-phenomena/wp-016-option-a.png',
       '/physics/exercises/wave-phenomena/wp-016-option-b.png',
@@ -10960,26 +10975,28 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Going into deeper water increases wave speed.', 'A small slit causes diffraction.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-016-question.png'],
   },
   {
     id: 'wp-017',
     type: 'multiple_choice',
     question:
-      'Two vibrators $P$ and $Q$ are set to vibrate in phase in a ripple tank. $MN$ is the perpendicular bisector of $PQ$ as shown above. Which of the following statements is/are true ?\n\n(1) Constructive interference occurs along $MN$.\n(2) Destructive interference occurs along $PQ$.\n(3) A crest is always formed at $M$.',
+      'Two vibrators $P$ and $Q$ are set to vibrate in phase in a ripple tank. $MN$ is the perpendicular bisector of $PQ$ as shown above. Which of the following statements is/are true?\n\n(1) Constructive interference occurs along $MN$.\n(2) Destructive interference occurs along $PQ$.\n(3) A crest is always formed at $M$.',
     options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(1) only',
     explanation:
-      'At any point on $MN$, the path difference is zero, so constructive interference occurs there. Along $PQ$, constructive and destructive interference occur alternately, so it is not purely destructive. Also, a point of constructive interference can be a crest or a trough, so a crest is not always formed at $M$.',
+      'Any point on the perpendicular bisector $MN$ is equidistant from the two in-phase sources, so the path difference is zero and the interference is constructive there. Destructive interference does not occur everywhere along $PQ$, because the midpoint gives constructive interference. Also, $M$ is not always a crest; it may be a trough or pass through equilibrium while remaining an antinode line.',
     difficulty: 3,
     points: 15,
     hints: ['On the perpendicular bisector, the path difference is zero.', 'Antinode means maximum amplitude, not always a crest.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-017-question.png'],
   },
   {
     id: 'wp-018',
     type: 'multiple_choice',
     question:
-      'Plane water waves travel towards a straight barrier $PQ$ as shown in the figure above. Which of the following diagrams best shows the reflected waves ?',
+      'Plane water waves travel towards a straight barrier $PQ$ as shown in the figure above. Which diagram best shows the reflected waves?',
     options: [
       '/physics/exercises/wave-phenomena/wp-018-option-a.png',
       '/physics/exercises/wave-phenomena/wp-018-option-b.png',
@@ -10993,12 +11010,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Reflect the wave direction about the normal.', 'Straight wavefronts remain straight after reflection.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-018-question.png'],
   },
   {
     id: 'wp-019',
     type: 'multiple_choice',
     question:
-      'A vibrator generates a stationary wave on a string. The diagram shows the string at an instant of maximum displacement. Which of the following statement is correct ?',
+      'A vibrator generates a stationary wave on a string. The diagram shows the string at an instant of maximum displacement. Which of the following statements is correct?',
     options: [
       'Particle $P$ is moving towards the right.',
       'Particle $Q$ is moving upwards.',
@@ -11012,12 +11030,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Nodes in a stationary wave are always stationary.', 'Amplitude is zero at nodes and maximum at antinodes.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-019-question.png'],
   },
   {
     id: 'wp-020',
     type: 'multiple_choice',
     question:
-      'A vibrator generates continuous plane waves in a ripple tank as shown in Figure (a). Figure (b) shows the wave pattern observed. Now the ripple tank is tilted as shown in Figure (c). Which of the following diagrams best shows the wave pattern observed ?',
+      'A vibrator generates continuous plane waves in a ripple tank as shown in Figure (a). Figure (b) shows the wave pattern observed. Now the ripple tank is tilted as shown in Figure (c). Which diagram best shows the wave pattern observed?',
     options: [
       '/physics/exercises/wave-phenomena/wp-020-option-a.png',
       '/physics/exercises/wave-phenomena/wp-020-option-b.png',
@@ -11031,6 +11050,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Wave speed increases with water depth.', 'With constant frequency, larger speed means larger wavelength.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-020-question.png'],
   },
   {
     id: 'wp-021',
@@ -11045,12 +11065,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Compare wavelength with slit width.', 'A narrower effective opening relative to wavelength gives stronger diffraction.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-021-question.png'],
   },
   {
     id: 'wp-022',
     type: 'multiple_choice',
     question:
-      'A vibrator generates a stationary wave on a string. The diagram below shows the string at a certain instant.\n\nWhich of the following statements is incorrect ?',
+      'A vibrator generates a stationary wave on a string. The diagram below shows the string at a certain instant. Which of the following statements is incorrect?',
     options: [
       'The distance between $X$ and $Y$ is equal to half the wavelength of the stationary wave.',
       'All particles between $X$ and $Y$ on the string vibrate in the same direction.',
@@ -11064,12 +11085,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Amplitude in a stationary wave depends on position.', 'Adjacent nodes are separated by $\\lambda/2$.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-022-question.png'],
   },
   {
     id: 'wp-023',
     type: 'multiple_choice',
     question:
-      'A vibrator generates a stationary wave on a string. The diagram below shows the string at a certain instant.\n\nThe vibrating string also sets the neighbouring air into vibration. Which of the following statements about the waves on the string and those in air must be correct ?',
+      'The vibrating string also sets the neighbouring air into vibration. Which of the following statements about the waves on the string and those in air must be correct?',
     options: ['They are both stationary.', 'They have the same speed.', 'They have the same wavelength.', 'They have the same frequency.'],
     answer: 'They have the same frequency.',
     explanation:
@@ -11078,12 +11100,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A driven wave has the source frequency.', 'Different media generally give different wave speeds.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-023-question.png'],
   },
   {
     id: 'wp-024',
     type: 'multiple_choice',
     question:
-      'A vibrator generates a stationary wave on a string. The above diagram shows the string at the instant of maximum displacement. Which of the following statements is incorrect ?',
+      'A vibrator generates a stationary wave on a string. The above diagram shows the string at the instant of maximum displacement. Which of the following statements is incorrect?',
     options: [
       'Particles $P$ and $Q$ move with the same amplitude.',
       'The motions of particles $P$ and $Q$ are in phase.',
@@ -11097,12 +11120,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['In a stationary wave, all points stop instantaneously at maximum displacement.', 'Read the number of quarter-wavelength sections along the 1 m string.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-024-question.png'],
   },
   {
     id: 'wp-025',
     type: 'multiple_choice',
     question:
-      'A series of plane water waves travels towards an obstacle in a ripple tank. When the waves pass the obstacle, they bend around the corners of the obstacle. Which of the following statements is/are correct ?\n\n(1) The phenomenon is called diffraction.\n(2) The speed of the waves remains unchanged as they bend round the corners.\n(3) The degree of bending of the waves depends on the size of the obstacle relative to the wavelength of the waves.',
+      'A series of plane water waves travels towards an obstacle in a ripple tank. When the waves pass the obstacle, they bend around the corners of the obstacle. Which of the following statements is/are correct?\n\n(1) The phenomenon is called diffraction.\n(2) The speed of the waves remains unchanged as they bend round the corners.\n(3) The degree of bending of the waves depends on the size of the obstacle relative to the wavelength of the waves.',
     options: ['(1) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
     answer: '(1), (2) & (3)',
     explanation:
@@ -11111,12 +11135,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Diffraction is bending around gaps or edges.', 'In the same medium, diffraction does not change wave speed.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-025-question.png'],
   },
   {
     id: 'wp-026',
     type: 'multiple_choice',
     question:
-      'The diagram above shows a series of plane water waves travelling from a shallow region to a deep region of water. Which of the following diagrams best shows the wave pattern in the deep region ?',
+      'The diagram above shows a series of plane water waves travelling from a shallow region to a deep region of water. Which of the following diagrams best shows the wave pattern in the deep region?',
     options: [
       '/physics/exercises/wave-phenomena/wp-026-option-a.png',
       '/physics/exercises/wave-phenomena/wp-026-option-b.png',
@@ -11125,31 +11150,33 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '/physics/exercises/wave-phenomena/wp-026-option-a.png',
     explanation:
-      'When water waves travel from shallow water to deep water, their speed increases while their frequency remains unchanged. Therefore the wavelength increases. The wave direction bends away from the normal at the boundary. Diagram A shows both the increased spacing and the correct refraction.',
+      'When water waves enter deeper water, their speed increases while their frequency remains unchanged. Therefore the wavelength increases. The ray also bends away from the normal on entering the faster region. Diagram A is the one that shows both a larger wavefront spacing and refraction away from the normal in the deep region.',
     difficulty: 3,
     points: 15,
     hints: ['Deep water means higher wave speed.', 'Higher speed at unchanged frequency means larger wavelength.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-026-question.png'],
   },
   {
     id: 'wp-027',
     type: 'multiple_choice',
     question:
-      'A series of straight water waves travels towards the right in a ripple tank as shown above. In order to obtain the waves as shown on the right hand side, what kinds of phenomenon have the straight waves undergone ?',
+      'A series of straight water waves travels towards the right in a ripple tank as shown above. In order to obtain the waves as shown on the right side, what kinds of phenomenon have the straight waves undergone?',
     options: ['reflection only', 'refraction only', 'diffraction only', 'refraction and diffraction only'],
     answer: 'refraction and diffraction only',
     explanation:
-      'A decrease in wavelength means the wave speed decreases, so refraction occurs. The wave also bends round a corner, which is diffraction. Therefore both refraction and diffraction are involved.',
+      'The pattern on the right involves bending/spreading associated with diffraction and also a change in wavefront spacing associated with a change of wave speed, which means refraction. Reflection alone cannot produce the observed transmitted pattern. Therefore both refraction and diffraction are required.',
     difficulty: 3,
     points: 15,
     hints: ['Look for both wavefront spreading and a spacing change.', 'A spacing change indicates refraction.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-027-question.png'],
   },
   {
     id: 'wp-028',
     type: 'multiple_choice',
     question:
-      'A plane water wave travels from a deep region to a shallow region of water. If the wavelength, frequency and speed of the wave in the deep region are $\\lambda_1$, $f_1$ and $v_1$ respectively, while the corresponding values in the shallow region are $\\lambda_2$, $f_2$ and $v_2$ respectively, which of the following relations is/are correct ?\n\n(1) $\\lambda_1 > \\lambda_2$\n(2) $v_1 > v_2$\n(3) $f_1 > f_2$',
+      'A plane water wave travels from a deep region to a shallow region of water. If the wavelength, frequency and speed of the wave in the deep region are $\\lambda_1$, $f_1$ and $v_1$ respectively, while the corresponding values in the shallow region are $\\lambda_2$, $f_2$ and $v_2$ respectively, which of the following relations is/are correct?\n\n(1) $\\lambda_1 > \\lambda_2$\n(2) $v_1 > v_2$\n(3) $f_1 > f_2$',
     options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(1) & (2) only',
     explanation:
@@ -11158,6 +11185,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Wave frequency does not change at a boundary.', 'Use $v=f\\lambda$.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-028-question.png'],
   },
   {
     id: 'wp-029',
@@ -11172,12 +11200,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A boundary does not change the source frequency.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-029-question.png'],
   },
   {
     id: 'wp-030',
     type: 'multiple_choice',
     question:
-      'A straight pulse $PQ$ travels towards a V-shaped barrier in a ripple tank as shown above. Which of the following diagrams best shows the reflected pulse(s) ?',
+      'A straight pulse $PQ$ travels towards a V-shaped barrier in a ripple tank as shown above. Which of the following diagrams best shows the reflected pulse(s)?',
     options: [
       '/physics/exercises/wave-phenomena/wp-030-option-a.png',
       '/physics/exercises/wave-phenomena/wp-030-option-b.png',
@@ -11191,12 +11220,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Treat the two sides of the V as two separate reflecting barriers.', 'The two reflected pulses must be symmetric.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-030-question.png'],
   },
   {
     id: 'wp-031',
     type: 'multiple_choice',
     question:
-      'Water waves of wavelength $\\lambda$ are diffracted as they pass through a gap of width $d$ as shown in the figure above. Which of the following changes would produce the most significant diffraction effect ?',
+      'Water waves of wavelength $\\lambda$ are diffracted as they pass through a gap of width $d$ as shown in the figure above. Which of the following changes would produce the most significant diffraction effect?',
     options: [
       '$\\lambda$ remains unchanged, $d$ halved',
       '$\\lambda$ remains unchanged, $d$ doubled',
@@ -11210,12 +11240,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Compare the ratio $\\lambda/d$.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-031-question.png'],
   },
   {
     id: 'wp-032',
     type: 'multiple_choice',
     question:
-      'In the above diagram, $XY$ represents a boundary between a deep region and a shallow region of water in a ripple tank. A series of straight water waves in the deep region travels towards $XY$. Which of the following diagrams best shows the wave pattern in the shallow region ?',
+      'In the above diagram, $XY$ represents a boundary between a deep region and a shallow region of water in a ripple tank. A series of straight water waves in the deep region travels towards $XY$. Which of the following diagrams best shows the wave pattern in the shallow region?',
     options: [
       '/physics/exercises/wave-phenomena/wp-032-option-a.png',
       '/physics/exercises/wave-phenomena/wp-032-option-b.png',
@@ -11229,12 +11260,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Shallow water means lower wave speed.', 'Lower speed means bending towards the normal.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-032-question.png'],
   },
   {
     id: 'wp-033',
     type: 'multiple_choice',
     question:
-      'In a ripple tank experiment, a series of water waves travels towards a barrier. Which of the following quantities would remain unchanged after the waves are reflected by the barrier ?\n\n(1) wavelength\n(2) frequency\n(3) speed',
+      'In a ripple tank experiment, a series of water waves travels towards a barrier. Which of the following quantities would remain unchanged after the waves are reflected by the barrier?\n\n(1) wavelength\n(2) frequency\n(3) speed',
     options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
     answer: '(1), (2) & (3)',
     explanation:
@@ -11243,12 +11275,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Reflection changes direction, not the medium.', 'Use $v=f\\lambda$.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-033-question.png'],
   },
   {
     id: 'wp-034',
     type: 'multiple_choice',
     question:
-      'Which of the following phenomena would be observed when the water waves pass through the opening in the above set-up ?',
+      'Which of the following phenomena would be observed when the water waves pass through the opening in the above set-up?',
     options: ['reflection', 'refraction', 'diffraction', 'interference'],
     answer: 'diffraction',
     explanation:
@@ -11257,12 +11290,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Spreading after a gap is diffraction.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-034-question.png'],
   },
   {
     id: 'wp-035',
     type: 'multiple_choice',
     question:
-      'Plane water waves travel towards an L-shaped barrier in a ripple tank as shown above. Which of the following diagrams best shows the reflected wave pattern ?',
+      'Plane water waves travel towards an L-shaped barrier in a ripple tank as shown above. Which of the following diagrams best shows the reflected wave pattern?',
     options: [
       '/physics/exercises/wave-phenomena/wp-035-option-a.png',
       '/physics/exercises/wave-phenomena/wp-035-option-b.png',
@@ -11271,17 +11305,18 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '/physics/exercises/wave-phenomena/wp-035-option-d.png',
     explanation:
-      'Following the direction of travel, the wave is reflected twice by the two arms of the L-shaped barrier and finally travels backward. Diagram D gives the correct reflected pattern.',
+      'The reflected direction is determined by the orientation of the reflecting arm that the incident waves strike. The reflected wavefronts remain straight and leave in the corresponding reflected direction. Diagram D matches the correct reflected pattern.',
     difficulty: 3,
     points: 15,
     hints: ['Use the law of reflection at the reflecting edge.', 'Straight incoming wavefronts remain straight after reflection.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-035-question.png'],
   },
   {
     id: 'wp-036',
     type: 'multiple_choice',
     question:
-      'Plane water waves travel from a deep region to a shallow region through a narrow gap as shown above. Which of the following properties of the waves remains unchanged ?',
+      'Plane water waves travel from a deep region to a shallow region through a narrow gap as shown above. Which of the following properties of the waves remains unchanged?',
     options: ['direction of travel', 'speed', 'wavelength', 'frequency'],
     answer: 'frequency',
     explanation:
@@ -11290,12 +11325,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['The source fixes the frequency.', 'A change of medium changes speed and wavelength.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-036-question.png'],
   },
   {
     id: 'wp-037',
     type: 'multiple_choice',
     question:
-      'A student uses the above set-up to study the diffraction of water waves. Which of the following changes can make the diffraction effect more significant ?\n\n(1) reducing the width of the gap between the obstacles\n(2) increasing the frequency of the vibrator\n(3) adding more water to the ripple tank',
+      'A student uses the above set-up to study the diffraction of water waves. Which of the following changes can make the diffraction effect more significant?\n\n(1) reducing the width of the gap between the obstacles\n(2) increasing the frequency of the vibrator\n(3) adding more water to the ripple tank',
     options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(1) & (3) only',
     explanation:
@@ -11304,12 +11340,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Think in terms of the ratio $\\lambda/d$.', 'For the same source, deeper water gives a larger wavelength.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-037-question.png'],
   },
   {
     id: 'wp-038',
     type: 'multiple_choice',
     question:
-      'Two dippers $S_1$ and $S_2$ are connected to the same vibrator and produce identical waves in a ripple tank. $P$ is a point such that $S_1P-S_2P=\\lambda$, where $\\lambda$ is the wavelength of the water waves generated. Which of the following statements is/are correct ?\n\n(1) Constructive interference occurs at $P$.\n(2) A crest is always formed at $P$.\n(3) If the wavelength of the waves generated by the dippers is doubled, destructive interference will occur at $P$.',
+      'Two dippers $S_1$ and $S_2$ are connected to the same vibrator and produce identical waves in a ripple tank. $P$ is a point such that $S_1P-S_2P=\\lambda$, where $\\lambda$ is the wavelength of the water waves generated. Which of the following statements is/are correct?\n\n(1) Constructive interference occurs at $P$.\n(2) A crest is always formed at $P$.\n(3) If the wavelength of the waves generated by the dippers is doubled, destructive interference will occur at $P$.',
     options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(1) & (3) only',
     explanation:
@@ -11318,12 +11355,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['For in-phase sources, constructive interference occurs at path difference $n\\lambda$.', 'A path difference of $\\lambda/2$ gives destructive interference.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-038-question.png'],
   },
   {
     id: 'wp-039',
     type: 'multiple_choice',
     question:
-      'The figure shows the waveform of a transverse stationary wave at a certain instant. If particle $P$ is at its lowest position at this instant, what will be the instantaneous motion of particles $P$ and $Q$ after a quarter of a period ?',
+      'The figure shows the waveform of a transverse stationary wave at a certain instant. If particle $P$ is at its lowest position at this instant, what will be the instantaneous motion of particles $P$ and $Q$ after a quarter of a period?',
     options: [
       '$P$: moving upwards; $Q$: at rest',
       '$P$: moving upwards; $Q$: moving upwards',
@@ -11337,12 +11375,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['An extreme position becomes equilibrium after $T/4$.', 'A node in a stationary wave is always at rest.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-039-question.png'],
   },
   {
     id: 'wp-040',
     type: 'multiple_choice',
     question:
-      'An interference pattern is formed by two coherent point sources of water waves. Which of the following variations can change the positions of constructive interference?\n\n(1) changing the amplitude of the waves\n(2) changing the wavelength of the waves\n(3) changing the separation between the point sources',
+      'An interference pattern is formed by two coherent point sources of water waves. Which of the following variations can change the positions of constructive interference?\n\n(1) changing the amplitude of the waves\n(2) changing the wavelength of the waves\n(3) changing the separation between the two point sources',
     options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
     answer: '(2) & (3) only',
     explanation:
@@ -11351,12 +11390,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Fringe position depends on path difference.', 'Amplitude affects intensity, not fringe location.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-040-question.png'],
   },
   {
     id: 'wp-041',
     type: 'multiple_choice',
     question:
-      'Straight water waves travel towards a barrier as shown above. Which of the following diagrams best shows the reflected wave pattern ?',
+      'Straight water waves travel towards a barrier as shown above. Which of the following diagrams best shows the reflected wave pattern?',
     options: [
       '/physics/exercises/wave-phenomena/wp-041-option-a.png',
       '/physics/exercises/wave-phenomena/wp-041-option-b.png',
@@ -11370,12 +11410,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Use equal angles with the normal.', 'The reflected wavefronts remain straight.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-041-question.png'],
   },
   {
     id: 'wp-042',
     type: 'multiple_choice',
     question:
-      'A cork floats in water and a dropper is used to produce circular waves as shown in the diagram. Which of the following describes the motion of the cork when the waves pass through it ?',
+      'A cork floats in water and a dropper is used to produce circular waves as shown in the diagram. Which of the following describes the motion of the cork when the waves pass through it?',
     options: ['moves towards the dropper', 'moves away from the dropper', 'vibrates vertically about its original position', 'moves away from the dropper and vibrates vertically at the same time'],
     answer: 'vibrates vertically about its original position',
     explanation:
@@ -11384,12 +11425,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A wave transfers energy, not the medium itself over a long distance.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-042-question.png'],
   },
   {
     id: 'wp-043',
     type: 'multiple_choice',
     question:
-      'A series of plane waves travel from medium A into medium B. The figure above shows the positions, $PQ$ and $P\'Q\'$, of a wavefront before and after entering medium B. What would happen to the speed and the wavelength of the wave when it travels from medium A to medium B ?',
+      'A series of plane waves travel from medium A into medium B. The figure above shows the positions, $PQ$ and $P\'Q\'$, of a wavefront before and after entering the medium B. What would happen to the speed and the wavelength of the wave when it travels from medium A to medium B?',
     options: [
       'speed increases; wavelength increases',
       'speed increases; wavelength remains unchanged',
@@ -11403,6 +11445,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Frequency is unchanged at the boundary.', 'Use $v=f\\lambda$.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-043-question.png'],
   },
   {
     id: 'wp-044',
@@ -11417,12 +11460,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['The source fixes the frequency.', 'A change of medium changes light speed.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-044-question.png'],
   },
   {
     id: 'wp-045',
     type: 'multiple_choice',
     question:
-      'A cork is floating on a calm water surface as shown in the above figure. At time $t=0$, a water wave is travelling towards the cork with a speed of $0.2\\,\\mathrm{m\\ s^{-1}}$. When will the cork rise to its highest position for the first time ?',
+      'A cork is floating on a calm water surface as shown in the above figure. At time $t=0$, a water wave is travelling towards the cork with a speed of $0.2\\,\\mathrm{m\\ s^{-1}}$. When will the cork rise to its highest position for the first time?',
     options: ['3.00 s', '3.50 s', '3.75 s', '4.00 s'],
     answer: '3.75 s',
     explanation:
@@ -11431,12 +11475,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['First find the wavelength from the 0.4 m section.', 'The cork reaches its highest point when the first crest arrives.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-045-question.png'],
   },
   {
     id: 'wp-046',
     type: 'multiple_choice',
     question:
-      'The figure above shows the circular wavefronts produced by two identical dot vibrators, $S_1$ and $S_2$, in a ripple tank at time $t=0$. Solid lines represent crests. A cork is placed at point $P$ on the water surface. Which of the following graphs best represents the variation of the displacement $s$ of the cork with time $t$ ? (Take upward as the positive direction.)',
+      'The figure above shows the circular wavefronts produced by two identical dot vibrators, $S_1$ and $S_2$, in a ripple tank at time $t=0$. Solid lines represent crests. A cork is placed at point $P$ on the water surface. Which of the following graphs best represents the variation of the displacement $s$ of the cork with time $t$? (Take upward as the positive direction.)',
     options: [
       '/physics/exercises/wave-phenomena/wp-046-option-a.png',
       '/physics/exercises/wave-phenomena/wp-046-option-b.png',
@@ -11450,12 +11495,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Decide first whether $P$ is at a node or not.', 'Then read whether the initial displacement is positive, zero or negative.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-046-question.png'],
   },
   {
     id: 'wp-047',
     type: 'multiple_choice',
     question:
-      'A musical note is produced by a guitar string. Which of the following properties about the sound wave produced and the wave in the string is/are the same ?\n\n(1) wavelength\n(2) frequency\n(3) wave speed',
+      'A musical note is produced by a guitar string. Which of the following properties about the sound wave produced and the wave in the string is/are the same?\n\n(1) wavelength\n(2) frequency\n(3) wave speed',
     options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(2) only',
     explanation:
@@ -11464,26 +11510,28 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A driven wave keeps the source frequency.', 'Different media generally give different wave speeds.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-047-question.png'],
   },
   {
     id: 'wp-048',
     type: 'multiple_choice',
     question:
-      'Two point sources $S_1$ and $S_2$ are producing circular water waves in a ripple tank. The figure shows the wave pattern at a certain instant. Solid lines represent crests and dotted lines represent troughs. Which of the following statements is/are correct ?\n\n(1) The water particle at $A$ is always at rest.\n(2) The water particle at $B$ is always at a crest.\n(3) The interference at $C$ is neither constructive nor destructive.',
+      'Two point sources $S_1$ and $S_2$ are producing circular water waves in a ripple tank. The figure shows the wave pattern at a certain instant. Solid lines represent crests and dotted lines represent troughs. Which of the following statements is/are correct?\n\n(1) The water particle at $A$ is always at rest.\n(2) The water particle at $B$ is always at a crest.\n(3) The interference at $C$ is neither constructive nor destructive.',
     options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(1) only',
     explanation:
-      'At $A$, a crest meets a trough, so destructive interference occurs and the particle there is always at rest. At $B$, crest meets crest, so the point is a constructive-interference point, but it is not always at a crest because it oscillates between crest and trough. At $C$, the path difference is $2.25\\lambda-1.25\\lambda=1\\lambda$, so the interference is constructive, not intermediate. Therefore only statement (1) is correct.',
+      'Point $A$ lies on a nodal line, so it is always at rest. Point $B$ is only at a crest at the instant shown, not at all times. Point $C$ lies on a definite interference line, so the interference there is not an undefined intermediate case. Therefore only statement (1) is correct.',
     difficulty: 3,
     points: 15,
     hints: ['Nodes in an interference pattern stay at rest.', 'A snapshot crest does not mean a point is always at a crest.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-048-question.png'],
   },
   {
     id: 'wp-049',
     type: 'multiple_choice',
     question:
-      'The figure above shows the wavefronts formed in a ripple tank. Solid lines represent crests. $S_1$ and $S_2$ are two narrow gaps allowing water waves to pass through and interfere. Which of the following statements is correct ?',
+      'The figure above shows the wavefronts formed in a ripple tank. Solid lines represent crests. $S_1$ and $S_2$ are two narrow gaps allowing water waves to pass through and interfere. Which of the following statements is correct?',
     options: [
       'Refraction occurs when water waves pass through $S_1$ and $S_2$.',
       'The displacement of the water particles at $P$ and $Q$ are the same at the moment shown above.',
@@ -11492,17 +11540,18 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: 'Constructive interference occurs at $Q$.',
     explanation:
-      'Passing through narrow gaps causes diffraction, not refraction. At the instant shown, $P$ is at a crest while $Q$ is at a trough, so their displacements are not the same. At $Q$, a trough meets a trough, so the interference is constructive there. A particle seen at a crest in one snapshot is not always at a crest.',
+      'Point $Q$ is on a constructive-interference line where matching wavefronts meet, so constructive interference occurs there. Passing through narrow gaps causes diffraction, not refraction. A particle that is at a crest in a snapshot is not always at a crest.',
     difficulty: 3,
     points: 15,
     hints: ['Narrow gaps cause diffraction.', 'A constructive line is where two in-phase contributions meet.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-049-question.png'],
   },
   {
     id: 'wp-050',
     type: 'multiple_choice',
     question:
-      'The figure shows wave crests moving in the direction of the arrow towards the interface $PQ$ between a shallow region and a deep region as shown in the figure. Which of the lines shown may represent one of the wave crests in the deep region ?',
+      'The figure shows wave crests moving in the direction of the arrow towards the interface $PQ$ between a shallow region and a deep region as shown in the figure. Which of the lines shown may represent one of the wave crests in the deep region?',
     options: ['I', 'II', 'III', 'IV'],
     answer: 'III',
     explanation:
@@ -11511,12 +11560,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Deep water means higher wave speed.', 'Wavefronts are perpendicular to rays.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-050-question.png'],
   },
   {
     id: 'wp-051',
     type: 'multiple_choice',
     question:
-      'In the above figure, a stationary wave is set up on an elastic string by adjusting the frequency $f$ of the vibrator. Which of the following statements is/are correct ?\n\n(1) If $f$ increases so that another stationary wave is set up, the number of antinodes in the wave pattern increases.\n(2) If $f$ increases, the speed of the waves on the string increases.\n(3) The waves produced in air by the string have the same speed as the waves on the string.',
+      'In the above figure, a stationary wave is set up on an elastic string by adjusting the frequency $f$ of the vibrator. Which of the following statements is/are correct? (1) If $f$ increases so that another stationary wave is set up, the number of antinodes in the wave pattern increases. (2) If $f$ increases, the speed of the waves on the string increases. (3) The waves produced in air by the string have the same speed as the waves on the string.',
     options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(1) only',
     explanation:
@@ -11525,12 +11575,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['On one string, wave speed depends on tension and linear density.', 'Higher harmonics have more loops.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-051-question.png'],
   },
   {
     id: 'wp-052',
     type: 'multiple_choice',
     question:
-      'The waves from two coherent sources must have\n\n(1) the same amplitude\n(2) the same wavelength\n(3) a constant phase relationship',
+      'The waves from two coherent sources must have (1) the same amplitude (2) the same wavelength (3) a constant phase relationship.',
     options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(2) & (3) only',
     explanation:
@@ -11539,12 +11590,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Coherence is about phase relationship.', 'Same medium means same frequency implies same wavelength.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-052-question.png'],
   },
   {
     id: 'wp-053',
     type: 'multiple_choice',
     question:
-      'In which of the following cases can the principle of superposition be applied to two overlapping waves of the same nature ?\n\n(1) Two waves that have the same amplitude.\n(2) Two waves that travel in opposite directions.\n(3) Two waves that are coherent.',
+      'In which of the following cases can the principle of superposition be applied to two overlapping waves of the same nature? (1) Two waves that have the same amplitude. (2) Two waves that travel in opposite directions. (3) Two waves that are coherent.',
     options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
     answer: '(1), (2) & (3)',
     explanation:
@@ -11553,12 +11605,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Superposition depends on overlap in a linear medium.', 'It is broader than interference conditions.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-053-question.png'],
   },
   {
     id: 'wp-054',
     type: 'multiple_choice',
     question:
-      'Two identical transverse waves, travelling in opposite directions along string $XY$ fixed at both ends, form a stationary wave. The separation between $X$ and $Y$ is 45 cm. Particle $P$ is an antinode with an amplitude of 2 cm. The figure shows the shape of the string when $P$ is at its maximum displacement from the equilibrium position. What are the amplitude and wavelength of each travelling wave on the string ?',
+      'Two identical transverse waves, travelling in opposite directions along a string $XY$ fixed at both ends, form a stationary wave. The separation between $X$ and $Y$ is 45 cm. Particle $P$ is an antinode with an amplitude of 2 cm. The figure shows the shape of the string when $P$ is at maximum displacement. What are the amplitude and wavelength of each travelling wave?',
     options: [
       'Amplitude = 1 cm, wavelength = 30 cm',
       'Amplitude = 1 cm, wavelength = 15 cm',
@@ -11572,12 +11625,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Antinode amplitude in a stationary wave is doubled.', 'Count how many half-wavelengths fit between the fixed ends.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-054-question.png'],
   },
   {
     id: 'wp-055',
     type: 'multiple_choice',
     question:
-      'The diagram shows the wavefronts of a wave passing the boundary of two different media. Which of the following combinations about the type of wave and the two media is/are possible ?\n\n(1) Light waves: medium 1 is air, medium 2 is water.\n(2) Sound waves: medium 1 is water, medium 2 is air.\n(3) Water waves: medium 1 is shallow water, medium 2 is deep water.',
+      'The diagram shows the wavefronts of a wave passing the boundary of two different media. Which of the following combinations about the type of wave and the two media is/are possible? (1) Light waves: medium 1 is air, medium 2 is water. (2) Sound waves: medium 1 is water, medium 2 is air. (3) Water waves: medium 1 is shallow water, medium 2 is deep water.',
     options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(1) & (2) only',
     explanation:
@@ -11586,12 +11640,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Compare wavelength before and after the boundary.', 'A shorter wavelength in the second medium means lower speed there.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-055-question.png'],
   },
   {
     id: 'wp-056',
     type: 'multiple_choice',
     question:
-      'Figure (a) shows the pattern of water waves at time $t=0$. The solid lines represent the crests of the water waves. Figure (b) shows the displacement-time graph of particle $P$. In Figure (a), $S_1$ and $S_2$ are two coherent sources vibrating with the same frequency. Which of the following displacement-time graphs is correct for particle $R$ at the point midway between $P$ and $Q$ as shown ?',
+      'Figure (a) shows the pattern of water waves at time $t = 0$. The solid lines represent the crests of the water waves. Figure (b) shows the displacement-time graph of particle $P$. In Figure (a), $S_1$ and $S_2$ are two coherent sources vibrating with the same frequency. Which of the following displacement-time graphs is correct for particle $R$ at the point midway between $P$ and $Q$ as shown?',
     options: [
       '/physics/exercises/wave-phenomena/wp-056-option-a.png',
       '/physics/exercises/wave-phenomena/wp-056-option-b.png',
@@ -11605,12 +11660,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Constructive interference can happen at a crest or at a trough.', 'Use the sign of the displacement at $t = 0$.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-056-question.png'],
   },
   {
     id: 'wp-057',
     type: 'multiple_choice',
     question:
-      'The principle of superposition can be applied to two overlapping waves of the same nature:\n\n(1) only if they have the same frequency.\n(2) only if they have the same amplitude.\n(3) only if they travel in the same direction.',
+      'The principle of superposition can be applied to two overlapping waves of the same nature: (1) only if they have the same frequency. (2) only if they have the same amplitude. (3) only if they travel in the same direction.',
     options: [
       '(1) & (2) only',
       '(1) & (3) only',
@@ -11624,12 +11680,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Superposition is more general than steady interference.', 'Only the overlap of compatible waves is required.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-057-question.png'],
   },
   {
     id: 'wp-058',
     type: 'multiple_choice',
     question:
-      'String $XY$ is fixed at both ends. The distance between $X$ and $Y$ is 45 cm. Two identical sinusoidal waves travel along $XY$ in opposite directions and form a stationary wave with an antinode at point $P$. The figure shows the string when $P$ is 2 mm, its maximum displacement from the equilibrium position. What is the amplitude and wavelength of each of the travelling waves on the string ?',
+      'String $XY$ is fixed at both ends. The distance between $X$ and $Y$ is 45 cm. Two identical sinusoidal waves travel along $XY$ in opposite directions and form a stationary wave with an antinode at point $P$. The figure shows the string when $P$ is 2 mm, its maximum displacement from the equilibrium position. What is the amplitude and wavelength of each travelling wave?',
     options: [
       'Amplitude = 1 mm, wavelength = 30 cm',
       'Amplitude = 1 mm, wavelength = 15 cm',
@@ -11643,6 +11700,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['At an antinode, stationary-wave amplitude is doubled.', 'Count half-wavelength sections between the fixed ends.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-058-question.png'],
   },
   {
     id: 'wp-059',
@@ -11657,6 +11715,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['First find the wavelength from the standing-wave pattern.', 'Use $v = f\\lambda$.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-059-question.png'],
   },
   {
     id: 'wp-060',
@@ -11676,6 +11735,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Use the instantaneous position of $P$ as the starting point.', 'A point on a stationary wave still executes SHM.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-060-question.png'],
   },
   {
     id: 'wp-061',
@@ -11690,12 +11750,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Adjacent loops in a stationary wave are in antiphase.', 'A particle is at rest only at an extreme position.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-061-question.png'],
   },
   {
     id: 'wp-062',
     type: 'multiple_choice',
     question:
-      'The photograph shows a series of plane sea waves travelling through a gap in a sea wall which exhibits diffraction. Assuming that the frequency of the waves remains unchanged, which of the following will increase the degree of diffraction ?\n\n(1) The gap in the sea wall becomes narrower.\n(2) The wavelength of the waves increases.\n(3) The amplitude of the waves becomes larger.',
+      'The photograph shows a series of plane sea waves travelling through a gap in a sea wall which exhibits diffraction. Assuming that the frequency of the waves remains unchanged, which of the following will increase the degree of diffraction? (1) The gap in the sea wall becomes narrower. (2) The wavelength of the waves increases. (3) The amplitude of the waves becomes larger.',
     options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
     answer: '(1) & (2) only',
     explanation:
@@ -11704,12 +11765,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Think about the ratio of gap width to wavelength.', 'Amplitude does not control diffraction angle.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-062-question.png'],
   },
   {
     id: 'wp-063',
     type: 'multiple_choice',
     question:
-      'The figure shows two circular pulses produced by drops of water falling in a ripple tank. The pulses are then reflected by a straight barrier. Which diagram best shows the reflected pulses ?',
+      'The figure shows two circular pulses produced by drops of water falling in a ripple tank. The pulses are then reflected by a straight barrier. Which diagram best shows the reflected pulses?',
     options: [
       '/physics/exercises/wave-phenomena/wp-063-option-a.png',
       '/physics/exercises/wave-phenomena/wp-063-option-b.png',
@@ -11723,12 +11785,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Use the idea of an image source behind the barrier.', 'Reflection preserves wavefront shape.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-063-question.png'],
   },
   {
     id: 'wp-064',
     type: 'multiple_choice',
     question:
-      'Two waves $P$ and $Q$ travel in the same direction and meet at a point. The graphs show the variation of the displacement of each wave with time at that point. Which of the following statements is/are correct?\n\n(1) $P$ and $Q$ have the same frequency.\n(2) The oscillation due to $P$ is in anti-phase with that due to $Q$.\n(3) The amplitude of the resultant wave at that point is four times the amplitude of $P$.',
+      'Two waves $P$ and $Q$ travel in the same direction and meet at a point. The graphs show the variation of the displacement of each wave with time at that point. Which of the following statements is/are correct? (1) $P$ and $Q$ have the same frequency. (2) The oscillation due to $P$ is in anti-phase with that due to $Q$. (3) The amplitude of the resultant wave at that point is four times the amplitude of $P$.',
     options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(1) only',
     explanation:
@@ -11737,12 +11800,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Compare the periods first.', 'Antiphase requires a half-cycle difference.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-064-question.png'],
   },
   {
     id: 'wp-065',
     type: 'multiple_choice',
     question:
-      'A string is set to vibrate at frequency $f$ such that a standing wave is formed between two fixed supports $X$ and $Y$ as shown in the above figure.\n\nIf the tension in the string is increased by adding weight gradually while the frequency is kept at $f$, which of the following is a possible mode of vibration at a steady state ?',
+      'A string is set to vibrate at frequency $f$ such that a standing wave is formed between two fixed supports $X$ and $Y$ as shown in the figure above. If the tension in the string is increased by adding weight gradually while the frequency is kept at $f$, which of the following is a possible mode of vibration at a steady state?',
     options: [
       '/physics/exercises/wave-phenomena/wp-065-option-a.png',
       '/physics/exercises/wave-phenomena/wp-065-option-b.png',
@@ -11756,12 +11820,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Higher tension gives higher wave speed.', 'With fixed frequency, a larger speed means a larger wavelength.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-065-question.png'],
   },
   {
     id: 'wp-066',
     type: 'multiple_choice',
     question:
-      'The surfer in the figure reaches a crest at the moment shown. The crests of the water wave are 20 m apart and the surfer descends a vertical distance of 4 m from a crest to a trough in a time interval of 2 s. What is the speed of the wave?',
+      'The surfer in the figure is at a crest at the moment shown. The crests of the water wave are 20 m apart and the surfer descends a vertical distance of 4 m from a crest to a trough in a time interval of 2 s. What is the speed of the wave?',
     options: ['1 m s^-1', '2 m s^-1', '5 m s^-1', '10 m s^-1'],
     answer: '5 m s^-1',
     explanation:
@@ -11770,12 +11835,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Crest-to-trough corresponds to half a cycle.', 'Use $v = \\lambda / T$.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-066-question.png'],
   },
   {
     id: 'wp-067',
     type: 'multiple_choice',
     question:
-      'A string is tied to a vibrator while the other end is fixed to a wall. A stationary wave is formed as shown.\n\nWhich statement is correct when the frequency of the vibrator doubles?',
+      'A string is tied to a vibrator while the other end is fixed to a wall. A stationary wave is formed as shown. Which statement is correct when the frequency of the vibrator doubles?',
     options: [
       'The wavelength will double.',
       'The wave speed will double.',
@@ -11789,12 +11855,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['On the same string, wave speed stays constant.', 'Doubling frequency halves wavelength.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-067-question.png'],
   },
   {
     id: 'wp-068',
     type: 'multiple_choice',
     question:
-      'The figure shows plane water waves travelling from region $X$ to region $Y$. The wavelengths of the water waves in regions $X$ and $Y$ are 4 cm and 5 cm respectively.\n\nWhich of the following statements is correct ?',
+      'The figure shows plane water waves travelling from region $X$ to region $Y$. The wavelengths of the water waves in regions $X$ and $Y$ are 4 cm and 5 cm respectively. Which of the following statements is correct?',
     options: [
       'The speed of the water waves in region $X$ is higher than that in region $Y$.',
       'The direction of travel of the water waves bends towards the normal as they enter region $Y$.',
@@ -11808,12 +11875,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Frequency does not change during refraction.', 'A larger wavelength in the second region means a larger speed there.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-068-question.png'],
   },
   {
     id: 'wp-069',
     type: 'multiple_choice',
     question:
-      'In which of the following situations MUST the direction of travel of a wave change ?\n\n(1) when a wave is reflected by a barrier\n(2) when a wave enters from one medium to another medium\n(3) when a wave travels through a gap smaller than its wavelength',
+      'In which of the following situations MUST the direction of travel of a wave change? (1) when a wave is reflected by a barrier (2) when a wave enters from one medium to another medium (3) when a wave travels through a gap smaller than its wavelength',
     options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
     answer: '(1) & (3) only',
     explanation:
@@ -11822,12 +11890,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A wave can cross a boundary without bending if it enters normally.', 'Diffraction through a narrow gap spreads the wave.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-069-question.png'],
   },
   {
     id: 'wp-070',
     type: 'multiple_choice',
     question:
-      'Light undergoes diffraction round an obstacle.\n\nThe angle of diffraction would increase when\n(1) the amplitude of the incident light is increased.\n(2) the width of the obstacle is increased.\n(3) the wavelength of the incident light is increased.',
+      'Light undergoes diffraction round an obstacle. The angle of diffraction would increase when (1) the amplitude of the incident light is increased. (2) the width of the obstacle is increased. (3) the wavelength of the incident light is increased.',
     options: ['(2) only', '(3) only', '(1) & (2) only', '(1) & (3) only'],
     answer: '(3) only',
     explanation:
@@ -11836,12 +11905,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Diffraction depends on wavelength and obstacle size.', 'Amplitude does not set the diffraction angle.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-070-question.png'],
   },
   {
     id: 'wp-071',
     type: 'multiple_choice',
     question:
-      'The figure shows a string with one end fixed and the other end tied to a vibrator. A stationary wave is formed as shown at a certain frequency.\n\nIf the speed of the wave along the string is $7\\ \\mathrm{m\\ s^{-1}}$, what is the frequency of the wave ?',
+      'The figure shows a string with one end fixed and the other end tied to a vibrator. A stationary wave is formed as shown at a certain frequency. If the speed of the wave along the string is 7 m s^-1, what is the frequency of the wave?',
     options: ['2.8 Hz', '7 Hz', '17.5 Hz', '35 Hz'],
     answer: '17.5 Hz',
     explanation:
@@ -11850,6 +11920,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Each loop in a stationary wave is half a wavelength.', 'Use $f = v/\\lambda$.'],
     sectionId: 'wave-phenomena',
+    imagePaths: ['/physics/exercises/wave-phenomena/wp-071-question.png'],
   },
 {
     id: 'rr-001',
@@ -12857,6 +12928,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A convex lens converges parallel rays and bends other rays towards the axis.', 'Pick the path that moves closer to the principal axis after refraction.'],
     sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-002-question.png'],
   },
 {
     id: 'lens-003',
@@ -12871,6 +12943,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Any image formed on a screen is real.', 'Compare image distance and object distance for magnification.'],
     sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-003-question.png'],
   },
 {
     id: 'lens-004',
@@ -12885,6 +12958,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Use the standard convex-lens object-image position rules.', 'Image beyond 2F means object between F and 2F.'],
     sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-004-question.png'],
   },
 {
     id: 'lens-005',
@@ -12904,6 +12978,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A concave lens diverges light.', 'The emergent ray should spread away from the axis.'],
     sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-005-question.png'],
   },
 {
     id: 'lens-006',
@@ -12918,6 +12993,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Use the lens formula qualitatively.', 'Any change that brings the image onto the screen is acceptable.'],
     sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-006-question.png'],
   },
 {
     id: 'lens-007',
@@ -12978,6 +13054,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Think of a beam expander: first diverge, then recollimate.', 'Concave lens diverges, convex lens converges.'],
     sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-010-question.png'],
   },
 {
     id: 'lens-011',
@@ -12992,6 +13069,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A ray through the optical centre goes straight.', 'A magnified image here requires a convex lens.'],
     sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-011-question.png'],
   },
 {
     id: 'lens-012',
@@ -13006,6 +13084,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Use the undeviated central ray to locate the lens.', 'An inverted image from a single lens implies a convex lens.'],
     sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-012-question.png'],
   },
 {
     id: 'lens-013',
@@ -13020,6 +13099,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Check the standard principal-ray rules for a convex lens.', 'A parallel ray does not go through 2F.'],
     sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-013-question.png'],
   },
 {
     id: 'lens-014',
@@ -13058,6 +13138,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A concave lens never inverts the image.', 'It always produces a diminished virtual image.'],
     sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-015-question.png'],
   },
 {
     id: 'lens-016',
@@ -13077,6 +13158,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Use the standard image-location rule for an object beyond 2F.', 'The image lies on the opposite side between F and 2F.'],
     sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-016-question.png'],
   },
 {
     id: 'lens-017',
@@ -13091,6 +13173,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Use the three standard principal-ray rules.', 'A convex lens is converging, not diverging.'],
     sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-017-question.png'],
   },
 {
     id: 'lens-018',
@@ -13105,6 +13188,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A real image from a convex lens is inverted.', 'Compare how moving a point closer to the lens affects its image position.'],
     sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-018-question.png'],
   },
 {
     id: 'lens-019',
@@ -13119,6 +13203,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A concave lens makes rays diverge as if they come from the focus.', 'Trace the refracted ray backward.'],
     sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-019-question.png'],
   },
 {
     id: 'lens-020',
@@ -13138,6 +13223,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Look at whether the beam spreads out or comes together.', 'Concave diverges, convex converges.'],
     sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-020-question.png'],
   },
 {
     id: 'lens-021',
@@ -13157,6 +13243,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Reverse the ray direction mentally if needed.', 'A diverging output implies a concave lens.'],
     sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-021-question.png'],
   },
 {
     id: 'lens-022',
@@ -13171,6 +13258,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['All image rays from one object point must be consistent with a single image point.', 'Check where the rays intersect when extended.'],
     sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-022-question.png'],
   },
 {
     id: 'lens-023',
@@ -13190,6 +13278,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['Object between F and 2F gives an image beyond 2F.', 'A screen image must be real and therefore inverted.'],
     sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-023-question.png'],
   },
 {
     id: 'lens-024',
@@ -13209,6 +13298,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15,
     hints: ['A concave lens never forms a real image of a real object.', 'The image is always diminished and on the object side.'],
     sectionId: 'lens',
+    imagePaths: ['/physics/exercises/lens/lens-024-question.png'],
   },
 {
     id: 'lens-025',
@@ -13254,6 +13344,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Recall that a concave lens is a diverging lens.', 'Parallel rays through a concave lens appear to come from the focus.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-027-question.png']
+  },
+{
+    id: 'lens-028',
+    question: 'In the figure, F is the focus of the converging lens. Which of the refracted rays is incorrectly drawn?',
+    options: ['P', 'Q', 'S', 'T'],
     answer: 'S',
     explanation: 'Ray S comes from the lower part of the object, so after refraction it should go toward the lower part of the image. The path labeled S is therefore incorrect.',
     difficulty: 2,
@@ -13261,6 +13357,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Trace where rays from the top and bottom of the object should go.', 'A convex lens forms a real inverted image when appropriate.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-028-question.png']
+  },
+{
+    id: 'lens-029',
+    question: 'In the diagram, the image I of an object O is produced by a lens. What is the nature and position of this lens?',
+    options: ['concave lens placed at A', 'concave lens placed at B', 'convex lens placed at C', 'convex lens placed at D'],
     answer: 'convex lens placed at D',
     explanation: 'A magnified image indicates a convex lens. Joining the top of the object to the top of the image, the line meets the principal axis at D, which gives the lens position.',
     difficulty: 2,
@@ -13268,6 +13370,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Use the straight line through the optical centre.', 'A magnified image is not formed by a concave lens.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-029-question.png']
+  },
+{
+    id: 'lens-030',
+    question: 'A lens is used to look at some print on a paper. The image of the word "PHYSICS" is shown above. Which of the following statements is/are true? (1) The lens is a converging lens. (2) The image lies between the paper and the lens. (3) The image is real.',
+    options: ['(2) only', '(1) & (2) only', '(1) & (3) only', '(1), (2) & (3)'],
     answer: '(2) only',
     explanation: 'The image is erect and diminished, which indicates a concave lens. A concave lens forms a virtual image that lies between the object and the lens. So only statement (2) is true.',
     difficulty: 2,
@@ -13275,6 +13383,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['An erect image formed by a lens is virtual.', 'A concave lens always forms a diminished virtual image.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-030-question.png']
+  },
+{
+    id: 'lens-031',
+    question: 'Which of the following statements concerning real images formed by a lens is/are correct? (1) Real images are always diminished. (2) Real images can be photographed with a camera. (3) Without a screen, real images cannot be seen by the eye.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(2) only',
     explanation: 'Real images may be magnified or diminished, so (1) is false. Real images can be photographed by a camera, so (2) is true. A real image can still be seen directly by the eye if the eye intercepts the rays, so (3) is false.',
     difficulty: 2,
@@ -13306,6 +13420,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Check whether the ray is parallel to the axis or passes through a focus before applying special rules.', 'A convex lens is converging.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-033-question.png']
+  },
+{
+    id: 'lens-034',
+    question: 'When an object O is placed in front of a convex lens and a plane mirror as shown, an image I is formed at the same position as the object. Which of the following statements is/are correct? (1) The image I is real. (2) The focal length of the lens is 10 cm. (3) If the distance between the lens and the plane mirror is changed to 2 cm, the position of image I would remain unchanged.',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(1), (2) & (3)'],
     answer: '(1), (2) & (3)',
     explanation: 'Because the rays actually pass through the returned image, the image is real. The lens sends parallel rays to the mirror, so the object is at the focal point and the focal length is 10 cm. Changing the lens-mirror separation does not matter because the rays between lens and mirror remain parallel, so the image position stays unchanged.',
     difficulty: 2,
@@ -13313,6 +13433,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['A point object at the focus of a convex lens gives a parallel beam.', 'A plane mirror reflects a parallel beam back along itself.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-034-question.png']
+  },
+{
+    id: 'lens-035',
+    question: "In the diagram, A'B' is the image of an object AB formed by an optical device PQ. What is PQ?",
+    options: ['a plane mirror', 'a glass block', 'a concave lens', 'a convex lens'],
     answer: 'a concave lens',
     explanation: 'The image is virtual, erect and diminished. That is the standard image formed by a concave lens.',
     difficulty: 1,
@@ -13320,6 +13446,17 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['A concave lens always forms a virtual erect diminished image.', 'A convex lens does not always do so.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-035-question.png']
+  },
+{
+    id: 'lens-036',
+    question: "If F and F' are the foci of the concave lens, which of the following ray diagrams is incorrect?",
+    options: [
+      '/physics/exercises/lens/lens-036-option-a.png',
+      '/physics/exercises/lens/lens-036-option-b.png',
+      '/physics/exercises/lens/lens-036-option-c.png',
+      '/physics/exercises/lens/lens-036-option-d.png'
+    ],
     answer: '/physics/exercises/lens/lens-036-option-a.png',
     explanation: 'For a concave lens, a ray parallel to the principal axis must diverge as if it comes from the focus. Option A violates this rule. The others follow standard concave-lens ray tracing rules.',
     difficulty: 2,
@@ -13339,6 +13476,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Only a converging lens forms a real image on a screen in this setup.', 'Use m = v/u.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-037-question.png']
+  },
+{
+    id: 'lens-038',
+    question: "An illuminated letter 'R' is placed in front of a lens as shown and an image is formed on a translucent screen. The object distance is 30 cm and the image distance is 20 cm. If a piece of paper is used to cover one-half of the lens, which of the following describes the change in the image as seen by the observer?",
+    options: ['The whole image can still be seen but the image becomes dimmer.', 'The whole image can still be seen and its brightness remains unchanged.', 'Only half of the image can be seen and the image becomes dimmer.', 'Only half of the image can be seen but its brightness remains unchanged.'],
     answer: 'The whole image can still be seen but the image becomes dimmer.',
     explanation: 'Each part of the lens forms the whole image. Covering half the lens reduces the amount of light reaching the screen, so the image remains complete but becomes dimmer.',
     difficulty: 1,
@@ -13346,6 +13489,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['A lens does not map one half of itself to one half of the image.', 'Blocking light reduces brightness, not image completeness.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-038-question.png']
+  },
+{
+    id: 'lens-039',
+    question: "In the figure, F and F' are the foci of the lens and AB is an incident ray. Which of the following paths best represents the emergent ray?",
+    options: ['P', 'Q', 'R', 'S'],
     answer: 'S',
     explanation: 'This is a concave lens, so the emergent ray must bend away from the principal axis. Among the four paths, only S bends away from the principal axis.',
     difficulty: 1,
@@ -13353,6 +13502,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['A concave lens is diverging.', 'Check which ray moves farther away from the axis after refraction.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-039-question.png']
+  },
+{
+    id: 'lens-040',
+    question: 'Which of the following ray diagrams concerning the refraction of light ray by a converging lens is/are incorrect? F denotes the focus of the lens. (1) (2) (3)',
+    options: ['(2) only', '(3) only', '(1) & (2) only', '(1) & (3) only'],
     answer: '(2) only',
     explanation: 'For a converging lens, parallel rays should converge after refraction. Diagrams (1) and (3) follow converging-lens behavior, but diagram (2) incorrectly shows divergence after the lens.',
     difficulty: 2,
@@ -13360,6 +13515,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['A converging lens bends light toward the principal axis.', 'Parallel rays should meet on the focal plane.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-040-question.png']
+  },
+{
+    id: 'lens-041',
+    question: 'The photograph shows a student using a convex lens of focal length 20 cm to view a distant object. Which of the following statements about the image formed is/are correct? (1) The image will be erect. (2) The image will be diminished. (3) The student must use a screen in order to see the image.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(2) only',
     explanation: 'For a distant object, a convex lens forms a real inverted image at the focus. Since the image distance is much smaller than the object distance, the image is diminished. The eye can still see a real image directly without requiring a screen.',
     difficulty: 2,
@@ -13367,6 +13528,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['A distant object forms its image near the focus of a convex lens.', 'Real images are not necessarily visible only on a screen.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-041-question.png']
+  },
+{
+    id: 'lens-042',
+    question: 'The photograph shows a watch with a lens positioned over the date-display. Which of the following statements are correct? (1) The lens is a convex lens. (2) The image of the date-display formed by the lens is virtual. (3) The date-display and its image lie on the same side of the lens.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
     answer: '(1), (2) & (3)',
     explanation: 'A magnified image is produced here, so the lens is convex. Because the image is upright, it is virtual. A virtual image formed by a magnifier lies on the same side of the lens as the object.',
     difficulty: 1,
@@ -13374,6 +13541,17 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['A magnifying glass is a convex lens.', 'An erect magnified lens image is virtual.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-042-question.png']
+  },
+{
+    id: 'lens-043',
+    question: "An object O is placed in front of a concave lens. F and F' are the foci of the lens. Which of the following diagrams shows the refracted rays of the three incident rays and the image I formed?",
+    options: [
+      '/physics/exercises/lens/lens-043-option-a.png',
+      '/physics/exercises/lens/lens-043-option-b.png',
+      '/physics/exercises/lens/lens-043-option-c.png',
+      '/physics/exercises/lens/lens-043-option-d.png'
+    ],
     answer: '/physics/exercises/lens/lens-043-option-b.png',
     explanation: 'For a concave lens, a ray parallel to the principal axis appears to diverge from the focus, a ray through the optical centre continues straight, and the virtual image is upright and diminished on the object side. Only option B satisfies all three.',
     difficulty: 2,
@@ -13381,6 +13559,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Use the three standard rays for a concave lens.', 'The image must be virtual, upright and diminished.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-043-question.png']
+  },
+{
+    id: 'lens-044',
+    question: 'An object is placed in front of a concave lens. Which of the following statements about the properties of the image formed in the lens must be correct? (1) The image is diminished. (2) The image is virtual. (3) The image distance is smaller than the focal length of the lens.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
     answer: '(1), (2) & (3)',
     explanation: 'A concave lens always produces a virtual, erect and diminished image. The image lies between the lens and the focus, so its image distance is smaller than the focal length in magnitude.',
     difficulty: 1,
@@ -13405,6 +13589,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['A magnifying glass uses a convex lens.', 'The image must be virtual, upright and enlarged.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-045-question.png']
+  },
+{
+    id: 'lens-046',
+    question: 'An object is placed near a lens and an image is formed as shown. Which of the following statements are correct? (1) The height of the image is half that of the object. (2) The lens is a concave lens. (3) The focal length of the lens is 20 cm.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
     answer: '(1), (2) & (3)',
     explanation: 'The image is diminished and virtual, so the lens must be concave. The image height being half the object height gives magnification 0.5. Drawing a ray parallel to the principal axis and extending the refracted ray backward gives a focal length of 20 cm.',
     difficulty: 2,
@@ -13412,13 +13602,25 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['A concave lens gives a virtual diminished image for a real object.', 'Use the ray parallel to the principal axis to locate the focus.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-046-question.png']
+  },
+{
+    id: 'lens-047',
+    question: 'An illuminated object is placed 20 cm in front of a convex lens and a sharp image is formed on a screen 16 cm from the lens. The focal length of the convex lens is',
+    options: ['less than 8 cm', 'between 8 cm and 10 cm', 'between 10 cm and 16 cm', 'between 16 cm and 20 cm'],
     answer: 'between 8 cm and 10 cm',
-    explanation: 'Using the lens formula 1/f = 1/u + 1/v with u = 20 cm and v = 16 cm gives f = uv/(u+v) = 320/36, approximately 8.9 cm. So the focal length lies between 8 cm and 10 cm.',
+    explanation: 'Using the lens formula 1/f = 1/u + 1/v with u = 20 cm and v = 16 cm gives f = uv/(u+v) = 320/36 �� 8.9 cm. So the focal length lies between 8 cm and 10 cm.',
     difficulty: 2,
     sectionId: 'lens',
     hints: ['Use 1/f = 1/u + 1/v for a real image by a convex lens.', 'Then compare the result with the intervals.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-047-question.png']
+  },
+{
+    id: 'lens-048',
+    question: 'Which of the following examples illustrate(s) a real image? (1) a fish in a pond being observed from above the water (2) a fingerprint left at a crime scene being observed through a magnifying glass (3) a motion picture on the screen being watched in a cinema',
+    options: ['(1) only', '(2) only', '(3) only', '(1), (2) & (3)'],
     answer: '(3) only',
     explanation: 'A fish seen in water appears at a virtual apparent depth. A magnifying glass forms a virtual enlarged image. A motion picture formed on a cinema screen is a real image because light actually falls on the screen.',
     difficulty: 1,
@@ -13438,6 +13640,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['A convex lens is a converging lens.', 'The ray should move closer to the principal axis after refraction.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-049-question.png']
+  },
+{
+    id: 'lens-050',
+    question: 'The figure shows a web cam. A web cam typically includes a lens and an image sensor. The function of the image sensor is similar to that of a film in a conventional camera. The image is formed on the sensor and is then digitised. Which of the following statements is/are correct? (1) The lens is a convex lens. (2) The lens is a concave lens. (3) Image formed on the image sensor is real.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(1) & (3) only',
     explanation: 'A camera or web cam must form a real image on the sensor, and a real image for a real object is formed by a convex lens, not a concave lens. Therefore statements (1) and (3) are correct.',
     difficulty: 1,
@@ -13445,6 +13653,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['The image sensor plays the role of film.', 'A concave lens does not form a real image of a real object by itself.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-050-question.png']
+  },
+{
+    id: 'lens-051',
+    question: 'A light bulb O is placed in front of a lens L as shown. A sharp and diminished image is formed on the screen S. With the position of L fixed, which of the following methods can form a sharp and magnified image on the screen?',
+    options: ['Move O and S towards L.', 'Move O and S away from L.', 'Move O towards L and move S away from L.', 'Move O away from L and move S towards L.'],
     answer: 'Move O towards L and move S away from L.',
     explanation: 'To obtain a magnified real image, the image distance must be greater than the object distance. So the object must move closer to the lens while the screen moves farther from the lens.',
     difficulty: 2,
@@ -13452,6 +13666,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['For a larger real image, v > u.', 'That means decrease object distance and increase image distance.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-051-question.png']
+  },
+{
+    id: 'lens-052',
+    question: 'Which of the following ray diagrams concerning the refraction of two light rays by a converging lens is/are possible? (1) (2) (3)',
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(3) only',
     explanation: 'For a converging lens, refracted rays should bend toward the principal axis appropriately. In the given set, only diagram (3) shows both rays behaving correctly under refraction by a converging lens.',
     difficulty: 2,
@@ -13459,6 +13679,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['A converging lens bends rays toward the principal axis.', 'Check both rays in each diagram, not just one.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-052-question.png']
+  },
+{
+    id: 'lens-053',
+    question: 'A student puts a lens at a certain distance above a paper with the word "TEST" written on it as shown. What is the lens? If the student moves the lens further away from the paper, what will be the change in the size of the image?',
+    options: ['convex; increases', 'convex; decreases', 'concave; increases', 'concave; decreases'],
     answer: 'concave; decreases',
     explanation: 'The image is erect and diminished, so the lens must be concave. As the lens moves farther from the object, the virtual image moves closer to the focal region and becomes smaller.',
     difficulty: 2,
@@ -13466,6 +13692,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['A concave lens gives an erect diminished virtual image.', 'Increasing object distance reduces magnification for a concave lens.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-053-question.png']
+  },
+{
+    id: 'lens-054',
+    question: 'In the figure, X is a light bulb and L is a convex lens. Which of the following ways can be used to produce a parallel beam of light rays? (1) Moving L closer to X. (2) Replacing L with another convex lens of longer focal length. (3) Replacing L with another concave lens of shorter focal length.',
+    options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
     answer: '(1) & (2) only',
     explanation: 'A convex lens produces a parallel beam when the source is at its focus. Moving the lens closer can place the bulb at the focus, and using a longer focal length convex lens can also do that. A concave lens cannot produce a parallel beam from a nearby real source in this setup.',
     difficulty: 2,
@@ -13473,6 +13705,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['A point source at the focal point of a convex lens gives parallel rays.', 'A concave lens is diverging.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-054-question.png']
+  },
+{
+    id: 'lens-055',
+    question: 'Two parallel rays X and Y meet at P after passing through lens L as shown. Another ray Z parallel to the principal axis is directed to lens L. Which point in the figure will ray Z pass through?',
+    options: ['P', 'Q', 'R', 'S'],
     answer: 'R',
     explanation: 'If two parallel rays meet at P after refraction, then P lies on the focal plane. The principal focus is the point on that focal plane located on the principal axis, which is R. So a ray parallel to the principal axis must pass through R.',
     difficulty: 2,
@@ -13480,6 +13718,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['The principal focus lies on the principal axis.', 'Parallel to the principal axis means the refracted ray goes through the principal focus.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-055-question.png']
+  },
+{
+    id: 'lens-056',
+    question: 'An object is placed in front of a concave lens. Which of the following descriptions about the image formed by the lens is incorrect?',
+    options: ['It is always virtual.', 'It is always diminished.', 'It is always between the object and the lens.', 'It will be formed at infinity if the object is placed at the focus of the lens.'],
     answer: 'It will be formed at infinity if the object is placed at the focus of the lens.',
     explanation: 'A concave lens always forms a virtual, upright, diminished image between the lens and its focus. Even if the object is at the focal position, the image is still finite and remains between the lens and the focus, not at infinity.',
     difficulty: 1,
@@ -13499,6 +13743,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Only a convex lens can produce a magnified image of this type.', 'A virtual image lies on the same side as the object.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-057-question.png']
+  },
+{
+    id: 'lens-058',
+    question: 'An object is placed in front of a converging lens of focal length 30 cm. For which of the following object distances would the image be real and magnified?',
+    options: ['10 cm', '20 cm', '40 cm', '80 cm'],
     answer: '40 cm',
     explanation: 'A converging lens forms a real magnified image when the object lies between f and 2f. Here f = 30 cm and 2f = 60 cm, so 40 cm satisfies the condition.',
     difficulty: 1,
@@ -13523,6 +13773,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['At object distance 2f, image distance is also 2f.', 'A real image by a convex lens is inverted.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-059-question.png']
+  },
+{
+    id: 'lens-060',
+    question: 'Two parallel light rays P and Q are incident onto a convex lens. After refraction, the two light rays meet at point c. The ray XY parallel to the principal axis after passing through the lens will pass through the point',
+    options: ['a', 'b', 'c', 'd'],
     answer: 'b',
     explanation: 'The two parallel rays meet on the focal plane, so the vertical line through b and c is the focal plane. The point on the principal axis in that plane is the principal focus, which is b. Therefore a ray parallel to the principal axis must pass through b.',
     difficulty: 2,
@@ -13530,6 +13786,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['The principal focus lies on the principal axis.', 'Any ray parallel to the principal axis goes through the principal focus after a convex lens.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-060-question.png']
+  },
+{
+    id: 'lens-061',
+    question: 'An object is placed at the focus of a diverging lens of focal length 10 cm. What is the magnification of the image formed?',
+    options: ['0.5', '1.0', '2.0', 'infinite'],
     answer: '0.5',
     explanation: 'For a diverging lens, f = -10 cm and u = 10 cm. Using 1/f = 1/u + 1/v gives v = -5 cm. Hence the magnification magnitude is |v/u| = 5/10 = 0.5.',
     difficulty: 2,
@@ -13549,6 +13811,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Rearrange the lens formula into a linear form.', 'Also note that m = 1 occurs at 2f.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-062-question.png', '/physics/exercises/lens/lens-062-question-2.png']
+  },
+{
+    id: 'lens-063',
+    question: 'An object is placed at 15 cm from a lens. A virtual image magnified 2 times is produced. The lens is a',
+    options: ['concave lens of focal length 10 cm', 'convex lens of focal length 10 cm', 'concave lens of focal length 30 cm', 'convex lens of focal length 30 cm'],
     answer: 'convex lens of focal length 30 cm',
     explanation: 'With magnification 2 and object distance 15 cm, the image distance magnitude is 30 cm. Because the image is virtual, v = -30 cm. Then 1/f = 1/15 + 1/(-30) = 1/30, so f = +30 cm. A positive focal length means a convex lens.',
     difficulty: 2,
@@ -13633,6 +13901,17 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['A magnifying glass produces a virtual image.', 'The image must be upright and magnified.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-069-question.png']
+  },
+{
+    id: 'lens-070',
+    question: 'A student uses the set-up in Figure (a) to study the relationship between the object distance u and the image distance v of a convex lens. A graph of 1/v against 1/u is plotted in Figure (b). If the lens is replaced by another convex lens of shorter focal length, which of the following graphs (in dotted lines) would be obtained?',
+    options: [
+      '/physics/exercises/lens/lens-070-option-a.png',
+      '/physics/exercises/lens/lens-070-option-b.png',
+      '/physics/exercises/lens/lens-070-option-c.png',
+      '/physics/exercises/lens/lens-070-option-d.png'
+    ],
     answer: '/physics/exercises/lens/lens-070-option-d.png',
     explanation: 'From 1/f = 1/u + 1/v, we get 1/v = -1/u + 1/f. The slope stays at -1. A shorter focal length means larger 1/f, so the y-intercept increases. That corresponds to option D.',
     difficulty: 2,
@@ -13640,6 +13919,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Rewrite the lens formula into straight-line form.', 'Only the intercept changes when the focal length changes.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-070-question.png']
+  },
+{
+    id: 'lens-071',
+    question: "In each of the following diagrams, L is a concave lens and its two principal foci are denoted by F and F'. Which of the ray diagrams is/are possible? (1) (2) (3)",
+    options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(1) only',
     explanation: 'A concave lens is diverging. In diagram (1), the ray bends away from the principal axis correctly. In diagram (2), a ray aimed at the far focus should emerge parallel, which is not shown correctly. In diagram (3), a ray whose backward extension passes through the near focus would require a parallel incident ray, which is inconsistent. So only (1) is possible.',
     difficulty: 2,
@@ -13647,6 +13932,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Check the standard rays for a concave lens.', 'A ray directed toward the far focus emerges parallel.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-071-question.png']
+  },
+{
+    id: 'lens-072',
+    question: 'A point light source at X on the principal axis of a thin convex lens emits a ray of light. The ray passes through the lens and reaches the principal axis at point Y as shown. O is the optical centre of the lens such that OX = 20 cm and OY > OX. Which of the following statements is/are correct? (1) The focal length of the lens is shorter than 20 cm. (2) If the point light source is shifted away from the lens, separation OY would increase. (3) An object placed at Y would give a diminished image at X.',
+    options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(1) & (3) only',
     explanation: 'Since X forms a real image at Y, the object at X must be beyond the focal point, so the focal length is less than 20 cm. If the object moves farther away, the image distance decreases toward the focus, so OY would decrease, not increase. Reversing the object and image positions, an object at Y forms an image at X, and because OX < OY, the image at X is diminished.',
     difficulty: 2,
@@ -13654,6 +13945,17 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['For a real image by a convex lens, the object must be outside the focal length.', 'Light paths through a thin lens are reversible.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-072-question.png']
+  },
+{
+    id: 'lens-073',
+    question: "An object O placed in front of a concave lens forms an image I as shown. F and F' are the foci of the lens. Which ray diagram is correct?",
+    options: [
+      '/physics/exercises/lens/lens-073-option-a.png',
+      '/physics/exercises/lens/lens-073-option-b.png',
+      '/physics/exercises/lens/lens-073-option-c.png',
+      '/physics/exercises/lens/lens-073-option-d.png'
+    ],
     answer: '/physics/exercises/lens/lens-073-option-b.png',
     explanation: 'For a concave lens, the refracted ray from the bottom of the object must appear to diverge from the bottom of the virtual image. Only option B matches the correct geometry.',
     difficulty: 2,
@@ -13661,6 +13963,17 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['A concave lens gives an upright virtual image.', 'The ray should appear to come from the corresponding point on the image.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-073-question.png']
+  },
+{
+    id: 'lens-074',
+    question: 'A student uses a convex lens to investigate the variation of image distance v with object distance u for real image. The graph of 1/v plotted against 1/u is shown. If a convex lens of longer focal length is used, what would be the expected result (in dotted lines)?',
+    options: [
+      '/physics/exercises/lens/lens-074-option-a.png',
+      '/physics/exercises/lens/lens-074-option-b.png',
+      '/physics/exercises/lens/lens-074-option-c.png',
+      '/physics/exercises/lens/lens-074-option-d.png'
+    ],
     answer: '/physics/exercises/lens/lens-074-option-d.png',
     explanation: 'From 1/v = -1/u + 1/f, the slope remains -1. A longer focal length means smaller 1/f, so the y-intercept decreases. That matches option D.',
     difficulty: 2,
@@ -13668,6 +13981,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Use the straight-line form of the lens equation.', 'Longer focal length lowers the intercept.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-074-question.png']
+  },
+{
+    id: 'lens-075',
+    question: 'An object is moving at constant speed towards a convex lens of focal length 10 cm. At the moment when it is at 100 cm from the lens, which of the following descriptions of the image is correct?',
+    options: ['away from the lens; faster than that of the object', 'towards the lens; faster than that of the object', 'away from the lens; slower than that of the object', 'towards the lens; slower than that of the object'],
     answer: 'away from the lens; slower than that of the object',
     explanation: 'At 100 cm, the object is well beyond 2f, so the image is real, diminished and on the far side of the lens. As the object moves toward the lens, the image also moves away from the lens. Since the image is diminished at that instant, its speed is smaller than that of the object.',
     difficulty: 2,
@@ -13693,7 +14012,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'An object placed 25.0 cm in front of a lens forms a virtual image at a distance 11.1 cm from the lens. The lens is a',
     options: ['concave lens of focal length 7.7 cm', 'concave lens of focal length 20 cm', 'convex lens of focal length 7.7 cm', 'convex lens of focal length 20 cm'],
     answer: 'concave lens of focal length 20 cm',
-    explanation: 'For a virtual image, v = -11.1 cm. Using 1/f = 1/25 + 1/(-11.1) gives f approximately -20 cm. A negative focal length means the lens is concave.',
+    explanation: 'For a virtual image, v = -11.1 cm. Using 1/f = 1/25 + 1/(-11.1) gives f �� -20 cm. A negative focal length means the lens is concave.',
     difficulty: 2,
     sectionId: 'lens',
     hints: ['Use negative image distance for a virtual image.', 'The sign of the focal length tells you the lens type.'],
@@ -13702,13 +14021,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
   },
 {
     id: 'wol-001',
-    question: 'An electromagnetic wave has a frequency of the order of 10^16 Hz. What should be the type of the electromagnetic wave? Given that the speed of light in vacuum is 3 x 10^8 m s^-1.',
+    question: 'An electromagnetic wave has a frequency of the order of 10^16 Hz. What should be the type of the electromagnetic wave? Given that the speed of light in vacuum is 3 �� 10^8 m s^-1.',
     options: ['infra-red rays', 'visible light', 'ultra-violet rays', 'X-rays'],
     answer: 'ultra-violet rays',
-    explanation: 'Using v = f lambda, the wavelength is lambda = (3 x 10^8) / (10^16) = 3 x 10^-8 m. This lies in the ultra-violet region of the electromagnetic spectrum.',
+    explanation: 'Using v = f��, the wavelength is �� = (3 �� 10^8) / (10^16) = 3 �� 10^-8 m. This lies in the ultra-violet region of the electromagnetic spectrum.',
     difficulty: 1,
     sectionId: 'wave-nature-of-light',
-    hints: ['Use v = f lambda.', 'Compare the wavelength with the EM spectrum ranges.'],
+    hints: ['Use v = f��.', 'Compare the wavelength with the EM spectrum ranges.'],
     type: 'multiple_choice',
     points: 15
   },
@@ -13750,10 +14069,10 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
   },
 {
     id: 'wol-005',
-    question: 'Given that the approximate wavelength of red light is 7 x 10^-7 m, what is the approximate wavelength of an FM radio wave?',
-    options: ['3 x 10^2 m', '3 x 10^-3 m', '3 x 10^-7 m', '3 x 10^-9 m'],
-    answer: '3 x 10^2 m',
-    explanation: 'FM radio waves have wavelengths on the order of 10^2 m, which is far longer than visible light. So the best estimate is 3 x 10^2 m.',
+    question: 'Given that the approximate wavelength of red light is 7 �� 10^-7 m, what is the approximate wavelength of an FM radio wave?',
+    options: ['3 �� 10^2 m', '3 �� 10^-3 m', '3 �� 10^-7 m', '3 �� 10^-9 m'],
+    answer: '3 �� 10^2 m',
+    explanation: 'FM radio waves have wavelengths on the order of 10^2 m, which is far longer than visible light. So the best estimate is 3 �� 10^2 m.',
     difficulty: 1,
     sectionId: 'wave-nature-of-light',
     hints: ['Radio waves are much longer than visible light.', 'This is an order-of-magnitude comparison question.'],
@@ -13765,7 +14084,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'When light travels from air to glass, which of the following statements is/are true? (1) The speed of the light changes. (2) The wavelength of the light increases. (3) The frequency of the light remains unchanged.',
     options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(1) & (3) only',
-    explanation: 'When light enters glass from air, its speed decreases. The frequency remains unchanged at the boundary. Since v = f lambda and f is unchanged while v decreases, the wavelength decreases, not increases.',
+    explanation: 'When light enters glass from air, its speed decreases. The frequency remains unchanged at the boundary. Since v = f�� and f is unchanged while v decreases, the wavelength decreases, not increases.',
     difficulty: 1,
     sectionId: 'wave-nature-of-light',
     hints: ['Frequency is fixed across refraction.', 'A lower speed with the same frequency means a shorter wavelength.'],
@@ -13774,10 +14093,10 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
   },
 {
     id: 'wol-007',
-    question: 'A short pulse of microwave travelling at 3 x 10^8 m s^-1 was used to detect the position of a stationary weather balloon. It was found that the microwaves reflected from the balloon were picked up 2 x 10^-4 s after the pulse had been emitted from the station. The distance of the balloon from the station was',
-    options: ['1.5 x 10^4 m', '3.0 x 10^4 m', '1.5 x 10^12 m', '3.0 x 10^12 m'],
-    answer: '3.0 x 10^4 m',
-    explanation: 'The given time is for the round trip. So the one-way distance is d = (1/2)vt = (1/2)(3 x 10^8)(2 x 10^-4) = 3 x 10^4 m.',
+    question: 'A short pulse of microwave travelling at 3 �� 10^8 m s^-1 was used to detect the position of a stationary weather balloon. It was found that the microwaves reflected from the balloon were picked up 2 �� 10^-4 s after the pulse had been emitted from the station. The distance of the balloon from the station was',
+    options: ['1.5 �� 10^4 m', '3.0 �� 10^4 m', '1.5 �� 10^12 m', '3.0 �� 10^12 m'],
+    answer: '3.0 �� 10^4 m',
+    explanation: 'The given time is for the round trip. So the one-way distance is d = (1/2)vt = (1/2)(3 �� 10^8)(2 �� 10^-4) = 3 �� 10^4 m.',
     difficulty: 1,
     sectionId: 'wave-nature-of-light',
     hints: ['The pulse travels to the balloon and back.', 'Use half the round-trip distance.'],
@@ -13831,6 +14150,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['Infra-red lies just beyond visible red.', 'Electromagnetic waves are not deflected by electric or magnetic fields.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/wave-nature-of-light/wol-011-question.png']
+  },
+{
+    id: 'wol-012',
+    question: 'If the speed of radio waves in air is v1 and the speed of light in air is v2, which of the following is correct?',
+    options: ['v2 > 2v1', '2v1 > v2 > v1', 'v1 = v2', '2v2 > v1 > v2'],
     answer: 'v1 = v2',
     explanation: 'Both radio waves and visible light are electromagnetic waves, so in air they travel at essentially the same speed.',
     difficulty: 1,
@@ -13844,7 +14169,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'When a light ray travels from air to water, how do the speed, the frequency and the wavelength change?',
     options: ['speed remains the same; frequency remains the same; wavelength remains the same', 'speed becomes smaller; frequency becomes greater; wavelength remains the same', 'speed becomes smaller; frequency remains the same; wavelength becomes smaller', 'speed becomes greater; frequency remains the same; wavelength becomes smaller'],
     answer: 'speed becomes smaller; frequency remains the same; wavelength becomes smaller',
-    explanation: 'Light slows down in water compared with air. The frequency stays unchanged at the boundary. Since v = f lambda and f is unchanged while v decreases, the wavelength also decreases.',
+    explanation: 'Light slows down in water compared with air. The frequency stays unchanged at the boundary. Since v = f�� and f is unchanged while v decreases, the wavelength also decreases.',
     difficulty: 1,
     sectionId: 'wave-nature-of-light',
     hints: ['Frequency remains unchanged during refraction.', 'A lower speed with the same frequency means a shorter wavelength.'],
@@ -13853,13 +14178,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
   },
 {
     id: 'wol-014',
-    question: 'A pulse of microwave of speed 3 x 10^8 m s^-1 is sent out to detect the position of a stationary weather balloon. The reflected microwave was picked up in 2 x 10^-4 s after emission. What is the distance of the balloon from the station?',
-    options: ['1.5 x 10^4 m', '3.0 x 10^4 m', '6.0 x 10^4 m', '1.5 x 10^12 m'],
-    answer: '3.0 x 10^4 m',
-    explanation: 'The time measured is for the wave to go to the balloon and return. So the one-way distance is d = (1/2)vt = (1/2)(3 x 10^8)(2 x 10^-4) = 3 x 10^4 m.',
+    question: 'A pulse of microwave of speed 3 �� 10^8 m s^-1 is sent out to detect the position of a stationary weather balloon. The reflected microwave was picked up in 2 �� 10^-4 s after emission. What is the distance of the balloon from the station?',
+    options: ['1.5 �� 10^4 m', '3.0 �� 10^4 m', '6.0 �� 10^4 m', '1.5 �� 10^12 m'],
+    answer: '3.0 �� 10^4 m',
+    explanation: 'The time measured is for the wave to go to the balloon and return. So the one-way distance is d = (1/2)vt = (1/2)(3 �� 10^8)(2 �� 10^-4) = 3 �� 10^4 m.',
     difficulty: 1,
     sectionId: 'wave-nature-of-light',
-    hints: ['Use half the round-trip distance.', 'Distance = speed x time.'],
+    hints: ['Use half the round-trip distance.', 'Distance = speed �� time.'],
     type: 'multiple_choice',
     points: 15
   },
@@ -13898,8 +14223,14 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: ['All electromagnetic waves have the same speed in vacuum.', 'Electromagnetic waves are not charged particles.'],
     type: 'multiple_choice',
     points: 15,
+    imagePaths: ['/physics/exercises/wave-nature-of-light/wol-017-question.png']
+  },
+{
+    id: 'wol-018',
+    question: 'What happens to the wavelength and frequency of a ray of light if it passes from water to air?',
+    options: ['wavelength increases; frequency decreases', 'wavelength decreases; frequency remains unchanged', 'wavelength remains unchanged; frequency increases', 'wavelength increases; frequency remains unchanged'],
     answer: 'wavelength increases; frequency remains unchanged',
-    explanation: 'Light travels faster in air than in water. The frequency remains unchanged at the boundary. Since v = f lambda and f is constant while v increases, the wavelength increases.',
+    explanation: 'Light travels faster in air than in water. The frequency remains unchanged at the boundary. Since v = f�� and f is constant while v increases, the wavelength increases.',
     difficulty: 1,
     sectionId: 'wave-nature-of-light',
     hints: ['Frequency does not change during refraction.', 'A higher speed at the same frequency means a longer wavelength.'],
@@ -13923,7 +14254,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     type: 'multiple_choice',
     points: 15
   },
-{
+  {
     id: 'wol-020',
     question: 'Which of the following is an application of microwaves in everyday life?',
     options: ['Radar', 'Carbon-14 dating', 'Radiotherapy', 'Detecting cracks in railway track'],
