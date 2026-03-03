@@ -14005,6 +14005,50 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     points: 15
   },
 {
+    id: 'lens-078',
+    question: 'The figure shows a periscope designed by a student. An object is observed via the periscope. Which image will the observer see?',
+    options: [
+      '/physics/exercises/lens/lens-078-option-a.png',
+      '/physics/exercises/lens/lens-078-option-b.png',
+      '/physics/exercises/lens/lens-078-option-c.png',
+      '/physics/exercises/lens/lens-078-option-d.png'
+    ],
+    answer: '/physics/exercises/lens/lens-078-option-d.png',
+    explanation: 'A periscope uses two plane mirrors. Each reflection laterally inverts the image once, so after two reflections the final image is upright and has the same left-right orientation as the original object. That matches option D.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['A plane mirror gives lateral inversion.', 'Two successive reflections reverse the left-right inversion.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-078-question.png']
+  },
+{
+    id: 'lens-079',
+    question: 'Referring to the above ray diagram, what kind of lens is represented by L? Which point, P or Q, can be its focus?',
+    options: ['concave lens, P', 'convex lens, P', 'concave lens, Q', 'convex lens, Q'],
+    answer: 'concave lens, P',
+    explanation: 'The refracted rays spread out after passing through the lens, so L must be a concave lens. A concave lens has a virtual focus on the same side as the incident light, so the focus is at P. Therefore option A is correct.',
+    difficulty: 2,
+    sectionId: 'lens',
+    hints: ['A concave lens is a diverging lens.', 'Its principal focus lies on the incident side.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-079-question.png']
+  },
+{
+    id: 'lens-080',
+    question: 'The figure shows an enlarged sharp image of an object O formed on a screen S by a convex lens L. Which of the following can give a diminished sharp image on the screen? (1) Keeping the positions of O and L unchanged, move S suitably closer to L. (2) Keeping the positions of L and S unchanged, move O suitably farther away from L. (3) Keeping the positions of O and S unchanged, move L suitably closer to S.',
+    options: ['(1) only', '(3) only', '(1) and (2) only', '(2) and (3) only'],
+    answer: '(3) only',
+    explanation: 'An enlarged real image means the object is between F and 2F. For the same object-screen separation there is another lens position that gives the conjugate, diminished real image. Reaching that second position requires moving the lens towards the screen. Simply moving the screen does not change where the image forms for fixed O and L, and moving only the object while keeping L and S fixed will not in general keep the image sharp on the same screen.',
+    difficulty: 3,
+    sectionId: 'lens',
+    hints: ['A fixed object-screen distance can give two sharp lens positions.', 'The second position swaps enlarged and diminished images.'],
+    type: 'multiple_choice',
+    points: 15,
+    imagePaths: ['/physics/exercises/lens/lens-080-question.png']
+  },
+{
     id: 'wol-001',
     question: 'An electromagnetic wave has a frequency of the order of 10^16 Hz. What should be the type of the electromagnetic wave? Given that the speed of light in vacuum is 3 x 10^8 m s^-1.',
     options: ['infra-red rays', 'visible light', 'ultra-violet rays', 'X-rays'],
@@ -15918,6 +15962,30 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     difficulty: 1,
     sectionId: 'sound',
     hints: ['Both longitudinal and transverse waves transfer energy.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+  {
+    id: 'snd-079',
+    question: 'Which of the following phenomena provides conclusive evidence that sound is a wave?\n\n(1) reflection of sound from a wall\n(2) refraction of sound at the boundary between two media\n(3) interference of sound',
+    options: ['(2) only', '(3) only', '(1) and (2) only', '(1) and (3) only'],
+    answer: '(3) only',
+    explanation: 'Reflection and refraction can happen to different kinds of disturbances, so they do not by themselves prove wave behaviour. Interference is a distinctly wave phenomenon that requires superposition, so observing sound interference gives conclusive evidence that sound is a wave.',
+    difficulty: 2,
+    sectionId: 'sound',
+    hints: ['Look for the phenomenon that directly depends on superposition.', 'Interference is a clear signature of wave behaviour.'],
+    type: 'multiple_choice',
+    points: 15
+  },
+  {
+    id: 'snd-080',
+    question: 'Which of the following statements about ultrasound is/are correct?\n\n(1) Ultrasound has a shorter wavelength than audible sound.\n(2) Ultrasound cannot be produced by vibrating objects.\n(3) Ultrasound cannot be heard as it cannot travel through air.',
+    options: ['(1) only', '(3) only', '(1) and (2) only', '(2) and (3) only'],
+    answer: '(1) only',
+    explanation: 'Ultrasound is simply sound with frequency above the audible range. In the same medium, higher frequency means shorter wavelength, so statement (1) is true. It can be produced by vibrating sources, and it can travel through air even though human ears cannot hear it.',
+    difficulty: 2,
+    sectionId: 'sound',
+    hints: ['Use v = f lambda in the same medium.', 'Ultrasound is sound, so it still needs a material medium but it can travel in air.'],
     type: 'multiple_choice',
     points: 15
   }
