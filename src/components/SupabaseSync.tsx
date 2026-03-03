@@ -10,7 +10,6 @@ import {
   applyProgressPayload,
   buildProgressPayloadWithMeta,
   fetchUserProgress,
-  resetProgressStores,
   saveUserProgress,
 } from '../store/supabaseProgress'
 
@@ -61,6 +60,31 @@ export default function SupabaseSync() {
     }, SAVE_DEBOUNCE_MS)
   }, [])
 
+  const hasLocalProgress = useCallback(() => {
+    const physics = usePhysicsStore.getState()
+    const math = useMathStore.getState()
+    const english = useEnglishStore.getState()
+    const m2 = useM2Store.getState()
+
+    return Boolean(
+      physics.progress.length ||
+        physics.wrongAnswers.length ||
+        physics.dailyStudy.length ||
+        Object.keys(physics.exerciseProgress).length ||
+        math.practiceRecords.length ||
+        math.errorLogs.length ||
+        Object.keys(math.topicProgress).length ||
+        math.dailyStudy.length ||
+        english.practiceRecords.length ||
+        english.errorLogs.length ||
+        Object.keys(english.skillProgress).length ||
+        english.essaySubmissions.length ||
+        english.speakingRecordings.length ||
+        english.dailyStudy.length ||
+        m2.progress.length
+    )
+  }, [])
+
   const handleSession = useCallback(
     async (session: Session | null) => {
       if (!session?.user) {
@@ -68,7 +92,10 @@ export default function SupabaseSync() {
         readyRef.current = false
         setGlobalUser(null)
         setPhysicsUser(null)
-        resetProgressStores()
+        if (saveTimerRef.current) {
+          window.clearTimeout(saveTimerRef.current)
+          saveTimerRef.current = null
+        }
         return
       }
 
@@ -82,17 +109,19 @@ export default function SupabaseSync() {
       const { payload, error } = await fetchUserProgress(userId)
       if (activeUserIdRef.current !== userId) return
 
+      const shouldSeedCloudFromLocal = !payload && !error && hasLocalProgress()
+
       if (payload) {
         applyProgressPayload(payload)
-      } else if (!error) {
-        resetProgressStores()
       }
 
       hydratingRef.current = false
       readyRef.current = true
-      scheduleSave()
+      if (shouldSeedCloudFromLocal) {
+        scheduleSave()
+      }
     },
-    [scheduleSave, setGlobalUser, setPhysicsUser]
+    [hasLocalProgress, scheduleSave, setGlobalUser, setPhysicsUser]
   )
 
   useEffect(() => {
