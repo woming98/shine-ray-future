@@ -107,6 +107,207 @@ export const FORCE_MOTION_FORMULAS: Formula[] = [
     ],
     description: 'Convert between km/h and m/s before substituting into equations.',
     example: '72 km/h = 72 x 5/18 = 20 m/s.'
+  },
+  {
+    id: 'fm-9',
+    name: 'Displacement from a v-t Graph',
+    nameCN: '速度时间图求位移',
+    expression: 's = area under the v-t graph',
+    variables: [
+      { symbol: 's', name: 'displacement', unit: 'm', description: 'signed area under the graph' },
+      { symbol: 'v', name: 'velocity', unit: 'm/s', description: 'vertical axis quantity' },
+      { symbol: 't', name: 'time', unit: 's', description: 'horizontal axis quantity' }
+    ],
+    description: 'For a velocity-time graph, the signed area between the graph and the time axis gives displacement.',
+    example: 'If the graph forms a rectangle of height 6 m/s and width 4 s, then s = 24 m.'
+  },
+  {
+    id: 'fm-10',
+    name: "Newton's Second Law",
+    nameCN: '牛顿第二定律',
+    expression: 'F = ma',
+    variables: [
+      { symbol: 'F', name: 'resultant force', unit: 'N', description: 'net force acting on the body' },
+      { symbol: 'm', name: 'mass', unit: 'kg', description: 'mass of the object' },
+      { symbol: 'a', name: 'acceleration', unit: 'm/s^2', description: 'resulting acceleration' }
+    ],
+    description: 'Use the resultant force, not an individual force, when applying Newton\'s second law.',
+    example: 'A 2 kg cart accelerating at 3 m/s^2 needs a resultant force of 6 N.'
+  },
+  {
+    id: 'fm-11',
+    name: 'Weight',
+    nameCN: '重力',
+    expression: 'W = mg',
+    variables: [
+      { symbol: 'W', name: 'weight', unit: 'N', description: 'gravitational force on the object' },
+      { symbol: 'm', name: 'mass', unit: 'kg', description: 'mass of the object' },
+      { symbol: 'g', name: 'gravitational field strength', unit: 'N/kg', description: 'approximately 9.81 near Earth' }
+    ],
+    description: 'This converts mass into the gravitational force acting on an object.',
+    example: 'For m = 5 kg, W = 5 x 9.81 = 49.1 N.'
+  },
+  {
+    id: 'fm-12',
+    name: 'Moment of a Force',
+    nameCN: '力矩',
+    expression: 'M = Fd',
+    variables: [
+      { symbol: 'M', name: 'moment', unit: 'N m', description: 'turning effect about a pivot' },
+      { symbol: 'F', name: 'force', unit: 'N', description: 'applied force' },
+      { symbol: 'd', name: 'perpendicular distance', unit: 'm', description: 'shortest distance from pivot to line of action' }
+    ],
+    description: 'Always use the perpendicular distance from the pivot to the line of action of the force.',
+    example: 'A 10 N force acting 0.3 m from a pivot gives a moment of 3.0 N m.'
+  },
+  {
+    id: 'fm-13',
+    name: 'Principle of Moments',
+    nameCN: '力矩平衡',
+    expression: 'sum clockwise moments = sum anticlockwise moments',
+    variables: [
+      { symbol: 'clockwise', name: 'clockwise moments', unit: 'N m', description: 'moments tending to turn clockwise' },
+      { symbol: 'anticlockwise', name: 'anticlockwise moments', unit: 'N m', description: 'moments tending to turn anticlockwise' }
+    ],
+    description: 'For rotational equilibrium, the total clockwise turning effect equals the total anticlockwise turning effect.',
+    example: 'If a 20 N force acts 0.2 m from one side of a pivot, a 10 N force must act 0.4 m on the other side.'
+  },
+  {
+    id: 'fm-14',
+    name: 'Work Done',
+    nameCN: '功',
+    expression: 'W = Fs cos theta',
+    variables: [
+      { symbol: 'W', name: 'work done', unit: 'J', description: 'energy transferred by a force' },
+      { symbol: 'F', name: 'force', unit: 'N', description: 'applied force' },
+      { symbol: 's', name: 'displacement', unit: 'm', description: 'distance moved' },
+      { symbol: 'theta', name: 'angle', unit: 'deg', description: 'angle between force and displacement' }
+    ],
+    description: 'If the force acts along the direction of motion, this reduces to W = Fs.',
+    example: 'A 50 N force pulling 4 m horizontally does 200 J of work.'
+  },
+  {
+    id: 'fm-15',
+    name: 'Power',
+    nameCN: '功率',
+    expression: 'P = W/t = Fv',
+    variables: [
+      { symbol: 'P', name: 'power', unit: 'W', description: 'rate of doing work' },
+      { symbol: 'W', name: 'work done', unit: 'J', description: 'energy transferred' },
+      { symbol: 't', name: 'time', unit: 's', description: 'time taken' },
+      { symbol: 'F', name: 'force', unit: 'N', description: 'driving force' },
+      { symbol: 'v', name: 'velocity', unit: 'm/s', description: 'speed in the direction of force' }
+    ],
+    description: 'Use P = W/t for average power and P = Fv when force and velocity are along the same line.',
+    example: 'If a machine does 600 J of work in 3 s, its power is 200 W.'
+  },
+  {
+    id: 'fm-16',
+    name: 'Kinetic Energy',
+    nameCN: '动能',
+    expression: 'E_k = 1/2 mv^2',
+    variables: [
+      { symbol: 'E_k', name: 'kinetic energy', unit: 'J', description: 'energy due to motion' },
+      { symbol: 'm', name: 'mass', unit: 'kg', description: 'mass of the object' },
+      { symbol: 'v', name: 'speed', unit: 'm/s', description: 'speed of the object' }
+    ],
+    description: 'Kinetic energy depends on the square of speed, so doubling speed quadruples the kinetic energy.',
+    example: 'A 2 kg object moving at 5 m/s has E_k = 25 J.'
+  },
+  {
+    id: 'fm-17',
+    name: 'Gravitational Potential Energy',
+    nameCN: '重力势能',
+    expression: 'E_p = mgh',
+    variables: [
+      { symbol: 'E_p', name: 'gravitational potential energy', unit: 'J', description: 'energy due to height' },
+      { symbol: 'm', name: 'mass', unit: 'kg', description: 'mass of the object' },
+      { symbol: 'g', name: 'gravitational field strength', unit: 'N/kg', description: 'approximately 9.81 near Earth' },
+      { symbol: 'h', name: 'height', unit: 'm', description: 'vertical height change' }
+    ],
+    description: 'Use the vertical height difference, not the path length travelled.',
+    example: 'A 3 kg mass raised by 2 m gains 58.9 J of gravitational potential energy.'
+  },
+  {
+    id: 'fm-18',
+    name: 'Momentum',
+    nameCN: '动量',
+    expression: 'p = mv',
+    variables: [
+      { symbol: 'p', name: 'momentum', unit: 'kg m/s', description: 'quantity of motion' },
+      { symbol: 'm', name: 'mass', unit: 'kg', description: 'mass of the object' },
+      { symbol: 'v', name: 'velocity', unit: 'm/s', description: 'signed velocity' }
+    ],
+    description: 'Momentum is a vector, so direction must be included through the sign of velocity.',
+    example: 'A 0.5 kg ball moving at 8 m/s has momentum 4 kg m/s.'
+  },
+  {
+    id: 'fm-19',
+    name: 'Impulse',
+    nameCN: '冲量',
+    expression: 'J = F delta t = delta p',
+    variables: [
+      { symbol: 'J', name: 'impulse', unit: 'N s', description: 'change in momentum' },
+      { symbol: 'F', name: 'average force', unit: 'N', description: 'average force during impact' },
+      { symbol: 'delta t', name: 'time interval', unit: 's', description: 'duration of force' },
+      { symbol: 'delta p', name: 'change in momentum', unit: 'kg m/s', description: 'final minus initial momentum' }
+    ],
+    description: 'This links collision time, average force and change in momentum.',
+    example: 'A 10 N force acting for 0.2 s gives an impulse of 2 N s.'
+  },
+  {
+    id: 'fm-20',
+    name: 'Conservation of Momentum',
+    nameCN: '动量守恒',
+    expression: 'sum p_before = sum p_after',
+    variables: [
+      { symbol: 'p_before', name: 'initial total momentum', unit: 'kg m/s', description: 'total momentum before collision or explosion' },
+      { symbol: 'p_after', name: 'final total momentum', unit: 'kg m/s', description: 'total momentum after collision or explosion' }
+    ],
+    description: 'In an isolated system with negligible external force, total momentum remains constant.',
+    example: 'If total momentum before a collision is 6 kg m/s, the total after the collision must also be 6 kg m/s.'
+  },
+  {
+    id: 'fm-21',
+    name: 'Projectile Motion Components',
+    nameCN: '抛体运动分解',
+    expression: 'u_x = u cos theta, u_y = u sin theta, x = u_x t, y = u_y t - 1/2 gt^2',
+    variables: [
+      { symbol: 'u_x', name: 'horizontal component', unit: 'm/s', description: 'constant horizontal velocity component' },
+      { symbol: 'u_y', name: 'vertical component', unit: 'm/s', description: 'initial vertical velocity component' },
+      { symbol: 'u', name: 'launch speed', unit: 'm/s', description: 'initial speed' },
+      { symbol: 'theta', name: 'launch angle', unit: 'deg', description: 'angle above the horizontal' }
+    ],
+    description: 'Treat horizontal and vertical motion separately. Horizontal motion is uniform; vertical motion has acceleration g downward.',
+    example: 'For u = 20 m/s at 30 deg, u_x = 17.3 m/s and u_y = 10.0 m/s.'
+  },
+  {
+    id: 'fm-22',
+    name: 'Centripetal Motion',
+    nameCN: '向心运动',
+    expression: 'a_c = v^2 / r, F_c = mv^2 / r',
+    variables: [
+      { symbol: 'a_c', name: 'centripetal acceleration', unit: 'm/s^2', description: 'acceleration towards the centre' },
+      { symbol: 'F_c', name: 'centripetal force', unit: 'N', description: 'resultant force towards the centre' },
+      { symbol: 'v', name: 'speed', unit: 'm/s', description: 'tangential speed' },
+      { symbol: 'r', name: 'radius', unit: 'm', description: 'radius of circular path' }
+    ],
+    description: 'Uniform circular motion still has acceleration because the direction of velocity keeps changing.',
+    example: 'If v = 6 m/s and r = 3 m, then a_c = 12 m/s^2.'
+  },
+  {
+    id: 'fm-23',
+    name: 'Universal Gravitation',
+    nameCN: '万有引力',
+    expression: 'F = Gm_1m_2 / r^2, g = GM / r^2',
+    variables: [
+      { symbol: 'F', name: 'gravitational force', unit: 'N', description: 'attractive force between two masses' },
+      { symbol: 'G', name: 'gravitational constant', unit: 'N m^2/kg^2', description: 'universal constant' },
+      { symbol: 'r', name: 'separation', unit: 'm', description: 'distance between centres' },
+      { symbol: 'g', name: 'field strength', unit: 'N/kg', description: 'gravitational field strength at distance r' }
+    ],
+    description: 'Use the inverse-square dependence whenever the question is about gravitation between masses or field strength around a planet.',
+    example: 'Doubling the distance between two masses reduces the gravitational force to one quarter.'
   }
 ];
 
