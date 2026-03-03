@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Wave Motion / Optics sections used by the exercise UI.
  */
 
@@ -19,25 +19,31 @@ export const WAVE_MOTION_SECTIONS: WaveMotionSection[] = [
   {
     id: 'wave-phenomena',
     name: 'Wave Phenomena',
-    nameCN: '波動現象',
+    nameCN: '波动现象',
     description: 'Diffraction, interference, reflection, refraction, and stationary waves',
   },
   {
     id: 'reflection-refraction',
     name: 'Reflection and Refraction of Light',
-    nameCN: '光的反射與折射',
+    nameCN: '光的反射与折射',
     description: 'Plane reflection, refraction, critical angle, and total internal reflection',
   },
   {
     id: 'lens',
     name: 'Lens',
-    nameCN: '透鏡',
+    nameCN: '透镜',
     description: 'Image formation by convex and concave lenses',
   },
   {
     id: 'wave-nature-of-light',
     name: 'Wave Nature of Light',
-    nameCN: '光的波動性',
+    nameCN: '光的波动性',
     description: 'Electromagnetic spectrum and wave behavior of light',
+  },
+  {
+    id: 'sound',
+    name: 'Sound',
+    nameCN: '声音',
+    description: 'Sound waves, ultrasound, echoes, interference, and sound intensity',
   },
 ];
