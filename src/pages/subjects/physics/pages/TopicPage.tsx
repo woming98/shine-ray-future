@@ -27,6 +27,7 @@ import {
 import { TEMPERATURE_GAS_EXERCISES } from '../constants/temperatureGas';
 import { TEMPERATURE_GAS_SECTIONS } from '../constants/temperatureGasSections';
 import { TEMPERATURE_GAS_CHAPTERS, TEMPERATURE_GAS_FORMULAS } from '../constants/temperatureGasTheory';
+import { RADIATION_NUCLEAR_SECTIONS } from '../constants/radiationNuclearSections';
 import { WAVE_MOTION_SECTIONS } from '../constants/waveMotionSections';
 import { WAVE_MOTION_FORMULAS } from '../constants/waveMotionTheory';
 import { useStore } from '../store/useStore';
@@ -50,13 +51,24 @@ const WAVE_MOTION_CHAPTERS: Chapter[] = WAVE_MOTION_SECTIONS.map((section, index
   completed: false,
 }));
 
+const RADIATION_NUCLEAR_CHAPTERS: Chapter[] = RADIATION_NUCLEAR_SECTIONS.map((section, index) => ({
+  id: `rn-ch${index + 1}`,
+  title: section.name,
+  titleCN: section.nameCN,
+  concepts: [],
+  formulas: [],
+  exercises: [],
+  simulations: [],
+  completed: false,
+}));
+
 export default function TopicPage() {
   const { topicId } = useParams<{ topicId: string }>();
   const navigate = useNavigate();
   const { getTopicProgress, progress } = useStore();
   
   const [activeTab, setActiveTab] = useState<TabType>(
-    topicId === 'wave-motion' ? 'exercise' : 'theory'
+    topicId === 'wave-motion' || topicId === 'radioactivity-nuclear' ? 'exercise' : 'theory'
   );
   const [activeChapter, setActiveChapter] = useState<string | null>(null);
   const [expandedFormula, setExpandedFormula] = useState<string | null>(null);
@@ -71,6 +83,8 @@ export default function TopicPage() {
         ? WAVE_MOTION_CHAPTERS
       : topicId === 'electricity-magnetism'
         ? ELECTRICITY_MAGNETISM_CHAPTERS
+      : topicId === 'radioactivity-nuclear'
+        ? RADIATION_NUCLEAR_CHAPTERS
       : topicId === 'temperature-gas'
         ? TEMPERATURE_GAS_CHAPTERS
         : [];
@@ -81,12 +95,16 @@ export default function TopicPage() {
         ? WAVE_MOTION_FORMULAS
       : topicId === 'electricity-magnetism'
         ? ELECTRICITY_MAGNETISM_FORMULAS
+      : topicId === 'radioactivity-nuclear'
+        ? []
       : topicId === 'temperature-gas'
         ? TEMPERATURE_GAS_FORMULAS
         : [];
 
   useEffect(() => {
-    setActiveTab(topicId === 'wave-motion' ? 'exercise' : 'theory');
+    setActiveTab(
+      topicId === 'wave-motion' || topicId === 'radioactivity-nuclear' ? 'exercise' : 'theory'
+    );
   }, [topicId]);
 
   useEffect(() => {
@@ -123,6 +141,13 @@ export default function TopicPage() {
           { id: 'quiz', label: 'Quiz', icon: Award },
         ]
       : topicId === 'wave-motion'
+        ? [
+            { id: 'theory', label: '理论学习', icon: BookOpen },
+            { id: 'simulation', label: '互动模拟', icon: FlaskConical },
+            { id: 'calculator', label: '公式计算', icon: Calculator },
+            { id: 'exercise', label: 'Exercise', icon: FileQuestion },
+          ]
+      : topicId === 'radioactivity-nuclear'
         ? [
             { id: 'theory', label: '理论学习', icon: BookOpen },
             { id: 'simulation', label: '互动模拟', icon: FlaskConical },
@@ -311,6 +336,7 @@ export default function TopicPage() {
             {activeTab === 'exercise' &&
               (topicId === 'force-motion' ||
                 topicId === 'wave-motion' ||
+                topicId === 'radioactivity-nuclear' ||
                 topicId === 'electricity-magnetism' ||
                 topicId === 'temperature-gas') && (
                 <ExerciseTab topicId={topicId} />
