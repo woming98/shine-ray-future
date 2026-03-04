@@ -24,9 +24,9 @@ import {
   ELECTRICITY_MAGNETISM_CHAPTERS,
   ELECTRICITY_MAGNETISM_FORMULAS,
 } from '../constants/electricityMagnetismTheory';
-import { ASTRONOMY_SPACE_SECTIONS } from '../constants/astronomySpaceSections';
-import { ATOMIC_WORLD_SECTIONS } from '../constants/atomicWorldSections';
-import { ENERGY_USE_SECTIONS } from '../constants/energyUseSections';
+import { ASTRONOMY_SPACE_CHAPTERS, ASTRONOMY_SPACE_FORMULAS } from '../constants/astronomySpaceTheory';
+import { ATOMIC_WORLD_CHAPTERS, ATOMIC_WORLD_FORMULAS } from '../constants/atomicWorldTheory';
+import { ENERGY_USE_CHAPTERS, ENERGY_USE_FORMULAS } from '../constants/energyUseTheory';
 import { TEMPERATURE_GAS_EXERCISES } from '../constants/temperatureGas';
 import { TEMPERATURE_GAS_SECTIONS } from '../constants/temperatureGasSections';
 import { TEMPERATURE_GAS_CHAPTERS, TEMPERATURE_GAS_FORMULAS } from '../constants/temperatureGasTheory';
@@ -48,39 +48,6 @@ type TabType = 'theory' | 'simulation' | 'calculator' | 'exercise' | 'quiz';
 
 const WAVE_MOTION_CHAPTERS: Chapter[] = WAVE_MOTION_SECTIONS.map((section, index) => ({
   id: `wm-ch${index + 1}`,
-  title: section.name,
-  titleCN: section.nameCN,
-  concepts: [],
-  formulas: [],
-  exercises: [],
-  simulations: [],
-  completed: false,
-}));
-
-const ASTRONOMY_SPACE_CHAPTERS: Chapter[] = ASTRONOMY_SPACE_SECTIONS.map((section, index) => ({
-  id: `as-ch${index + 1}`,
-  title: section.name,
-  titleCN: section.nameCN,
-  concepts: [],
-  formulas: [],
-  exercises: [],
-  simulations: [],
-  completed: false,
-}));
-
-const ATOMIC_WORLD_CHAPTERS: Chapter[] = ATOMIC_WORLD_SECTIONS.map((section, index) => ({
-  id: `aw-ch${index + 1}`,
-  title: section.name,
-  titleCN: section.nameCN,
-  concepts: [],
-  formulas: [],
-  exercises: [],
-  simulations: [],
-  completed: false,
-}));
-
-const ENERGY_USE_CHAPTERS: Chapter[] = ENERGY_USE_SECTIONS.map((section, index) => ({
-  id: `eu-ch${index + 1}`,
   title: section.name,
   titleCN: section.nameCN,
   concepts: [],
@@ -134,11 +101,11 @@ export default function TopicPage() {
       : topicId === 'wave-motion'
         ? WAVE_MOTION_FORMULAS
       : topicId === 'astronomy-space'
-        ? []
+        ? ASTRONOMY_SPACE_FORMULAS
       : topicId === 'atomic-world'
-        ? []
+        ? ATOMIC_WORLD_FORMULAS
       : topicId === 'energy-use'
-        ? []
+        ? ENERGY_USE_FORMULAS
       : topicId === 'electricity-magnetism'
         ? ELECTRICITY_MAGNETISM_FORMULAS
       : topicId === 'radioactivity-nuclear'
