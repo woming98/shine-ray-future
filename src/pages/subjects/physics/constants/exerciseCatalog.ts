@@ -1,5 +1,11 @@
+import { ASTRONOMY_SPACE_EXERCISES } from './astronomySpace'
+import { ASTRONOMY_SPACE_SECTIONS } from './astronomySpaceSections'
+import { ATOMIC_WORLD_EXERCISES } from './atomicWorld'
+import { ATOMIC_WORLD_SECTIONS } from './atomicWorldSections'
 import { ELECTRICITY_MAGNETISM_EXERCISES } from './electricityMagnetism'
 import { ELECTRICITY_MAGNETISM_SECTIONS } from './electricityMagnetismSections'
+import { ENERGY_USE_EXERCISES } from './energyUse'
+import { ENERGY_USE_SECTIONS } from './energyUseSections'
 import { FORCE_MOTION_EXERCISES } from './forceMotion'
 import { FORCE_MOTION_SECTIONS } from './forceMotionSections'
 import { RADIATION_NUCLEAR_EXERCISES } from './radiationNuclear'
@@ -23,6 +29,27 @@ export interface PhysicsExerciseCatalogEntry {
 }
 
 export const PHYSICS_EXERCISE_CATALOG: Record<string, PhysicsExerciseCatalogEntry> = {
+  'astronomy-space': {
+    topicId: 'astronomy-space',
+    chapterId: 'as-ch1',
+    defaultSectionId: 'astronomy-space-science',
+    sections: ASTRONOMY_SPACE_SECTIONS,
+    exercises: ASTRONOMY_SPACE_EXERCISES,
+  },
+  'atomic-world': {
+    topicId: 'atomic-world',
+    chapterId: 'aw-ch1',
+    defaultSectionId: 'atomic-world',
+    sections: ATOMIC_WORLD_SECTIONS,
+    exercises: ATOMIC_WORLD_EXERCISES,
+  },
+  'energy-use': {
+    topicId: 'energy-use',
+    chapterId: 'eu-ch1',
+    defaultSectionId: 'energy-and-use-of-energy',
+    sections: ENERGY_USE_SECTIONS,
+    exercises: ENERGY_USE_EXERCISES,
+  },
   'temperature-gas': {
     topicId: 'temperature-gas',
     chapterId: 'tg-ch1',

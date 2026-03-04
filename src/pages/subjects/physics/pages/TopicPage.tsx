@@ -24,6 +24,9 @@ import {
   ELECTRICITY_MAGNETISM_CHAPTERS,
   ELECTRICITY_MAGNETISM_FORMULAS,
 } from '../constants/electricityMagnetismTheory';
+import { ASTRONOMY_SPACE_SECTIONS } from '../constants/astronomySpaceSections';
+import { ATOMIC_WORLD_SECTIONS } from '../constants/atomicWorldSections';
+import { ENERGY_USE_SECTIONS } from '../constants/energyUseSections';
 import { TEMPERATURE_GAS_EXERCISES } from '../constants/temperatureGas';
 import { TEMPERATURE_GAS_SECTIONS } from '../constants/temperatureGasSections';
 import { TEMPERATURE_GAS_CHAPTERS, TEMPERATURE_GAS_FORMULAS } from '../constants/temperatureGasTheory';
@@ -54,13 +57,52 @@ const WAVE_MOTION_CHAPTERS: Chapter[] = WAVE_MOTION_SECTIONS.map((section, index
   completed: false,
 }));
 
+const ASTRONOMY_SPACE_CHAPTERS: Chapter[] = ASTRONOMY_SPACE_SECTIONS.map((section, index) => ({
+  id: `as-ch${index + 1}`,
+  title: section.name,
+  titleCN: section.nameCN,
+  concepts: [],
+  formulas: [],
+  exercises: [],
+  simulations: [],
+  completed: false,
+}));
+
+const ATOMIC_WORLD_CHAPTERS: Chapter[] = ATOMIC_WORLD_SECTIONS.map((section, index) => ({
+  id: `aw-ch${index + 1}`,
+  title: section.name,
+  titleCN: section.nameCN,
+  concepts: [],
+  formulas: [],
+  exercises: [],
+  simulations: [],
+  completed: false,
+}));
+
+const ENERGY_USE_CHAPTERS: Chapter[] = ENERGY_USE_SECTIONS.map((section, index) => ({
+  id: `eu-ch${index + 1}`,
+  title: section.name,
+  titleCN: section.nameCN,
+  concepts: [],
+  formulas: [],
+  exercises: [],
+  simulations: [],
+  completed: false,
+}));
+
 export default function TopicPage() {
   const { topicId } = useParams<{ topicId: string }>();
   const navigate = useNavigate();
   const { getTopicProgress, progress } = useStore();
   
   const [activeTab, setActiveTab] = useState<TabType>(
-    topicId === 'wave-motion' || topicId === 'radioactivity-nuclear' ? 'exercise' : 'theory'
+      topicId === 'wave-motion' ||
+      topicId === 'radioactivity-nuclear' ||
+      topicId === 'astronomy-space' ||
+      topicId === 'atomic-world' ||
+      topicId === 'energy-use'
+      ? 'exercise'
+      : 'theory'
   );
   const [activeChapter, setActiveChapter] = useState<string | null>(null);
   const [expandedFormula, setExpandedFormula] = useState<string | null>(null);
@@ -73,6 +115,12 @@ export default function TopicPage() {
       ? FORCE_MOTION_CHAPTERS
       : topicId === 'wave-motion'
         ? WAVE_MOTION_CHAPTERS
+      : topicId === 'astronomy-space'
+        ? ASTRONOMY_SPACE_CHAPTERS
+      : topicId === 'atomic-world'
+        ? ATOMIC_WORLD_CHAPTERS
+      : topicId === 'energy-use'
+        ? ENERGY_USE_CHAPTERS
       : topicId === 'electricity-magnetism'
         ? ELECTRICITY_MAGNETISM_CHAPTERS
       : topicId === 'radioactivity-nuclear'
@@ -85,6 +133,12 @@ export default function TopicPage() {
       ? FORCE_MOTION_FORMULAS
       : topicId === 'wave-motion'
         ? WAVE_MOTION_FORMULAS
+      : topicId === 'astronomy-space'
+        ? []
+      : topicId === 'atomic-world'
+        ? []
+      : topicId === 'energy-use'
+        ? []
       : topicId === 'electricity-magnetism'
         ? ELECTRICITY_MAGNETISM_FORMULAS
       : topicId === 'radioactivity-nuclear'
@@ -95,7 +149,13 @@ export default function TopicPage() {
 
   useEffect(() => {
     setActiveTab(
-      topicId === 'wave-motion' || topicId === 'radioactivity-nuclear' ? 'exercise' : 'theory'
+      topicId === 'wave-motion' ||
+        topicId === 'radioactivity-nuclear' ||
+        topicId === 'astronomy-space' ||
+        topicId === 'atomic-world' ||
+        topicId === 'energy-use'
+        ? 'exercise'
+        : 'theory'
     );
   }, [topicId]);
 
@@ -133,6 +193,27 @@ export default function TopicPage() {
           { id: 'quiz', label: 'Quiz', icon: Award },
         ]
       : topicId === 'wave-motion'
+      ? [
+          { id: 'theory', label: '理论学习', icon: BookOpen },
+          { id: 'simulation', label: '互动模拟', icon: FlaskConical },
+          { id: 'calculator', label: '公式计算', icon: Calculator },
+          { id: 'exercise', label: 'Exercise', icon: FileQuestion },
+        ]
+      : topicId === 'astronomy-space'
+        ? [
+            { id: 'theory', label: '理论学习', icon: BookOpen },
+            { id: 'simulation', label: '互动模拟', icon: FlaskConical },
+            { id: 'calculator', label: '公式计算', icon: Calculator },
+            { id: 'exercise', label: 'Exercise', icon: FileQuestion },
+          ]
+      : topicId === 'atomic-world'
+        ? [
+            { id: 'theory', label: '理论学习', icon: BookOpen },
+            { id: 'simulation', label: '互动模拟', icon: FlaskConical },
+            { id: 'calculator', label: '公式计算', icon: Calculator },
+            { id: 'exercise', label: 'Exercise', icon: FileQuestion },
+          ]
+      : topicId === 'energy-use'
         ? [
             { id: 'theory', label: '理论学习', icon: BookOpen },
             { id: 'simulation', label: '互动模拟', icon: FlaskConical },
@@ -328,6 +409,9 @@ export default function TopicPage() {
             {activeTab === 'exercise' &&
               (topicId === 'force-motion' ||
                 topicId === 'wave-motion' ||
+                topicId === 'astronomy-space' ||
+                topicId === 'atomic-world' ||
+                topicId === 'energy-use' ||
                 topicId === 'radioactivity-nuclear' ||
                 topicId === 'electricity-magnetism' ||
                 topicId === 'temperature-gas') && (
