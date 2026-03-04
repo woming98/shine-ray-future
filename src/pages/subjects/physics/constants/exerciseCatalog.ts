@@ -2,6 +2,8 @@ import { ELECTRICITY_MAGNETISM_EXERCISES } from './electricityMagnetism'
 import { ELECTRICITY_MAGNETISM_SECTIONS } from './electricityMagnetismSections'
 import { FORCE_MOTION_EXERCISES } from './forceMotion'
 import { FORCE_MOTION_SECTIONS } from './forceMotionSections'
+import { RADIATION_NUCLEAR_EXERCISES } from './radiationNuclear'
+import { RADIATION_NUCLEAR_SECTIONS } from './radiationNuclearSections'
 import { TEMPERATURE_GAS_EXERCISES } from './temperatureGas'
 import { TEMPERATURE_GAS_SECTIONS } from './temperatureGasSections'
 import { WAVE_MOTION_SECTIONS } from './waveMotionSections'
@@ -50,6 +52,13 @@ export const PHYSICS_EXERCISE_CATALOG: Record<string, PhysicsExerciseCatalogEntr
     defaultSectionId: 'electrostatics',
     sections: ELECTRICITY_MAGNETISM_SECTIONS,
     exercises: ELECTRICITY_MAGNETISM_EXERCISES,
+  },
+  'radioactivity-nuclear': {
+    topicId: 'radioactivity-nuclear',
+    chapterId: 'rn-ch1',
+    defaultSectionId: 'radiation-radioactivity',
+    sections: RADIATION_NUCLEAR_SECTIONS,
+    exercises: RADIATION_NUCLEAR_EXERCISES,
   },
 }
 
