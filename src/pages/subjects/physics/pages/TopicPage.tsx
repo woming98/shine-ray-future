@@ -27,7 +27,10 @@ import {
 import { TEMPERATURE_GAS_EXERCISES } from '../constants/temperatureGas';
 import { TEMPERATURE_GAS_SECTIONS } from '../constants/temperatureGasSections';
 import { TEMPERATURE_GAS_CHAPTERS, TEMPERATURE_GAS_FORMULAS } from '../constants/temperatureGasTheory';
-import { RADIATION_NUCLEAR_SECTIONS } from '../constants/radiationNuclearSections';
+import {
+  RADIATION_NUCLEAR_CHAPTERS,
+  RADIATION_NUCLEAR_FORMULAS,
+} from '../constants/radiationNuclearTheory';
 import { WAVE_MOTION_SECTIONS } from '../constants/waveMotionSections';
 import { WAVE_MOTION_FORMULAS } from '../constants/waveMotionTheory';
 import { useStore } from '../store/useStore';
@@ -42,17 +45,6 @@ type TabType = 'theory' | 'simulation' | 'calculator' | 'exercise' | 'quiz';
 
 const WAVE_MOTION_CHAPTERS: Chapter[] = WAVE_MOTION_SECTIONS.map((section, index) => ({
   id: `wm-ch${index + 1}`,
-  title: section.name,
-  titleCN: section.nameCN,
-  concepts: [],
-  formulas: [],
-  exercises: [],
-  simulations: [],
-  completed: false,
-}));
-
-const RADIATION_NUCLEAR_CHAPTERS: Chapter[] = RADIATION_NUCLEAR_SECTIONS.map((section, index) => ({
-  id: `rn-ch${index + 1}`,
   title: section.name,
   titleCN: section.nameCN,
   concepts: [],
@@ -96,7 +88,7 @@ export default function TopicPage() {
       : topicId === 'electricity-magnetism'
         ? ELECTRICITY_MAGNETISM_FORMULAS
       : topicId === 'radioactivity-nuclear'
-        ? []
+        ? RADIATION_NUCLEAR_FORMULAS
       : topicId === 'temperature-gas'
         ? TEMPERATURE_GAS_FORMULAS
         : [];
