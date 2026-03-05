@@ -1,0 +1,440 @@
+{
+  "metadata": {
+    "subject": "M2",
+    "topic": "Trigonometry",
+    "year": "2012",
+    "sourceTex": "M2_by_topic__Trigonometry/elegantbook-cn.tex",
+    "generatedAt": "2026-01-17T11:48:17.895042",
+    "version": "v1"
+  },
+  "counts": {
+    "problemsInTex": 3,
+    "problemsInJson": 3,
+    "withAnyImages": 2,
+    "withMarks": 3,
+    "withPartsDetected": 3,
+    "withAnswer": 0,
+    "withSolution": 0
+  },
+  "problems": [
+    {
+      "id": "2012Q9",
+      "qno": "9",
+      "tex": {
+        "startLine": 37,
+        "endLine": 51,
+        "hasContinueMarker": true
+      },
+      "parts": {
+        "detected": [
+          "a",
+          "b"
+        ],
+        "missingExpectedPartsHint": null
+      },
+      "marks": {
+        "totalMarksDetected": 4,
+        "byPart": {
+          "b": 4
+        },
+        "warnings": []
+      },
+      "images": {
+        "explicitInTex": [
+          "2012Q9.png"
+        ],
+        "filesystemCandidates": [],
+        "finalSelected": [
+          "2012Q9.png"
+        ],
+        "missingFilesReferencedByTex": [],
+        "orphansForThisId": []
+      },
+      "parseWarnings": []
+    },
+    {
+      "id": "2012Q10",
+      "qno": "10",
+      "tex": {
+        "startLine": 56,
+        "endLine": 71,
+        "hasContinueMarker": true
+      },
+      "parts": {
+        "detected": [
+          "a",
+          "b"
+        ],
+        "missingExpectedPartsHint": null
+      },
+      "marks": {
+        "totalMarksDetected": 6,
+        "byPart": {
+          "b": 6
+        },
+        "warnings": []
+      },
+      "images": {
+        "explicitInTex": [
+          "2012Q10.png"
+        ],
+        "filesystemCandidates": [],
+        "finalSelected": [
+          "2012Q10.png"
+        ],
+        "missingFilesReferencedByTex": [],
+        "orphansForThisId": []
+      },
+      "parseWarnings": []
+    },
+    {
+      "id": "2012Q13",
+      "qno": "13",
+      "tex": {
+        "startLine": 76,
+        "endLine": 95,
+        "hasContinueMarker": true
+      },
+      "parts": {
+        "detected": [
+          "a.i",
+          "a.ii",
+          "b.i",
+          "b.ii",
+          "c"
+        ],
+        "missingExpectedPartsHint": null
+      },
+      "marks": {
+        "totalMarksDetected": 13,
+        "byPart": {
+          "a.ii": 4,
+          "b.ii": 6,
+          "c": 3
+        },
+        "warnings": []
+      },
+      "images": {
+        "explicitInTex": [],
+        "filesystemCandidates": [],
+        "finalSelected": [],
+        "missingFilesReferencedByTex": [],
+        "orphansForThisId": []
+      },
+      "parseWarnings": []
+    }
+  ],
+  "globalImageAudit": {
+    "missing": [],
+    "orphans": [
+      {
+        "file": "2020Q14.png",
+        "suggestedId": "2020Q14",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2019Q16.png",
+        "suggestedId": "2019Q16",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2017Q39.png",
+        "suggestedId": "2017Q39",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2016Q39.png",
+        "suggestedId": "2016Q39",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2016Q35.png",
+        "suggestedId": "2016Q35",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2012Q14b.png",
+        "suggestedId": "2012Q14",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2014Q30.png",
+        "suggestedId": "2014Q30",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2013Q41.png",
+        "suggestedId": "2013Q41",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2019Q39.png",
+        "suggestedId": "2019Q39",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2013Q7.png",
+        "suggestedId": "2013Q7",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2017Q16.png",
+        "suggestedId": "2017Q16",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2015Q17.png",
+        "suggestedId": "2015Q17",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2015Q12.png",
+        "suggestedId": "2015Q12",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2019Q40.png",
+        "suggestedId": "2019Q40",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2014Q10.png",
+        "suggestedId": "2014Q10",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2014Q17.png",
+        "suggestedId": "2014Q17",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2013Q12.png",
+        "suggestedId": "2013Q12",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2013Q10.png",
+        "suggestedId": "2013Q10",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2015Q25.png",
+        "suggestedId": "2015Q25",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2013Q15.png",
+        "suggestedId": "2013Q15",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2014Q40.png",
+        "suggestedId": "2014Q40",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2021Q38.png",
+        "suggestedId": "2021Q38",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2013Q18.png",
+        "suggestedId": "2013Q18",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2018Q39.png",
+        "suggestedId": "2018Q39",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2012Q12.png",
+        "suggestedId": "2012Q12",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2019Q38.png",
+        "suggestedId": "2019Q38",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2013Q13.png",
+        "suggestedId": "2013Q13",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2017Q9.png",
+        "suggestedId": "2017Q9",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2020Q8.png",
+        "suggestedId": "2020Q8",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2020Q34.png",
+        "suggestedId": "2020Q34",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2013Q14.png",
+        "suggestedId": "2013Q14",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2018Q23.png",
+        "suggestedId": "2018Q23",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2014Q18.png",
+        "suggestedId": "2014Q18",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2015Q32.png",
+        "suggestedId": "2015Q32",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2016Q9.png",
+        "suggestedId": "2016Q9",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2024Q9.png",
+        "suggestedId": "2024Q9",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2017Q21.png",
+        "suggestedId": "2017Q21",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2014Q10c.png",
+        "suggestedId": "2014Q10",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2014Q13.png",
+        "suggestedId": "2014Q13",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2013Q39.png",
+        "suggestedId": "2013Q39",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2018Q32.png",
+        "suggestedId": "2018Q32",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2018Q33.png",
+        "suggestedId": "2018Q33",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2017Q31.png",
+        "suggestedId": "2017Q31",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2014Q14.png",
+        "suggestedId": "2014Q14",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2017Q38.png",
+        "suggestedId": "2017Q38",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2017Q31_2.png",
+        "suggestedId": "2017Q31",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2023Q6a.png",
+        "suggestedId": "2023Q6",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2012Q14a.png",
+        "suggestedId": "2012Q14",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2012Q6.png",
+        "suggestedId": "2012Q6",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2014Q6.png",
+        "suggestedId": "2014Q6",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2013Q6.png",
+        "suggestedId": "2013Q6",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2016Q19.png",
+        "suggestedId": "2016Q19",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2014Q11.png",
+        "suggestedId": "2014Q11",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2012Q7.png",
+        "suggestedId": "2012Q7",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2020Q18.png",
+        "suggestedId": "2020Q18",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2021Q20.png",
+        "suggestedId": "2021Q20",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2015Q36.png",
+        "suggestedId": "2015Q36",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2023Q6b.png",
+        "suggestedId": "2023Q6",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2017Q23.png",
+        "suggestedId": "2017Q23",
+        "reason": "prefix match"
+      },
+      {
+        "file": "2019Q23.png",
+        "suggestedId": "2019Q23",
+        "reason": "prefix match"
+      }
+    ],
+    "weirdNames": [
+      {
+        "file": "例题1.2 part2.png",
+        "reason": "contains spaces or leading/trailing whitespace",
+        "suggestedFix": "rename file"
+      }
+    ]
+  },
+  "parseWarnings": []
+}

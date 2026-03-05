@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+  <!-- Stars/Sparkles -->
+  <path d="M45 8 L46 12 L50 13 L46 14 L45 18 L44 14 L40 13 L44 12 Z" fill="#f5a623"/>
+  <path d="M155 8 L156 11 L159 12 L156 13 L155 16 L154 13 L151 12 L154 11 Z" fill="#1a73e8"/>
+  
+  <!-- Arc design -->
+  <path d="M30 45 Q100 -5 170 45" stroke="url(#arcGradient)" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M35 50 Q100 65 165 50" stroke="#1a73e8" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
+  
+  <!-- Gradient definitions -->
+  <defs>
+    <linearGradient id="arcGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f5a623"/>
+      <stop offset="100%" style="stop-color:#1a73e8"/>
+    </linearGradient>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f5a623"/>
+      <stop offset="50%" style="stop-color:#e8941a"/>
+      <stop offset="100%" style="stop-color:#1a73e8"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Chinese text: 莘睿未来 -->
+  <text x="100" y="35" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="bold" fill="#2d3748">莘睿未来</text>
+  
+  <!-- English text: SHINERAY FUTURE -->
+  <text x="100" y="52" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" letter-spacing="2" fill="#4a5568">SHINERAY FUTURE</text>
+</svg>

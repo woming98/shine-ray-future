@@ -1,0 +1,98 @@
+/**
+ * 数学学习成就系统
+ */
+
+import { Achievement } from '../types';
+
+export const MATH_ACHIEVEMENTS: Omit<Achievement, 'progress' | 'unlocked' | 'unlockedAt'>[] = [
+  {
+    id: 'math-first-step',
+    title: 'First Step',
+    titleCN: '初次探索',
+    description: '完成第一个数学主题的学习',
+    icon: '🎯',
+    category: 'learning',
+    requirement: 1,
+  },
+  {
+    id: 'math-problem-solver',
+    title: 'Problem Solver',
+    titleCN: '解題高手',
+    description: '完成100道练习题',
+    icon: '✨',
+    category: 'practice',
+    requirement: 100,
+  },
+  {
+    id: 'math-mc-master',
+    title: 'MC Master',
+    titleCN: 'MC達人',
+    description: '完成50道MC题目且正确率超过80%',
+    icon: '🎯',
+    category: 'practice',
+    requirement: 50,
+  },
+  {
+    id: 'math-formula-master',
+    title: 'Formula Master',
+    titleCN: '公式大師',
+    description: '掌握30个数学公式',
+    icon: '📐',
+    category: 'learning',
+    requirement: 30,
+  },
+  {
+    id: 'math-perfect-score',
+    title: 'Perfect Score',
+    titleCN: '滿分達成',
+    description: '在练习中获得满分',
+    icon: '🏆',
+    category: 'challenge',
+    requirement: 1,
+  },
+  {
+    id: 'math-topic-complete',
+    title: 'Topic Master',
+    titleCN: '主題精通',
+    description: '完成一个完整主题的学习',
+    icon: '🎓',
+    category: 'learning',
+    requirement: 1,
+  },
+  {
+    id: 'math-week-streak',
+    title: 'Weekly Warrior',
+    titleCN: '周學習達人',
+    description: '连续学习7天',
+    icon: '🔥',
+    category: 'challenge',
+    requirement: 7,
+  },
+  {
+    id: 'math-error-master',
+    title: 'Error Master',
+    titleCN: '錯題征服者',
+    description: '掌握50道错题',
+    icon: '📖',
+    category: 'practice',
+    requirement: 50,
+  },
+  {
+    id: 'math-geometry-expert',
+    title: 'Geometry Expert',
+    titleCN: '幾何專家',
+    description: '完成所有几何相关主题',
+    icon: '📐',
+    category: 'learning',
+    requirement: 1,
+  },
+  {
+    id: 'math-algebra-expert',
+    title: 'Algebra Expert',
+    titleCN: '代數專家',
+    description: '完成所有代数相关主题',
+    icon: '🔢',
+    category: 'learning',
+    requirement: 1,
+  },
+];

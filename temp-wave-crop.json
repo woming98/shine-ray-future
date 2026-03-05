@@ -1,0 +1,11 @@
+{
+  "scale": 4,
+  "jobs": [
+    {
+      "page": 1,
+      "outputs": [
+        { "name": "wp-page-01-mc-wide.png", "box": [1100, 40, 1900, 3900] }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,345 @@
+{
+  "metadata": {
+    "subject": "M2",
+    "topic": "Trigonometry",
+    "year": "2012",
+    "generatedBy": "GPT-5.2",
+    "language": "en",
+    "version": "gpt-analysis-v1",
+    "generatedAt": "2026-01-17"
+  },
+  "knowledgePoints": [
+    {
+      "id": "KP_INTEGRATION_BY_PARTS",
+      "title": "Integration by parts",
+      "coreFormulasLatex": ["\\int u\\,dv = uv-\\int v\\,du"]
+    },
+    {
+      "id": "KP_VOLUME_OF_REVOLUTION",
+      "title": "Volume of revolution (disk method)",
+      "coreFormulasLatex": ["V=\\pi\\int_a^b y^2\\,dx"]
+    },
+    {
+      "id": "KP_TRIG_TRIPLE_ANGLE",
+      "title": "Triple-angle identity",
+      "coreFormulasLatex": ["\\sin 3\\theta = 3\\sin\\theta - 4\\sin^3\\theta"]
+    },
+    {
+      "id": "KP_TRIG_DOUBLE_ANGLE",
+      "title": "Double-angle identities",
+      "coreFormulasLatex": [
+        "\\sin 2\\alpha=2\\sin\\alpha\\cos\\alpha",
+        "\\cos 2\\alpha = 1-2\\sin^2\\alpha = 2\\cos^2\\alpha-1"
+      ]
+    },
+    {
+      "id": "KP_COMPLETE_THE_SQUARE",
+      "title": "Completing the square",
+      "coreFormulasLatex": ["x^2+2ax+1=(x+a)^2+(1-a^2)"]
+    },
+    {
+      "id": "KP_ARCTAN_SUBSTITUTION",
+      "title": "Arctan substitution for \\(\\int \\frac{1}{(x+a)^2+b^2}\\,dx\\)",
+      "coreFormulasLatex": ["\\int \\frac{dx}{(x+a)^2+b^2}=\\frac{1}{b}\\arctan\\left(\\frac{x+a}{b}\\right)+C"]
+    }
+  ],
+  "problems": [
+    {
+      "id": "2012Q9",
+      "difficulty": 2,
+      "tags": ["integration", "by-parts", "volume-of-revolution"],
+      "knowledgePointIds": ["KP_INTEGRATION_BY_PARTS", "KP_VOLUME_OF_REVOLUTION"],
+      "parts": [
+        {
+          "part": "a",
+          "answerLatex": "-x\\cos x+\\sin x + C",
+          "hints": [
+            "Use integration by parts with \\(u=x\\), \\(dv=\\sin x\\,dx\\).",
+            "Remember \\(\\int \\sin x\\,dx=-\\cos x\\)."
+          ],
+          "solutionSteps": [
+            {
+              "step": 1,
+              "reason": "Integration by parts",
+              "latex": "u=x,\\;dv=\\sin x\\,dx\\Rightarrow du=dx,\\;v=-\\cos x"
+            },
+            {
+              "step": 2,
+              "reason": "Apply formula",
+              "latex": "\\int x\\sin x\\,dx = uv-\\int v\\,du = x(-\\cos x)-\\int (-\\cos x)\\,dx"
+            },
+            {
+              "step": 3,
+              "reason": "Simplify",
+              "latex": "\\int x\\sin x\\,dx = -x\\cos x + \\int \\cos x\\,dx = -x\\cos x + \\sin x + C"
+            }
+          ]
+        },
+        {
+          "part": "b",
+          "marks": 4,
+          "answerLatex": "\\pi^2",
+          "hints": [
+            "Use the disk method: \\(V=\\pi\\int_0^{\\pi} y^2\\,dx\\).",
+            "Here \\(y=\\sqrt{x\\sin x}\\Rightarrow y^2=x\\sin x\\).",
+            "You can reuse part (a) to evaluate \\(\\int_0^{\\pi} x\\sin x\\,dx\\)."
+          ],
+          "solutionSteps": [
+            {
+              "step": 1,
+              "reason": "Disk method",
+              "latex": "V=\\pi\\int_0^{\\pi} y^2\\,dx"
+            },
+            {
+              "step": 2,
+              "reason": "Substitute curve",
+              "latex": "y=\\sqrt{x\\sin x}\\Rightarrow y^2=x\\sin x\\;\\Rightarrow\\;V=\\pi\\int_0^{\\pi} x\\sin x\\,dx"
+            },
+            {
+              "step": 3,
+              "reason": "Use antiderivative",
+              "latex": "\\int x\\sin x\\,dx = -x\\cos x+\\sin x"
+            },
+            {
+              "step": 4,
+              "reason": "Evaluate definite integral",
+              "latex": "\\int_0^{\\pi} x\\sin x\\,dx = \\left[-x\\cos x+\\sin x\\right]_0^{\\pi} = \\pi"
+            },
+            {
+              "step": 5,
+              "reason": "Final volume",
+              "latex": "V=\\pi\\cdot \\pi = \\pi^2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2012Q10",
+      "difficulty": 3,
+      "tags": ["trigonometry", "geometry", "range", "trig-identities"],
+      "knowledgePointIds": ["KP_TRIG_TRIPLE_ANGLE"],
+      "parts": [
+        {
+          "part": "a",
+          "answerLatex": "y=\\frac{1}{4}\\sec^2\\theta",
+          "hints": [
+            "Use the sine rule in \\(\\triangle OAY\\) and \\(\\triangle OBY\\).",
+            "Note that \\(\\angle OAB=\\angle OBA\\) because \\(OA=OB\\) (isosceles).",
+            "Use \\(\\sin 3\\theta=3\\sin\\theta-4\\sin^3\\theta\\) to simplify."
+          ],
+          "solutionSteps": [
+            {
+              "step": 1,
+              "reason": "Sine rule in two triangles",
+              "latex": "\\frac{OY}{\\sin(\\angle OAB)}=\\frac{y}{\\sin\\theta},\\qquad \\frac{OY}{\\sin(\\angle OBA)}=\\frac{1-y}{\\sin 3\\theta}",
+              "explanation": "In \\(\\triangle OAY\\) and \\(\\triangle OBY\\), apply the sine rule."
+            },
+            {
+              "step": 2,
+              "reason": "Isosceles triangle gives equal angles",
+              "latex": "\\angle OAB=\\angle OBA\\;\\Rightarrow\\;\\frac{y}{\\sin\\theta}=\\frac{1-y}{\\sin 3\\theta}",
+              "explanation": "Since \\(OA=OB\\), \\(\\triangle OAB\\) is isosceles."
+            },
+            {
+              "step": 3,
+              "reason": "Use triple-angle identity and simplify",
+              "latex": "y(3\\sin\\theta-4\\sin^3\\theta)=(1-y)\\sin\\theta\\Rightarrow 4y\\cos^2\\theta=1",
+              "explanation": "Substitute \\(\\sin 3\\theta=3\\sin\\theta-4\\sin^3\\theta\\) and simplify."
+            },
+            {
+              "step": 4,
+              "reason": "Conclude",
+              "latex": "y=\\frac{1}{4}\\sec^2\\theta"
+            }
+          ]
+        },
+        {
+          "part": "b",
+          "marks": 6,
+          "answerLatex": "\\frac{1}{4}<y<\\frac{1}{2}",
+          "hints": [
+            "From geometry: \\(0^\\circ<4\\theta<180^\\circ\\Rightarrow 0^\\circ<\\theta<45^\\circ\\).",
+            "Then \\(\\frac{\\sqrt2}{2}<\\cos\\theta<1\\Rightarrow 1<\\sec^2\\theta<2\\).",
+            "Use \\(y=\\frac14\\sec^2\\theta\\)."
+          ],
+          "solutionSteps": [
+            {
+              "step": 1,
+              "reason": "Angle constraint",
+              "latex": "0^\\circ<4\\theta<180^\\circ\\;\\Rightarrow\\;0^\\circ<\\theta<45^\\circ"
+            },
+            {
+              "step": 2,
+              "reason": "Bound \\(\\sec^2\\theta\\)",
+              "latex": "\\frac{\\sqrt2}{2}<\\cos\\theta<1\\Rightarrow 1<\\sec^2\\theta<2"
+            },
+            {
+              "step": 3,
+              "reason": "Convert to the range of y",
+              "latex": "y=\\frac14\\sec^2\\theta\\Rightarrow \\frac14<y<\\frac12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2012Q13",
+      "difficulty": 4,
+      "tags": ["trigonometry", "identities", "completing-square", "definite-integral", "arctan"],
+      "knowledgePointIds": ["KP_TRIG_DOUBLE_ANGLE", "KP_COMPLETE_THE_SQUARE", "KP_ARCTAN_SUBSTITUTION"],
+      "parts": [
+        {
+          "part": "a.i",
+          "answerLatex": "u=-\\frac{\\pi}{5}",
+          "hints": [
+            "Rewrite \\(\\cos 2\\alpha-1=-2\\sin^2\\alpha\\) and \\(\\sin 2\\alpha=2\\sin\\alpha\\cos\\alpha\\) with \\(\\alpha=\\frac{\\pi}{5}\\).",
+            "Show the given tangent equals \\(-\\tan\\alpha\\)."
+          ],
+          "solutionSteps": [
+            {
+              "step": 1,
+              "reason": "Let \\(\\alpha=\\pi/5\\)",
+              "latex": "\\tan u=\\frac{-1+\\cos 2\\alpha}{\\sin 2\\alpha}"
+            },
+            {
+              "step": 2,
+              "reason": "Double-angle identities",
+              "latex": "\\cos 2\\alpha-1=-2\\sin^2\\alpha,\\quad \\sin 2\\alpha=2\\sin\\alpha\\cos\\alpha"
+            },
+            {
+              "step": 3,
+              "reason": "Simplify",
+              "latex": "\\tan u=\\frac{-2\\sin^2\\alpha}{2\\sin\\alpha\\cos\\alpha}= -\\tan\\alpha"
+            },
+            {
+              "step": 4,
+              "reason": "Use range of \\(u\\)",
+              "latex": "-1",
+              "explanation": "Since \\(-\\frac{\\pi}{2}<u<\\frac{\\pi}{2}\\), we take \\(u=-\\alpha=-\\frac{\\pi}{5}\\)."
+            }
+          ]
+        },
+        {
+          "part": "a.ii",
+          "marks": 4,
+          "answerLatex": "v=\\frac{3\\pi}{10}",
+          "hints": [
+            "Use \\(1+\\cos 2\\alpha=2\\cos^2\\alpha\\).",
+            "Reduce to \\(\\cot\\alpha\\) and convert to a tangent angle in \\((-\\pi/2,\\pi/2)\\)."
+          ],
+          "solutionSteps": [
+            {
+              "step": 1,
+              "reason": "Double-angle identity",
+              "latex": "\\tan v=\\frac{1+\\cos 2\\alpha}{\\sin 2\\alpha}=\\frac{2\\cos^2\\alpha}{2\\sin\\alpha\\cos\\alpha}=\\cot\\alpha"
+            },
+            {
+              "step": 2,
+              "reason": "Convert cot to tan",
+              "latex": "\\cot\\alpha=\\tan\\left(\\frac{\\pi}{2}-\\alpha\\right)=\\tan\\left(\\frac{3\\pi}{10}\\right)"
+            },
+            {
+              "step": 3,
+              "reason": "Use range of \\(v\\)",
+              "latex": "v=\\frac{3\\pi}{10}"
+            }
+          ]
+        },
+        {
+          "part": "b.i",
+          "answerLatex": "x^2+2x\\cos\\frac{2\\pi}{5}+1=\\left(x+\\cos\\frac{2\\pi}{5}\\right)^2+\\sin^2\\frac{2\\pi}{5}",
+          "hints": [
+            "Try \\((x+\\cos\\frac{2\\pi}{5})^2\\) and compare constants.",
+            "Use \\(\\sin^2 t+\\cos^2 t=1\\)."
+          ],
+          "solutionSteps": [
+            {
+              "step": 1,
+              "reason": "Complete the square",
+              "latex": "x^2+2x\\cos\\frac{2\\pi}{5}+1=\\left(x+\\cos\\frac{2\\pi}{5}\\right)^2+\\left(1-\\cos^2\\frac{2\\pi}{5}\\right)"
+            },
+            {
+              "step": 2,
+              "reason": "Pythagorean identity",
+              "latex": "1-\\cos^2\\frac{2\\pi}{5}=\\sin^2\\frac{2\\pi}{5}"
+            }
+          ]
+        },
+        {
+          "part": "b.ii",
+          "marks": 6,
+          "answerLatex": "\\frac{\\pi}{2}",
+          "hints": [
+            "Use (b)(i) to rewrite the denominator as \\((x+a)^2+b^2\\).",
+            "Use substitution \\(x+\\cos\\frac{2\\pi}{5}=\\sin\\frac{2\\pi}{5}\\tan t\\).",
+            "The integral should collapse to \\(\\int dt\\)."
+          ],
+          "solutionSteps": [
+            {
+              "step": 1,
+              "reason": "Use part (b)(i)",
+              "latex": "\\int_{-1}^1 \\frac{\\sin\\frac{2\\pi}{5}}{\\left(x+\\cos\\frac{2\\pi}{5}\\right)^2+\\sin^2\\frac{2\\pi}{5}}\\,dx"
+            },
+            {
+              "step": 2,
+              "reason": "Substitution",
+              "latex": "x+\\cos\\frac{2\\pi}{5}=\\sin\\frac{2\\pi}{5}\\tan t\\Rightarrow dx=\\sin\\frac{2\\pi}{5}\\sec^2 t\\,dt"
+            },
+            {
+              "step": 3,
+              "reason": "Simplify integrand",
+              "latex": "\\frac{\\sin\\frac{2\\pi}{5}}{\\sin^2\\frac{2\\pi}{5}\\sec^2 t}\\cdot \\sin\\frac{2\\pi}{5}\\sec^2 t\\,dt = dt"
+            },
+            {
+              "step": 4,
+              "reason": "Transform limits",
+              "latex": "t=\\arctan\\left(\\frac{x+\\cos\\frac{2\\pi}{5}}{\\sin\\frac{2\\pi}{5}}\\right)"
+            },
+            {
+              "step": 5,
+              "reason": "Evaluate endpoints (using part (a))",
+              "latex": "t(1)=\\frac{3\\pi}{10},\\quad t(-1)=-\\frac{\\pi}{5}"
+            },
+            {
+              "step": 6,
+              "reason": "Final value",
+              "latex": "\\int_{-1}^1 \\cdots dx = t(1)-t(-1)=\\frac{3\\pi}{10}+\\frac{\\pi}{5}=\\frac{\\pi}{2}"
+            }
+          ]
+        },
+        {
+          "part": "c",
+          "marks": 3,
+          "answerLatex": "-\\frac{\\pi}{2}",
+          "hints": [
+            "Use \\(\\sin\\frac{7\\pi}{5}=-\\sin\\frac{2\\pi}{5}\\) and \\(\\cos\\frac{7\\pi}{5}=-\\cos\\frac{2\\pi}{5}\\).",
+            "Reduce it to the same arctan form as (b)(ii), but with an extra minus sign."
+          ],
+          "solutionSteps": [
+            {
+              "step": 1,
+              "reason": "Angle shift identities",
+              "latex": "\\sin\\frac{7\\pi}{5}=-\\sin\\frac{2\\pi}{5},\\quad \\cos\\frac{7\\pi}{5}=-\\cos\\frac{2\\pi}{5}"
+            },
+            {
+              "step": 2,
+              "reason": "Rewrite integrand",
+              "latex": "\\int_{-1}^1 \\frac{-\\sin\\frac{2\\pi}{5}}{x^2-2x\\cos\\frac{2\\pi}{5}+1}\\,dx"
+            },
+            {
+              "step": 3,
+              "reason": "Same arctan structure",
+              "latex": "\\int \\frac{\\sin\\beta}{(x+\\cos\\beta)^2+\\sin^2\\beta}\\,dx = \\arctan\\left(\\frac{x+\\cos\\beta}{\\sin\\beta}\\right)+C"
+            },
+            {
+              "step": 4,
+              "reason": "Use \\(\\beta=\\frac{3\\pi}{5}\\) so \\(\\cos\\beta=-\\cos\\frac{2\\pi}{5}\\), \\(\\sin\\beta=\\sin\\frac{2\\pi}{5}\\)",
+              "latex": "\\int_{-1}^1 \\frac{\\sin\\beta}{x^2+2x\\cos\\beta+1}\\,dx=\\frac{\\pi}{2}\\Rightarrow \\text{given integral}=-\\frac{\\pi}{2}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

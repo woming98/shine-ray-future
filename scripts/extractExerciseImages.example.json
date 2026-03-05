@@ -1,0 +1,18 @@
+{
+  "scale": 2,
+  "jobs": [
+    {
+      "page": 1,
+      "outputs": [
+        {
+          "name": "grav-001-question.png",
+          "box": [120, 180, 860, 420]
+        },
+        {
+          "name": "grav-001-option-a.png",
+          "box": [120, 620, 360, 90]
+        }
+      ]
+    }
+  ]
+}

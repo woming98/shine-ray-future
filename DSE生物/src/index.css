@@ -1,0 +1,320 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bio-primary: #f5a623;    /* Shineray Orange */
+  --bio-secondary: #1a73e8;  /* Shineray Blue */
+  --bio-accent: #ff9500;     /* Bright Orange */
+  --bio-light: #ffffff;      /* White background */
+  --bio-dark: #1a202c;       /* Dark text */
+  --bio-gray: #4a5568;       /* Secondary text */
+  --bio-bg: #f8fafc;         /* Page background */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Source Sans 3', system-ui, sans-serif;
+  background: #f8fafc;
+  color: #1a202c;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar - Light theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e2e8f0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #f5a623, #1a73e8);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ff9500, #2196f3);
+}
+
+/* Selection */
+::selection {
+  background: rgba(245, 166, 35, 0.3);
+  color: #1a202c;
+}
+
+/* Glass morphism utility - Light theme */
+.glass {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(245, 166, 35, 0.15);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.glass-dark {
+  background: rgba(26, 32, 44, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(245, 166, 35, 0.2);
+}
+
+/* Shineray glow effects - Adjusted for light theme */
+@layer utilities {
+  .glow-orange {
+    box-shadow: 0 4px 15px rgba(245, 166, 35, 0.25),
+                0 8px 30px rgba(255, 149, 0, 0.15);
+  }
+  .glow-blue {
+    box-shadow: 0 4px 15px rgba(26, 115, 232, 0.25),
+                0 8px 30px rgba(33, 150, 243, 0.15);
+  }
+  .glow-gradient {
+    box-shadow: 0 4px 15px rgba(245, 166, 35, 0.2),
+                0 8px 30px rgba(26, 115, 232, 0.15);
+  }
+}
+
+.text-glow {
+  text-shadow: 0 0 10px rgba(245, 166, 35, 0.4),
+               0 0 20px rgba(255, 149, 0, 0.2);
+}
+
+.text-glow-blue {
+  text-shadow: 0 0 10px rgba(26, 115, 232, 0.4),
+               0 0 20px rgba(33, 150, 243, 0.2);
+}
+
+/* Cell membrane pattern - Light theme */
+.membrane-pattern {
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(245, 166, 35, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(26, 115, 232, 0.15) 0%, transparent 50%),
+    linear-gradient(90deg, transparent 0%, rgba(245, 166, 35, 0.05) 50%, transparent 100%);
+}
+
+/* DNA helix animation */
+@keyframes dna-rotate {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+.dna-animation {
+  animation: dna-rotate 10s linear infinite;
+}
+
+/* Microscope grid overlay */
+.microscope-grid {
+  background-image: 
+    linear-gradient(rgba(245, 166, 35, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 115, 232, 0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Interactive button styles - Shineray */
+.btn-bio {
+  @apply px-6 py-3 rounded-xl font-display font-semibold transition-all duration-300;
+  background: linear-gradient(135deg, #f5a623 0%, #ff9500 100%);
+  color: white;
+  @apply hover:shadow-lg;
+  box-shadow: 0 4px 15px rgba(245, 166, 35, 0.3);
+  @apply active:scale-95;
+}
+
+.btn-bio:hover {
+  background: linear-gradient(135deg, #ff9500 0%, #f5a623 100%);
+  box-shadow: 0 6px 20px rgba(245, 166, 35, 0.4);
+}
+
+.btn-bio-outline {
+  @apply px-6 py-3 rounded-xl font-display font-semibold transition-all duration-300;
+  @apply border-2 border-bio-primary text-bio-primary;
+  @apply hover:bg-bio-primary hover:text-white;
+  @apply active:scale-95;
+}
+
+.btn-bio-blue {
+  @apply px-6 py-3 rounded-xl font-display font-semibold transition-all duration-300;
+  background: linear-gradient(135deg, #1a73e8 0%, #2196f3 100%);
+  color: white;
+  @apply hover:shadow-lg;
+  box-shadow: 0 4px 15px rgba(26, 115, 232, 0.3);
+  @apply active:scale-95;
+}
+
+/* Card styles - Light theme with shadows */
+.card-bio {
+  @apply rounded-2xl p-6 transition-all duration-300;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.card-bio:hover {
+  border-color: rgba(245, 166, 35, 0.3);
+  box-shadow: 0 8px 30px rgba(245, 166, 35, 0.15),
+              0 4px 15px rgba(26, 115, 232, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Topic badge - Light theme */
+.topic-badge {
+  @apply inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium;
+  background: rgba(245, 166, 35, 0.1);
+  color: #e8941a;
+  border: 1px solid rgba(245, 166, 35, 0.2);
+}
+
+/* Progress bar - Light theme */
+.progress-bar {
+  @apply h-2 rounded-full overflow-hidden;
+  background: #e2e8f0;
+}
+
+.progress-bar-fill {
+  @apply h-full rounded-full transition-all duration-500;
+  background: linear-gradient(90deg, #f5a623, #1a73e8);
+}
+
+/* Flashcard flip */
+.flashcard {
+  perspective: 1000px;
+}
+
+.flashcard-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flashcard.flipped .flashcard-inner {
+  transform: rotateY(180deg);
+}
+
+.flashcard-front,
+.flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flashcard-back {
+  transform: rotateY(180deg);
+}
+
+/* Canvas container - Keep dark for 3D viewer */
+.canvas-container {
+  @apply w-full h-full rounded-2xl overflow-hidden;
+  background: radial-gradient(ellipse at center, #1a2f4a 0%, #0d1b2a 70%, #080f1a 100%);
+}
+
+/* Tablet responsive */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .tablet-full {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+/* Loading spinner - Shineray gradient */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(245, 166, 35, 0.2);
+  border-top-color: #f5a623;
+  border-right-color: #1a73e8;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Star sparkle animation - matching Shineray logo */
+@keyframes sparkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.sparkle {
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+/* Tooltip - Light theme */
+.tooltip {
+  @apply absolute z-50 px-3 py-2 text-sm rounded-lg;
+  background: white;
+  color: #1a202c;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  @apply opacity-0 invisible transition-all duration-200;
+  @apply -translate-y-2;
+}
+
+.tooltip-trigger:hover .tooltip {
+  @apply opacity-100 visible translate-y-0;
+}
+
+/* Shineray brand gradient text */
+.text-gradient-shineray {
+  background: linear-gradient(135deg, #f5a623 0%, #ff9500 50%, #1a73e8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Header with bottom border accent */
+.header-shineray {
+  background: white;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, #f5a623, #1a73e8) 1;
+}
+
+/* Light theme specific text colors */
+.text-dark {
+  color: #1a202c;
+}
+
+.text-gray {
+  color: #4a5568;
+}
+
+.text-light-muted {
+  color: #718096;
+}
+
+/* Background variations */
+.bg-page {
+  background: #f8fafc;
+}
+
+.bg-card {
+  background: white;
+}
+
+/* Accent backgrounds for light theme */
+.bg-accent-light {
+  background: rgba(245, 166, 35, 0.08);
+}
+
+.bg-accent-blue-light {
+  background: rgba(26, 115, 232, 0.08);
+}

@@ -1,0 +1,98 @@
+/**
+ * 英文学习成就系统
+ */
+
+import { Achievement } from '../types';
+
+export const ENGLISH_ACHIEVEMENTS: Omit<Achievement, 'progress' | 'unlocked' | 'unlockedAt'>[] = [
+  {
+    id: 'english-first-step',
+    title: 'First Step',
+    titleCN: '初次探索',
+    description: '完成第一个英文技能的学习',
+    icon: '🎯',
+    category: 'learning',
+    requirement: 1,
+  },
+  {
+    id: 'english-reading-master',
+    title: 'Reading Master',
+    titleCN: '閱讀達人',
+    description: '完成50篇阅读理解练习',
+    icon: '📖',
+    category: 'practice',
+    requirement: 50,
+  },
+  {
+    id: 'english-writing-expert',
+    title: 'Writing Expert',
+    titleCN: '寫作高手',
+    description: '完成20篇写作并获得平均分15分以上',
+    icon: '✍️',
+    category: 'practice',
+    requirement: 20,
+  },
+  {
+    id: 'english-listening-pro',
+    title: 'Listening Pro',
+    titleCN: '聆聽專家',
+    description: '完成30个听力练习',
+    icon: '🎧',
+    category: 'practice',
+    requirement: 30,
+  },
+  {
+    id: 'english-speaking-fluent',
+    title: 'Fluent Speaker',
+    titleCN: '口語流利',
+    description: '完成20次口语练习',
+    icon: '🎤',
+    category: 'practice',
+    requirement: 20,
+  },
+  {
+    id: 'english-vocabulary-master',
+    title: 'Vocabulary Master',
+    titleCN: '詞彙大師',
+    description: '掌握500个单词',
+    icon: '📚',
+    category: 'learning',
+    requirement: 500,
+  },
+  {
+    id: 'english-perfect-score',
+    title: 'Perfect Score',
+    titleCN: '滿分達成',
+    description: '在练习中获得满分',
+    icon: '🏆',
+    category: 'challenge',
+    requirement: 1,
+  },
+  {
+    id: 'english-skill-complete',
+    title: 'Skill Master',
+    titleCN: '技能精通',
+    description: '完成一个完整技能的学习',
+    icon: '🎓',
+    category: 'learning',
+    requirement: 1,
+  },
+  {
+    id: 'english-week-streak',
+    title: 'Weekly Warrior',
+    titleCN: '周學習達人',
+    description: '连续学习7天',
+    icon: '🔥',
+    category: 'challenge',
+    requirement: 7,
+  },
+  {
+    id: 'english-ai-writer',
+    title: 'AI Writer',
+    titleCN: 'AI寫作達人',
+    description: '使用 AI 批改完成10篇写作',
+    icon: '🤖',
+    category: 'special',
+    requirement: 10,
+  },
+];

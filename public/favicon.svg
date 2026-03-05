@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fbbf24"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- 背景圆角方形 -->
+  <rect x="5" y="5" width="90" height="90" rx="20" fill="url(#bgGrad)"/>
+  
+  <!-- 光芒效果 -->
+  <circle cx="70" cy="30" r="15" fill="url(#accentGrad)" opacity="0.3"/>
+  
+  <!-- 中文字 "莘" 简化版 -->
+  <text x="50" y="68" 
+        font-family="Arial, sans-serif" 
+        font-size="45" 
+        font-weight="bold" 
+        fill="white" 
+        text-anchor="middle">
+    莘
+  </text>
+  
+  <!-- 底部光点装饰 -->
+  <circle cx="50" cy="85" r="3" fill="url(#accentGrad)"/>
+</svg>

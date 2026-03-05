@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Game - Dodge Blocks</title>
+    <style>
+      :root {
+        --bg: #0f172a;
+        --panel: #111827;
+        --text: #e5e7eb;
+        --accent: #22d3ee;
+        --danger: #fb7185;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: radial-gradient(circle at top, #1e293b, var(--bg));
+        color: var(--text);
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .game-shell {
+        width: min(94vw, 520px);
+        padding: 16px;
+        border-radius: 16px;
+        background: linear-gradient(180deg, #111827, #0b1220);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+        border: 1px solid #1f2937;
+      }
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+        font-weight: 600;
+      }
+      .badge {
+        color: var(--accent);
+      }
+      canvas {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        border: 1px solid #334155;
+        background: #020617;
+        display: block;
+      }
+      .tip {
+        margin-top: 10px;
+        color: #cbd5e1;
+        font-size: 14px;
+      }
+      .danger {
+        color: var(--danger);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="game-shell">
+      <div class="topbar">
+        <span>躲避方块</span>
+        <span class="badge">Score: <span id="score">0</span></span>
+      </div>
+      <canvas id="game" width="480" height="600"></canvas>
+      <div class="tip">
+        操作：← → 移动，尽量躲开掉落方块。<span class="danger">碰撞即失败</span>，按
+        `R` 重开。
+      </div>
+    </main>
+
+    <script>
+      const canvas = document.getElementById("game");
+      const ctx = canvas.getContext("2d");
+      const scoreEl = document.getElementById("score");
+
+      const state = {
+        running: true,
+        score: 0,
+        speed: 2.4,
+        spawnTimer: 0,
+        player: { x: 220, y: 548, w: 40, h: 40, move: 0, speed: 5.5 },
+        blocks: [],
+      };
+
+      function resetGame() {
+        state.running = true;
+        state.score = 0;
+        state.speed = 2.4;
+        state.spawnTimer = 0;
+        state.player.x = 220;
+        state.player.move = 0;
+        state.blocks = [];
+        scoreEl.textContent = "0";
+      }
+
+      function rand(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+
+      function spawnBlock() {
+        const size = rand(22, 52);
+        state.blocks.push({
+          x: rand(0, canvas.width - size),
+          y: -size,
+          w: size,
+          h: size,
+          vy: rand(state.speed, state.speed + 2.2),
+        });
+      }
+
+      function intersects(a, b) {
+        return (
+          a.x < b.x + b.w &&
+          a.x + a.w > b.x &&
+          a.y < b.y + b.h &&
+          a.y + a.h > b.y
+        );
+      }
+
+      function update() {
+        if (!state.running) return;
+
+        state.player.x += state.player.move * state.player.speed;
+        if (state.player.x < 0) state.player.x = 0;
+        if (state.player.x + state.player.w > canvas.width) {
+          state.player.x = canvas.width - state.player.w;
+        }
+
+        state.spawnTimer -= 1;
+        if (state.spawnTimer <= 0) {
+          spawnBlock();
+          const minGap = Math.max(16, 36 - state.score * 0.05);
+          state.spawnTimer = rand(minGap, minGap + 16);
+        }
+
+        for (let i = state.blocks.length - 1; i >= 0; i--) {
+          const b = state.blocks[i];
+          b.y += b.vy;
+          if (intersects(state.player, b)) {
+            state.running = false;
+          }
+          if (b.y > canvas.height + 60) {
+            state.blocks.splice(i, 1);
+            state.score += 1;
+            scoreEl.textContent = String(state.score);
+            if (state.score % 8 === 0) state.speed += 0.18;
+          }
+        }
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = "#071225";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        for (let i = 0; i < 36; i++) {
+          const y = (i * 24 + (performance.now() * 0.06) % 24) % canvas.height;
+          ctx.fillStyle = i % 2 ? "#0b1a33" : "#0d223f";
+          ctx.fillRect(0, y, canvas.width, 1);
+        }
+
+        ctx.fillStyle = "#fb7185";
+        for (const b of state.blocks) {
+          ctx.fillRect(b.x, b.y, b.w, b.h);
+        }
+
+        ctx.fillStyle = "#22d3ee";
+        ctx.fillRect(
+          state.player.x,
+          state.player.y,
+          state.player.w,
+          state.player.h
+        );
+
+        if (!state.running) {
+          ctx.fillStyle = "rgba(2,6,23,0.72)";
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          ctx.fillStyle = "#f8fafc";
+          ctx.font = "bold 36px Segoe UI";
+          ctx.textAlign = "center";
+          ctx.fillText("Game Over", canvas.width / 2, canvas.height / 2 - 16);
+          ctx.font = "20px Segoe UI";
+          ctx.fillText(
+            `Score: ${state.score} | Press R to Restart`,
+            canvas.width / 2,
+            canvas.height / 2 + 22
+          );
+        }
+      }
+
+      function loop() {
+        update();
+        draw();
+        requestAnimationFrame(loop);
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") state.player.move = -1;
+        if (e.key === "ArrowRight") state.player.move = 1;
+        if (e.key.toLowerCase() === "r") resetGame();
+      });
+
+      document.addEventListener("keyup", (e) => {
+        if (e.key === "ArrowLeft" && state.player.move < 0) state.player.move = 0;
+        if (e.key === "ArrowRight" && state.player.move > 0) state.player.move = 0;
+      });
+
+      loop();
+    </script>
+  </body>
+</html>
