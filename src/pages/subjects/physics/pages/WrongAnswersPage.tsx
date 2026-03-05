@@ -176,9 +176,24 @@ export default function WrongAnswersPage() {
   // Clean known mojibake artifacts in imported explanation strings
   const normalizeExplanationText = (raw: string) => {
     if (!raw) return raw;
-    return raw
+    let cleaned = raw
       .replace(/�\?/g, '-')
       .replace(/�/g, '-');
+
+    // If content is mainly English explanation, remove mojibake CJK blocks
+    // (these blocks usually come from encoding corruption and break readability).
+    const hasEnglishMarkers = /(Key point|Step\s*\d+|Conclusion|Verification|Answer)/i.test(cleaned);
+    if (hasEnglishMarkers) {
+      cleaned = cleaned.replace(/[\u3000-\u303F\u3400-\u9FFF\uF900-\uFAFF\uFF00-\uFFEF]+/g, ' ');
+    }
+
+    // Collapse abnormal spacing after sanitization
+    cleaned = cleaned
+      .replace(/[ \t]{2,}/g, ' ')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
+
+    return cleaned;
   };
 
   // Render explanation text with LaTeX + Markdown support
