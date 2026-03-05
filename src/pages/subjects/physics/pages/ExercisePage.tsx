@@ -78,6 +78,7 @@ export default function ExercisePage({
   } = useStore();
 
   const topicParam = searchParams.get('topic') || undefined;
+  const targetExerciseId = searchParams.get('exerciseId') || undefined;
   const catalogEntry = exercisesOverride || sectionsOverride
     ? undefined
     : getPhysicsExerciseCatalogEntry(topicParam || topicIdOverride);
@@ -165,6 +166,19 @@ export default function ExercisePage({
   const currentSavedAnswer = currentExercise
     ? exerciseProgress.answers?.[currentExercise.id] ?? null
     : null;
+
+  // Support deep-link from wrong-answers page: /exercise?...&exerciseId=xxx
+  useEffect(() => {
+    if (!targetExerciseId || filteredExercises.length === 0) return;
+    const idx = filteredExercises.findIndex((exercise) => exercise.id === targetExerciseId);
+    if (idx < 0) return;
+    if (idx !== currentExerciseIndex) {
+      setCurrentExerciseIndex(idx);
+    }
+    setSelectedAnswer(null);
+    setChecked(true);
+    setShowExplanation(true);
+  }, [targetExerciseId, filteredExercises, currentExerciseIndex]);
 
   // Auto-detect question images by convention when imagePaths is missing
   useEffect(() => {

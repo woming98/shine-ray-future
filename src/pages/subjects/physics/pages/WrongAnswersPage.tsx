@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import {
   AlertCircle,
   BookOpen,
@@ -13,6 +14,7 @@ import {
 } from 'lucide-react';
 import { Card } from '../components/UI/Card';
 import { Button } from '../components/UI/Button';
+import { getPhysicsExerciseCatalogEntry } from '../constants/exerciseCatalog';
 import { PHYSICS_TOPICS } from '../constants/topics';
 import { useStore } from '../store/useStore';
 import { WrongAnswer } from '../types';
@@ -38,6 +40,7 @@ const DEFAULT_FORM: ManualFormState = {
 };
 
 export default function WrongAnswersPage() {
+  const navigate = useNavigate();
   const {
     wrongAnswers,
     addManualWrongAnswer,
@@ -88,6 +91,23 @@ export default function WrongAnswersPage() {
   const getTopicName = (topicId: string) => {
     const topic = PHYSICS_TOPICS.find((t) => t.id === topicId);
     return topic?.nameCN || topicId;
+  };
+
+  const handleViewExplanation = (wa: WrongAnswer) => {
+    if (!wa.exerciseId) return;
+
+    const catalog = getPhysicsExerciseCatalogEntry(wa.topicId);
+    const matched = catalog.exercises.find((exercise) => exercise.id === wa.exerciseId);
+    const sectionId = matched?.sectionId || catalog.defaultSectionId || catalog.sections[0]?.id;
+
+    if (!sectionId) {
+      navigate(`/subjects/physics/exercise?topic=${wa.topicId}&exerciseId=${wa.exerciseId}`);
+      return;
+    }
+
+    navigate(
+      `/subjects/physics/exercise/${sectionId}?topic=${wa.topicId}&exerciseId=${wa.exerciseId}`
+    );
   };
 
   const getTopicIcon = (topicId: string) => {
@@ -445,6 +465,17 @@ export default function WrongAnswersPage() {
                   </div>
                 ) : (
                   <div className="space-y-3">
+                    <div className="flex justify-end">
+                      <Button
+                        variant="secondary"
+                        size="sm"
+                        icon={<BookOpen className="w-4 h-4" />}
+                        onClick={() => handleViewExplanation(wa)}
+                        disabled={!wa.exerciseId}
+                      >
+                        查看详解
+                      </Button>
+                    </div>
                     {wa.questionText ? (
                       <div>
                         <p className="text-xs text-blue-300 mb-1">题目</p>
@@ -510,4 +541,3 @@ export default function WrongAnswersPage() {
     </motion.div>
   );
 }
-
