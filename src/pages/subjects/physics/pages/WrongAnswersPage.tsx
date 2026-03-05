@@ -1,6 +1,5 @@
 import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
 import {
   AlertCircle,
   BookOpen,
@@ -40,7 +39,6 @@ const DEFAULT_FORM: ManualFormState = {
 };
 
 export default function WrongAnswersPage() {
-  const navigate = useNavigate();
   const {
     wrongAnswers,
     addManualWrongAnswer,
@@ -94,8 +92,10 @@ export default function WrongAnswersPage() {
   };
 
   const handleViewExplanation = (wa: WrongAnswer) => {
+    let targetUrl = `/subjects/physics/exercise?topic=${wa.topicId}`;
+
     if (!wa.exerciseId) {
-      navigate(`/subjects/physics/exercise?topic=${wa.topicId}`);
+      window.location.assign(targetUrl);
       return;
     }
 
@@ -104,13 +104,13 @@ export default function WrongAnswersPage() {
     const sectionId = matched?.sectionId || catalog.defaultSectionId || catalog.sections[0]?.id;
 
     if (!sectionId) {
-      navigate(`/subjects/physics/exercise?topic=${wa.topicId}&exerciseId=${wa.exerciseId}`);
+      targetUrl = `/subjects/physics/exercise?topic=${wa.topicId}&exerciseId=${wa.exerciseId}`;
+      window.location.assign(targetUrl);
       return;
     }
 
-    navigate(
-      `/subjects/physics/exercise/${sectionId}?topic=${wa.topicId}&exerciseId=${wa.exerciseId}`
-    );
+    targetUrl = `/subjects/physics/exercise/${sectionId}?topic=${wa.topicId}&exerciseId=${wa.exerciseId}`;
+    window.location.assign(targetUrl);
   };
 
   const getTopicIcon = (topicId: string) => {
@@ -355,6 +355,14 @@ export default function WrongAnswersPage() {
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      icon={<BookOpen className="w-4 h-4" />}
+                      onClick={() => handleViewExplanation(wa)}
+                    >
+                      查看详解
+                    </Button>
                     {wa.mastered ? (
                       <span className="px-2 py-1 rounded-full bg-green-500/20 text-green-300 text-xs flex items-center gap-1">
                         <Check className="w-3 h-3" /> 已掌握
