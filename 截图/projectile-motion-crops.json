@@ -1,0 +1,15 @@
+{
+  "scale": 2,
+  "jobs": [
+    {
+      "page": 1,
+      "outputs": [
+        {
+          "name": "pjm-006-question.png",
+         "box": [120, 120, 1500, 1100]
+
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "scale": 6,
+  "jobs": [
+    {
+      "page": 1,
+      "outputs": [
+        { "name": "wp-q3-zoom-2.png", "box": [1650, 1400, 1200, 900] }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "scale": 2,
+  "jobs": [
+    {
+      "page": 1,
+      "outputs": [
+        {
+          "name": "grav-001-question.png",
+          "box": [120, 180, 860, 420]
+        },
+        {
+          "name": "grav-001-option-a.png",
+          "box": [120, 620, 360, 90]
+        },
+        {
+          "name": "grav-001-option-b.png",
+          "box": [520, 620, 360, 90]
+        },
+        {
+          "name": "grav-001-option-c.png",
+          "box": [120, 740, 360, 90]
+        },
+        {
+          "name": "grav-001-option-d.png",
+          "box": [520, 740, 360, 90]
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "outputs": [
+        {
+          "name": "grav-002-question.png",
+          "box": [120, 180, 860, 520]
+        }
+      ]
+    }
+  ]
+}
