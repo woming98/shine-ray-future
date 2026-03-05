@@ -107,6 +107,7 @@ export default function ExercisePage({
   const [showResetConfirm, setShowResetConfirm] = useState(false);
   const [summaryDismissedMap, setSummaryDismissedMap] = useState<Record<string, boolean>>({});
   const [autoImagePaths, setAutoImagePaths] = useState<string[]>([]);
+  const [handledDeepLinkExerciseId, setHandledDeepLinkExerciseId] = useState<string | null>(null);
 
   // 过滤练习题（按子板块 + 难度）
   const filteredExercises = useMemo(() => {
@@ -167,8 +168,22 @@ export default function ExercisePage({
     ? exerciseProgress.answers?.[currentExercise.id] ?? null
     : null;
 
-  // Support deep-link from wrong-answers page: /exercise?...&exerciseId=xxx
+  // Reset deep-link guard when target changes
   useEffect(() => {
+    if (!targetExerciseId) {
+      setHandledDeepLinkExerciseId(null);
+      return;
+    }
+    if (targetExerciseId !== handledDeepLinkExerciseId) {
+      setHandledDeepLinkExerciseId(null);
+    }
+  }, [targetExerciseId, handledDeepLinkExerciseId]);
+
+  // Support deep-link from wrong-answers page: /exercise?...&exerciseId=xxx
+  // Only apply once per target so user can switch to other questions afterwards.
+  useEffect(() => {
+    if (!targetExerciseId) return;
+    if (handledDeepLinkExerciseId === targetExerciseId) return;
     if (!targetExerciseId || filteredExercises.length === 0) return;
     const idx = filteredExercises.findIndex((exercise) => exercise.id === targetExerciseId);
     if (idx < 0) return;
@@ -178,7 +193,8 @@ export default function ExercisePage({
     setSelectedAnswer(null);
     setChecked(true);
     setShowExplanation(true);
-  }, [targetExerciseId, filteredExercises, currentExerciseIndex]);
+    setHandledDeepLinkExerciseId(targetExerciseId);
+  }, [targetExerciseId, filteredExercises, currentExerciseIndex, handledDeepLinkExerciseId]);
 
   // Auto-detect question images by convention when imagePaths is missing
   useEffect(() => {
