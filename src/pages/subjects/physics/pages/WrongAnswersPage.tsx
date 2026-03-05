@@ -1,5 +1,7 @@
 import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
+import katex from 'katex';
+import 'katex/dist/katex.min.css';
 import {
   AlertCircle,
   BookOpen,
@@ -169,6 +171,240 @@ export default function WrongAnswersPage() {
       mastered: isRight,
       lastReview: new Date(),
     });
+  };
+
+  // Render explanation text with LaTeX + Markdown support
+  const renderLatexContent = (content: string) => {
+    if (!content || content.trim() === '') {
+      return [<span key="empty" className="text-blue-300 italic">No content available.</span>];
+    }
+
+    const parts: (string | JSX.Element)[] = [];
+    const paragraphs = content.split(/\n\n+/);
+    let keyIndex = 0;
+
+    paragraphs.forEach((paragraph, pIdx) => {
+      if (!paragraph.trim()) {
+        if (pIdx < paragraphs.length - 1) {
+          parts.push(<br key={`br-${keyIndex++}`} />);
+        }
+        return;
+      }
+
+      const displayRegex = /(\$\$[\s\S]+?\$\$|\\\[[\s\S]+?\\\])/g;
+      const displayChunks = paragraph.split(displayRegex);
+
+      displayChunks.forEach((chunk) => {
+        if (!chunk) return;
+
+        const isDollarDisplay = chunk.startsWith('$$') && chunk.endsWith('$$');
+        if (isDollarDisplay) {
+          const latex = chunk.slice(2, -2).trim();
+          if (latex) {
+            try {
+              const html = katex.renderToString(latex, {
+                throwOnError: false,
+                displayMode: true,
+              });
+              parts.push(
+                <div
+                  key={`d-${keyIndex++}`}
+                  className="my-3 p-3 bg-slate-800/50 rounded-lg border border-blue-500/30 overflow-x-auto [&_.katex]:text-blue-100"
+                  dangerouslySetInnerHTML={{ __html: html }}
+                />
+              );
+            } catch {
+              parts.push(<span key={`d-${keyIndex++}`} className="text-red-500">{chunk}</span>);
+            }
+          }
+          return;
+        }
+
+        const isBracketDisplay = chunk.startsWith('\\[') && chunk.endsWith('\\]');
+        if (isBracketDisplay) {
+          const latex = chunk.slice(2, -2).trim();
+          if (latex) {
+            try {
+              const html = katex.renderToString(latex, {
+                throwOnError: false,
+                displayMode: true,
+              });
+              parts.push(
+                <div
+                  key={`b-${keyIndex++}`}
+                  className="my-3 p-3 bg-slate-800/50 rounded-lg border border-blue-500/30 overflow-x-auto [&_.katex]:text-blue-100"
+                  dangerouslySetInnerHTML={{ __html: html }}
+                />
+              );
+            } catch {
+              parts.push(<span key={`b-${keyIndex++}`} className="text-red-500">{chunk}</span>);
+            }
+          }
+          return;
+        }
+
+        const processedChunk = processInlineLatexAndMarkdown(chunk, keyIndex);
+        parts.push(...processedChunk.parts);
+        keyIndex = processedChunk.nextKeyIndex;
+      });
+
+      if (pIdx < paragraphs.length - 1) {
+        parts.push(<br key={`para-br-${keyIndex++}`} />);
+      }
+    });
+
+    if (parts.length === 0) {
+      return [<span key="fallback" className="whitespace-pre-wrap">{content}</span>];
+    }
+
+    return parts;
+  };
+
+  const processInlineLatexAndMarkdown = (text: string, startKeyIndex: number) => {
+    const parts: (string | JSX.Element)[] = [];
+    let keyIndex = startKeyIndex;
+
+    const inlineRegex = /(\$[^$]+\$|\\\([^)]+\\\))/g;
+    const inlineChunks = text.split(inlineRegex);
+
+    inlineChunks.forEach((inlineChunk) => {
+      if (!inlineChunk) return;
+
+      const isDollarInline =
+        inlineChunk.startsWith('$') &&
+        inlineChunk.endsWith('$') &&
+        !inlineChunk.startsWith('$$');
+      if (isDollarInline) {
+        const latex = inlineChunk.slice(1, -1);
+        try {
+          const html = katex.renderToString(latex, {
+            throwOnError: false,
+            displayMode: false,
+          });
+          parts.push(
+            <span
+              key={`i-${keyIndex++}`}
+              className="inline-block align-middle mx-0.5 [&_.katex]:text-blue-100"
+              dangerouslySetInnerHTML={{ __html: html }}
+            />
+          );
+        } catch {
+          parts.push(<span key={`i-${keyIndex++}`}>{inlineChunk}</span>);
+        }
+        return;
+      }
+
+      const isParenInline = inlineChunk.startsWith('\\(') && inlineChunk.endsWith('\\)');
+      if (isParenInline) {
+        const latex = inlineChunk.slice(2, -2);
+        try {
+          const html = katex.renderToString(latex, {
+            throwOnError: false,
+            displayMode: false,
+          });
+          parts.push(
+            <span
+              key={`p-${keyIndex++}`}
+              className="inline-block align-middle mx-0.5 [&_.katex]:text-blue-100"
+              dangerouslySetInnerHTML={{ __html: html }}
+            />
+          );
+        } catch {
+          parts.push(<span key={`p-${keyIndex++}`}>{inlineChunk}</span>);
+        }
+        return;
+      }
+
+      const markdownParts = renderMarkdown(inlineChunk, keyIndex);
+      parts.push(...markdownParts);
+      keyIndex += markdownParts.length;
+    });
+
+    return { parts, nextKeyIndex: keyIndex };
+  };
+
+  const renderMarkdown = (text: string, startKeyIndex: number) => {
+    if (!text) return [];
+
+    const parts: (string | JSX.Element)[] = [];
+    let keyIndex = startKeyIndex;
+    const lines = text.split('\n');
+    let i = 0;
+
+    while (i < lines.length) {
+      const line = lines[i];
+
+      if (line.trim() === '') {
+        if (i < lines.length - 1) {
+          parts.push(<br key={`br-${keyIndex++}`} />);
+        }
+        i++;
+        continue;
+      }
+
+      const imageRegex = /!\[([^\]]*)\]\(([^)]+)\)/;
+      if (imageRegex.test(line)) {
+        i++;
+        continue;
+      }
+
+      if (line.trim().startsWith('-')) {
+        const listItems: JSX.Element[] = [];
+        while (i < lines.length && lines[i].trim().startsWith('-')) {
+          const listContent = lines[i].replace(/^-\s*/, '');
+          const listParts = processBoldAndText(listContent, keyIndex);
+          listItems.push(
+            <li key={`li-${keyIndex++}`} className="ml-4 mb-1">
+              {listParts.parts}
+            </li>
+          );
+          keyIndex = listParts.nextKeyIndex;
+          i++;
+        }
+        if (listItems.length > 0) {
+          parts.push(
+            <ul key={`ul-${keyIndex++}`} className="list-disc list-inside space-y-1 ml-4 my-2">
+              {listItems}
+            </ul>
+          );
+        }
+        continue;
+      }
+
+      const textParts = processBoldAndText(line, keyIndex);
+      parts.push(...textParts.parts);
+      keyIndex = textParts.nextKeyIndex;
+
+      if (i < lines.length - 1) {
+        parts.push(<br key={`line-br-${keyIndex++}`} />);
+      }
+      i++;
+    }
+
+    return parts;
+  };
+
+  const processBoldAndText = (text: string, startKeyIndex: number) => {
+    const parts: (string | JSX.Element)[] = [];
+    let keyIndex = startKeyIndex;
+    const boldRegex = /(\*\*[^*]+\*\*)/g;
+    const chunks = text.split(boldRegex);
+
+    chunks.forEach((chunk) => {
+      if (!chunk) return;
+      const isBold = chunk.startsWith('**') && chunk.endsWith('**');
+      if (isBold) {
+        parts.push(
+          <strong key={`bold-${keyIndex++}`} className="font-semibold text-blue-100">
+            {chunk.slice(2, -2)}
+          </strong>
+        );
+      } else {
+        parts.push(<span key={`text-${keyIndex++}`}>{chunk}</span>);
+      }
+    });
+
+    return { parts, nextKeyIndex: keyIndex };
   };
 
   const handleCreateWrong = () => {
@@ -689,9 +925,9 @@ export default function WrongAnswersPage() {
                         {redoSubmitted && redoExercise?.explanation ? (
                           <div className="p-3 bg-white/5 border border-white/10 rounded-lg">
                             <p className="text-xs text-blue-300 mb-1">解析</p>
-                            <p className="text-blue-100 whitespace-pre-wrap">
-                              {redoExercise.explanation}
-                            </p>
+                            <div className="text-blue-100 whitespace-pre-wrap">
+                              {renderLatexContent(redoExercise.explanation)}
+                            </div>
                           </div>
                         ) : null}
                       </div>
