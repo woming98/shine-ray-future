@@ -354,6 +354,7 @@ export default function WrongAnswersPage() {
                     <Button
                       variant="secondary"
                       size="sm"
+                      className="hidden"
                       icon={<BookOpen className="w-4 h-4" />}
                       onClick={() => handleViewExplanation(wa)}
                     >
