@@ -173,6 +173,14 @@ export default function WrongAnswersPage() {
     });
   };
 
+  // Clean known mojibake artifacts in imported explanation strings
+  const normalizeExplanationText = (raw: string) => {
+    if (!raw) return raw;
+    return raw
+      .replace(/�\?/g, '-')
+      .replace(/�/g, '-');
+  };
+
   // Render explanation text with LaTeX + Markdown support
   const renderLatexContent = (content: string) => {
     if (!content || content.trim() === '') {
@@ -926,7 +934,9 @@ export default function WrongAnswersPage() {
                           <div className="p-3 bg-white/5 border border-white/10 rounded-lg">
                             <p className="text-xs text-blue-300 mb-1">解析</p>
                             <div className="text-blue-100 whitespace-pre-wrap">
-                              {renderLatexContent(redoExercise.explanation)}
+                              {renderLatexContent(
+                                normalizeExplanationText(redoExercise.explanation)
+                              )}
                             </div>
                           </div>
                         ) : null}
