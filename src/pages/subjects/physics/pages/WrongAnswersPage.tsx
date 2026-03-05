@@ -1,340 +1,546 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useMemo, useState } from 'react';
+import { motion } from 'framer-motion';
 import {
+  AlertCircle,
   BookOpen,
   Check,
-  X,
-  RefreshCw,
+  CheckCircle2,
+  Edit3,
   Filter,
-  ChevronDown,
-  AlertCircle,
-  CheckCircle,
+  PlusCircle,
+  Trash2,
+  X,
 } from 'lucide-react';
-import { useStore } from '../store/useStore';
-import { PHYSICS_TOPICS } from '../constants/topics';
 import { Card } from '../components/UI/Card';
 import { Button } from '../components/UI/Button';
+import { getPhysicsExerciseCatalogEntry } from '../constants/exerciseCatalog';
+import { PHYSICS_TOPICS } from '../constants/topics';
+import { useStore } from '../store/useStore';
+import { WrongAnswer } from '../types';
+
+type FilterType = 'all' | 'unmastered' | 'mastered';
+
+interface ManualFormState {
+  topicId: string;
+  chapterId: string;
+  questionText: string;
+  userAnswer: string;
+  correctAnswer: string;
+  notes: string;
+}
+
+const DEFAULT_FORM: ManualFormState = {
+  topicId: PHYSICS_TOPICS[0]?.id ?? 'force-motion',
+  chapterId: '',
+  questionText: '',
+  userAnswer: '',
+  correctAnswer: '',
+  notes: '',
+};
 
 export default function WrongAnswersPage() {
-  const { wrongAnswers, markAsMastered } = useStore();
-  const [filter, setFilter] = useState<'all' | 'unmastered' | 'mastered'>('all');
-  const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
-  const [showFilters, setShowFilters] = useState(false);
+  const {
+    wrongAnswers,
+    addManualWrongAnswer,
+    updateWrongAnswer,
+    removeWrongAnswer,
+    markAsMastered,
+  } = useStore();
 
-  // 过滤错题
-  const filteredAnswers = wrongAnswers.filter((wa) => {
-    if (filter === 'mastered' && !wa.mastered) return false;
-    if (filter === 'unmastered' && wa.mastered) return false;
-    if (selectedTopic && wa.topicId !== selectedTopic) return false;
-    return true;
+  const [filter, setFilter] = useState<FilterType>('all');
+  const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
+  const [showCreatePanel, setShowCreatePanel] = useState(false);
+  const [formState, setFormState] = useState<ManualFormState>(DEFAULT_FORM);
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [editingValues, setEditingValues] = useState<{
+    questionText: string;
+    userAnswer: string;
+    correctAnswer: string;
+    notes: string;
+    chapterId: string;
+  }>({
+    questionText: '',
+    userAnswer: '',
+    correctAnswer: '',
+    notes: '',
+    chapterId: '',
   });
 
-  // 统计数据
   const totalWrong = wrongAnswers.length;
-  const masteredCount = wrongAnswers.filter((wa) => wa.mastered).length;
-
-  const isImageOption = (option: string): boolean => {
-    if (option.startsWith('/') || option.startsWith('./')) {
-      return true;
-    }
-    const imageExtensions = ['.png', '.jpg', '.jpeg', '.svg', '.gif', '.webp'];
-    return imageExtensions.some((ext) => option.toLowerCase().includes(ext));
-  };
+  const masteredCount = wrongAnswers.filter((w) => w.mastered).length;
   const unmasteredCount = totalWrong - masteredCount;
 
-  // 获取主题名称
+  const filteredAnswers = useMemo(
+    () =>
+      wrongAnswers
+        .filter((wa) => {
+          if (filter === 'mastered' && !wa.mastered) return false;
+          if (filter === 'unmastered' && wa.mastered) return false;
+          if (selectedTopic && wa.topicId !== selectedTopic) return false;
+          return true;
+        })
+        .sort(
+          (a, b) =>
+            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        ),
+    [filter, selectedTopic, wrongAnswers]
+  );
+
   const getTopicName = (topicId: string) => {
     const topic = PHYSICS_TOPICS.find((t) => t.id === topicId);
     return topic?.nameCN || topicId;
   };
 
-  // 获取主题图标
+  const getExplanationUrl = (wa: WrongAnswer) => {
+    let targetUrl = `/subjects/physics/exercise?topic=${wa.topicId}`;
+    if (!wa.exerciseId) return targetUrl;
+
+    const catalog = getPhysicsExerciseCatalogEntry(wa.topicId);
+    const matched = catalog.exercises.find((exercise) => exercise.id === wa.exerciseId);
+    const sectionId = matched?.sectionId || catalog.defaultSectionId || catalog.sections[0]?.id;
+    if (!sectionId) {
+      return `/subjects/physics/exercise?topic=${wa.topicId}&exerciseId=${wa.exerciseId}`;
+    }
+    targetUrl = `/subjects/physics/exercise/${sectionId}?topic=${wa.topicId}&exerciseId=${wa.exerciseId}`;
+    return targetUrl;
+  };
+
+  const handleViewExplanation = (wa: WrongAnswer) => {
+    window.location.assign(getExplanationUrl(wa));
+  };
+
   const getTopicIcon = (topicId: string) => {
     const topic = PHYSICS_TOPICS.find((t) => t.id === topicId);
-    return topic?.icon || '📚';
+    return topic?.icon || '📘';
+  };
+
+  const isImageOption = (option: string): boolean => {
+    if (!option) return false;
+    if (option.startsWith('/') || option.startsWith('./')) return true;
+    return ['.png', '.jpg', '.jpeg', '.svg', '.gif', '.webp'].some((ext) =>
+      option.toLowerCase().includes(ext)
+    );
+  };
+
+  const handleCreateWrong = () => {
+    if (!formState.questionText.trim()) return;
+    if (!formState.userAnswer.trim()) return;
+    if (!formState.correctAnswer.trim()) return;
+
+    addManualWrongAnswer({
+      topicId: formState.topicId,
+      chapterId: formState.chapterId.trim() || 'manual-note',
+      questionText: formState.questionText.trim(),
+      userAnswer: formState.userAnswer.trim(),
+      correctAnswer: formState.correctAnswer.trim(),
+      notes: formState.notes.trim() || undefined,
+    });
+
+    setFormState(DEFAULT_FORM);
+    setShowCreatePanel(false);
+  };
+
+  const startEdit = (row: WrongAnswer) => {
+    setEditingId(row.id);
+    setEditingValues({
+      questionText: row.questionText || '',
+      userAnswer: row.userAnswer,
+      correctAnswer: row.correctAnswer,
+      notes: row.notes || '',
+      chapterId: row.chapterId || '',
+    });
+  };
+
+  const saveEdit = (id: string) => {
+    if (!editingValues.userAnswer.trim() || !editingValues.correctAnswer.trim()) return;
+    updateWrongAnswer(id, {
+      questionText: editingValues.questionText.trim() || undefined,
+      userAnswer: editingValues.userAnswer.trim(),
+      correctAnswer: editingValues.correctAnswer.trim(),
+      notes: editingValues.notes.trim() || undefined,
+      chapterId: editingValues.chapterId.trim() || 'manual-note',
+    });
+    setEditingId(null);
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      className="space-y-8"
-    >
-      {/* 页面标题 */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h1 className="text-3xl font-display font-bold text-blue-100">错题本</h1>
-          <p className="text-blue-300 mt-2">温故知新，掌握每一个知识点</p>
+          <h1 className="text-3xl font-bold text-blue-100">错题记录系统</h1>
+          <p className="text-blue-300 mt-1">自动收录 + 手动记录，都保存在本地</p>
         </div>
         <Button
-          variant="secondary"
-          icon={<RefreshCw className="w-4 h-4" />}
+          icon={<PlusCircle className="w-4 h-4" />}
+          onClick={() => setShowCreatePanel((v) => !v)}
         >
-          开始复习
+          {showCreatePanel ? '收起手动录入' : '手动记录错题'}
         </Button>
       </div>
 
-      {/* 统计卡片 */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <Card hover={false} className="p-5">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-red-500/20 flex items-center justify-center">
-              <X className="w-6 h-6 text-red-400" />
-            </div>
-            <div>
-              <p className="text-2xl font-bold text-blue-100">{totalWrong}</p>
-              <p className="text-blue-300 text-sm">总错题数</p>
-            </div>
-          </div>
+        <Card hover={false} className="p-4">
+          <div className="text-2xl font-bold text-blue-100">{totalWrong}</div>
+          <div className="text-blue-300 text-sm">总错题</div>
         </Card>
-
-        <Card hover={false} className="p-5">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-yellow-500/20 flex items-center justify-center">
-              <AlertCircle className="w-6 h-6 text-yellow-400" />
-            </div>
-            <div>
-              <p className="text-2xl font-bold text-blue-100">{unmasteredCount}</p>
-              <p className="text-blue-300 text-sm">待复习</p>
-            </div>
-          </div>
+        <Card hover={false} className="p-4">
+          <div className="text-2xl font-bold text-yellow-300">{unmasteredCount}</div>
+          <div className="text-blue-300 text-sm">待复习</div>
         </Card>
-
-        <Card hover={false} className="p-5">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center">
-              <CheckCircle className="w-6 h-6 text-green-400" />
-            </div>
-            <div>
-              <p className="text-2xl font-bold text-blue-100">{masteredCount}</p>
-              <p className="text-blue-300 text-sm">已掌握</p>
-            </div>
-          </div>
+        <Card hover={false} className="p-4">
+          <div className="text-2xl font-bold text-green-300">{masteredCount}</div>
+          <div className="text-blue-300 text-sm">已掌握</div>
         </Card>
       </div>
 
-      {/* 筛选器 */}
-      <div className="flex flex-wrap items-center gap-4">
-        <button
-          onClick={() => setShowFilters(!showFilters)}
-          className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-xl text-blue-100 hover:bg-white/20 transition-colors"
-        >
-          <Filter className="w-4 h-4" />
-          筛选
-          <ChevronDown className={`w-4 h-4 transition-transform ${showFilters ? 'rotate-180' : ''}`} />
-        </button>
-
-        <div className="flex gap-2">
-          <button
-            onClick={() => setFilter('all')}
-            className={`px-4 py-2 rounded-xl transition-colors ${
-              filter === 'all'
-                ? 'bg-primary-500 text-blue-100'
-                : 'bg-white/10 text-blue-200 hover:bg-white/20'
-            }`}
-          >
-            全部
-          </button>
-          <button
-            onClick={() => setFilter('unmastered')}
-            className={`px-4 py-2 rounded-xl transition-colors ${
-              filter === 'unmastered'
-                ? 'bg-yellow-500 text-blue-100'
-                : 'bg-white/10 text-blue-200 hover:bg-white/20'
-            }`}
-          >
-            待复习
-          </button>
-          <button
-            onClick={() => setFilter('mastered')}
-            className={`px-4 py-2 rounded-xl transition-colors ${
-              filter === 'mastered'
-                ? 'bg-green-500 text-blue-100'
-                : 'bg-white/10 text-blue-200 hover:bg-white/20'
-            }`}
-          >
-            已掌握
-          </button>
-        </div>
-      </div>
-
-      {/* 主题筛选 */}
-      <AnimatePresence>
-        {showFilters && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="overflow-hidden"
-          >
-            <div className="flex flex-wrap gap-2 p-4 bg-white/5 rounded-xl">
-              <button
-                onClick={() => setSelectedTopic(null)}
-                className={`px-3 py-1.5 rounded-lg text-sm transition-colors ${
-                  selectedTopic === null
-                    ? 'bg-primary-500 text-blue-100'
-                    : 'bg-white/10 text-blue-200 hover:bg-white/20'
-                }`}
+      {showCreatePanel && (
+        <Card hover={false} className="p-5 space-y-4 border border-primary-500/40">
+          <div className="text-blue-100 font-semibold">手动录入错题</div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <label className="space-y-1">
+              <span className="text-xs text-blue-300">主题</span>
+              <select
+                value={formState.topicId}
+                onChange={(e) =>
+                  setFormState((prev) => ({ ...prev, topicId: e.target.value }))
+                }
+                className="w-full bg-slate-800/60 border border-white/20 rounded-lg p-2 text-blue-100"
               >
-                全部主题
-              </button>
-              {PHYSICS_TOPICS.map((topic) => (
-                <button
-                  key={topic.id}
-                  onClick={() => setSelectedTopic(topic.id)}
-                  className={`px-3 py-1.5 rounded-lg text-sm transition-colors flex items-center gap-1 ${
-                    selectedTopic === topic.id
-                      ? 'bg-primary-500 text-blue-100'
-                      : 'bg-white/10 text-blue-200 hover:bg-white/20'
-                  }`}
-                >
-                  <span>{topic.icon}</span>
-                  {topic.nameCN}
-                </button>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* 错题列表 */}
-      {filteredAnswers.length > 0 ? (
-        <div className="space-y-4">
-          {filteredAnswers.map((wrongAnswer, index) => (
-            <motion.div
-              key={wrongAnswer.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.05 }}
-            >
-              <Card hover={false} className="p-6">
-                <div className="flex items-start justify-between gap-4 mb-4">
-                  <div className="flex items-center gap-3">
-                    <span className="text-2xl">{getTopicIcon(wrongAnswer.topicId)}</span>
-                    <div>
-                      <span className="text-primary-400 text-sm font-medium">
-                        {getTopicName(wrongAnswer.topicId)}
-                      </span>
-                      <p className="text-blue-300 text-xs">
-                        错误次数: {wrongAnswer.attempts} | 
-                        添加时间: {new Date(wrongAnswer.createdAt).toLocaleDateString()}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    {wrongAnswer.mastered ? (
-                      <span className="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full flex items-center gap-1">
-                        <Check className="w-3 h-3" />
-                        已掌握
-                      </span>
-                    ) : (
-                      <span className="px-2 py-1 bg-yellow-500/20 text-yellow-400 text-xs rounded-full flex items-center gap-1">
-                        <AlertCircle className="w-3 h-3" />
-                        待复习
-                      </span>
-                    )}
-                  </div>
-                </div>
-
-                <div className="space-y-3">
-                  <div>
-                    <p className="text-blue-300 text-sm mb-1">题目 ID</p>
-                    <p className="text-blue-100">{wrongAnswer.exerciseId}</p>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="p-3 bg-red-500/10 border border-red-500/30 rounded-xl">
-                      <p className="text-red-400 text-sm mb-1 flex items-center gap-1">
-                        <X className="w-4 h-4" />
-                        你的答案
-                      </p>
-                      {isImageOption(wrongAnswer.userAnswer) ? (
-                        <div className="flex items-center justify-center">
-                          <img
-                            src={wrongAnswer.userAnswer}
-                            alt="Your answer"
-                            className="max-w-full max-h-40 h-auto rounded-lg shadow-lg"
-                          />
-                        </div>
-                      ) : (
-                        <p className="text-blue-100">{wrongAnswer.userAnswer}</p>
-                      )}
-                    </div>
-                    <div className="p-3 bg-green-500/10 border border-green-500/30 rounded-xl">
-                      <p className="text-green-400 text-sm mb-1 flex items-center gap-1">
-                        <Check className="w-4 h-4" />
-                        正确答案
-                      </p>
-                      {isImageOption(wrongAnswer.correctAnswer) ? (
-                        <div className="flex items-center justify-center">
-                          <img
-                            src={wrongAnswer.correctAnswer}
-                            alt="Correct answer"
-                            className="max-w-full max-h-40 h-auto rounded-lg shadow-lg"
-                          />
-                        </div>
-                      ) : (
-                        <p className="text-blue-100">{wrongAnswer.correctAnswer}</p>
-                      )}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex items-center justify-end gap-3 mt-4 pt-4 border-t border-white/10">
-                  {!wrongAnswer.mastered && (
-                    <Button
-                      variant="secondary"
-                      size="sm"
-                      icon={<Check className="w-4 h-4" />}
-                      onClick={() => markAsMastered(wrongAnswer.id)}
-                    >
-                      标记为已掌握
-                    </Button>
-                  )}
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    icon={<BookOpen className="w-4 h-4" />}
-                  >
-                    查看详解
-                  </Button>
-                </div>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-      ) : (
-        <Card hover={false} className="p-12 text-center">
-          <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-white/5 flex items-center justify-center">
-            <CheckCircle className="w-10 h-10 text-green-400" />
+                {PHYSICS_TOPICS.map((topic) => (
+                  <option key={topic.id} value={topic.id}>
+                    {topic.nameCN}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label className="space-y-1">
+              <span className="text-xs text-blue-300">章节 ID（可选）</span>
+              <input
+                value={formState.chapterId}
+                onChange={(e) =>
+                  setFormState((prev) => ({ ...prev, chapterId: e.target.value }))
+                }
+                className="w-full bg-slate-800/60 border border-white/20 rounded-lg p-2 text-blue-100"
+                placeholder="e.g. electric-circuits"
+              />
+            </label>
           </div>
-          <h3 className="text-xl font-bold text-blue-100 mb-2">
-            {filter === 'all' ? '暂无错题' : filter === 'mastered' ? '暂无已掌握的错题' : '所有错题都已掌握！'}
-          </h3>
-          <p className="text-blue-300">
-            {filter === 'all' 
-              ? '继续做题，错题会自动收录在这里' 
-              : filter === 'mastered'
-              ? '完成复习后标记为已掌握'
-              : '太棒了！保持这种状态'}
-          </p>
+          <label className="space-y-1 block">
+            <span className="text-xs text-blue-300">题目（必填）</span>
+            <textarea
+              value={formState.questionText}
+              onChange={(e) =>
+                setFormState((prev) => ({ ...prev, questionText: e.target.value }))
+              }
+              className="w-full h-24 bg-slate-800/60 border border-white/20 rounded-lg p-2 text-blue-100"
+              placeholder="记录题干或关键点"
+            />
+          </label>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <label className="space-y-1 block">
+              <span className="text-xs text-blue-300">你的答案（必填）</span>
+              <input
+                value={formState.userAnswer}
+                onChange={(e) =>
+                  setFormState((prev) => ({ ...prev, userAnswer: e.target.value }))
+                }
+                className="w-full bg-slate-800/60 border border-white/20 rounded-lg p-2 text-blue-100"
+              />
+            </label>
+            <label className="space-y-1 block">
+              <span className="text-xs text-blue-300">正确答案（必填）</span>
+              <input
+                value={formState.correctAnswer}
+                onChange={(e) =>
+                  setFormState((prev) => ({ ...prev, correctAnswer: e.target.value }))
+                }
+                className="w-full bg-slate-800/60 border border-white/20 rounded-lg p-2 text-blue-100"
+              />
+            </label>
+          </div>
+          <label className="space-y-1 block">
+            <span className="text-xs text-blue-300">备注（可选）</span>
+            <textarea
+              value={formState.notes}
+              onChange={(e) =>
+                setFormState((prev) => ({ ...prev, notes: e.target.value }))
+              }
+              className="w-full h-20 bg-slate-800/60 border border-white/20 rounded-lg p-2 text-blue-100"
+              placeholder="例如：错因、正确思路、下次提醒"
+            />
+          </label>
+          <div className="flex justify-end gap-2">
+            <Button variant="ghost" onClick={() => setShowCreatePanel(false)}>
+              取消
+            </Button>
+            <Button onClick={handleCreateWrong}>保存到错题本</Button>
+          </div>
         </Card>
       )}
 
-      {/* 学习建议 */}
-      <Card hover={false} className="p-6 bg-gradient-to-r from-accent-500/10 to-transparent">
-        <div className="flex items-start gap-4">
-          <div className="w-12 h-12 rounded-xl bg-accent-500/20 flex items-center justify-center flex-shrink-0">
-            <BookOpen className="w-6 h-6 text-accent-400" />
-          </div>
-          <div>
-            <h3 className="text-lg font-bold text-blue-100 mb-2">复习建议</h3>
-            <ul className="text-blue-200 space-y-2 text-sm">
-              <li>• 建议每天花 15-20 分钟复习错题</li>
-              <li>• 同一类型的错题可以一起复习，找出共同的问题</li>
-              <li>• 连续答对 3 次后再标记为已掌握</li>
-              <li>• 定期清理已掌握的错题，专注于薄弱环节</li>
-            </ul>
+      <Card hover={false} className="p-4 space-y-4">
+        <div className="flex items-center gap-2 text-blue-100">
+          <Filter className="w-4 h-4" />
+          <span className="font-medium">筛选</span>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {(['all', 'unmastered', 'mastered'] as FilterType[]).map((type) => (
+            <button
+              key={type}
+              onClick={() => setFilter(type)}
+              className={`px-3 py-1.5 rounded-lg text-sm transition-colors ${
+                filter === type
+                  ? 'bg-primary-500 text-white'
+                  : 'bg-white/10 text-blue-200 hover:bg-white/20'
+              }`}
+            >
+              {type === 'all' ? '全部' : type === 'unmastered' ? '待复习' : '已掌握'}
+            </button>
+          ))}
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <button
+            onClick={() => setSelectedTopic(null)}
+            className={`px-3 py-1.5 rounded-lg text-sm transition-colors ${
+              selectedTopic === null
+                ? 'bg-primary-500 text-white'
+                : 'bg-white/10 text-blue-200 hover:bg-white/20'
+            }`}
+          >
+            全部主题
+          </button>
+          {PHYSICS_TOPICS.map((topic) => (
+            <button
+              key={topic.id}
+              onClick={() => setSelectedTopic(topic.id)}
+              className={`px-3 py-1.5 rounded-lg text-sm transition-colors ${
+                selectedTopic === topic.id
+                  ? 'bg-primary-500 text-white'
+                  : 'bg-white/10 text-blue-200 hover:bg-white/20'
+              }`}
+            >
+              {topic.icon} {topic.nameCN}
+            </button>
+          ))}
+        </div>
+      </Card>
+
+      {filteredAnswers.length === 0 ? (
+        <Card hover={false} className="p-10 text-center">
+          <CheckCircle2 className="w-10 h-10 text-green-400 mx-auto mb-3" />
+          <p className="text-blue-100 font-semibold mb-1">当前没有匹配的错题</p>
+          <p className="text-blue-300 text-sm">你可以先做题自动收录，或手动新增。</p>
+        </Card>
+      ) : (
+        <div className="space-y-4">
+          {filteredAnswers.map((wa) => {
+            const isEditing = editingId === wa.id;
+            return (
+              <Card key={wa.id} hover={false} className="p-5">
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-3">
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl">{getTopicIcon(wa.topicId)}</span>
+                    <div>
+                      <div className="text-sm text-primary-300 font-medium">
+                        {getTopicName(wa.topicId)} · {wa.chapterId || '未分章节'}
+                      </div>
+                      <div className="text-xs text-blue-300">
+                        来源: {wa.source === 'manual' ? '手动录入' : '自动收录'} ·
+                        添加时间: {new Date(wa.createdAt).toLocaleString()}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      icon={<BookOpen className="w-4 h-4" />}
+                      onClick={() => handleViewExplanation(wa)}
+                    >
+                      查看详解
+                    </Button>
+                    {wa.mastered ? (
+                      <span className="px-2 py-1 rounded-full bg-green-500/20 text-green-300 text-xs flex items-center gap-1">
+                        <Check className="w-3 h-3" /> 已掌握
+                      </span>
+                    ) : (
+                      <span className="px-2 py-1 rounded-full bg-yellow-500/20 text-yellow-300 text-xs flex items-center gap-1">
+                        <AlertCircle className="w-3 h-3" /> 待复习
+                      </span>
+                    )}
+                    {!wa.mastered && (
+                      <Button
+                        variant="secondary"
+                        size="sm"
+                        icon={<Check className="w-4 h-4" />}
+                        onClick={() => markAsMastered(wa.id)}
+                      >
+                        标记掌握
+                      </Button>
+                    )}
+                    {!isEditing ? (
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        icon={<Edit3 className="w-4 h-4" />}
+                        onClick={() => startEdit(wa)}
+                      >
+                        编辑
+                      </Button>
+                    ) : (
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        icon={<X className="w-4 h-4" />}
+                        onClick={() => setEditingId(null)}
+                      >
+                        取消编辑
+                      </Button>
+                    )}
+                    <Button
+                      variant="danger"
+                      size="sm"
+                      icon={<Trash2 className="w-4 h-4" />}
+                      onClick={() => removeWrongAnswer(wa.id)}
+                    >
+                      删除
+                    </Button>
+                  </div>
+                </div>
+
+                {isEditing ? (
+                  <div className="space-y-3">
+                    <label className="block space-y-1">
+                      <span className="text-xs text-blue-300">题目</span>
+                      <textarea
+                        value={editingValues.questionText}
+                        onChange={(e) =>
+                          setEditingValues((prev) => ({
+                            ...prev,
+                            questionText: e.target.value,
+                          }))
+                        }
+                        className="w-full h-20 bg-slate-800/60 border border-white/20 rounded-lg p-2 text-blue-100"
+                      />
+                    </label>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      <label className="block space-y-1">
+                        <span className="text-xs text-blue-300">你的答案</span>
+                        <input
+                          value={editingValues.userAnswer}
+                          onChange={(e) =>
+                            setEditingValues((prev) => ({
+                              ...prev,
+                              userAnswer: e.target.value,
+                            }))
+                          }
+                          className="w-full bg-slate-800/60 border border-white/20 rounded-lg p-2 text-blue-100"
+                        />
+                      </label>
+                      <label className="block space-y-1">
+                        <span className="text-xs text-blue-300">正确答案</span>
+                        <input
+                          value={editingValues.correctAnswer}
+                          onChange={(e) =>
+                            setEditingValues((prev) => ({
+                              ...prev,
+                              correctAnswer: e.target.value,
+                            }))
+                          }
+                          className="w-full bg-slate-800/60 border border-white/20 rounded-lg p-2 text-blue-100"
+                        />
+                      </label>
+                    </div>
+                    <label className="block space-y-1">
+                      <span className="text-xs text-blue-300">备注</span>
+                      <textarea
+                        value={editingValues.notes}
+                        onChange={(e) =>
+                          setEditingValues((prev) => ({
+                            ...prev,
+                            notes: e.target.value,
+                          }))
+                        }
+                        className="w-full h-16 bg-slate-800/60 border border-white/20 rounded-lg p-2 text-blue-100"
+                      />
+                    </label>
+                    <div className="flex justify-end">
+                      <Button size="sm" onClick={() => saveEdit(wa.id)}>
+                        保存修改
+                      </Button>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="space-y-3">
+                    <div className="flex justify-end">
+                      <a
+                        href={getExplanationUrl(wa)}
+                        className="inline-flex items-center justify-center gap-2 px-3 py-1.5 text-sm font-medium rounded-xl bg-blue-500/10 hover:bg-blue-500/20 text-blue-300 border border-blue-500/30 hover:border-blue-500/50 transition-all duration-200"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <BookOpen className="w-4 h-4" />
+                        查看详解
+                      </a>
+                    </div>
+                    {wa.questionText ? (
+                      <div>
+                        <p className="text-xs text-blue-300 mb-1">题目</p>
+                        <p className="text-blue-100">{wa.questionText}</p>
+                      </div>
+                    ) : (
+                      <div>
+                        <p className="text-xs text-blue-300 mb-1">题目 ID</p>
+                        <p className="text-blue-100">{wa.exerciseId}</p>
+                      </div>
+                    )}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      <div className="p-3 bg-red-500/10 border border-red-500/30 rounded-lg">
+                        <p className="text-red-300 text-xs mb-1">你的答案</p>
+                        {isImageOption(wa.userAnswer) ? (
+                          <img
+                            src={wa.userAnswer}
+                            alt="User answer"
+                            className="max-w-full max-h-44 rounded-lg"
+                          />
+                        ) : (
+                          <p className="text-blue-100">{wa.userAnswer}</p>
+                        )}
+                      </div>
+                      <div className="p-3 bg-green-500/10 border border-green-500/30 rounded-lg">
+                        <p className="text-green-300 text-xs mb-1">正确答案</p>
+                        {isImageOption(wa.correctAnswer) ? (
+                          <img
+                            src={wa.correctAnswer}
+                            alt="Correct answer"
+                            className="max-w-full max-h-44 rounded-lg"
+                          />
+                        ) : (
+                          <p className="text-blue-100">{wa.correctAnswer}</p>
+                        )}
+                      </div>
+                    </div>
+                    {wa.notes ? (
+                      <div className="p-3 bg-white/5 border border-white/10 rounded-lg">
+                        <p className="text-xs text-blue-300 mb-1">备注</p>
+                        <p className="text-blue-100 whitespace-pre-wrap">{wa.notes}</p>
+                      </div>
+                    ) : null}
+                  </div>
+                )}
+              </Card>
+            );
+          })}
+        </div>
+      )}
+
+      <Card hover={false} className="p-5 bg-gradient-to-r from-accent-500/10 to-transparent">
+        <div className="flex items-start gap-3">
+          <BookOpen className="w-5 h-5 text-accent-400 mt-0.5" />
+          <div className="text-sm text-blue-200 space-y-1">
+            <p className="font-semibold text-blue-100">使用建议</p>
+            <p>1. 每道错题至少写一句“为什么错”。</p>
+            <p>2. 改对后先不要立刻标记已掌握，隔天再做一次。</p>
+            <p>3. 定期按主题筛选，集中攻克薄弱章节。</p>
           </div>
         </div>
       </Card>
