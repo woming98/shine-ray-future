@@ -170,13 +170,6 @@ function SimplePhysicsLayout({ children }: { children: React.ReactNode }) {
                       <span>Exercise</span>
                     </button>
                     <button
-                      onClick={() => { navigate('/subjects/physics/topic/astronomy-space?tab=notes'); setSidebarOpen(false); }}
-                      className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-blue-200 hover:text-white hover:bg-blue-500/20 transition-all duration-200 border border-transparent hover:border-blue-500/30"
-                    >
-                      <span>📝</span>
-                      <span>Astronomy Notes</span>
-                    </button>
-                    <button
                       onClick={() => { navigate('/subjects/physics/force-motion-quiz'); setSidebarOpen(false); }}
                       className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-blue-200 hover:text-white hover:bg-blue-500/20 transition-all duration-200 border border-transparent hover:border-blue-500/30"
                     >
