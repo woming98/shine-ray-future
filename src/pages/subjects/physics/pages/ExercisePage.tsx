@@ -548,15 +548,35 @@ export default function ExercisePage({
   };
 
   // 渲染包含 LaTeX 和 Markdown 的文本内容
+  const normalizeDisplayText = (raw: string) => {
+    if (!raw) return raw;
+    let cleaned = raw
+      .replace(/�\?/g, '-')
+      .replace(/�/g, '-');
+
+    const hasEnglishMarkers = /(Key point|Step\s*\d+|Conclusion|Verification|Answer)/i.test(cleaned);
+    if (hasEnglishMarkers) {
+      cleaned = cleaned.replace(/[\u3000-\u303F\u3400-\u9FFF\uF900-\uFAFF\uFF00-\uFFEF]+/g, ' ');
+    }
+
+    cleaned = cleaned
+      .replace(/[ \t]{2,}/g, ' ')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
+
+    return cleaned;
+  };
+
   const renderLatexContent = (content: string) => {
-    if (!content || content.trim() === '') {
+    const normalized = normalizeDisplayText(content);
+    if (!normalized || normalized.trim() === '') {
       return [<span key="empty" className="text-blue-300 italic">No content available.</span>];
     }
     
     const parts: (string | JSX.Element)[] = [];
     
     // 先按段落分割（\n\n），这样可以在段落级别处理 Markdown
-    const paragraphs = content.split(/\n\n+/);
+    const paragraphs = normalized.split(/\n\n+/);
     let keyIndex = 0;
 
     paragraphs.forEach((paragraph, pIdx) => {
@@ -636,7 +656,7 @@ export default function ExercisePage({
 
     // 如果 parts 为空，返回原始内容（作为后备）
     if (parts.length === 0) {
-      return [<span key="fallback" className="whitespace-pre-wrap">{content}</span>];
+      return [<span key="fallback" className="whitespace-pre-wrap">{normalized}</span>];
     }
     
     return parts;
