@@ -13,10 +13,13 @@ import {
 } from 'lucide-react';
 import { Card } from '../components/UI/Card';
 import { Button } from '../components/UI/Button';
-import { getPhysicsExerciseCatalogEntry } from '../constants/exerciseCatalog';
+import {
+  getPhysicsExerciseCatalogEntry,
+  PHYSICS_EXERCISE_CATALOG,
+} from '../constants/exerciseCatalog';
 import { PHYSICS_TOPICS } from '../constants/topics';
 import { useStore } from '../store/useStore';
-import { WrongAnswer } from '../types';
+import { Exercise, WrongAnswer } from '../types';
 
 type FilterType = 'all' | 'unmastered' | 'mastered';
 
@@ -65,6 +68,10 @@ export default function WrongAnswersPage() {
     notes: '',
     chapterId: '',
   });
+  const [redoTargetId, setRedoTargetId] = useState<string | null>(null);
+  const [redoAnswer, setRedoAnswer] = useState('');
+  const [redoSubmitted, setRedoSubmitted] = useState(false);
+  const [redoCorrect, setRedoCorrect] = useState<boolean | null>(null);
 
   const totalWrong = wrongAnswers.length;
   const masteredCount = wrongAnswers.filter((w) => w.mastered).length;
@@ -85,6 +92,16 @@ export default function WrongAnswersPage() {
         ),
     [filter, selectedTopic, wrongAnswers]
   );
+
+  const exerciseById = useMemo(() => {
+    const mapped = new Map<string, Exercise>();
+    Object.values(PHYSICS_EXERCISE_CATALOG).forEach((entry) => {
+      entry.exercises.forEach((exercise) => {
+        mapped.set(exercise.id, exercise);
+      });
+    });
+    return mapped;
+  }, []);
 
   const getTopicName = (topicId: string) => {
     const topic = PHYSICS_TOPICS.find((t) => t.id === topicId);
@@ -120,6 +137,38 @@ export default function WrongAnswersPage() {
     return ['.png', '.jpg', '.jpeg', '.svg', '.gif', '.webp'].some((ext) =>
       option.toLowerCase().includes(ext)
     );
+  };
+
+  const normalizeAnswer = (value: string) => value.trim().toLowerCase();
+
+  const getRedoExercise = (wa: WrongAnswer) => exerciseById.get(wa.exerciseId);
+
+  const startRedo = (wa: WrongAnswer) => {
+    setRedoTargetId(wa.id);
+    setRedoAnswer('');
+    setRedoSubmitted(false);
+    setRedoCorrect(null);
+    if (wa.mastered) {
+      updateWrongAnswer(wa.id, { mastered: false });
+    }
+  };
+
+  const submitRedo = (wa: WrongAnswer) => {
+    const exercise = getRedoExercise(wa);
+    const finalAnswer = redoAnswer.trim();
+    if (!finalAnswer) return;
+    const expected = exercise?.answer || wa.correctAnswer;
+    const isRight = normalizeAnswer(finalAnswer) === normalizeAnswer(expected);
+
+    setRedoSubmitted(true);
+    setRedoCorrect(isRight);
+
+    updateWrongAnswer(wa.id, {
+      userAnswer: finalAnswer,
+      attempts: (wa.attempts || 0) + 1,
+      mastered: isRight,
+      lastReview: new Date(),
+    });
   };
 
   const handleCreateWrong = () => {
@@ -335,6 +384,8 @@ export default function WrongAnswersPage() {
         <div className="space-y-4">
           {filteredAnswers.map((wa) => {
             const isEditing = editingId === wa.id;
+            const redoExercise = getRedoExercise(wa);
+            const isRedoing = redoTargetId === wa.id && !isEditing;
             return (
               <Card key={wa.id} hover={false} className="p-5">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-3">
@@ -346,7 +397,8 @@ export default function WrongAnswersPage() {
                       </div>
                       <div className="text-xs text-blue-300">
                         来源: {wa.source === 'manual' ? '手动录入' : '自动收录'} ·
-                        添加时间: {new Date(wa.createdAt).toLocaleString()}
+                        添加时间: {new Date(wa.createdAt).toLocaleString()} ·
+                        重做次数: {wa.attempts || 0}
                       </div>
                     </div>
                   </div>
@@ -379,6 +431,13 @@ export default function WrongAnswersPage() {
                         标记掌握
                       </Button>
                     )}
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      onClick={() => startRedo(wa)}
+                    >
+                      {isRedoing ? '重做中' : '重做此题'}
+                    </Button>
                     {!isEditing ? (
                       <Button
                         variant="ghost"
@@ -524,6 +583,117 @@ export default function WrongAnswersPage() {
                       <div className="p-3 bg-white/5 border border-white/10 rounded-lg">
                         <p className="text-xs text-blue-300 mb-1">备注</p>
                         <p className="text-blue-100 whitespace-pre-wrap">{wa.notes}</p>
+                      </div>
+                    ) : null}
+
+                    {isRedoing ? (
+                      <div className="p-4 rounded-lg border border-primary-500/40 bg-primary-500/5 space-y-3">
+                        <div className="flex items-center justify-between gap-2">
+                          <p className="text-sm font-semibold text-blue-100">错题重做</p>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => {
+                              setRedoTargetId(null);
+                              setRedoAnswer('');
+                              setRedoSubmitted(false);
+                              setRedoCorrect(null);
+                            }}
+                          >
+                            关闭
+                          </Button>
+                        </div>
+
+                        {redoExercise ? (
+                          <>
+                            <p className="text-blue-100 text-sm">{redoExercise.question}</p>
+                            {redoExercise.options && redoExercise.options.length > 0 ? (
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                {redoExercise.options.map((option) => {
+                                  const selected = redoAnswer === option;
+                                  return (
+                                    <button
+                                      key={option}
+                                      onClick={() => setRedoAnswer(option)}
+                                      className={`text-left p-2 rounded-lg border transition-colors ${
+                                        selected
+                                          ? 'border-primary-400 bg-primary-500/20 text-blue-100'
+                                          : 'border-white/20 bg-white/5 text-blue-200 hover:bg-white/10'
+                                      }`}
+                                    >
+                                      {option}
+                                    </button>
+                                  );
+                                })}
+                              </div>
+                            ) : (
+                              <input
+                                value={redoAnswer}
+                                onChange={(e) => setRedoAnswer(e.target.value)}
+                                className="w-full bg-slate-800/60 border border-white/20 rounded-lg p-2 text-blue-100"
+                                placeholder="输入你的答案"
+                              />
+                            )}
+                          </>
+                        ) : (
+                          <div className="space-y-2">
+                            <p className="text-blue-200 text-sm">
+                              未匹配到题库原题，请直接输入你的重做答案。
+                            </p>
+                            <input
+                              value={redoAnswer}
+                              onChange={(e) => setRedoAnswer(e.target.value)}
+                              className="w-full bg-slate-800/60 border border-white/20 rounded-lg p-2 text-blue-100"
+                              placeholder="输入你的答案"
+                            />
+                          </div>
+                        )}
+
+                        <div className="flex items-center gap-2">
+                          <Button
+                            size="sm"
+                            onClick={() => submitRedo(wa)}
+                            disabled={!redoAnswer.trim()}
+                          >
+                            提交重做
+                          </Button>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => {
+                              setRedoAnswer('');
+                              setRedoSubmitted(false);
+                              setRedoCorrect(null);
+                            }}
+                          >
+                            清空
+                          </Button>
+                        </div>
+
+                        {redoSubmitted ? (
+                          <div
+                            className={`p-3 rounded-lg border text-sm ${
+                              redoCorrect
+                                ? 'bg-green-500/10 border-green-500/30 text-green-200'
+                                : 'bg-red-500/10 border-red-500/30 text-red-200'
+                            }`}
+                          >
+                            {redoCorrect
+                              ? '重做正确，已自动标记为“已掌握”。'
+                              : `重做仍错误。正确答案：${
+                                  redoExercise?.answer || wa.correctAnswer
+                                }`}
+                          </div>
+                        ) : null}
+
+                        {redoSubmitted && redoExercise?.explanation ? (
+                          <div className="p-3 bg-white/5 border border-white/10 rounded-lg">
+                            <p className="text-xs text-blue-300 mb-1">解析</p>
+                            <p className="text-blue-100 whitespace-pre-wrap">
+                              {redoExercise.explanation}
+                            </p>
+                          </div>
+                        ) : null}
                       </div>
                     ) : null}
                   </div>
