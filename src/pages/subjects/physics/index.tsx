@@ -80,7 +80,7 @@ function SimplePhysicsLayout({ children }: { children: React.ReactNode }) {
               className="flex items-center gap-2 text-blue-300 hover:text-blue-400 transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
-              <span className="text-sm hidden sm:inline">杩斿洖瀛哥鍒楄〃</span>
+              <span className="text-sm hidden sm:inline">返回学科列表</span>
             </button>
             <span className="text-blue-500/50 hidden sm:inline">|</span>
             <button
@@ -88,12 +88,12 @@ function SimplePhysicsLayout({ children }: { children: React.ReactNode }) {
               className="hidden sm:flex items-center gap-2 text-blue-300 hover:text-blue-400 transition-colors"
             >
               <Home className="w-4 h-4" />
-              <span className="text-sm">涓婚爜</span>
+              <span className="text-sm">主页</span>
             </button>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-2xl">馃敩</span>
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent font-bold">DSE 鐗╃悊</span>
+            <span className="text-2xl">⚛️</span>
+            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent font-bold">DSE 物理</span>
           </div>
         </div>
       </motion.nav>
@@ -124,14 +124,14 @@ function SimplePhysicsLayout({ children }: { children: React.ReactNode }) {
               <div className="absolute right-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-blue-500 to-transparent" />
               
               <div className="p-4">
-                <h3 className="text-xs text-blue-400 uppercase tracking-wider mb-3 px-2 font-semibold">鐗╃悊涓婚</h3>
+                <h3 className="text-xs text-blue-400 uppercase tracking-wider mb-3 px-2 font-semibold">物理主题</h3>
                 <nav className="space-y-1">
                   <button
                     onClick={() => { navigate('/subjects/physics'); setSidebarOpen(false); }}
                     className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-blue-200 hover:text-white hover:bg-blue-500/20 transition-all duration-200 border border-transparent hover:border-blue-500/30"
                   >
                     <Home className="w-4 h-4" />
-                    <span>瀛哥繏涓績</span>
+                    <span>学习中心</span>
                   </button>
                   
                   {PHYSICS_TOPICS.map((topic) => (
@@ -160,13 +160,13 @@ function SimplePhysicsLayout({ children }: { children: React.ReactNode }) {
                 </nav>
                 
                 <div className="mt-6 pt-4 border-t border-blue-500/30">
-                  <h3 className="text-xs text-blue-400 uppercase tracking-wider mb-3 px-2 font-semibold">绶寸繏</h3>
+                  <h3 className="text-xs text-blue-400 uppercase tracking-wider mb-3 px-2 font-semibold">练习</h3>
                   <nav className="space-y-1">
                     <button
                       onClick={() => { navigate('/subjects/physics/exercise'); setSidebarOpen(false); }}
                       className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-blue-200 hover:text-white hover:bg-blue-500/20 transition-all duration-200 border border-transparent hover:border-blue-500/30"
                     >
-                      <span>馃摎</span>
+                      <span>📘</span>
                       <span>Exercise</span>
                     </button>
                     <button
@@ -180,35 +180,35 @@ function SimplePhysicsLayout({ children }: { children: React.ReactNode }) {
                       onClick={() => { navigate('/subjects/physics/force-motion-quiz'); setSidebarOpen(false); }}
                       className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-blue-200 hover:text-white hover:bg-blue-500/20 transition-all duration-200 border border-transparent hover:border-blue-500/30"
                     >
-                      <span>馃幆</span>
+                      <span>🎯</span>
                       <span>Quiz</span>
                     </button>
                     <button
                       onClick={() => { navigate('/subjects/physics/quiz'); setSidebarOpen(false); }}
                       className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-blue-200 hover:text-white hover:bg-blue-500/20 transition-all duration-200 border border-transparent hover:border-blue-500/30"
                     >
-                      <span>馃摑</span>
-                      <span>绔犵瘈娓</span>
+                      <span>🧪</span>
+                      <span>章节测验</span>
                     </button>
                     <button
                       onClick={() => { navigate('/subjects/physics/mock-exam'); setSidebarOpen(false); }}
                       className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-blue-200 hover:text-white hover:bg-blue-500/20 transition-all duration-200 border border-transparent hover:border-blue-500/30"
                     >
-                      <span>馃搵</span>
-                      <span>妯℃摤鑰冭│</span>
+                      <span>📝</span>
+                      <span>模拟考试</span>
                     </button>
                     <button
                       onClick={() => { navigate('/subjects/physics/achievements'); setSidebarOpen(false); }}
                       className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-blue-200 hover:text-white hover:bg-blue-500/20 transition-all duration-200 border border-transparent hover:border-blue-500/30"
                     >
-                      <span>馃弳</span>
-                      <span>鎴愬氨绯荤当</span>
+                      <span>🏆</span>
+                      <span>成就系统</span>
                     </button>
                     <button
                       onClick={() => { navigate('/subjects/physics/wrong-answers'); setSidebarOpen(false); }}
                       className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-blue-200 hover:text-white hover:bg-blue-500/20 transition-all duration-200 border border-transparent hover:border-blue-500/30"
                     >
-                      <span>馃摉</span>
+                      <span>📒</span>
                       <span>错题本</span>
                     </button>
                   </nav>
