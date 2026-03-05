@@ -25,6 +25,16 @@ interface AppState {
   // 错题本
   wrongAnswers: WrongAnswer[];
   addWrongAnswer: (wrong: Omit<WrongAnswer, 'id' | 'createdAt'>) => void;
+  addManualWrongAnswer: (wrong: {
+    topicId: string;
+    chapterId: string;
+    questionText: string;
+    userAnswer: string;
+    correctAnswer: string;
+    notes?: string;
+  }) => void;
+  updateWrongAnswer: (wrongId: string, data: Partial<WrongAnswer>) => void;
+  removeWrongAnswer: (wrongId: string) => void;
   markAsMastered: (wrongId: string) => void;
   
   // 学习统计
@@ -299,6 +309,36 @@ export const useStore = create<AppState>()(
           createdAt: new Date(),
         };
         set({ wrongAnswers: [...get().wrongAnswers, newWrong] });
+        get().evaluateAchievements();
+      },
+      addManualWrongAnswer: (wrong) => {
+        const timestamp = Date.now();
+        const newWrong: WrongAnswer = {
+          id: `manual-wrong-${timestamp}`,
+          exerciseId: `manual-${timestamp}`,
+          topicId: wrong.topicId,
+          chapterId: wrong.chapterId,
+          userAnswer: wrong.userAnswer,
+          correctAnswer: wrong.correctAnswer,
+          questionText: wrong.questionText,
+          notes: wrong.notes,
+          source: 'manual',
+          attempts: 1,
+          mastered: false,
+          createdAt: new Date(),
+        };
+        set({ wrongAnswers: [...get().wrongAnswers, newWrong] });
+        get().evaluateAchievements();
+      },
+      updateWrongAnswer: (wrongId, data) => {
+        const wrongAnswers = get().wrongAnswers.map((w) =>
+          w.id === wrongId ? { ...w, ...data } : w
+        );
+        set({ wrongAnswers });
+      },
+      removeWrongAnswer: (wrongId) => {
+        const wrongAnswers = get().wrongAnswers.filter((w) => w.id !== wrongId);
+        set({ wrongAnswers });
         get().evaluateAchievements();
       },
       markAsMastered: (wrongId) => {

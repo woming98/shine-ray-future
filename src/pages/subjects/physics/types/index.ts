@@ -135,6 +135,9 @@ export interface WrongAnswer {
   chapterId: string;
   userAnswer: string;
   correctAnswer: string;
+  questionText?: string;
+  notes?: string;
+  source?: 'auto' | 'manual';
   attempts: number;
   mastered: boolean;
   createdAt: Date;
