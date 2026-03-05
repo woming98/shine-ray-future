@@ -1,5 +1,5 @@
-// DSE Physics 學習模塊入口
-// 整合自 DSE-Physics 獨立項目
+﻿// DSE Physics 瀛哥繏妯″鍏ュ彛
+// 鏁村悎鑷?DSE-Physics 鐛ㄧ珛闋呯洰
 
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -15,7 +15,7 @@ import WrongAnswersPage from './pages/WrongAnswersPage';
 import { useStore } from './store/useStore';
 import { PHYSICS_TOPICS } from './constants/topics';
 
-// 簡化的 Physics Layout - 不使用原有的複雜 Layout
+// 绨″寲鐨?Physics Layout - 涓嶄娇鐢ㄥ師鏈夌殑瑜囬洔 Layout
 function SimplePhysicsLayout({ children }: { children: React.ReactNode }) {
   const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -23,12 +23,12 @@ function SimplePhysicsLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-indigo-950 overflow-hidden">
-      {/* 背景层：网格纹理 */}
+      {/* 鑳屾櫙灞傦細缃戞牸绾圭悊 */}
       <div className="fixed inset-0 pointer-events-none -z-10">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.1)_1px,transparent_1px)] bg-[size:40px_40px]" />
       </div>
       
-      {/* 动态光晕效果 */}
+      {/* 鍔ㄦ€佸厜鏅曟晥鏋?*/}
       <div className="fixed inset-0 pointer-events-none overflow-hidden -z-10">
         <motion.div
           animate={{
@@ -56,18 +56,18 @@ function SimplePhysicsLayout({ children }: { children: React.ReactNode }) {
         />
       </div>
 
-      {/* 頂部導航欄 */}
+      {/* 闋傞儴灏庤埅娆?*/}
       <motion.nav 
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         className="fixed top-16 md:top-20 left-0 right-0 z-40 bg-slate-900/80 backdrop-blur-xl border-b border-blue-500/30 shadow-lg shadow-blue-500/10"
       >
-        {/* 发光底部线 */}
+        {/* 鍙戝厜搴曢儴绾?*/}
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
         
         <div className="relative max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            {/* 移動端菜單按鈕 */}
+            {/* 绉诲嫊绔彍鍠寜閳?*/}
             <button
               onClick={() => setSidebarOpen(!sidebarOpen)}
               className="lg:hidden p-2 rounded-lg hover:bg-white/10 transition-colors"
@@ -80,7 +80,7 @@ function SimplePhysicsLayout({ children }: { children: React.ReactNode }) {
               className="flex items-center gap-2 text-blue-300 hover:text-blue-400 transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
-              <span className="text-sm hidden sm:inline">返回學科列表</span>
+              <span className="text-sm hidden sm:inline">杩斿洖瀛哥鍒楄〃</span>
             </button>
             <span className="text-blue-500/50 hidden sm:inline">|</span>
             <button
@@ -88,21 +88,21 @@ function SimplePhysicsLayout({ children }: { children: React.ReactNode }) {
               className="hidden sm:flex items-center gap-2 text-blue-300 hover:text-blue-400 transition-colors"
             >
               <Home className="w-4 h-4" />
-              <span className="text-sm">主頁</span>
+              <span className="text-sm">涓婚爜</span>
             </button>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-2xl">🔬</span>
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent font-bold">DSE 物理</span>
+            <span className="text-2xl">馃敩</span>
+            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent font-bold">DSE 鐗╃悊</span>
           </div>
         </div>
       </motion.nav>
 
-      {/* 側邊欄 - 桌面端常駐，移動端抽屜 */}
+      {/* 鍋撮倞娆?- 妗岄潰绔父椐愶紝绉诲嫊绔娊灞?*/}
       <AnimatePresence>
         {(sidebarOpen || typeof window !== 'undefined') && (
           <>
-            {/* 移動端遮罩 */}
+            {/* 绉诲嫊绔伄缃?*/}
             {sidebarOpen && (
               <motion.div
                 initial={{ opacity: 0 }}
@@ -113,25 +113,25 @@ function SimplePhysicsLayout({ children }: { children: React.ReactNode }) {
               />
             )}
             
-            {/* 側邊欄 */}
+            {/* 鍋撮倞娆?*/}
             <motion.aside
               initial={{ x: -280 }}
               animate={{ x: sidebarOpen ? 0 : (typeof window !== 'undefined' && window.innerWidth >= 1024 ? 0 : -280) }}
               className={`fixed left-0 top-[120px] md:top-[136px] bottom-0 w-64 bg-slate-900/80 backdrop-blur-xl border-r border-blue-500/30 shadow-2xl z-40 overflow-y-auto
                 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}
             >
-              {/* 发光右边框 */}
+              {/* 鍙戝厜鍙宠竟妗?*/}
               <div className="absolute right-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-blue-500 to-transparent" />
               
               <div className="p-4">
-                <h3 className="text-xs text-blue-400 uppercase tracking-wider mb-3 px-2 font-semibold">物理主題</h3>
+                <h3 className="text-xs text-blue-400 uppercase tracking-wider mb-3 px-2 font-semibold">鐗╃悊涓婚</h3>
                 <nav className="space-y-1">
                   <button
                     onClick={() => { navigate('/subjects/physics'); setSidebarOpen(false); }}
                     className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-blue-200 hover:text-white hover:bg-blue-500/20 transition-all duration-200 border border-transparent hover:border-blue-500/30"
                   >
                     <Home className="w-4 h-4" />
-                    <span>學習中心</span>
+                    <span>瀛哥繏涓績</span>
                   </button>
                   
                   {PHYSICS_TOPICS.map((topic) => (
@@ -160,49 +160,56 @@ function SimplePhysicsLayout({ children }: { children: React.ReactNode }) {
                 </nav>
                 
                 <div className="mt-6 pt-4 border-t border-blue-500/30">
-                  <h3 className="text-xs text-blue-400 uppercase tracking-wider mb-3 px-2 font-semibold">練習</h3>
+                  <h3 className="text-xs text-blue-400 uppercase tracking-wider mb-3 px-2 font-semibold">绶寸繏</h3>
                   <nav className="space-y-1">
                     <button
                       onClick={() => { navigate('/subjects/physics/exercise'); setSidebarOpen(false); }}
                       className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-blue-200 hover:text-white hover:bg-blue-500/20 transition-all duration-200 border border-transparent hover:border-blue-500/30"
                     >
-                      <span>📚</span>
+                      <span>馃摎</span>
                       <span>Exercise</span>
+                    </button>
+                    <button
+                      onClick={() => { navigate('/subjects/physics/topic/astronomy-space?tab=notes'); setSidebarOpen(false); }}
+                      className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-blue-200 hover:text-white hover:bg-blue-500/20 transition-all duration-200 border border-transparent hover:border-blue-500/30"
+                    >
+                      <span>📝</span>
+                      <span>Astronomy Notes</span>
                     </button>
                     <button
                       onClick={() => { navigate('/subjects/physics/force-motion-quiz'); setSidebarOpen(false); }}
                       className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-blue-200 hover:text-white hover:bg-blue-500/20 transition-all duration-200 border border-transparent hover:border-blue-500/30"
                     >
-                      <span>🎯</span>
+                      <span>馃幆</span>
                       <span>Quiz</span>
                     </button>
                     <button
                       onClick={() => { navigate('/subjects/physics/quiz'); setSidebarOpen(false); }}
                       className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-blue-200 hover:text-white hover:bg-blue-500/20 transition-all duration-200 border border-transparent hover:border-blue-500/30"
                     >
-                      <span>📝</span>
-                      <span>章節測驗</span>
+                      <span>馃摑</span>
+                      <span>绔犵瘈娓</span>
                     </button>
                     <button
                       onClick={() => { navigate('/subjects/physics/mock-exam'); setSidebarOpen(false); }}
                       className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-blue-200 hover:text-white hover:bg-blue-500/20 transition-all duration-200 border border-transparent hover:border-blue-500/30"
                     >
-                      <span>📋</span>
-                      <span>模擬考試</span>
+                      <span>馃搵</span>
+                      <span>妯℃摤鑰冭│</span>
                     </button>
                     <button
                       onClick={() => { navigate('/subjects/physics/achievements'); setSidebarOpen(false); }}
                       className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-blue-200 hover:text-white hover:bg-blue-500/20 transition-all duration-200 border border-transparent hover:border-blue-500/30"
                     >
-                      <span>🏆</span>
-                      <span>成就系統</span>
+                      <span>馃弳</span>
+                      <span>鎴愬氨绯荤当</span>
                     </button>
                     <button
                       onClick={() => { navigate('/subjects/physics/wrong-answers'); setSidebarOpen(false); }}
                       className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-blue-200 hover:text-white hover:bg-blue-500/20 transition-all duration-200 border border-transparent hover:border-blue-500/30"
                     >
-                      <span>📖</span>
-                      <span>錯題本</span>
+                      <span>馃摉</span>
+                      <span>错题本</span>
                     </button>
                   </nav>
                 </div>
@@ -212,7 +219,7 @@ function SimplePhysicsLayout({ children }: { children: React.ReactNode }) {
         )}
       </AnimatePresence>
 
-      {/* 主內容區 */}
+      {/* 涓诲収瀹瑰崁 */}
       <main className="relative pt-[120px] md:pt-[136px] lg:pl-64 min-h-screen">
         <div className="relative z-10 p-4 sm:p-6 lg:p-8">
           {children}
@@ -222,7 +229,7 @@ function SimplePhysicsLayout({ children }: { children: React.ReactNode }) {
   );
 }
 
-// Physics 模塊主組件
+// Physics 模块主组件
 export default function PhysicsModule() {
   return (
     <SimplePhysicsLayout>
@@ -240,3 +247,4 @@ export default function PhysicsModule() {
     </SimplePhysicsLayout>
   );
 }
+

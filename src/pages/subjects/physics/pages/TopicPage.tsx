@@ -1,5 +1,5 @@
 ﻿import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   BookOpen,
@@ -44,7 +44,7 @@ import { Chapter, Formula } from '../types';
 import ExercisePage from './ExercisePage';
 import ForceMotionQuizPage from './ForceMotionQuizPage';
 
-type TabType = 'theory' | 'simulation' | 'calculator' | 'exercise' | 'quiz';
+type TabType = 'theory' | 'simulation' | 'calculator' | 'exercise' | 'quiz' | 'notes';
 
 const WAVE_MOTION_CHAPTERS: Chapter[] = WAVE_MOTION_SECTIONS.map((section, index) => ({
   id: `wm-ch${index + 1}`,
@@ -60,6 +60,7 @@ const WAVE_MOTION_CHAPTERS: Chapter[] = WAVE_MOTION_SECTIONS.map((section, index
 export default function TopicPage() {
   const { topicId } = useParams<{ topicId: string }>();
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
   const { getTopicProgress, progress } = useStore();
   
   const [activeTab, setActiveTab] = useState<TabType>(
@@ -115,16 +116,20 @@ export default function TopicPage() {
         : [];
 
   useEffect(() => {
-    setActiveTab(
+    const defaultTab: TabType =
       topicId === 'wave-motion' ||
-        topicId === 'radioactivity-nuclear' ||
-        topicId === 'astronomy-space' ||
-        topicId === 'atomic-world' ||
-        topicId === 'energy-use'
+      topicId === 'radioactivity-nuclear' ||
+      topicId === 'astronomy-space' ||
+      topicId === 'atomic-world' ||
+      topicId === 'energy-use'
         ? 'exercise'
-        : 'theory'
-    );
-  }, [topicId]);
+        : 'theory';
+    const tabParam = searchParams.get('tab');
+    const allowedTabs: TabType[] = ['theory', 'simulation', 'calculator', 'exercise', 'quiz', 'notes'];
+    const nextTab =
+      tabParam && allowedTabs.includes(tabParam as TabType) ? (tabParam as TabType) : defaultTab;
+    setActiveTab(nextTab);
+  }, [topicId, searchParams]);
 
   useEffect(() => {
     if (chapters.length === 0) {
@@ -172,6 +177,7 @@ export default function TopicPage() {
             { id: 'simulation', label: '互动模拟', icon: FlaskConical },
             { id: 'calculator', label: '公式计算', icon: Calculator },
             { id: 'exercise', label: 'Exercise', icon: FileQuestion },
+            { id: 'notes', label: 'Notes', icon: BookOpen },
           ]
       : topicId === 'atomic-world'
         ? [
@@ -280,7 +286,11 @@ export default function TopicPage() {
         {tabs.map((tab) => (
           <button
             key={tab.id}
-            onClick={() => setActiveTab(tab.id as TabType)}
+            onClick={() => {
+              const tabId = tab.id as TabType;
+              setActiveTab(tabId);
+              setSearchParams(tabId === 'notes' ? { tab: 'notes' } : {});
+            }}
             className={`flex items-center gap-2 px-5 py-3 rounded-xl font-medium transition-all whitespace-nowrap ${
               activeTab === tab.id
                 ? 'bg-primary-500 text-blue-100 shadow-lg shadow-primary-500/30'
@@ -384,6 +394,7 @@ export default function TopicPage() {
                 topicId === 'temperature-gas') && (
                 <ExerciseTab topicId={topicId} />
               )}
+            {activeTab === 'notes' && topicId === 'astronomy-space' && <AstronomyNotesTab />}
             {activeTab === 'quiz' && topicId === 'force-motion' && (
               <QuizTab />
             )}
@@ -830,7 +841,7 @@ function SimulationTab({ chapter, topicGradient }: { chapter?: Chapter; topicGra
 }
 
 // 公式计算器标签页
-function CalculatorTab({ 
+function CalculatorTab({
   formulas, 
   expandedFormula,
   setExpandedFormula 
@@ -2599,6 +2610,57 @@ function CalculatorTab({
                   </motion.div>
                 )}
               </AnimatePresence>
+            </div>
+          ))}
+        </div>
+      </Card>
+    </motion.div>
+  );
+}
+
+function AstronomyNotesTab() {
+  const notes = [
+    {
+      title: '距离与单位',
+      points: ['1 AU = 1.50 × 10^11 m', '1 ly = 9.46 × 10^15 m', '光速 c = 3.0 × 10^8 m s^-1'],
+    },
+    {
+      title: '常见题型公式',
+      points: [
+        '光行时间: t = d / c',
+        '球面对外照度(点光源): E = Φ / (4πr^2)',
+        '含入射角时: E = [Φ / (4πr^2)] cos θ',
+      ],
+    },
+    {
+      title: '天文学层级',
+      points: [
+        '恒星 < 星团 < 星系 < 星系团 < 超星系团',
+        '银河系是螺旋星系',
+        '太阳系不在银河系中心，位于旋臂区域',
+      ],
+    },
+  ];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      className="space-y-4"
+    >
+      <Card hover={false} className="p-6">
+        <h2 className="text-xl font-bold text-blue-100 mb-2">Astronomy Notes</h2>
+        <p className="text-blue-300 mb-6">天文与太空科学 - 笔记入口（试运行）</p>
+        <div className="space-y-4">
+          {notes.map((section) => (
+            <div key={section.title} className="rounded-xl border border-white/10 p-4 bg-slate-900/40">
+              <h3 className="text-blue-100 font-semibold mb-2">{section.title}</h3>
+              <ul className="list-disc list-inside text-blue-200 space-y-1">
+                {section.points.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
