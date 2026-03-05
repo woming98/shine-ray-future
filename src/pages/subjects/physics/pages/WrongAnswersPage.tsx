@@ -91,26 +91,22 @@ export default function WrongAnswersPage() {
     return topic?.nameCN || topicId;
   };
 
-  const handleViewExplanation = (wa: WrongAnswer) => {
+  const getExplanationUrl = (wa: WrongAnswer) => {
     let targetUrl = `/subjects/physics/exercise?topic=${wa.topicId}`;
-
-    if (!wa.exerciseId) {
-      window.location.assign(targetUrl);
-      return;
-    }
+    if (!wa.exerciseId) return targetUrl;
 
     const catalog = getPhysicsExerciseCatalogEntry(wa.topicId);
     const matched = catalog.exercises.find((exercise) => exercise.id === wa.exerciseId);
     const sectionId = matched?.sectionId || catalog.defaultSectionId || catalog.sections[0]?.id;
-
     if (!sectionId) {
-      targetUrl = `/subjects/physics/exercise?topic=${wa.topicId}&exerciseId=${wa.exerciseId}`;
-      window.location.assign(targetUrl);
-      return;
+      return `/subjects/physics/exercise?topic=${wa.topicId}&exerciseId=${wa.exerciseId}`;
     }
-
     targetUrl = `/subjects/physics/exercise/${sectionId}?topic=${wa.topicId}&exerciseId=${wa.exerciseId}`;
-    window.location.assign(targetUrl);
+    return targetUrl;
+  };
+
+  const handleViewExplanation = (wa: WrongAnswer) => {
+    window.location.assign(getExplanationUrl(wa));
   };
 
   const getTopicIcon = (topicId: string) => {
@@ -477,14 +473,14 @@ export default function WrongAnswersPage() {
                 ) : (
                   <div className="space-y-3">
                     <div className="flex justify-end">
-                      <Button
-                        variant="secondary"
-                        size="sm"
-                        icon={<BookOpen className="w-4 h-4" />}
-                        onClick={() => handleViewExplanation(wa)}
+                      <a
+                        href={getExplanationUrl(wa)}
+                        className="inline-flex items-center justify-center gap-2 px-3 py-1.5 text-sm font-medium rounded-xl bg-blue-500/10 hover:bg-blue-500/20 text-blue-300 border border-blue-500/30 hover:border-blue-500/50 transition-all duration-200"
+                        onClick={(e) => e.stopPropagation()}
                       >
+                        <BookOpen className="w-4 h-4" />
                         查看详解
-                      </Button>
+                      </a>
                     </div>
                     {wa.questionText ? (
                       <div>
