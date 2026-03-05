@@ -94,7 +94,10 @@ export default function WrongAnswersPage() {
   };
 
   const handleViewExplanation = (wa: WrongAnswer) => {
-    if (!wa.exerciseId) return;
+    if (!wa.exerciseId) {
+      navigate(`/subjects/physics/exercise?topic=${wa.topicId}`);
+      return;
+    }
 
     const catalog = getPhysicsExerciseCatalogEntry(wa.topicId);
     const matched = catalog.exercises.find((exercise) => exercise.id === wa.exerciseId);
@@ -471,7 +474,6 @@ export default function WrongAnswersPage() {
                         size="sm"
                         icon={<BookOpen className="w-4 h-4" />}
                         onClick={() => handleViewExplanation(wa)}
-                        disabled={!wa.exerciseId}
                       >
                         查看详解
                       </Button>
