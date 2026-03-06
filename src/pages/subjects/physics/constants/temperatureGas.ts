@@ -2605,6 +2605,7 @@ export const TEMPERATURE_GAS_EXERCISES: Exercise[] = [
       'Plateau duration is proportional to latent heat for the same heater and mass.',
     ],
     sectionId: 'change-of-state',
+    imagePaths: ['/physics/exercises/change-of-state/cos-040-question.png'],
   },
   {
     id: 'cos-041',
