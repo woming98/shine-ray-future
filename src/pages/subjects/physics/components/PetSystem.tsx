@@ -97,21 +97,14 @@ function BeanPet({ moodScore, energyScore, pressure }: { moodScore: number; ener
           </radialGradient>
         </defs>
 
-        <path
-          d="M110 28 C138 28 166 44 176 72 C187 104 181 146 162 173 C148 193 129 203 110 203 C91 203 72 193 58 173 C39 146 33 104 44 72 C54 44 82 28 110 28 Z"
-          fill="url(#beanBody)"
-          stroke="#e0aa22"
-          strokeWidth="2.4"
-        />
-        <ellipse cx="112" cy="138" rx="54" ry="54" fill="#ffd24a" opacity="0.52" />
+        <circle cx="110" cy="114" r="78" fill="url(#beanBody)" stroke="#e0aa22" strokeWidth="2.4" />
+        <ellipse cx="110" cy="144" rx="58" ry="46" fill="#ffd24a" opacity="0.5" />
 
-        <ellipse cx="57" cy="122" rx="12" ry="18" fill="#f4c938" />
-        <ellipse cx="163" cy="122" rx="12" ry="18" fill="#f4c938" />
-        <ellipse cx="87" cy="197" rx="13" ry="8" fill="#e7b22a" />
-        <ellipse cx="133" cy="197" rx="13" ry="8" fill="#e7b22a" />
+        <ellipse cx="48" cy="122" rx="11" ry="16" fill="#f4c938" />
+        <ellipse cx="172" cy="122" rx="11" ry="16" fill="#f4c938" />
 
-        <ellipse cx="82" cy="72" rx="7" ry="4" fill="#fff7c2" opacity="0.9" />
-        <ellipse cx="95" cy="62" rx="4" ry="2.4" fill="#fff7c2" opacity="0.8" />
+        <ellipse cx="84" cy="72" rx="10" ry="6" fill="#fff7c2" opacity="0.92" />
+        <ellipse cx="100" cy="60" rx="6" ry="3.2" fill="#fff7c2" opacity="0.82" />
 
         {blink ? (
           <>
@@ -120,10 +113,12 @@ function BeanPet({ moodScore, energyScore, pressure }: { moodScore: number; ener
           </>
         ) : (
           <>
-            <ellipse cx="91" cy="97" rx="7" ry="9" fill="#2e231b" />
-            <ellipse cx="129" cy="97" rx="7" ry="9" fill="#2e231b" />
-            <circle cx="93" cy="93" r="1.8" fill="#fff" />
-            <circle cx="131" cy="93" r="1.8" fill="#fff" />
+            <ellipse cx="91" cy="97" rx="11" ry="13.5" fill="#2e231b" />
+            <ellipse cx="129" cy="97" rx="11" ry="13.5" fill="#2e231b" />
+            <circle cx="95" cy="91" r="3.1" fill="#fff" />
+            <circle cx="133" cy="91" r="3.1" fill="#fff" />
+            <circle cx="91" cy="97" r="1.2" fill="#fff" opacity="0.7" />
+            <circle cx="129" cy="97" r="1.2" fill="#fff" opacity="0.7" />
           </>
         )}
 
