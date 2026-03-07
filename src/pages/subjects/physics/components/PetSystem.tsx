@@ -209,12 +209,12 @@ function BeanPet({ moodScore, energyScore, pressure }: { moodScore: number; ener
             <path d="M52 74 L100 58" fill="none" stroke="#7b5b2e" strokeWidth="3" strokeLinecap="round" />
             <path d="M120 58 L168 74" fill="none" stroke="#7b5b2e" strokeWidth="3" strokeLinecap="round" />
             <g transform="translate(154 26)">
-              <rect x="0" y="0" width="6" height="26" rx="3" fill="#ef4444" />
-              <circle cx="3" cy="31" r="3.2" fill="#ef4444" />
-              <rect x="12" y="-4" width="6" height="26" rx="3" fill="#f97316" />
-              <circle cx="15" cy="27" r="3.2" fill="#f97316" />
-              <rect x="24" y="-8" width="6" height="26" rx="3" fill="#fb7185" />
-              <circle cx="27" cy="23" r="3.2" fill="#fb7185" />
+              <path d="M0 0 L10 0 L7 30 L3 30 Z" fill="#facc15" />
+              <circle cx="5" cy="36" r="4.2" fill="#f59e0b" />
+              <path d="M14 -4 L24 -4 L21 28 L17 28 Z" fill="#fb923c" />
+              <circle cx="19" cy="34" r="4.2" fill="#f97316" />
+              <path d="M28 -8 L38 -8 L35 26 L31 26 Z" fill="#ef4444" />
+              <circle cx="33" cy="32" r="4.2" fill="#dc2626" />
             </g>
           </>
         )}
