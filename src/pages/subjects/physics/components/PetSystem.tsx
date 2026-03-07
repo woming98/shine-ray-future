@@ -155,7 +155,14 @@ function BeanPet({ moodScore, energyScore, pressure }: { moodScore: number; ener
         <ellipse cx="84" cy="72" rx="10" ry="6" fill="#fff7c2" opacity="0.92" />
         <ellipse cx="100" cy="60" rx="6" ry="3.2" fill="#fff7c2" opacity="0.82" />
 
-        {blink ? (
+        {faceMode === 'panic' ? (
+          <>
+            <ellipse cx="76" cy="100" rx="20" ry="24" fill="#ffffff" />
+            <ellipse cx="144" cy="100" rx="20" ry="24" fill="#ffffff" />
+            <ellipse cx="76" cy="100" rx="20" ry="24" fill="none" stroke="#dbeafe" strokeWidth="2.4" />
+            <ellipse cx="144" cy="100" rx="20" ry="24" fill="none" stroke="#dbeafe" strokeWidth="2.4" />
+          </>
+        ) : blink ? (
           <>
             <line x1="56" y1="99" x2="96" y2="99" stroke="#3a2a20" strokeWidth="3.8" strokeLinecap="round" />
             <line x1="124" y1="99" x2="164" y2="99" stroke="#3a2a20" strokeWidth="3.8" strokeLinecap="round" />
@@ -210,7 +217,8 @@ function BeanPet({ moodScore, energyScore, pressure }: { moodScore: number; ener
         {faceMode === 'worried' && <path d="M95 162 Q110 146 125 162" fill="none" stroke="#3a2a20" strokeWidth="3.4" strokeLinecap="round" />}
         {faceMode === 'panic' && (
           <>
-            <ellipse cx="110" cy="160" rx="11" ry="15" fill="none" stroke="#3a2a20" strokeWidth="3.6" />
+            <ellipse cx="110" cy="161" rx="14" ry="18" fill="#9b1c31" stroke="#4c0f1d" strokeWidth="2.2" />
+            <ellipse cx="110" cy="168" rx="8.5" ry="5.5" fill="#ff8aa5" />
           </>
         )}
 
