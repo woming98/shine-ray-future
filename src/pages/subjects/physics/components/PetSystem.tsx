@@ -29,7 +29,6 @@ const applyDecay = (state: PetState) => {
   const now = Date.now();
   const elapsedMinutes = (now - state.lastUpdatedAt) / 60000;
   if (elapsedMinutes <= 0) return state;
-
   return {
     satiety: clamp(state.satiety - elapsedMinutes * 0.35),
     mood: clamp(state.mood - elapsedMinutes * 0.22),
@@ -38,9 +37,7 @@ const applyDecay = (state: PetState) => {
   };
 };
 
-const saveState = (state: PetState) => {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-};
+const saveState = (state: PetState) => localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
 
 const loadState = (): PetState => {
   try {
@@ -58,187 +55,178 @@ const loadState = (): PetState => {
   }
 };
 
-const loadSpecies = (): PetSpecies => {
-  const raw = localStorage.getItem(SPECIES_KEY);
-  if (raw === 'dog') return 'dog';
-  return 'cat';
-};
+const loadSpecies = (): PetSpecies => (localStorage.getItem(SPECIES_KEY) === 'dog' ? 'dog' : 'cat');
 
-function AnimatedCat({ moodScore }: { moodScore: number }) {
-  const isHappy = moodScore >= 75;
-  const isTired = moodScore < 45;
+function PetEyes({ tired }: { tired: boolean }) {
+  const r = tired ? 2 : 4;
+  const anim = tired ? { scaleY: [1, 0.45, 1] } : { scaleY: [1, 0.15, 1, 1] };
+  const times = tired ? [0, 0.55, 1] : [0, 0.42, 0.5, 1];
+  return (
+    <>
+      <motion.circle
+        cx="78"
+        cy="56"
+        r={r}
+        fill="#0f172a"
+        animate={anim}
+        transition={{ duration: 2.8, repeat: Infinity, times }}
+        style={{ transformOrigin: '78px 56px' }}
+      />
+      <motion.circle
+        cx="102"
+        cy="56"
+        r={r}
+        fill="#0f172a"
+        animate={anim}
+        transition={{ duration: 2.8, repeat: Infinity, times, delay: 0.1 }}
+        style={{ transformOrigin: '102px 56px' }}
+      />
+    </>
+  );
+}
 
+function DesktopCat({ moodScore }: { moodScore: number }) {
+  const happy = moodScore >= 75;
+  const tired = moodScore < 45;
   return (
     <motion.div
-      className="relative mx-auto mb-2 h-28 w-28"
-      animate={{ y: [0, -4, 0] }}
-      transition={{ duration: 2.1, repeat: Infinity, ease: 'easeInOut' }}
+      className="relative mx-auto mb-2 h-40 w-44"
+      animate={{ y: [0, -3, 0] }}
+      transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
     >
       <motion.div
-        className="absolute -bottom-1 left-1/2 h-3 w-16 -translate-x-1/2 rounded-full bg-slate-900/60 blur-sm"
-        animate={{ scaleX: [1, 0.9, 1] }}
-        transition={{ duration: 2.1, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute bottom-1 left-1/2 h-3 w-24 -translate-x-1/2 rounded-full bg-slate-900/50 blur-sm"
+        animate={{ scaleX: [1, 0.92, 1] }}
+        transition={{ duration: 2.2, repeat: Infinity }}
       />
-      <svg viewBox="0 0 120 120" className="h-full w-full">
+      <svg viewBox="0 0 180 170" className="h-full w-full">
         <motion.path
-          d="M24 44 C17 31, 22 16, 36 14 C45 15, 51 22, 51 34"
-          fill="#f8d1a8"
-          animate={{ rotate: [0, -8, 0] }}
-          transition={{ duration: 2.6, repeat: Infinity }}
-          style={{ transformOrigin: '38px 28px' }}
-        />
-        <motion.path
-          d="M96 44 C103 31, 98 16, 84 14 C75 15, 69 22, 69 34"
-          fill="#f8d1a8"
-          animate={{ rotate: [0, 8, 0] }}
-          transition={{ duration: 2.6, repeat: Infinity }}
-          style={{ transformOrigin: '82px 28px' }}
-        />
-        <motion.circle
-          cx="60"
-          cy="62"
-          r="34"
-          fill="#fde8d2"
+          d="M35 110 C18 95, 20 72, 46 70 C58 70, 67 82, 68 95 C70 118, 50 128, 35 110 Z"
+          fill="#f6d1ab"
           animate={{ scaleY: [1, 1.03, 1] }}
-          transition={{ duration: 2.1, repeat: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: 2.2, repeat: Infinity }}
         />
-        <motion.circle
-          cx="48"
-          cy="58"
-          r={isTired ? 2 : 4}
-          fill="#0f172a"
-          animate={isTired ? { scaleY: [1, 0.4, 1] } : { scaleY: [1, 0.1, 1, 1] }}
-          transition={{ duration: 3.1, repeat: Infinity, times: [0, 0.44, 0.5, 1] }}
-          style={{ transformOrigin: '48px 58px' }}
+        <motion.path
+          d="M24 61 L46 30 L60 63"
+          fill="#f3c594"
+          animate={{ rotate: [0, -7, 0] }}
+          transition={{ duration: 2.3, repeat: Infinity }}
+          style={{ transformOrigin: '43px 48px' }}
         />
-        <motion.circle
-          cx="72"
-          cy="58"
-          r={isTired ? 2 : 4}
-          fill="#0f172a"
-          animate={isTired ? { scaleY: [1, 0.4, 1] } : { scaleY: [1, 0.1, 1, 1] }}
-          transition={{ duration: 3.1, repeat: Infinity, times: [0, 0.44, 0.5, 1], delay: 0.1 }}
-          style={{ transformOrigin: '72px 58px' }}
+        <motion.path
+          d="M56 63 L72 30 L88 61"
+          fill="#f3c594"
+          animate={{ rotate: [0, 7, 0] }}
+          transition={{ duration: 2.3, repeat: Infinity }}
+          style={{ transformOrigin: '72px 48px' }}
         />
-        <circle cx="60" cy="66" r="2.6" fill="#1e293b" />
-        <path d="M52 67 L57 69" stroke="#1e293b" strokeWidth="1.4" strokeLinecap="round" />
-        <path d="M68 67 L63 69" stroke="#1e293b" strokeWidth="1.4" strokeLinecap="round" />
-        {isHappy ? (
-          <path d="M48 74 Q60 87 72 74" stroke="#1e293b" strokeWidth="3" fill="none" strokeLinecap="round" />
-        ) : isTired ? (
-          <path d="M50 80 Q60 73 70 80" stroke="#1e293b" strokeWidth="3" fill="none" strokeLinecap="round" />
+        <ellipse cx="56" cy="74" rx="26" ry="23" fill="#fde8d4" />
+        <PetEyes tired={tired} />
+        <circle cx="90" cy="63" r="2.5" fill="#1e293b" />
+        {happy ? (
+          <path d="M80 71 Q90 82 100 71" stroke="#1e293b" strokeWidth="3" fill="none" strokeLinecap="round" />
+        ) : tired ? (
+          <path d="M81 76 Q90 68 99 76" stroke="#1e293b" strokeWidth="3" fill="none" strokeLinecap="round" />
         ) : (
-          <path d="M50 79 Q60 82 70 79" stroke="#1e293b" strokeWidth="3" fill="none" strokeLinecap="round" />
+          <path d="M82 75 Q90 79 98 75" stroke="#1e293b" strokeWidth="3" fill="none" strokeLinecap="round" />
         )}
         <motion.path
-          d="M87 79 C102 74, 110 85, 98 94"
-          stroke="#f8d1a8"
-          strokeWidth="6"
-          strokeLinecap="round"
+          d="M120 84 C154 62, 166 92, 144 104"
+          stroke="#f3c594"
+          strokeWidth="11"
           fill="none"
-          animate={{ rotate: [0, 10, -8, 0] }}
+          strokeLinecap="round"
+          animate={{ rotate: [0, 12, -10, 0] }}
           transition={{ duration: 1.4, repeat: Infinity }}
-          style={{ transformOrigin: '88px 84px' }}
+          style={{ transformOrigin: '122px 92px' }}
         />
+        <motion.rect x="45" y="112" width="15" height="26" rx="7" fill="#f3c594" animate={{ y: [0, 2, 0] }} transition={{ duration: 1.5, repeat: Infinity }} />
+        <motion.rect x="66" y="112" width="15" height="26" rx="7" fill="#f3c594" animate={{ y: [2, 0, 2] }} transition={{ duration: 1.5, repeat: Infinity }} />
+        <motion.rect x="95" y="112" width="15" height="26" rx="7" fill="#f3c594" animate={{ y: [2, 0, 2] }} transition={{ duration: 1.5, repeat: Infinity, delay: 0.2 }} />
+        <motion.rect x="116" y="112" width="15" height="26" rx="7" fill="#f3c594" animate={{ y: [0, 2, 0] }} transition={{ duration: 1.5, repeat: Infinity, delay: 0.2 }} />
       </svg>
     </motion.div>
   );
 }
 
-function AnimatedDog({ moodScore }: { moodScore: number }) {
-  const isHappy = moodScore >= 75;
-  const isTired = moodScore < 45;
-
+function DesktopDog({ moodScore }: { moodScore: number }) {
+  const happy = moodScore >= 75;
+  const tired = moodScore < 45;
   return (
     <motion.div
-      className="relative mx-auto mb-2 h-28 w-28"
-      animate={{ y: [0, -3, 0] }}
+      className="relative mx-auto mb-2 h-40 w-44"
+      animate={{ y: [0, -2, 0] }}
       transition={{ duration: 1.9, repeat: Infinity, ease: 'easeInOut' }}
     >
       <motion.div
-        className="absolute -bottom-1 left-1/2 h-3 w-16 -translate-x-1/2 rounded-full bg-slate-900/60 blur-sm"
-        animate={{ scaleX: [1, 0.92, 1] }}
-        transition={{ duration: 1.9, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute bottom-1 left-1/2 h-3 w-24 -translate-x-1/2 rounded-full bg-slate-900/50 blur-sm"
+        animate={{ scaleX: [1, 0.94, 1] }}
+        transition={{ duration: 1.9, repeat: Infinity }}
       />
-      <svg viewBox="0 0 120 120" className="h-full w-full">
+      <svg viewBox="0 0 180 170" className="h-full w-full">
         <motion.ellipse
-          cx="32"
-          cy="50"
+          cx="45"
+          cy="58"
           rx="12"
-          ry="18"
-          fill="#b6865d"
-          animate={{ rotate: [4, -10, 4] }}
-          transition={{ duration: 1.6, repeat: Infinity }}
-          style={{ transformOrigin: '32px 50px' }}
+          ry="22"
+          fill="#b5855f"
+          animate={{ rotate: [5, -10, 5] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+          style={{ transformOrigin: '45px 58px' }}
         />
         <motion.ellipse
-          cx="88"
-          cy="50"
+          cx="86"
+          cy="58"
           rx="12"
-          ry="18"
-          fill="#b6865d"
-          animate={{ rotate: [-4, 10, -4] }}
-          transition={{ duration: 1.6, repeat: Infinity, delay: 0.2 }}
-          style={{ transformOrigin: '88px 50px' }}
+          ry="22"
+          fill="#b5855f"
+          animate={{ rotate: [-5, 10, -5] }}
+          transition={{ duration: 1.5, repeat: Infinity, delay: 0.2 }}
+          style={{ transformOrigin: '86px 58px' }}
         />
-        <motion.circle
-          cx="60"
-          cy="62"
-          r="34"
-          fill="#f3ddc5"
-          animate={{ scaleY: [1, 1.025, 1] }}
-          transition={{ duration: 1.9, repeat: Infinity, ease: 'easeInOut' }}
+        <motion.path
+          d="M36 112 C20 98, 22 74, 46 72 C58 72, 66 80, 68 96 C71 118, 51 128, 36 112 Z"
+          fill="#c8976e"
+          animate={{ scaleY: [1, 1.03, 1] }}
+          transition={{ duration: 1.9, repeat: Infinity }}
         />
-        <motion.circle
-          cx="49"
-          cy="58"
-          r={isTired ? 2 : 4}
-          fill="#0f172a"
-          animate={isTired ? { scaleY: [1, 0.4, 1] } : { scaleY: [1, 0.1, 1, 1] }}
-          transition={{ duration: 2.9, repeat: Infinity, times: [0, 0.45, 0.52, 1] }}
-          style={{ transformOrigin: '49px 58px' }}
-        />
-        <motion.circle
-          cx="71"
-          cy="58"
-          r={isTired ? 2 : 4}
-          fill="#0f172a"
-          animate={isTired ? { scaleY: [1, 0.4, 1] } : { scaleY: [1, 0.1, 1, 1] }}
-          transition={{ duration: 2.9, repeat: Infinity, times: [0, 0.45, 0.52, 1], delay: 0.1 }}
-          style={{ transformOrigin: '71px 58px' }}
-        />
-        <ellipse cx="60" cy="70" rx="11" ry="8" fill="#e6c29f" />
-        <circle cx="60" cy="67.5" r="3" fill="#0f172a" />
-        {isHappy ? (
-          <path d="M50 75 Q60 86 70 75" stroke="#1e293b" strokeWidth="3" fill="none" strokeLinecap="round" />
-        ) : isTired ? (
-          <path d="M51 80 Q60 74 69 80" stroke="#1e293b" strokeWidth="3" fill="none" strokeLinecap="round" />
+        <ellipse cx="56" cy="74" rx="25" ry="22" fill="#f2dcc3" />
+        <PetEyes tired={tired} />
+        <ellipse cx="90" cy="73" rx="13" ry="9" fill="#e7c7a4" />
+        <circle cx="90" cy="69.5" r="3" fill="#0f172a" />
+        {happy ? (
+          <path d="M81 77 Q90 88 99 77" stroke="#1e293b" strokeWidth="3" fill="none" strokeLinecap="round" />
+        ) : tired ? (
+          <path d="M82 82 Q90 74 98 82" stroke="#1e293b" strokeWidth="3" fill="none" strokeLinecap="round" />
         ) : (
-          <path d="M52 79 Q60 82 68 79" stroke="#1e293b" strokeWidth="3" fill="none" strokeLinecap="round" />
+          <path d="M82 80 Q90 84 98 80" stroke="#1e293b" strokeWidth="3" fill="none" strokeLinecap="round" />
         )}
         <motion.path
-          d="M88 84 C105 76, 111 86, 100 96"
-          stroke="#b6865d"
-          strokeWidth="6"
-          strokeLinecap="round"
+          d="M122 88 C154 70, 166 92, 148 106"
+          stroke="#b5855f"
+          strokeWidth="11"
           fill="none"
-          animate={{ rotate: [0, 16, -12, 0] }}
-          transition={{ duration: 1.1, repeat: Infinity }}
-          style={{ transformOrigin: '90px 86px' }}
+          strokeLinecap="round"
+          animate={{ rotate: [0, 18, -15, 0] }}
+          transition={{ duration: 1.05, repeat: Infinity }}
+          style={{ transformOrigin: '124px 94px' }}
         />
+        <motion.rect x="45" y="112" width="14" height="27" rx="7" fill="#c8976e" animate={{ y: [0, 2, 0] }} transition={{ duration: 1.4, repeat: Infinity }} />
+        <motion.rect x="65" y="112" width="14" height="27" rx="7" fill="#c8976e" animate={{ y: [2, 0, 2] }} transition={{ duration: 1.4, repeat: Infinity }} />
+        <motion.rect x="94" y="112" width="14" height="27" rx="7" fill="#c8976e" animate={{ y: [2, 0, 2] }} transition={{ duration: 1.4, repeat: Infinity, delay: 0.2 }} />
+        <motion.rect x="114" y="112" width="14" height="27" rx="7" fill="#c8976e" animate={{ y: [0, 2, 0] }} transition={{ duration: 1.4, repeat: Infinity, delay: 0.2 }} />
       </svg>
     </motion.div>
   );
 }
 
 function AnimatedPet({ moodScore, species }: { moodScore: number; species: PetSpecies }) {
-  return species === 'dog' ? <AnimatedDog moodScore={moodScore} /> : <AnimatedCat moodScore={moodScore} />;
+  return species === 'dog' ? <DesktopDog moodScore={moodScore} /> : <DesktopCat moodScore={moodScore} />;
 }
 
 export default function PetSystem() {
   const location = useLocation();
   const { getOverallProgress, wrongAnswers } = useStore();
-
   const [expanded, setExpanded] = useState(false);
   const [scrollPercent, setScrollPercent] = useState(0);
   const [species, setSpecies] = useState<PetSpecies>('cat');
@@ -342,10 +330,7 @@ export default function PetSystem() {
         <span>{Math.round(value)}%</span>
       </div>
       <div className="h-2 rounded-full bg-slate-800/90">
-        <div
-          className="h-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 transition-all"
-          style={{ width: `${Math.round(value)}%` }}
-        />
+        <div className="h-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 transition-all" style={{ width: `${Math.round(value)}%` }} />
       </div>
     </div>
   );
@@ -358,29 +343,25 @@ export default function PetSystem() {
             initial={{ opacity: 0, y: 10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
-            className="pointer-events-auto mb-3 w-[320px] rounded-2xl border border-blue-500/30 bg-slate-900/95 p-4 shadow-2xl shadow-blue-500/20 backdrop-blur"
+            className="pointer-events-auto mb-3 w-[340px] rounded-2xl border border-blue-500/30 bg-slate-900/95 p-4 shadow-2xl shadow-blue-500/20 backdrop-blur"
           >
             <div className="mb-2 flex items-center gap-2 text-blue-100">
               <Sparkles className="h-4 w-4 text-cyan-300" />
-              <p className="text-sm font-semibold">学习宠物 · 物理小搭子</p>
+              <p className="text-sm font-semibold">学习宠物 · 2D桌宠</p>
             </div>
 
             <div className="mb-2 flex items-center justify-center gap-2">
               <button
                 type="button"
                 onClick={() => setPetSpecies('cat')}
-                className={`rounded-full px-3 py-1 text-xs ${
-                  species === 'cat' ? 'bg-cyan-500/25 text-cyan-100' : 'bg-slate-800 text-slate-300'
-                }`}
+                className={`rounded-full px-3 py-1 text-xs ${species === 'cat' ? 'bg-cyan-500/25 text-cyan-100' : 'bg-slate-800 text-slate-300'}`}
               >
                 猫咪
               </button>
               <button
                 type="button"
                 onClick={() => setPetSpecies('dog')}
-                className={`rounded-full px-3 py-1 text-xs ${
-                  species === 'dog' ? 'bg-cyan-500/25 text-cyan-100' : 'bg-slate-800 text-slate-300'
-                }`}
+                className={`rounded-full px-3 py-1 text-xs ${species === 'dog' ? 'bg-cyan-500/25 text-cyan-100' : 'bg-slate-800 text-slate-300'}`}
               >
                 小狗
               </button>
@@ -401,27 +382,15 @@ export default function PetSystem() {
             </div>
 
             <div className="mt-3 grid grid-cols-3 gap-2">
-              <button
-                type="button"
-                onClick={feedPet}
-                className="flex items-center justify-center gap-1 rounded-lg border border-cyan-500/40 bg-cyan-500/15 px-2 py-2 text-xs text-cyan-100 transition hover:bg-cyan-500/25"
-              >
+              <button type="button" onClick={feedPet} className="flex items-center justify-center gap-1 rounded-lg border border-cyan-500/40 bg-cyan-500/15 px-2 py-2 text-xs text-cyan-100 transition hover:bg-cyan-500/25">
                 <Bone className="h-3.5 w-3.5" />
                 喂食
               </button>
-              <button
-                type="button"
-                onClick={playPet}
-                className="flex items-center justify-center gap-1 rounded-lg border border-blue-500/40 bg-blue-500/15 px-2 py-2 text-xs text-blue-100 transition hover:bg-blue-500/25"
-              >
+              <button type="button" onClick={playPet} className="flex items-center justify-center gap-1 rounded-lg border border-blue-500/40 bg-blue-500/15 px-2 py-2 text-xs text-blue-100 transition hover:bg-blue-500/25">
                 <Gamepad2 className="h-3.5 w-3.5" />
                 互动
               </button>
-              <button
-                type="button"
-                onClick={restPet}
-                className="flex items-center justify-center gap-1 rounded-lg border border-indigo-500/40 bg-indigo-500/15 px-2 py-2 text-xs text-indigo-100 transition hover:bg-indigo-500/25"
-              >
+              <button type="button" onClick={restPet} className="flex items-center justify-center gap-1 rounded-lg border border-indigo-500/40 bg-indigo-500/15 px-2 py-2 text-xs text-indigo-100 transition hover:bg-indigo-500/25">
                 <Moon className="h-3.5 w-3.5" />
                 休息
               </button>
