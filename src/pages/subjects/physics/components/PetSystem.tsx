@@ -109,8 +109,17 @@ function BeanPet({ moodScore, energyScore, pressure }: { moodScore: number; ener
           </radialGradient>
         </defs>
 
+        <g opacity="0.8">
+          <line x1="110" y1="18" x2="110" y2="32" stroke="#ffd86b" strokeWidth="3.2" strokeLinecap="round" />
+          <line x1="110" y1="196" x2="110" y2="210" stroke="#ffd86b" strokeWidth="3.2" strokeLinecap="round" />
+          <line x1="14" y1="114" x2="28" y2="114" stroke="#ffd86b" strokeWidth="3.2" strokeLinecap="round" />
+          <line x1="192" y1="114" x2="206" y2="114" stroke="#ffd86b" strokeWidth="3.2" strokeLinecap="round" />
+          <line x1="41" y1="45" x2="51" y2="55" stroke="#ffd86b" strokeWidth="2.8" strokeLinecap="round" />
+          <line x1="169" y1="173" x2="179" y2="183" stroke="#ffd86b" strokeWidth="2.8" strokeLinecap="round" />
+          <line x1="169" y1="55" x2="179" y2="45" stroke="#ffd86b" strokeWidth="2.8" strokeLinecap="round" />
+          <line x1="41" y1="183" x2="51" y2="173" stroke="#ffd86b" strokeWidth="2.8" strokeLinecap="round" />
+        </g>
         <circle cx="110" cy="114" r="78" fill="url(#beanBody)" stroke="#e0aa22" strokeWidth="2.4" />
-        <circle cx="110" cy="114" r="84" fill="none" stroke="rgba(96,165,250,0.35)" strokeWidth="3" strokeDasharray="8 8" />
         <ellipse cx="110" cy="144" rx="58" ry="46" fill="#ffd24a" opacity="0.5" />
 
         <ellipse cx="48" cy="122" rx="11" ry="16" fill="#f4c938" />
