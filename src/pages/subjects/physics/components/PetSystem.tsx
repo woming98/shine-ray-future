@@ -62,7 +62,67 @@ const loadSpecies = (): PetSpecies => {
 
 const saveSpecies = (species: PetSpecies) => localStorage.setItem(SPECIES_KEY, species);
 
-function AnimatedPet({ moodScore, energyScore, species }: { moodScore: number; energyScore: number; species: PetSpecies }) {
+type PetPose = 'idle' | 'happy' | 'tired';
+
+const SPRITE_BASE: Record<PetSpecies, string> = {
+  cat: '/physics/pets/sprites/cat',
+  dog: '/physics/pets/sprites/dog',
+};
+
+const SPRITE_FRAMES: Record<PetPose, string[]> = {
+  idle: ['idle-1.png', 'idle-2.png', 'idle-3.png', 'idle-4.png'],
+  happy: ['happy-1.png', 'happy-2.png', 'happy-3.png', 'happy-4.png'],
+  tired: ['tired-1.png', 'tired-2.png', 'tired-3.png', 'tired-4.png'],
+};
+
+function SpritePet({
+  species,
+  pose,
+}: {
+  species: PetSpecies;
+  pose: PetPose;
+}) {
+  const [ready, setReady] = useState<boolean | null>(null);
+  const [frame, setFrame] = useState(0);
+  const files = SPRITE_FRAMES[pose];
+
+  useEffect(() => {
+    setFrame(0);
+    setReady(null);
+    const probe = new Image();
+    probe.onload = () => setReady(true);
+    probe.onerror = () => setReady(false);
+    probe.src = `${SPRITE_BASE[species]}/${files[0]}`;
+  }, [species, pose, files]);
+
+  useEffect(() => {
+    if (!ready) return;
+    const timer = window.setInterval(() => {
+      setFrame((prev) => (prev + 1) % files.length);
+    }, 140);
+    return () => window.clearInterval(timer);
+  }, [ready, files.length]);
+
+  if (!ready) return null;
+
+  return (
+    <motion.div
+      className="relative mx-auto mb-2 h-44 w-44"
+      animate={{ y: [0, -2, 0] }}
+      transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+    >
+      <div className="absolute bottom-1 left-1/2 h-3 w-24 -translate-x-1/2 rounded-full bg-slate-900/50 blur-sm" />
+      <img
+        src={`${SPRITE_BASE[species]}/${files[frame]}`}
+        alt={`${species} sprite pet`}
+        className="relative z-10 h-full w-full object-contain drop-shadow-[0_10px_24px_rgba(0,0,0,0.35)]"
+        draggable={false}
+      />
+    </motion.div>
+  );
+}
+
+function VectorPet({ moodScore, energyScore, species }: { moodScore: number; energyScore: number; species: PetSpecies }) {
   const [blink, setBlink] = useState(false);
 
   useEffect(() => {
@@ -165,6 +225,22 @@ function AnimatedPet({ moodScore, energyScore, species }: { moodScore: number; e
       </svg>
     </motion.div>
   );
+}
+
+function AnimatedPet({ moodScore, energyScore, species }: { moodScore: number; energyScore: number; species: PetSpecies }) {
+  const pose: PetPose = moodScore >= 80 ? 'happy' : energyScore < 40 ? 'tired' : 'idle';
+  const [spriteEnabled, setSpriteEnabled] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    setSpriteEnabled(null);
+    const probe = new Image();
+    probe.onload = () => setSpriteEnabled(true);
+    probe.onerror = () => setSpriteEnabled(false);
+    probe.src = `${SPRITE_BASE[species]}/${SPRITE_FRAMES[pose][0]}`;
+  }, [species, pose]);
+
+  if (spriteEnabled) return <SpritePet species={species} pose={pose} />;
+  return <VectorPet moodScore={moodScore} energyScore={energyScore} species={species} />;
 }
 
 export default function PetSystem() {
@@ -311,6 +387,9 @@ export default function PetSystem() {
             </div>
 
             <AnimatedPet moodScore={petScore} energyScore={state.energy} species={species} />
+            <p className="mb-2 text-center text-[11px] text-slate-300">
+              Sprite path: <code>/public/physics/pets/sprites/{species}</code>
+            </p>
             <p className="mb-3 text-xs leading-5 text-blue-200">{petLine}</p>
 
             <div className="space-y-2.5">
