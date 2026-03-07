@@ -451,7 +451,7 @@ export default function PetSystem() {
           >
             <div className="mb-2 flex items-center gap-2 text-blue-100">
               <Sparkles className="h-4 w-4 text-cyan-300" />
-              <p className="text-sm font-semibold">学习宠物（黄豆）</p>
+              <p className="text-sm font-semibold">更陪伴宠物（小睿）</p>
             </div>
 
             <BeanPet moodScore={petScore} energyScore={state.energy} pressure={pendingWrongCount} />
