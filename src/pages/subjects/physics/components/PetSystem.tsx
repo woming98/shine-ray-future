@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type MouseEvent as ReactMouseEvent } from 'react';
+ï»¿import { useEffect, useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Bone, Gamepad2, Moon, PawPrint, Sparkles } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
@@ -32,26 +32,26 @@ const defaultState: PetState = {
 };
 
 const weatherText = (code: number) => {
-  if (code === 0) return 'ÇçÀÊ';
-  if ([1, 2, 3].includes(code)) return '¶àÔÆ';
-  if ([45, 48].includes(code)) return 'ÓĞÎí';
-  if ([51, 53, 55, 56, 57].includes(code)) return 'Ã«Ã«Óê';
-  if ([61, 63, 65, 66, 67].includes(code)) return 'ÏÂÓê';
-  if ([71, 73, 75, 77].includes(code)) return '½µÑ©';
-  if ([80, 81, 82].includes(code)) return 'ÕóÓê';
-  if ([85, 86].includes(code)) return 'ÕóÑ©';
-  if ([95, 96, 99].includes(code)) return 'À×±©';
-  return 'ÌìÆøÎ´Öª';
+  if (code === 0) return 'æ™´æœ—';
+  if ([1, 2, 3].includes(code)) return 'å¤šäº‘';
+  if ([45, 48].includes(code)) return 'æœ‰é›¾';
+  if ([51, 53, 55, 56, 57].includes(code)) return 'æ¯›æ¯›é›¨';
+  if ([61, 63, 65, 66, 67].includes(code)) return 'ä¸‹é›¨';
+  if ([71, 73, 75, 77].includes(code)) return 'é™é›ª';
+  if ([80, 81, 82].includes(code)) return 'é˜µé›¨';
+  if ([85, 86].includes(code)) return 'é˜µé›ª';
+  if ([95, 96, 99].includes(code)) return 'é›·æš´';
+  return 'å¤©æ°”æœªçŸ¥';
 };
 
 const weatherEmoji = (code: number) => {
-  if (code === 0) return '??';
-  if ([1, 2, 3].includes(code)) return '?';
-  if ([45, 48].includes(code)) return '???';
-  if ([61, 63, 65, 80, 81, 82].includes(code)) return '???';
-  if ([71, 73, 75, 77, 85, 86].includes(code)) return '??';
-  if ([95, 96, 99].includes(code)) return '??';
-  return '???';
+  if (code === 0) return 'â˜€ï¸';
+  if ([1, 2, 3].includes(code)) return 'â›…';
+  if ([45, 48].includes(code)) return 'ğŸŒ«ï¸';
+  if ([61, 63, 65, 80, 81, 82].includes(code)) return 'ğŸŒ§ï¸';
+  if ([71, 73, 75, 77, 85, 86].includes(code)) return 'â„ï¸';
+  if ([95, 96, 99].includes(code)) return 'â›ˆï¸';
+  return 'ğŸŒ¤ï¸';
 };
 
 const applyDecay = (state: PetState) => {
@@ -307,9 +307,6 @@ export default function PetSystem() {
   const { getOverallProgress, wrongAnswers } = useStore();
   const [expanded, setExpanded] = useState(false);
   const [scrollPercent, setScrollPercent] = useState(0);
-  const [floatPos, setFloatPos] = useState({ x: 24, y: 24 });
-  const [dragging, setDragging] = useState(false);
-  const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const [state, setState] = useState<PetState>(defaultState);
   const [weather, setWeather] = useState<WeatherInfo | null>(null);
   const [weatherError, setWeatherError] = useState<string>('');
@@ -320,40 +317,6 @@ export default function PetSystem() {
     setState(next);
     saveState(next);
   }, []);
-
-  useEffect(() => {
-    const initialX = Math.max(16, window.innerWidth - 380);
-    const initialY = Math.max(16, window.innerHeight - 112);
-    setFloatPos({ x: initialX, y: initialY });
-  }, []);
-
-  useEffect(() => {
-    if (!dragging) return;
-
-    const onMove = (e: MouseEvent) => {
-      const panelWidth = expanded ? 340 : 128;
-      const panelHeight = expanded ? 560 : 56;
-      const nextX = Math.min(Math.max(8, e.clientX - dragOffset.x), Math.max(8, window.innerWidth - panelWidth - 8));
-      const nextY = Math.min(Math.max(8, e.clientY - dragOffset.y), Math.max(8, window.innerHeight - panelHeight - 8));
-      setFloatPos({ x: nextX, y: nextY });
-    };
-
-    const onUp = () => setDragging(false);
-    window.addEventListener('mousemove', onMove);
-    window.addEventListener('mouseup', onUp);
-    return () => {
-      window.removeEventListener('mousemove', onMove);
-      window.removeEventListener('mouseup', onUp);
-    };
-  }, [dragging, dragOffset, expanded]);
-
-  const startDrag = (e: ReactMouseEvent) => {
-    setDragging(true);
-    setDragOffset({
-      x: e.clientX - floatPos.x,
-      y: e.clientY - floatPos.y,
-    });
-  };
 
   const fetchWeatherByCoord = async (lat: number, lon: number) => {
     const url =
@@ -416,7 +379,7 @@ export default function PetSystem() {
       const cached = getCachedCoord();
       if (cached) {
         await fetchWeatherByCoord(cached.lat, cached.lon);
-        setWeatherError('¶¨Î»Ê§°Ü£¬ÒÑÊ¹ÓÃÉÏ´ÎÎ»ÖÃÌìÆø¡£');
+        setWeatherError('å®šä½å¤±è´¥ï¼Œå·²ä½¿ç”¨ä¸Šæ¬¡ä½ç½®å¤©æ°”ã€‚');
         setWeatherLoading(false);
         return;
       }
@@ -426,9 +389,9 @@ export default function PetSystem() {
 
     try {
       await fetchWeatherByCoord(DEFAULT_WEATHER_COORD.lat, DEFAULT_WEATHER_COORD.lon);
-      setWeatherError('¶¨Î»Ê§°Ü£¬ÒÑÊ¹ÓÃÄ¬ÈÏ³ÇÊĞÌìÆø¡£');
+      setWeatherError('å®šä½å¤±è´¥ï¼Œå·²ä½¿ç”¨é»˜è®¤åŸå¸‚å¤©æ°”ã€‚');
     } catch {
-      setWeatherError('ÌìÆø»ñÈ¡Ê§°Ü£¬ÇëÉÔºóÖØÊÔ¡£');
+      setWeatherError('å¤©æ°”è·å–å¤±è´¥ï¼Œè¯·ç¨åé‡è¯•ã€‚');
     } finally {
       setWeatherLoading(false);
     }
@@ -526,27 +489,27 @@ export default function PetSystem() {
   }, [petMode]);
 
   const petMood = useMemo(() => {
-    if (petScore >= 80) return '»îÁ¦ÂúÂú';
-    if (petScore >= 60) return '×´Ì¬ÎÈ¶¨';
-    if (petScore >= 40) return 'ĞèÒª¹Ø×¢';
-    return 'ÇéĞ÷µÍÂä';
+    if (petScore >= 80) return 'æ´»åŠ›æ»¡æ»¡';
+    if (petScore >= 60) return 'çŠ¶æ€ç¨³å®š';
+    if (petScore >= 40) return 'éœ€è¦å…³æ³¨';
+    return 'æƒ…ç»ªä½è½';
   }, [petScore]);
 
   const petLine = useMemo(() => {
-    if (pendingWrongCount > 0) return `Äã»¹ÓĞ ${pendingWrongCount} µÀ´íÌâ´ı¸´Ï°£¬ÎÒÅãÄãË¢Íê¡£`;
-    if (overallProgress >= 80) return '½ø¶ÈºÜ°ô£¬¼ÌĞø±£³ÖÕâ¹É½Ú×à¡£';
-    if (scrollPercent >= 70) return 'ÕâÒ³¿ì¿´ÍêÁË£¬×öÁ½Ìâ¹®¹ÌÒ»ÏÂ¡£';
-    if (location.pathname.includes('/wrong-answers')) return 'ÕâÀïÊÇ´íÌâ±¾£¬ÏÈ¹¥¿Ë±¡Èõµã¡£';
-    return '¼ÌĞøÑ§Ï°£¬ÎÒ»áÒ»Ö±¸ú×ÅÄã¡£';
+    if (pendingWrongCount > 0) return `ä½ è¿˜æœ‰ ${pendingWrongCount} é“é”™é¢˜å¾…å¤ä¹ ï¼Œæˆ‘é™ªä½ åˆ·å®Œã€‚`;
+    if (overallProgress >= 80) return 'è¿›åº¦å¾ˆæ£’ï¼Œç»§ç»­ä¿æŒè¿™è‚¡èŠ‚å¥ã€‚';
+    if (scrollPercent >= 70) return 'è¿™é¡µå¿«çœ‹å®Œäº†ï¼Œåšä¸¤é¢˜å·©å›ºä¸€ä¸‹ã€‚';
+    if (location.pathname.includes('/wrong-answers')) return 'è¿™é‡Œæ˜¯é”™é¢˜æœ¬ï¼Œå…ˆæ”»å…‹è–„å¼±ç‚¹ã€‚';
+    return 'ç»§ç»­å­¦ä¹ ï¼Œæˆ‘ä¼šä¸€ç›´è·Ÿç€ä½ ã€‚';
   }, [pendingWrongCount, overallProgress, scrollPercent, location.pathname]);
 
   const weatherLine = useMemo(() => {
     if (!weather) return '';
     const t = weatherText(weather.weatherCode);
-    if ([61, 63, 65, 80, 81, 82, 95, 96, 99].includes(weather.weatherCode)) return `½ñÌì${t}£¬×öÌâ±ğÌ«¸Ï£¬ÎÈ×¡½Ú×à¡£`;
-    if (weather.temperature >= 30) return `ÏÖÔÚÆ«ÈÈ£¬×¢Òâ²¹Ë®£¬×¨×¢×öÌâ¡£`;
-    if (weather.temperature <= 10) return `ÏÖÔÚÆ«Àä£¬±ğ×ÅÁ¹£¬ÂıÂıË¢Ìâ¡£`;
-    return `ÌìÆø²»´í£¬ÊÊºÏ°Ñ´íÌâÇåÒ»²¨¡£`;
+    if ([61, 63, 65, 80, 81, 82, 95, 96, 99].includes(weather.weatherCode)) return `ä»Šå¤©${t}ï¼Œåšé¢˜åˆ«å¤ªèµ¶ï¼Œç¨³ä½èŠ‚å¥ã€‚`;
+    if (weather.temperature >= 30) return `ç°åœ¨åçƒ­ï¼Œæ³¨æ„è¡¥æ°´ï¼Œä¸“æ³¨åšé¢˜ã€‚`;
+    if (weather.temperature <= 10) return `ç°åœ¨åå†·ï¼Œåˆ«ç€å‡‰ï¼Œæ…¢æ…¢åˆ·é¢˜ã€‚`;
+    return `å¤©æ°”ä¸é”™ï¼Œé€‚åˆæŠŠé”™é¢˜æ¸…ä¸€æ³¢ã€‚`;
   }, [weather]);
 
   const StatRow = ({ label, value }: { label: string; value: number }) => (
@@ -562,7 +525,7 @@ export default function PetSystem() {
   );
 
   return (
-    <div className="pointer-events-none fixed z-[70]" style={{ left: `${floatPos.x}px`, top: `${floatPos.y}px` }}>
+    <div className="pointer-events-none fixed bottom-4 right-4 z-[70]">
       <AnimatePresence initial={false}>
         {expanded && (
           <motion.div
@@ -571,9 +534,9 @@ export default function PetSystem() {
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
             className={`pointer-events-auto mb-3 w-[340px] rounded-2xl border p-4 shadow-2xl backdrop-blur ${panelToneClass}`}
           >
-            <div className="mb-2 flex cursor-move select-none items-center gap-2 text-blue-100" onMouseDown={startDrag}>
+            <div className="mb-2 flex items-center gap-2 text-blue-100">
               <Sparkles className="h-4 w-4 text-cyan-300" />
-              <p className="text-sm font-semibold">°éÄãÑ§Ï°µÄ³èÎï£¨Ğ¡î££©</p>
+              <p className="text-sm font-semibold">ä¼´ä½ å­¦ä¹ çš„å® ç‰©ï¼ˆå°ç¿ï¼‰</p>
             </div>
 
             <BeanPet moodScore={petScore} energyScore={state.energy} pressure={pendingWrongCount} weatherCode={weather?.weatherCode} />
@@ -584,15 +547,15 @@ export default function PetSystem() {
                 <div className="space-y-1">
                   <div className="flex items-center justify-between">
                     <span>
-                      ÊµÊ±ÌìÆø£º{weatherEmoji(weather.weatherCode)} {weatherText(weather.weatherCode)}
+                      å®æ—¶å¤©æ°”ï¼š{weatherEmoji(weather.weatherCode)} {weatherText(weather.weatherCode)}
                     </span>
-                    <span>{Math.round(weather.temperature)}¡ãC</span>
+                    <span>{Math.round(weather.temperature)}Â°C</span>
                   </div>
                   {(weather.maxTemp !== undefined || weather.minTemp !== undefined) && (
                     <div className="text-blue-300">
-                      ½ñÈÕÔ¤±¨£º
-                      {weather.maxTemp !== undefined ? ` ×î¸ß ${Math.round(weather.maxTemp)}¡ãC` : ''}
-                      {weather.minTemp !== undefined ? ` / ×îµÍ ${Math.round(weather.minTemp)}¡ãC` : ''}
+                      ä»Šæ—¥é¢„æŠ¥ï¼š
+                      {weather.maxTemp !== undefined ? ` æœ€é«˜ ${Math.round(weather.maxTemp)}Â°C` : ''}
+                      {weather.minTemp !== undefined ? ` / æœ€ä½ ${Math.round(weather.minTemp)}Â°C` : ''}
                     </div>
                   )}
                   <div className="text-cyan-200">{weatherLine}</div>
@@ -602,32 +565,32 @@ export default function PetSystem() {
                       onClick={retryWeatherLocation}
                       className="rounded-md border border-cyan-500/40 bg-cyan-500/10 px-2 py-1 text-[11px] text-cyan-200 transition hover:bg-cyan-500/20"
                     >
-                      {weatherLoading ? 'ÖØĞÂ¶¨Î»ÖĞ...' : 'ÖØĞÂ¶¨Î»ÌìÆø'}
+                      {weatherLoading ? 'é‡æ–°å®šä½ä¸­...' : 'é‡æ–°å®šä½å¤©æ°”'}
                     </button>
                   </div>
                 </div>
               ) : (
                 <div className="space-y-2">
-                  <span className="block text-blue-300">{weatherError || 'ÕıÔÚ»ñÈ¡ÌìÆø...'}</span>
+                  <span className="block text-blue-300">{weatherError || 'æ­£åœ¨è·å–å¤©æ°”...'}</span>
                   <button
                     type="button"
                     onClick={retryWeatherLocation}
                     className="rounded-md border border-cyan-500/40 bg-cyan-500/10 px-2 py-1 text-[11px] text-cyan-200 transition hover:bg-cyan-500/20"
                   >
-                    {weatherLoading ? 'ÖØĞÂ¶¨Î»ÖĞ...' : 'ÖØĞÂ¶¨Î»ÌìÆø'}
+                    {weatherLoading ? 'é‡æ–°å®šä½ä¸­...' : 'é‡æ–°å®šä½å¤©æ°”'}
                   </button>
                 </div>
               )}
             </div>
 
             <div className="space-y-2.5">
-              <StatRow label="±¥Ê³" value={state.satiety} />
-              <StatRow label="ĞÄÇé" value={state.mood} />
-              <StatRow label="¾«Á¦" value={state.energy} />
+              <StatRow label="é¥±é£Ÿ" value={state.satiety} />
+              <StatRow label="å¿ƒæƒ…" value={state.mood} />
+              <StatRow label="ç²¾åŠ›" value={state.energy} />
             </div>
 
             <div className="mt-3 rounded-lg bg-slate-800/80 p-2 text-xs text-cyan-200">
-              ×´Ì¬£º{petMood} £ü Ñ§Ï°½ø¶È {overallProgress}% £ü Ò³ÃæÔÄ¶Á {scrollPercent}%
+              çŠ¶æ€ï¼š{petMood} ï½œ å­¦ä¹ è¿›åº¦ {overallProgress}% ï½œ é¡µé¢é˜…è¯» {scrollPercent}%
             </div>
 
             <div className="mt-3 grid grid-cols-3 gap-2">
@@ -637,7 +600,7 @@ export default function PetSystem() {
                 className="flex items-center justify-center gap-1 rounded-lg border border-cyan-500/40 bg-cyan-500/15 px-2 py-2 text-xs text-cyan-100 transition hover:bg-cyan-500/25"
               >
                 <Bone className="h-3.5 w-3.5" />
-                Î¹Ê³
+                å–‚é£Ÿ
               </button>
               <button
                 type="button"
@@ -645,7 +608,7 @@ export default function PetSystem() {
                 className="flex items-center justify-center gap-1 rounded-lg border border-blue-500/40 bg-blue-500/15 px-2 py-2 text-xs text-blue-100 transition hover:bg-blue-500/25"
               >
                 <Gamepad2 className="h-3.5 w-3.5" />
-                »¥¶¯
+                äº’åŠ¨
               </button>
               <button
                 type="button"
@@ -653,7 +616,7 @@ export default function PetSystem() {
                 className="flex items-center justify-center gap-1 rounded-lg border border-indigo-500/40 bg-indigo-500/15 px-2 py-2 text-xs text-indigo-100 transition hover:bg-indigo-500/25"
               >
                 <Moon className="h-3.5 w-3.5" />
-                ĞİÏ¢
+                ä¼‘æ¯
               </button>
             </div>
           </motion.div>
@@ -665,16 +628,14 @@ export default function PetSystem() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.96 }}
         onClick={() => setExpanded((v) => !v)}
-        onMouseDown={startDrag}
-        className={`pointer-events-auto flex cursor-move select-none items-center gap-2 rounded-full border bg-gradient-to-r px-4 py-2 text-blue-100 shadow-xl ${launcherToneClass}`}
+        className={`pointer-events-auto flex items-center gap-2 rounded-full border bg-gradient-to-r px-4 py-2 text-blue-100 shadow-xl ${launcherToneClass}`}
       >
         <motion.span animate={{ y: [0, -3, 0] }} transition={{ repeat: Infinity, duration: 1.8 }} className="text-lg">
-          ??
+          ğŸŸ¡
         </motion.span>
-        <span className="text-sm font-medium">³èÎï</span>
+        <span className="text-sm font-medium">å® ç‰©</span>
         <PawPrint className="h-4 w-4 text-cyan-300" />
       </motion.button>
     </div>
   );
 }
-
