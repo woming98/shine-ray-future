@@ -179,11 +179,11 @@ function BeanPet({ moodScore, energyScore, pressure }: { moodScore: number; ener
         )}
 
         {faceMode === 'worried' && (
-          <path d="M58 114 C49 126, 46 138, 52 147 C56 154, 60 154, 64 147 C70 138, 67 126, 58 114 Z" fill="#7fc4ff" opacity="0.95" />
+          <path d="M58 112 C48 125, 44 139, 49 149 C54 160, 68 160, 73 149 C78 139, 74 125, 58 112 Z" fill="#7fc4ff" opacity="0.96" />
         )}
         {faceMode === 'panic' && (
           <>
-            <path d="M58 114 C46 129, 42 144, 50 156 C56 165, 62 165, 68 156 C76 144, 72 129, 58 114 Z" fill="#7fc4ff" opacity="0.95" />
+            <path d="M58 110 C45 127, 40 145, 47 159 C53 171, 69 171, 75 159 C82 145, 77 127, 58 110 Z" fill="#7fc4ff" opacity="0.96" />
           </>
         )}
 
