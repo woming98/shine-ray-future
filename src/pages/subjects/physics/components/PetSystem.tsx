@@ -115,43 +115,43 @@ function BeanPet({ moodScore, energyScore, pressure }: { moodScore: number; ener
           <>
             <ellipse cx="76" cy="98" rx="22" ry="27" fill="#fff" />
             <ellipse cx="144" cy="98" rx="22" ry="27" fill="#fff" />
-            <ellipse cx="80" cy="104" rx="12" ry="15" fill="#2e231b" />
-            <ellipse cx="148" cy="104" rx="12" ry="15" fill="#2e231b" />
-            <circle cx="85" cy="95" r="4.8" fill="#fff" />
-            <circle cx="153" cy="95" r="4.8" fill="#fff" />
-            <circle cx="76" cy="108" r="1.8" fill="#fff" opacity="0.75" />
-            <circle cx="144" cy="108" r="1.8" fill="#fff" opacity="0.75" />
+            <ellipse cx="76" cy="104" rx="12" ry="15" fill="#2e231b" />
+            <ellipse cx="144" cy="104" rx="12" ry="15" fill="#2e231b" />
+            <circle cx="80" cy="96" r="4.8" fill="#fff" />
+            <circle cx="148" cy="96" r="4.8" fill="#fff" />
+            <circle cx="72" cy="109" r="1.8" fill="#fff" opacity="0.75" />
+            <circle cx="140" cy="109" r="1.8" fill="#fff" opacity="0.75" />
           </>
         )}
 
         {faceMode === 'happy' && (
           <>
-            <path d="M54 76 Q76 62 98 76" fill="none" stroke="#7b5b2e" strokeWidth="2.4" strokeLinecap="round" />
-            <path d="M122 76 Q144 62 166 76" fill="none" stroke="#7b5b2e" strokeWidth="2.4" strokeLinecap="round" />
+            <path d="M54 68 Q76 54 98 68" fill="none" stroke="#7b5b2e" strokeWidth="2.4" strokeLinecap="round" />
+            <path d="M122 68 Q144 54 166 68" fill="none" stroke="#7b5b2e" strokeWidth="2.4" strokeLinecap="round" />
           </>
         )}
         {faceMode === 'calm' && (
           <>
-            <path d="M56 74 Q76 66 96 74" fill="none" stroke="#7b5b2e" strokeWidth="2.2" strokeLinecap="round" opacity="0.88" />
-            <path d="M124 74 Q144 66 164 74" fill="none" stroke="#7b5b2e" strokeWidth="2.2" strokeLinecap="round" opacity="0.88" />
+            <path d="M56 66 Q76 58 96 66" fill="none" stroke="#7b5b2e" strokeWidth="2.2" strokeLinecap="round" opacity="0.88" />
+            <path d="M124 66 Q144 58 164 66" fill="none" stroke="#7b5b2e" strokeWidth="2.2" strokeLinecap="round" opacity="0.88" />
           </>
         )}
         {faceMode === 'tired' && (
           <>
-            <path d="M56 72 Q76 76 96 72" fill="none" stroke="#7b5b2e" strokeWidth="2.2" strokeLinecap="round" opacity="0.9" />
-            <path d="M124 72 Q144 76 164 72" fill="none" stroke="#7b5b2e" strokeWidth="2.2" strokeLinecap="round" opacity="0.9" />
+            <path d="M56 64 Q76 68 96 64" fill="none" stroke="#7b5b2e" strokeWidth="2.2" strokeLinecap="round" opacity="0.9" />
+            <path d="M124 64 Q144 68 164 64" fill="none" stroke="#7b5b2e" strokeWidth="2.2" strokeLinecap="round" opacity="0.9" />
           </>
         )}
         {faceMode === 'worried' && (
           <>
-            <path d="M54 78 L98 68" fill="none" stroke="#7b5b2e" strokeWidth="2.5" strokeLinecap="round" />
-            <path d="M122 68 L166 78" fill="none" stroke="#7b5b2e" strokeWidth="2.5" strokeLinecap="round" />
+            <path d="M54 70 L98 60" fill="none" stroke="#7b5b2e" strokeWidth="2.5" strokeLinecap="round" />
+            <path d="M122 60 L166 70" fill="none" stroke="#7b5b2e" strokeWidth="2.5" strokeLinecap="round" />
           </>
         )}
         {faceMode === 'panic' && (
           <>
-            <path d="M52 82 L100 66" fill="none" stroke="#7b5b2e" strokeWidth="3" strokeLinecap="round" />
-            <path d="M120 66 L168 82" fill="none" stroke="#7b5b2e" strokeWidth="3" strokeLinecap="round" />
+            <path d="M52 74 L100 58" fill="none" stroke="#7b5b2e" strokeWidth="3" strokeLinecap="round" />
+            <path d="M120 58 L168 74" fill="none" stroke="#7b5b2e" strokeWidth="3" strokeLinecap="round" />
           </>
         )}
 
