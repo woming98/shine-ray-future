@@ -109,15 +109,11 @@ function BeanPet({ moodScore, energyScore, pressure }: { moodScore: number; ener
           </radialGradient>
         </defs>
 
-        <path
-          d="M110 16
-             L124 28 L141 18 L152 34 L171 28 L177 47 L196 46 L196 66
-             L213 71 L207 90 L220 100 L207 110 L213 129 L196 134 L196 154
-             L177 153 L171 172 L152 166 L141 182 L124 172 L110 184
-             L96 172 L79 182 L68 166 L49 172 L43 153 L24 154 L24 134
-             L7 129 L13 110 L0 100 L13 90 L7 71 L24 66 L24 46
-             L43 47 L49 28 L68 34 L79 18 L96 28 Z"
+        <polygon
+          points="110,12 132,31 161,26 171,53 198,63 193,92 212,114 193,136 198,165 171,175 161,202 132,197 110,216 88,197 59,202 49,175 22,165 27,136 8,114 27,92 22,63 49,53 59,26 88,31"
           fill="#ff8a1f"
+          stroke="#f97316"
+          strokeWidth="2.2"
           opacity="0.95"
         />
         <circle cx="110" cy="114" r="78" fill="url(#beanBody)" stroke="#e0aa22" strokeWidth="2.4" />
