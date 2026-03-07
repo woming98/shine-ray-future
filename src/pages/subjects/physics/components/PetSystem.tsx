@@ -108,19 +108,19 @@ function BeanPet({ moodScore, energyScore, pressure }: { moodScore: number; ener
 
         {blink ? (
           <>
-            <line x1="75" y1="98" x2="107" y2="98" stroke="#3a2a20" strokeWidth="3.6" strokeLinecap="round" />
-            <line x1="113" y1="98" x2="145" y2="98" stroke="#3a2a20" strokeWidth="3.6" strokeLinecap="round" />
+            <line x1="56" y1="99" x2="96" y2="99" stroke="#3a2a20" strokeWidth="3.8" strokeLinecap="round" />
+            <line x1="124" y1="99" x2="164" y2="99" stroke="#3a2a20" strokeWidth="3.8" strokeLinecap="round" />
           </>
         ) : (
           <>
-            <ellipse cx="91" cy="98" rx="27" ry="32" fill="#fff" />
-            <ellipse cx="129" cy="98" rx="27" ry="32" fill="#fff" />
-            <ellipse cx="94" cy="104" rx="12.5" ry="16" fill="#2e231b" />
-            <ellipse cx="132" cy="104" rx="12.5" ry="16" fill="#2e231b" />
-            <circle cx="99" cy="95" r="5.2" fill="#fff" />
-            <circle cx="137" cy="95" r="5.2" fill="#fff" />
-            <circle cx="91" cy="108" r="1.8" fill="#fff" opacity="0.75" />
-            <circle cx="129" cy="108" r="1.8" fill="#fff" opacity="0.75" />
+            <ellipse cx="76" cy="98" rx="22" ry="27" fill="#fff" />
+            <ellipse cx="144" cy="98" rx="22" ry="27" fill="#fff" />
+            <ellipse cx="80" cy="104" rx="12" ry="15" fill="#2e231b" />
+            <ellipse cx="148" cy="104" rx="12" ry="15" fill="#2e231b" />
+            <circle cx="85" cy="95" r="4.8" fill="#fff" />
+            <circle cx="153" cy="95" r="4.8" fill="#fff" />
+            <circle cx="76" cy="108" r="1.8" fill="#fff" opacity="0.75" />
+            <circle cx="144" cy="108" r="1.8" fill="#fff" opacity="0.75" />
           </>
         )}
 
