@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Bone, Gamepad2, Moon, PawPrint, Sparkles } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
 import { useStore } from '../store/useStore';
@@ -25,9 +25,7 @@ const defaultState: PetState = {
 const applyDecay = (state: PetState) => {
   const now = Date.now();
   const elapsedMinutes = (now - state.lastUpdatedAt) / 60000;
-  if (elapsedMinutes <= 0) {
-    return state;
-  }
+  if (elapsedMinutes <= 0) return state;
 
   return {
     satiety: clamp(state.satiety - elapsedMinutes * 0.35),
@@ -57,9 +55,85 @@ const loadState = (): PetState => {
   }
 };
 
+function AnimatedPet({ moodScore }: { moodScore: number }) {
+  const isHappy = moodScore >= 75;
+  const isTired = moodScore < 45;
+
+  return (
+    <motion.div
+      className="relative mx-auto mb-3 h-24 w-24"
+      animate={{ y: [0, -3, 0] }}
+      transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
+    >
+      <motion.div
+        className="absolute -bottom-2 left-1/2 h-3 w-14 -translate-x-1/2 rounded-full bg-blue-900/60 blur-sm"
+        animate={{ scaleX: [1, 0.9, 1] }}
+        transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
+      />
+      <svg viewBox="0 0 120 120" className="h-full w-full">
+        <motion.path
+          d="M25 42 C18 30, 20 18, 33 15 C42 14, 50 20, 52 30"
+          fill="#89b4ff"
+          animate={{ rotate: [0, -6, 0] }}
+          transition={{ duration: 2.4, repeat: Infinity }}
+          style={{ transformOrigin: '38px 26px' }}
+        />
+        <motion.path
+          d="M95 42 C102 30, 100 18, 87 15 C78 14, 70 20, 68 30"
+          fill="#89b4ff"
+          animate={{ rotate: [0, 6, 0] }}
+          transition={{ duration: 2.4, repeat: Infinity }}
+          style={{ transformOrigin: '82px 26px' }}
+        />
+        <motion.circle
+          cx="60"
+          cy="62"
+          r="34"
+          fill="url(#petFace)"
+          animate={{ scaleY: [1, 1.03, 1] }}
+          transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <motion.circle
+          cx="48"
+          cy="58"
+          r={isTired ? 2 : 4}
+          fill="#0f172a"
+          animate={isTired ? { scaleY: [1, 0.4, 1] } : { scaleY: [1, 0.1, 1, 1] }}
+          transition={{ duration: isTired ? 2.6 : 3.2, repeat: Infinity, times: [0, 0.45, 0.5, 1] }}
+          style={{ transformOrigin: '48px 58px' }}
+        />
+        <motion.circle
+          cx="72"
+          cy="58"
+          r={isTired ? 2 : 4}
+          fill="#0f172a"
+          animate={isTired ? { scaleY: [1, 0.4, 1] } : { scaleY: [1, 0.1, 1, 1] }}
+          transition={{ duration: isTired ? 2.6 : 3.2, repeat: Infinity, times: [0, 0.45, 0.5, 1], delay: 0.1 }}
+          style={{ transformOrigin: '72px 58px' }}
+        />
+        <circle cx="60" cy="66" r="3.2" fill="#1e293b" />
+        {isHappy ? (
+          <path d="M48 75 Q60 86 72 75" stroke="#1e293b" strokeWidth="3" fill="none" strokeLinecap="round" />
+        ) : isTired ? (
+          <path d="M50 80 Q60 74 70 80" stroke="#1e293b" strokeWidth="3" fill="none" strokeLinecap="round" />
+        ) : (
+          <path d="M50 79 Q60 82 70 79" stroke="#1e293b" strokeWidth="3" fill="none" strokeLinecap="round" />
+        )}
+        <defs>
+          <linearGradient id="petFace" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#dbeafe" />
+            <stop offset="100%" stopColor="#93c5fd" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </motion.div>
+  );
+}
+
 export default function PetSystem() {
   const location = useLocation();
   const { getOverallProgress, wrongAnswers } = useStore();
+
   const [expanded, setExpanded] = useState(false);
   const [scrollPercent, setScrollPercent] = useState(0);
   const [state, setState] = useState<PetState>(defaultState);
@@ -71,14 +145,14 @@ export default function PetSystem() {
   }, []);
 
   useEffect(() => {
-    const id = window.setInterval(() => {
+    const timer = window.setInterval(() => {
       setState((prev) => {
         const next = applyDecay(prev);
         saveState(next);
         return next;
       });
     }, 60000);
-    return () => window.clearInterval(id);
+    return () => window.clearInterval(timer);
   }, []);
 
   useEffect(() => {
@@ -132,7 +206,6 @@ export default function PetSystem() {
 
   const overallProgress = getOverallProgress();
   const pendingWrongCount = wrongAnswers.filter((w) => !w.mastered).length;
-
   const petScore = Math.round((state.satiety + state.mood + state.energy) / 3);
 
   const petMood = useMemo(() => {
@@ -143,18 +216,10 @@ export default function PetSystem() {
   }, [petScore]);
 
   const petLine = useMemo(() => {
-    if (pendingWrongCount > 0) {
-      return `我帮你记着 ${pendingWrongCount} 道错题，去错题本复习吧。`;
-    }
-    if (overallProgress >= 80) {
-      return '你学得很稳，我们冲刺满进度。';
-    }
-    if (scrollPercent >= 70) {
-      return '这一页快看完了，做两道题巩固一下。';
-    }
-    if (location.pathname.includes('/wrong-answers')) {
-      return '这里是错题本，我会陪你重做。';
-    }
+    if (pendingWrongCount > 0) return `我帮你记着 ${pendingWrongCount} 道错题，去错题本复习吧。`;
+    if (overallProgress >= 80) return '你学得很稳，我们冲刺满进度。';
+    if (scrollPercent >= 70) return '这一页快看完了，做两道题巩固一下。';
+    if (location.pathname.includes('/wrong-answers')) return '这里是错题本，我会陪你重做。';
     return '继续学习，我会自动跟着你。';
   }, [pendingWrongCount, overallProgress, scrollPercent, location.pathname]);
 
@@ -183,10 +248,12 @@ export default function PetSystem() {
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
             className="pointer-events-auto mb-3 w-[300px] rounded-2xl border border-blue-500/30 bg-slate-900/95 p-4 shadow-2xl shadow-blue-500/20 backdrop-blur"
           >
-            <div className="mb-3 flex items-center gap-2 text-blue-100">
+            <div className="mb-2 flex items-center gap-2 text-blue-100">
               <Sparkles className="h-4 w-4 text-cyan-300" />
               <p className="text-sm font-semibold">学习宠物 · 物理小搭子</p>
             </div>
+
+            <AnimatedPet moodScore={petScore} />
 
             <p className="mb-3 text-xs leading-5 text-blue-200">{petLine}</p>
 
