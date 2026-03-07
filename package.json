@@ -12,10 +12,13 @@
     "import:top50": "tsx scripts/importTop50FromCsv.ts"
   },
   "dependencies": {
+    "@react-three/drei": "^9.120.0",
+    "@react-three/fiber": "^8.17.10",
     "@supabase/supabase-js": "^2.49.1",
     "chart.js": "^4.5.1",
     "framer-motion": "^10.16.4",
     "i18next": "^23.7.6",
+    "katex": "^0.16.9",
     "lucide-react": "^0.294.0",
     "papaparse": "^5.5.3",
     "react": "^18.2.0",
@@ -24,14 +27,14 @@
     "react-i18next": "^13.5.0",
     "react-router-dom": "^6.20.0",
     "recharts": "^2.10.3",
-    "zustand": "^5.0.10",
-    "katex": "^0.16.9"
+    "three": "^0.160.0",
+    "zustand": "^5.0.10"
   },
   "devDependencies": {
+    "@types/katex": "^0.16.7",
     "@types/papaparse": "^5.5.2",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
-    "@types/katex": "^0.16.7",
     "@vitejs/plugin-react": "^4.2.0",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.31",

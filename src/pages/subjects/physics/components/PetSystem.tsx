@@ -1,7 +1,9 @@
-﻿import { useEffect, useMemo, useState } from 'react';
+﻿import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Bone, Gamepad2, Moon, PawPrint, Sparkles } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
+import { Canvas, useFrame } from '@react-three/fiber';
+import type { Group } from 'three';
 import { useStore } from '../store/useStore';
 
 type PetState = {
@@ -11,9 +13,10 @@ type PetState = {
   lastUpdatedAt: number;
 };
 
+type PetSpecies = 'cat' | 'dog';
+
 const STORAGE_KEY = 'physics_web_pet_state_v1';
 const SPECIES_KEY = 'physics_web_pet_species_v1';
-type PetSpecies = 'cat' | 'dog';
 
 const clamp = (value: number) => Math.max(0, Math.min(100, value));
 
@@ -61,112 +64,136 @@ const loadSpecies = (): PetSpecies => {
 
 const saveSpecies = (species: PetSpecies) => localStorage.setItem(SPECIES_KEY, species);
 
-function AnimatedPet({ moodScore, energyScore, species }: { moodScore: number; energyScore: number; species: PetSpecies }) {
-  const [blink, setBlink] = useState(false);
-
-  useEffect(() => {
-    const id = window.setInterval(() => {
-      setBlink(true);
-      window.setTimeout(() => setBlink(false), 150);
-    }, 3200);
-    return () => window.clearInterval(id);
-  }, []);
+function PetRig({ moodScore, energyScore, species }: { moodScore: number; energyScore: number; species: PetSpecies }) {
+  const rootRef = useRef<Group>(null);
+  const tailRef = useRef<Group>(null);
+  const earLRef = useRef<Group>(null);
+  const earRRef = useRef<Group>(null);
+  const legARef = useRef<Group>(null);
+  const legBRef = useRef<Group>(null);
+  const legCRef = useRef<Group>(null);
+  const legDRef = useRef<Group>(null);
 
   const isHappy = moodScore >= 80;
   const isTired = energyScore < 40;
-  const coat = species === 'cat' ? (isHappy ? '#f8b35a' : moodScore >= 45 ? '#e6a14b' : '#c79356') : isHappy ? '#d8b087' : moodScore >= 45 ? '#c89a70' : '#aa7f5a';
-  const face = moodScore >= 45 ? '#ffe8c9' : '#f0d9bd';
-  const bodyAnim = isTired ? { y: [0, 1, 0] } : isHappy ? { y: [0, -4, 0] } : { y: [0, -2, 0] };
+  const walkAmp = isHappy ? 0.24 : isTired ? 0.08 : 0.14;
+  const bounceAmp = isHappy ? 0.06 : isTired ? 0.02 : 0.035;
+  const tailAmp = isHappy ? 0.9 : isTired ? 0.25 : 0.5;
+
+  useFrame(({ clock }) => {
+    const t = clock.getElapsedTime();
+    if (!rootRef.current || !tailRef.current) return;
+
+    rootRef.current.position.y = Math.sin(t * (isTired ? 1.6 : 3.2)) * bounceAmp;
+    rootRef.current.rotation.z = Math.sin(t * 1.8) * (isTired ? 0.015 : 0.03);
+    tailRef.current.rotation.y = -0.4 + Math.sin(t * (isTired ? 2.2 : 5.2)) * tailAmp;
+
+    if (earLRef.current && earRRef.current) {
+      earLRef.current.rotation.z = Math.sin(t * 2.6) * 0.07;
+      earRRef.current.rotation.z = -Math.sin(t * 2.6) * 0.07;
+    }
+
+    const phase = t * (isTired ? 2.4 : 6);
+    if (legARef.current) legARef.current.rotation.x = Math.sin(phase) * walkAmp;
+    if (legBRef.current) legBRef.current.rotation.x = -Math.sin(phase) * walkAmp;
+    if (legCRef.current) legCRef.current.rotation.x = -Math.sin(phase) * walkAmp;
+    if (legDRef.current) legDRef.current.rotation.x = Math.sin(phase) * walkAmp;
+  });
+
+  const coat = species === 'cat' ? (isHappy ? '#f3b260' : moodScore >= 45 ? '#db9d52' : '#bf8952') : isHappy ? '#d3b18a' : moodScore >= 45 ? '#c2946d' : '#a67855';
+  const face = moodScore >= 45 ? '#ffe6c8' : '#e8d2b8';
 
   return (
-    <motion.div
-      className="relative mx-auto mb-2 h-44 w-44"
-      animate={bodyAnim}
-      transition={{ duration: isTired ? 2.8 : 2.2, repeat: Infinity, ease: 'easeInOut' }}
-    >
-      <motion.div
-        className="absolute bottom-1 left-1/2 h-3 w-24 -translate-x-1/2 rounded-full bg-slate-900/50 blur-sm"
-        animate={{ scaleX: [1, 0.92, 1] }}
-        transition={{ duration: 2.2, repeat: Infinity }}
-      />
+    <group ref={rootRef} position={[0, -0.2, 0]}>
+      <group ref={tailRef} position={[1.3, 0.1, -0.3]}>
+        <mesh rotation={[0.2, 0, 0]}>
+          <cylinderGeometry args={[0.06, 0.14, 0.85, 10]} />
+          <meshStandardMaterial color={coat} roughness={0.6} metalness={0.05} />
+        </mesh>
+      </group>
 
-      <svg viewBox="0 0 220 220" className="relative z-10 h-full w-full drop-shadow-[0_8px_22px_rgba(0,0,0,0.35)]" role="img" aria-label={`${species} pet avatar`}>
-        <motion.path
-          d="M158 118 C186 116, 200 136, 184 152"
-          fill="none"
-          stroke={coat}
-          strokeWidth="10"
-          strokeLinecap="round"
-          animate={isTired ? { rotate: [0, 4, -4, 0] } : { rotate: [0, 12, -8, 0] }}
-          transition={{ repeat: Infinity, duration: isTired ? 2.2 : 1.4, ease: 'easeInOut' }}
-          style={{ transformOrigin: '160px 126px' }}
-        />
+      <mesh position={[0.15, 0.15, 0]}>
+        <sphereGeometry args={[0.92, 24, 24]} />
+        <meshStandardMaterial color={coat} roughness={0.65} metalness={0.05} />
+      </mesh>
 
-        <ellipse cx="110" cy="146" rx="56" ry="44" fill={coat} />
+      <mesh position={[-0.68, 0.58, 0]}>
+        <sphereGeometry args={[0.72, 24, 24]} />
+        <meshStandardMaterial color={coat} roughness={0.65} metalness={0.05} />
+      </mesh>
 
-        <motion.g animate={isHappy ? { y: [0, -1.5, 0] } : { y: [0, 0.5, 0] }} transition={{ repeat: Infinity, duration: 0.7, ease: 'easeInOut' }}>
-          <ellipse cx="74" cy="182" rx="11" ry="14" fill={coat} />
-          <ellipse cx="123" cy="186" rx="10" ry="13" fill={coat} />
-        </motion.g>
-        <motion.g animate={isHappy ? { y: [0, 1.5, 0] } : { y: [0.5, 0, 0.5] }} transition={{ repeat: Infinity, duration: 0.7, ease: 'easeInOut' }}>
-          <ellipse cx="97" cy="186" rx="10" ry="13" fill={coat} />
-          <ellipse cx="146" cy="182" rx="11" ry="14" fill={coat} />
-        </motion.g>
+      <mesh position={[-0.94, 0.43, 0.48]}>
+        <sphereGeometry args={[0.26, 18, 18]} />
+        <meshStandardMaterial color={face} roughness={0.5} metalness={0.03} />
+      </mesh>
 
-        <circle cx="110" cy="86" r="52" fill={coat} />
+      <group ref={earLRef} position={[-1.1, 1.08, 0.45]}>
+        <mesh rotation={[0.2, 0.2, 0]}>
+          {species === 'cat' ? <coneGeometry args={[0.17, 0.4, 4]} /> : <sphereGeometry args={[0.2, 16, 16]} />}
+          <meshStandardMaterial color={coat} roughness={0.6} metalness={0.03} />
+        </mesh>
+      </group>
+      <group ref={earRRef} position={[-1.1, 1.08, -0.45]}>
+        <mesh rotation={[0.2, -0.2, 0]}>
+          {species === 'cat' ? <coneGeometry args={[0.17, 0.4, 4]} /> : <sphereGeometry args={[0.2, 16, 16]} />}
+          <meshStandardMaterial color={coat} roughness={0.6} metalness={0.03} />
+        </mesh>
+      </group>
 
-        {species === 'cat' ? (
-          <>
-            <path d="M72 41 L56 17 L84 30 Z" fill={coat} />
-            <path d="M148 41 L164 17 L136 30 Z" fill={coat} />
-            <path d="M73 37 L63 23 L80 30 Z" fill="#f4c286" />
-            <path d="M147 37 L157 23 L140 30 Z" fill="#f4c286" />
-          </>
-        ) : (
-          <>
-            <ellipse cx="78" cy="42" rx="14" ry="11" fill={coat} />
-            <ellipse cx="142" cy="42" rx="14" ry="11" fill={coat} />
-            <ellipse cx="79" cy="43" rx="7" ry="5" fill="#efc293" />
-            <ellipse cx="141" cy="43" rx="7" ry="5" fill="#efc293" />
-          </>
-        )}
+      <mesh position={[-1.18, 0.73, 0.24]}>
+        <sphereGeometry args={[0.07, 10, 10]} />
+        <meshStandardMaterial color="#1f1f1f" />
+      </mesh>
+      <mesh position={[-1.18, 0.73, -0.24]}>
+        <sphereGeometry args={[0.07, 10, 10]} />
+        <meshStandardMaterial color="#1f1f1f" />
+      </mesh>
+      <mesh position={[-1.32, 0.54, 0]}>
+        <sphereGeometry args={[0.05, 10, 10]} />
+        <meshStandardMaterial color="#31221f" />
+      </mesh>
 
-        <ellipse cx="110" cy="105" rx="34" ry="26" fill={face} />
+      <group ref={legARef} position={[-0.22, -0.58, 0.4]}>
+        <mesh>
+          <capsuleGeometry args={[0.12, 0.46, 6, 10]} />
+          <meshStandardMaterial color={coat} roughness={0.7} />
+        </mesh>
+      </group>
+      <group ref={legBRef} position={[0.55, -0.58, 0.4]}>
+        <mesh>
+          <capsuleGeometry args={[0.12, 0.46, 6, 10]} />
+          <meshStandardMaterial color={coat} roughness={0.7} />
+        </mesh>
+      </group>
+      <group ref={legCRef} position={[-0.22, -0.58, -0.4]}>
+        <mesh>
+          <capsuleGeometry args={[0.12, 0.46, 6, 10]} />
+          <meshStandardMaterial color={coat} roughness={0.7} />
+        </mesh>
+      </group>
+      <group ref={legDRef} position={[0.55, -0.58, -0.4]}>
+        <mesh>
+          <capsuleGeometry args={[0.12, 0.46, 6, 10]} />
+          <meshStandardMaterial color={coat} roughness={0.7} />
+        </mesh>
+      </group>
+    </group>
+  );
+}
 
-        {blink ? (
-          <>
-            <line x1="92" y1="82" x2="103" y2="82" stroke="#2f2a28" strokeWidth="3" strokeLinecap="round" />
-            <line x1="117" y1="82" x2="128" y2="82" stroke="#2f2a28" strokeWidth="3" strokeLinecap="round" />
-          </>
-        ) : (
-          <>
-            <circle cx="97" cy="82" r="5" fill="#2f2a28" />
-            <circle cx="123" cy="82" r="5" fill="#2f2a28" />
-            <circle cx="99" cy="80" r="1.5" fill="#ffffff" />
-            <circle cx="125" cy="80" r="1.5" fill="#ffffff" />
-          </>
-        )}
-
-        <path d="M110 90 L104 98 L116 98 Z" fill="#3b312d" />
-        {species === 'cat' ? (
-          <path d="M106 101 Q110 107 114 101" fill="none" stroke="#3b312d" strokeWidth="2" strokeLinecap="round" />
-        ) : (
-          <path d="M104 101 Q110 109 116 101" fill="none" stroke="#3b312d" strokeWidth="2.2" strokeLinecap="round" />
-        )}
-
-        {species === 'cat' ? (
-          <>
-            <path d="M83 96 L63 91" stroke="#6d5342" strokeWidth="2" strokeLinecap="round" />
-            <path d="M83 102 L61 102" stroke="#6d5342" strokeWidth="2" strokeLinecap="round" />
-            <path d="M137 96 L157 91" stroke="#6d5342" strokeWidth="2" strokeLinecap="round" />
-            <path d="M137 102 L159 102" stroke="#6d5342" strokeWidth="2" strokeLinecap="round" />
-          </>
-        ) : null}
-
-        <ellipse cx="82" cy="93" rx="6" ry="4" fill="#f3ad9f" opacity="0.7" />
-        <ellipse cx="138" cy="93" rx="6" ry="4" fill="#f3ad9f" opacity="0.7" />
-      </svg>
-    </motion.div>
+function AnimatedPet({ moodScore, energyScore, species }: { moodScore: number; energyScore: number; species: PetSpecies }) {
+  return (
+    <div className="relative mx-auto mb-2 h-44 w-44 overflow-hidden rounded-xl bg-gradient-to-b from-slate-700/40 to-slate-900/60 ring-1 ring-blue-400/20">
+      <Canvas camera={{ position: [0, 0.4, 4], fov: 32 }}>
+        <ambientLight intensity={0.65} />
+        <directionalLight position={[4, 4, 4]} intensity={1.2} />
+        <directionalLight position={[-3, 2, -2]} intensity={0.5} color="#9bd1ff" />
+        <Suspense fallback={null}>
+          <PetRig moodScore={moodScore} energyScore={energyScore} species={species} />
+        </Suspense>
+      </Canvas>
+      <div className="pointer-events-none absolute inset-x-0 bottom-1 mx-auto h-3 w-24 rounded-full bg-slate-900/50 blur-sm" />
+    </div>
   );
 }
 
@@ -293,7 +320,7 @@ export default function PetSystem() {
           >
             <div className="mb-2 flex items-center gap-2 text-blue-100">
               <Sparkles className="h-4 w-4 text-cyan-300" />
-              <p className="text-sm font-semibold">Study Pet</p>
+              <p className="text-sm font-semibold">Study Pet (3D)</p>
             </div>
 
             <div className="mb-2 flex items-center justify-center gap-2">
