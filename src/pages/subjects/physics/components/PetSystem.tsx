@@ -19,6 +19,8 @@ type WeatherInfo = {
 };
 
 const STORAGE_KEY = 'physics_web_pet_state_v1';
+const WEATHER_COORD_KEY = 'physics_weather_coords_v1';
+const DEFAULT_WEATHER_COORD = { lat: 22.3193, lon: 114.1694 }; // Hong Kong
 
 const clamp = (value: number) => Math.max(0, Math.min(100, value));
 
@@ -267,98 +269,88 @@ export default function PetSystem() {
     saveState(next);
   }, []);
 
-  useEffect(() => {
-    let cancelled = false;
+  const fetchWeatherByCoord = async (lat: number, lon: number) => {
+    const url =
+      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}` +
+      `&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min&timezone=auto`;
 
-    const fetchWeather = async (lat: number, lon: number) => {
-      const url =
-        `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}` +
-        `&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min&timezone=auto`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('weather_fetch_failed');
+    const data = await res.json();
+    setWeather({
+      temperature: data?.current?.temperature_2m ?? 0,
+      weatherCode: data?.current?.weather_code ?? -1,
+      maxTemp: data?.daily?.temperature_2m_max?.[0],
+      minTemp: data?.daily?.temperature_2m_min?.[0],
+    });
+    setWeatherError('');
+  };
 
-      const res = await fetch(url);
-      if (!res.ok) throw new Error('weather_fetch_failed');
-      const data = await res.json();
-
-      const next: WeatherInfo = {
-        temperature: data?.current?.temperature_2m ?? 0,
-        weatherCode: data?.current?.weather_code ?? -1,
-        maxTemp: data?.daily?.temperature_2m_max?.[0],
-        minTemp: data?.daily?.temperature_2m_min?.[0],
-      };
-
-      if (!cancelled) {
-        setWeather(next);
-        setWeatherError('');
-      }
-    };
-
-    const run = async () => {
-      if (!navigator.geolocation) {
-        setWeatherError('当前设备不支持定位，无法获取天气。');
-        return;
-      }
-
-      navigator.geolocation.getCurrentPosition(
-        async (pos) => {
-          try {
-            await fetchWeather(pos.coords.latitude, pos.coords.longitude);
-          } catch {
-            if (!cancelled) setWeatherError('天气获取失败，请稍后重试。');
-          }
-        },
-        () => {
-          if (!cancelled) setWeatherError('定位未授权，无法获取本地天气。');
-        },
-        { timeout: 8000, maximumAge: 10 * 60 * 1000 },
-      );
-    };
-
-    run();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  const retryWeatherLocation = () => {
-    if (!navigator.geolocation) {
-      setWeatherError('当前设备不支持定位，无法获取天气。');
-      return;
+  const getCachedCoord = () => {
+    try {
+      const raw = localStorage.getItem(WEATHER_COORD_KEY);
+      if (!raw) return null;
+      const parsed = JSON.parse(raw) as { lat: number; lon: number };
+      if (typeof parsed?.lat === 'number' && typeof parsed?.lon === 'number') return parsed;
+      return null;
+    } catch {
+      return null;
     }
+  };
 
+  const setCachedCoord = (lat: number, lon: number) => {
+    localStorage.setItem(WEATHER_COORD_KEY, JSON.stringify({ lat, lon }));
+  };
+
+  const retryWeatherLocation = async () => {
     setWeatherLoading(true);
     setWeatherError('');
 
-    navigator.geolocation.getCurrentPosition(
-      async (pos) => {
-        try {
-          const url =
-            `https://api.open-meteo.com/v1/forecast?latitude=${pos.coords.latitude}&longitude=${pos.coords.longitude}` +
-            `&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min&timezone=auto`;
-
-          const res = await fetch(url);
-          if (!res.ok) throw new Error('weather_fetch_failed');
-          const data = await res.json();
-
-          setWeather({
-            temperature: data?.current?.temperature_2m ?? 0,
-            weatherCode: data?.current?.weather_code ?? -1,
-            maxTemp: data?.daily?.temperature_2m_max?.[0],
-            minTemp: data?.daily?.temperature_2m_min?.[0],
-          });
-          setWeatherError('');
-        } catch {
-          setWeatherError('天气获取失败，请稍后重试。');
-        } finally {
-          setWeatherLoading(false);
-        }
-      },
-      () => {
-        setWeatherError('定位未授权，无法获取本地天气。请检查浏览器定位权限后重试。');
+    try {
+      if (navigator.geolocation) {
+        const pos = await new Promise<GeolocationPosition>((resolve, reject) =>
+          navigator.geolocation.getCurrentPosition(resolve, reject, {
+            timeout: 10000,
+            maximumAge: 0,
+            enableHighAccuracy: true,
+          }),
+        );
+        const lat = pos.coords.latitude;
+        const lon = pos.coords.longitude;
+        setCachedCoord(lat, lon);
+        await fetchWeatherByCoord(lat, lon);
         setWeatherLoading(false);
-      },
-      { timeout: 10000, maximumAge: 0, enableHighAccuracy: true },
-    );
+        return;
+      }
+    } catch {
+      // Continue to fallbacks
+    }
+
+    try {
+      const cached = getCachedCoord();
+      if (cached) {
+        await fetchWeatherByCoord(cached.lat, cached.lon);
+        setWeatherError('定位失败，已使用上次位置天气。');
+        setWeatherLoading(false);
+        return;
+      }
+    } catch {
+      // Continue to default city
+    }
+
+    try {
+      await fetchWeatherByCoord(DEFAULT_WEATHER_COORD.lat, DEFAULT_WEATHER_COORD.lon);
+      setWeatherError('定位失败，已使用默认城市天气。');
+    } catch {
+      setWeatherError('天气获取失败，请稍后重试。');
+    } finally {
+      setWeatherLoading(false);
+    }
   };
+
+  useEffect(() => {
+    retryWeatherLocation();
+  }, []);
 
   useEffect(() => {
     const timer = window.setInterval(() => {
