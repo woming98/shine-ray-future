@@ -84,7 +84,7 @@ const loadState = (): PetState => {
   }
 };
 
-function BeanPet({ moodScore, energyScore, pressure }: { moodScore: number; energyScore: number; pressure: number }) {
+function BeanPet({ moodScore, energyScore, pressure, weatherCode }: { moodScore: number; energyScore: number; pressure: number; weatherCode?: number }) {
   const [blink, setBlink] = useState(false);
 
   useEffect(() => {
@@ -122,6 +122,15 @@ function BeanPet({ moodScore, energyScore, pressure }: { moodScore: number; ener
       : faceMode === 'worried'
       ? 'from-blue-400/30 via-cyan-400/20 to-indigo-400/20'
       : 'from-blue-400/25 via-cyan-400/20 to-purple-400/20';
+
+  const weatherMode = useMemo(() => {
+    if (weatherCode === undefined || weatherCode < 0) return 'unknown';
+    if (weatherCode === 0) return 'sunny';
+    if ([1, 2, 3, 45, 48].includes(weatherCode)) return 'cloudy';
+    if ([61, 63, 65, 80, 81, 82, 95, 96, 99].includes(weatherCode)) return 'rainy';
+    if ([71, 73, 75, 77, 85, 86].includes(weatherCode)) return 'snowy';
+    return 'unknown';
+  }, [weatherCode]);
 
   return (
     <motion.div
@@ -247,6 +256,46 @@ function BeanPet({ moodScore, energyScore, pressure }: { moodScore: number; ener
 
         {faceMode === 'worried' && (
           <path d="M58 112 C48 125, 44 139, 49 149 C54 160, 68 160, 73 149 C78 139, 74 125, 58 112 Z" fill="#7fc4ff" opacity="0.96" />
+        )}
+
+        {(weatherMode === 'cloudy' || weatherMode === 'rainy') && (
+          <g opacity="0.95">
+            <g fill="#dbeafe">
+              <ellipse cx="66" cy="188" rx="18" ry="10" />
+              <ellipse cx="80" cy="185" rx="13" ry="9" />
+              <ellipse cx="52" cy="185" rx="10" ry="7" />
+
+              <ellipse cx="110" cy="194" rx="20" ry="11" />
+              <ellipse cx="126" cy="191" rx="12" ry="8.5" />
+              <ellipse cx="95" cy="191" rx="11" ry="8" />
+
+              <ellipse cx="154" cy="186" rx="17" ry="9.5" />
+              <ellipse cx="167" cy="183" rx="11" ry="7.8" />
+              <ellipse cx="142" cy="183" rx="9" ry="6.5" />
+            </g>
+            <g fill="#bfdbfe" opacity="0.85">
+              <ellipse cx="78" cy="192" rx="16" ry="8" />
+              <ellipse cx="120" cy="197" rx="18" ry="8.8" />
+              <ellipse cx="161" cy="190" rx="14" ry="7.5" />
+            </g>
+          </g>
+        )}
+
+        {weatherMode === 'rainy' && (
+          <g fill="#7dd3fc" opacity="0.9">
+            <ellipse cx="78" cy="204" rx="2.2" ry="4.6" />
+            <ellipse cx="96" cy="207" rx="2.2" ry="4.6" />
+            <ellipse cx="114" cy="205" rx="2.2" ry="4.6" />
+            <ellipse cx="132" cy="207" rx="2.2" ry="4.6" />
+            <ellipse cx="150" cy="204" rx="2.2" ry="4.6" />
+          </g>
+        )}
+
+        {weatherMode === 'sunny' && (
+          <g opacity="0.8" fill="#fde68a">
+            <circle cx="42" cy="36" r="4.5" />
+            <circle cx="182" cy="38" r="4" />
+          </g>
         )}
       </svg>
     </motion.div>
@@ -490,7 +539,7 @@ export default function PetSystem() {
               <p className="text-sm font-semibold">伴你学习的宠物（小睿）</p>
             </div>
 
-            <BeanPet moodScore={petScore} energyScore={state.energy} pressure={pendingWrongCount} />
+            <BeanPet moodScore={petScore} energyScore={state.energy} pressure={pendingWrongCount} weatherCode={weather?.weatherCode} />
             <p className="mb-3 text-xs leading-5 text-blue-200">{petLine}</p>
 
             <div className="mb-3 rounded-lg border border-blue-500/30 bg-slate-800/70 p-2 text-xs text-blue-100">
