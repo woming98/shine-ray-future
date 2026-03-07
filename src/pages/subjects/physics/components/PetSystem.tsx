@@ -80,12 +80,24 @@ function BeanPet({ moodScore, energyScore, pressure }: { moodScore: number; ener
       ? { y: [0, -1, 0], rotate: [0, -1.8, 1.8, 0] }
       : { y: [0, -2, 0], rotate: [0, 0, 0] };
 
+  const auraClass =
+    faceMode === 'happy'
+      ? 'from-cyan-400/35 via-blue-400/25 to-purple-400/30'
+      : faceMode === 'tired'
+      ? 'from-indigo-400/25 via-blue-500/15 to-slate-400/20'
+      : faceMode === 'panic'
+      ? 'from-rose-400/30 via-orange-400/25 to-blue-400/20'
+      : faceMode === 'worried'
+      ? 'from-blue-400/30 via-cyan-400/20 to-indigo-400/20'
+      : 'from-blue-400/25 via-cyan-400/20 to-purple-400/20';
+
   return (
     <motion.div
       className="relative mx-auto mb-2 h-44 w-44"
       animate={bob}
       transition={{ duration: faceMode === 'tired' ? 2.8 : 1.9, repeat: Infinity, ease: 'easeInOut' }}
     >
+      <div className={`pointer-events-none absolute inset-2 rounded-full bg-gradient-to-br ${auraClass} blur-xl`} />
       <motion.div className="absolute bottom-1 left-1/2 h-3 w-24 -translate-x-1/2 rounded-full bg-slate-900/45 blur-sm" animate={{ scaleX: [1, 0.9, 1] }} transition={{ duration: 1.9, repeat: Infinity }} />
 
       <svg viewBox="0 0 220 220" className="relative z-10 h-full w-full drop-shadow-[0_12px_24px_rgba(0,0,0,0.28)]" role="img" aria-label="bean pet">
@@ -98,6 +110,7 @@ function BeanPet({ moodScore, energyScore, pressure }: { moodScore: number; ener
         </defs>
 
         <circle cx="110" cy="114" r="78" fill="url(#beanBody)" stroke="#e0aa22" strokeWidth="2.4" />
+        <circle cx="110" cy="114" r="84" fill="none" stroke="rgba(96,165,250,0.35)" strokeWidth="3" strokeDasharray="8 8" />
         <ellipse cx="110" cy="144" rx="58" ry="46" fill="#ffd24a" opacity="0.5" />
 
         <ellipse cx="48" cy="122" rx="11" ry="16" fill="#f4c938" />
@@ -268,6 +281,29 @@ export default function PetSystem() {
   const overallProgress = getOverallProgress();
   const pendingWrongCount = wrongAnswers.filter((w) => !w.mastered).length;
   const petScore = Math.round((state.satiety + state.mood + state.energy) / 3);
+  const petMode = useMemo(() => {
+    if (pendingWrongCount >= 5) return 'panic';
+    if (state.energy < 40) return 'tired';
+    if (pendingWrongCount > 0) return 'worried';
+    if (petScore >= 80) return 'happy';
+    return 'calm';
+  }, [pendingWrongCount, state.energy, petScore]);
+
+  const panelToneClass = useMemo(() => {
+    if (petMode === 'happy') return 'border-cyan-400/40 shadow-cyan-500/25 bg-gradient-to-br from-slate-900/95 via-blue-950/90 to-cyan-950/85';
+    if (petMode === 'tired') return 'border-indigo-400/35 shadow-indigo-500/25 bg-gradient-to-br from-slate-900/95 via-indigo-950/90 to-slate-900/95';
+    if (petMode === 'panic') return 'border-orange-400/45 shadow-orange-500/20 bg-gradient-to-br from-slate-900/95 via-slate-900/95 to-orange-950/65';
+    if (petMode === 'worried') return 'border-blue-400/40 shadow-blue-500/20 bg-gradient-to-br from-slate-900/95 via-blue-950/90 to-slate-900/95';
+    return 'border-blue-500/30 shadow-blue-500/20 bg-slate-900/95';
+  }, [petMode]);
+
+  const launcherToneClass = useMemo(() => {
+    if (petMode === 'happy') return 'border-cyan-400/45 from-slate-900 to-cyan-900 shadow-cyan-500/30';
+    if (petMode === 'tired') return 'border-indigo-400/45 from-slate-900 to-indigo-900 shadow-indigo-500/30';
+    if (petMode === 'panic') return 'border-orange-400/45 from-slate-900 to-orange-900 shadow-orange-500/30';
+    if (petMode === 'worried') return 'border-blue-400/45 from-slate-900 to-blue-900 shadow-blue-500/30';
+    return 'border-blue-400/40 from-slate-900 to-blue-900 shadow-blue-500/30';
+  }, [petMode]);
 
   const petMood = useMemo(() => {
     if (petScore >= 80) return '活力满满';
@@ -304,7 +340,7 @@ export default function PetSystem() {
             initial={{ opacity: 0, y: 10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
-            className="pointer-events-auto mb-3 w-[340px] rounded-2xl border border-blue-500/30 bg-slate-900/95 p-4 shadow-2xl shadow-blue-500/20 backdrop-blur"
+            className={`pointer-events-auto mb-3 w-[340px] rounded-2xl border p-4 shadow-2xl backdrop-blur ${panelToneClass}`}
           >
             <div className="mb-2 flex items-center gap-2 text-blue-100">
               <Sparkles className="h-4 w-4 text-cyan-300" />
@@ -359,7 +395,7 @@ export default function PetSystem() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.96 }}
         onClick={() => setExpanded((v) => !v)}
-        className="pointer-events-auto flex items-center gap-2 rounded-full border border-blue-400/40 bg-gradient-to-r from-slate-900 to-blue-900 px-4 py-2 text-blue-100 shadow-xl shadow-blue-500/30"
+        className={`pointer-events-auto flex items-center gap-2 rounded-full border bg-gradient-to-r px-4 py-2 text-blue-100 shadow-xl ${launcherToneClass}`}
       >
         <motion.span animate={{ y: [0, -3, 0] }} transition={{ repeat: Infinity, duration: 1.8 }} className="text-lg">
           🟡
