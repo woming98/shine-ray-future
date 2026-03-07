@@ -1,4 +1,4 @@
-﻿import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Bone, Gamepad2, Moon, PawPrint, Sparkles } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
@@ -58,11 +58,13 @@ const applyDecay = (state: PetState) => {
   const now = Date.now();
   const elapsedMinutes = (now - state.lastUpdatedAt) / 60000;
   if (elapsedMinutes <= 0) return state;
+  const ticks = Math.floor(elapsedMinutes / 5);
+  if (ticks <= 0) return state;
   return {
-    satiety: clamp(state.satiety - elapsedMinutes * 0.35),
-    mood: clamp(state.mood - elapsedMinutes * 0.22),
-    energy: clamp(state.energy - elapsedMinutes * 0.2),
-    lastUpdatedAt: now,
+    satiety: clamp(state.satiety - ticks * 1),
+    mood: clamp(state.mood),
+    energy: clamp(state.energy + ticks * 2),
+    lastUpdatedAt: state.lastUpdatedAt + ticks * 5 * 60000,
   };
 };
 
@@ -304,13 +306,16 @@ function BeanPet({ moodScore, energyScore, pressure, weatherCode }: { moodScore:
 
 export default function PetSystem() {
   const location = useLocation();
-  const { getOverallProgress, wrongAnswers } = useStore();
+  const { getOverallProgress, wrongAnswers, exerciseProgress } = useStore();
   const [expanded, setExpanded] = useState(false);
   const [scrollPercent, setScrollPercent] = useState(0);
   const [state, setState] = useState<PetState>(defaultState);
   const [weather, setWeather] = useState<WeatherInfo | null>(null);
   const [weatherError, setWeatherError] = useState<string>('');
   const [weatherLoading, setWeatherLoading] = useState(false);
+  const prevAttemptedRef = useRef<number | null>(null);
+  const prevCorrectRef = useRef<number | null>(null);
+  const prevMasteredRef = useRef<number | null>(null);
 
   useEffect(() => {
     const next = loadState();
@@ -411,6 +416,52 @@ export default function PetSystem() {
     }, 60000);
     return () => window.clearInterval(timer);
   }, []);
+
+  const attemptedTotal = useMemo(
+    () => Object.values(exerciseProgress).reduce((sum, entry) => sum + entry.attemptedIds.length, 0),
+    [exerciseProgress],
+  );
+  const correctTotal = useMemo(
+    () => Object.values(exerciseProgress).reduce((sum, entry) => sum + entry.correctIds.length, 0),
+    [exerciseProgress],
+  );
+  const masteredWrongTotal = useMemo(
+    () => wrongAnswers.filter((item) => item.mastered).length,
+    [wrongAnswers],
+  );
+
+  useEffect(() => {
+    if (prevAttemptedRef.current === null || prevCorrectRef.current === null || prevMasteredRef.current === null) {
+      prevAttemptedRef.current = attemptedTotal;
+      prevCorrectRef.current = correctTotal;
+      prevMasteredRef.current = masteredWrongTotal;
+      return;
+    }
+
+    const attemptedDelta = Math.max(0, attemptedTotal - prevAttemptedRef.current);
+    const correctDelta = Math.max(0, correctTotal - prevCorrectRef.current);
+    const masteredDelta = Math.max(0, masteredWrongTotal - prevMasteredRef.current);
+
+    prevAttemptedRef.current = attemptedTotal;
+    prevCorrectRef.current = correctTotal;
+    prevMasteredRef.current = masteredWrongTotal;
+
+    if (attemptedDelta === 0 && correctDelta === 0 && masteredDelta === 0) return;
+
+    const wrongDelta = Math.max(0, attemptedDelta - Math.min(attemptedDelta, correctDelta));
+
+    setState((current) => {
+      const decayed = applyDecay(current);
+      const next = {
+        satiety: clamp(decayed.satiety + correctDelta * 2),
+        mood: clamp(decayed.mood + correctDelta * 2 - wrongDelta * 2 + masteredDelta * 1),
+        energy: clamp(decayed.energy - attemptedDelta * 2),
+        lastUpdatedAt: Date.now(),
+      };
+      saveState(next);
+      return next;
+    });
+  }, [attemptedTotal, correctTotal, masteredWrongTotal]);
 
   useEffect(() => {
     const onScroll = () => {
@@ -588,6 +639,12 @@ export default function PetSystem() {
               <StatRow label="心情" value={state.mood} />
               <StatRow label="精力" value={state.energy} />
             </div>
+
+            {state.energy < 30 && (
+              <div className="mt-3 rounded-lg border border-amber-400/35 bg-amber-500/10 px-2.5 py-2 text-xs text-amber-200">
+                精力低于 30%，建议先休息一下再继续学习。
+              </div>
+            )}
 
             <div className="mt-3 rounded-lg bg-slate-800/80 p-2 text-xs text-cyan-200">
               状态：{petMood} ｜ 学习进度 {overallProgress}% ｜ 页面阅读 {scrollPercent}%
