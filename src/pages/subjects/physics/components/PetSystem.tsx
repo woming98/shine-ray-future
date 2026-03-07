@@ -4,8 +4,6 @@ import { Bone, Gamepad2, Moon, PawPrint, Sparkles } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
 import { useStore } from '../store/useStore';
 
-type PetSpecies = 'cat' | 'dog';
-
 type PetState = {
   satiety: number;
   mood: number;
@@ -14,7 +12,6 @@ type PetState = {
 };
 
 const STORAGE_KEY = 'physics_web_pet_state_v1';
-const SPECIES_KEY = 'physics_web_pet_species_v1';
 
 const clamp = (value: number) => Math.max(0, Math.min(100, value));
 
@@ -29,6 +26,7 @@ const applyDecay = (state: PetState) => {
   const now = Date.now();
   const elapsedMinutes = (now - state.lastUpdatedAt) / 60000;
   if (elapsedMinutes <= 0) return state;
+
   return {
     satiety: clamp(state.satiety - elapsedMinutes * 0.35),
     mood: clamp(state.mood - elapsedMinutes * 0.22),
@@ -37,7 +35,9 @@ const applyDecay = (state: PetState) => {
   };
 };
 
-const saveState = (state: PetState) => localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+const saveState = (state: PetState) => {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+};
 
 const loadState = (): PetState => {
   try {
@@ -55,173 +55,111 @@ const loadState = (): PetState => {
   }
 };
 
-const loadSpecies = (): PetSpecies => (localStorage.getItem(SPECIES_KEY) === 'dog' ? 'dog' : 'cat');
+function AnimatedBoyPet({ moodScore }: { moodScore: number }) {
+  const isHappy = moodScore >= 75;
+  const isTired = moodScore < 45;
 
-function PetEyes({ tired }: { tired: boolean }) {
-  const r = tired ? 2 : 4;
-  const anim = tired ? { scaleY: [1, 0.45, 1] } : { scaleY: [1, 0.15, 1, 1] };
-  const times = tired ? [0, 0.55, 1] : [0, 0.42, 0.5, 1];
-  return (
-    <>
-      <motion.circle
-        cx="78"
-        cy="56"
-        r={r}
-        fill="#0f172a"
-        animate={anim}
-        transition={{ duration: 2.8, repeat: Infinity, times }}
-        style={{ transformOrigin: '78px 56px' }}
-      />
-      <motion.circle
-        cx="102"
-        cy="56"
-        r={r}
-        fill="#0f172a"
-        animate={anim}
-        transition={{ duration: 2.8, repeat: Infinity, times, delay: 0.1 }}
-        style={{ transformOrigin: '102px 56px' }}
-      />
-    </>
-  );
-}
-
-function DesktopCat({ moodScore }: { moodScore: number }) {
-  const happy = moodScore >= 75;
-  const tired = moodScore < 45;
   return (
     <motion.div
-      className="relative mx-auto mb-2 h-40 w-44"
-      animate={{ y: [0, -3, 0] }}
+      className="relative mx-auto mb-2 h-44 w-44"
+      animate={{ y: [0, -2, 0] }}
       transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
     >
       <motion.div
-        className="absolute bottom-1 left-1/2 h-3 w-24 -translate-x-1/2 rounded-full bg-slate-900/50 blur-sm"
+        className="absolute bottom-2 left-1/2 h-3 w-24 -translate-x-1/2 rounded-full bg-slate-900/55 blur-sm"
         animate={{ scaleX: [1, 0.92, 1] }}
         transition={{ duration: 2.2, repeat: Infinity }}
       />
-      <svg viewBox="0 0 180 170" className="h-full w-full">
+
+      <svg viewBox="0 0 180 190" className="h-full w-full">
         <motion.path
-          d="M35 110 C18 95, 20 72, 46 70 C58 70, 67 82, 68 95 C70 118, 50 128, 35 110 Z"
-          fill="#f6d1ab"
-          animate={{ scaleY: [1, 1.03, 1] }}
+          d="M50 34 L60 20 L72 32 L84 18 L96 30 L108 16 L120 30 L128 40 L120 44 L110 38 L100 45 L88 39 L76 47 L66 40 L56 46 Z"
+          fill="#2f3c5a"
+          animate={{ y: [0, -1.5, 0] }}
           transition={{ duration: 2.2, repeat: Infinity }}
         />
-        <motion.path
-          d="M24 61 L46 30 L60 63"
-          fill="#f3c594"
-          animate={{ rotate: [0, -7, 0] }}
-          transition={{ duration: 2.3, repeat: Infinity }}
-          style={{ transformOrigin: '43px 48px' }}
+
+        <motion.circle
+          cx="90"
+          cy="62"
+          r="34"
+          fill="#f8dfc8"
+          animate={{ scaleY: [1, 1.02, 1] }}
+          transition={{ duration: 2.2, repeat: Infinity }}
         />
-        <motion.path
-          d="M56 63 L72 30 L88 61"
-          fill="#f3c594"
-          animate={{ rotate: [0, 7, 0] }}
-          transition={{ duration: 2.3, repeat: Infinity }}
-          style={{ transformOrigin: '72px 48px' }}
+
+        <motion.circle
+          cx="78"
+          cy="60"
+          r={isTired ? 2 : 4}
+          fill="#18212f"
+          animate={isTired ? { scaleY: [1, 0.45, 1] } : { scaleY: [1, 0.15, 1, 1] }}
+          transition={{ duration: 2.9, repeat: Infinity, times: [0, 0.45, 0.52, 1] }}
+          style={{ transformOrigin: '78px 60px' }}
         />
-        <ellipse cx="56" cy="74" rx="26" ry="23" fill="#fde8d4" />
-        <PetEyes tired={tired} />
-        <circle cx="90" cy="63" r="2.5" fill="#1e293b" />
-        {happy ? (
-          <path d="M80 71 Q90 82 100 71" stroke="#1e293b" strokeWidth="3" fill="none" strokeLinecap="round" />
-        ) : tired ? (
-          <path d="M81 76 Q90 68 99 76" stroke="#1e293b" strokeWidth="3" fill="none" strokeLinecap="round" />
+        <motion.circle
+          cx="102"
+          cy="60"
+          r={isTired ? 2 : 4}
+          fill="#18212f"
+          animate={isTired ? { scaleY: [1, 0.45, 1] } : { scaleY: [1, 0.15, 1, 1] }}
+          transition={{ duration: 2.9, repeat: Infinity, times: [0, 0.45, 0.52, 1], delay: 0.1 }}
+          style={{ transformOrigin: '102px 60px' }}
+        />
+
+        <circle cx="90" cy="68" r="2.2" fill="#18212f" />
+        {isHappy ? (
+          <path d="M80 76 Q90 87 100 76" stroke="#18212f" strokeWidth="3" fill="none" strokeLinecap="round" />
+        ) : isTired ? (
+          <path d="M81 81 Q90 74 99 81" stroke="#18212f" strokeWidth="3" fill="none" strokeLinecap="round" />
         ) : (
-          <path d="M82 75 Q90 79 98 75" stroke="#1e293b" strokeWidth="3" fill="none" strokeLinecap="round" />
+          <path d="M82 80 Q90 83 98 80" stroke="#18212f" strokeWidth="3" fill="none" strokeLinecap="round" />
         )}
-        <motion.path
-          d="M120 84 C154 62, 166 92, 144 104"
-          stroke="#f3c594"
-          strokeWidth="11"
-          fill="none"
-          strokeLinecap="round"
-          animate={{ rotate: [0, 12, -10, 0] }}
-          transition={{ duration: 1.4, repeat: Infinity }}
-          style={{ transformOrigin: '122px 92px' }}
+
+        <motion.rect
+          x="64"
+          y="96"
+          width="52"
+          height="48"
+          rx="10"
+          fill="#d9dbdf"
+          animate={{ scaleY: [1, 1.01, 1] }}
+          transition={{ duration: 2.2, repeat: Infinity }}
         />
-        <motion.rect x="45" y="112" width="15" height="26" rx="7" fill="#f3c594" animate={{ y: [0, 2, 0] }} transition={{ duration: 1.5, repeat: Infinity }} />
-        <motion.rect x="66" y="112" width="15" height="26" rx="7" fill="#f3c594" animate={{ y: [2, 0, 2] }} transition={{ duration: 1.5, repeat: Infinity }} />
-        <motion.rect x="95" y="112" width="15" height="26" rx="7" fill="#f3c594" animate={{ y: [2, 0, 2] }} transition={{ duration: 1.5, repeat: Infinity, delay: 0.2 }} />
-        <motion.rect x="116" y="112" width="15" height="26" rx="7" fill="#f3c594" animate={{ y: [0, 2, 0] }} transition={{ duration: 1.5, repeat: Infinity, delay: 0.2 }} />
+        <text x="90" y="123" textAnchor="middle" fontSize="13" fill="#4b5563">
+          学习
+        </text>
+
+        <motion.rect
+          x="46"
+          y="102"
+          width="16"
+          height="36"
+          rx="8"
+          fill="#f8dfc8"
+          animate={{ rotate: [6, -8, 6] }}
+          transition={{ duration: 1.7, repeat: Infinity }}
+          style={{ transformOrigin: '54px 104px' }}
+        />
+        <motion.rect
+          x="118"
+          y="102"
+          width="16"
+          height="36"
+          rx="8"
+          fill="#f8dfc8"
+          animate={{ rotate: [-6, 8, -6] }}
+          transition={{ duration: 1.7, repeat: Infinity, delay: 0.15 }}
+          style={{ transformOrigin: '126px 104px' }}
+        />
+
+        <motion.rect x="70" y="144" width="16" height="34" rx="8" fill="#2f3c5a" animate={{ y: [0, 2, 0] }} transition={{ duration: 1.4, repeat: Infinity }} />
+        <motion.rect x="94" y="144" width="16" height="34" rx="8" fill="#2f3c5a" animate={{ y: [2, 0, 2] }} transition={{ duration: 1.4, repeat: Infinity }} />
+        <ellipse cx="78" cy="180" rx="12" ry="5" fill="#1f2937" />
+        <ellipse cx="102" cy="180" rx="12" ry="5" fill="#1f2937" />
       </svg>
     </motion.div>
   );
-}
-
-function DesktopDog({ moodScore }: { moodScore: number }) {
-  const happy = moodScore >= 75;
-  const tired = moodScore < 45;
-  return (
-    <motion.div
-      className="relative mx-auto mb-2 h-40 w-44"
-      animate={{ y: [0, -2, 0] }}
-      transition={{ duration: 1.9, repeat: Infinity, ease: 'easeInOut' }}
-    >
-      <motion.div
-        className="absolute bottom-1 left-1/2 h-3 w-24 -translate-x-1/2 rounded-full bg-slate-900/50 blur-sm"
-        animate={{ scaleX: [1, 0.94, 1] }}
-        transition={{ duration: 1.9, repeat: Infinity }}
-      />
-      <svg viewBox="0 0 180 170" className="h-full w-full">
-        <motion.ellipse
-          cx="45"
-          cy="58"
-          rx="12"
-          ry="22"
-          fill="#b5855f"
-          animate={{ rotate: [5, -10, 5] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          style={{ transformOrigin: '45px 58px' }}
-        />
-        <motion.ellipse
-          cx="86"
-          cy="58"
-          rx="12"
-          ry="22"
-          fill="#b5855f"
-          animate={{ rotate: [-5, 10, -5] }}
-          transition={{ duration: 1.5, repeat: Infinity, delay: 0.2 }}
-          style={{ transformOrigin: '86px 58px' }}
-        />
-        <motion.path
-          d="M36 112 C20 98, 22 74, 46 72 C58 72, 66 80, 68 96 C71 118, 51 128, 36 112 Z"
-          fill="#c8976e"
-          animate={{ scaleY: [1, 1.03, 1] }}
-          transition={{ duration: 1.9, repeat: Infinity }}
-        />
-        <ellipse cx="56" cy="74" rx="25" ry="22" fill="#f2dcc3" />
-        <PetEyes tired={tired} />
-        <ellipse cx="90" cy="73" rx="13" ry="9" fill="#e7c7a4" />
-        <circle cx="90" cy="69.5" r="3" fill="#0f172a" />
-        {happy ? (
-          <path d="M81 77 Q90 88 99 77" stroke="#1e293b" strokeWidth="3" fill="none" strokeLinecap="round" />
-        ) : tired ? (
-          <path d="M82 82 Q90 74 98 82" stroke="#1e293b" strokeWidth="3" fill="none" strokeLinecap="round" />
-        ) : (
-          <path d="M82 80 Q90 84 98 80" stroke="#1e293b" strokeWidth="3" fill="none" strokeLinecap="round" />
-        )}
-        <motion.path
-          d="M122 88 C154 70, 166 92, 148 106"
-          stroke="#b5855f"
-          strokeWidth="11"
-          fill="none"
-          strokeLinecap="round"
-          animate={{ rotate: [0, 18, -15, 0] }}
-          transition={{ duration: 1.05, repeat: Infinity }}
-          style={{ transformOrigin: '124px 94px' }}
-        />
-        <motion.rect x="45" y="112" width="14" height="27" rx="7" fill="#c8976e" animate={{ y: [0, 2, 0] }} transition={{ duration: 1.4, repeat: Infinity }} />
-        <motion.rect x="65" y="112" width="14" height="27" rx="7" fill="#c8976e" animate={{ y: [2, 0, 2] }} transition={{ duration: 1.4, repeat: Infinity }} />
-        <motion.rect x="94" y="112" width="14" height="27" rx="7" fill="#c8976e" animate={{ y: [2, 0, 2] }} transition={{ duration: 1.4, repeat: Infinity, delay: 0.2 }} />
-        <motion.rect x="114" y="112" width="14" height="27" rx="7" fill="#c8976e" animate={{ y: [0, 2, 0] }} transition={{ duration: 1.4, repeat: Infinity, delay: 0.2 }} />
-      </svg>
-    </motion.div>
-  );
-}
-
-function AnimatedPet({ moodScore, species }: { moodScore: number; species: PetSpecies }) {
-  return species === 'dog' ? <DesktopDog moodScore={moodScore} /> : <DesktopCat moodScore={moodScore} />;
 }
 
 export default function PetSystem() {
@@ -229,14 +167,12 @@ export default function PetSystem() {
   const { getOverallProgress, wrongAnswers } = useStore();
   const [expanded, setExpanded] = useState(false);
   const [scrollPercent, setScrollPercent] = useState(0);
-  const [species, setSpecies] = useState<PetSpecies>('cat');
   const [state, setState] = useState<PetState>(defaultState);
 
   useEffect(() => {
     const next = loadState();
     setState(next);
     saveState(next);
-    setSpecies(loadSpecies());
   }, []);
 
   useEffect(() => {
@@ -272,11 +208,6 @@ export default function PetSystem() {
       saveState(next);
       return next;
     });
-  };
-
-  const setPetSpecies = (next: PetSpecies) => {
-    setSpecies(next);
-    localStorage.setItem(SPECIES_KEY, next);
   };
 
   const feedPet = () =>
@@ -347,27 +278,10 @@ export default function PetSystem() {
           >
             <div className="mb-2 flex items-center gap-2 text-blue-100">
               <Sparkles className="h-4 w-4 text-cyan-300" />
-              <p className="text-sm font-semibold">学习宠物 · 2D桌宠</p>
+              <p className="text-sm font-semibold">学习宠物 · Q版小男孩</p>
             </div>
 
-            <div className="mb-2 flex items-center justify-center gap-2">
-              <button
-                type="button"
-                onClick={() => setPetSpecies('cat')}
-                className={`rounded-full px-3 py-1 text-xs ${species === 'cat' ? 'bg-cyan-500/25 text-cyan-100' : 'bg-slate-800 text-slate-300'}`}
-              >
-                猫咪
-              </button>
-              <button
-                type="button"
-                onClick={() => setPetSpecies('dog')}
-                className={`rounded-full px-3 py-1 text-xs ${species === 'dog' ? 'bg-cyan-500/25 text-cyan-100' : 'bg-slate-800 text-slate-300'}`}
-              >
-                小狗
-              </button>
-            </div>
-
-            <AnimatedPet moodScore={petScore} species={species} />
+            <AnimatedBoyPet moodScore={petScore} />
 
             <p className="mb-3 text-xs leading-5 text-blue-200">{petLine}</p>
 
@@ -407,7 +321,7 @@ export default function PetSystem() {
         className="pointer-events-auto flex items-center gap-2 rounded-full border border-blue-400/40 bg-gradient-to-r from-slate-900 to-blue-900 px-4 py-2 text-blue-100 shadow-xl shadow-blue-500/30"
       >
         <motion.span animate={{ y: [0, -3, 0] }} transition={{ repeat: Infinity, duration: 1.8 }} className="text-lg">
-          {species === 'dog' ? '🐶' : '🐱'}
+          🧒
         </motion.span>
         <span className="text-sm font-medium">学习宠物</span>
         <PawPrint className="h-4 w-4 text-cyan-300" />
