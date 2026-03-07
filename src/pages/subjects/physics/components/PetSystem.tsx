@@ -208,6 +208,14 @@ function BeanPet({ moodScore, energyScore, pressure }: { moodScore: number; ener
           <>
             <path d="M52 74 L100 58" fill="none" stroke="#7b5b2e" strokeWidth="3" strokeLinecap="round" />
             <path d="M120 58 L168 74" fill="none" stroke="#7b5b2e" strokeWidth="3" strokeLinecap="round" />
+            <g transform="translate(154 26)">
+              <rect x="0" y="0" width="6" height="26" rx="3" fill="#ef4444" />
+              <circle cx="3" cy="31" r="3.2" fill="#ef4444" />
+              <rect x="12" y="-4" width="6" height="26" rx="3" fill="#f97316" />
+              <circle cx="15" cy="27" r="3.2" fill="#f97316" />
+              <rect x="24" y="-8" width="6" height="26" rx="3" fill="#fb7185" />
+              <circle cx="27" cy="23" r="3.2" fill="#fb7185" />
+            </g>
           </>
         )}
 
@@ -238,12 +246,6 @@ function BeanPet({ moodScore, energyScore, pressure }: { moodScore: number; ener
         {faceMode === 'worried' && (
           <path d="M58 112 C48 125, 44 139, 49 149 C54 160, 68 160, 73 149 C78 139, 74 125, 58 112 Z" fill="#7fc4ff" opacity="0.96" />
         )}
-        {faceMode === 'panic' && (
-          <>
-            <path d="M58 110 C45 127, 40 145, 47 159 C53 171, 69 171, 75 159 C82 145, 77 127, 58 110 Z" fill="#7fc4ff" opacity="0.96" />
-          </>
-        )}
-
       </svg>
     </motion.div>
   );
@@ -257,6 +259,7 @@ export default function PetSystem() {
   const [state, setState] = useState<PetState>(defaultState);
   const [weather, setWeather] = useState<WeatherInfo | null>(null);
   const [weatherError, setWeatherError] = useState<string>('');
+  const [weatherLoading, setWeatherLoading] = useState(false);
 
   useEffect(() => {
     const next = loadState();
@@ -315,6 +318,47 @@ export default function PetSystem() {
       cancelled = true;
     };
   }, []);
+
+  const retryWeatherLocation = () => {
+    if (!navigator.geolocation) {
+      setWeatherError('当前设备不支持定位，无法获取天气。');
+      return;
+    }
+
+    setWeatherLoading(true);
+    setWeatherError('');
+
+    navigator.geolocation.getCurrentPosition(
+      async (pos) => {
+        try {
+          const url =
+            `https://api.open-meteo.com/v1/forecast?latitude=${pos.coords.latitude}&longitude=${pos.coords.longitude}` +
+            `&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min&timezone=auto`;
+
+          const res = await fetch(url);
+          if (!res.ok) throw new Error('weather_fetch_failed');
+          const data = await res.json();
+
+          setWeather({
+            temperature: data?.current?.temperature_2m ?? 0,
+            weatherCode: data?.current?.weather_code ?? -1,
+            maxTemp: data?.daily?.temperature_2m_max?.[0],
+            minTemp: data?.daily?.temperature_2m_min?.[0],
+          });
+          setWeatherError('');
+        } catch {
+          setWeatherError('天气获取失败，请稍后重试。');
+        } finally {
+          setWeatherLoading(false);
+        }
+      },
+      () => {
+        setWeatherError('定位未授权，无法获取本地天气。请检查浏览器定位权限后重试。');
+        setWeatherLoading(false);
+      },
+      { timeout: 10000, maximumAge: 0, enableHighAccuracy: true },
+    );
+  };
 
   useEffect(() => {
     const timer = window.setInterval(() => {
@@ -451,7 +495,7 @@ export default function PetSystem() {
           >
             <div className="mb-2 flex items-center gap-2 text-blue-100">
               <Sparkles className="h-4 w-4 text-cyan-300" />
-              <p className="text-sm font-semibold">更陪伴宠物（小睿）</p>
+              <p className="text-sm font-semibold">伴你学习的宠物（小睿）</p>
             </div>
 
             <BeanPet moodScore={petScore} energyScore={state.energy} pressure={pendingWrongCount} />
@@ -474,9 +518,27 @@ export default function PetSystem() {
                     </div>
                   )}
                   <div className="text-cyan-200">{weatherLine}</div>
+                  <div className="pt-1">
+                    <button
+                      type="button"
+                      onClick={retryWeatherLocation}
+                      className="rounded-md border border-cyan-500/40 bg-cyan-500/10 px-2 py-1 text-[11px] text-cyan-200 transition hover:bg-cyan-500/20"
+                    >
+                      {weatherLoading ? '重新定位中...' : '重新定位天气'}
+                    </button>
+                  </div>
                 </div>
               ) : (
-                <span className="text-blue-300">{weatherError || '正在获取天气...'}</span>
+                <div className="space-y-2">
+                  <span className="block text-blue-300">{weatherError || '正在获取天气...'}</span>
+                  <button
+                    type="button"
+                    onClick={retryWeatherLocation}
+                    className="rounded-md border border-cyan-500/40 bg-cyan-500/10 px-2 py-1 text-[11px] text-cyan-200 transition hover:bg-cyan-500/20"
+                  >
+                    {weatherLoading ? '重新定位中...' : '重新定位天气'}
+                  </button>
+                </div>
               )}
             </div>
 
