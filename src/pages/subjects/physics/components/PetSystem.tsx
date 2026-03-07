@@ -64,6 +64,7 @@ function BeanPet({ moodScore, energyScore, pressure }: { moodScore: number; ener
   }, []);
 
   const faceMode = useMemo(() => {
+    if (pressure >= 5) return 'panic';
     if (energyScore < 40) return 'tired';
     if (pressure > 0) return 'worried';
     if (moodScore >= 80) return 'happy';
@@ -71,7 +72,13 @@ function BeanPet({ moodScore, energyScore, pressure }: { moodScore: number; ener
   }, [energyScore, pressure, moodScore]);
 
   const bob =
-    faceMode === 'happy' ? { y: [0, -5, 0], rotate: [0, -1, 1, 0] } : faceMode === 'tired' ? { y: [0, 1, 0], rotate: [0, 0.5, 0] } : { y: [0, -2, 0], rotate: [0, 0, 0] };
+    faceMode === 'happy'
+      ? { y: [0, -6, 0], rotate: [0, -1.4, 1.4, 0] }
+      : faceMode === 'tired'
+      ? { y: [0, 1.4, 0], rotate: [0, 0.8, 0] }
+      : faceMode === 'panic'
+      ? { y: [0, -1, 0], rotate: [0, -1.8, 1.8, 0] }
+      : { y: [0, -2, 0], rotate: [0, 0, 0] };
 
   return (
     <motion.div
@@ -110,10 +117,17 @@ function BeanPet({ moodScore, energyScore, pressure }: { moodScore: number; ener
           </>
         )}
 
-        {faceMode === 'happy' && <path d="M91 127 Q110 144 129 127" fill="none" stroke="#3a2a20" strokeWidth="4" strokeLinecap="round" />}
+        {faceMode === 'happy' && <path d="M89 126 Q110 150 131 126" fill="none" stroke="#3a2a20" strokeWidth="4.2" strokeLinecap="round" />}
         {faceMode === 'calm' && <path d="M95 128 Q110 134 125 128" fill="none" stroke="#3a2a20" strokeWidth="3.2" strokeLinecap="round" />}
-        {faceMode === 'tired' && <path d="M95 131 Q110 123 125 131" fill="none" stroke="#3a2a20" strokeWidth="3.2" strokeLinecap="round" />}
+        {faceMode === 'tired' && <path d="M95 131 Q110 121 125 131" fill="none" stroke="#3a2a20" strokeWidth="3.4" strokeLinecap="round" />}
         {faceMode === 'worried' && <path d="M95 132 Q110 120 125 132" fill="none" stroke="#3a2a20" strokeWidth="3.4" strokeLinecap="round" />}
+        {faceMode === 'panic' && (
+          <>
+            <ellipse cx="110" cy="130" rx="9" ry="12" fill="none" stroke="#3a2a20" strokeWidth="3.6" />
+            <path d="M78 84 L102 76" stroke="#7b5b2e" strokeWidth="3" strokeLinecap="round" />
+            <path d="M118 76 L142 84" stroke="#7b5b2e" strokeWidth="3" strokeLinecap="round" />
+          </>
+        )}
 
         {faceMode === 'happy' && (
           <>
@@ -124,6 +138,12 @@ function BeanPet({ moodScore, energyScore, pressure }: { moodScore: number; ener
 
         {faceMode === 'worried' && (
           <path d="M146 86 C154 78, 159 90, 149 98 C145 101, 140 95, 146 86 Z" fill="#89c8ff" opacity="0.9" />
+        )}
+        {faceMode === 'panic' && (
+          <>
+            <path d="M70 86 C78 78, 83 90, 73 98 C69 101, 64 95, 70 86 Z" fill="#89c8ff" opacity="0.9" />
+            <path d="M150 86 C158 78, 163 90, 153 98 C149 101, 144 95, 150 86 Z" fill="#89c8ff" opacity="0.9" />
+          </>
         )}
 
         <path d="M77 84 Q91 74 104 84" fill="none" stroke="#7b5b2e" strokeWidth="2" strokeLinecap="round" opacity="0.6" />
@@ -211,18 +231,18 @@ export default function PetSystem() {
   const petScore = Math.round((state.satiety + state.mood + state.energy) / 3);
 
   const petMood = useMemo(() => {
-    if (petScore >= 80) return 'Energetic';
-    if (petScore >= 60) return 'Stable';
-    if (petScore >= 40) return 'Needs attention';
-    return 'Low mood';
+    if (petScore >= 80) return '活力满满';
+    if (petScore >= 60) return '状态稳定';
+    if (petScore >= 40) return '需要关注';
+    return '情绪低落';
   }, [petScore]);
 
   const petLine = useMemo(() => {
-    if (pendingWrongCount > 0) return `You have ${pendingWrongCount} wrong questions waiting for review.`;
-    if (overallProgress >= 80) return 'Great progress. Keep this momentum.';
-    if (scrollPercent >= 70) return 'Almost done on this page, do a quick practice set next.';
-    if (location.pathname.includes('/wrong-answers')) return 'Redo mode: focus on weak spots first.';
-    return 'I will stay with your learning progress.';
+    if (pendingWrongCount > 0) return `你还有 ${pendingWrongCount} 道错题待复习，我陪你刷完。`;
+    if (overallProgress >= 80) return '进度很棒，继续保持这股节奏。';
+    if (scrollPercent >= 70) return '这页快看完了，做两题巩固一下。';
+    if (location.pathname.includes('/wrong-answers')) return '这里是错题本，先攻克薄弱点。';
+    return '继续学习，我会一直跟着你。';
   }, [pendingWrongCount, overallProgress, scrollPercent, location.pathname]);
 
   const StatRow = ({ label, value }: { label: string; value: number }) => (
@@ -249,20 +269,20 @@ export default function PetSystem() {
           >
             <div className="mb-2 flex items-center gap-2 text-blue-100">
               <Sparkles className="h-4 w-4 text-cyan-300" />
-              <p className="text-sm font-semibold">Study Pet (Bean)</p>
+              <p className="text-sm font-semibold">学习宠物（黄豆）</p>
             </div>
 
             <BeanPet moodScore={petScore} energyScore={state.energy} pressure={pendingWrongCount} />
             <p className="mb-3 text-xs leading-5 text-blue-200">{petLine}</p>
 
             <div className="space-y-2.5">
-              <StatRow label="Satiety" value={state.satiety} />
-              <StatRow label="Mood" value={state.mood} />
-              <StatRow label="Energy" value={state.energy} />
+              <StatRow label="饱食" value={state.satiety} />
+              <StatRow label="心情" value={state.mood} />
+              <StatRow label="精力" value={state.energy} />
             </div>
 
             <div className="mt-3 rounded-lg bg-slate-800/80 p-2 text-xs text-cyan-200">
-              Status: {petMood} | Progress {overallProgress}% | Page read {scrollPercent}%
+              状态：{petMood} ｜ 学习进度 {overallProgress}% ｜ 页面阅读 {scrollPercent}%
             </div>
 
             <div className="mt-3 grid grid-cols-3 gap-2">
@@ -272,7 +292,7 @@ export default function PetSystem() {
                 className="flex items-center justify-center gap-1 rounded-lg border border-cyan-500/40 bg-cyan-500/15 px-2 py-2 text-xs text-cyan-100 transition hover:bg-cyan-500/25"
               >
                 <Bone className="h-3.5 w-3.5" />
-                Feed
+                喂食
               </button>
               <button
                 type="button"
@@ -280,7 +300,7 @@ export default function PetSystem() {
                 className="flex items-center justify-center gap-1 rounded-lg border border-blue-500/40 bg-blue-500/15 px-2 py-2 text-xs text-blue-100 transition hover:bg-blue-500/25"
               >
                 <Gamepad2 className="h-3.5 w-3.5" />
-                Play
+                互动
               </button>
               <button
                 type="button"
@@ -288,7 +308,7 @@ export default function PetSystem() {
                 className="flex items-center justify-center gap-1 rounded-lg border border-indigo-500/40 bg-indigo-500/15 px-2 py-2 text-xs text-indigo-100 transition hover:bg-indigo-500/25"
               >
                 <Moon className="h-3.5 w-3.5" />
-                Rest
+                休息
               </button>
             </div>
           </motion.div>
@@ -305,7 +325,7 @@ export default function PetSystem() {
         <motion.span animate={{ y: [0, -3, 0] }} transition={{ repeat: Infinity, duration: 1.8 }} className="text-lg">
           🟡
         </motion.span>
-        <span className="text-sm font-medium">Pet</span>
+        <span className="text-sm font-medium">宠物</span>
         <PawPrint className="h-4 w-4 text-cyan-300" />
       </motion.button>
     </div>
