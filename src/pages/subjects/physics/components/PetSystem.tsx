@@ -110,35 +110,16 @@ function BeanPet({ moodScore, energyScore, pressure }: { moodScore: number; ener
         </defs>
 
         <path
-          d="M110 18
-             Q124 20 136 26 Q148 20 162 28
-             Q174 36 182 48 Q190 60 192 74
-             Q200 86 202 100 Q200 114 202 128
-             Q200 142 192 154 Q190 168 182 180
-             Q174 192 162 200 Q148 208 136 202
-             Q124 208 110 210 Q96 208 84 202
-             Q72 208 58 200 Q46 192 38 180
-             Q30 168 28 154 Q20 142 18 128
-             Q20 114 18 100 Q20 86 28 74
-             Q30 60 38 48 Q46 36 58 28
-             Q72 20 84 26 Q96 20 110 18 Z"
-          fill="none"
-          stroke="#ff9a2f"
-          strokeWidth="4.5"
-          strokeLinejoin="round"
-          opacity="0.9"
+          d="M110 16
+             L124 28 L141 18 L152 34 L171 28 L177 47 L196 46 L196 66
+             L213 71 L207 90 L220 100 L207 110 L213 129 L196 134 L196 154
+             L177 153 L171 172 L152 166 L141 182 L124 172 L110 184
+             L96 172 L79 182 L68 166 L49 172 L43 153 L24 154 L24 134
+             L7 129 L13 110 L0 100 L13 90 L7 71 L24 66 L24 46
+             L43 47 L49 28 L68 34 L79 18 L96 28 Z"
+          fill="#ff8a1f"
+          opacity="0.95"
         />
-
-        <g opacity="0.8">
-          <line x1="110" y1="18" x2="110" y2="32" stroke="#ffd86b" strokeWidth="3.2" strokeLinecap="round" />
-          <line x1="110" y1="196" x2="110" y2="210" stroke="#ffd86b" strokeWidth="3.2" strokeLinecap="round" />
-          <line x1="14" y1="114" x2="28" y2="114" stroke="#ffd86b" strokeWidth="3.2" strokeLinecap="round" />
-          <line x1="192" y1="114" x2="206" y2="114" stroke="#ffd86b" strokeWidth="3.2" strokeLinecap="round" />
-          <line x1="41" y1="45" x2="51" y2="55" stroke="#ffd86b" strokeWidth="2.8" strokeLinecap="round" />
-          <line x1="169" y1="173" x2="179" y2="183" stroke="#ffd86b" strokeWidth="2.8" strokeLinecap="round" />
-          <line x1="169" y1="55" x2="179" y2="45" stroke="#ffd86b" strokeWidth="2.8" strokeLinecap="round" />
-          <line x1="41" y1="183" x2="51" y2="173" stroke="#ffd86b" strokeWidth="2.8" strokeLinecap="round" />
-        </g>
         <circle cx="110" cy="114" r="78" fill="url(#beanBody)" stroke="#e0aa22" strokeWidth="2.4" />
         <ellipse cx="110" cy="144" rx="58" ry="46" fill="#ffd24a" opacity="0.5" />
 
