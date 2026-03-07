@@ -124,6 +124,37 @@ function BeanPet({ moodScore, energyScore, pressure }: { moodScore: number; ener
           </>
         )}
 
+        {faceMode === 'happy' && (
+          <>
+            <path d="M54 76 Q76 62 98 76" fill="none" stroke="#7b5b2e" strokeWidth="2.4" strokeLinecap="round" />
+            <path d="M122 76 Q144 62 166 76" fill="none" stroke="#7b5b2e" strokeWidth="2.4" strokeLinecap="round" />
+          </>
+        )}
+        {faceMode === 'calm' && (
+          <>
+            <path d="M56 74 Q76 66 96 74" fill="none" stroke="#7b5b2e" strokeWidth="2.2" strokeLinecap="round" opacity="0.88" />
+            <path d="M124 74 Q144 66 164 74" fill="none" stroke="#7b5b2e" strokeWidth="2.2" strokeLinecap="round" opacity="0.88" />
+          </>
+        )}
+        {faceMode === 'tired' && (
+          <>
+            <path d="M56 72 Q76 76 96 72" fill="none" stroke="#7b5b2e" strokeWidth="2.2" strokeLinecap="round" opacity="0.9" />
+            <path d="M124 72 Q144 76 164 72" fill="none" stroke="#7b5b2e" strokeWidth="2.2" strokeLinecap="round" opacity="0.9" />
+          </>
+        )}
+        {faceMode === 'worried' && (
+          <>
+            <path d="M54 78 L98 68" fill="none" stroke="#7b5b2e" strokeWidth="2.5" strokeLinecap="round" />
+            <path d="M122 68 L166 78" fill="none" stroke="#7b5b2e" strokeWidth="2.5" strokeLinecap="round" />
+          </>
+        )}
+        {faceMode === 'panic' && (
+          <>
+            <path d="M52 82 L100 66" fill="none" stroke="#7b5b2e" strokeWidth="3" strokeLinecap="round" />
+            <path d="M120 66 L168 82" fill="none" stroke="#7b5b2e" strokeWidth="3" strokeLinecap="round" />
+          </>
+        )}
+
         {faceMode === 'happy' && <path d="M89 154 Q110 184 131 154" fill="none" stroke="#3a2a20" strokeWidth="4.2" strokeLinecap="round" />}
         {faceMode === 'calm' && <path d="M95 158 Q110 165 125 158" fill="none" stroke="#3a2a20" strokeWidth="3.2" strokeLinecap="round" />}
         {faceMode === 'tired' && <path d="M95 161 Q110 147 125 161" fill="none" stroke="#3a2a20" strokeWidth="3.4" strokeLinecap="round" />}
@@ -131,15 +162,19 @@ function BeanPet({ moodScore, energyScore, pressure }: { moodScore: number; ener
         {faceMode === 'panic' && (
           <>
             <ellipse cx="110" cy="160" rx="11" ry="15" fill="none" stroke="#3a2a20" strokeWidth="3.6" />
-            <path d="M78 84 L102 76" stroke="#7b5b2e" strokeWidth="3" strokeLinecap="round" />
-            <path d="M118 76 L142 84" stroke="#7b5b2e" strokeWidth="3" strokeLinecap="round" />
           </>
         )}
 
         {faceMode === 'happy' && (
           <>
-            <circle cx="73" cy="118" r="5" fill="#ff9fb0" opacity="0.75" />
-            <circle cx="147" cy="118" r="5" fill="#ff9fb0" opacity="0.75" />
+            <ellipse cx="56" cy="126" rx="9.5" ry="6.8" fill="#ff9fb0" opacity="0.72" />
+            <ellipse cx="164" cy="126" rx="9.5" ry="6.8" fill="#ff9fb0" opacity="0.72" />
+          </>
+        )}
+        {faceMode === 'calm' && (
+          <>
+            <ellipse cx="58" cy="127" rx="7.2" ry="5.2" fill="#ffadc0" opacity="0.45" />
+            <ellipse cx="162" cy="127" rx="7.2" ry="5.2" fill="#ffadc0" opacity="0.45" />
           </>
         )}
 
@@ -153,8 +188,6 @@ function BeanPet({ moodScore, energyScore, pressure }: { moodScore: number; ener
           </>
         )}
 
-        <path d="M77 84 Q91 74 104 84" fill="none" stroke="#7b5b2e" strokeWidth="2" strokeLinecap="round" opacity="0.6" />
-        <path d="M116 84 Q129 74 143 84" fill="none" stroke="#7b5b2e" strokeWidth="2" strokeLinecap="round" opacity="0.6" />
       </svg>
     </motion.div>
   );
