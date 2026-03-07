@@ -90,15 +90,25 @@ function BeanPet({ moodScore, energyScore, pressure }: { moodScore: number; ener
 
       <svg viewBox="0 0 220 220" className="relative z-10 h-full w-full drop-shadow-[0_12px_24px_rgba(0,0,0,0.28)]" role="img" aria-label="bean pet">
         <defs>
-          <radialGradient id="beanBody" cx="35%" cy="25%">
-            <stop offset="0%" stopColor="#ffe889" />
-            <stop offset="65%" stopColor="#ffd95a" />
-            <stop offset="100%" stopColor="#f4c938" />
+          <radialGradient id="beanBody" cx="34%" cy="22%">
+            <stop offset="0%" stopColor="#fff3aa" />
+            <stop offset="58%" stopColor="#ffd95f" />
+            <stop offset="100%" stopColor="#efbf2f" />
           </radialGradient>
         </defs>
 
-        <ellipse cx="110" cy="112" rx="70" ry="82" fill="url(#beanBody)" />
-        <ellipse cx="110" cy="132" rx="56" ry="58" fill="#ffd34a" opacity="0.55" />
+        <path
+          d="M110 28 C138 28 166 44 176 72 C187 104 181 146 162 173 C148 193 129 203 110 203 C91 203 72 193 58 173 C39 146 33 104 44 72 C54 44 82 28 110 28 Z"
+          fill="url(#beanBody)"
+          stroke="#e0aa22"
+          strokeWidth="2.4"
+        />
+        <ellipse cx="112" cy="138" rx="54" ry="54" fill="#ffd24a" opacity="0.52" />
+
+        <ellipse cx="57" cy="122" rx="12" ry="18" fill="#f4c938" />
+        <ellipse cx="163" cy="122" rx="12" ry="18" fill="#f4c938" />
+        <ellipse cx="87" cy="197" rx="13" ry="8" fill="#e7b22a" />
+        <ellipse cx="133" cy="197" rx="13" ry="8" fill="#e7b22a" />
 
         <ellipse cx="82" cy="72" rx="7" ry="4" fill="#fff7c2" opacity="0.9" />
         <ellipse cx="95" cy="62" rx="4" ry="2.4" fill="#fff7c2" opacity="0.8" />
