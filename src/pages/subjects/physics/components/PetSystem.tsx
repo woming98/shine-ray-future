@@ -2,6 +2,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { Bone, Gamepad2, Moon, PawPrint, Sparkles } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
+import { useRive } from '@rive-app/react-canvas';
 import { useStore } from '../store/useStore';
 
 type PetState = {
@@ -15,6 +16,10 @@ type PetSpecies = 'cat' | 'dog';
 
 const STORAGE_KEY = 'physics_web_pet_state_v1';
 const SPECIES_KEY = 'physics_web_pet_species_v1';
+const RIVE_BASE: Record<PetSpecies, string> = {
+  cat: '/physics/pets/rive/cat-pet.riv',
+  dog: '/physics/pets/rive/dog-pet.riv',
+};
 
 const clamp = (value: number) => Math.max(0, Math.min(100, value));
 
@@ -167,7 +172,61 @@ function VectorPet({ moodScore, energyScore, species }: { moodScore: number; ene
   );
 }
 
+
+function RivePet({
+  species,
+  pose,
+}: {
+  species: PetSpecies;
+  pose: 'idle' | 'happy' | 'tired';
+}) {
+  const { rive, RiveComponent } = useRive({
+    src: RIVE_BASE[species],
+    autoplay: true,
+  });
+
+  useEffect(() => {
+    if (!rive) return;
+    try {
+      rive.stop();
+      rive.play(pose);
+    } catch {
+      // keep default timeline if clip name doesn't exist
+    }
+  }, [rive, pose]);
+
+  return (
+    <motion.div
+      className="relative mx-auto mb-2 h-44 w-44 overflow-hidden rounded-xl bg-gradient-to-b from-slate-700/30 to-slate-900/50"
+      animate={{ y: [0, -2, 0] }}
+      transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+    >
+      <RiveComponent className="h-full w-full" />
+    </motion.div>
+  );
+}
 function AnimatedPet({ moodScore, energyScore, species }: { moodScore: number; energyScore: number; species: PetSpecies }) {
+  const pose: 'idle' | 'happy' | 'tired' = moodScore >= 80 ? 'happy' : energyScore < 40 ? 'tired' : 'idle';
+  const [riveReady, setRiveReady] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    let alive = true;
+    setRiveReady(null);
+    const check = async () => {
+      try {
+        const res = await fetch(RIVE_BASE[species], { method: 'HEAD' });
+        if (alive) setRiveReady(res.ok);
+      } catch {
+        if (alive) setRiveReady(false);
+      }
+    };
+    check();
+    return () => {
+      alive = false;
+    };
+  }, [species]);
+
+  if (riveReady) return <RivePet species={species} pose={pose} />;
   return <VectorPet moodScore={moodScore} energyScore={energyScore} species={species} />;
 }
 
@@ -315,6 +374,9 @@ export default function PetSystem() {
             </div>
 
             <AnimatedPet moodScore={petScore} energyScore={state.energy} species={species} />
+            <p className="mb-2 text-center text-[11px] text-slate-300">
+              Rive file: <code>/public/physics/pets/rive/{species}-pet.riv</code>
+            </p>
             <p className="mb-3 text-xs leading-5 text-blue-200">{petLine}</p>
 
             <div className="space-y-2.5">
@@ -373,3 +435,7 @@ export default function PetSystem() {
     </div>
   );
 }
+
+
+
+
