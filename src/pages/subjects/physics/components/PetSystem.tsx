@@ -104,76 +104,76 @@ function PetRig({ moodScore, energyScore, species }: { moodScore: number; energy
   const face = moodScore >= 45 ? '#ffe6c8' : '#e8d2b8';
 
   return (
-    <group ref={rootRef} position={[0, -0.2, 0]}>
-      <group ref={tailRef} position={[1.3, 0.1, -0.3]}>
+    <group ref={rootRef} position={[0, -0.05, 0]} scale={[0.82, 0.82, 0.82]}>
+      <group ref={tailRef} position={[1.15, 0.15, -0.32]}>
         <mesh rotation={[0.2, 0, 0]}>
           <cylinderGeometry args={[0.06, 0.14, 0.85, 10]} />
           <meshStandardMaterial color={coat} roughness={0.6} metalness={0.05} />
         </mesh>
       </group>
 
-      <mesh position={[0.15, 0.15, 0]}>
-        <sphereGeometry args={[0.92, 24, 24]} />
+      <mesh position={[0.2, 0.05, 0]} rotation={[0, 0, 1.57]}>
+        <capsuleGeometry args={[0.45, 1.05, 10, 20]} />
         <meshStandardMaterial color={coat} roughness={0.65} metalness={0.05} />
       </mesh>
 
-      <mesh position={[-0.68, 0.58, 0]}>
-        <sphereGeometry args={[0.72, 24, 24]} />
+      <mesh position={[-0.72, 0.46, 0]}>
+        <sphereGeometry args={[0.58, 24, 24]} />
         <meshStandardMaterial color={coat} roughness={0.65} metalness={0.05} />
       </mesh>
 
-      <mesh position={[-0.94, 0.43, 0.48]}>
-        <sphereGeometry args={[0.26, 18, 18]} />
+      <mesh position={[-1.03, 0.31, 0.34]}>
+        <sphereGeometry args={[0.21, 18, 18]} />
         <meshStandardMaterial color={face} roughness={0.5} metalness={0.03} />
       </mesh>
 
-      <group ref={earLRef} position={[-1.1, 1.08, 0.45]}>
+      <group ref={earLRef} position={[-1.02, 0.95, 0.32]}>
         <mesh rotation={[0.2, 0.2, 0]}>
           {species === 'cat' ? <coneGeometry args={[0.17, 0.4, 4]} /> : <sphereGeometry args={[0.2, 16, 16]} />}
           <meshStandardMaterial color={coat} roughness={0.6} metalness={0.03} />
         </mesh>
       </group>
-      <group ref={earRRef} position={[-1.1, 1.08, -0.45]}>
+      <group ref={earRRef} position={[-1.02, 0.95, -0.32]}>
         <mesh rotation={[0.2, -0.2, 0]}>
           {species === 'cat' ? <coneGeometry args={[0.17, 0.4, 4]} /> : <sphereGeometry args={[0.2, 16, 16]} />}
           <meshStandardMaterial color={coat} roughness={0.6} metalness={0.03} />
         </mesh>
       </group>
 
-      <mesh position={[-1.18, 0.73, 0.24]}>
+      <mesh position={[-1.12, 0.53, 0.2]}>
         <sphereGeometry args={[0.07, 10, 10]} />
         <meshStandardMaterial color="#1f1f1f" />
       </mesh>
-      <mesh position={[-1.18, 0.73, -0.24]}>
+      <mesh position={[-1.12, 0.53, -0.2]}>
         <sphereGeometry args={[0.07, 10, 10]} />
         <meshStandardMaterial color="#1f1f1f" />
       </mesh>
-      <mesh position={[-1.32, 0.54, 0]}>
+      <mesh position={[-1.25, 0.36, 0]}>
         <sphereGeometry args={[0.05, 10, 10]} />
         <meshStandardMaterial color="#31221f" />
       </mesh>
 
-      <group ref={legARef} position={[-0.22, -0.58, 0.4]}>
+      <group ref={legARef} position={[-0.4, -0.62, 0.34]}>
         <mesh>
-          <capsuleGeometry args={[0.12, 0.46, 6, 10]} />
+          <capsuleGeometry args={[0.1, 0.45, 6, 10]} />
           <meshStandardMaterial color={coat} roughness={0.7} />
         </mesh>
       </group>
-      <group ref={legBRef} position={[0.55, -0.58, 0.4]}>
+      <group ref={legBRef} position={[0.55, -0.62, 0.34]}>
         <mesh>
-          <capsuleGeometry args={[0.12, 0.46, 6, 10]} />
+          <capsuleGeometry args={[0.1, 0.45, 6, 10]} />
           <meshStandardMaterial color={coat} roughness={0.7} />
         </mesh>
       </group>
-      <group ref={legCRef} position={[-0.22, -0.58, -0.4]}>
+      <group ref={legCRef} position={[-0.4, -0.62, -0.34]}>
         <mesh>
-          <capsuleGeometry args={[0.12, 0.46, 6, 10]} />
+          <capsuleGeometry args={[0.1, 0.45, 6, 10]} />
           <meshStandardMaterial color={coat} roughness={0.7} />
         </mesh>
       </group>
-      <group ref={legDRef} position={[0.55, -0.58, -0.4]}>
+      <group ref={legDRef} position={[0.55, -0.62, -0.34]}>
         <mesh>
-          <capsuleGeometry args={[0.12, 0.46, 6, 10]} />
+          <capsuleGeometry args={[0.1, 0.45, 6, 10]} />
           <meshStandardMaterial color={coat} roughness={0.7} />
         </mesh>
       </group>
@@ -183,8 +183,8 @@ function PetRig({ moodScore, energyScore, species }: { moodScore: number; energy
 
 function AnimatedPet({ moodScore, energyScore, species }: { moodScore: number; energyScore: number; species: PetSpecies }) {
   return (
-    <div className="relative mx-auto mb-2 h-44 w-44 overflow-hidden rounded-xl bg-gradient-to-b from-slate-700/40 to-slate-900/60 ring-1 ring-blue-400/20">
-      <Canvas camera={{ position: [0, 0.4, 4], fov: 32 }}>
+    <div className="relative mx-auto mb-2 h-40 w-40 overflow-hidden rounded-xl bg-gradient-to-b from-slate-700/40 to-slate-900/60 ring-1 ring-blue-400/20">
+      <Canvas dpr={[1, 1.5]} camera={{ position: [0, 0.28, 4.8], fov: 27 }}>
         <ambientLight intensity={0.65} />
         <directionalLight position={[4, 4, 4]} intensity={1.2} />
         <directionalLight position={[-3, 2, -2]} intensity={0.5} color="#9bd1ff" />
