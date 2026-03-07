@@ -11,6 +11,13 @@ type PetState = {
   lastUpdatedAt: number;
 };
 
+type WeatherInfo = {
+  temperature: number;
+  weatherCode: number;
+  maxTemp?: number;
+  minTemp?: number;
+};
+
 const STORAGE_KEY = 'physics_web_pet_state_v1';
 
 const clamp = (value: number) => Math.max(0, Math.min(100, value));
@@ -20,6 +27,29 @@ const defaultState: PetState = {
   mood: 72,
   energy: 68,
   lastUpdatedAt: Date.now(),
+};
+
+const weatherText = (code: number) => {
+  if (code === 0) return '晴朗';
+  if ([1, 2, 3].includes(code)) return '多云';
+  if ([45, 48].includes(code)) return '有雾';
+  if ([51, 53, 55, 56, 57].includes(code)) return '毛毛雨';
+  if ([61, 63, 65, 66, 67].includes(code)) return '下雨';
+  if ([71, 73, 75, 77].includes(code)) return '降雪';
+  if ([80, 81, 82].includes(code)) return '阵雨';
+  if ([85, 86].includes(code)) return '阵雪';
+  if ([95, 96, 99].includes(code)) return '雷暴';
+  return '天气未知';
+};
+
+const weatherEmoji = (code: number) => {
+  if (code === 0) return '☀️';
+  if ([1, 2, 3].includes(code)) return '⛅';
+  if ([45, 48].includes(code)) return '🌫️';
+  if ([61, 63, 65, 80, 81, 82].includes(code)) return '🌧️';
+  if ([71, 73, 75, 77, 85, 86].includes(code)) return '❄️';
+  if ([95, 96, 99].includes(code)) return '⛈️';
+  return '🌤️';
 };
 
 const applyDecay = (state: PetState) => {
@@ -217,11 +247,65 @@ export default function PetSystem() {
   const [expanded, setExpanded] = useState(false);
   const [scrollPercent, setScrollPercent] = useState(0);
   const [state, setState] = useState<PetState>(defaultState);
+  const [weather, setWeather] = useState<WeatherInfo | null>(null);
+  const [weatherError, setWeatherError] = useState<string>('');
 
   useEffect(() => {
     const next = loadState();
     setState(next);
     saveState(next);
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    const fetchWeather = async (lat: number, lon: number) => {
+      const url =
+        `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}` +
+        `&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min&timezone=auto`;
+
+      const res = await fetch(url);
+      if (!res.ok) throw new Error('weather_fetch_failed');
+      const data = await res.json();
+
+      const next: WeatherInfo = {
+        temperature: data?.current?.temperature_2m ?? 0,
+        weatherCode: data?.current?.weather_code ?? -1,
+        maxTemp: data?.daily?.temperature_2m_max?.[0],
+        minTemp: data?.daily?.temperature_2m_min?.[0],
+      };
+
+      if (!cancelled) {
+        setWeather(next);
+        setWeatherError('');
+      }
+    };
+
+    const run = async () => {
+      if (!navigator.geolocation) {
+        setWeatherError('当前设备不支持定位，无法获取天气。');
+        return;
+      }
+
+      navigator.geolocation.getCurrentPosition(
+        async (pos) => {
+          try {
+            await fetchWeather(pos.coords.latitude, pos.coords.longitude);
+          } catch {
+            if (!cancelled) setWeatherError('天气获取失败，请稍后重试。');
+          }
+        },
+        () => {
+          if (!cancelled) setWeatherError('定位未授权，无法获取本地天气。');
+        },
+        { timeout: 8000, maximumAge: 10 * 60 * 1000 },
+      );
+    };
+
+    run();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   useEffect(() => {
@@ -326,6 +410,15 @@ export default function PetSystem() {
     return '继续学习，我会一直跟着你。';
   }, [pendingWrongCount, overallProgress, scrollPercent, location.pathname]);
 
+  const weatherLine = useMemo(() => {
+    if (!weather) return '';
+    const t = weatherText(weather.weatherCode);
+    if ([61, 63, 65, 80, 81, 82, 95, 96, 99].includes(weather.weatherCode)) return `今天${t}，做题别太赶，稳住节奏。`;
+    if (weather.temperature >= 30) return `现在偏热，注意补水，专注做题。`;
+    if (weather.temperature <= 10) return `现在偏冷，别着凉，慢慢刷题。`;
+    return `天气不错，适合把错题清一波。`;
+  }, [weather]);
+
   const StatRow = ({ label, value }: { label: string; value: number }) => (
     <div>
       <div className="mb-1 flex items-center justify-between text-xs text-blue-200">
@@ -355,6 +448,29 @@ export default function PetSystem() {
 
             <BeanPet moodScore={petScore} energyScore={state.energy} pressure={pendingWrongCount} />
             <p className="mb-3 text-xs leading-5 text-blue-200">{petLine}</p>
+
+            <div className="mb-3 rounded-lg border border-blue-500/30 bg-slate-800/70 p-2 text-xs text-blue-100">
+              {weather ? (
+                <div className="space-y-1">
+                  <div className="flex items-center justify-between">
+                    <span>
+                      实时天气：{weatherEmoji(weather.weatherCode)} {weatherText(weather.weatherCode)}
+                    </span>
+                    <span>{Math.round(weather.temperature)}°C</span>
+                  </div>
+                  {(weather.maxTemp !== undefined || weather.minTemp !== undefined) && (
+                    <div className="text-blue-300">
+                      今日预报：
+                      {weather.maxTemp !== undefined ? ` 最高 ${Math.round(weather.maxTemp)}°C` : ''}
+                      {weather.minTemp !== undefined ? ` / 最低 ${Math.round(weather.minTemp)}°C` : ''}
+                    </div>
+                  )}
+                  <div className="text-cyan-200">{weatherLine}</div>
+                </div>
+              ) : (
+                <span className="text-blue-300">{weatherError || '正在获取天气...'}</span>
+              )}
+            </div>
 
             <div className="space-y-2.5">
               <StatRow label="饱食" value={state.satiety} />
