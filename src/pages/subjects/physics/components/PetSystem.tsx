@@ -109,6 +109,26 @@ function BeanPet({ moodScore, energyScore, pressure }: { moodScore: number; ener
           </radialGradient>
         </defs>
 
+        <path
+          d="M110 18
+             Q124 20 136 26 Q148 20 162 28
+             Q174 36 182 48 Q190 60 192 74
+             Q200 86 202 100 Q200 114 202 128
+             Q200 142 192 154 Q190 168 182 180
+             Q174 192 162 200 Q148 208 136 202
+             Q124 208 110 210 Q96 208 84 202
+             Q72 208 58 200 Q46 192 38 180
+             Q30 168 28 154 Q20 142 18 128
+             Q20 114 18 100 Q20 86 28 74
+             Q30 60 38 48 Q46 36 58 28
+             Q72 20 84 26 Q96 20 110 18 Z"
+          fill="none"
+          stroke="#ff9a2f"
+          strokeWidth="4.5"
+          strokeLinejoin="round"
+          opacity="0.9"
+        />
+
         <g opacity="0.8">
           <line x1="110" y1="18" x2="110" y2="32" stroke="#ffd86b" strokeWidth="3.2" strokeLinecap="round" />
           <line x1="110" y1="196" x2="110" y2="210" stroke="#ffd86b" strokeWidth="3.2" strokeLinecap="round" />
