@@ -14,6 +14,7 @@ import AchievementsPage from './pages/AchievementsPage';
 import WrongAnswersPage from './pages/WrongAnswersPage';
 import { useStore } from './store/useStore';
 import { PHYSICS_TOPICS } from './constants/topics';
+import PetSystem from './components/PetSystem';
 
 // 绨″寲鐨?Physics Layout - 涓嶄娇鐢ㄥ師鏈夌殑瑜囬洔 Layout
 function SimplePhysicsLayout({ children }: { children: React.ReactNode }) {
@@ -218,6 +219,8 @@ function SimplePhysicsLayout({ children }: { children: React.ReactNode }) {
           {children}
         </div>
       </main>
+
+      <PetSystem />
     </div>
   );
 }
