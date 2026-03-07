@@ -100,94 +100,227 @@ function PetRig({ moodScore, energyScore, species }: { moodScore: number; energy
     if (legDRef.current) legDRef.current.rotation.x = Math.sin(phase) * walkAmp;
   });
 
-  const coat = species === 'cat' ? (isHappy ? '#f3b260' : moodScore >= 45 ? '#db9d52' : '#bf8952') : isHappy ? '#d3b18a' : moodScore >= 45 ? '#c2946d' : '#a67855';
-  const face = moodScore >= 45 ? '#ffe6c8' : '#e8d2b8';
+  const catCoat = isHappy ? '#f6a64a' : moodScore >= 45 ? '#e5963f' : '#c97a33';
+  const catStripe = '#d8732a';
+  const catFace = '#f6e8d2';
+  const catNose = '#ef9f85';
+
+  const dogCoat = isHappy ? '#d3b18a' : moodScore >= 45 ? '#c2946d' : '#a67855';
+  const dogFace = moodScore >= 45 ? '#ffe6c8' : '#e8d2b8';
 
   return (
-    <group ref={rootRef} position={[0, -0.05, 0]} scale={[0.82, 0.82, 0.82]}>
-      <group ref={tailRef} position={[1.15, 0.15, -0.32]}>
-        <mesh rotation={[0.2, 0, 0]}>
-          <cylinderGeometry args={[0.06, 0.14, 0.85, 10]} />
-          <meshStandardMaterial color={coat} roughness={0.6} metalness={0.05} />
-        </mesh>
-      </group>
+    <group ref={rootRef} position={[0, -0.02, 0]} scale={[0.8, 0.8, 0.8]}>
+      {species === 'cat' ? (
+        <>
+          <group ref={tailRef} position={[1.05, -0.02, -0.38]}>
+            <mesh rotation={[0.3, 0, 0.2]}>
+              <capsuleGeometry args={[0.16, 0.92, 8, 18]} />
+              <meshStandardMaterial color={catCoat} roughness={0.85} />
+            </mesh>
+            <mesh position={[0.08, 0.42, 0]}>
+              <sphereGeometry args={[0.26, 18, 18]} />
+              <meshStandardMaterial color={catCoat} roughness={0.9} />
+            </mesh>
+          </group>
 
-      <mesh position={[0.2, 0.05, 0]} rotation={[0, 0, 1.57]}>
-        <capsuleGeometry args={[0.45, 1.05, 10, 20]} />
-        <meshStandardMaterial color={coat} roughness={0.65} metalness={0.05} />
-      </mesh>
+          <mesh position={[0.2, -0.02, 0]} rotation={[0, 0, 1.57]}>
+            <capsuleGeometry args={[0.5, 1.0, 10, 20]} />
+            <meshStandardMaterial color={catCoat} roughness={0.88} />
+          </mesh>
 
-      <mesh position={[-0.72, 0.46, 0]}>
-        <sphereGeometry args={[0.58, 24, 24]} />
-        <meshStandardMaterial color={coat} roughness={0.65} metalness={0.05} />
-      </mesh>
+          <mesh position={[-0.68, 0.5, 0]}>
+            <sphereGeometry args={[0.62, 28, 28]} />
+            <meshStandardMaterial color={catCoat} roughness={0.83} />
+          </mesh>
 
-      <mesh position={[-1.03, 0.31, 0.34]}>
-        <sphereGeometry args={[0.21, 18, 18]} />
-        <meshStandardMaterial color={face} roughness={0.5} metalness={0.03} />
-      </mesh>
+          <mesh position={[-0.94, 0.28, 0.32]} rotation={[0.2, 0, 0]}>
+            <sphereGeometry args={[0.23, 20, 20]} />
+            <meshStandardMaterial color={catFace} roughness={0.8} />
+          </mesh>
 
-      <group ref={earLRef} position={[-1.02, 0.95, 0.32]}>
-        <mesh rotation={[0.2, 0.2, 0]}>
-          {species === 'cat' ? <coneGeometry args={[0.17, 0.4, 4]} /> : <sphereGeometry args={[0.2, 16, 16]} />}
-          <meshStandardMaterial color={coat} roughness={0.6} metalness={0.03} />
-        </mesh>
-      </group>
-      <group ref={earRRef} position={[-1.02, 0.95, -0.32]}>
-        <mesh rotation={[0.2, -0.2, 0]}>
-          {species === 'cat' ? <coneGeometry args={[0.17, 0.4, 4]} /> : <sphereGeometry args={[0.2, 16, 16]} />}
-          <meshStandardMaterial color={coat} roughness={0.6} metalness={0.03} />
-        </mesh>
-      </group>
+          <mesh position={[-0.52, 0.06, 0]} rotation={[0, 0, 0.12]}>
+            <coneGeometry args={[0.26, 0.6, 10]} />
+            <meshStandardMaterial color={catFace} roughness={0.9} />
+          </mesh>
 
-      <mesh position={[-1.12, 0.53, 0.2]}>
-        <sphereGeometry args={[0.07, 10, 10]} />
-        <meshStandardMaterial color="#1f1f1f" />
-      </mesh>
-      <mesh position={[-1.12, 0.53, -0.2]}>
-        <sphereGeometry args={[0.07, 10, 10]} />
-        <meshStandardMaterial color="#1f1f1f" />
-      </mesh>
-      <mesh position={[-1.25, 0.36, 0]}>
-        <sphereGeometry args={[0.05, 10, 10]} />
-        <meshStandardMaterial color="#31221f" />
-      </mesh>
+          <group ref={earLRef} position={[-0.98, 1.03, 0.33]}>
+            <mesh rotation={[0.1, 0.1, 0.05]}>
+              <coneGeometry args={[0.18, 0.46, 4]} />
+              <meshStandardMaterial color={catCoat} roughness={0.78} />
+            </mesh>
+            <mesh position={[0.02, -0.03, 0]} rotation={[0.1, 0.1, 0.05]}>
+              <coneGeometry args={[0.1, 0.24, 4]} />
+              <meshStandardMaterial color="#f6b898" roughness={0.8} />
+            </mesh>
+          </group>
+          <group ref={earRRef} position={[-0.98, 1.03, -0.33]}>
+            <mesh rotation={[0.1, -0.1, -0.05]}>
+              <coneGeometry args={[0.18, 0.46, 4]} />
+              <meshStandardMaterial color={catCoat} roughness={0.78} />
+            </mesh>
+            <mesh position={[0.02, -0.03, 0]} rotation={[0.1, -0.1, -0.05]}>
+              <coneGeometry args={[0.1, 0.24, 4]} />
+              <meshStandardMaterial color="#f6b898" roughness={0.8} />
+            </mesh>
+          </group>
 
-      <group ref={legARef} position={[-0.4, -0.62, 0.34]}>
-        <mesh>
-          <capsuleGeometry args={[0.1, 0.45, 6, 10]} />
-          <meshStandardMaterial color={coat} roughness={0.7} />
-        </mesh>
-      </group>
-      <group ref={legBRef} position={[0.55, -0.62, 0.34]}>
-        <mesh>
-          <capsuleGeometry args={[0.1, 0.45, 6, 10]} />
-          <meshStandardMaterial color={coat} roughness={0.7} />
-        </mesh>
-      </group>
-      <group ref={legCRef} position={[-0.4, -0.62, -0.34]}>
-        <mesh>
-          <capsuleGeometry args={[0.1, 0.45, 6, 10]} />
-          <meshStandardMaterial color={coat} roughness={0.7} />
-        </mesh>
-      </group>
-      <group ref={legDRef} position={[0.55, -0.62, -0.34]}>
-        <mesh>
-          <capsuleGeometry args={[0.1, 0.45, 6, 10]} />
-          <meshStandardMaterial color={coat} roughness={0.7} />
-        </mesh>
-      </group>
+          <mesh position={[-1.08, 0.55, 0.21]}>
+            <sphereGeometry args={[0.17, 20, 20]} />
+            <meshStandardMaterial color="#2a211f" roughness={0.25} />
+          </mesh>
+          <mesh position={[-1.08, 0.55, -0.21]}>
+            <sphereGeometry args={[0.17, 20, 20]} />
+            <meshStandardMaterial color="#2a211f" roughness={0.25} />
+          </mesh>
+          <mesh position={[-1.02, 0.6, 0.26]}>
+            <sphereGeometry args={[0.04, 10, 10]} />
+            <meshStandardMaterial color="#ffffff" roughness={0.2} />
+          </mesh>
+          <mesh position={[-1.02, 0.6, -0.16]}>
+            <sphereGeometry args={[0.04, 10, 10]} />
+            <meshStandardMaterial color="#ffffff" roughness={0.2} />
+          </mesh>
+          <mesh position={[-1.2, 0.35, 0]}>
+            <sphereGeometry args={[0.055, 12, 12]} />
+            <meshStandardMaterial color={catNose} />
+          </mesh>
+
+          <mesh position={[-0.55, 0.62, 0]} rotation={[0, 0, 0.12]}>
+            <torusGeometry args={[0.34, 0.03, 8, 30, Math.PI * 0.7]} />
+            <meshStandardMaterial color={catStripe} roughness={0.8} />
+          </mesh>
+          <mesh position={[-0.73, 0.35, 0.45]} rotation={[0.25, 0.25, 0.9]}>
+            <capsuleGeometry args={[0.03, 0.28, 4, 8]} />
+            <meshStandardMaterial color={catStripe} roughness={0.8} />
+          </mesh>
+          <mesh position={[-0.73, 0.35, -0.45]} rotation={[-0.25, 0.25, -0.9]}>
+            <capsuleGeometry args={[0.03, 0.28, 4, 8]} />
+            <meshStandardMaterial color={catStripe} roughness={0.8} />
+          </mesh>
+
+          <mesh position={[1.05, 0.16, -0.43]} rotation={[0.35, 0.4, 0.2]}>
+            <capsuleGeometry args={[0.04, 0.34, 4, 8]} />
+            <meshStandardMaterial color={catStripe} roughness={0.8} />
+          </mesh>
+          <mesh position={[0.96, -0.18, -0.43]} rotation={[0.25, 0.2, 0.2]}>
+            <capsuleGeometry args={[0.04, 0.28, 4, 8]} />
+            <meshStandardMaterial color={catStripe} roughness={0.8} />
+          </mesh>
+
+          <group ref={legARef} position={[-0.22, -0.62, 0.28]}>
+            <mesh>
+              <capsuleGeometry args={[0.1, 0.44, 6, 10]} />
+              <meshStandardMaterial color={catCoat} roughness={0.84} />
+            </mesh>
+            <mesh position={[0, -0.3, 0]}>
+              <sphereGeometry args={[0.12, 14, 14]} />
+              <meshStandardMaterial color={catFace} roughness={0.9} />
+            </mesh>
+          </group>
+          <group ref={legBRef} position={[0.52, -0.62, 0.28]}>
+            <mesh>
+              <capsuleGeometry args={[0.1, 0.44, 6, 10]} />
+              <meshStandardMaterial color={catCoat} roughness={0.84} />
+            </mesh>
+            <mesh position={[0, -0.3, 0]}>
+              <sphereGeometry args={[0.12, 14, 14]} />
+              <meshStandardMaterial color={catFace} roughness={0.9} />
+            </mesh>
+          </group>
+          <group ref={legCRef} position={[-0.18, -0.62, -0.28]}>
+            <mesh>
+              <capsuleGeometry args={[0.1, 0.44, 6, 10]} />
+              <meshStandardMaterial color={catCoat} roughness={0.84} />
+            </mesh>
+          </group>
+          <group ref={legDRef} position={[0.56, -0.62, -0.28]}>
+            <mesh>
+              <capsuleGeometry args={[0.1, 0.44, 6, 10]} />
+              <meshStandardMaterial color={catCoat} roughness={0.84} />
+            </mesh>
+          </group>
+        </>
+      ) : (
+        <>
+          <group ref={tailRef} position={[1.12, 0.15, -0.3]}>
+            <mesh rotation={[0.2, 0, 0]}>
+              <capsuleGeometry args={[0.1, 0.8, 8, 16]} />
+              <meshStandardMaterial color={dogCoat} roughness={0.7} />
+            </mesh>
+          </group>
+          <mesh position={[0.2, 0.05, 0]} rotation={[0, 0, 1.57]}>
+            <capsuleGeometry args={[0.45, 1.05, 10, 20]} />
+            <meshStandardMaterial color={dogCoat} roughness={0.72} />
+          </mesh>
+          <mesh position={[-0.72, 0.46, 0]}>
+            <sphereGeometry args={[0.58, 24, 24]} />
+            <meshStandardMaterial color={dogCoat} roughness={0.72} />
+          </mesh>
+          <mesh position={[-1.03, 0.31, 0.34]}>
+            <sphereGeometry args={[0.21, 18, 18]} />
+            <meshStandardMaterial color={dogFace} roughness={0.7} />
+          </mesh>
+          <group ref={earLRef} position={[-1.02, 0.95, 0.32]}>
+            <mesh>
+              <sphereGeometry args={[0.2, 16, 16]} />
+              <meshStandardMaterial color={dogCoat} roughness={0.75} />
+            </mesh>
+          </group>
+          <group ref={earRRef} position={[-1.02, 0.95, -0.32]}>
+            <mesh>
+              <sphereGeometry args={[0.2, 16, 16]} />
+              <meshStandardMaterial color={dogCoat} roughness={0.75} />
+            </mesh>
+          </group>
+          <mesh position={[-1.12, 0.53, 0.2]}>
+            <sphereGeometry args={[0.07, 10, 10]} />
+            <meshStandardMaterial color="#1f1f1f" />
+          </mesh>
+          <mesh position={[-1.12, 0.53, -0.2]}>
+            <sphereGeometry args={[0.07, 10, 10]} />
+            <meshStandardMaterial color="#1f1f1f" />
+          </mesh>
+          <mesh position={[-1.25, 0.36, 0]}>
+            <sphereGeometry args={[0.05, 10, 10]} />
+            <meshStandardMaterial color="#31221f" />
+          </mesh>
+          <group ref={legARef} position={[-0.4, -0.62, 0.34]}>
+            <mesh>
+              <capsuleGeometry args={[0.1, 0.45, 6, 10]} />
+              <meshStandardMaterial color={dogCoat} roughness={0.75} />
+            </mesh>
+          </group>
+          <group ref={legBRef} position={[0.55, -0.62, 0.34]}>
+            <mesh>
+              <capsuleGeometry args={[0.1, 0.45, 6, 10]} />
+              <meshStandardMaterial color={dogCoat} roughness={0.75} />
+            </mesh>
+          </group>
+          <group ref={legCRef} position={[-0.4, -0.62, -0.34]}>
+            <mesh>
+              <capsuleGeometry args={[0.1, 0.45, 6, 10]} />
+              <meshStandardMaterial color={dogCoat} roughness={0.75} />
+            </mesh>
+          </group>
+          <group ref={legDRef} position={[0.55, -0.62, -0.34]}>
+            <mesh>
+              <capsuleGeometry args={[0.1, 0.45, 6, 10]} />
+              <meshStandardMaterial color={dogCoat} roughness={0.75} />
+            </mesh>
+          </group>
+        </>
+      )}
     </group>
   );
 }
 
 function AnimatedPet({ moodScore, energyScore, species }: { moodScore: number; energyScore: number; species: PetSpecies }) {
   return (
-    <div className="relative mx-auto mb-2 h-40 w-40 overflow-hidden rounded-xl bg-gradient-to-b from-slate-700/40 to-slate-900/60 ring-1 ring-blue-400/20">
-      <Canvas dpr={[1, 1.5]} camera={{ position: [0, 0.28, 4.8], fov: 27 }}>
-        <ambientLight intensity={0.65} />
-        <directionalLight position={[4, 4, 4]} intensity={1.2} />
-        <directionalLight position={[-3, 2, -2]} intensity={0.5} color="#9bd1ff" />
+    <div className="relative mx-auto mb-2 h-44 w-44 overflow-hidden rounded-xl bg-gradient-to-b from-emerald-200/35 via-green-200/20 to-slate-900/55 ring-1 ring-blue-400/20">
+      <Canvas dpr={[1, 1.5]} camera={{ position: [0, 0.26, 5.1], fov: 25 }}>
+        <ambientLight intensity={0.74} />
+        <directionalLight position={[4, 4, 4]} intensity={1.35} />
+        <directionalLight position={[-3, 2, -2]} intensity={0.62} color="#fff6d8" />
         <Suspense fallback={null}>
           <PetRig moodScore={moodScore} energyScore={energyScore} species={species} />
         </Suspense>
