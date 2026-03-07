@@ -465,7 +465,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'Which of the following statements concerning the motion of a body is/are correct?\n(1) A body has no acceleration when it is moving with a uniform velocity.\n(2) A body can have zero velocity but also be accelerating.\n(3) A body can have a constant speed but a varying velocity.',
     options: ['(1) only', '(1) & (2) only', '(2) & (3) only', '(1), (2) & (3)'],
     answer: '(1), (2) & (3)',
-    explanation: '⚠️ **Key point:** This question tests understanding of the relationships between velocity, speed, and acceleration. All three statements are correct.\n\n**Statement (1): A body has no acceleration when it is moving with a uniform velocity.**\n- **Correct** ✓\n- Uniform velocity means constant speed AND constant direction\n- Since velocity is constant, acceleration $a = 0$\n- **Reason:** Acceleration is the rate of change of velocity. If velocity is constant (both magnitude and direction), then acceleration must be zero.\n\n**Statement (2): A body can have zero velocity but also be accelerating.**\n- **Correct** ✓\n- **Example:** A ball projected vertically upwards\n- At the highest point, the ball\'s velocity is zero ($v = 0$)\n- However, acceleration due to gravity is still present: $a = g = 9.81 \\text{ m/s²} \\neq 0$\n- **Reason:** Velocity and acceleration are independent quantities. Zero velocity does NOT mean zero acceleration. Acceleration is the rate of change of velocity, and it can be non-zero even when velocity is momentarily zero.\n\n**Statement (3): A body can have a constant speed but a varying velocity.**\n- **Correct** ✓\n- **Example:** A car turning around a corner with constant speed\n- Speed (magnitude of velocity) is constant: $|\\vec{v}| = \\text{constant}$\n- However, velocity (vector) is changing because the direction is changing\n- **Reason:** Velocity is a vector quantity with both magnitude and direction. Speed is the magnitude of velocity. If the direction changes, velocity changes, even if speed (magnitude) remains constant.\n\n**Summary:**\n- Statement (1): Uniform velocity �?$a = 0$ ✓\n- Statement (2): $v = 0$ but $a \\neq 0$ is possible ✓\n- Statement (3): Constant speed but varying velocity is possible ✓\n\n**Answer:** All three statements are correct. **D. (1), (2) & (3)**\n\n⚠️ **Common misconceptions:**\n- �?"Zero velocity means zero acceleration" �?Wrong! (See Statement 2)\n- �?"Constant speed means constant velocity" �?Wrong! (See Statement 3)\n- �?"Acceleration always means speed is changing" �?Wrong! Acceleration can change direction without changing speed.',
+    explanation: '⚠️ **Key point:** This question tests understanding of the relationships between velocity, speed, and acceleration. All three statements are correct.\n\n**Statement (1): A body has no acceleration when it is moving with a uniform velocity.**\n- **Correct** ✓\n- Uniform velocity means constant speed AND constant direction\n- Since velocity is constant, acceleration $a = 0$\n- **Reason:** Acceleration is the rate of change of velocity. If velocity is constant (both magnitude and direction), then acceleration must be zero.\n\n**Statement (2): A body can have zero velocity but also be accelerating.**\n- **Correct** ✓\n- **Example:** A ball projected vertically upwards\n- At the highest point, the ball\'s velocity is zero ($v = 0$)\n- However, acceleration due to gravity is still present: $a = g = 9.81 \\text{ m/s²} \\neq 0$\n- **Reason:** Velocity and acceleration are independent quantities. Zero velocity does NOT mean zero acceleration. Acceleration is the rate of change of velocity, and it can be non-zero even when velocity is momentarily zero.\n\n**Statement (3): A body can have a constant speed but a varying velocity.**\n- **Correct** ✓\n- **Example:** A car turning around a corner with constant speed\n- Speed (magnitude of velocity) is constant: $|\\vec{v}| = \\text{constant}$\n- However, velocity (vector) is changing because the direction is changing\n- **Reason:** Velocity is a vector quantity with both magnitude and direction. Speed is the magnitude of velocity. If the direction changes, velocity changes, even if speed (magnitude) remains constant.\n\n**Summary:**\n- Statement (1): Uniform velocity -> $a = 0$ ✓\n- Statement (2): $v = 0$ but $a \\neq 0$ is possible ✓\n- Statement (3): Constant speed but varying velocity is possible ✓\n\n**Answer:** All three statements are correct. **D. (1), (2) & (3)**\n\n⚠️ **Common misconceptions:**\n- "Zero velocity means zero acceleration" -> Wrong! (See Statement 2)\n- "Constant speed means constant velocity" -> Wrong! (See Statement 3)\n- "Acceleration always means speed is changing" -> Wrong! Acceleration can change direction without changing speed.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -506,7 +506,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
       '/physics/exercises/position-movement/pm-005-option-d.png',
     ],
     answer: '/physics/exercises/position-movement/pm-005-option-b.png',
-    explanation: '⚠️ **Key point:** In a vacuum, the ball experiences negligible air resistance, so it falls with constant acceleration $g$.\n\n**Step 1:** Use the free-fall velocity relation\nReleased from rest: $u = 0$\n$$v = u + gt \\;\\Rightarrow\\; v = gt$$\n\n**Step 2:** Interpret the velocity–time graph\n- Constant acceleration means the slope of the $v$-$t$ graph is constant\n- Since $v = 0$ at $t = 0$, the line passes through the origin\n\n**Conclusion:** The correct graph is a straight line starting from the origin �?option B.',
+    explanation: '⚠️ **Key point:** In a vacuum, the ball experiences negligible air resistance, so it falls with constant acceleration $g$.\n\n**Step 1:** Use the free-fall velocity relation\nReleased from rest: $u = 0$\n$$v = u + gt \\;\\Rightarrow\\; v = gt$$\n\n**Step 2:** Interpret the velocity–time graph\n- Constant acceleration means the slope of the $v$-$t$ graph is constant\n- Since $v = 0$ at $t = 0$, the line passes through the origin\n\n**Conclusion:** The correct graph is a straight line starting from the origin -> option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -523,7 +523,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'A car moving with speed $50\\text{ km h}^{-1}$ can be stopped in a distance of 15 m. In what distance can the car be stopped when its speed is $70\\text{ km h}^{-1}$ under the same condition?',
     options: ['10.9 m', '17.7 m', '21.0 m', '29.4 m'],
     answer: '29.4 m',
-    explanation: '⚠️ **Key point:** Under the same braking condition, the (magnitude of) deceleration is the same, so stopping distance is proportional to the square of the initial speed.\n\n**Step 1:** Use $v^2 = u^2 + 2as$ for stopping\nWhen the car stops, $v = 0$:\n$$0 = u^2 + 2as \\;\\Rightarrow\\; u^2 = -2as$$\nSince $a$ is negative during braking, $u^2 = 2|a|s$.\n\n**Step 2:** Compare the two cases\nWith the same braking condition, $|a|$ is constant, so $s \\propto u^2$.\n$$\\frac{s_2}{s_1} = \\left(\\frac{u_2}{u_1}\\right)^2$$\n\n**Step 3:** Calculate $s_2$\n$$s_2 = 15\\times\\left(\\frac{70}{50}\\right)^2 = 15\\times 1.96 = 29.4\\text{ m}$$\n\n**Conclusion:** The stopping distance is $29.4\\text{ m}$ �?option D.',
+    explanation: '⚠️ **Key point:** Under the same braking condition, the (magnitude of) deceleration is the same, so stopping distance is proportional to the square of the initial speed.\n\n**Step 1:** Use $v^2 = u^2 + 2as$ for stopping\nWhen the car stops, $v = 0$:\n$$0 = u^2 + 2as \\;\\Rightarrow\\; u^2 = -2as$$\nSince $a$ is negative during braking, $u^2 = 2|a|s$.\n\n**Step 2:** Compare the two cases\nWith the same braking condition, $|a|$ is constant, so $s \\propto u^2$.\n$$\\frac{s_2}{s_1} = \\left(\\frac{u_2}{u_1}\\right)^2$$\n\n**Step 3:** Calculate $s_2$\n$$s_2 = 15\\times\\left(\\frac{70}{50}\\right)^2 = 15\\times 1.96 = 29.4\\text{ m}$$\n\n**Conclusion:** The stopping distance is $29.4\\text{ m}$ -> option D.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -540,7 +540,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'The graph shows the variation of the velocity of a car with time. What is the acceleration of the car?',
     options: ['0.5 m/s²', '1.5 m/s²', '2.0 m/s²', '4.0 m/s²'],
     answer: '2.0 m/s²',
-    explanation: '⚠️ **Key point:** The acceleration equals the slope (gradient) of a velocity–time graph.\n\n**Step 1:** Read two points on the straight line\n- At $t = 0\\text{ s}$, $v = 0\\text{ m/s}$\n- At $t = 3\\text{ s}$, $v = 6\\text{ m/s}$\n\n**Step 2:** Calculate the slope\n$$a = \\frac{\\Delta v}{\\Delta t} = \\frac{6 - 0}{3 - 0} = 2\\text{ m/s}^2$$\n\n**Conclusion:** The acceleration is $2.0\\text{ m/s}^2$ �?option C.',
+    explanation: '⚠️ **Key point:** The acceleration equals the slope (gradient) of a velocity–time graph.\n\n**Step 1:** Read two points on the straight line\n- At $t = 0\\text{ s}$, $v = 0\\text{ m/s}$\n- At $t = 3\\text{ s}$, $v = 6\\text{ m/s}$\n\n**Step 2:** Calculate the slope\n$$a = \\frac{\\Delta v}{\\Delta t} = \\frac{6 - 0}{3 - 0} = 2\\text{ m/s}^2$$\n\n**Conclusion:** The acceleration is $2.0\\text{ m/s}^2$ -> option C.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -563,12 +563,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
       'First: 9.8 m; Third: 39.2 m',
     ],
     answer: 'First: 4.9 m; Third: 24.5 m',
-    explanation: '⚠️ **Key point:** In free fall from rest, the total displacement after time $t$ is $s = \\frac{1}{2}gt^2$. The distance travelled in the $n$th second is $s(n) - s(n-1)$.\n\n**Step 1:** Use $s = \\frac{1}{2}gt^2$ with $g = 9.81\\text{ m/s}^2$\n$$s \\approx 4.905t^2 \\approx 4.9t^2$$\n\n**Step 2:** Find total displacement after 1 s, 2 s, and 3 s\n$$s_1 = 4.9(1)^2 = 4.9\\text{ m}$$\n$$s_2 = 4.9(2)^2 = 19.6\\text{ m}$$\n$$s_3 = 4.9(3)^2 = 44.1\\text{ m}$$\n\n**Step 3:** Find the distances in the 1st and 3rd second\n- First second: $s_1 = 4.9\\text{ m}$\n- Third second: $s_3 - s_2 = 44.1 - 19.6 = 24.5\\text{ m}$\n\n**Conclusion:** First: $4.9\\text{ m}$, Third: $24.5\\text{ m}$ �?option C.',
+    explanation: '⚠️ **Key point:** In free fall from rest, the total displacement after time $t$ is $s = \\frac{1}{2}gt^2$. The distance travelled in the $n$th second is $s(n) - s(n-1)$.\n\n**Step 1:** Use $s = \\frac{1}{2}gt^2$ with $g = 9.81\\text{ m/s}^2$\n$$s \\approx 4.905t^2 \\approx 4.9t^2$$\n\n**Step 2:** Find total displacement after 1 s, 2 s, and 3 s\n$$s_1 = 4.9(1)^2 = 4.9\\text{ m}$$\n$$s_2 = 4.9(2)^2 = 19.6\\text{ m}$$\n$$s_3 = 4.9(3)^2 = 44.1\\text{ m}$$\n\n**Step 3:** Find the distances in the 1st and 3rd second\n- First second: $s_1 = 4.9\\text{ m}$\n- Third second: $s_3 - s_2 = 44.1 - 19.6 = 24.5\\text{ m}$\n\n**Conclusion:** First: $4.9\\text{ m}$, Third: $24.5\\text{ m}$ -> option C.',
     difficulty: 2,
     points: 15,
     hints: [
       'For free fall from rest, use s = ½gt²',
-      'The distance in the 3rd second is s(3) �?s(2), not s(3)',
+      'The distance in the 3rd second is s(3) -s(2), not s(3)',
       'Compute s1, s2, s3, then take the differences',
     ],
     sectionId: 'position-movement',
@@ -580,7 +580,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'The diagram above shows a ticker-tape produced by a trolley being pulled by a rubber band. Which of the following statements about the trolley is/are true?\n(1) Its displacement increases uniformly with time.\n(2) Its velocity increases uniformly with time.\n(3) Its acceleration increases uniformly with time.',
     options: ['(1) only', '(2) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(2) only',
-    explanation: '⚠️ **Key point:** On a ticker-tape, the length of each equal-time section represents the speed (velocity magnitude) during that time interval.\n\n**Step 1:** Check displacement vs time (statement 1)\nFrom the tape, the cumulative displacement after each interval is:\n$1, 1+2=3, 3+3=6, 6+4=10, 10+5=15, 15+6=21$ cm.\nThe increases are not equal, so displacement does **not** increase uniformly with time.\n\n**Step 2:** Check velocity vs time (statement 2)\nThe section lengths are $1,2,3,4,5,6$ cm in equal time intervals.\nSo the velocity increases by the same amount each interval �?velocity increases uniformly with time.\n\n**Step 3:** Check acceleration vs time (statement 3)\nIf velocity increases uniformly, acceleration is constant (does not increase).\nSo statement (3) is false.\n\n**Conclusion:** Only statement (2) is true �?option B.',
+    explanation: '⚠️ **Key point:** On a ticker-tape, the length of each equal-time section represents the speed (velocity magnitude) during that time interval.\n\n**Step 1:** Check displacement vs time (statement 1)\nFrom the tape, the cumulative displacement after each interval is:\n$1, 1+2=3, 3+3=6, 6+4=10, 10+5=15, 15+6=21$ cm.\nThe increases are not equal, so displacement does **not** increase uniformly with time.\n\n**Step 2:** Check velocity vs time (statement 2)\nThe section lengths are $1,2,3,4,5,6$ cm in equal time intervals.\nSo the velocity increases by the same amount each interval -> velocity increases uniformly with time.\n\n**Step 3:** Check acceleration vs time (statement 3)\nIf velocity increases uniformly, acceleration is constant (does not increase).\nSo statement (3) is false.\n\n**Conclusion:** Only statement (2) is true -> option B.',
     difficulty: 3,
     points: 20,
     hints: [
@@ -599,7 +599,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'An object is accelerated from rest along a straight line. The graph shows the variation of its displacement with the square of time. What is the acceleration of the object?',
     options: ['0.5 m/s²', '1.0 m/s²', '2.0 m/s²', '4.0 m/s²'],
     answer: '2.0 m/s²',
-    explanation: '⚠️ **Key point:** For motion from rest with constant acceleration, $s = \\frac{1}{2}at^2$. A straight-line $s$ vs $t^2$ graph has slope $\\frac{1}{2}a$.\n\n**Step 1:** Find the slope of the graph\nFrom the graph, a point is $(t^2, s) = (4\\text{ s}^2, 4\\text{ m})$.\n$$\\text{slope} = \\frac{\\Delta s}{\\Delta (t^2)} = \\frac{4 - 0}{4 - 0} = 1\\text{ m/s}^2$$\n\n**Step 2:** Relate slope to acceleration\nSince $s = \\frac{1}{2}at^2$, we have $\\text{slope} = \\frac{1}{2}a$.\n$$\\frac{1}{2}a = 1 \\;\\Rightarrow\\; a = 2\\text{ m/s}^2$$\n\n**Conclusion:** The acceleration is $2.0\\text{ m/s}^2$ �?option C.',
+    explanation: '⚠️ **Key point:** For motion from rest with constant acceleration, $s = \\frac{1}{2}at^2$. A straight-line $s$ vs $t^2$ graph has slope $\\frac{1}{2}a$.\n\n**Step 1:** Find the slope of the graph\nFrom the graph, a point is $(t^2, s) = (4\\text{ s}^2, 4\\text{ m})$.\n$$\\text{slope} = \\frac{\\Delta s}{\\Delta (t^2)} = \\frac{4 - 0}{4 - 0} = 1\\text{ m/s}^2$$\n\n**Step 2:** Relate slope to acceleration\nSince $s = \\frac{1}{2}at^2$, we have $\\text{slope} = \\frac{1}{2}a$.\n$$\\frac{1}{2}a = 1 \\;\\Rightarrow\\; a = 2\\text{ m/s}^2$$\n\n**Conclusion:** The acceleration is $2.0\\text{ m/s}^2$ -> option C.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -617,7 +617,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'The figure shows a stroboscopic photograph of a ball rolling down a slope. If the stroboscope makes 2 flashes per second, in which region does the ball have an average speed of $40\\text{ cm s}^{-1}$?',
     options: ['LM', 'MN', 'NO', 'OP'],
     answer: 'MN',
-    explanation: '⚠️ **Key point:** Average speed over a region equals the displacement between two flashes divided by the time interval between flashes.\n\n**Step 1:** Find the time interval between flashes\nThe stroboscope makes 2 flashes per second, so\n$$\\Delta t = \\frac{1}{2} = 0.5\\text{ s}$$\n\n**Step 2:** Use the displacement marks to find the distance travelled\nFrom the figure:\n- At $M$, displacement = $16\\text{ cm}$\n- At $N$, displacement = $36\\text{ cm}$\nSo distance from $M$ to $N$ is\n$$\\Delta s = 36 - 16 = 20\\text{ cm}$$\n\n**Step 3:** Compute the average speed in region MN\n$$v_{\\text{avg}} = \\frac{\\Delta s}{\\Delta t} = \\frac{20}{0.5} = 40\\text{ cm s}^{-1}$$\n\n**Conclusion:** The region is $MN$ �?option B.',
+    explanation: '⚠️ **Key point:** Average speed over a region equals the displacement between two flashes divided by the time interval between flashes.\n\n**Step 1:** Find the time interval between flashes\nThe stroboscope makes 2 flashes per second, so\n$$\\Delta t = \\frac{1}{2} = 0.5\\text{ s}$$\n\n**Step 2:** Use the displacement marks to find the distance travelled\nFrom the figure:\n- At $M$, displacement = $16\\text{ cm}$\n- At $N$, displacement = $36\\text{ cm}$\nSo distance from $M$ to $N$ is\n$$\\Delta s = 36 - 16 = 20\\text{ cm}$$\n\n**Step 3:** Compute the average speed in region MN\n$$v_{\\text{avg}} = \\frac{\\Delta s}{\\Delta t} = \\frac{20}{0.5} = 40\\text{ cm s}^{-1}$$\n\n**Conclusion:** The region is $MN$ -> option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -635,7 +635,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'An object is falling from rest with an acceleration of $9.8\\text{ m s}^{-2}$. Which of the following statements is/are correct?\n(1) It falls with a constant speed of $9.8\\text{ m s}^{-1}$.\n(2) It falls $9.8\\text{ m}$ every second.\n(3) It has a speed of $19.6\\text{ m s}^{-1}$ after $2\\text{ s}$.',
     options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(3) only',
-    explanation: '⚠️ **Key point:** Acceleration means velocity changes with time. For free fall from rest with constant $g$, $v = gt$ and $s = \\frac{1}{2}gt^2$.\n\n**Statement (1):** False. With acceleration $9.8\\text{ m s}^{-2}$, the speed is increasing, so it is not constant.\n\n**Statement (2):** False. After $1\\text{ s}$,\n$$s = \\frac{1}{2}gt^2 = \\frac{1}{2}(9.8)(1)^2 = 4.9\\text{ m}$$\nAlso, with constant acceleration, the distance travelled each second increases (it is not the same every second).\n\n**Statement (3):** True. After $2\\text{ s}$,\n$$v = gt = 9.8\\times 2 = 19.6\\text{ m s}^{-1}$$\n\n**Conclusion:** Only statement (3) is correct �?option B.',
+    explanation: '⚠️ **Key point:** Acceleration means velocity changes with time. For free fall from rest with constant $g$, $v = gt$ and $s = \\frac{1}{2}gt^2$.\n\n**Statement (1):** False. With acceleration $9.8\\text{ m s}^{-2}$, the speed is increasing, so it is not constant.\n\n**Statement (2):** False. After $1\\text{ s}$,\n$$s = \\frac{1}{2}gt^2 = \\frac{1}{2}(9.8)(1)^2 = 4.9\\text{ m}$$\nAlso, with constant acceleration, the distance travelled each second increases (it is not the same every second).\n\n**Statement (3):** True. After $2\\text{ s}$,\n$$v = gt = 9.8\\times 2 = 19.6\\text{ m s}^{-1}$$\n\n**Conclusion:** Only statement (3) is correct -> option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -652,7 +652,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'A particle is thrown vertically upwards. When the particle is at the maximum height, its acceleration is',
     options: ['zero.', 'changing from upwards to downwards.', 'pointing upwards.', 'pointing downwards.'],
     answer: 'pointing downwards.',
-    explanation: '⚠️ **Key point:** Velocity and acceleration are independent. At the highest point, the velocity is momentarily zero, but gravity still acts.\n\nAt maximum height:\n- Velocity: $v = 0$\n- Acceleration: $a = g$ (downwards)\n\n**Conclusion:** The acceleration is still pointing downwards �?option D.',
+    explanation: '⚠️ **Key point:** Velocity and acceleration are independent. At the highest point, the velocity is momentarily zero, but gravity still acts.\n\nAt maximum height:\n- Velocity: $v = 0$\n- Acceleration: $a = g$ (downwards)\n\n**Conclusion:** The acceleration is still pointing downwards -> option D.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -674,7 +674,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
       'Coin: uniform acceleration; Feather: greater uniform acceleration',
     ],
     answer: 'Coin: uniform acceleration; Feather: same uniform acceleration',
-    explanation: '⚠️ **Key point:** In a vacuum, there is no air resistance, so the only significant force on both objects is gravity.\n\n- Both the coin and the feather fall under the same gravitational acceleration $g$.\n- Since $g$ is constant, their motion is uniformly accelerated (not uniform speed).\n\n**Conclusion:** Coin: uniform acceleration; Feather: same uniform acceleration �?option B.',
+    explanation: '⚠️ **Key point:** In a vacuum, there is no air resistance, so the only significant force on both objects is gravity.\n\n- Both the coin and the feather fall under the same gravitational acceleration $g$.\n- Since $g$ is constant, their motion is uniformly accelerated (not uniform speed).\n\n**Conclusion:** Coin: uniform acceleration; Feather: same uniform acceleration -> option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -691,7 +691,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'The graph shows how the square of velocity of an object undergoing uniform acceleration varies with displacement. The object is initially at rest. From the graph, when $s = 2\\text{ m}$, $v^2 = 4\\text{ m}^2\\text{ s}^{-2}$. What is the acceleration of the object?',
     options: ['0.5 m/s²', '1.0 m/s²', '2.0 m/s²', '4.0 m/s²'],
     answer: '1.0 m/s²',
-    explanation: '⚠️ **Key point:** For uniform acceleration, $v^2 = u^2 + 2as$. With the object starting from rest ($u = 0$), $v^2 = 2as$.\n\n**Step 1:** Find the slope of the $v^2$�?s$ graph\nUsing the point $(s, v^2) = (2, 4)$:\n$$\\text{slope} = \\frac{\\Delta (v^2)}{\\Delta s} = \\frac{4}{2} = 2\\text{ m s}^{-2}$$\n\n**Step 2:** Relate slope to acceleration\nSince $v^2 = 2as$, the slope equals $2a$.\n$$2a = 2 \\;\\Rightarrow\\; a = 1\\text{ m s}^{-2}$$\n\n**Conclusion:** The acceleration is $1.0\\text{ m/s}^2$ �?option B.',
+    explanation: '⚠️ **Key point:** For uniform acceleration, $v^2 = u^2 + 2as$. With the object starting from rest ($u = 0$), $v^2 = 2as$.\n\n**Step 1:** Find the slope of the $v^2$-$s$ graph\nUsing the point $(s, v^2) = (2, 4)$:\n$$\\text{slope} = \\frac{\\Delta (v^2)}{\\Delta s} = \\frac{4}{2} = 2\\text{ m s}^{-2}$$\n\n**Step 2:** Relate slope to acceleration\nSince $v^2 = 2as$, the slope equals $2a$.\n$$2a = 2 \\;\\Rightarrow\\; a = 1\\text{ m s}^{-2}$$\n\n**Conclusion:** The acceleration is $1.0\\text{ m/s}^2$ -> option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -709,14 +709,14 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'The figure shows the strobe photograph of a ball rolling down a slope. The stroboscope is flashing at a frequency of $5\\text{ Hz}$. Find the acceleration of the ball.',
     options: ['0.20 m/s²', '0.50 m/s²', '0.67 m/s²', '1.00 m/s²'],
     answer: '1.00 m/s²',
-    explanation: '⚠️ **Key point:** Each flash is separated by a constant time interval. Use average speeds over equal intervals to estimate velocities, then apply $a = \\frac{v-u}{t}$.\n\n**Step 1:** Find the time interval between flashes\n$$\\Delta t = \\frac{1}{f} = \\frac{1}{5} = 0.2\\text{ s}$$\n\n**Step 2:** Find the speeds for two intervals\nFrom the figure:\n- Over one interval, distance is $0.04\\text{ m}$, so\n  $$u = \\frac{0.04}{0.2} = 0.2\\text{ m/s}$$\n- Over one interval, distance is $0.12\\text{ m}$, so\n  $$v = \\frac{0.12}{0.2} = 0.6\\text{ m/s}$$\nThese speeds occur at the midpoints of the $4\\text{ cm}$ and $12\\text{ cm}$ intervals respectively.\n\n**Step 3:** Find the time between the two midpoint instants\nThere are 2 time intervals between the midpoints, so\n$$t = 2\\Delta t = 2(0.2) = 0.4\\text{ s}$$\n\n**Step 4:** Compute the acceleration\n$$a = \\frac{v-u}{t} = \\frac{0.6 - 0.2}{0.4} = 1.0\\text{ m/s}^2$$\n\n**Conclusion:** The acceleration is $1.00\\text{ m/s}^2$ �?option D.',
+    explanation: '⚠️ **Key point:** Each flash is separated by a constant time interval. Use average speeds over equal intervals to estimate velocities, then apply $a = \\frac{v-u}{t}$.\n\n**Step 1:** Find the time interval between flashes\n$$\\Delta t = \\frac{1}{f} = \\frac{1}{5} = 0.2\\text{ s}$$\n\n**Step 2:** Find the speeds for two intervals\nFrom the figure:\n- Over one interval, distance is $0.04\\text{ m}$, so\n  $$u = \\frac{0.04}{0.2} = 0.2\\text{ m/s}$$\n- Over one interval, distance is $0.12\\text{ m}$, so\n  $$v = \\frac{0.12}{0.2} = 0.6\\text{ m/s}$$\nThese speeds occur at the midpoints of the $4\\text{ cm}$ and $12\\text{ cm}$ intervals respectively.\n\n**Step 3:** Find the time between the two midpoint instants\nThere are 2 time intervals between the midpoints, so\n$$t = 2\\Delta t = 2(0.2) = 0.4\\text{ s}$$\n\n**Step 4:** Compute the acceleration\n$$a = \\frac{v-u}{t} = \\frac{0.6 - 0.2}{0.4} = 1.0\\text{ m/s}^2$$\n\n**Conclusion:** The acceleration is $1.00\\text{ m/s}^2$ -> option D.',
     difficulty: 3,
     points: 20,
     hints: [
       '5 Hz means the flash interval is 0.2 s',
       'Speed over an interval = distance / time for that interval',
       'The speeds correspond to midpoints of the intervals',
-      'Use a = (v �?u) / t with the time between the midpoint instants',
+      'Use a = (v -u) / t with the time between the midpoint instants',
     ],
     sectionId: 'position-movement',
     imagePaths: ['/physics/exercises/position-movement/pm-016-question.png'],
@@ -728,7 +728,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'The figure shows the velocity-time graph of an object. Which of the following statements about the object is/are true?\n(1) Its acceleration in the first 10 s is $2\\text{ m s}^{-2}$.\n(2) The total distance travelled is 250 m.\n(3) It returns to its starting point after 25 s.',
     options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(1) only',
-    explanation: '⚠️ **Key point:** On a velocity–time graph, the slope gives acceleration and the area under the graph gives distance travelled.\n\n**Statement (1):** True.\n$$a = \\frac{\\Delta v}{\\Delta t} = \\frac{20 - 0}{10 - 0} = 2\\text{ m/s}^2$$\n\n**Statement (2):** False.\nTotal distance = area under the graph:\n- $0$�?10\\text{ s}$ triangle: $\\tfrac{1}{2}(10)(20)=100$ m\n- $10$�?20\\text{ s}$ rectangle: $(10)(20)=200$ m\n- $20$�?25\\text{ s}$ triangle: $\\tfrac{1}{2}(5)(20)=50$ m\nSo total distance $= 350$ m, not 250 m.\n\n**Statement (3):** False.\nThe velocity is always positive, so displacement is never reduced back to zero.\n\n**Conclusion:** Only statement (1) is true �?option A.',
+    explanation: '⚠️ **Key point:** On a velocity–time graph, the slope gives acceleration and the area under the graph gives distance travelled.\n\n**Statement (1):** True.\n$$a = \\frac{\\Delta v}{\\Delta t} = \\frac{20 - 0}{10 - 0} = 2\\text{ m/s}^2$$\n\n**Statement (2):** False.\nTotal distance = area under the graph:\n- $0$-10\\text{ s}$ triangle: $\\tfrac{1}{2}(10)(20)=100$ m\n- $10$-20\\text{ s}$ rectangle: $(10)(20)=200$ m\n- $20$-25\\text{ s}$ triangle: $\\tfrac{1}{2}(5)(20)=50$ m\nSo total distance $= 350$ m, not 250 m.\n\n**Statement (3):** False.\nThe velocity is always positive, so displacement is never reduced back to zero.\n\n**Conclusion:** Only statement (1) is true -> option A.',
     difficulty: 3,
     points: 20,
     hints: [
@@ -751,7 +751,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
       '/physics/exercises/position-movement/pm-018-option-d.png',
     ],
     answer: '/physics/exercises/position-movement/pm-018-option-c.png',
-    explanation: '⚠️ **Key point:** The slope of a displacement–time graph represents velocity.\n\nFor uniform deceleration:\n- The velocity decreases uniformly with time\n- So the slope of the $s$�?t$ graph decreases uniformly (the curve gradually flattens)\n\n**Conclusion:** The graph with decreasing slope is option C.',
+    explanation: '⚠️ **Key point:** The slope of a displacement–time graph represents velocity.\n\nFor uniform deceleration:\n- The velocity decreases uniformly with time\n- So the slope of the $s$-$t$ graph decreases uniformly (the curve gradually flattens)\n\n**Conclusion:** The graph with decreasing slope is option C.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -768,7 +768,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'A man takes 2 s to walk from point $A$ to point $B$, and then takes 3 s to walk from point $B$ to point $C$, where $ABC$ is an equilateral triangle of side 3 m. Find the magnitude of his average velocity from $A$ to $C$.',
     options: ['0.60 m/s', '1.00 m/s', '1.20 m/s', '1.25 m/s'],
     answer: '0.60 m/s',
-    explanation: '⚠️ **Key point:** Average velocity depends on displacement, not total distance travelled.\n\n**Step 1:** Find the resultant displacement from $A$ to $C$\nSince $ABC$ is an equilateral triangle with side $3\\text{ m}$, the straight-line displacement $AC = 3\\text{ m}$.\n\n**Step 2:** Find the total time taken\n$$t = 2 + 3 = 5\\text{ s}$$\n\n**Step 3:** Compute the magnitude of average velocity\n$$v_{\\text{avg}} = \\frac{\\text{displacement}}{\\text{time}} = \\frac{3}{5} = 0.6\\text{ m/s}$$\n\n**Conclusion:** The magnitude of the average velocity is $0.60\\text{ m/s}$ �?option A.',
+    explanation: '⚠️ **Key point:** Average velocity depends on displacement, not total distance travelled.\n\n**Step 1:** Find the resultant displacement from $A$ to $C$\nSince $ABC$ is an equilateral triangle with side $3\\text{ m}$, the straight-line displacement $AC = 3\\text{ m}$.\n\n**Step 2:** Find the total time taken\n$$t = 2 + 3 = 5\\text{ s}$$\n\n**Step 3:** Compute the magnitude of average velocity\n$$v_{\\text{avg}} = \\frac{\\text{displacement}}{\\text{time}} = \\frac{3}{5} = 0.6\\text{ m/s}$$\n\n**Conclusion:** The magnitude of the average velocity is $0.60\\text{ m/s}$ -> option A.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -786,7 +786,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'The figure shows a man near the edge of a cliff projecting a stone vertically upwards. The stone reaches the sea after 18 s. The graph shows the velocity-time relation for the motion of the stone. Find the height of the cliff. (Take $g = 10\\text{ m s}^{-2}$.)',
     options: ['180 m', '540 m', '720 m', '900 m'],
     answer: '540 m',
-    explanation: '⚠️ **Key point:** Displacement equals the signed area under a velocity–time graph.\n\nFrom the graph:\n- Initial velocity: $u = 60\\text{ m/s}$\n- Constant acceleration: $a = -10\\text{ m/s}^2$ (slope)\n- Total time: $18\\text{ s}$\nThe velocity becomes zero at\n$$t = \\frac{u}{g} = \\frac{60}{10} = 6\\text{ s}$$\n\n**Step 1:** Area above the time axis (upward displacement, 0�? s)\n$$s_{\\uparrow} = \\frac{1}{2}(6)(60) = 180\\text{ m}$$\n\n**Step 2:** Area below the time axis (downward displacement, 6�?8 s)\nTime duration: $18 - 6 = 12\\text{ s}$\nFinal speed at 18 s: $v = 60 - 10(18) = -120\\text{ m/s}$\n$$s_{\\downarrow} = -\\frac{1}{2}(12)(120) = -720\\text{ m}$$\n\n**Step 3:** Net displacement from the cliff top to the sea\n$$s = s_{\\uparrow} + s_{\\downarrow} = 180 - 720 = -540\\text{ m}$$\nSo the sea is $540\\text{ m}$ below the cliff top.\n\n**Conclusion:** Height of the cliff = $540\\text{ m}$ �?option B.',
+    explanation: '⚠️ **Key point:** Displacement equals the signed area under a velocity–time graph.\n\nFrom the graph:\n- Initial velocity: $u = 60\\text{ m/s}$\n- Constant acceleration: $a = -10\\text{ m/s}^2$ (slope)\n- Total time: $18\\text{ s}$\nThe velocity becomes zero at\n$$t = \\frac{u}{g} = \\frac{60}{10} = 6\\text{ s}$$\n\n**Step 1:** Area above the time axis (upward displacement, 0-6 s)\n$$s_{\\uparrow} = \\frac{1}{2}(6)(60) = 180\\text{ m}$$\n\n**Step 2:** Area below the time axis (downward displacement, 6-8 s)\nTime duration: $18 - 6 = 12\\text{ s}$\nFinal speed at 18 s: $v = 60 - 10(18) = -120\\text{ m/s}$\n$$s_{\\downarrow} = -\\frac{1}{2}(12)(120) = -720\\text{ m}$$\n\n**Step 3:** Net displacement from the cliff top to the sea\n$$s = s_{\\uparrow} + s_{\\downarrow} = 180 - 720 = -540\\text{ m}$$\nSo the sea is $540\\text{ m}$ below the cliff top.\n\n**Conclusion:** Height of the cliff = $540\\text{ m}$ -> option B.',
     difficulty: 3,
     points: 20,
     hints: [
@@ -804,7 +804,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'An object is thrown vertically upwards from a point $A$. It travels to the highest point $B$ and then falls back to $A$. Neglecting air resistance, which of the following statements is/are true?\n(1) The total displacement of the object is zero.\n(2) The acceleration of the object is constant throughout the motion.\n(3) The time for the upward motion is longer than the time for the downward motion.',
     options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(1) & (2) only',
-    explanation: '⚠️ **Key point:** Displacement depends only on initial and final positions, while acceleration in free flight is due to gravity.\n\n**Statement (1):** True.\nThe object returns to point $A$, so final position = initial position.\nTherefore total displacement $s = 0$.\n\n**Statement (2):** True.\nNeglecting air resistance, the only acceleration is due to gravity:\n$$a = -g$$\nwhich is constant throughout the motion.\n\n**Statement (3):** False.\nWith constant acceleration and no air resistance, the motion is symmetric about the highest point, so\n$$t_{\\uparrow} = t_{\\downarrow}$$\n\n**Conclusion:** Statements (1) and (2) only �?option C.',
+    explanation: '⚠️ **Key point:** Displacement depends only on initial and final positions, while acceleration in free flight is due to gravity.\n\n**Statement (1):** True.\nThe object returns to point $A$, so final position = initial position.\nTherefore total displacement $s = 0$.\n\n**Statement (2):** True.\nNeglecting air resistance, the only acceleration is due to gravity:\n$$a = -g$$\nwhich is constant throughout the motion.\n\n**Statement (3):** False.\nWith constant acceleration and no air resistance, the motion is symmetric about the highest point, so\n$$t_{\\uparrow} = t_{\\downarrow}$$\n\n**Conclusion:** Statements (1) and (2) only -> option C.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -821,14 +821,14 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'The paper tape shown is obtained from a trolley moving with uniform acceleration. The frequency of the ticker-tape timer is 50 Hz. Find the acceleration of the trolley.',
     options: ['0.21 m/s²', '0.70 m/s²', '0.73 m/s²', '1.05 m/s²'],
     answer: '1.05 m/s²',
-    explanation: '⚠️ **Key point:** Each dot represents equal time. Use average speed over a group of dots to estimate velocities at midpoints, then apply $a = \\frac{v-u}{t}$.\n\n**Step 1:** Find the time per tick\nTicker-tape frequency: $50\\text{ Hz}$\n$$\\Delta t = \\frac{1}{50} = 0.02\\text{ s}$$\n\n**Step 2:** Find two velocities using the tape segments\nEach segment shown contains 5 ticks, so time for 5 ticks:\n$$5\\Delta t = 5(0.02) = 0.10\\text{ s}$$\n\n- For the $1.5\\text{ cm}$ segment:\n  $$u = \\frac{0.015}{0.10} = 0.15\\text{ m/s}$$\n- For the $3.6\\text{ cm}$ segment:\n  $$v = \\frac{0.036}{0.10} = 0.36\\text{ m/s}$$\nThese velocities occur at the midpoints of the $1.5\\text{ cm}$ and $3.6\\text{ cm}$ segments.\n\n**Step 3:** Find the time between the two midpoint instants\nFrom the midpoint of the first segment to the midpoint of the second segment, there are 10 ticks:\n$$t = 10\\Delta t = 10(0.02) = 0.20\\text{ s}$$\n\n**Step 4:** Compute the acceleration\n$$a = \\frac{v-u}{t} = \\frac{0.36 - 0.15}{0.20} = 1.05\\text{ m/s}^2$$\n\n**Conclusion:** The acceleration is $1.05\\text{ m/s}^2$ �?option D.',
+    explanation: '⚠️ **Key point:** Each dot represents equal time. Use average speed over a group of dots to estimate velocities at midpoints, then apply $a = \\frac{v-u}{t}$.\n\n**Step 1:** Find the time per tick\nTicker-tape frequency: $50\\text{ Hz}$\n$$\\Delta t = \\frac{1}{50} = 0.02\\text{ s}$$\n\n**Step 2:** Find two velocities using the tape segments\nEach segment shown contains 5 ticks, so time for 5 ticks:\n$$5\\Delta t = 5(0.02) = 0.10\\text{ s}$$\n\n- For the $1.5\\text{ cm}$ segment:\n  $$u = \\frac{0.015}{0.10} = 0.15\\text{ m/s}$$\n- For the $3.6\\text{ cm}$ segment:\n  $$v = \\frac{0.036}{0.10} = 0.36\\text{ m/s}$$\nThese velocities occur at the midpoints of the $1.5\\text{ cm}$ and $3.6\\text{ cm}$ segments.\n\n**Step 3:** Find the time between the two midpoint instants\nFrom the midpoint of the first segment to the midpoint of the second segment, there are 10 ticks:\n$$t = 10\\Delta t = 10(0.02) = 0.20\\text{ s}$$\n\n**Step 4:** Compute the acceleration\n$$a = \\frac{v-u}{t} = \\frac{0.36 - 0.15}{0.20} = 1.05\\text{ m/s}^2$$\n\n**Conclusion:** The acceleration is $1.05\\text{ m/s}^2$ -> option D.',
     difficulty: 3,
     points: 20,
     hints: [
       '50 Hz means each tick is 0.02 s',
       'Use speed = distance / time for a 5-tick segment',
       'The speeds correspond to the midpoints of the segments',
-      'Use a = (v �?u) / t with t = 10 ticks',
+      'Use a = (v -u) / t with t = 10 ticks',
     ],
     sectionId: 'position-movement',
     imagePaths: ['/physics/exercises/position-movement/pm-022-question.png'],
@@ -845,7 +845,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
       '/physics/exercises/position-movement/pm-023-option-d.png',
     ],
     answer: '/physics/exercises/position-movement/pm-023-option-b.png',
-    explanation: '⚠️ **Key point:** The slope of a velocity–time graph equals acceleration.\n\nFrom the acceleration–time graph:\n- For $t < t_0$, acceleration is positive and constant �?velocity increases linearly from rest (straight line with constant positive slope)\n- For $t > t_0$, acceleration is zero �?velocity stays constant (horizontal line)\n\n**Conclusion:** The correct $v$�?t$ graph is option B.',
+    explanation: '⚠️ **Key point:** The slope of a velocity–time graph equals acceleration.\n\nFrom the acceleration–time graph:\n- For $t < t_0$, acceleration is positive and constant -> velocity increases linearly from rest (straight line with constant positive slope)\n- For $t > t_0$, acceleration is zero -> velocity stays constant (horizontal line)\n\n**Conclusion:** The correct $v$-$t$ graph is option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -863,7 +863,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'A man takes 30 s to walk 80 m towards the east. He then takes 10 s to run 60 m towards the south. Which of the following statements is/are correct?\n(1) The magnitude of the resultant displacement of the man is 140 m.\n(2) The average speed of the man is $4.3\\text{ m s}^{-1}$.\n(3) The magnitude of the average velocity of the man is $2.5\\text{ m s}^{-1}$.',
     options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(3) only',
-    explanation: '⚠️ **Key point:** Average speed uses total distance, while average velocity uses displacement.\n\n**Step 1:** Resultant displacement\nThe man moves 80 m east and 60 m south, so\n$$s = \\sqrt{80^2 + 60^2} = \\sqrt{10000} = 100\\text{ m}$$\nSo statement (1) is false.\n\n**Step 2:** Average speed\nTotal distance $= 80 + 60 = 140\\text{ m}$\nTotal time $= 30 + 10 = 40\\text{ s}$\n$$\\text{average speed} = \\frac{140}{40} = 3.5\\text{ m/s}$$\nSo statement (2) is false.\n\n**Step 3:** Magnitude of average velocity\n$$|\\vec{v}_{\\text{avg}}| = \\frac{\\text{displacement}}{\\text{time}} = \\frac{100}{40} = 2.5\\text{ m/s}$$\nSo statement (3) is true.\n\n**Conclusion:** Only statement (3) is correct �?option B.',
+    explanation: '⚠️ **Key point:** Average speed uses total distance, while average velocity uses displacement.\n\n**Step 1:** Resultant displacement\nThe man moves 80 m east and 60 m south, so\n$$s = \\sqrt{80^2 + 60^2} = \\sqrt{10000} = 100\\text{ m}$$\nSo statement (1) is false.\n\n**Step 2:** Average speed\nTotal distance $= 80 + 60 = 140\\text{ m}$\nTotal time $= 30 + 10 = 40\\text{ s}$\n$$\\text{average speed} = \\frac{140}{40} = 3.5\\text{ m/s}$$\nSo statement (2) is false.\n\n**Step 3:** Magnitude of average velocity\n$$|\\vec{v}_{\\text{avg}}| = \\frac{\\text{displacement}}{\\text{time}} = \\frac{100}{40} = 2.5\\text{ m/s}$$\nSo statement (3) is true.\n\n**Conclusion:** Only statement (3) is correct -> option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -880,13 +880,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'The diagram shows the variation of the velocity of an object with time. What is the distance travelled by the object in the first 3 seconds?',
     options: ['5 m', '15 m', '25 m', '30 m'],
     answer: '25 m',
-    explanation: '⚠️ **Key point:** Distance travelled equals the sum of the absolute areas under a velocity–time graph.\n\n**Step 1:** Split the graph into two regions\n- From $0$ to $2\\text{ s}$, the graph is above the time axis\n- From $2$ to $3\\text{ s}$, the graph is below the time axis\n\n**Step 2:** Find the areas (take absolute values)\n- Triangle (0�? s):\n  $$A_1 = \\frac{1}{2}(2)(20) = 20\\text{ m}$$\n- Triangle (2�? s):\n  $$A_2 = \\frac{1}{2}(1)(10) = 5\\text{ m}$$\n\n**Step 3:** Total distance\n$$d = A_1 + A_2 = 20 + 5 = 25\\text{ m}$$\n\n**Conclusion:** The distance travelled in the first 3 s is $25\\text{ m}$ �?option C.',
+    explanation: '⚠️ **Key point:** Distance travelled equals the sum of the absolute areas under a velocity–time graph.\n\n**Step 1:** Split the graph into two regions\n- From $0$ to $2\\text{ s}$, the graph is above the time axis\n- From $2$ to $3\\text{ s}$, the graph is below the time axis\n\n**Step 2:** Find the areas (take absolute values)\n- Triangle (0-2 s):\n  $$A_1 = \\frac{1}{2}(2)(20) = 20\\text{ m}$$\n- Triangle (2-3 s):\n  $$A_2 = \\frac{1}{2}(1)(10) = 5\\text{ m}$$\n\n**Step 3:** Total distance\n$$d = A_1 + A_2 = 20 + 5 = 25\\text{ m}$$\n\n**Conclusion:** The distance travelled in the first 3 s is $25\\text{ m}$ -> option C.',
     difficulty: 2,
     points: 15,
     hints: [
       'Distance travelled is the total area between the graph and the time axis',
       'If part of the graph is below the axis, take the absolute value of that area',
-      'Split the graph into triangles over 0�? s and 2�? s',
+      'Split the graph into triangles over 0-2 s and 2-3 s',
     ],
     sectionId: 'position-movement',
     imagePaths: ['/physics/exercises/position-movement/pm-025-question.png'],
@@ -898,7 +898,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'An object starts from rest and moves with uniform acceleration along a straight line. Which of the graphs below concerning the motion of the object is/are correct? ($s$ = displacement, $v$ = velocity, $t$ = time)',
     options: ['(1) only', '(1) & (2) only', '(2) & (3) only', '(1), (2) & (3)'],
     answer: '(1), (2) & (3)',
-    explanation: '⚠️ **Key point:** For motion from rest with uniform acceleration:\n- $v = at$ �?$v \\propto t$\n- $s = \\frac{1}{2}at^2$ �?$s \\propto t^2$\n- $v^2 = 2as$ �?$v^2 \\propto s$\n\nTherefore, all three graphs are correct.\n\n**Conclusion:** (1), (2) & (3) �?option D.',
+    explanation: '⚠️ **Key point:** For motion from rest with uniform acceleration:\n- $v = at$ -$v \\propto t$\n- $s = \\frac{1}{2}at^2$ -$s \\propto t^2$\n- $v^2 = 2as$ -$v^2 \\propto s$\n\nTherefore, all three graphs are correct.\n\n**Conclusion:** (1), (2) & (3) -> option D.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -916,7 +916,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'A man walks 40 m towards the west. He then walks 40 m towards the south and lastly walks 70 m towards the east. Find the magnitude of the resultant displacement of the man.',
     options: ['30 m', '40 m', '50 m', '70 m'],
     answer: '50 m',
-    explanation: '⚠️ **Key point:** Resultant displacement is the straight-line vector from the start point to the final point.\n\n**Step 1:** Find the net displacement components\n- East–west: $70\\text{ m east} - 40\\text{ m west} = 30\\text{ m east}$\n- North–south: $40\\text{ m south}$\n\n**Step 2:** Use Pythagoras�?theorem\n$$s = \\sqrt{30^2 + 40^2} = \\sqrt{900 + 1600} = \\sqrt{2500} = 50\\text{ m}$$\n\n**Conclusion:** The magnitude of the resultant displacement is $50\\text{ m}$ �?option C.',
+    explanation: '⚠️ **Key point:** Resultant displacement is the straight-line vector from the start point to the final point.\n\n**Step 1:** Find the net displacement components\n- East–west: $70\\text{ m east} - 40\\text{ m west} = 30\\text{ m east}$\n- North–south: $40\\text{ m south}$\n\n**Step 2:** Use Pythagoras theorem\n$$s = \\sqrt{30^2 + 40^2} = \\sqrt{900 + 1600} = \\sqrt{2500} = 50\\text{ m}$$\n\n**Conclusion:** The magnitude of the resultant displacement is $50\\text{ m}$ -> option C.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -932,11 +932,11 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     id: 'pm-028',
     type: 'multiple_choice',
     question:
-      'An object moves with uniform acceleration along a straight line. The graphs (1)�?3) are shown in the figure. Which of the following graphs correctly describe(s) the motion of the object?',
+      'An object moves with uniform acceleration along a straight line. The graphs (1)-(3) are shown in the figure. Which of the following graphs correctly describe(s) the motion of the object?',
     options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(2) & (3) only',
     explanation:
-      '⚠️ **Key point:** The slope of a displacement–time ($s$�?t$) graph is velocity, and the slope of a velocity–time ($v$�?t$) graph is acceleration.\n\n**(1)** In graph (1), the slope decreases with time �?velocity decreases �?this represents uniform deceleration, not acceleration.\n\n**(2)** In graph (2), the $v$�?t$ graph is a straight line with positive slope �?acceleration is constant and positive �?uniform acceleration.\n\n**(3)** In graph (3), acceleration is constant and positive �?uniform acceleration.\n\n**Conclusion:** Graphs (2) and (3) only �?option D.',
+      '⚠️ **Key point:** The slope of a displacement–time ($s$-$t$) graph is velocity, and the slope of a velocity–time ($v$-$t$) graph is acceleration.\n\n**(1)** In graph (1), the slope decreases with time -> velocity decreases -> this represents uniform deceleration, not acceleration.\n\n**(2)** In graph (2), the $v$-$t$ graph is a straight line with positive slope -> acceleration is constant and positive -> uniform acceleration.\n\n**(3)** In graph (3), acceleration is constant and positive -> uniform acceleration.\n\n**Conclusion:** Graphs (2) and (3) only -> option D.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -956,7 +956,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['1.0 m s^-1', '2.0 m s^-1', '2.3 m s^-1', '3.1 m s^-1'],
     answer: '2.0 m s^-1',
     explanation:
-      '⚠️ **Key point:** Average velocity uses **resultant displacement**, not the distance along the curved path.\n\n**Step 1:** Find the displacement from $A$ to $C$\nThe straight-line displacement equals the sum of the two diameters:\n$$AC = 2(3) + 2(4) = 14\\text{ m}$$\n\n**Step 2:** Divide by total time\nTotal time: $2 + 5 = 7\\text{ s}$.\n$$v_{\\text{avg}} = \\frac{AC}{t} = \\frac{14}{7} = 2.0\\text{ m s}^{-1}$$\n\n**Conclusion:** $2.0\\text{ m s}^{-1}$ �?option B.',
+      '⚠️ **Key point:** Average velocity uses **resultant displacement**, not the distance along the curved path.\n\n**Step 1:** Find the displacement from $A$ to $C$\nThe straight-line displacement equals the sum of the two diameters:\n$$AC = 2(3) + 2(4) = 14\\text{ m}$$\n\n**Step 2:** Divide by total time\nTotal time: $2 + 5 = 7\\text{ s}$.\n$$v_{\\text{avg}} = \\frac{AC}{t} = \\frac{14}{7} = 2.0\\text{ m s}^{-1}$$\n\n**Conclusion:** $2.0\\text{ m s}^{-1}$ -> option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -976,13 +976,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['1 : 1', '1 : 2', '1 : 3', '1 : 4'],
     answer: '1 : 3',
     explanation:
-      '⚠️ **Key point:** The distance in the 2nd second means $s(2) - s(1)$, not the total displacement at $t=2\\text{ s}$.\n\n**Step 1:** Use free-fall displacement from rest\n$$s = \\frac{1}{2}gt^2$$\n\n**Step 2:** Find displacements at $t=1\\text{ s}$ and $t=2\\text{ s}$\n$$s_1 = \\frac{1}{2}g(1)^2 = \\frac{1}{2}g$$\n$$s_2 = \\frac{1}{2}g(2)^2 = 2g$$\n\n**Step 3:** Find $x$ and $y$\n$$x = s_1 = \\frac{1}{2}g$$\n$$y = s_2 - s_1 = 2g - \\frac{1}{2}g = \\frac{3}{2}g$$\n\n**Step 4:** Ratio\n$$x:y = \\left(\\frac{1}{2}g\\right):\\left(\\frac{3}{2}g\\right) = 1:3$$\n\n**Conclusion:** $x:y = 1:3$ �?option C.',
+      '⚠️ **Key point:** The distance in the 2nd second means $s(2) - s(1)$, not the total displacement at $t=2\\text{ s}$.\n\n**Step 1:** Use free-fall displacement from rest\n$$s = \\frac{1}{2}gt^2$$\n\n**Step 2:** Find displacements at $t=1\\text{ s}$ and $t=2\\text{ s}$\n$$s_1 = \\frac{1}{2}g(1)^2 = \\frac{1}{2}g$$\n$$s_2 = \\frac{1}{2}g(2)^2 = 2g$$\n\n**Step 3:** Find $x$ and $y$\n$$x = s_1 = \\frac{1}{2}g$$\n$$y = s_2 - s_1 = 2g - \\frac{1}{2}g = \\frac{3}{2}g$$\n\n**Step 4:** Ratio\n$$x:y = \\left(\\frac{1}{2}g\\right):\\left(\\frac{3}{2}g\\right) = 1:3$$\n\n**Conclusion:** $x:y = 1:3$ -> option C.',
     difficulty: 2,
     points: 15,
     hints: [
       'Since the particle starts from rest, use s = ½gt²',
       'Find s(1) and s(2)',
-      'The distance in the 2nd second is s(2) �?s(1)',
+      'The distance in the 2nd second is s(2) -s(1)',
     ],
     sectionId: 'position-movement',
   },
@@ -995,7 +995,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['50 m', '80 m', '180 m', '200 m'],
     answer: '80 m',
     explanation:
-      '⚠️ **Key point:** With uniform deceleration, the acceleration $a$ is constant, so you can use $v^2 = u^2 + 2as$ in two stages.\n\n**Step 1:** Find the deceleration using the first part\nFor the first $100\\text{ m}$:\n- $u = 30\\text{ m s}^{-1}$, $v = 20\\text{ m s}^{-1}$, $s = 100\\text{ m}$\n$$20^2 = 30^2 + 2a(100)$$\n$$400 = 900 + 200a \\;\\Rightarrow\\; a = -2.5\\text{ m s}^{-2}$$\n\n**Step 2:** Find the further stopping distance\nFrom $20\\text{ m s}^{-1}$ to rest:\n- $u = 20\\text{ m s}^{-1}$, $v = 0$, $a = -2.5\\text{ m s}^{-2}$\n$$0^2 = 20^2 + 2(-2.5)s$$\n$$0 = 400 - 5s \\;\\Rightarrow\\; s = 80\\text{ m}$$\n\n**Conclusion:** The car travels a further $80\\text{ m}$ �?option B.',
+      '⚠️ **Key point:** With uniform deceleration, the acceleration $a$ is constant, so you can use $v^2 = u^2 + 2as$ in two stages.\n\n**Step 1:** Find the deceleration using the first part\nFor the first $100\\text{ m}$:\n- $u = 30\\text{ m s}^{-1}$, $v = 20\\text{ m s}^{-1}$, $s = 100\\text{ m}$\n$$20^2 = 30^2 + 2a(100)$$\n$$400 = 900 + 200a \\;\\Rightarrow\\; a = -2.5\\text{ m s}^{-2}$$\n\n**Step 2:** Find the further stopping distance\nFrom $20\\text{ m s}^{-1}$ to rest:\n- $u = 20\\text{ m s}^{-1}$, $v = 0$, $a = -2.5\\text{ m s}^{-2}$\n$$0^2 = 20^2 + 2(-2.5)s$$\n$$0 = 400 - 5s \\;\\Rightarrow\\; s = 80\\text{ m}$$\n\n**Conclusion:** The car travels a further $80\\text{ m}$ -> option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1019,7 +1019,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '/physics/exercises/position-movement/pm-032-option-b.png',
     explanation:
-      '⚠️ **Key point:** The slope of a velocity-time ($v$�?t$) graph equals acceleration.\n\n**Step 1:** Understand the relationship\n$$\\text{slope of } v\\text{–}t \\text{ graph} = a$$\n\n**Step 2:** Analyze the $v$�?t$ graph in three time intervals\n\n**For $t = 0\\text{ s}$ to $t = 10\\text{ s}$:**\n- The slope of the $v$�?t$ graph is positive $(+)$\n- Therefore, acceleration $a$ is positive $(+)$\n\n**For $t = 10\\text{ s}$ to $t = 30\\text{ s}$:**\n- The slope of the $v$�?t$ graph is zero (horizontal line)\n- Therefore, acceleration $a = 0$\n\n**For $t = 30\\text{ s}$ to $t = 40\\text{ s}$:**\n- The slope of the $v$�?t$ graph is negative $(-)$\n- Therefore, acceleration $a$ is negative $(-)$\n\n**Step 3:** Match with the acceleration-time graph\nThe correct $a$�?t$ graph should show:\n- Positive acceleration from $0$ to $10\\text{ s}$\n- Zero acceleration from $10$ to $30\\text{ s}$\n- Negative acceleration from $30$ to $40\\text{ s}$\n\n**Conclusion:** Graph B matches this pattern �?option B.',
+      '⚠️ **Key point:** The slope of a velocity-time ($v$-$t$) graph equals acceleration.\n\n**Step 1:** Understand the relationship\n$$\\text{slope of } v\\text{–}t \\text{ graph} = a$$\n\n**Step 2:** Analyze the $v$-$t$ graph in three time intervals\n\n**For $t = 0\\text{ s}$ to $t = 10\\text{ s}$:**\n- The slope of the $v$-$t$ graph is positive $(+)$\n- Therefore, acceleration $a$ is positive $(+)$\n\n**For $t = 10\\text{ s}$ to $t = 30\\text{ s}$:**\n- The slope of the $v$-$t$ graph is zero (horizontal line)\n- Therefore, acceleration $a = 0$\n\n**For $t = 30\\text{ s}$ to $t = 40\\text{ s}$:**\n- The slope of the $v$-$t$ graph is negative $(-)$\n- Therefore, acceleration $a$ is negative $(-)$\n\n**Step 3:** Match with the acceleration-time graph\nThe correct $a$-$t$ graph should show:\n- Positive acceleration from $0$ to $10\\text{ s}$\n- Zero acceleration from $10$ to $30\\text{ s}$\n- Negative acceleration from $30$ to $40\\text{ s}$\n\n**Conclusion:** Graph B matches this pattern -> option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1040,13 +1040,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['4.34 m/s²', '8.68 m/s²', '15.63 m/s²', '31.25 m/s²'],
     answer: '8.68 m/s²',
     explanation:
-      '⚠️ **Key point:** Average acceleration is $a = \\frac{\\Delta v}{\\Delta t}$. Convert $\\text{km h}^{-1}$ to $\\text{m s}^{-1}$ first.\n\n**Step 1:** Convert speed\n$$v = 100\\times\\frac{1000}{3600} = 27.78\\text{ m s}^{-1}$$\n\n**Step 2:** Use $v = u + at$\nSince the car starts from rest, $u = 0$:\n$$a = \\frac{v-u}{t} = \\frac{27.78 - 0}{3.2} = 8.68\\text{ m s}^{-2}$$\n\n**Conclusion:** The average acceleration is $8.68\\text{ m s}^{-2}$ �?option B.',
+      '⚠️ **Key point:** Average acceleration is $a = \\frac{\\Delta v}{\\Delta t}$. Convert $\\text{km h}^{-1}$ to $\\text{m s}^{-1}$ first.\n\n**Step 1:** Convert speed\n$$v = 100\\times\\frac{1000}{3600} = 27.78\\text{ m s}^{-1}$$\n\n**Step 2:** Use $v = u + at$\nSince the car starts from rest, $u = 0$:\n$$a = \\frac{v-u}{t} = \\frac{27.78 - 0}{3.2} = 8.68\\text{ m s}^{-2}$$\n\n**Conclusion:** The average acceleration is $8.68\\text{ m s}^{-2}$ -> option B.',
     difficulty: 2,
     points: 15,
     hints: [
       'Convert 100 km/h to m/s (multiply by 1000/3600)',
       'Since it starts from rest, u = 0',
-      'Use a = (v �?u) / t',
+      'Use a = (v -u) / t',
     ],
     sectionId: 'position-movement',
   },
@@ -1059,7 +1059,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['zero.', '0.67 m s^-1', '1.33 m s^-1', '1.50 m s^-1'],
     answer: '1.33 m s^-1',
     explanation:
-      '⚠️ **Key point:** Average speed $= \\frac{\\text{total distance}}{\\text{total time}}$. For a round trip with equal distances, do not average the two speeds directly.\n\n**Step 1:** Let the distance $AB = d$\nTime from $A$ to $B$:\n$$t_1 = \\frac{d}{1} = d$$\nTime from $B$ back to $A$:\n$$t_2 = \\frac{d}{2} = \\frac{d}{2}$$\n\n**Step 2:** Total distance and total time\n$$\\text{distance} = 2d$$\n$$\\text{time} = d + \\frac{d}{2} = \\frac{3d}{2}$$\n\n**Step 3:** Average speed\n$$v_{\\text{avg}} = \\frac{2d}{\\frac{3d}{2}} = \\frac{4}{3} = 1.33\\text{ m s}^{-1}$$\n\n**Conclusion:** The average speed for the whole journey is $1.33\\text{ m s}^{-1}$ �?option C.',
+      '⚠️ **Key point:** Average speed $= \\frac{\\text{total distance}}{\\text{total time}}$. For a round trip with equal distances, do not average the two speeds directly.\n\n**Step 1:** Let the distance $AB = d$\nTime from $A$ to $B$:\n$$t_1 = \\frac{d}{1} = d$$\nTime from $B$ back to $A$:\n$$t_2 = \\frac{d}{2} = \\frac{d}{2}$$\n\n**Step 2:** Total distance and total time\n$$\\text{distance} = 2d$$\n$$\\text{time} = d + \\frac{d}{2} = \\frac{3d}{2}$$\n\n**Step 3:** Average speed\n$$v_{\\text{avg}} = \\frac{2d}{\\frac{3d}{2}} = \\frac{4}{3} = 1.33\\text{ m s}^{-1}$$\n\n**Conclusion:** The average speed for the whole journey is $1.33\\text{ m s}^{-1}$ -> option C.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1083,7 +1083,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: 'The car is moving towards $P$.',
     explanation:
-      '⚠️ **Key point:** On a distance–time graph, the slope gives the speed (rate of change of distance). A straight line means constant slope �?constant speed.\n\n**A** False. The graph is a straight line, so the slope (speed) is constant, not decreasing.\n\n**B** True. The distance from $P$ is decreasing with time, so the car is moving towards $P$.\n\n**C** False. Constant speed along a straight line means zero acceleration, so the resultant (unbalanced) force is zero.\n\n**D** False. Area under a distance–time graph has no physical meaning.\n\n**Conclusion:** The correct statement is B.',
+      '⚠️ **Key point:** On a distance–time graph, the slope gives the speed (rate of change of distance). A straight line means constant slope -> constant speed.\n\n**A** False. The graph is a straight line, so the slope (speed) is constant, not decreasing.\n\n**B** True. The distance from $P$ is decreasing with time, so the car is moving towards $P$.\n\n**C** False. Constant speed along a straight line means zero acceleration, so the resultant (unbalanced) force is zero.\n\n**D** False. Area under a distance–time graph has no physical meaning.\n\n**Conclusion:** The correct statement is B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1103,7 +1103,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
     answer: '(1) & (2) only',
     explanation:
-      '⚠️ **Key point:** On a distance–time graph, the slope gives speed and the intersection point means the two cars are at the same position at the same time.\n\n**(1)** True. At $s = 20\\text{ m}$, car $P$ corresponds to a smaller time $t$ than car $Q$, so $P$ reaches $20\\text{ m}$ first.\n\n**(2)** True. Before $t=5\\text{ s}$, car $Q$ has a larger distance (it is ahead). At $t=5\\text{ s}$, the two graphs meet, so the cars meet and $P$ is overtaking $Q$ at that instant.\n\n**(3)** False. In the first $5\\text{ s}$, both cars travel the same distance (their distances at $t=5\\text{ s}$ are equal), so their average speeds over $0$�?5\\text{ s}$ are the same.\n\n**Conclusion:** Statements (1) and (2) only �?option A.',
+      '⚠️ **Key point:** On a distance–time graph, the slope gives speed and the intersection point means the two cars are at the same position at the same time.\n\n**(1)** True. At $s = 20\\text{ m}$, car $P$ corresponds to a smaller time $t$ than car $Q$, so $P$ reaches $20\\text{ m}$ first.\n\n**(2)** True. Before $t=5\\text{ s}$, car $Q$ has a larger distance (it is ahead). At $t=5\\text{ s}$, the two graphs meet, so the cars meet and $P$ is overtaking $Q$ at that instant.\n\n**(3)** False. In the first $5\\text{ s}$, both cars travel the same distance (their distances at $t=5\\text{ s}$ are equal), so their average speeds over $0$-5\\text{ s}$ are the same.\n\n**Conclusion:** Statements (1) and (2) only -> option A.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1129,7 +1129,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '/physics/exercises/position-movement/pm-037-option-c.png',
     explanation:
-      '⚠️ **Key point:** At the moment the string breaks, the stone has the same upward velocity as the balloon, but afterwards it accelerates downward at a constant rate $g$.\n\n**Step 1:** Initial velocity\nAt $t=0$, the stone is moving upward, so $v$ starts positive.\n\n**Step 2:** Acceleration\nThe only significant force is gravity, so acceleration is constant and downward:\n$$a = -g$$\nSo the $v$�?t$ graph must be a straight line with constant negative slope.\n\n**Step 3:** Direction change\nThe velocity decreases to $0$ at the highest point, then becomes negative as the stone falls.\n\n**Conclusion:** The correct graph is the straight line with slope $-g$ crossing from positive to negative $v$ �?option C.',
+      '⚠️ **Key point:** At the moment the string breaks, the stone has the same upward velocity as the balloon, but afterwards it accelerates downward at a constant rate $g$.\n\n**Step 1:** Initial velocity\nAt $t=0$, the stone is moving upward, so $v$ starts positive.\n\n**Step 2:** Acceleration\nThe only significant force is gravity, so acceleration is constant and downward:\n$$a = -g$$\nSo the $v$-$t$ graph must be a straight line with constant negative slope.\n\n**Step 3:** Direction change\nThe velocity decreases to $0$ at the highest point, then becomes negative as the stone falls.\n\n**Conclusion:** The correct graph is the straight line with slope $-g$ crossing from positive to negative $v$ -> option C.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1148,13 +1148,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['energy', 'momentum', 'acceleration', 'displacement'],
     answer: 'displacement',
     explanation:
-      '⚠️ **Key point:** For a velocity–time graph, the area under the graph equals displacement.\n\nSince $v = \\frac{ds}{dt}$, we have:\n$$s = \\int v\\,dt$$\nSo the shaded area represents the displacement of the object.\n\n**Conclusion:** The area represents displacement �?option D.',
+      '⚠️ **Key point:** For a velocity–time graph, the area under the graph equals displacement.\n\nSince $v = \\frac{ds}{dt}$, we have:\n$$s = \\int v\\,dt$$\nSo the shaded area represents the displacement of the object.\n\n**Conclusion:** The area represents displacement -> option D.',
     difficulty: 1,
     points: 10,
     hints: [
       'On a v–t graph, the slope gives acceleration',
       'On a v–t graph, the area gives displacement',
-      'Think of s = �?v dt',
+      'Think of s = -v dt',
     ],
     sectionId: 'position-movement',
     imagePaths: ['/physics/exercises/position-movement/pm-038-question.png'],
@@ -1168,12 +1168,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) & (2) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
     answer: '(1) & (2) only',
     explanation:
-      '⚠️ **Key point:** On a $v$�?t$ graph, velocity sign indicates direction and the area gives displacement.\n\n**(1)** True. At $t=t_1$, $v=0$ and the graph crosses the time axis, so the car reverses its direction.\n\n**(2)** True. Before $t_1$, the car moves forward (positive $v$). After $t_1$, $v$ becomes negative, so it travels back. Therefore, the car is farthest from the start at $t=t_1$.\n\n**(3)** False. Displacement from $0$ to $t_2$ equals the signed area under the graph. The forward area (from $0$ to $t_1$) is not equal to the backward area (from $t_1$ to $t_2$), so the net displacement at $t_2$ is not zero.\n\n**Conclusion:** Statements (1) and (2) only �?option A.',
+      '⚠️ **Key point:** On a $v$-$t$ graph, velocity sign indicates direction and the area gives displacement.\n\n**(1)** True. At $t=t_1$, $v=0$ and the graph crosses the time axis, so the car reverses its direction.\n\n**(2)** True. Before $t_1$, the car moves forward (positive $v$). After $t_1$, $v$ becomes negative, so it travels back. Therefore, the car is farthest from the start at $t=t_1$.\n\n**(3)** False. Displacement from $0$ to $t_2$ equals the signed area under the graph. The forward area (from $0$ to $t_1$) is not equal to the backward area (from $t_1$ to $t_2$), so the net displacement at $t_2$ is not zero.\n\n**Conclusion:** Statements (1) and (2) only -> option A.',
     difficulty: 2,
     points: 15,
     hints: [
       'A change of direction occurs when velocity changes sign',
-      'At t = t�? check whether v = 0 and whether v becomes negative afterwards',
+      'At t = t- check whether v = 0 and whether v becomes negative afterwards',
       'Displacement equals the signed area under the v–t graph',
       'Returning to the start requires the total signed area to be zero',
     ],
@@ -1189,7 +1189,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['zero', '2 m s^-1', '6.3 m s^-1', '12.6 m s^-1'],
     answer: '12.6 m s^-1',
     explanation:
-      '⚠️ **Key point:** Average speed $= \\frac{\\text{total distance}}{\\text{total time}}$.\n\nSince the car returns to $A$, it completes one full circle.\n\n**Step 1:** Total distance travelled (circumference)\n$$d = 2\\pi r = 2\\pi(30) = 60\\pi \\approx 188.5\\text{ m}$$\n\n**Step 2:** Average speed\n$$v_{\\text{avg}} = \\frac{d}{t} = \\frac{188.5}{15} \\approx 12.6\\text{ m s}^{-1}$$\n\n**Conclusion:** The average speed is $12.6\\text{ m s}^{-1}$ �?option D.',
+      '⚠️ **Key point:** Average speed $= \\frac{\\text{total distance}}{\\text{total time}}$.\n\nSince the car returns to $A$, it completes one full circle.\n\n**Step 1:** Total distance travelled (circumference)\n$$d = 2\\pi r = 2\\pi(30) = 60\\pi \\approx 188.5\\text{ m}$$\n\n**Step 2:** Average speed\n$$v_{\\text{avg}} = \\frac{d}{t} = \\frac{188.5}{15} \\approx 12.6\\text{ m s}^{-1}$$\n\n**Conclusion:** The average speed is $12.6\\text{ m s}^{-1}$ -> option D.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1209,7 +1209,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['450 m', '900 m', '1800 m', '3600 m'],
     answer: '900 m',
     explanation:
-      '⚠️ **Key point:** Use $v^2 = u^2 + 2as$ for motion with constant acceleration.\n\n**Step 1:** Identify known values\n- Initial speed: $u = 0$ (starts from rest)\n- Final speed: $v = 60\\text{ m s}^{-1}$\n- Acceleration: $a = 2\\text{ m s}^{-2}$\n\n**Step 2:** Apply $v^2 = u^2 + 2as$\n$$60^2 = 0^2 + 2(2)s$$\n$$3600 = 4s \\;\\Rightarrow\\; s = 900\\text{ m}$$\n\n**Conclusion:** The minimum take-off distance is $900\\text{ m}$ �?option B.',
+      '⚠️ **Key point:** Use $v^2 = u^2 + 2as$ for motion with constant acceleration.\n\n**Step 1:** Identify known values\n- Initial speed: $u = 0$ (starts from rest)\n- Final speed: $v = 60\\text{ m s}^{-1}$\n- Acceleration: $a = 2\\text{ m s}^{-2}$\n\n**Step 2:** Apply $v^2 = u^2 + 2as$\n$$60^2 = 0^2 + 2(2)s$$\n$$3600 = 4s \\;\\Rightarrow\\; s = 900\\text{ m}$$\n\n**Conclusion:** The minimum take-off distance is $900\\text{ m}$ -> option B.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -1228,14 +1228,14 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(1) only',
     explanation:
-      '⚠️ **Key point:** On a velocity–time graph, the area under the curve gives displacement.\n\n**(1)** True. From $t=0$ to $t=t_1$, the area under $P$’s graph is greater than that under $Q$’s graph, so $P$ covers a larger distance in the same time. Therefore, $P$ has a larger average speed.\n\n**(2)** False. At $t=t_1$, the areas (displacements) of $P$ and $Q$ are different, so they are at different positions.\n\n**(3)** False. At $t=t_2$, the area under $P$’s graph is greater, so $P$ has travelled further and is ahead of $Q$, not the other way around.\n\n**Conclusion:** Only statement (1) is correct �?option A.',
+      '⚠️ **Key point:** On a velocity–time graph, the area under the curve gives displacement.\n\n**(1)** True. From $t=0$ to $t=t_1$, the area under $P$’s graph is greater than that under $Q$’s graph, so $P$ covers a larger distance in the same time. Therefore, $P$ has a larger average speed.\n\n**(2)** False. At $t=t_1$, the areas (displacements) of $P$ and $Q$ are different, so they are at different positions.\n\n**(3)** False. At $t=t_2$, the area under $P$’s graph is greater, so $P$ has travelled further and is ahead of $Q$, not the other way around.\n\n**Conclusion:** Only statement (1) is correct -> option A.',
     difficulty: 2,
     points: 15,
     hints: [
       'Area under a v–t graph represents displacement',
       'Compare the areas under P and Q from 0 to t1',
       'Being at the same point at t1 requires equal displacement up to t1',
-      'Compare total areas up to t�?to see who is ahead',
+      'Compare total areas up to t-to see who is ahead',
     ],
     sectionId: 'position-movement',
     imagePaths: ['/physics/exercises/position-movement/pm-042-question.png'],
@@ -1249,7 +1249,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['zero', '0.8 s', '4.2 s', '5.0 s'],
     answer: '0.8 s',
     explanation:
-      '⚠️ **Key point:** Reaction time is the time between noticing the accident and starting to brake.\n\nOn a speed–time graph, the car travels at constant speed before braking begins, so the graph is horizontal during the reaction time.\n\nFrom the graph, the length of this initial horizontal segment is $0.8\\text{ s}$.\n\n**Conclusion:** Reaction time = $0.8\\text{ s}$ �?option B.',
+      '⚠️ **Key point:** Reaction time is the time between noticing the accident and starting to brake.\n\nOn a speed–time graph, the car travels at constant speed before braking begins, so the graph is horizontal during the reaction time.\n\nFrom the graph, the length of this initial horizontal segment is $0.8\\text{ s}$.\n\n**Conclusion:** Reaction time = $0.8\\text{ s}$ -> option B.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -1269,7 +1269,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['29.4 m', '40.6 m', '46.2 m', '81.2 m'],
     answer: '40.6 m',
     explanation:
-      '⚠️ **Key point:** On a speed–time graph, the area under the graph equals the distance travelled.\n\nFrom the graph:\n- Speed is $14\\text{ m s}^{-1}$ during the reaction time $0$�?0.8\\text{ s}$ (horizontal segment)\n- Then the car decelerates uniformly to rest at $t=5.0\\text{ s}$\n\n**Step 1:** Split the area into a rectangle and a triangle\nRectangle (0�?.8 s):\n$$A_1 = (0.8)(14) = 11.2\\text{ m}$$\nTriangle (0.8�?.0 s):\n$$A_2 = \\frac{1}{2}(5.0-0.8)(14) = \\frac{1}{2}(4.2)(14) = 29.4\\text{ m}$$\n\n**Step 2:** Total distance\n$$s = A_1 + A_2 = 11.2 + 29.4 = 40.6\\text{ m}$$\n\n**Conclusion:** The distance travelled from $t=0$ to $5.0\\text{ s}$ is $40.6\\text{ m}$ �?option B.',
+      '⚠️ **Key point:** On a speed–time graph, the area under the graph equals the distance travelled.\n\nFrom the graph:\n- Speed is $14\\text{ m s}^{-1}$ during the reaction time $0$-0.8\\text{ s}$ (horizontal segment)\n- Then the car decelerates uniformly to rest at $t=5.0\\text{ s}$\n\n**Step 1:** Split the area into a rectangle and a triangle\nRectangle (0-.8 s):\n$$A_1 = (0.8)(14) = 11.2\\text{ m}$$\nTriangle (0.8-.0 s):\n$$A_2 = \\frac{1}{2}(5.0-0.8)(14) = \\frac{1}{2}(4.2)(14) = 29.4\\text{ m}$$\n\n**Step 2:** Total distance\n$$s = A_1 + A_2 = 11.2 + 29.4 = 40.6\\text{ m}$$\n\n**Conclusion:** The distance travelled from $t=0$ to $5.0\\text{ s}$ is $40.6\\text{ m}$ -> option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1289,13 +1289,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(2) only',
     explanation:
-      '⚠️ **Key point:** On a $v$�?t$ graph, the area gives displacement, and average acceleration depends only on the change in velocity over time.\n\n**(1) Average velocity**\n$$\\text{average velocity} = \\frac{\\text{displacement}}{\\text{time}}$$\nFrom $0$ to $T$, displacement equals the area under the $v$�?t$ graph. The areas for cars $A$ and $B$ are different, so their displacements (and hence average velocities) are different. Statement (1) is false.\n\n**(2) Average acceleration**\n$$\\text{average acceleration} = \\frac{v-u}{T}$$\nBoth cars start from rest ($u=0$) and, from the graph, have the same final velocity at $t=T$. Therefore, they have the same average acceleration. Statement (2) is true.\n\n**(3) Displacement**\nSince the areas under the two $v$�?t$ graphs from $0$ to $T$ are different, the displacements are different. Statement (3) is false.\n\n**Conclusion:** Only statement (2) is always correct �?option B.',
+      '⚠️ **Key point:** On a $v$-$t$ graph, the area gives displacement, and average acceleration depends only on the change in velocity over time.\n\n**(1) Average velocity**\n$$\\text{average velocity} = \\frac{\\text{displacement}}{\\text{time}}$$\nFrom $0$ to $T$, displacement equals the area under the $v$-$t$ graph. The areas for cars $A$ and $B$ are different, so their displacements (and hence average velocities) are different. Statement (1) is false.\n\n**(2) Average acceleration**\n$$\\text{average acceleration} = \\frac{v-u}{T}$$\nBoth cars start from rest ($u=0$) and, from the graph, have the same final velocity at $t=T$. Therefore, they have the same average acceleration. Statement (2) is true.\n\n**(3) Displacement**\nSince the areas under the two $v$-$t$ graphs from $0$ to $T$ are different, the displacements are different. Statement (3) is false.\n\n**Conclusion:** Only statement (2) is always correct -> option B.',
     difficulty: 2,
     points: 15,
     hints: [
       'Area under a v–t graph represents displacement',
       'Average velocity = displacement / time',
-      'Average acceleration depends on (v �?u) / T',
+      'Average acceleration depends on (v -u) / T',
       'Check u at t = 0 and v at t = T from the graph',
     ],
     sectionId: 'position-movement',
@@ -1315,7 +1315,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '$v_1$ is always smaller than $v_2$.',
     explanation:
-      '⚠️ **Key point:** With uniform acceleration, the speed increases with time. In the first half of the time, the car has not yet reached the midpoint in distance.\n\nLet the total travel time be $T$.\n- At $t = \\tfrac{1}{2}T$, the speed is $v_1$.\n- At the midpoint of the distance, the car reaches it at some time $t_m$.\n\nBecause the motion is accelerating, the distance–time graph is concave upward, so the car covers **less than half** the total distance in the first half of the time:\n$$s\\left(\\tfrac{T}{2}\\right) < \\tfrac{1}{2}s(T)$$\nHence $t_m > \\tfrac{1}{2}T$.\n\nSince speed increases with time, a later time corresponds to a larger speed, so\n$$v_2 = v(t_m) > v\\left(\\tfrac{T}{2}\\right) = v_1.$$\n\n**Conclusion:** $v_1$ is always smaller than $v_2$ �?option A.',
+      '⚠️ **Key point:** With uniform acceleration, the speed increases with time. In the first half of the time, the car has not yet reached the midpoint in distance.\n\nLet the total travel time be $T$.\n- At $t = \\tfrac{1}{2}T$, the speed is $v_1$.\n- At the midpoint of the distance, the car reaches it at some time $t_m$.\n\nBecause the motion is accelerating, the distance–time graph is concave upward, so the car covers **less than half** the total distance in the first half of the time:\n$$s\\left(\\tfrac{T}{2}\\right) < \\tfrac{1}{2}s(T)$$\nHence $t_m > \\tfrac{1}{2}T$.\n\nSince speed increases with time, a later time corresponds to a larger speed, so\n$$v_2 = v(t_m) > v\\left(\\tfrac{T}{2}\\right) = v_1.$$\n\n**Conclusion:** $v_1$ is always smaller than $v_2$ -> option A.',
     difficulty: 3,
     points: 20,
     hints: [
@@ -1342,7 +1342,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '/physics/exercises/position-movement/pm-047-option-c.png',
     explanation:
-      "⚠️ **Key point:** On a velocity–time graph, the slope equals acceleration. In free fall from rest, $v = gt$, so the graph is a straight line through the origin with slope $g$.\n\nSince $g_{\\text{Moon}} \\approx \\frac{1}{6}g_{\\text{Earth}}$, the Moon's $v$�?t$ line must be **less steep** than the Earth's line.\n\n**Conclusion:** The correct pair of graphs is option C.",
+      "⚠️ **Key point:** On a velocity–time graph, the slope equals acceleration. In free fall from rest, $v = gt$, so the graph is a straight line through the origin with slope $g$.\n\nSince $g_{\\text{Moon}} \\approx \\frac{1}{6}g_{\\text{Earth}}$, the Moon's $v$-$t$ line must be **less steep** than the Earth's line.\n\n**Conclusion:** The correct pair of graphs is option C.",
     difficulty: 2,
     points: 15,
     hints: [
@@ -1361,7 +1361,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['1.05 m/s²', '2.10 m/s²', '10.2 m/s²', '20.5 m/s²'],
     answer: '2.10 m/s²',
     explanation:
-      '⚠️ **Key point:** The bicycle starts from rest, so $u = 0$. Use $s = ut + \\frac{1}{2}at^2$ and solve for $a$.\n\n**Step 1:** Substitute $u = 0$\n$$s = \\frac{1}{2}at^2$$\n\n**Step 2:** Solve for $a$\n$$a = \\frac{2s}{t^2}$$\n\n**Step 3:** Substitute $s = 100\\text{ m}$ and $t = 9.77\\text{ s}$\n$$a = \\frac{2(100)}{(9.77)^2} \\approx 2.10\\text{ m/s}^2$$\n\n**Conclusion:** The acceleration is $2.10\\text{ m/s}^2$ �?option B.',
+      '⚠️ **Key point:** The bicycle starts from rest, so $u = 0$. Use $s = ut + \\frac{1}{2}at^2$ and solve for $a$.\n\n**Step 1:** Substitute $u = 0$\n$$s = \\frac{1}{2}at^2$$\n\n**Step 2:** Solve for $a$\n$$a = \\frac{2s}{t^2}$$\n\n**Step 3:** Substitute $s = 100\\text{ m}$ and $t = 9.77\\text{ s}$\n$$a = \\frac{2(100)}{(9.77)^2} \\approx 2.10\\text{ m/s}^2$$\n\n**Conclusion:** The acceleration is $2.10\\text{ m/s}^2$ -> option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1385,7 +1385,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '/physics/exercises/position-movement/pm-049-option-d.png',
     explanation:
-      '⚠️ **Key point:** Velocity is the slope of a displacement–time ($s$�?t$) graph, and acceleration is the slope of a velocity–time ($v$�?t$) graph.\n\nFrom the $s$�?t$ graph:\n- **First part:** the slope increases steadily �?velocity increases linearly �?constant positive acceleration (straight line in $v$�?t$).\n- **Second part:** the slope is constant �?velocity is constant �?zero acceleration (horizontal segment in $v$�?t$).\n- **Third part:** the slope increases again but more gently �?velocity increases linearly with a smaller slope �?constant acceleration smaller than in the first part.\n\n**Conclusion:** The matching $v$�?t$ graph is option D.',
+      '⚠️ **Key point:** Velocity is the slope of a displacement–time ($s$-$t$) graph, and acceleration is the slope of a velocity–time ($v$-$t$) graph.\n\nFrom the $s$-$t$ graph:\n- **First part:** the slope increases steadily -> velocity increases linearly -> constant positive acceleration (straight line in $v$-$t$).\n- **Second part:** the slope is constant -> velocity is constant -> zero acceleration (horizontal segment in $v$-$t$).\n- **Third part:** the slope increases again but more gently -> velocity increases linearly with a smaller slope -> constant acceleration smaller than in the first part.\n\n**Conclusion:** The matching $v$-$t$ graph is option D.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1411,7 +1411,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '$0.5 \\text{ m s}^{-2}$',
     explanation:
-      '⚠️ **Key point:** For motion with constant acceleration, $v^2 = u^2 + 2as$. The slope of a $v^2$�?s$ graph equals $2a$.\n\n**Step 1:** Identify the equation\nFor constant acceleration:\n$$v^2 = u^2 + 2as$$\n\n**Step 2:** Read two points from the graph\nFrom the graph:\n- When $s = 0$, $v^2 = 1$\n- When $s = 1$, $v^2 = 2$\n\n**Step 3:** Apply the equation\nAt $s = 0$:\n$$v^2 = u^2 + 2a(0) \\;\\Rightarrow\\; u^2 = 1$$\n\nAt $s = 1$:\n$$v^2 = u^2 + 2a(1)$$\n$$2 = 1 + 2a(1)$$\n$$2 = 1 + 2a$$\n$$2a = 2 - 1 = 1$$\n$$a = 0.5 \\text{ m s}^{-2}$$\n\n**Verification:**\nUsing $v^2 = u^2 + 2as$ with $u^2 = 1$ and $a = 0.5$:\n- At $s = 0$: $v^2 = 1 + 2(0.5)(0) = 1$ ✓\n- At $s = 1$: $v^2 = 1 + 2(0.5)(1) = 1 + 1 = 2$ ✓\n\n**Conclusion:** The acceleration is $0.5 \\text{ m s}^{-2}$ �?option A.',
+      '⚠️ **Key point:** For motion with constant acceleration, $v^2 = u^2 + 2as$. The slope of a $v^2$-$s$ graph equals $2a$.\n\n**Step 1:** Identify the equation\nFor constant acceleration:\n$$v^2 = u^2 + 2as$$\n\n**Step 2:** Read two points from the graph\nFrom the graph:\n- When $s = 0$, $v^2 = 1$\n- When $s = 1$, $v^2 = 2$\n\n**Step 3:** Apply the equation\nAt $s = 0$:\n$$v^2 = u^2 + 2a(0) \\;\\Rightarrow\\; u^2 = 1$$\n\nAt $s = 1$:\n$$v^2 = u^2 + 2a(1)$$\n$$2 = 1 + 2a(1)$$\n$$2 = 1 + 2a$$\n$$2a = 2 - 1 = 1$$\n$$a = 0.5 \\text{ m s}^{-2}$$\n\n**Verification:**\nUsing $v^2 = u^2 + 2as$ with $u^2 = 1$ and $a = 0.5$:\n- At $s = 0$: $v^2 = 1 + 2(0.5)(0) = 1$ ✓\n- At $s = 1$: $v^2 = 1 + 2(0.5)(1) = 1 + 1 = 2$ ✓\n\n**Conclusion:** The acceleration is $0.5 \\text{ m s}^{-2}$ -> option A.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1437,7 +1437,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '$3.13 \\text{ m s}^{-1}$',
     explanation:
-      '⚠️ **Key point:** At the maximum height, the vertical velocity is zero. Use $v^2 = u^2 + 2as$ with the known displacement and acceleration.\n\n**Step 1:** Identify known values\n- Maximum height: $s = 0.5\\text{ m}$\n- At maximum height: final velocity $v = 0$ (momentarily stops)\n- Acceleration: $a = -g = -9.81\\text{ m s}^{-2}$ (downward, opposite to motion)\n- Unknown: initial velocity $u$ (speed when leaving surface)\n\n**Step 2:** Apply the equation\nUsing $v^2 = u^2 + 2as$:\n$$(0)^2 = u^2 + 2(-9.81)(0.5)$$\n$$0 = u^2 - 9.81$$\n$$u^2 = 9.81$$\n$$u = \\sqrt{9.81} = 3.13\\text{ m s}^{-1}$$\n\n**Verification:**\nUsing $v^2 = u^2 + 2as$ with $u = 3.13\\text{ m s}^{-1}$:\n$$v^2 = (3.13)^2 + 2(-9.81)(0.5) = 9.80 - 9.81 \\approx 0$$\nAt maximum height, $v = 0$ ✓\n\n**Conclusion:** The speed when the fish just leaves the surface is $3.13\\text{ m s}^{-1}$ �?option A.',
+      '⚠️ **Key point:** At the maximum height, the vertical velocity is zero. Use $v^2 = u^2 + 2as$ with the known displacement and acceleration.\n\n**Step 1:** Identify known values\n- Maximum height: $s = 0.5\\text{ m}$\n- At maximum height: final velocity $v = 0$ (momentarily stops)\n- Acceleration: $a = -g = -9.81\\text{ m s}^{-2}$ (downward, opposite to motion)\n- Unknown: initial velocity $u$ (speed when leaving surface)\n\n**Step 2:** Apply the equation\nUsing $v^2 = u^2 + 2as$:\n$$(0)^2 = u^2 + 2(-9.81)(0.5)$$\n$$0 = u^2 - 9.81$$\n$$u^2 = 9.81$$\n$$u = \\sqrt{9.81} = 3.13\\text{ m s}^{-1}$$\n\n**Verification:**\nUsing $v^2 = u^2 + 2as$ with $u = 3.13\\text{ m s}^{-1}$:\n$$v^2 = (3.13)^2 + 2(-9.81)(0.5) = 9.80 - 9.81 \\approx 0$$\nAt maximum height, $v = 0$ ✓\n\n**Conclusion:** The speed when the fish just leaves the surface is $3.13\\text{ m s}^{-1}$ -> option A.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1462,7 +1462,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: 'A shorter time interval is used.',
     explanation:
-      '⚠️ **Key point:** For free fall from rest, $s = \\frac{1}{2}gt^2$. The displacement depends on time squared, not on mass. A shorter time interval means smaller displacements between consecutive positions.\n\n**Step 1:** Understand the motion equation\nFor a stone released from rest:\n$$s = ut + \\frac{1}{2}at^2$$\nSince $u = 0$ (released from rest) and $a = g$:\n$$s = \\frac{1}{2}gt^2$$\n\n**Step 2:** Analyze Picture (a) vs Picture (b)\n- Picture (a): Positions are more separated (larger distances between consecutive positions)\n- Picture (b): Positions are closer together (smaller distances between consecutive positions)\n\n**Step 3:** Evaluate each option\n\n**Option A: A shorter time interval is used.** �?**Correct**\n- If time interval $T$ is shorter, then $t$ (time from release) is smaller\n- Since $s = \\frac{1}{2}gt^2$ and $s \\propto t^2$, smaller $t$ gives smaller $s$\n- Therefore, positions will be closer together �?matches Picture (b)\n\n**Option B: A longer time interval is used.** �?**Incorrect**\n- If time interval $T$ is longer, then $t$ is larger\n- Larger $t$ gives larger $s$ (since $s \\propto t^2$)\n- Positions will be more separated �?matches Picture (a), not Picture (b)\n\n**Option C: A lighter stone is used.** �?**Incorrect**\n- Acceleration due to gravity $g$ is independent of mass\n- Since $s = \\frac{1}{2}gt^2$ and $g$ is unchanged, the positions remain the same\n- No change in the path �?incorrect\n\n**Option D: A heavier stone is used.** �?**Incorrect**\n- Same reasoning as Option C\n- Acceleration $g$ is independent of mass\n- Positions remain unchanged �?incorrect\n\n**Conclusion:** Only Option A is correct �?option A.',
+      '⚠️ **Key point:** For free fall from rest, $s = \\frac{1}{2}gt^2$. The displacement depends on time squared, not on mass. A shorter time interval means smaller displacements between consecutive positions.\n\n**Step 1:** Understand the motion equation\nFor a stone released from rest:\n$$s = ut + \\frac{1}{2}at^2$$\nSince $u = 0$ (released from rest) and $a = g$:\n$$s = \\frac{1}{2}gt^2$$\n\n**Step 2:** Analyze Picture (a) vs Picture (b)\n- Picture (a): Positions are more separated (larger distances between consecutive positions)\n- Picture (b): Positions are closer together (smaller distances between consecutive positions)\n\n**Step 3:** Evaluate each option\n\n**Option A: A shorter time interval is used.** -> **Correct**\n- If time interval $T$ is shorter, then $t$ (time from release) is smaller\n- Since $s = \\frac{1}{2}gt^2$ and $s \\propto t^2$, smaller $t$ gives smaller $s$\n- Therefore, positions will be closer together -> matches Picture (b)\n\n**Option B: A longer time interval is used.** -> **Incorrect**\n- If time interval $T$ is longer, then $t$ is larger\n- Larger $t$ gives larger $s$ (since $s \\propto t^2$)\n- Positions will be more separated -> matches Picture (a), not Picture (b)\n\n**Option C: A lighter stone is used.** -> **Incorrect**\n- Acceleration due to gravity $g$ is independent of mass\n- Since $s = \\frac{1}{2}gt^2$ and $g$ is unchanged, the positions remain the same\n- No change in the path -> incorrect\n\n**Option D: A heavier stone is used.** -> **Incorrect**\n- Same reasoning as Option C\n- Acceleration $g$ is independent of mass\n- Positions remain unchanged -> incorrect\n\n**Conclusion:** Only Option A is correct -> option A.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1488,7 +1488,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: 'At $t=20\\text{ s}$, the car catches up the truck.',
     explanation:
-      '⚠️ **Key point:** The area under a velocity-time ($v$�?t$) graph equals displacement. Compare the areas under each graph to find their relative positions.\n\n**Step 1:** Understand the relationship\n$$\\text{Area under } v\\text{–}t \\text{ graph} = \\text{displacement}$$\n\n**Step 2:** Calculate displacements at $t = 10\\text{ s}$\n\n**Car (triangle from $0$ to $10\\text{ s}$):**\n$$s_{\\text{car}} = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(10)(10) = 50\\text{ m}$$\n\n**Truck (rectangle from $0$ to $10\\text{ s}$):**\n$$s_{\\text{truck}} = \\text{base} \\times \\text{height} = (10)(10) = 100\\text{ m}$$\n\n**Relative position:**\n$$\\Delta s = s_{\\text{truck}} - s_{\\text{car}} = 100 - 50 = 50\\text{ m}$$\nThe car is $50\\text{ m}$ behind the truck (not $100\\text{ m}$).\n\n**Step 3:** Calculate displacements at $t = 20\\text{ s}$\n\n**Car (triangle from $0$ to $20\\text{ s}$):**\n$$s_{\\text{car}} = \\frac{1}{2}(20)(20) = 200\\text{ m}$$\n\n**Truck (rectangle from $0$ to $20\\text{ s}$):**\n$$s_{\\text{truck}} = (10)(20) = 200\\text{ m}$$\n\n**Relative position:**\n$$\\Delta s = s_{\\text{truck}} - s_{\\text{car}} = 200 - 200 = 0\\text{ m}$$\nThe car catches up the truck (displacements are equal).\n\n**Step 4:** Evaluate each option\n\n**Option A:** "At $t=10\\text{ s}$, the car is $100\\text{ m}$ behind the truck." �?**Incorrect**\n- At $t=10\\text{ s}$, the car is $50\\text{ m}$ behind, not $100\\text{ m}$\n\n**Option B:** "At $t=10\\text{ s}$, the car catches up the truck." �?**Incorrect**\n- At $t=10\\text{ s}$, the car is still $50\\text{ m}$ behind\n\n**Option C:** "At $t=20\\text{ s}$, the car is $100\\text{ m}$ behind the truck." �?**Incorrect**\n- At $t=20\\text{ s}$, the car catches up (displacements are equal)\n\n**Option D:** "At $t=20\\text{ s}$, the car catches up the truck." �?**Correct**\n- At $t=20\\text{ s}$, both have displacement $200\\text{ m}$\n- The car catches up the truck\n\n**Conclusion:** Only Option D is correct �?option D.',
+      '⚠️ **Key point:** The area under a velocity-time ($v$-$t$) graph equals displacement. Compare the areas under each graph to find their relative positions.\n\n**Step 1:** Understand the relationship\n$$\\text{Area under } v\\text{–}t \\text{ graph} = \\text{displacement}$$\n\n**Step 2:** Calculate displacements at $t = 10\\text{ s}$\n\n**Car (triangle from $0$ to $10\\text{ s}$):**\n$$s_{\\text{car}} = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(10)(10) = 50\\text{ m}$$\n\n**Truck (rectangle from $0$ to $10\\text{ s}$):**\n$$s_{\\text{truck}} = \\text{base} \\times \\text{height} = (10)(10) = 100\\text{ m}$$\n\n**Relative position:**\n$$\\Delta s = s_{\\text{truck}} - s_{\\text{car}} = 100 - 50 = 50\\text{ m}$$\nThe car is $50\\text{ m}$ behind the truck (not $100\\text{ m}$).\n\n**Step 3:** Calculate displacements at $t = 20\\text{ s}$\n\n**Car (triangle from $0$ to $20\\text{ s}$):**\n$$s_{\\text{car}} = \\frac{1}{2}(20)(20) = 200\\text{ m}$$\n\n**Truck (rectangle from $0$ to $20\\text{ s}$):**\n$$s_{\\text{truck}} = (10)(20) = 200\\text{ m}$$\n\n**Relative position:**\n$$\\Delta s = s_{\\text{truck}} - s_{\\text{car}} = 200 - 200 = 0\\text{ m}$$\nThe car catches up the truck (displacements are equal).\n\n**Step 4:** Evaluate each option\n\n**Option A:** "At $t=10\\text{ s}$, the car is $100\\text{ m}$ behind the truck." -> **Incorrect**\n- At $t=10\\text{ s}$, the car is $50\\text{ m}$ behind, not $100\\text{ m}$\n\n**Option B:** "At $t=10\\text{ s}$, the car catches up the truck." -> **Incorrect**\n- At $t=10\\text{ s}$, the car is still $50\\text{ m}$ behind\n\n**Option C:** "At $t=20\\text{ s}$, the car is $100\\text{ m}$ behind the truck." -> **Incorrect**\n- At $t=20\\text{ s}$, the car catches up (displacements are equal)\n\n**Option D:** "At $t=20\\text{ s}$, the car catches up the truck." -> **Correct**\n- At $t=20\\text{ s}$, both have displacement $200\\text{ m}$\n- The car catches up the truck\n\n**Conclusion:** Only Option D is correct -> option D.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1509,7 +1509,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(2) only', '(3) only', '(1) & (2) only', '(1) & (3) only'],
     answer: '(2) only',
     explanation:
-      '⚠️ **Key point:** On a velocity-time graph, the initial speed is the starting velocity, the horizontal line represents reaction time (constant velocity before braking), and the area under the graph represents total stopping distance.\n\n**Step 1:** Analyze Statement (1): "The two cars have the same initial speeds."\n\n**From the graph:**\n- Car $P$ starts at a higher initial velocity (approximately twice that of car $Q$)\n- Car $Q$ starts at a lower initial velocity\n\n**Conclusion:** Statement (1) is **incorrect** ✗\n\nThe two cars do **not** have the same initial speeds. Car $P$ has approximately twice the initial speed of car $Q$.\n\n**Step 2:** Analyze Statement (2): "The reaction times of John and Mary are the same."\n\n**Understanding reaction time:**\n- Reaction time is the time interval during which the driver reacts before applying brakes\n- On a $v$�?t$ graph, this appears as a horizontal line (constant velocity, no deceleration yet)\n\n**From the graph:**\n- Both cars $P$ and $Q$ have horizontal lines of the same duration\n- The time intervals before the velocity starts decreasing are equal\n\n**Conclusion:** Statement (2) is **correct** ✓\n\nThe reaction times of John and Mary are the same (equal horizontal line durations).\n\n**Step 3:** Analyze Statement (3): "The total stopping distances of the two cars are the same."\n\n**Understanding stopping distance:**\n- Total stopping distance equals the area under the velocity-time graph\n- This includes both the distance travelled during reaction time and the distance travelled during braking\n\n**From the graph:**\n- Car $P$: Larger area under the graph (higher initial speed, longer braking distance)\n- Car $Q$: Smaller area under the graph (lower initial speed, shorter braking distance)\n\n**Conclusion:** Statement (3) is **incorrect** ✗\n\nThe total stopping distance of car $P$ is greater than that of car $Q$ (larger area under the graph).\n\n**Summary:**\n- Statement (1): �?Incorrect (different initial speeds)\n- Statement (2): �?Correct (same reaction times)\n- Statement (3): �?Incorrect (different stopping distances)\n\n**Conclusion:** Only statement (2) is correct �?option A: **(2) only**.',
+      '⚠️ **Key point:** On a velocity-time graph, the initial speed is the starting velocity, the horizontal line represents reaction time (constant velocity before braking), and the area under the graph represents total stopping distance.\n\n**Step 1:** Analyze Statement (1): "The two cars have the same initial speeds."\n\n**From the graph:**\n- Car $P$ starts at a higher initial velocity (approximately twice that of car $Q$)\n- Car $Q$ starts at a lower initial velocity\n\n**Conclusion:** Statement (1) is **incorrect** ✗\n\nThe two cars do **not** have the same initial speeds. Car $P$ has approximately twice the initial speed of car $Q$.\n\n**Step 2:** Analyze Statement (2): "The reaction times of John and Mary are the same."\n\n**Understanding reaction time:**\n- Reaction time is the time interval during which the driver reacts before applying brakes\n- On a $v$-$t$ graph, this appears as a horizontal line (constant velocity, no deceleration yet)\n\n**From the graph:**\n- Both cars $P$ and $Q$ have horizontal lines of the same duration\n- The time intervals before the velocity starts decreasing are equal\n\n**Conclusion:** Statement (2) is **correct** ✓\n\nThe reaction times of John and Mary are the same (equal horizontal line durations).\n\n**Step 3:** Analyze Statement (3): "The total stopping distances of the two cars are the same."\n\n**Understanding stopping distance:**\n- Total stopping distance equals the area under the velocity-time graph\n- This includes both the distance travelled during reaction time and the distance travelled during braking\n\n**From the graph:**\n- Car $P$: Larger area under the graph (higher initial speed, longer braking distance)\n- Car $Q$: Smaller area under the graph (lower initial speed, shorter braking distance)\n\n**Conclusion:** Statement (3) is **incorrect** ✗\n\nThe total stopping distance of car $P$ is greater than that of car $Q$ (larger area under the graph).\n\n**Summary:**\n- Statement (1): -Incorrect (different initial speeds)\n- Statement (2): -> Correct (same reaction times)\n- Statement (3): -Incorrect (different stopping distances)\n\n**Conclusion:** Only statement (2) is correct -> option A: **(2) only**.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1530,7 +1530,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['$0.1\\text{ s}$', '$10\\text{ s}$', '$36\\text{ s}$', '$360\\text{ s}$'],
     answer: '$36\\text{ s}$',
     explanation:
-      '⚠️ **Key point:** When using the equation $s = ut$, ensure all quantities are in consistent SI units (metres and seconds).\n\n**Step 1:** Convert speed from km/h to m/s\n$$50\\text{ km h}^{-1} = 50 \\times \\frac{1000\\text{ m}}{3600\\text{ s}} = 50 \\times \\frac{1000}{3600}\\text{ m s}^{-1}$$\n\nSimplifying:\n$$50 \\times \\frac{1000}{3600} = 50 \\times \\frac{5}{18} = \\frac{250}{18} = \\frac{125}{9} \\approx 13.89\\text{ m s}^{-1}$$\n\n**Step 2:** Apply the equation\nFor constant speed:\n$$s = ut$$\n\nSubstitute known values:\n- Displacement: $s = 500\\text{ m}$\n- Speed: $u = 50 \\times \\frac{1000}{3600}\\text{ m s}^{-1}$\n- Time: $t$ (unknown)\n\n$$500 = \\left(50 \\times \\frac{1000}{3600}\\right) t$$\n\n**Step 3:** Solve for $t$\n$$500 = \\frac{125}{9} t$$\n$$t = 500 \\times \\frac{9}{125} = \\frac{4500}{125} = 36\\text{ s}$$\n\n**Alternative calculation:**\n$$t = \\frac{s}{u} = \\frac{500}{50 \\times \\frac{1000}{3600}} = \\frac{500 \\times 3600}{50 \\times 1000} = \\frac{1,800,000}{50,000} = 36\\text{ s}$$\n\n**Verification:**\nUsing $s = ut$ with $u = \\frac{125}{9}\\text{ m s}^{-1}$ and $t = 36\\text{ s}$:\n$$s = \\frac{125}{9} \\times 36 = \\frac{125 \\times 36}{9} = 125 \\times 4 = 500\\text{ m} \\checkmark$$\n\n**Conclusion:** The time taken is $36\\text{ s}$ �?option C.',
+      '⚠️ **Key point:** When using the equation $s = ut$, ensure all quantities are in consistent SI units (metres and seconds).\n\n**Step 1:** Convert speed from km/h to m/s\n$$50\\text{ km h}^{-1} = 50 \\times \\frac{1000\\text{ m}}{3600\\text{ s}} = 50 \\times \\frac{1000}{3600}\\text{ m s}^{-1}$$\n\nSimplifying:\n$$50 \\times \\frac{1000}{3600} = 50 \\times \\frac{5}{18} = \\frac{250}{18} = \\frac{125}{9} \\approx 13.89\\text{ m s}^{-1}$$\n\n**Step 2:** Apply the equation\nFor constant speed:\n$$s = ut$$\n\nSubstitute known values:\n- Displacement: $s = 500\\text{ m}$\n- Speed: $u = 50 \\times \\frac{1000}{3600}\\text{ m s}^{-1}$\n- Time: $t$ (unknown)\n\n$$500 = \\left(50 \\times \\frac{1000}{3600}\\right) t$$\n\n**Step 3:** Solve for $t$\n$$500 = \\frac{125}{9} t$$\n$$t = 500 \\times \\frac{9}{125} = \\frac{4500}{125} = 36\\text{ s}$$\n\n**Alternative calculation:**\n$$t = \\frac{s}{u} = \\frac{500}{50 \\times \\frac{1000}{3600}} = \\frac{500 \\times 3600}{50 \\times 1000} = \\frac{1,800,000}{50,000} = 36\\text{ s}$$\n\n**Verification:**\nUsing $s = ut$ with $u = \\frac{125}{9}\\text{ m s}^{-1}$ and $t = 36\\text{ s}$:\n$$s = \\frac{125}{9} \\times 36 = \\frac{125 \\times 36}{9} = 125 \\times 4 = 500\\text{ m} \\checkmark$$\n\n**Conclusion:** The time taken is $36\\text{ s}$ -> option C.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -1550,7 +1550,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(1) only',
     explanation:
-      '⚠️ **Key point:** Displacement is a vector (straight-line distance from start to finish), distance is a scalar (length of path travelled), and average speed = distance / time.\n\n**Step 1:** Analyze Statement (1): "displacement"\n\n**Understanding displacement:**\n- Displacement is the straight-line distance from the starting point to the ending point\n- It is a vector quantity with both magnitude and direction\n- Displacement depends only on the initial and final positions, not on the path taken\n\n**From the problem:**\n- All three students start at point $X$ and end at point $Y$\n- The straight-line distance from $X$ to $Y$ is the same regardless of which path ($P_1$, $P_2$, or $P_3$) is taken\n\n**Conclusion:** Statement (1) is **correct** ✓\n\nAll three students have the same displacement (same straight-line distance from $X$ to $Y$).\n\n**Step 2:** Analyze Statement (2): "distance"\n\n**Understanding distance:**\n- Distance is the total length of the path travelled\n- It is a scalar quantity (magnitude only)\n- Distance depends on the actual path taken\n\n**From the problem:**\n- Path $P_1$, $P_2$, and $P_3$ are different paths with different lengths\n- Each student travels along a different path, so they cover different distances\n\n**Conclusion:** Statement (2) is **incorrect** ✗\n\nThe three students have different distances travelled (different path lengths).\n\n**Step 3:** Analyze Statement (3): "average speed"\n\n**Understanding average speed:**\n- Average speed = total distance travelled / total time taken\n- It is a scalar quantity\n- Average speed depends on both distance and time\n\n**From the problem:**\n- All three students take the same time to travel\n- However, they travel different distances (as established in Statement 2)\n- Since average speed = distance / time, and distance is different while time is the same:\n  $$\\text{average speed} = \\frac{\\text{different distance}}{\\text{same time}} = \\text{different values}$$\n\n**Conclusion:** Statement (3) is **incorrect** ✗\n\nThe three students have different average speeds (different distances divided by the same time).\n\n**Summary:**\n- Statement (1): �?Correct (same displacement)\n- Statement (2): �?Incorrect (different distances)\n- Statement (3): �?Incorrect (different average speeds)\n\n**Conclusion:** Only statement (1) is correct �?option A: **(1) only**.',
+      '⚠️ **Key point:** Displacement is a vector (straight-line distance from start to finish), distance is a scalar (length of path travelled), and average speed = distance / time.\n\n**Step 1:** Analyze Statement (1): "displacement"\n\n**Understanding displacement:**\n- Displacement is the straight-line distance from the starting point to the ending point\n- It is a vector quantity with both magnitude and direction\n- Displacement depends only on the initial and final positions, not on the path taken\n\n**From the problem:**\n- All three students start at point $X$ and end at point $Y$\n- The straight-line distance from $X$ to $Y$ is the same regardless of which path ($P_1$, $P_2$, or $P_3$) is taken\n\n**Conclusion:** Statement (1) is **correct** ✓\n\nAll three students have the same displacement (same straight-line distance from $X$ to $Y$).\n\n**Step 2:** Analyze Statement (2): "distance"\n\n**Understanding distance:**\n- Distance is the total length of the path travelled\n- It is a scalar quantity (magnitude only)\n- Distance depends on the actual path taken\n\n**From the problem:**\n- Path $P_1$, $P_2$, and $P_3$ are different paths with different lengths\n- Each student travels along a different path, so they cover different distances\n\n**Conclusion:** Statement (2) is **incorrect** ✗\n\nThe three students have different distances travelled (different path lengths).\n\n**Step 3:** Analyze Statement (3): "average speed"\n\n**Understanding average speed:**\n- Average speed = total distance travelled / total time taken\n- It is a scalar quantity\n- Average speed depends on both distance and time\n\n**From the problem:**\n- All three students take the same time to travel\n- However, they travel different distances (as established in Statement 2)\n- Since average speed = distance / time, and distance is different while time is the same:\n  $$\\text{average speed} = \\frac{\\text{different distance}}{\\text{same time}} = \\text{different values}$$\n\n**Conclusion:** Statement (3) is **incorrect** ✗\n\nThe three students have different average speeds (different distances divided by the same time).\n\n**Summary:**\n- Statement (1): -> Correct (same displacement)\n- Statement (2): -Incorrect (different distances)\n- Statement (3): -Incorrect (different average speeds)\n\n**Conclusion:** Only statement (1) is correct -> option A: **(1) only**.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1567,7 +1567,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     id: 'pm-057',
     type: 'multiple_choice',
     question:
-      'A diver jumps up vertically in the air from a high platform and falls into water. The $v$�?t$ graph below shows the variation of the velocity of the diver against time from the point he jumps $(P)$ until he is at the lowest point $(Q)$ in the water. Which of the following is correct?',
+      'A diver jumps up vertically in the air from a high platform and falls into water. The $v$-$t$ graph below shows the variation of the velocity of the diver against time from the point he jumps $(P)$ until he is at the lowest point $(Q)$ in the water. Which of the following is correct?',
     options: [
       'Total distance travelled from $P$ to $Q$: $8.9\\text{ m}$; Height of the platform above water surface: $8\\text{ m}$',
       'Total distance travelled from $P$ to $Q$: $10.6\\text{ m}$; Height of the platform above water surface: $10\\text{ m}$',
@@ -1577,7 +1577,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     answer:
       'Total distance travelled from $P$ to $Q$: $11.5\\text{ m}$; Height of the platform above water surface: $8\\text{ m}$',
     explanation:
-      '⚠️ **Key point:** Total distance equals the sum of absolute areas under a $v$�?t$ graph, while displacement equals the signed (net) area. The height of the platform equals the magnitude of displacement from $P$ to the water surface.\n\n**Step 1:** Calculate total distance travelled from $P$ to $Q$\n\n**Understanding total distance:**\n- Total distance = sum of absolute areas under the $v$�?t$ graph\n- This includes both upward and downward motion\n\n**From the graph (from $0\\text{ s}$ to $2\\text{ s}$):**\n- Triangle from $0$ to $0.3\\text{ s}$ (upward motion):\n  $$A_1 = \\frac{1}{2}(0.3)(3) = 0.45\\text{ m}$$\n- Triangle from $0.3\\text{ s}$ to $2\\text{ s}$ (downward motion):\n  $$A_2 = \\frac{1}{2}(2 - 0.3)(13) = \\frac{1}{2}(1.7)(13) = 11.05\\text{ m}$$\n\n**Total distance:**\n$$\\text{Total distance} = A_1 + A_2 = 0.45 + 11.05 = 11.5\\text{ m}$$\n\n**Alternative calculation (as given):**\n$$\\text{Total distance} = \\frac{1}{2}(0.3)(3) + \\frac{1}{2}(2 - 0.3)(13) = 0.45 + 11.05 = 11.5\\text{ m}$$\n\n**Step 2:** Calculate height of the platform above water surface\n\n**Understanding displacement:**\n- Displacement from $P$ to the water surface = signed (net) area under the $v$�?t$ graph from $0\\text{ s}$ to $1.6\\text{ s}$\n- Area above the time axis is positive (upward), area below is negative (downward)\n- Height = magnitude of displacement\n\n**From the graph (from $0\\text{ s}$ to $1.6\\text{ s}$):**\n- Triangle above axis from $0$ to $0.3\\text{ s}$ (upward):\n  $$A_{\\uparrow} = +\\frac{1}{2}(0.3)(3) = +0.45\\text{ m}$$\n- Triangle below axis from $0.3\\text{ s}$ to $1.6\\text{ s}$ (downward):\n  $$A_{\\downarrow} = -\\frac{1}{2}(1.6 - 0.3)(13) = -\\frac{1}{2}(1.3)(13) = -8.45\\text{ m}$$\n\n**Net displacement:**\n$$s = A_{\\uparrow} + A_{\\downarrow} = 0.45 + (-8.45) = -8\\text{ m}$$\n\nThe negative sign indicates downward displacement.\n\n**Height of platform:**\n$$\\text{Height} = |s| = |-8| = 8\\text{ m}$$\n\n**Alternative calculation (as given):**\n$$\\text{Displacement} = \\frac{1}{2}(0.3)(3) - \\frac{1}{2}(1.6 - 0.3)(13) = 0.45 - 8.45 = -8\\text{ m}$$\n$$\\text{Height} = 8\\text{ m}$$\n\n**Step 3:** Match with options\n\n**Total distance:** $11.5\\text{ m}$\n**Height:** $8\\text{ m}$\n\n**Conclusion:** Option C matches: Total distance $11.5\\text{ m}$, Height $8\\text{ m}$ �?option C.',
+      '⚠️ **Key point:** Total distance equals the sum of absolute areas under a $v$-$t$ graph, while displacement equals the signed (net) area. The height of the platform equals the magnitude of displacement from $P$ to the water surface.\n\n**Step 1:** Calculate total distance travelled from $P$ to $Q$\n\n**Understanding total distance:**\n- Total distance = sum of absolute areas under the $v$-$t$ graph\n- This includes both upward and downward motion\n\n**From the graph (from $0\\text{ s}$ to $2\\text{ s}$):**\n- Triangle from $0$ to $0.3\\text{ s}$ (upward motion):\n  $$A_1 = \\frac{1}{2}(0.3)(3) = 0.45\\text{ m}$$\n- Triangle from $0.3\\text{ s}$ to $2\\text{ s}$ (downward motion):\n  $$A_2 = \\frac{1}{2}(2 - 0.3)(13) = \\frac{1}{2}(1.7)(13) = 11.05\\text{ m}$$\n\n**Total distance:**\n$$\\text{Total distance} = A_1 + A_2 = 0.45 + 11.05 = 11.5\\text{ m}$$\n\n**Alternative calculation (as given):**\n$$\\text{Total distance} = \\frac{1}{2}(0.3)(3) + \\frac{1}{2}(2 - 0.3)(13) = 0.45 + 11.05 = 11.5\\text{ m}$$\n\n**Step 2:** Calculate height of the platform above water surface\n\n**Understanding displacement:**\n- Displacement from $P$ to the water surface = signed (net) area under the $v$-$t$ graph from $0\\text{ s}$ to $1.6\\text{ s}$\n- Area above the time axis is positive (upward), area below is negative (downward)\n- Height = magnitude of displacement\n\n**From the graph (from $0\\text{ s}$ to $1.6\\text{ s}$):**\n- Triangle above axis from $0$ to $0.3\\text{ s}$ (upward):\n  $$A_{\\uparrow} = +\\frac{1}{2}(0.3)(3) = +0.45\\text{ m}$$\n- Triangle below axis from $0.3\\text{ s}$ to $1.6\\text{ s}$ (downward):\n  $$A_{\\downarrow} = -\\frac{1}{2}(1.6 - 0.3)(13) = -\\frac{1}{2}(1.3)(13) = -8.45\\text{ m}$$\n\n**Net displacement:**\n$$s = A_{\\uparrow} + A_{\\downarrow} = 0.45 + (-8.45) = -8\\text{ m}$$\n\nThe negative sign indicates downward displacement.\n\n**Height of platform:**\n$$\\text{Height} = |s| = |-8| = 8\\text{ m}$$\n\n**Alternative calculation (as given):**\n$$\\text{Displacement} = \\frac{1}{2}(0.3)(3) - \\frac{1}{2}(1.6 - 0.3)(13) = 0.45 - 8.45 = -8\\text{ m}$$\n$$\\text{Height} = 8\\text{ m}$$\n\n**Step 3:** Match with options\n\n**Total distance:** $11.5\\text{ m}$\n**Height:** $8\\text{ m}$\n\n**Conclusion:** Option C matches: Total distance $11.5\\text{ m}$, Height $8\\text{ m}$ -> option C.',
     difficulty: 3,
     points: 20,
     hints: [
@@ -1603,7 +1603,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '/physics/exercises/position-movement/pm-058-option-c.png',
     explanation:
-      '⚠️ **Key point:** On a distance–time graph, the slope represents speed.\n\nSince $XY = YZ = ZX$, Mary travels the same distance on each side.\n- For $XY$: time = $10\\text{ s}$ �?speed is relatively large\n- For $YZ$: time = $20\\text{ s}$ �?speed is smaller, so the slope is smaller\n- For $ZX$: time = $10\\text{ s}$ �?speed returns to the same as in $XY$, so the slope is the same as the first part\n\nSo the correct distance–time graph must have: steep slope (0�?0 s), gentler slope (10�?0 s), then steep slope again (30�?0 s).\n\n**Conclusion:** The correct graph is option C.',
+      '⚠️ **Key point:** On a distance–time graph, the slope represents speed.\n\nSince $XY = YZ = ZX$, Mary travels the same distance on each side.\n- For $XY$: time = $10\\text{ s}$ -> speed is relatively large\n- For $YZ$: time = $20\\text{ s}$ -> speed is smaller, so the slope is smaller\n- For $ZX$: time = $10\\text{ s}$ -> speed returns to the same as in $XY$, so the slope is the same as the first part\n\nSo the correct distance–time graph must have: steep slope (0-0 s), gentler slope (10-0 s), then steep slope again (30-0 s).\n\n**Conclusion:** The correct graph is option C.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1629,7 +1629,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '$t$',
     explanation:
-      '⚠️ **Key point:** In free fall (neglecting air resistance), all objects have the same acceleration $g$, independent of mass.\n\nSince both objects are released from rest from the same height $h$, the time to reach the ground depends only on $h$ and $g$:\n$$h = \\frac{1}{2}gt^2$$\nSo the object of mass $2m$ also takes the same time $t$.\n\n**Conclusion:** The correct answer is $t$ �?option C.',
+      '⚠️ **Key point:** In free fall (neglecting air resistance), all objects have the same acceleration $g$, independent of mass.\n\nSince both objects are released from rest from the same height $h$, the time to reach the ground depends only on $h$ and $g$:\n$$h = \\frac{1}{2}gt^2$$\nSo the object of mass $2m$ also takes the same time $t$.\n\n**Conclusion:** The correct answer is $t$ -> option C.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -1653,7 +1653,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '/physics/exercises/position-movement/pm-060-option-a.png',
     explanation:
-      '⚠️ **Key point:** The slope of a $v$�?t$ graph equals acceleration. For vertical motion under gravity (neglecting air resistance), the acceleration is constant and equal to $-g$, which does not depend on the initial velocity.\n\nIf the object is thrown upwards with a higher initial velocity:\n- The velocity at $t=0$ is larger (higher intercept)\n- The acceleration remains $-g$, so the slope stays the same\n\nTherefore, the new $v$�?t$ graph is a straight line **parallel** to the original line, but starting at a higher initial velocity. It will cross $v=0$ at a later time.\n\n**Conclusion:** The correct dotted line is option A.',
+      '⚠️ **Key point:** The slope of a $v$-$t$ graph equals acceleration. For vertical motion under gravity (neglecting air resistance), the acceleration is constant and equal to $-g$, which does not depend on the initial velocity.\n\nIf the object is thrown upwards with a higher initial velocity:\n- The velocity at $t=0$ is larger (higher intercept)\n- The acceleration remains $-g$, so the slope stays the same\n\nTherefore, the new $v$-$t$ graph is a straight line **parallel** to the original line, but starting at a higher initial velocity. It will cross $v=0$ at a later time.\n\n**Conclusion:** The correct dotted line is option A.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1674,13 +1674,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['1 : 3', '1 : 5', '3 : 5', '5 : 8'],
     answer: '3 : 5',
     explanation:
-      '⚠️ **Key point:** For free fall from rest, the displacement is $s = \\frac{1}{2}gt^2$. The distance in the $n$th second is the difference $s(n) - s(n-1)$.\n\n**Step 1:** Displacements after 1 s, 2 s, 3 s\n$$s(1) = \\frac{1}{2}g(1)^2 = \\frac{1}{2}g$$\n$$s(2) = \\frac{1}{2}g(2)^2 = 2g$$\n$$s(3) = \\frac{1}{2}g(3)^2 = \\frac{9}{2}g$$\n\n**Step 2:** Distances in the 2nd and 3rd seconds\n$$d_2 = s(2) - s(1) = 2g - \\frac{1}{2}g = \\frac{3}{2}g$$\n$$d_3 = s(3) - s(2) = \\frac{9}{2}g - 2g = \\frac{5}{2}g$$\n\n**Step 3:** Ratio\n$$d_2:d_3 = \\left(\\frac{3}{2}g\\right):\\left(\\frac{5}{2}g\\right) = 3:5$$\n\n**Conclusion:** $3:5$ �?option C.',
+      '⚠️ **Key point:** For free fall from rest, the displacement is $s = \\frac{1}{2}gt^2$. The distance in the $n$th second is the difference $s(n) - s(n-1)$.\n\n**Step 1:** Displacements after 1 s, 2 s, 3 s\n$$s(1) = \\frac{1}{2}g(1)^2 = \\frac{1}{2}g$$\n$$s(2) = \\frac{1}{2}g(2)^2 = 2g$$\n$$s(3) = \\frac{1}{2}g(3)^2 = \\frac{9}{2}g$$\n\n**Step 2:** Distances in the 2nd and 3rd seconds\n$$d_2 = s(2) - s(1) = 2g - \\frac{1}{2}g = \\frac{3}{2}g$$\n$$d_3 = s(3) - s(2) = \\frac{9}{2}g - 2g = \\frac{5}{2}g$$\n\n**Step 3:** Ratio\n$$d_2:d_3 = \\left(\\frac{3}{2}g\\right):\\left(\\frac{5}{2}g\\right) = 3:5$$\n\n**Conclusion:** $3:5$ -> option C.',
     difficulty: 2,
     points: 15,
     hints: [
       'For free fall from rest, use s = ½gt²',
-      'Distance in the 2nd second is s(2) �?s(1)',
-      'Distance in the 3rd second is s(3) �?s(2)',
+      'Distance in the 2nd second is s(2) -s(1)',
+      'Distance in the 3rd second is s(3) -s(2)',
       'g cancels in the ratio',
     ],
     sectionId: 'position-movement',
@@ -1699,12 +1699,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '6.0 m s^-1',
     explanation:
-      '⚠️ **Key point:** During reaction time the car continues at constant speed. Braking starts only after that, and the car must stop within the remaining distance.\n\n**Step 1:** Distance travelled during reaction time\n$$s_r = vt = 18 \\times 0.5 = 9\\text{ m}$$\n\nSo the remaining distance for braking is:\n$$s = 36 - 9 = 27\\text{ m}$$\n\n**Step 2:** Use $v^2 = u^2 + 2as$ for the braking phase\nFor stopping: $v=0$, $u=18\\text{ m s}^{-1}$, $s=27\\text{ m}$.\n$$0^2 = 18^2 + 2a(27)$$\n$$0 = 324 + 54a \\;\\Rightarrow\\; a = -6\\text{ m s}^{-2}$$\n\nMinimum deceleration is the magnitude: $6.0\\text{ m s}^{-2}$.\n\n**Conclusion:** $6.0\\text{ m s}^{-2}$ �?option C.',
+      '⚠️ **Key point:** During reaction time the car continues at constant speed. Braking starts only after that, and the car must stop within the remaining distance.\n\n**Step 1:** Distance travelled during reaction time\n$$s_r = vt = 18 \\times 0.5 = 9\\text{ m}$$\n\nSo the remaining distance for braking is:\n$$s = 36 - 9 = 27\\text{ m}$$\n\n**Step 2:** Use $v^2 = u^2 + 2as$ for the braking phase\nFor stopping: $v=0$, $u=18\\text{ m s}^{-1}$, $s=27\\text{ m}$.\n$$0^2 = 18^2 + 2a(27)$$\n$$0 = 324 + 54a \\;\\Rightarrow\\; a = -6\\text{ m s}^{-2}$$\n\nMinimum deceleration is the magnitude: $6.0\\text{ m s}^{-2}$.\n\n**Conclusion:** $6.0\\text{ m s}^{-2}$ -> option C.',
     difficulty: 2,
     points: 15,
     hints: [
       'During reaction time, the car keeps moving at 18 m/s',
-      'Compute remaining braking distance: 36 m �?18×0.5 s',
+      'Compute remaining braking distance: 36 m -18×0.5 s',
       'Use v² = u² + 2as with v = 0 to find deceleration',
     ],
     sectionId: 'position-movement',
@@ -1718,7 +1718,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['100 m', '150 m', '200 m', '250 m'],
     answer: '200 m',
     explanation:
-      '⚠️ **Key point:** Displacement equals the (signed) area under a $v$�?t$ graph. The maximum distance from $P$ occurs at the turning point where $v$ changes sign (i.e. where $v=0$).\n\nFrom the graph, the velocity is positive from $t=0$ to $t=30\\text{ s}$, and becomes negative after $30\\text{ s}$. So the maximum distance from $P$ is the area under the graph from $0$ to $30\\text{ s}$.\n\nThis region is a trapezium with parallel sides $10\\text{ s}$ and $30\\text{ s}$, and height $10\\text{ m s}^{-1}$:\n$$s_{\\max} = \\frac{1}{2}(10 + 30)\\times 10 = 200\\text{ m}$$\n\n**Conclusion:** $200\\text{ m}$ �?option C.',
+      '⚠️ **Key point:** Displacement equals the (signed) area under a $v$-$t$ graph. The maximum distance from $P$ occurs at the turning point where $v$ changes sign (i.e. where $v=0$).\n\nFrom the graph, the velocity is positive from $t=0$ to $t=30\\text{ s}$, and becomes negative after $30\\text{ s}$. So the maximum distance from $P$ is the area under the graph from $0$ to $30\\text{ s}$.\n\nThis region is a trapezium with parallel sides $10\\text{ s}$ and $30\\text{ s}$, and height $10\\text{ m s}^{-1}$:\n$$s_{\\max} = \\frac{1}{2}(10 + 30)\\times 10 = 200\\text{ m}$$\n\n**Conclusion:** $200\\text{ m}$ -> option C.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1738,7 +1738,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(2) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(2) & (3) only',
     explanation:
-      '⚠️ **Key point:** On a displacement–time graph, the slope represents velocity (including direction).\n\n**(1)** The two cars have slopes with opposite signs (one moves towards $S$ while the other moves away from $S$). So their velocities are in opposite directions and cannot be the same.\n\n**(2)** At $t=t_0$, the two lines intersect, meaning the cars have the same displacement from $S$ at the same time. Therefore they are at the same position and meet each other.\n\n**(3)** The magnitudes of the two slopes are equal, so the two cars have the same speed. Since they travel for the same time interval from $0$ to $t_0$, they travel the same distance.\n\n**Conclusion:** Statements (2) and (3) are correct �?option D.',
+      '⚠️ **Key point:** On a displacement–time graph, the slope represents velocity (including direction).\n\n**(1)** The two cars have slopes with opposite signs (one moves towards $S$ while the other moves away from $S$). So their velocities are in opposite directions and cannot be the same.\n\n**(2)** At $t=t_0$, the two lines intersect, meaning the cars have the same displacement from $S$ at the same time. Therefore they are at the same position and meet each other.\n\n**(3)** The magnitudes of the two slopes are equal, so the two cars have the same speed. Since they travel for the same time interval from $0$ to $t_0$, they travel the same distance.\n\n**Conclusion:** Statements (2) and (3) are correct -> option D.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1764,7 +1764,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '(1) & (2) only',
     explanation:
-      '⚠️ **Key point:** Average velocity depends on displacement; average speed depends on total distance.\n\n**(1)** Peter returns to the starting point $P$, so the total displacement is $0$.\n\n**(2)** Average velocity $= \\frac{\\text{total displacement}}{\\text{total time}}$. Since total displacement is $0$, the average velocity is $0\\text{ m s}^{-1}$.\n\n**(3)** Let the distance $PQ = D$.\nTime $P\\to Q$: $t_1 = \\frac{D}{2}$.\nTime $Q\\to P$: $t_2 = \\frac{D}{4}$.\nTotal distance $= 2D$, total time $= \\frac{D}{2} + \\frac{D}{4} = \\frac{3D}{4}$.\n$$v_{\\text{avg speed}} = \\frac{2D}{3D/4} = \\frac{8}{3} \\approx 2.67\\text{ m s}^{-1}$$\nSo it is not $3\\text{ m s}^{-1}$.\n\n**Conclusion:** Statements (1) and (2) only �?option A.',
+      '⚠️ **Key point:** Average velocity depends on displacement; average speed depends on total distance.\n\n**(1)** Peter returns to the starting point $P$, so the total displacement is $0$.\n\n**(2)** Average velocity $= \\frac{\\text{total displacement}}{\\text{total time}}$. Since total displacement is $0$, the average velocity is $0\\text{ m s}^{-1}$.\n\n**(3)** Let the distance $PQ = D$.\nTime $P\\to Q$: $t_1 = \\frac{D}{2}$.\nTime $Q\\to P$: $t_2 = \\frac{D}{4}$.\nTotal distance $= 2D$, total time $= \\frac{D}{2} + \\frac{D}{4} = \\frac{3D}{4}$.\n$$v_{\\text{avg speed}} = \\frac{2D}{3D/4} = \\frac{8}{3} \\approx 2.67\\text{ m s}^{-1}$$\nSo it is not $3\\text{ m s}^{-1}$.\n\n**Conclusion:** Statements (1) and (2) only -> option A.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1789,7 +1789,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: 'acceleration during the fall',
     explanation:
-      '⚠️ **Key point:** If air resistance is neglected, all objects in free fall have the same constant acceleration due to gravity $g$, regardless of height.\n\nThe two balls fall through different distances, so their times of fall, final speeds, and change in velocity are different. However, during the fall they both experience the same acceleration $g$.\n\n**Conclusion:** The quantity that is the same is the acceleration during the fall �?option B.',
+      '⚠️ **Key point:** If air resistance is neglected, all objects in free fall have the same constant acceleration due to gravity $g$, regardless of height.\n\nThe two balls fall through different distances, so their times of fall, final speeds, and change in velocity are different. However, during the fall they both experience the same acceleration $g$.\n\n**Conclusion:** The quantity that is the same is the acceleration during the fall -> option B.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -1809,7 +1809,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(1) only',
     explanation:
-      '⚠️ **Key point:** For free fall from rest, $s = \\frac{1}{2}gt^2$.\n\n**(1)** In $2\\text{ s}$, the stone falls\n$$s = \\frac{1}{2}(10)(2)^2 = 20\\text{ m}$$\nThis is the mid-height, so the total height is $2\\times 20 = 40\\text{ m}$ ✓\n\n**(2)** For the full height $40\\text{ m}$:\n$$40 = \\frac{1}{2}(10)t^2 \\Rightarrow t^2 = 8 \\Rightarrow t = \\sqrt{8} \\approx 2.83\\text{ s}$$\nSo it is not $4\\text{ s}$ ✗\n\n**(3)** Speed at the bottom:\n$$v = gt = 10(2.83) \\approx 28.3\\text{ m s}^{-1}$$\nSo it is not $40\\text{ m s}^{-1}$ ✗\n\n**Conclusion:** Only statement (1) is correct �?option A.',
+      '⚠️ **Key point:** For free fall from rest, $s = \\frac{1}{2}gt^2$.\n\n**(1)** In $2\\text{ s}$, the stone falls\n$$s = \\frac{1}{2}(10)(2)^2 = 20\\text{ m}$$\nThis is the mid-height, so the total height is $2\\times 20 = 40\\text{ m}$ ✓\n\n**(2)** For the full height $40\\text{ m}$:\n$$40 = \\frac{1}{2}(10)t^2 \\Rightarrow t^2 = 8 \\Rightarrow t = \\sqrt{8} \\approx 2.83\\text{ s}$$\nSo it is not $4\\text{ s}$ ✗\n\n**(3)** Speed at the bottom:\n$$v = gt = 10(2.83) \\approx 28.3\\text{ m s}^{-1}$$\nSo it is not $40\\text{ m s}^{-1}$ ✗\n\n**Conclusion:** Only statement (1) is correct -> option A.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1829,7 +1829,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['4 m s^-1', '6 m s^-1', '9 m s^-1', '12 m s^-1'],
     answer: '6 m s^-1',
     explanation:
-      '⚠️ **Key point:** Average velocity $= \\frac{\\text{displacement}}{\\text{time}}$, and displacement equals the area under a $v$�?t$ graph.\n\nFrom $0$ to $3\\text{ s}$, the region is a triangle with base $3\\text{ s}$ and height $12\\text{ m s}^{-1}$:\n$$s = \\frac{1}{2} \\times 3 \\times 12 = 18\\text{ m}$$\n\nSo the average velocity is:\n$$v_{\\text{avg}} = \\frac{s}{t} = \\frac{18}{3} = 6\\text{ m s}^{-1}$$\n\n**Conclusion:** $6\\text{ m s}^{-1}$ �?option B.',
+      '⚠️ **Key point:** Average velocity $= \\frac{\\text{displacement}}{\\text{time}}$, and displacement equals the area under a $v$-$t$ graph.\n\nFrom $0$ to $3\\text{ s}$, the region is a triangle with base $3\\text{ s}$ and height $12\\text{ m s}^{-1}$:\n$$s = \\frac{1}{2} \\times 3 \\times 12 = 18\\text{ m}$$\n\nSo the average velocity is:\n$$v_{\\text{avg}} = \\frac{s}{t} = \\frac{18}{3} = 6\\text{ m s}^{-1}$$\n\n**Conclusion:** $6\\text{ m s}^{-1}$ -> option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1855,7 +1855,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '5.0 m s^-1',
     explanation:
-      '⚠️ **Key point:** Average speed $= \\frac{\\text{total distance}}{\\text{total time}}$.\n\nTotal distance $= 80 + 70 = 150\\text{ m}$.\nTotal time $= 20 + 10 = 30\\text{ s}$.\n$$v_{\\text{avg}} = \\frac{150}{30} = 5.0\\text{ m s}^{-1}$$\n\n**Conclusion:** $5.0\\text{ m s}^{-1}$ �?option C.',
+      '⚠️ **Key point:** Average speed $= \\frac{\\text{total distance}}{\\text{total time}}$.\n\nTotal distance $= 80 + 70 = 150\\text{ m}$.\nTotal time $= 20 + 10 = 30\\text{ s}$.\n$$v_{\\text{avg}} = \\frac{150}{30} = 5.0\\text{ m s}^{-1}$$\n\n**Conclusion:** $5.0\\text{ m s}^{-1}$ -> option C.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -1873,7 +1873,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['29 m', '44 m', '59 m', '88 m'],
     answer: '59 m',
     explanation:
-      '⚠️ **Key point:** Use $s = ut + \\frac{1}{2}at^2$. Take downward as positive so $u=5\\text{ m s}^{-1}$ and $a=g=9.81\\text{ m s}^{-2}$.\n\nWith $t=3\\text{ s}$:\n$$s = (5)(3) + \\frac{1}{2}(9.81)(3)^2 = 15 + 44.145 = 59.145\\text{ m} \\approx 59\\text{ m}$$\n\n**Conclusion:** The height is $59\\text{ m}$ �?option C.',
+      '⚠️ **Key point:** Use $s = ut + \\frac{1}{2}at^2$. Take downward as positive so $u=5\\text{ m s}^{-1}$ and $a=g=9.81\\text{ m s}^{-2}$.\n\nWith $t=3\\text{ s}$:\n$$s = (5)(3) + \\frac{1}{2}(9.81)(3)^2 = 15 + 44.145 = 59.145\\text{ m} \\approx 59\\text{ m}$$\n\n**Conclusion:** The height is $59\\text{ m}$ -> option C.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1897,7 +1897,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '7.15 m s^-1',
     explanation:
-      "⚠️ **Key point:** On the Moon, air resistance is negligible, so the feather falls with a constant acceleration $g_{\\text{Moon}} = 0.16g_{\\text{Earth}}$.\n\nTake downward as positive.\n$$a = 0.16(9.81) = 1.5696\\text{ m s}^{-2}$$\n\nUsing $v^2=u^2+2as$ with $u=2\\text{ m s}^{-1}$ and $s=15\\text{ m}$:\n$$v^2 = (2)^2 + 2(1.5696)(15) = 4 + 47.088 = 51.088$$\n$$v = \\sqrt{51.088} \\approx 7.15\\text{ m s}^{-1}$$\n\n**Conclusion:** $7.15\\text{ m s}^{-1}$ �?option B.",
+      "⚠️ **Key point:** On the Moon, air resistance is negligible, so the feather falls with a constant acceleration $g_{\\text{Moon}} = 0.16g_{\\text{Earth}}$.\n\nTake downward as positive.\n$$a = 0.16(9.81) = 1.5696\\text{ m s}^{-2}$$\n\nUsing $v^2=u^2+2as$ with $u=2\\text{ m s}^{-1}$ and $s=15\\text{ m}$:\n$$v^2 = (2)^2 + 2(1.5696)(15) = 4 + 47.088 = 51.088$$\n$$v = \\sqrt{51.088} \\approx 7.15\\text{ m s}^{-1}$$\n\n**Conclusion:** $7.15\\text{ m s}^{-1}$ -> option B.",
     difficulty: 2,
     points: 15,
     hints: [
@@ -1922,13 +1922,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: 'increases with time.',
     explanation:
-      '⚠️ **Key point:** Both balls fall with the same constant acceleration $g$. The first ball has been falling longer, so its speed is always greater than the second ball’s (after the second is released), causing the separation to increase.\n\nLet the second ball be released $t_0$ seconds after the first. At time $t$ after the first ball is released ($t \\ge t_0$):\n$$s_1 = \\frac{1}{2}gt^2,\\quad s_2 = \\frac{1}{2}g(t-t_0)^2$$\nSo the separation is\n$$\\Delta s = s_1 - s_2 = \\frac{1}{2}gt^2 - \\frac{1}{2}g(t-t_0)^2 = gtt_0 - \\frac{1}{2}gt_0^2$$\nAs $t$ increases, $\\Delta s$ increases.\n\n**Conclusion:** The separation increases with time �?option C.',
+      '⚠️ **Key point:** Both balls fall with the same constant acceleration $g$. The first ball has been falling longer, so its speed is always greater than the second ball’s (after the second is released), causing the separation to increase.\n\nLet the second ball be released $t_0$ seconds after the first. At time $t$ after the first ball is released ($t \\ge t_0$):\n$$s_1 = \\frac{1}{2}gt^2,\\quad s_2 = \\frac{1}{2}g(t-t_0)^2$$\nSo the separation is\n$$\\Delta s = s_1 - s_2 = \\frac{1}{2}gt^2 - \\frac{1}{2}g(t-t_0)^2 = gtt_0 - \\frac{1}{2}gt_0^2$$\nAs $t$ increases, $\\Delta s$ increases.\n\n**Conclusion:** The separation increases with time -> option C.',
     difficulty: 2,
     points: 15,
     hints: [
       'Both balls have the same acceleration g',
       'The first ball always has a larger speed (after the second is released)',
-      'Write s1 = ½gt² and s2 = ½g(t �?t0)²',
+      'Write s1 = ½gt² and s2 = ½g(t -t0)²',
       'Check how Δs depends on t',
     ],
     sectionId: 'position-movement',
@@ -1947,7 +1947,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: 'remain constant.',
     explanation:
-      '⚠️ **Key point:** If both balls are released together from rest and air resistance is negligible, they have the same acceleration $g$ and undergo identical motion. Therefore their relative motion is zero.\n\nLet the lower ball start at height $h$ and the upper ball at $h+\\Delta s$.\nAfter time $t$:\n$$y_{\\text{lower}} = h - \\frac{1}{2}gt^2,\\quad y_{\\text{upper}} = (h+\\Delta s) - \\frac{1}{2}gt^2$$\nSo the separation is\n$$y_{\\text{upper}} - y_{\\text{lower}} = \\Delta s$$\nwhich is constant throughout the flight.\n\n**Conclusion:** The separation remains constant �?option A.',
+      '⚠️ **Key point:** If both balls are released together from rest and air resistance is negligible, they have the same acceleration $g$ and undergo identical motion. Therefore their relative motion is zero.\n\nLet the lower ball start at height $h$ and the upper ball at $h+\\Delta s$.\nAfter time $t$:\n$$y_{\\text{lower}} = h - \\frac{1}{2}gt^2,\\quad y_{\\text{upper}} = (h+\\Delta s) - \\frac{1}{2}gt^2$$\nSo the separation is\n$$y_{\\text{upper}} - y_{\\text{lower}} = \\Delta s$$\nwhich is constant throughout the flight.\n\n**Conclusion:** The separation remains constant -> option A.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -1966,7 +1966,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['0.2 s', '0.4 s', '0.8 s', '1.6 s'],
     answer: '0.8 s',
     explanation:
-      '⚠️ **Key point:** For vertical motion with constant acceleration $-g$, the time to go up equals the time to come down (returning to the same height).\n\n**Step 1:** Find the initial speed using the maximum height\nAt the top, $v=0$ and $h=0.8\\text{ m}$.\nUsing $v^2 = u^2 + 2as$ with $a=-10\\text{ m s}^{-2}$:\n$$0 = u^2 + 2(-10)(0.8) \\Rightarrow u^2 = 16 \\Rightarrow u = 4\\text{ m s}^{-1}$$\n\n**Step 2:** Find the total time above the water\nTime to go up:\n$$t_{\\uparrow} = \\frac{u}{g} = \\frac{4}{10} = 0.4\\text{ s}$$\nSo the total time to return to the same level is\n$$t = 2t_{\\uparrow} = 0.8\\text{ s}$$\n\n**Conclusion:** $0.8\\text{ s}$ �?option C.',
+      '⚠️ **Key point:** For vertical motion with constant acceleration $-g$, the time to go up equals the time to come down (returning to the same height).\n\n**Step 1:** Find the initial speed using the maximum height\nAt the top, $v=0$ and $h=0.8\\text{ m}$.\nUsing $v^2 = u^2 + 2as$ with $a=-10\\text{ m s}^{-2}$:\n$$0 = u^2 + 2(-10)(0.8) \\Rightarrow u^2 = 16 \\Rightarrow u = 4\\text{ m s}^{-1}$$\n\n**Step 2:** Find the total time above the water\nTime to go up:\n$$t_{\\uparrow} = \\frac{u}{g} = \\frac{4}{10} = 0.4\\text{ s}$$\nSo the total time to return to the same level is\n$$t = 2t_{\\uparrow} = 0.8\\text{ s}$$\n\n**Conclusion:** $0.8\\text{ s}$ -> option C.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -1986,13 +1986,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['30 m', '40 m', '50 m', '60 m'],
     answer: '30 m',
     explanation:
-      '⚠️ **Key point:** Write the height of each ball as a function of time and set them equal.\n\nTake upward as positive.\n\n**Ball $P$ (from ground):**\n$$y_P = 25t - \\frac{1}{2}(10)t^2 = 25t - 5t^2$$\n\n**Ball $Q$ (from top at 80 m, thrown downward):**\nInitial velocity is downward, so $u=-15\\text{ m s}^{-1}$.\n$$y_Q = 80 - 15t - \\frac{1}{2}(10)t^2 = 80 - 15t - 5t^2$$\n\nAt the meeting point, $y_P = y_Q$:\n$$25t - 5t^2 = 80 - 15t - 5t^2 \\Rightarrow 40t = 80 \\Rightarrow t=2\\text{ s}$$\n\nHeight above the ground:\n$$y = 25(2) - 5(2)^2 = 50 - 20 = 30\\text{ m}$$\n\n**Conclusion:** The balls meet at $30\\text{ m}$ above the ground �?option A.',
+      '⚠️ **Key point:** Write the height of each ball as a function of time and set them equal.\n\nTake upward as positive.\n\n**Ball $P$ (from ground):**\n$$y_P = 25t - \\frac{1}{2}(10)t^2 = 25t - 5t^2$$\n\n**Ball $Q$ (from top at 80 m, thrown downward):**\nInitial velocity is downward, so $u=-15\\text{ m s}^{-1}$.\n$$y_Q = 80 - 15t - \\frac{1}{2}(10)t^2 = 80 - 15t - 5t^2$$\n\nAt the meeting point, $y_P = y_Q$:\n$$25t - 5t^2 = 80 - 15t - 5t^2 \\Rightarrow 40t = 80 \\Rightarrow t=2\\text{ s}$$\n\nHeight above the ground:\n$$y = 25(2) - 5(2)^2 = 50 - 20 = 30\\text{ m}$$\n\n**Conclusion:** The balls meet at $30\\text{ m}$ above the ground -> option A.',
     difficulty: 2,
     points: 15,
     hints: [
       'Let upward be positive',
       'Write yP(t) from ground and yQ(t) from 80 m',
-      'Downward initial velocity means u = �?5 m/s for ball Q',
+      'Downward initial velocity means u = -5 m/s for ball Q',
       'Set yP(t) = yQ(t) to solve for t',
     ],
     sectionId: 'position-movement',
@@ -2006,12 +2006,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['$3:5$', '$5:9$', '$9:16$', '$9:25$'],
     answer: '$5:9$',
     explanation:
-      '⚠️ **Key point:** For uniform acceleration from rest, $s(t)=\\frac{1}{2}at^2$, so the distance travelled in the $n$th second is $s(n)-s(n-1)$.\n\n$$x = s(3)-s(2)=\\frac{1}{2}a(3^2-2^2)$$\n$$y = s(5)-s(4)=\\frac{1}{2}a(5^2-4^2)$$\n\nSo\n$$x:y=(3^2-2^2):(5^2-4^2)=5:9$$\n\n**Conclusion:** $5:9$ �?option B.',
+      '⚠️ **Key point:** For uniform acceleration from rest, $s(t)=\\frac{1}{2}at^2$, so the distance travelled in the $n$th second is $s(n)-s(n-1)$.\n\n$$x = s(3)-s(2)=\\frac{1}{2}a(3^2-2^2)$$\n$$y = s(5)-s(4)=\\frac{1}{2}a(5^2-4^2)$$\n\nSo\n$$x:y=(3^2-2^2):(5^2-4^2)=5:9$$\n\n**Conclusion:** $5:9$ -> option B.',
     difficulty: 2,
     points: 15,
     hints: [
       'From rest: s = ½at²',
-      'Distance in nth second = s(n) �?s(n�?)',
+      'Distance in nth second = s(n) -s(n-1)',
       'Compute s(3)−s(2) and s(5)−s(4), then take the ratio',
     ],
     sectionId: 'position-movement',
@@ -2030,7 +2030,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '$75\\text{ km h}^{-1}$',
     explanation:
-      '⚠️ **Key point:** Magnitude of average velocity $= \\frac{\\text{displacement}}{t}$, and displacement can never exceed the distance travelled.\n\nThe distance travelled in time $t$ is\n$$d = vt = 50t$$\nThe displacement $s$ satisfies $0 \\le s \\le d$.\nSo the magnitude of average velocity satisfies\n$$0 \\le v_{\\text{avg}} = \\frac{s}{t} \\le \\frac{d}{t} = 50\\text{ km h}^{-1}$$\n\nTherefore, $75\\text{ km h}^{-1}$ is impossible.\n\n**Conclusion:** $75\\text{ km h}^{-1}$ �?option D.',
+      '⚠️ **Key point:** Magnitude of average velocity $= \\frac{\\text{displacement}}{t}$, and displacement can never exceed the distance travelled.\n\nThe distance travelled in time $t$ is\n$$d = vt = 50t$$\nThe displacement $s$ satisfies $0 \\le s \\le d$.\nSo the magnitude of average velocity satisfies\n$$0 \\le v_{\\text{avg}} = \\frac{s}{t} \\le \\frac{d}{t} = 50\\text{ km h}^{-1}$$\n\nTherefore, $75\\text{ km h}^{-1}$ is impossible.\n\n**Conclusion:** $75\\text{ km h}^{-1}$ -> option D.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -2050,12 +2050,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['2.22 s', '3.33 s', '4.44 s', '5.55 s'],
     answer: '4.44 s',
     explanation:
-      '⚠️ **Key point:** Use $s = ut + \\frac{1}{2}at^2$ with a consistent sign convention.\n\nTake upward as positive.\n- Initial velocity: $u = +15\\text{ m s}^{-1}$\n- Acceleration: $a = -9.81\\text{ m s}^{-2}$\n- Displacement to the ground: $s = -30\\text{ m}$\n\nSubstitute into $s = ut + \\frac{1}{2}at^2$:\n$$-30 = 15t + \\frac{1}{2}(-9.81)t^2$$\nSolving gives $t \\approx 4.44\\text{ s}$.\n\n**Conclusion:** $4.44\\text{ s}$ �?option C.',
+      '⚠️ **Key point:** Use $s = ut + \\frac{1}{2}at^2$ with a consistent sign convention.\n\nTake upward as positive.\n- Initial velocity: $u = +15\\text{ m s}^{-1}$\n- Acceleration: $a = -9.81\\text{ m s}^{-2}$\n- Displacement to the ground: $s = -30\\text{ m}$\n\nSubstitute into $s = ut + \\frac{1}{2}at^2$:\n$$-30 = 15t + \\frac{1}{2}(-9.81)t^2$$\nSolving gives $t \\approx 4.44\\text{ s}$.\n\n**Conclusion:** $4.44\\text{ s}$ -> option C.',
     difficulty: 2,
     points: 15,
     hints: [
       'Take upward as positive so a = −g',
-      'Displacement from top to ground is �?0 m',
+      'Displacement from top to ground is -0 m',
       'Use s = ut + ½at² and solve for t',
     ],
     sectionId: 'position-movement',
@@ -2069,13 +2069,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['12 m', '24 m', '36 m', '48 m'],
     answer: '12 m',
     explanation:
-      '⚠️ **Key point:** The distance in the 4th second means $s(4)-s(3)$.\n\nUsing $s(t)=ut+\\frac{1}{2}at^2$:\n$$s(4)-s(3)=u(4-3)+\\frac{1}{2}a(4^2-3^2)$$\nSubstitute $u=5\\text{ m s}^{-1}$ and $a=2\\text{ m s}^{-2}$:\n$$\\Delta s = (5)(1) + \\frac{1}{2}(2)(16-9) = 5 + 7 = 12\\text{ m}$$\n\n**Conclusion:** $12\\text{ m}$ �?option A.',
+      '⚠️ **Key point:** The distance in the 4th second means $s(4)-s(3)$.\n\nUsing $s(t)=ut+\\frac{1}{2}at^2$:\n$$s(4)-s(3)=u(4-3)+\\frac{1}{2}a(4^2-3^2)$$\nSubstitute $u=5\\text{ m s}^{-1}$ and $a=2\\text{ m s}^{-2}$:\n$$\\Delta s = (5)(1) + \\frac{1}{2}(2)(16-9) = 5 + 7 = 12\\text{ m}$$\n\n**Conclusion:** $12\\text{ m}$ -> option A.',
     difficulty: 2,
     points: 15,
     hints: [
-      'Distance in the 4th second is s(4) �?s(3)',
+      'Distance in the 4th second is s(4) -s(3)',
       'Use s = ut + ½at² with u = 5 and a = 2',
-      'Compute 4² �?3²',
+      'Compute 4² -3²',
     ],
     sectionId: 'position-movement',
   },
@@ -2088,7 +2088,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['13 m', '18 m', '26 m', '32 m'],
     answer: '26 m',
     explanation:
-      '⚠️ **Key point:** Total distance travelled = (upward distance) + (downward distance). The upward distance equals the maximum height.\n\nAt the maximum height, $v=0$.\nUsing $v^2=u^2+2as$ with $u=16\\text{ m s}^{-1}$ and $a=-9.81\\text{ m s}^{-2}$:\n$$0 = 16^2 + 2(-9.81)s \\Rightarrow s = \\frac{256}{19.62} \\approx 13.0\\text{ m}$$\n\nSo the total distance is\n$$d = 2s \\approx 2(13.0) = 26\\text{ m}$$\n\n**Conclusion:** $26\\text{ m}$ �?option C.',
+      '⚠️ **Key point:** Total distance travelled = (upward distance) + (downward distance). The upward distance equals the maximum height.\n\nAt the maximum height, $v=0$.\nUsing $v^2=u^2+2as$ with $u=16\\text{ m s}^{-1}$ and $a=-9.81\\text{ m s}^{-2}$:\n$$0 = 16^2 + 2(-9.81)s \\Rightarrow s = \\frac{256}{19.62} \\approx 13.0\\text{ m}$$\n\nSo the total distance is\n$$d = 2s \\approx 2(13.0) = 26\\text{ m}$$\n\n**Conclusion:** $26\\text{ m}$ -> option C.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -2107,7 +2107,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['29.4 m', '40.6 m', '46.2 m', '81.2 m'],
     answer: '40.6 m',
     explanation:
-      '⚠️ **Key point:** Distance travelled equals the area under a speed–time graph.\n\nFrom the graph, the area from $t=0$ to $5.0\\text{ s}$ forms a trapezium with parallel sides $5.0\\text{ s}$ and $0.8\\text{ s}$, and height $14\\text{ m s}^{-1}$.\n$$s = \\frac{1}{2}(5.0 + 0.8)\\times 14 = 40.6\\text{ m}$$\n\n**Conclusion:** $40.6\\text{ m}$ �?option B.',
+      '⚠️ **Key point:** Distance travelled equals the area under a speed–time graph.\n\nFrom the graph, the area from $t=0$ to $5.0\\text{ s}$ forms a trapezium with parallel sides $5.0\\text{ s}$ and $0.8\\text{ s}$, and height $14\\text{ m s}^{-1}$.\n$$s = \\frac{1}{2}(5.0 + 0.8)\\times 14 = 40.6\\text{ m}$$\n\n**Conclusion:** $40.6\\text{ m}$ -> option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -2127,13 +2127,13 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['5 m', '10 m', '35 m', '45 m'],
     answer: '35 m',
     explanation:
-      '⚠️ **Key point:** The separation keeps increasing while both objects are falling. The maximum separation occurs when the first object $P$ just reaches the ground.\n\nTake $g=10\\text{ m s}^{-2}$.\n\nLet $t$ be the time after $P$ is released.\nFor $P$ (released from rest):\n$$s_P = \\frac{1}{2}gt^2 = 5t^2$$\n\nFor $Q$ (released 1 s later), for $t\\ge 1$:\n$$s_Q = 5(t-1)^2$$\n\nSo the separation is\n$$\\Delta s = s_P - s_Q = 5t^2 - 5(t-1)^2 = 10t - 5$$\nwhich increases with $t$.\n\n$P$ reaches the ground when $s_P = 80$:\n$$80 = 5t^2 \\Rightarrow t^2 = 16 \\Rightarrow t = 4\\text{ s}$$\n\nTherefore,\n$$\\Delta s_{\\max} = 10(4) - 5 = 35\\text{ m}$$\n\n**Conclusion:** $35\\text{ m}$ �?option C.',
+      '⚠️ **Key point:** The separation keeps increasing while both objects are falling. The maximum separation occurs when the first object $P$ just reaches the ground.\n\nTake $g=10\\text{ m s}^{-2}$.\n\nLet $t$ be the time after $P$ is released.\nFor $P$ (released from rest):\n$$s_P = \\frac{1}{2}gt^2 = 5t^2$$\n\nFor $Q$ (released 1 s later), for $t\\ge 1$:\n$$s_Q = 5(t-1)^2$$\n\nSo the separation is\n$$\\Delta s = s_P - s_Q = 5t^2 - 5(t-1)^2 = 10t - 5$$\nwhich increases with $t$.\n\n$P$ reaches the ground when $s_P = 80$:\n$$80 = 5t^2 \\Rightarrow t^2 = 16 \\Rightarrow t = 4\\text{ s}$$\n\nTherefore,\n$$\\Delta s_{\\max} = 10(4) - 5 = 35\\text{ m}$$\n\n**Conclusion:** $35\\text{ m}$ -> option C.',
     difficulty: 2,
     points: 15,
     hints: [
       'Take g = 10 m/s² for simplicity',
       'Use s = ½gt² for each object',
-      'Q is released 1 s later, so use (t �?1) for its time of fall',
+      'Q is released 1 s later, so use (t -1) for its time of fall',
       'Maximum separation occurs when P just reaches the ground',
     ],
     sectionId: 'position-movement',
@@ -2147,12 +2147,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['1 : 1', '1 : 2', '1 : 3', '1 : 4'],
     answer: '1 : 3',
     explanation:
-      '⚠️ **Key point:** The distance in the 2nd second means $s(2)-s(1)$.\n\nTake $g=10\\text{ m s}^{-2}$ for simplicity. For free fall from rest:\n$$s(t)=\\frac{1}{2}gt^2=5t^2$$\nSo\n$$s(1)=5\\text{ m},\\quad s(2)=20\\text{ m}$$\nDistance in the 1st second: $d_1=s(1)=5\\text{ m}$.\nDistance in the 2nd second: $d_2=s(2)-s(1)=15\\text{ m}$.\nTherefore,\n$$d_1:d_2 = 5:15 = 1:3$$\n\n**Conclusion:** $1:3$ �?option C.',
+      '⚠️ **Key point:** The distance in the 2nd second means $s(2)-s(1)$.\n\nTake $g=10\\text{ m s}^{-2}$ for simplicity. For free fall from rest:\n$$s(t)=\\frac{1}{2}gt^2=5t^2$$\nSo\n$$s(1)=5\\text{ m},\\quad s(2)=20\\text{ m}$$\nDistance in the 1st second: $d_1=s(1)=5\\text{ m}$.\nDistance in the 2nd second: $d_2=s(2)-s(1)=15\\text{ m}$.\nTherefore,\n$$d_1:d_2 = 5:15 = 1:3$$\n\n**Conclusion:** $1:3$ -> option C.',
     difficulty: 2,
     points: 15,
     hints: [
       'For free fall from rest, use s = ½gt²',
-      'Distance in the 2nd second is s(2) �?s(1)',
+      'Distance in the 2nd second is s(2) -s(1)',
       'Take g = 10 m/s² to simplify',
       'Compute the ratio d1:d2',
     ],
@@ -2172,7 +2172,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '2.5 m s^-1',
     explanation:
-      '⚠️ **Key point:** Average speed $= \\frac{\\text{total distance}}{\\text{total time}}$.\n\nTotal distance $= 10 + 5 = 15\\text{ m}$.\nTotal time $= 5 + 1 = 6\\text{ s}$.\n$$v_{\\text{avg}} = \\frac{15}{6} = 2.5\\text{ m s}^{-1}$$\n\n**Conclusion:** $2.5\\text{ m s}^{-1}$ �?option C.',
+      '⚠️ **Key point:** Average speed $= \\frac{\\text{total distance}}{\\text{total time}}$.\n\nTotal distance $= 10 + 5 = 15\\text{ m}$.\nTotal time $= 5 + 1 = 6\\text{ s}$.\n$$v_{\\text{avg}} = \\frac{15}{6} = 2.5\\text{ m s}^{-1}$$\n\n**Conclusion:** $2.5\\text{ m s}^{-1}$ -> option C.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -2190,7 +2190,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['$2:3$', '$3:4$', '$4:3$', '$3:2$'],
     answer: '$3:2$',
     explanation:
-      '⚠️ **Key point:** For free fall from rest, displacement is proportional to the square of time: $s=\\frac{1}{2}gt^2$.\n\nFrom $X$ to $Y$:\n$$XY = \\frac{1}{2}gt_1^2$$\nFrom $X$ to $Z$ (total time $t_1+t_2$):\n$$XZ = XY+YZ = \\frac{1}{2}g(t_1+t_2)^2$$\nSo\n$$\\frac{XY}{XY+YZ} = \\left(\\frac{t_1}{t_1+t_2}\\right)^2$$\nGiven $XY:YZ = 9:16$:\n$$\\frac{9}{9+16} = \\left(\\frac{t_1}{t_1+t_2}\\right)^2$$\nTake square root:\n$$\\frac{3}{5} = \\frac{t_1}{t_1+t_2}$$\nSo\n$$\\frac{t_1}{t_2} = \\frac{3}{2}$$\n\n**Conclusion:** $t_1:t_2 = 3:2$ �?option D.',
+      '⚠️ **Key point:** For free fall from rest, displacement is proportional to the square of time: $s=\\frac{1}{2}gt^2$.\n\nFrom $X$ to $Y$:\n$$XY = \\frac{1}{2}gt_1^2$$\nFrom $X$ to $Z$ (total time $t_1+t_2$):\n$$XZ = XY+YZ = \\frac{1}{2}g(t_1+t_2)^2$$\nSo\n$$\\frac{XY}{XY+YZ} = \\left(\\frac{t_1}{t_1+t_2}\\right)^2$$\nGiven $XY:YZ = 9:16$:\n$$\\frac{9}{9+16} = \\left(\\frac{t_1}{t_1+t_2}\\right)^2$$\nTake square root:\n$$\\frac{3}{5} = \\frac{t_1}{t_1+t_2}$$\nSo\n$$\\frac{t_1}{t_2} = \\frac{3}{2}$$\n\n**Conclusion:** $t_1:t_2 = 3:2$ -> option D.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -2207,11 +2207,11 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     id: 'pm-086',
     type: 'multiple_choice',
     question:
-      'Two particles $P$ and $Q$ start from the same position and travel along the same straight line. The figure above shows the velocity-time ($v$�?t$) graph for $P$ and $Q$. Which of the following descriptions about their motion is/are correct?\n(1) At $t=1\\text{ s}$, $P$ changes its direction of motion.\n(2) At $t=2\\text{ s}$, the separation between $P$ and $Q$ is $4\\text{ m}$.\n(3) At $t=4\\text{ s}$, $P$ and $Q$ meet each other.',
+      'Two particles $P$ and $Q$ start from the same position and travel along the same straight line. The figure above shows the velocity-time ($v$-$t$) graph for $P$ and $Q$. Which of the following descriptions about their motion is/are correct?\n(1) At $t=1\\text{ s}$, $P$ changes its direction of motion.\n(2) At $t=2\\text{ s}$, the separation between $P$ and $Q$ is $4\\text{ m}$.\n(3) At $t=4\\text{ s}$, $P$ and $Q$ meet each other.',
     options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(2) only',
     explanation:
-      '⚠️ **Key point:** On a $v$�?t$ graph, the area under the curve gives displacement (signed). Compare displacements to judge separation and meeting.\n\n**(1)** At $t=1\\text{ s}$, $P$ still has negative velocity, so it is still moving in the negative direction. It has not yet changed direction.\n\n**(2)** From the graph, by $t=2\\text{ s}$:\n- Displacement of $P$ is $-2\\text{ m}$\n- Displacement of $Q$ is $+2\\text{ m}$\nSo the separation is $|2 - (-2)| = 4\\text{ m}$.\n\n**(3)** At $t=4\\text{ s}$, the areas (displacements) under the two graphs are not equal, so their displacements are different. Therefore, they do not meet.\n\n**Conclusion:** Only statement (2) is correct �?option B.',
+      '⚠️ **Key point:** On a $v$-$t$ graph, the area under the curve gives displacement (signed). Compare displacements to judge separation and meeting.\n\n**(1)** At $t=1\\text{ s}$, $P$ still has negative velocity, so it is still moving in the negative direction. It has not yet changed direction.\n\n**(2)** From the graph, by $t=2\\text{ s}$:\n- Displacement of $P$ is $-2\\text{ m}$\n- Displacement of $Q$ is $+2\\text{ m}$\nSo the separation is $|2 - (-2)| = 4\\text{ m}$.\n\n**(3)** At $t=4\\text{ s}$, the areas (displacements) under the two graphs are not equal, so their displacements are different. Therefore, they do not meet.\n\n**Conclusion:** Only statement (2) is correct -> option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -2236,7 +2236,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '$3.0\\text{ m s}^{-2}$',
     explanation:
-      '⚠️ **Key point:** Use $s = ut + \\frac{1}{2}at^2$ for two time intervals and solve simultaneously.\n\nLet the initial velocity be $u$ and acceleration be $a$.\n\n**First 4 s (distance 36 m):**\n$$36 = 4u + \\frac{1}{2}a(4)^2 = 4u + 8a$$\n\n**First 6 s total (distance 72 m):**\n$$72 = 6u + \\frac{1}{2}a(6)^2 = 6u + 18a$$\n\nSolve the two equations:\nFrom the first: $u = 9 - 2a$.\nSubstitute into the second:\n$$72 = 6(9 - 2a) + 18a = 54 - 12a + 18a = 54 + 6a$$\nSo $6a = 18 \\Rightarrow a = 3.0\\text{ m s}^{-2}$.\n\n**Conclusion:** $3.0\\text{ m s}^{-2}$ �?option B.',
+      '⚠️ **Key point:** Use $s = ut + \\frac{1}{2}at^2$ for two time intervals and solve simultaneously.\n\nLet the initial velocity be $u$ and acceleration be $a$.\n\n**First 4 s (distance 36 m):**\n$$36 = 4u + \\frac{1}{2}a(4)^2 = 4u + 8a$$\n\n**First 6 s total (distance 72 m):**\n$$72 = 6u + \\frac{1}{2}a(6)^2 = 6u + 18a$$\n\nSolve the two equations:\nFrom the first: $u = 9 - 2a$.\nSubstitute into the second:\n$$72 = 6(9 - 2a) + 18a = 54 - 12a + 18a = 54 + 6a$$\nSo $6a = 18 \\Rightarrow a = 3.0\\text{ m s}^{-2}$.\n\n**Conclusion:** $3.0\\text{ m s}^{-2}$ -> option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -2256,12 +2256,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['3.3 m', '6.0 m', '6.5 m', '12 m'],
     answer: '6.0 m',
     explanation:
-      '⚠️ **Key point:** Use $v^2=u^2+2as$ with $a=g$.\n\nTake downward as positive. Then $a=+g$.\n$$v^2=u^2+2gs$$\n$$s=\\frac{v^2-u^2}{2g}=\\frac{11^2-2^2}{2(9.81)}=\\frac{117}{19.62}\\approx 6.0\\text{ m}$$\n\n**Conclusion:** $6.0\\text{ m}$ �?option B.',
+      '⚠️ **Key point:** Use $v^2=u^2+2as$ with $a=g$.\n\nTake downward as positive. Then $a=+g$.\n$$v^2=u^2+2gs$$\n$$s=\\frac{v^2-u^2}{2g}=\\frac{11^2-2^2}{2(9.81)}=\\frac{117}{19.62}\\approx 6.0\\text{ m}$$\n\n**Conclusion:** $6.0\\text{ m}$ -> option B.',
     difficulty: 1,
     points: 10,
     hints: [
       'Use v² = u² + 2as with a = g',
-      'Rearrange to s = (v² �?u²) / (2g)',
+      'Rearrange to s = (v² -u²) / (2g)',
       'Substitute u = 2.0, v = 11, g = 9.81',
     ],
     sectionId: 'position-movement',
@@ -2272,7 +2272,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     id: 'pm-089',
     type: 'multiple_choice',
     question:
-      'The figure shows the velocity-time ($v$�?t$) graph of two cars $P$ and $Q$ travelling along the same straight road. At $t=0$, the cars are at the same position. Which deductions about the cars between $t=0$ and $t=t_2$ are correct?\n(1) $P$ and $Q$ are always travelling in the same direction.\n(2) At $t=t_1$, the separation between $P$ and $Q$ is at a maximum.\n(3) At $t=t_2$, $Q$ lags behind $P$.',
+      'The figure shows the velocity-time ($v$-$t$) graph of two cars $P$ and $Q$ travelling along the same straight road. At $t=0$, the cars are at the same position. Which deductions about the cars between $t=0$ and $t=t_2$ are correct?\n(1) $P$ and $Q$ are always travelling in the same direction.\n(2) At $t=t_1$, the separation between $P$ and $Q$ is at a maximum.\n(3) At $t=t_2$, $Q$ lags behind $P$.',
     options: [
       '(1) & (2) only',
       '(1) & (3) only',
@@ -2281,7 +2281,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '(1), (2) & (3)',
     explanation:
-      '⚠️ **Key point:** On a $v$�?t$ graph, the sign of $v$ gives direction; the area under the graph gives displacement.\n\n**(1)** From the graph, the velocities of both $P$ and $Q$ are always positive, so both cars always move in the forward direction.\n\n**(2)** From $t=0$ to $t=t_1$, $v_P>v_Q$, so the separation increases. From $t=t_1$ to $t=t_2$, $v_P<v_Q$, so the separation decreases. Therefore, the separation is maximum at $t=t_1$.\n\n**(3)** From $t=0$ to $t=t_2$, the total area under the graph of $P$ is greater than that of $Q$, so $P$ has a larger displacement. Hence, at $t=t_2$, $Q$ is behind $P$.\n\n**Conclusion:** (1), (2) and (3) are all correct �?option D.',
+      '⚠️ **Key point:** On a $v$-$t$ graph, the sign of $v$ gives direction; the area under the graph gives displacement.\n\n**(1)** From the graph, the velocities of both $P$ and $Q$ are always positive, so both cars always move in the forward direction.\n\n**(2)** From $t=0$ to $t=t_1$, $v_P>v_Q$, so the separation increases. From $t=t_1$ to $t=t_2$, $v_P<v_Q$, so the separation decreases. Therefore, the separation is maximum at $t=t_1$.\n\n**(3)** From $t=0$ to $t=t_2$, the total area under the graph of $P$ is greater than that of $Q$, so $P$ has a larger displacement. Hence, at $t=t_2$, $Q$ is behind $P$.\n\n**Conclusion:** (1), (2) and (3) are all correct -> option D.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -2301,7 +2301,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['2.0 m s^-1', '2.8 m s^-1', '3.0 m s^-1', '5.0 m s^-1'],
     answer: '2.0 m s^-1',
     explanation:
-      '⚠️ **Key point:** Magnitude of average velocity $= \\frac{\\text{resultant displacement}}{\\text{total time}}$.\n\nDisplacement east $= 2.0\\times1.5 = 3.0\\text{ m}$.\nDisplacement north $= 4.0\\times1.0 = 4.0\\text{ m}$.\nResultant displacement:\n$$s=\\sqrt{3^2+4^2}=5\\text{ m}$$\nTotal time $= 1.5+1.0 = 2.5\\text{ s}$.\n$$v_{\\text{avg}}=\\frac{5}{2.5}=2.0\\text{ m s}^{-1}$$\n\n**Conclusion:** $2.0\\text{ m s}^{-1}$ �?option A.',
+      '⚠️ **Key point:** Magnitude of average velocity $= \\frac{\\text{resultant displacement}}{\\text{total time}}$.\n\nDisplacement east $= 2.0\\times1.5 = 3.0\\text{ m}$.\nDisplacement north $= 4.0\\times1.0 = 4.0\\text{ m}$.\nResultant displacement:\n$$s=\\sqrt{3^2+4^2}=5\\text{ m}$$\nTotal time $= 1.5+1.0 = 2.5\\text{ s}$.\n$$v_{\\text{avg}}=\\frac{5}{2.5}=2.0\\text{ m s}^{-1}$$\n\n**Conclusion:** $2.0\\text{ m s}^{-1}$ -> option A.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -2325,7 +2325,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: 'instantaneous speed',
     explanation:
-      "⚠️ **Key point:** A speedometer measures the car's speed at an instant (a scalar).\n\nIt does not indicate direction, so it cannot give the (vector) velocity. It is also not an average over the whole journey.\n\n**Conclusion:** instantaneous speed �?option A.",
+      "⚠️ **Key point:** A speedometer measures the car's speed at an instant (a scalar).\n\nIt does not indicate direction, so it cannot give the (vector) velocity. It is also not an average over the whole journey.\n\n**Conclusion:** instantaneous speed -> option A.",
     difficulty: 1,
     points: 10,
     hints: [
@@ -2375,7 +2375,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: 'descending with uniform acceleration.',
     explanation:
-      '⚠️ **Key point:** Spring balance reading is the apparent weight (normal reaction), not necessarily the true weight.\n\nTrue weight:\n$$W=mg=(20)(9.81)=196\\ \\text{N}.$$\nMeasured reading is $150\\ \\text{N}$, so\n$$R<W.$$ \nThis means acceleration is downward.\n\nIf acceleration is downward, the lift is accelerating downward (not moving at uniform velocity).\n\n**Conclusion:** the lift is descending with uniform acceleration �?option D.',
+      '⚠️ **Key point:** Spring balance reading is the apparent weight (normal reaction), not necessarily the true weight.\n\nTrue weight:\n$$W=mg=(20)(9.81)=196\\ \\text{N}.$$\nMeasured reading is $150\\ \\text{N}$, so\n$$R<W.$$ \nThis means acceleration is downward.\n\nIf acceleration is downward, the lift is accelerating downward (not moving at uniform velocity).\n\n**Conclusion:** the lift is descending with uniform acceleration -> option D.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -2435,7 +2435,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '$m_2 : m_1$',
     explanation:
-      '⚠️ **Key point:** At release, spring force on the two blocks has equal magnitude (Newton’s third law).\n\nLet the spring force magnitude be $F$ on each block.\nThen\n$$a_A=\\frac{F}{m_1},\\quad a_B=\\frac{F}{m_2}.$$\nSo\n$$\\frac{a_A}{a_B}=\\frac{F/m_1}{F/m_2}=\\frac{m_2}{m_1}.$$\n\n**Conclusion:** $a_A:a_B = m_2:m_1$ �?option B.',
+      '⚠️ **Key point:** At release, spring force on the two blocks has equal magnitude (Newton’s third law).\n\nLet the spring force magnitude be $F$ on each block.\nThen\n$$a_A=\\frac{F}{m_1},\\quad a_B=\\frac{F}{m_2}.$$\nSo\n$$\\frac{a_A}{a_B}=\\frac{F/m_1}{F/m_2}=\\frac{m_2}{m_1}.$$\n\n**Conclusion:** $a_A:a_B = m_2:m_1$ -> option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -2495,7 +2495,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['$S_1$', '$S_2$', '$S_3$', '$S_4$'],
     answer: '$S_1$',
     explanation:
-      '⚠️ **Key point:** Each string must pull all blocks behind it, so tension is largest in the front string.\n\nLet each block have mass $m$ and acceleration be $a$.\n\nFor block $E$ only:\n$$T_4=ma.$$\nFor $D+E$:\n$$T_3=2ma.$$\nFor $C+D+E$:\n$$T_2=3ma.$$\nFor $B+C+D+E$:\n$$T_1=4ma.$$\nSo\n$$T_1>T_2>T_3>T_4.$$\nSince strings are identical, the one with greatest tension breaks first.\n\n**Conclusion:** $S_1$ �?option A.',
+      '⚠️ **Key point:** Each string must pull all blocks behind it, so tension is largest in the front string.\n\nLet each block have mass $m$ and acceleration be $a$.\n\nFor block $E$ only:\n$$T_4=ma.$$\nFor $D+E$:\n$$T_3=2ma.$$\nFor $C+D+E$:\n$$T_2=3ma.$$\nFor $B+C+D+E$:\n$$T_1=4ma.$$\nSo\n$$T_1>T_2>T_3>T_4.$$\nSince strings are identical, the one with greatest tension breaks first.\n\n**Conclusion:** $S_1$ -> option A.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -2637,7 +2637,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: [
       'At release instant, velocity does not suddenly jump.',
       'Use inertia: object keeps its current velocity unless net force changes it over time.',
-      'Distinguish “at the moment of release�?from “later motion�?',
+      'Distinguish “at the moment of release-from “later motion-',
     ],
     sectionId: 'newton-laws',
   },
@@ -2649,7 +2649,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(2) only',
     explanation:
-      '⚠️ **Key point:** From a $v$-$t$ graph, slope equals acceleration.\n\n(1) False: velocity increases from zero and then approaches a constant value (terminal speed), not decreasing.\n\n(2) True: the slope of the curve decreases with time, so acceleration decreases.\n\n(3) False: after about 4 s the ball moves at terminal velocity, which is non-zero, so it does not stop.\n\n**Conclusion:** (2) only �?option B.',
+      '⚠️ **Key point:** From a $v$-$t$ graph, slope equals acceleration.\n\n(1) False: velocity increases from zero and then approaches a constant value (terminal speed), not decreasing.\n\n(2) True: the slope of the curve decreases with time, so acceleration decreases.\n\n(3) False: after about 4 s the ball moves at terminal velocity, which is non-zero, so it does not stop.\n\n**Conclusion:** (2) only -> option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -2744,7 +2744,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '$29.4\\ \\text{N}$',
     explanation:
-      '⚠️ **Key point:** For the movable pulley connected to the 6 kg mass, two upward tensions support the load.\n\nFor equilibrium of the 6 kg load-pulley system:\n$$2T=mg=(6)(9.81).$$\nSo\n$$T=\\frac{6\\times9.81}{2}=29.4\\ \\text{N}.$$\n\nSince the system is at rest and strings are light/frictionless, the tension in string $S$ equals this string tension.\n\n**Conclusion:** $S=29.4\\ \\text{N}$ �?option C.',
+      '⚠️ **Key point:** For the movable pulley connected to the 6 kg mass, two upward tensions support the load.\n\nFor equilibrium of the 6 kg load-pulley system:\n$$2T=mg=(6)(9.81).$$\nSo\n$$T=\\frac{6\\times9.81}{2}=29.4\\ \\text{N}.$$\n\nSince the system is at rest and strings are light/frictionless, the tension in string $S$ equals this string tension.\n\n**Conclusion:** $S=29.4\\ \\text{N}$ -> option C.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -2786,7 +2786,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(2) only', '(1) & (2) only', '(1) & (3) only'],
     answer: '(1) & (3) only',
     explanation:
-      '⚠️ **Key point:** Feeling heavier means apparent weight (normal reaction) is greater than true weight: $R>mg$, which occurs when acceleration is upward.\n\n(1) Upward with acceleration �?acceleration upward �?feels heavier.\n\n(2) Upward with retardation �?acceleration downward �?feels lighter.\n\n(3) Downward with retardation �?acceleration upward �?feels heavier.\n\n**Conclusion:** (1) and (3) only �?option D.',
+      '⚠️ **Key point:** Feeling heavier means apparent weight (normal reaction) is greater than true weight: $R>mg$, which occurs when acceleration is upward.\n\n(1) Upward with acceleration -> acceleration upward -> feels heavier.\n\n(2) Upward with retardation -> acceleration downward -> feels lighter.\n\n(3) Downward with retardation -> acceleration upward -> feels heavier.\n\n**Conclusion:** (1) and (3) only -> option D.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -2847,7 +2847,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(1) & (2) only',
     explanation:
-      '⚠️ **Key point:** A straight line increasing with time means quantity is proportional to time.\n\n(1) True: constant force on fixed mass gives constant acceleration, so speed from rest increases linearly with time.\n\n(2) True: at constant speed, distance is proportional to time ($s=vt$), giving a straight line through origin.\n\n(3) False for this graph shape: free-fall acceleration is approximately constant, so $a$ vs $t$ is a horizontal line, not an increasing straight line.\n\n**Conclusion:** (1) and (2) only �?option C.',
+      '⚠️ **Key point:** A straight line increasing with time means quantity is proportional to time.\n\n(1) True: constant force on fixed mass gives constant acceleration, so speed from rest increases linearly with time.\n\n(2) True: at constant speed, distance is proportional to time ($s=vt$), giving a straight line through origin.\n\n(3) False for this graph shape: free-fall acceleration is approximately constant, so $a$ vs $t$ is a horizontal line, not an increasing straight line.\n\n**Conclusion:** (1) and (2) only -> option C.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -2889,7 +2889,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(2) only',
     explanation:
-      '⚠️ **Key point:** Constant speed means zero acceleration, so net force on the man is zero.\n\nTherefore $R=W$ in magnitude, so (1) is false.\n$R$ acts upward while $W$ acts downward, so (2) is true.\n\n(3) is false because action-reaction forces act on different bodies; here $R$ and $W$ both act on the man.\n\n**Conclusion:** (2) only �?option B.',
+      '⚠️ **Key point:** Constant speed means zero acceleration, so net force on the man is zero.\n\nTherefore $R=W$ in magnitude, so (1) is false.\n$R$ acts upward while $W$ acts downward, so (2) is true.\n\n(3) is false because action-reaction forces act on different bodies; here $R$ and $W$ both act on the man.\n\n**Conclusion:** (2) only -> option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -2993,7 +2993,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(2) only', '(3) only', '(1) & (2) only', '(1) & (3) only'],
     answer: '(3) only',
     explanation:
-      '⚠️ **Key point:** Action-reaction forces are equal and opposite forces acting on **different bodies**.\n\n(1) Not a third-law pair because both forces are on the same block.\n\n(2) Not a third-law pair because both forces are on the same ball.\n\n(3) Is a third-law pair because one force acts on one charge and the other acts on the opposite charge (different objects).\n\n**Conclusion:** (3) only �?option B.',
+      '⚠️ **Key point:** Action-reaction forces are equal and opposite forces acting on **different bodies**.\n\n(1) Not a third-law pair because both forces are on the same block.\n\n(2) Not a third-law pair because both forces are on the same ball.\n\n(3) Is a third-law pair because one force acts on one charge and the other acts on the opposite charge (different objects).\n\n**Conclusion:** (3) only -> option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -3012,7 +3012,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(3) only',
     explanation:
-      '⚠️ **Key point:** In free fall, apparent weight is zero, but true weight $mg$ is not zero.\n\n(1) False: true weight is\n$$W=mg=50\\times9.81\\approx491\\ \\text{N}.$$ \n(2) False: in free fall the man does not press on floor (normal contact force is zero), so force on floor by man is 0.\n(3) True: force on man by floor (normal reaction) is 0.\n\n**Conclusion:** (3) only �?option B.',
+      '⚠️ **Key point:** In free fall, apparent weight is zero, but true weight $mg$ is not zero.\n\n(1) False: true weight is\n$$W=mg=50\\times9.81\\approx491\\ \\text{N}.$$ \n(2) False: in free fall the man does not press on floor (normal contact force is zero), so force on floor by man is 0.\n(3) True: force on man by floor (normal reaction) is 0.\n\n**Conclusion:** (3) only -> option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -3030,7 +3030,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(3) only', '(1) & (2) only', '(2) & (3) only'],
     answer: '(1) only',
     explanation:
-      '⚠️ **Key point:** Friction-compensated runway means trolley should move at (approximately) constant speed, so equal dot spacing is expected for equal time intervals.\n\n(1) True: a harder initial push gives a larger initial speed, so spacing between dots can become larger while still remaining uniform.\n\n(2) False: increasing slope makes downslope component exceed friction, causing acceleration; dot spacing would increase progressively, not remain equal.\n\n(3) False: higher ticker frequency gives shorter time between dots, so spacing between adjacent dots becomes smaller.\n\n**Conclusion:** (1) only �?option A.',
+      '⚠️ **Key point:** Friction-compensated runway means trolley should move at (approximately) constant speed, so equal dot spacing is expected for equal time intervals.\n\n(1) True: a harder initial push gives a larger initial speed, so spacing between dots can become larger while still remaining uniform.\n\n(2) False: increasing slope makes downslope component exceed friction, causing acceleration; dot spacing would increase progressively, not remain equal.\n\n(3) False: higher ticker frequency gives shorter time between dots, so spacing between adjacent dots becomes smaller.\n\n**Conclusion:** (1) only -> option A.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -3057,7 +3057,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '$T_1=6\\ \\text{N},\\ T_2=14\\ \\text{N}$',
     explanation:
-      '⚠️ **Key point:** System is in equilibrium, so tensions balance downward loads below each string.\n\nFor block $X$:\n$$T_1 = F + W_X = 4 + 2 = 6\\ \\text{N}.$$\n\nFor upper string supporting both $Y$ and the pull from below:\n$$T_2 = T_1 + W_Y = 6 + 8 = 14\\ \\text{N}.$$\n\n**Conclusion:** $T_1=6\\ \\text{N},\\ T_2=14\\ \\text{N}$ �?option D.',
+      '⚠️ **Key point:** System is in equilibrium, so tensions balance downward loads below each string.\n\nFor block $X$:\n$$T_1 = F + W_X = 4 + 2 = 6\\ \\text{N}.$$\n\nFor upper string supporting both $Y$ and the pull from below:\n$$T_2 = T_1 + W_Y = 6 + 8 = 14\\ \\text{N}.$$\n\n**Conclusion:** $T_1=6\\ \\text{N},\\ T_2=14\\ \\text{N}$ -> option D.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -3135,7 +3135,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(2) only', '(3) only', '(1) & (2) only'],
     answer: '(2) only',
     explanation:
-      '⚠️ **Key point:** Newton’s third-law force pairs act on different bodies and are equal in magnitude and opposite in direction.\n\n(1) $R$ and $W$ both act on the same block, so not a third-law pair.\n\n(2) $W$ (Earth on block) and $F$ (block on Earth) are equal and opposite on different bodies, so this is a third-law pair.\n\n(3) $F$ and $R$ are not a valid action-reaction pair.\n\n**Conclusion:** (2) only �?option B.',
+      '⚠️ **Key point:** Newton’s third-law force pairs act on different bodies and are equal in magnitude and opposite in direction.\n\n(1) $R$ and $W$ both act on the same block, so not a third-law pair.\n\n(2) $W$ (Earth on block) and $F$ (block on Earth) are equal and opposite on different bodies, so this is a third-law pair.\n\n(3) $F$ and $R$ are not a valid action-reaction pair.\n\n**Conclusion:** (2) only -> option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -3154,7 +3154,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(1) & (3) only', '(2) & (3) only', '(1), (2) & (3)'],
     answer: '(1), (2) & (3)',
     explanation:
-      '⚠️ **Key point:** In free fall (no air resistance), acceleration is $g$ for all masses.\n\n(1) True: weight $W=mg$, so larger mass has larger gravitational force.\n\n(2) True: same initial condition and same acceleration $g$ means same fall time.\n\n(3) True: from the same height with same $g$, final speed is the same ($v=\\sqrt{2gh}$).\n\n**Conclusion:** (1), (2) and (3) are all correct �?option D.',
+      '⚠️ **Key point:** In free fall (no air resistance), acceleration is $g$ for all masses.\n\n(1) True: weight $W=mg$, so larger mass has larger gravitational force.\n\n(2) True: same initial condition and same acceleration $g$ means same fall time.\n\n(3) True: from the same height with same $g$, final speed is the same ($v=\\sqrt{2gh}$).\n\n**Conclusion:** (1), (2) and (3) are all correct -> option D.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -3172,7 +3172,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(2) only', '(3) only', '(1) & (2) only', '(1) & (3) only'],
     answer: '(3) only',
     explanation:
-      '⚠️ **Key point:** If the block is at rest, it is in equilibrium, so resultant force is zero.\n\n(1) False: on an incline, static friction is generally needed to balance the downslope component of weight.\n\n(2) False: since the block is in contact with the plane, normal reaction is non-zero.\n\n(3) True: equilibrium requires net force to be zero.\n\n**Conclusion:** (3) only �?option B.',
+      '⚠️ **Key point:** If the block is at rest, it is in equilibrium, so resultant force is zero.\n\n(1) False: on an incline, static friction is generally needed to balance the downslope component of weight.\n\n(2) False: since the block is in contact with the plane, normal reaction is non-zero.\n\n(3) True: equilibrium requires net force to be zero.\n\n**Conclusion:** (3) only -> option B.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -3190,7 +3190,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(2) only',
     explanation:
-      '⚠️ **Key point:** In vacuum there is no air resistance, so all objects fall with the same gravitational acceleration $g$.\n\n(1) False: vacuum does not change masses; coin and feather still have different masses.\n\n(2) True: both fall with the same acceleration $g$.\n\n(3) False: gravitational force is $W=mg$, so different masses mean different forces.\n\n**Conclusion:** (2) only �?option B.',
+      '⚠️ **Key point:** In vacuum there is no air resistance, so all objects fall with the same gravitational acceleration $g$.\n\n(1) False: vacuum does not change masses; coin and feather still have different masses.\n\n(2) True: both fall with the same acceleration $g$.\n\n(3) False: gravitational force is $W=mg$, so different masses mean different forces.\n\n**Conclusion:** (2) only -> option B.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -3233,7 +3233,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(2) only', '(3) only', '(1) & (2) only', '(1) & (3) only'],
     answer: '(3) only',
     explanation:
-      '⚠️ **Key point:** Newton’s laws link net force with acceleration.\n\n(1) False: uniform velocity means zero acceleration, so net force must be zero (no unbalanced force needed).\n\n(2) False: uniform acceleration means constant acceleration, so net force should be constant, not increasing.\n\n(3) True: with no unbalanced force, acceleration is zero, so an object may remain at rest (or move with constant velocity).\n\n**Conclusion:** (3) only �?option B.',
+      '⚠️ **Key point:** Newton’s laws link net force with acceleration.\n\n(1) False: uniform velocity means zero acceleration, so net force must be zero (no unbalanced force needed).\n\n(2) False: uniform acceleration means constant acceleration, so net force should be constant, not increasing.\n\n(3) True: with no unbalanced force, acceleration is zero, so an object may remain at rest (or move with constant velocity).\n\n**Conclusion:** (3) only -> option B.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -3274,7 +3274,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(2) only', '(1) & (3) only', '(2) & (3) only'],
     answer: '(2) & (3) only',
     explanation:
-      '⚠️ **Key point:** Newton’s third-law pair must be equal and opposite forces acting on different bodies.\n\n(1) Not a third-law pair: both forces act on the man.\n(2) Yes: Earth-on-moon and moon-on-Earth gravitational forces are a third-law pair.\n(3) Yes: swimmer pushes water backward; water pushes swimmer forward.\n\n**Conclusion:** (2) and (3) only �?option D.',
+      '⚠️ **Key point:** Newton’s third-law pair must be equal and opposite forces acting on different bodies.\n\n(1) Not a third-law pair: both forces act on the man.\n(2) Yes: Earth-on-moon and moon-on-Earth gravitational forces are a third-law pair.\n(3) Yes: swimmer pushes water backward; water pushes swimmer forward.\n\n**Conclusion:** (2) and (3) only -> option D.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -3339,7 +3339,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: 'moving downwards with an acceleration',
     explanation:
-      '⚠️ **Key point:** Spring balance reading is the apparent weight (normal reaction) $R$.\n\nAt rest: $R=mg=10\\ \\text{N}$.\nWhen moving: $R=8\\ \\text{N}$, so $R<mg$.\n\nNet force on the object is downward:\n$$mg-R=ma$$\nSo the acceleration is downward.\n\nThis corresponds to the lift having **downward acceleration** (or equivalently, the lift could be moving upward with deceleration, but that option is not given).\n\n**Conclusion:** moving downwards with an acceleration �?option C.',
+      '⚠️ **Key point:** Spring balance reading is the apparent weight (normal reaction) $R$.\n\nAt rest: $R=mg=10\\ \\text{N}$.\nWhen moving: $R=8\\ \\text{N}$, so $R<mg$.\n\nNet force on the object is downward:\n$$mg-R=ma$$\nSo the acceleration is downward.\n\nThis corresponds to the lift having **downward acceleration** (or equivalently, the lift could be moving upward with deceleration, but that option is not given).\n\n**Conclusion:** moving downwards with an acceleration -> option C.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -3454,7 +3454,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     difficulty: 1,
     points: 10,
     hints: [
-      'Focus on what “arrive at almost the same time�?implies about acceleration.',
+      'Focus on what “arrive at almost the same time-implies about acceleration.',
       'Distinguish acceleration equality from force equality.',
       'Use $W=mg$ to compare gravitational forces on different masses.',
     ],
@@ -4084,7 +4084,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     hints: [
       'Check whether the two forces act on different bodies.',
       'Third-law pair must come from the same interaction.',
-      'Look for “force of A on B�?matched with “force of B on A�?',
+      'Look for “force of A on B-matched with “force of B on A-',
     ],
     sectionId: 'newton-laws',
     imagePaths: ['/physics/exercises/newton-laws/nl-083-question.png'],
@@ -4215,7 +4215,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: 'Horse: forward; Block: backward',
     explanation:
-      '**Key point:** Friction acts to oppose relative slipping tendency at each contact.\n\nFor the block, it is pulled forward by the horse, so it tends to move forward relative to ground; friction on the block is backward.\n\nFor the horse, it pushes the ground backward with its hooves, so ground exerts forward friction on the horse, enabling forward motion.\n\nWith uniform velocity, these effects balance overall, but directions remain as above.\n\n**Conclusion:** Horse forward, Block backward �?option D.',
+      '**Key point:** Friction acts to oppose relative slipping tendency at each contact.\n\nFor the block, it is pulled forward by the horse, so it tends to move forward relative to ground; friction on the block is backward.\n\nFor the horse, it pushes the ground backward with its hooves, so ground exerts forward friction on the horse, enabling forward motion.\n\nWith uniform velocity, these effects balance overall, but directions remain as above.\n\n**Conclusion:** Horse forward, Block backward -> option D.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -4233,12 +4233,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(2) only', '(1) and (3) only', '(2) and (3) only'],
     answer: '(1) only',
     explanation:
-      '**Key point:** A third-law pair must be “force of A on B�?and “force of B on A�?\n\n(1) Correct: child-on-scale and scale-on-child are equal and opposite on different bodies.\n\n(2) Incorrect: Earth-on-child pairs with child-on-Earth, not with scale-on-child.\n\n(3) Incorrect: both listed forces are Earth-on-objects, so they are not action-reaction to each other.\n\n**Conclusion:** only (1) is a valid action-reaction pair, so option A.',
+      '**Key point:** A third-law pair must be “force of A on B-and “force of B on A-\n\n(1) Correct: child-on-scale and scale-on-child are equal and opposite on different bodies.\n\n(2) Incorrect: Earth-on-child pairs with child-on-Earth, not with scale-on-child.\n\n(3) Incorrect: both listed forces are Earth-on-objects, so they are not action-reaction to each other.\n\n**Conclusion:** only (1) is a valid action-reaction pair, so option A.',
     difficulty: 1,
     points: 10,
     hints: [
-      'Match each force with its exact “other-body on first-body�?partner.',
-      'If both forces are “Earth on ...�? they cannot be a third-law pair.',
+      'Match each force with its exact “other-body on first-body-partner.',
+      'If both forces are “Earth on ...- they cannot be a third-law pair.',
       'Check whether the pair acts on two different bodies in opposite directions.',
     ],
     sectionId: 'newton-laws',
@@ -4276,7 +4276,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(3) only', '(1) and (2) only', '(2) and (3) only'],
     answer: '(1) and (2) only',
     explanation:
-      '**Key point:** The bob inclines opposite to train acceleration direction. Since it inclines to the east, train acceleration is to the west.\n\n(1) Moving east and decelerating means acceleration westward �?possible.\n\n(2) Moving west and accelerating means acceleration westward �?possible.\n\n(3) Starting to move east from rest means acceleration eastward �?not possible.\n\n**Conclusion:** (1) and (2) only, so option C.',
+      '**Key point:** The bob inclines opposite to train acceleration direction. Since it inclines to the east, train acceleration is to the west.\n\n(1) Moving east and decelerating means acceleration westward -> possible.\n\n(2) Moving west and accelerating means acceleration westward -> possible.\n\n(3) Starting to move east from rest means acceleration eastward -> not possible.\n\n**Conclusion:** (1) and (2) only, so option C.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -4540,7 +4540,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) only', '(3) only', '(1) and (2) only', '(2) and (3) only'],
     answer: '(3) only',
     explanation:
-      '**Key point:** “Feeling heavier�?means the normal reaction from the floor increases, not weight.\n\n(1) False: gravitational force on the man ($mg$) is unchanged.\n\n(2) False: gravitational force on the lift (its weight) is unchanged.\n\n(3) True: when the lift accelerates upward, for the man\n$$R-mg=ma,$$\nso $R>mg$. The increased normal reaction makes him feel heavier.\n\n**Conclusion:** only (3) is correct, so option B.',
+      '**Key point:** “Feeling heavier-means the normal reaction from the floor increases, not weight.\n\n(1) False: gravitational force on the man ($mg$) is unchanged.\n\n(2) False: gravitational force on the lift (its weight) is unchanged.\n\n(3) True: when the lift accelerates upward, for the man\n$$R-mg=ma,$$\nso $R>mg$. The increased normal reaction makes him feel heavier.\n\n**Conclusion:** only (3) is correct, so option B.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -4871,7 +4871,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     ],
     answer: '/physics/exercises/newton-laws/nl-122-option-a.png',
     explanation:
-      '**Key point:** For a swinging bob in air (neglecting air resistance), only two real forces act:\n- tension along the string toward the pivot,\n- weight vertically downward.\n\nNo separate “centripetal force�?should be added as an extra force; centripetal effect comes from the resultant of real forces.\n\n**Conclusion:** option A.',
+      '**Key point:** For a swinging bob in air (neglecting air resistance), only two real forces act:\n- tension along the string toward the pivot,\n- weight vertically downward.\n\nNo separate “centripetal force-should be added as an extra force; centripetal effect comes from the resultant of real forces.\n\n**Conclusion:** option A.',
     difficulty: 1,
     points: 10,
     hints: [
@@ -5164,12 +5164,12 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['192 m', '144 m', '128 m', '96 m'],
     answer: '128 m',
     explanation:
-      '**Key point:** Convert scale readings to lift acceleration in each phase, then use $v$-$t$ area.\n\nFrom graph: 0�? s gives upward $a=1$, 8�?6 s gives $a=0$, 16�?4 s gives downward $a=1$ (decelerating upward).\nSo peak speed after 8 s is\n$$v=0+1\\times8=8\\ \\text{m s}^{-1}.$$ \nDistance ascended equals area under $v$-$t$ graph:\n$$s=\\frac{1}{2}(8+24)\\times8=128\\ \\text{m}.$$ \n\n**Conclusion:** option C.',
+      '**Key point:** Convert scale readings to lift acceleration in each phase, then use $v$-$t$ area.\n\nFrom graph: 0-8 s gives upward $a=1$, 8-16 s gives $a=0$, 16-24 s gives downward $a=1$ (decelerating upward).\nSo peak speed after 8 s is\n$$v=0+1\\times8=8\\ \\text{m s}^{-1}.$$ \nDistance ascended equals area under $v$-$t$ graph:\n$$s=\\frac{1}{2}(8+24)\\times8=128\\ \\text{m}.$$ \n\n**Conclusion:** option C.',
     difficulty: 2,
     points: 15,
     hints: [
       'Use $R-mg=ma$ or $mg-R=ma$ by phase.',
-      'Build the velocity-time profile across 0�?4 s.',
+      'Build the velocity-time profile across 0-24 s.',
       'Distance is area under $v$-$t$ graph.',
     ],
     sectionId: 'newton-laws',
@@ -5202,7 +5202,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     options: ['(1) and (2) only', '(1) and (3) only', '(2) and (3) only', '(1), (2) and (3)'],
     answer: '(1) and (2) only',
     explanation:
-      '**Key point:** Tension rises with extension.\n\nFrom $P$ to $Q$, tension is still less than weight, so net force is downward and speed keeps increasing �?(1) true.\nAt $Q$, $T=mg$, so acceleration is zero at that instant; after $Q$, $T>mg$ gives upward acceleration, so speed starts decreasing. Hence speed is maximum at $Q$ �?(2) true.\nAt $R$, velocity is momentarily zero but cord is highly stretched so $T>mg$; net force is not zero �?(3) false.\n\n**Conclusion:** (1) and (2) only, so option A.',
+      '**Key point:** Tension rises with extension.\n\nFrom $P$ to $Q$, tension is still less than weight, so net force is downward and speed keeps increasing -(1) true.\nAt $Q$, $T=mg$, so acceleration is zero at that instant; after $Q$, $T>mg$ gives upward acceleration, so speed starts decreasing. Hence speed is maximum at $Q$ -(2) true.\nAt $R$, velocity is momentarily zero but cord is highly stretched so $T>mg$; net force is not zero -(3) false.\n\n**Conclusion:** (1) and (2) only, so option A.',
     difficulty: 2,
     points: 15,
     hints: [
@@ -13795,7 +13795,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'An illuminated object is placed 20 cm in front of a convex lens and a sharp image is formed on a screen 16 cm from the lens. The focal length of the convex lens is',
     options: ['less than 8 cm', 'between 8 cm and 10 cm', 'between 10 cm and 16 cm', 'between 16 cm and 20 cm'],
     answer: 'between 8 cm and 10 cm',
-    explanation: 'Using the lens formula 1/f = 1/u + 1/v with u = 20 cm and v = 16 cm gives f = uv/(u+v) = 320/36 �� 8.9 cm. So the focal length lies between 8 cm and 10 cm.',
+    explanation: 'Using the lens formula 1/f = 1/u + 1/v with u = 20 cm and v = 16 cm gives f = uv/(u+v) = 320/36 ≈ 8.9 cm. So the focal length lies between 8 cm and 10 cm.',
     difficulty: 2,
     sectionId: 'lens',
     hints: ['Use 1/f = 1/u + 1/v for a real image by a convex lens.', 'Then compare the result with the intervals.'],
@@ -14198,7 +14198,7 @@ export const FORCE_MOTION_EXERCISES: Exercise[] = [
     question: 'An object placed 25.0 cm in front of a lens forms a virtual image at a distance 11.1 cm from the lens. The lens is a',
     options: ['concave lens of focal length 7.7 cm', 'concave lens of focal length 20 cm', 'convex lens of focal length 7.7 cm', 'convex lens of focal length 20 cm'],
     answer: 'concave lens of focal length 20 cm',
-    explanation: 'For a virtual image, v = -11.1 cm. Using 1/f = 1/25 + 1/(-11.1) gives f �� -20 cm. A negative focal length means the lens is concave.',
+    explanation: 'For a virtual image, v = -11.1 cm. Using 1/f = 1/25 + 1/(-11.1) gives f ≈ -20 cm. A negative focal length means the lens is concave.',
     difficulty: 2,
     sectionId: 'lens',
     hints: ['Use negative image distance for a virtual image.', 'The sign of the focal length tells you the lens type.'],
@@ -16205,4 +16205,6 @@ export const FORCE_MOTION_CHAPTERS: Chapter[] = [
     completed: false,
   },
 ];
+
+
 
