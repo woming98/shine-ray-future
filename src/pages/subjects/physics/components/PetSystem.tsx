@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+﻿import { useEffect, useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Bone, Gamepad2, Moon, PawPrint, Sparkles } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
@@ -12,13 +12,8 @@ type PetState = {
 };
 
 const STORAGE_KEY = 'physics_web_pet_state_v1';
-
-const PET_ART = {
-  idle: '/physics/pets/chibi-boy/idle.jpg',
-  blink: '/physics/pets/chibi-boy/blink.jpg',
-  happy: '/physics/pets/chibi-boy/happy.jpg',
-  tired: '/physics/pets/chibi-boy/tired.jpg',
-} as const;
+const SPECIES_KEY = 'physics_web_pet_species_v1';
+type PetSpecies = 'cat' | 'dog';
 
 const clamp = (value: number) => Math.max(0, Math.min(100, value));
 
@@ -59,49 +54,118 @@ const loadState = (): PetState => {
   }
 };
 
-function ArtworkPet({ moodScore }: { moodScore: number }) {
+const loadSpecies = (): PetSpecies => {
+  const raw = localStorage.getItem(SPECIES_KEY);
+  return raw === 'dog' ? 'dog' : 'cat';
+};
+
+const saveSpecies = (species: PetSpecies) => localStorage.setItem(SPECIES_KEY, species);
+
+function AnimatedPet({ moodScore, energyScore, species }: { moodScore: number; energyScore: number; species: PetSpecies }) {
   const [blink, setBlink] = useState(false);
-  const [artOk, setArtOk] = useState(true);
 
   useEffect(() => {
     const id = window.setInterval(() => {
       setBlink(true);
-      window.setTimeout(() => setBlink(false), 170);
-    }, 3800);
+      window.setTimeout(() => setBlink(false), 150);
+    }, 3200);
     return () => window.clearInterval(id);
   }, []);
 
-  let src: string = PET_ART.idle;
-  if (blink) src = PET_ART.blink;
-  else if (moodScore >= 82) src = PET_ART.happy;
-  else if (moodScore < 45) src = PET_ART.tired;
-
-  const colorClass = moodScore >= 82 ? 'saturate-110' : moodScore < 45 ? 'grayscale-[0.2] brightness-90' : 'saturate-100';
+  const isHappy = moodScore >= 80;
+  const isTired = energyScore < 40;
+  const coat = species === 'cat' ? (isHappy ? '#f8b35a' : moodScore >= 45 ? '#e6a14b' : '#c79356') : isHappy ? '#d8b087' : moodScore >= 45 ? '#c89a70' : '#aa7f5a';
+  const face = moodScore >= 45 ? '#ffe8c9' : '#f0d9bd';
+  const bodyAnim = isTired ? { y: [0, 1, 0] } : isHappy ? { y: [0, -4, 0] } : { y: [0, -2, 0] };
 
   return (
     <motion.div
-      className="relative mx-auto mb-2 h-44 w-40"
-      animate={{ y: [0, -2, 0] }}
-      transition={{ duration: 2.3, repeat: Infinity, ease: 'easeInOut' }}
+      className="relative mx-auto mb-2 h-44 w-44"
+      animate={bodyAnim}
+      transition={{ duration: isTired ? 2.8 : 2.2, repeat: Infinity, ease: 'easeInOut' }}
     >
       <motion.div
-        className="absolute bottom-2 left-1/2 h-3 w-20 -translate-x-1/2 rounded-full bg-slate-900/50 blur-sm"
+        className="absolute bottom-1 left-1/2 h-3 w-24 -translate-x-1/2 rounded-full bg-slate-900/50 blur-sm"
         animate={{ scaleX: [1, 0.92, 1] }}
-        transition={{ duration: 2.3, repeat: Infinity }}
+        transition={{ duration: 2.2, repeat: Infinity }}
       />
 
-      {artOk ? (
-        <img
-          src={src}
-          alt="Q版宠物形象"
-          onError={() => setArtOk(false)}
-          className={`relative z-10 h-full w-full object-contain drop-shadow-[0_10px_24px_rgba(0,0,0,0.35)] ${colorClass}`}
+      <svg viewBox="0 0 220 220" className="relative z-10 h-full w-full drop-shadow-[0_8px_22px_rgba(0,0,0,0.35)]" role="img" aria-label={`${species} pet avatar`}>
+        <motion.path
+          d="M158 118 C186 116, 200 136, 184 152"
+          fill="none"
+          stroke={coat}
+          strokeWidth="10"
+          strokeLinecap="round"
+          animate={isTired ? { rotate: [0, 4, -4, 0] } : { rotate: [0, 12, -8, 0] }}
+          transition={{ repeat: Infinity, duration: isTired ? 2.2 : 1.4, ease: 'easeInOut' }}
+          style={{ transformOrigin: '160px 126px' }}
         />
-      ) : (
-        <div className="relative z-10 flex h-full w-full items-center justify-center rounded-xl border border-slate-600 bg-slate-800/70 text-xs text-slate-300">
-          宠物素材缺失
-        </div>
-      )}
+
+        <ellipse cx="110" cy="146" rx="56" ry="44" fill={coat} />
+
+        <motion.g animate={isHappy ? { y: [0, -1.5, 0] } : { y: [0, 0.5, 0] }} transition={{ repeat: Infinity, duration: 0.7, ease: 'easeInOut' }}>
+          <ellipse cx="74" cy="182" rx="11" ry="14" fill={coat} />
+          <ellipse cx="123" cy="186" rx="10" ry="13" fill={coat} />
+        </motion.g>
+        <motion.g animate={isHappy ? { y: [0, 1.5, 0] } : { y: [0.5, 0, 0.5] }} transition={{ repeat: Infinity, duration: 0.7, ease: 'easeInOut' }}>
+          <ellipse cx="97" cy="186" rx="10" ry="13" fill={coat} />
+          <ellipse cx="146" cy="182" rx="11" ry="14" fill={coat} />
+        </motion.g>
+
+        <circle cx="110" cy="86" r="52" fill={coat} />
+
+        {species === 'cat' ? (
+          <>
+            <path d="M72 41 L56 17 L84 30 Z" fill={coat} />
+            <path d="M148 41 L164 17 L136 30 Z" fill={coat} />
+            <path d="M73 37 L63 23 L80 30 Z" fill="#f4c286" />
+            <path d="M147 37 L157 23 L140 30 Z" fill="#f4c286" />
+          </>
+        ) : (
+          <>
+            <ellipse cx="78" cy="42" rx="14" ry="11" fill={coat} />
+            <ellipse cx="142" cy="42" rx="14" ry="11" fill={coat} />
+            <ellipse cx="79" cy="43" rx="7" ry="5" fill="#efc293" />
+            <ellipse cx="141" cy="43" rx="7" ry="5" fill="#efc293" />
+          </>
+        )}
+
+        <ellipse cx="110" cy="105" rx="34" ry="26" fill={face} />
+
+        {blink ? (
+          <>
+            <line x1="92" y1="82" x2="103" y2="82" stroke="#2f2a28" strokeWidth="3" strokeLinecap="round" />
+            <line x1="117" y1="82" x2="128" y2="82" stroke="#2f2a28" strokeWidth="3" strokeLinecap="round" />
+          </>
+        ) : (
+          <>
+            <circle cx="97" cy="82" r="5" fill="#2f2a28" />
+            <circle cx="123" cy="82" r="5" fill="#2f2a28" />
+            <circle cx="99" cy="80" r="1.5" fill="#ffffff" />
+            <circle cx="125" cy="80" r="1.5" fill="#ffffff" />
+          </>
+        )}
+
+        <path d="M110 90 L104 98 L116 98 Z" fill="#3b312d" />
+        {species === 'cat' ? (
+          <path d="M106 101 Q110 107 114 101" fill="none" stroke="#3b312d" strokeWidth="2" strokeLinecap="round" />
+        ) : (
+          <path d="M104 101 Q110 109 116 101" fill="none" stroke="#3b312d" strokeWidth="2.2" strokeLinecap="round" />
+        )}
+
+        {species === 'cat' ? (
+          <>
+            <path d="M83 96 L63 91" stroke="#6d5342" strokeWidth="2" strokeLinecap="round" />
+            <path d="M83 102 L61 102" stroke="#6d5342" strokeWidth="2" strokeLinecap="round" />
+            <path d="M137 96 L157 91" stroke="#6d5342" strokeWidth="2" strokeLinecap="round" />
+            <path d="M137 102 L159 102" stroke="#6d5342" strokeWidth="2" strokeLinecap="round" />
+          </>
+        ) : null}
+
+        <ellipse cx="82" cy="93" rx="6" ry="4" fill="#f3ad9f" opacity="0.7" />
+        <ellipse cx="138" cy="93" rx="6" ry="4" fill="#f3ad9f" opacity="0.7" />
+      </svg>
     </motion.div>
   );
 }
@@ -112,11 +176,13 @@ export default function PetSystem() {
   const [expanded, setExpanded] = useState(false);
   const [scrollPercent, setScrollPercent] = useState(0);
   const [state, setState] = useState<PetState>(defaultState);
+  const [species, setSpecies] = useState<PetSpecies>('cat');
 
   useEffect(() => {
     const next = loadState();
     setState(next);
     saveState(next);
+    setSpecies(loadSpecies());
   }, []);
 
   useEffect(() => {
@@ -184,19 +250,24 @@ export default function PetSystem() {
   const petScore = Math.round((state.satiety + state.mood + state.energy) / 3);
 
   const petMood = useMemo(() => {
-    if (petScore >= 80) return '活力满满';
-    if (petScore >= 60) return '状态稳定';
-    if (petScore >= 40) return '需要陪伴';
-    return '有点低落';
+    if (petScore >= 80) return 'Energetic';
+    if (petScore >= 60) return 'Stable';
+    if (petScore >= 40) return 'Needs attention';
+    return 'Low mood';
   }, [petScore]);
 
   const petLine = useMemo(() => {
-    if (pendingWrongCount > 0) return `我帮你记着 ${pendingWrongCount} 道错题，去错题本复习吧。`;
-    if (overallProgress >= 80) return '你学得很稳，我们冲刺满进度。';
-    if (scrollPercent >= 70) return '这一页快看完了，做两道题巩固一下。';
-    if (location.pathname.includes('/wrong-answers')) return '这里是错题本，我会陪你重做。';
-    return '继续学习，我会自动跟着你。';
+    if (pendingWrongCount > 0) return `You have ${pendingWrongCount} wrong questions waiting for review.`;
+    if (overallProgress >= 80) return 'Great progress. Keep this momentum.';
+    if (scrollPercent >= 70) return 'Almost done on this page, do a quick practice set next.';
+    if (location.pathname.includes('/wrong-answers')) return 'Redo mode: focus on weak spots first.';
+    return 'I will stay with your learning progress.';
   }, [pendingWrongCount, overallProgress, scrollPercent, location.pathname]);
+
+  const switchSpecies = (nextSpecies: PetSpecies) => {
+    setSpecies(nextSpecies);
+    saveSpecies(nextSpecies);
+  };
 
   const StatRow = ({ label, value }: { label: string; value: number }) => (
     <div>
@@ -222,34 +293,63 @@ export default function PetSystem() {
           >
             <div className="mb-2 flex items-center gap-2 text-blue-100">
               <Sparkles className="h-4 w-4 text-cyan-300" />
-              <p className="text-sm font-semibold">学习宠物 · 美术接入版</p>
+              <p className="text-sm font-semibold">Study Pet</p>
             </div>
 
-            <ArtworkPet moodScore={petScore} />
+            <div className="mb-2 flex items-center justify-center gap-2">
+              <button
+                type="button"
+                onClick={() => switchSpecies('cat')}
+                className={`rounded-md px-3 py-1 text-xs transition ${species === 'cat' ? 'bg-cyan-500/30 text-cyan-100' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}`}
+              >
+                Cat
+              </button>
+              <button
+                type="button"
+                onClick={() => switchSpecies('dog')}
+                className={`rounded-md px-3 py-1 text-xs transition ${species === 'dog' ? 'bg-cyan-500/30 text-cyan-100' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}`}
+              >
+                Dog
+              </button>
+            </div>
+
+            <AnimatedPet moodScore={petScore} energyScore={state.energy} species={species} />
             <p className="mb-3 text-xs leading-5 text-blue-200">{petLine}</p>
 
             <div className="space-y-2.5">
-              <StatRow label="饱食" value={state.satiety} />
-              <StatRow label="心情" value={state.mood} />
-              <StatRow label="精力" value={state.energy} />
+              <StatRow label="Satiety" value={state.satiety} />
+              <StatRow label="Mood" value={state.mood} />
+              <StatRow label="Energy" value={state.energy} />
             </div>
 
             <div className="mt-3 rounded-lg bg-slate-800/80 p-2 text-xs text-cyan-200">
-              当前状态：{petMood} · 学习进度 {overallProgress}% · 页面阅读 {scrollPercent}%
+              Status: {petMood} | Progress {overallProgress}% | Page read {scrollPercent}%
             </div>
 
             <div className="mt-3 grid grid-cols-3 gap-2">
-              <button type="button" onClick={feedPet} className="flex items-center justify-center gap-1 rounded-lg border border-cyan-500/40 bg-cyan-500/15 px-2 py-2 text-xs text-cyan-100 transition hover:bg-cyan-500/25">
+              <button
+                type="button"
+                onClick={feedPet}
+                className="flex items-center justify-center gap-1 rounded-lg border border-cyan-500/40 bg-cyan-500/15 px-2 py-2 text-xs text-cyan-100 transition hover:bg-cyan-500/25"
+              >
                 <Bone className="h-3.5 w-3.5" />
-                喂食
+                Feed
               </button>
-              <button type="button" onClick={playPet} className="flex items-center justify-center gap-1 rounded-lg border border-blue-500/40 bg-blue-500/15 px-2 py-2 text-xs text-blue-100 transition hover:bg-blue-500/25">
+              <button
+                type="button"
+                onClick={playPet}
+                className="flex items-center justify-center gap-1 rounded-lg border border-blue-500/40 bg-blue-500/15 px-2 py-2 text-xs text-blue-100 transition hover:bg-blue-500/25"
+              >
                 <Gamepad2 className="h-3.5 w-3.5" />
-                互动
+                Play
               </button>
-              <button type="button" onClick={restPet} className="flex items-center justify-center gap-1 rounded-lg border border-indigo-500/40 bg-indigo-500/15 px-2 py-2 text-xs text-indigo-100 transition hover:bg-indigo-500/25">
+              <button
+                type="button"
+                onClick={restPet}
+                className="flex items-center justify-center gap-1 rounded-lg border border-indigo-500/40 bg-indigo-500/15 px-2 py-2 text-xs text-indigo-100 transition hover:bg-indigo-500/25"
+              >
                 <Moon className="h-3.5 w-3.5" />
-                休息
+                Rest
               </button>
             </div>
           </motion.div>
@@ -264,9 +364,9 @@ export default function PetSystem() {
         className="pointer-events-auto flex items-center gap-2 rounded-full border border-blue-400/40 bg-gradient-to-r from-slate-900 to-blue-900 px-4 py-2 text-blue-100 shadow-xl shadow-blue-500/30"
       >
         <motion.span animate={{ y: [0, -3, 0] }} transition={{ repeat: Infinity, duration: 1.8 }} className="text-lg">
-          🧒
+          🐾
         </motion.span>
-        <span className="text-sm font-medium">学习宠物</span>
+        <span className="text-sm font-medium">Pet</span>
         <PawPrint className="h-4 w-4 text-cyan-300" />
       </motion.button>
     </div>
