@@ -261,22 +261,22 @@ function BeanPet({ moodScore, energyScore, pressure, weatherCode }: { moodScore:
         {(weatherMode === 'cloudy' || weatherMode === 'rainy') && (
           <g opacity="0.95">
             <g fill="#dbeafe">
-              <ellipse cx="66" cy="188" rx="18" ry="10" />
-              <ellipse cx="80" cy="185" rx="13" ry="9" />
-              <ellipse cx="52" cy="185" rx="10" ry="7" />
+              <ellipse cx="66" cy="188" rx="36" ry="20" />
+              <ellipse cx="80" cy="185" rx="26" ry="18" />
+              <ellipse cx="52" cy="185" rx="20" ry="14" />
 
-              <ellipse cx="110" cy="194" rx="20" ry="11" />
-              <ellipse cx="126" cy="191" rx="12" ry="8.5" />
-              <ellipse cx="95" cy="191" rx="11" ry="8" />
+              <ellipse cx="110" cy="194" rx="40" ry="22" />
+              <ellipse cx="126" cy="191" rx="24" ry="17" />
+              <ellipse cx="95" cy="191" rx="22" ry="16" />
 
-              <ellipse cx="154" cy="186" rx="17" ry="9.5" />
-              <ellipse cx="167" cy="183" rx="11" ry="7.8" />
-              <ellipse cx="142" cy="183" rx="9" ry="6.5" />
+              <ellipse cx="154" cy="186" rx="34" ry="19" />
+              <ellipse cx="167" cy="183" rx="22" ry="15.6" />
+              <ellipse cx="142" cy="183" rx="18" ry="13" />
             </g>
             <g fill="#bfdbfe" opacity="0.85">
-              <ellipse cx="78" cy="192" rx="16" ry="8" />
-              <ellipse cx="120" cy="197" rx="18" ry="8.8" />
-              <ellipse cx="161" cy="190" rx="14" ry="7.5" />
+              <ellipse cx="78" cy="192" rx="32" ry="16" />
+              <ellipse cx="120" cy="197" rx="36" ry="17.6" />
+              <ellipse cx="161" cy="190" rx="28" ry="15" />
             </g>
           </g>
         )}
