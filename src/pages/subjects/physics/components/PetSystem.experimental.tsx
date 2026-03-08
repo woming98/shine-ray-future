@@ -1,7 +1,7 @@
-import { useMemo, useState } from 'react';
+﻿import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 
-type Emotion = 'calm' | 'happy' | 'sad' | 'shock';
+type Emotion = 'calm' | 'happy' | 'sad' | 'shock' | 'focus';
 
 function MascotFace({ emotion }: { emotion: Emotion }) {
   const eye = useMemo(() => {
@@ -107,6 +107,23 @@ function MascotFace({ emotion }: { emotion: Emotion }) {
 
 export default function PetSystemExperimental() {
   const [emotion, setEmotion] = useState<Emotion>('calm');
+  const [imageFailed, setImageFailed] = useState(false);
+  const petImageSrc = '/physics/pets/pet-main.png';
+
+  const spriteColumns = 5;
+  const spriteRows = 1;
+  const frameIndex = useMemo(() => {
+    if (emotion === 'calm') return 0;
+    if (emotion === 'happy') return 1;
+    if (emotion === 'sad') return 2;
+    if (emotion === 'shock') return 3;
+    return 4;
+  }, [emotion]);
+  const frameCol = frameIndex % spriteColumns;
+  const frameRow = Math.floor(frameIndex / spriteColumns);
+  const bgSize = `${spriteColumns * 100}% ${spriteRows * 100}%`;
+  const bgPosX = spriteColumns === 1 ? 50 : (frameCol / (spriteColumns - 1)) * 100;
+  const bgPosY = spriteRows === 1 ? 50 : (frameRow / (spriteRows - 1)) * 100;
 
   return (
     <div className="fixed bottom-4 left-4 z-[80] w-[280px] rounded-2xl border border-blue-500/30 bg-slate-900/95 p-4 text-blue-100 shadow-2xl">
@@ -116,10 +133,33 @@ export default function PetSystemExperimental() {
         animate={{ y: [0, -4, 0] }}
         transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
       >
-        <MascotFace emotion={emotion} />
+        {!imageFailed ? (
+          <div
+            role="img"
+            aria-label={`pet sprite ${emotion}`}
+            className="h-full w-full rounded-full drop-shadow-[0_12px_24px_rgba(0,0,0,0.28)]"
+            style={{
+              backgroundImage: `url(${petImageSrc})`,
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: bgSize,
+              backgroundPosition: `${bgPosX}% ${bgPosY}%`,
+            }}
+          />
+        ) : (
+          <MascotFace emotion={emotion} />
+        )}
       </motion.div>
+      {!imageFailed && (
+        <img
+          src={petImageSrc}
+          alt="preload pet sprite"
+          className="hidden"
+          onError={() => setImageFailed(true)}
+          draggable={false}
+        />
+      )}
 
-      <div className="mt-3 grid grid-cols-4 gap-2 text-xs">
+      <div className="mt-3 grid grid-cols-5 gap-2 text-xs">
         <button type="button" onClick={() => setEmotion('calm')} className="rounded bg-slate-800 px-2 py-1 hover:bg-slate-700">
           平静
         </button>
@@ -132,8 +172,11 @@ export default function PetSystemExperimental() {
         <button type="button" onClick={() => setEmotion('shock')} className="rounded bg-slate-800 px-2 py-1 hover:bg-slate-700">
           震惊
         </button>
+        <button type="button" onClick={() => setEmotion('focus')} className="rounded bg-slate-800 px-2 py-1 hover:bg-slate-700">
+          专注
+        </button>
       </div>
+      <p className="mt-2 text-[11px] text-blue-300">已按 5 连帧合图裁切显示（从左到右对应 5 状态）。</p>
     </div>
   );
 }
-
