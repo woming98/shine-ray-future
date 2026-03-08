@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Bone, Gamepad2, Moon, PawPrint, Sparkles } from 'lucide-react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useStore } from '../store/useStore';
 
 type PetState = {
@@ -306,7 +306,6 @@ function BeanPet({ moodScore, energyScore, pressure, weatherCode }: { moodScore:
 
 export default function PetSystem() {
   const location = useLocation();
-  const navigate = useNavigate();
   const { getOverallProgress, wrongAnswers, exerciseProgress } = useStore();
   const [expanded, setExpanded] = useState(false);
   const [scrollPercent, setScrollPercent] = useState(0);
@@ -314,7 +313,6 @@ export default function PetSystem() {
   const [weather, setWeather] = useState<WeatherInfo | null>(null);
   const [weatherError, setWeatherError] = useState<string>('');
   const [weatherLoading, setWeatherLoading] = useState(false);
-  const showPetLab = useMemo(() => new URLSearchParams(location.search).get('petLab') === '1', [location.search]);
   const prevAttemptedRef = useRef<number | null>(null);
   const prevCorrectRef = useRef<number | null>(null);
   const prevMasteredRef = useRef<number | null>(null);
@@ -556,23 +554,6 @@ export default function PetSystem() {
     return '继续学习，我会一直跟着你。';
   }, [pendingWrongCount, overallProgress, scrollPercent, location.pathname]);
 
-  const togglePetLab = () => {
-    const params = new URLSearchParams(location.search);
-    if (showPetLab) {
-      params.delete('petLab');
-    } else {
-      params.set('petLab', '1');
-    }
-    const nextSearch = params.toString();
-    navigate(
-      {
-        pathname: location.pathname,
-        search: nextSearch ? `?${nextSearch}` : '',
-      },
-      { replace: true },
-    );
-  };
-
   const weatherLine = useMemo(() => {
     if (!weather) return '';
     const t = weatherText(weather.weatherCode);
@@ -606,7 +587,7 @@ export default function PetSystem() {
           >
             <div className="mb-2 flex items-center gap-2 text-blue-100">
               <Sparkles className="h-4 w-4 text-cyan-300" />
-              <p className="text-sm font-semibold">伴你学习的宠物（小睿）</p>
+              <p className="text-sm font-semibold">伴你学习的宠物（小睿）·正式版</p>
             </div>
 
             <BeanPet moodScore={petScore} energyScore={state.energy} pressure={pendingWrongCount} weatherCode={weather?.weatherCode} />
@@ -695,14 +676,6 @@ export default function PetSystem() {
                 休息
               </button>
             </div>
-
-            <button
-              type="button"
-              onClick={togglePetLab}
-              className="mt-3 w-full rounded-lg border border-cyan-500/40 bg-cyan-500/10 px-2 py-2 text-xs text-cyan-200 transition hover:bg-cyan-500/20"
-            >
-              {showPetLab ? '关闭宠物实验版' : '打开宠物实验版'}
-            </button>
           </motion.div>
         )}
       </AnimatePresence>
