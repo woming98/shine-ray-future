@@ -1,10 +1,10 @@
 ﻿// DSE Physics 瀛哥繏妯″鍏ュ彛
 // 鏁村悎鑷?DSE-Physics 鐛ㄧ珛闋呯洰
 
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Home, Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import Dashboard from './pages/Dashboard';
 import TopicPage from './pages/TopicPage';
 import QuizPage from './pages/QuizPage';
@@ -20,8 +20,26 @@ import PetSystemExperimental from './components/PetSystem.experimental';
 // 绨″寲鐨?Physics Layout - 涓嶄娇鐢ㄥ師鏈夌殑瑜囬洔 Layout
 function SimplePhysicsLayout({ children }: { children: React.ReactNode }) {
   const navigate = useNavigate();
+  const location = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const { getTopicProgress } = useStore();
+  const showPetLab = useMemo(() => new URLSearchParams(location.search).get('petLab') === '1', [location.search]);
+  const togglePetLab = () => {
+    const params = new URLSearchParams(location.search);
+    if (showPetLab) {
+      params.delete('petLab');
+    } else {
+      params.set('petLab', '1');
+    }
+    const nextSearch = params.toString();
+    navigate(
+      {
+        pathname: location.pathname,
+        search: nextSearch ? `?${nextSearch}` : '',
+      },
+      { replace: true },
+    );
+  };
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-indigo-950 overflow-hidden">
@@ -222,7 +240,14 @@ function SimplePhysicsLayout({ children }: { children: React.ReactNode }) {
       </main>
 
       <PetSystem />
-      <PetSystemExperimental />
+      {showPetLab && <PetSystemExperimental />}
+      <button
+        type="button"
+        onClick={togglePetLab}
+        className="fixed bottom-20 right-4 z-[71] rounded-full border border-cyan-400/40 bg-slate-900/90 px-3 py-1.5 text-xs text-cyan-200 shadow-lg shadow-cyan-500/20 backdrop-blur hover:bg-slate-800"
+      >
+        {showPetLab ? '关闭宠物实验版' : '打开宠物实验版'}
+      </button>
     </div>
   );
 }
