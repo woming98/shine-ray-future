@@ -88,6 +88,8 @@ const loadState = (): PetState => {
 
 function BeanPet({ moodScore, energyScore, pressure, weatherCode }: { moodScore: number; energyScore: number; pressure: number; weatherCode?: number }) {
   const [blink, setBlink] = useState(false);
+  const [useSvgFallback, setUseSvgFallback] = useState(false);
+  const petImageSrc = '/physics/pets/pet-main.png';
 
   useEffect(() => {
     const id = window.setInterval(() => {
@@ -143,6 +145,15 @@ function BeanPet({ moodScore, energyScore, pressure, weatherCode }: { moodScore:
       <div className={`pointer-events-none absolute inset-2 rounded-full bg-gradient-to-br ${auraClass} blur-xl`} />
       <motion.div className="absolute bottom-1 left-1/2 h-3 w-24 -translate-x-1/2 rounded-full bg-slate-900/45 blur-sm" animate={{ scaleX: [1, 0.9, 1] }} transition={{ duration: 1.9, repeat: Infinity }} />
 
+      {!useSvgFallback ? (
+        <img
+          src={petImageSrc}
+          alt="pet"
+          className="relative z-10 h-full w-full object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.28)]"
+          onError={() => setUseSvgFallback(true)}
+          draggable={false}
+        />
+      ) : (
       <svg viewBox="0 0 220 220" className="relative z-10 h-full w-full drop-shadow-[0_12px_24px_rgba(0,0,0,0.28)]" role="img" aria-label="bean pet">
         <defs>
           <radialGradient id="beanBody" cx="34%" cy="22%">
@@ -300,6 +311,7 @@ function BeanPet({ moodScore, energyScore, pressure, weatherCode }: { moodScore:
           </g>
         )}
       </svg>
+      )}
     </motion.div>
   );
 }
