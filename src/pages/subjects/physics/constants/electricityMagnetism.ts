@@ -1565,10 +1565,16 @@ export const ELECTRICITY_MAGNETISM_EXERCISES: Exercise[] = [
     type: 'multiple_choice',
     question:
       'Suppose you were given four similar lamps and a battery. Which of the following ways of connecting the lamps to the battery would give the maximum brightness overall?',
-    options: ['A', 'B', 'C', 'D'],
-    answer: 'C',
+    options: [
+      '/physics/exercises/electric-circuits/ec-011-option-a.png',
+      '/physics/exercises/electric-circuits/ec-011-option-b.png',
+      '/physics/exercises/electric-circuits/ec-011-option-c.png',
+      '/physics/exercises/electric-circuits/ec-011-option-d.png',
+    ],
+    answer: '/physics/exercises/electric-circuits/ec-011-option-c.png',
     explanation:
       'For a fixed battery voltage, the total power delivered is P = V^2 / R_eq. To get maximum overall brightness, the equivalent resistance should be as small as possible. The arrangement with the most parallel connection gives the smallest equivalent resistance, so it draws the largest total power. Hence option C gives the maximum total brightness.',
+    answerImagePaths: ['/physics/exercises/electric-circuits/ec-011-option-c.png'],
     difficulty: 2,
     points: 15,
     hints: [
