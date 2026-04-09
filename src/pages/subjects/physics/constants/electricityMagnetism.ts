@@ -1663,9 +1663,9 @@ export const ELECTRICITY_MAGNETISM_EXERCISES: Exercise[] = [
     question:
       'In the above circuit, $A_1, A_2$ and $A_3$ are ammeters of negligible internal resistance. What will happen to the readings of the ammeters if the switch $S$ is closed ?',
     options: [
-      '$A_1$ unchanged, $A_2$ increases, $A_3$ becomes zero',
+      '$A_1$ decreases, $A_2$ increases, $A_3$ becomes zero',
       '$A_1$ increases, $A_2$ decreases, $A_3$ decreases',
-      '$A_1$ unchanged, $A_2$ increases, $A_3$ decreases',
+      '$A_1$ unchanged, $A_2$ increases, $A_3$ becomes zero',
       '$A_1$ unchanged, $A_2$ decreases, $A_3$ increases',
     ],
     answer: '$A_1$ unchanged, $A_2$ increases, $A_3$ becomes zero',
