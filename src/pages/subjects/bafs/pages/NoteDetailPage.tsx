@@ -3,6 +3,7 @@ import { ArrowLeft, BookOpen, CheckCircle2, HelpCircle, Languages, Lightbulb, Li
 import { BAFSStrandId } from '../constants/curriculum'
 import { C1_DETAILED_CHAPTERS } from '../constants/c1Notes'
 import { C2_DETAILED_CHAPTERS } from '../constants/c2Notes'
+import { C3_DETAILED_CHAPTERS } from '../constants/c3Notes'
 import { getNotePart } from '../constants/notes'
 
 export default function NoteDetailPage() {
@@ -12,7 +13,9 @@ export default function NoteDetailPage() {
     ? C1_DETAILED_CHAPTERS
     : part?.code === 'C2'
       ? C2_DETAILED_CHAPTERS
-      : []
+      : part?.code === 'C3'
+        ? C3_DETAILED_CHAPTERS
+        : []
   const hasDetailedNotes = detailedChapters.length > 0
 
   if (!part) {
