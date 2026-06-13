@@ -6,6 +6,7 @@ import { C2_DETAILED_CHAPTERS } from '../constants/c2Notes'
 import { C3_DETAILED_CHAPTERS } from '../constants/c3Notes'
 import { B1_DETAILED_CHAPTERS } from '../constants/b1Notes'
 import { B2_DETAILED_CHAPTERS } from '../constants/b2Notes'
+import { B3_DETAILED_CHAPTERS } from '../constants/b3Notes'
 import { getNotePart } from '../constants/notes'
 
 export default function NoteDetailPage() {
@@ -21,7 +22,9 @@ export default function NoteDetailPage() {
           ? B1_DETAILED_CHAPTERS
           : part?.code === 'B2'
             ? B2_DETAILED_CHAPTERS
-            : []
+            : part?.code === 'B3'
+              ? B3_DETAILED_CHAPTERS
+              : []
   const hasDetailedNotes = detailedChapters.length > 0
 
   if (!part) {
