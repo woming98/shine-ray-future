@@ -4,7 +4,7 @@ import { ArrowLeft, BookCheck, ChevronDown, FileText, Lightbulb, ListChecks } fr
 import { Card } from '../components/UI';
 import { Button } from '../components/UI/Button';
 import { getPastPaper } from '../constants/curriculum';
-import { PAPER_2023_2_SOLUTIONS } from '../data/pastPaperSolutions';
+import { PAST_PAPER_SOLUTIONS } from '../data/pastPaperSolutions';
 
 type SectionFilter = 'all' | 'a' | 'b';
 
@@ -12,17 +12,18 @@ export default function PastPaperSolutionsPage() {
   const navigate = useNavigate();
   const { paperId } = useParams();
   const paper = getPastPaper(paperId);
+  const paperSolutions = paperId ? PAST_PAPER_SOLUTIONS[paperId] ?? [] : [];
   const [section, setSection] = useState<SectionFilter>('all');
 
   const solutions = useMemo(() => {
     if (section === 'a') {
-      return PAPER_2023_2_SOLUTIONS.filter((solution) => solution.number <= 30);
+      return paperSolutions.filter((solution) => solution.number <= 30);
     }
     if (section === 'b') {
-      return PAPER_2023_2_SOLUTIONS.filter((solution) => solution.number >= 31);
+      return paperSolutions.filter((solution) => solution.number >= 31);
     }
-    return PAPER_2023_2_SOLUTIONS;
-  }, [section]);
+    return paperSolutions;
+  }, [paperSolutions, section]);
 
   const scrollToQuestion = (number: number) => {
     if (number <= 30 && section === 'b') {
@@ -66,7 +67,7 @@ export default function PastPaperSolutionsPage() {
             </span>
             <span className="text-sm text-gray-500">共 45 题</span>
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-950 mb-2">2023 Paper 2 详细解析</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-950 mb-2">{paper.year} Paper 2 详细解析</h1>
           <p className="text-gray-600">莘睿参考答案，包含关键步骤、考点与判断依据。</p>
         </div>
         <Button
@@ -93,7 +94,7 @@ export default function PastPaperSolutionsPage() {
           <h2 className="text-xl font-bold text-gray-950">答案总表</h2>
         </div>
         <div className="grid grid-cols-5 sm:grid-cols-9 md:grid-cols-12 lg:grid-cols-15 gap-2">
-          {PAPER_2023_2_SOLUTIONS.map((solution) => (
+          {paperSolutions.map((solution) => (
             <button
               key={solution.number}
               onClick={() => scrollToQuestion(solution.number)}
