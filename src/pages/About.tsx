@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import {
-  Users, Target, Award, Heart, Phone, Mail, MapPin,
+  Users, Target, Award, Heart, Phone, Mail,
   Clock, ArrowRight, MessageCircle, Calendar
 } from 'lucide-react'
 
@@ -369,16 +369,6 @@ export default function About() {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <div className="card p-6 flex items-start gap-4">
-                <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-6 h-6 text-primary-600" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-slate-900 mb-1">办公地址</h4>
-                  <p className="text-slate-600">{t('footer.address')}</p>
-                </div>
-              </div>
-
               <div className="card p-6 flex items-start gap-4">
                 <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
                   <Phone className="w-6 h-6 text-primary-600" />

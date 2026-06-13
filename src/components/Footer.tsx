@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { 
-  Mail, Phone, MapPin, 
+import {
+  Mail, Phone,
   Facebook, Instagram, Youtube, MessageCircle,
   GraduationCap, BookOpen, Calculator, Languages, Sigma, Atom, FlaskConical, Microscope, TrendingUp, Receipt, User
 } from 'lucide-react'
@@ -125,15 +125,6 @@ export default function Footer() {
               {t('footer.contact')}
             </h4>
             <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <MapPin size={16} className="text-accent-600" />
-                </div>
-                <div>
-                  <p className="text-sm text-slate-500">地址</p>
-                  <p className="text-slate-700">{t('footer.address')}</p>
-                </div>
-              </li>
               <li className="flex items-start gap-3">
                 <div className="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Mail size={16} className="text-accent-600" />
