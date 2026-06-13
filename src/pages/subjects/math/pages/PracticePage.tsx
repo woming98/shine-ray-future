@@ -3,7 +3,7 @@
  */
 
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Check, Filter } from 'lucide-react';
 import { useMathStore } from '../store/useStore';
@@ -17,6 +17,7 @@ import { MathQuestion } from '../types';
 
 export default function PracticePage() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const { addPracticeRecord, getRecommendedQuestions } = useMathStore();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userAnswer, setUserAnswer] = useState('');
@@ -24,7 +25,8 @@ export default function PracticePage() {
   const [isCorrect, setIsCorrect] = useState(false);
   const [questions, setQuestions] = useState<MathQuestion[]>([]);
   const [filters, setFilters] = useState({
-    topic: '',
+    topic: searchParams.get('topic') || '',
+    grade: searchParams.get('grade') || '',
     difficulty: '' as '' | 'easy' | 'medium' | 'hard',
   });
   const [showFilters, setShowFilters] = useState(false);
@@ -33,16 +35,15 @@ export default function PracticePage() {
   useEffect(() => {
     let filteredQuestions = allMathQuestions;
     
-    if (filters.topic) {
-      filteredQuestions = getQuestionsByTopic(filters.topic);
-    }
+    if (filters.topic) filteredQuestions = getQuestionsByTopic(filters.topic);
+    if (filters.grade) filteredQuestions = filteredQuestions.filter(q => q.grade === filters.grade);
     
     if (filters.difficulty) {
       filteredQuestions = filteredQuestions.filter(q => q.difficulty === filters.difficulty);
     }
     
     // 如果没有筛选，使用推荐题目
-    if (!filters.topic && !filters.difficulty) {
+    if (!filters.topic && !filters.grade && !filters.difficulty) {
       const recommendedIds = getRecommendedQuestions(10);
       filteredQuestions = recommendedIds.length > 0
         ? recommendedIds.map(id => allMathQuestions.find(q => q.id === id)).filter(Boolean) as MathQuestion[]
@@ -99,7 +100,7 @@ export default function PracticePage() {
     return (
       <div className="text-center py-12">
         <p className="text-gray-600 mb-4">没有找到符合条件的题目</p>
-        <Button onClick={() => setFilters({ topic: '', difficulty: '' })}>
+        <Button onClick={() => setFilters({ topic: '', grade: '', difficulty: '' })}>
           清除筛选
         </Button>
       </div>
@@ -135,7 +136,20 @@ export default function PracticePage() {
             animate={{ opacity: 1, height: 'auto' }}
             className="mt-4 pt-4 border-t border-gray-200"
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">年级</label>
+                <select
+                  value={filters.grade}
+                  onChange={(e) => setFilters({ ...filters, grade: e.target.value })}
+                  className="w-full p-2 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none"
+                >
+                  <option value="">全部</option>
+                  <option value="1">中一</option>
+                  <option value="2">中二</option>
+                  <option value="3">中三</option>
+                </select>
+              </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">主题</label>
                 <select

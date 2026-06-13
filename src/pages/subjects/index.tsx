@@ -33,9 +33,9 @@ export default function SubjectHub() {
       color: 'from-blue-500 to-indigo-500',
       bgColor: 'bg-blue-50',
       iconColor: 'text-blue-500',
-      status: 'coming',
-      description: 'DSE數學必修部分',
-      features: ['題型練習', '幾何工具', '錯題分析', '學習報告'],
+      status: 'active',
+      description: '中一至中六課程、專題衝刺及HKDSE真題',
+      features: ['分級課程', '專題衝刺', '純試卷', '詳細解析'],
     },
     {
       id: 'chinese',

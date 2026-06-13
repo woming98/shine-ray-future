@@ -10,6 +10,7 @@ import { ArrowLeft, Home, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { useMathStore } from '../../store/useStore';
 import { MATH_TOPICS } from '../../constants/topics';
+import { GRADE_COURSES } from '../../constants/curriculum';
 
 interface MathLayoutProps {
   children: ReactNode;
@@ -109,16 +110,43 @@ export function MathLayout({ children }: MathLayoutProps) {
                 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}
             >
               <div className="p-4">
-                <h3 className="text-xs text-blue-600 uppercase tracking-wider mb-3 px-2 font-semibold">數學範疇</h3>
-                <nav className="space-y-1">
+                <h3 className="text-xs text-blue-600 uppercase tracking-wider mb-3 px-2 font-semibold">課程導航</h3>
+                <nav className="space-y-1 mb-6">
                   <button
                     onClick={() => { navigate('/subjects/math'); setSidebarOpen(false); }}
-                    className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-blue-700 hover:text-blue-800 hover:bg-blue-100 transition-all duration-200 border border-transparent hover:border-blue-200/50"
+                    className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-blue-700 hover:text-blue-800 hover:bg-blue-100 transition-all duration-200"
                   >
                     <Home className="w-4 h-4" />
-                    <span>學習中心</span>
+                    <span>數學首頁</span>
                   </button>
-                  
+                  {GRADE_COURSES.map((course) => (
+                    <button
+                      key={course.id}
+                      onClick={() => { navigate(`/subjects/math/grade/${course.id}`); setSidebarOpen(false); }}
+                      className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-blue-700 hover:text-blue-800 hover:bg-blue-100 transition-all duration-200"
+                    >
+                      <span className="w-7 h-7 rounded bg-blue-100 flex items-center justify-center text-xs font-bold">{course.level}</span>
+                      <span>{course.title}</span>
+                    </button>
+                  ))}
+                  <button
+                    onClick={() => { navigate('/subjects/math/sprint'); setSidebarOpen(false); }}
+                    className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-blue-700 hover:text-blue-800 hover:bg-blue-100 transition-all duration-200"
+                  >
+                    <span>🎯</span>
+                    <span>專題衝刺</span>
+                  </button>
+                  <button
+                    onClick={() => { navigate('/subjects/math/past-papers'); setSidebarOpen(false); }}
+                    className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-blue-700 hover:text-blue-800 hover:bg-blue-100 transition-all duration-200"
+                  >
+                    <span>📄</span>
+                    <span>HKDSE 真題</span>
+                  </button>
+                </nav>
+
+                <h3 className="text-xs text-blue-600 uppercase tracking-wider mb-3 px-2 font-semibold">數學範疇</h3>
+                <nav className="space-y-1">
                   {MATH_TOPICS.map((topic) => (
                     <button
                       key={topic.id}
