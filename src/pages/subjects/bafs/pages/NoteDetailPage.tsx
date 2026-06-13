@@ -1,11 +1,13 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
-import { ArrowLeft, BookOpen, CheckCircle2, Lightbulb, ListChecks } from 'lucide-react'
+import { ArrowLeft, BookOpen, CheckCircle2, HelpCircle, Languages, Lightbulb, ListChecks } from 'lucide-react'
 import { BAFSStrandId } from '../constants/curriculum'
+import { C1_DETAILED_CHAPTERS } from '../constants/c1Notes'
 import { getNotePart } from '../constants/notes'
 
 export default function NoteDetailPage() {
   const { strandId, partId } = useParams<{ strandId: BAFSStrandId; partId: string }>()
   const part = strandId && partId ? getNotePart(strandId, partId) : undefined
+  const isC1 = part?.code === 'C1'
 
   if (!part) {
     return <Navigate to="/subjects/bafs/notes" replace />
@@ -20,13 +22,118 @@ export default function NoteDetailPage() {
         </Link>
         <div className="mt-5 flex flex-wrap items-center gap-2">
           <span className="rounded bg-emerald-950 px-2.5 py-1 text-xs font-bold text-amber-400">{part.code}</span>
-          <span className="rounded bg-emerald-100 px-2.5 py-1 text-xs font-semibold text-emerald-800">第一版筆記</span>
+          <span className="rounded bg-emerald-100 px-2.5 py-1 text-xs font-semibold text-emerald-800">{isC1 ? '完整雙語筆記' : '第一版筆記'}</span>
         </div>
         <h1 className="mt-3 text-3xl font-bold text-slate-950">{part.title}</h1>
         <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-600">{part.description}</p>
         <p className="mt-2 text-xs font-medium text-slate-400">來源：{part.sourceBook}</p>
       </header>
 
+      {isC1 && (
+        <>
+          <section className="rounded-lg border border-emerald-200 bg-emerald-50 p-5">
+            <div className="flex items-center gap-2 text-emerald-950">
+              <Languages className="h-5 w-5 text-emerald-700" />
+              <h2 className="font-bold">中英雙語學習方式 / Bilingual Study Guide</h2>
+            </div>
+            <p className="mt-3 text-sm leading-7 text-emerald-950">
+              先用中文掌握概念和因果關係，再熟悉英文術語與英文解釋。作答時應把概念連結到題目情境，而不是只背誦定義。
+            </p>
+            <p className="mt-2 text-sm leading-7 text-emerald-800">
+              Understand each concept and its cause-and-effect relationship in Chinese first, then learn the English terms and explanations. Apply concepts to the case instead of memorising definitions only.
+            </p>
+          </section>
+
+          <section className="space-y-8">
+            {C1_DETAILED_CHAPTERS.map((chapter) => (
+              <article key={chapter.id} className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
+                <div className="border-b border-emerald-900/10 bg-emerald-950 px-5 py-5 text-white sm:px-6">
+                  <p className="text-xs font-bold uppercase text-amber-400">Chapter {chapter.number}</p>
+                  <h2 className="mt-2 text-xl font-bold">{chapter.title}</h2>
+                  <p className="mt-1 text-sm text-emerald-100">{chapter.titleEn}</p>
+                  <div className="mt-4 grid gap-2 border-t border-white/15 pt-4 text-sm leading-6 md:grid-cols-2">
+                    <p>{chapter.objective.zh}</p>
+                    <p className="text-emerald-100">{chapter.objective.en}</p>
+                  </div>
+                </div>
+
+                <div className="space-y-7 p-5 sm:p-6">
+                  {chapter.sections.map((section) => (
+                    <section key={section.titleEn}>
+                      <h3 className="text-base font-bold text-slate-950">{section.title}</h3>
+                      <p className="mt-1 text-xs font-semibold text-emerald-700">{section.titleEn}</p>
+                      <div className="mt-3 divide-y divide-slate-100 rounded-md border border-slate-200">
+                        {section.points.map((point) => (
+                          <div key={point.en} className="grid gap-2 p-4 text-sm leading-6 md:grid-cols-2 md:gap-6">
+                            <p className="text-slate-800">{point.zh}</p>
+                            <p className="text-slate-500">{point.en}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </section>
+                  ))}
+
+                  <section>
+                    <h3 className="text-base font-bold text-slate-950">關鍵詞彙 / Key Terms</h3>
+                    <div className="mt-3 grid gap-3 lg:grid-cols-2">
+                      {chapter.terms.map((term) => (
+                        <div key={term.termEn} className="rounded-md border border-slate-200 bg-slate-50 p-4">
+                          <div className="flex flex-wrap items-baseline gap-2">
+                            <h4 className="font-bold text-slate-900">{term.term}</h4>
+                            <span className="text-xs font-semibold text-emerald-700">{term.termEn}</span>
+                          </div>
+                          <p className="mt-3 text-sm leading-6 text-slate-700">{term.definition}</p>
+                          <p className="mt-2 text-sm leading-6 text-slate-500">{term.definitionEn}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+
+                  <section className="rounded-md border border-amber-200 bg-amber-50 p-4">
+                    <div className="flex items-center gap-2 text-amber-950">
+                      <Lightbulb className="h-5 w-5 text-amber-700" />
+                      <h3 className="font-bold">DSE 作答提示 / Exam Tips</h3>
+                    </div>
+                    <div className="mt-3 space-y-3">
+                      {chapter.examTips.map((tip) => (
+                        <div key={tip.en} className="grid gap-1 text-sm leading-6 md:grid-cols-2 md:gap-6">
+                          <p className="text-amber-950">{tip.zh}</p>
+                          <p className="text-amber-800">{tip.en}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+
+                  <section>
+                    <div className="flex items-center gap-2 text-slate-950">
+                      <HelpCircle className="h-5 w-5 text-emerald-700" />
+                      <h3 className="font-bold">快速自測 / Quick Check</h3>
+                    </div>
+                    <div className="mt-3 space-y-3">
+                      {chapter.questions.map((question, index) => (
+                        <details key={question.questionEn} className="rounded-md border border-slate-200 bg-white p-4">
+                          <summary className="cursor-pointer list-none font-semibold text-slate-900">
+                            <span className="mr-2 text-emerald-700">Q{index + 1}</span>
+                            {question.question}
+                            <span className="mt-1 block text-xs font-medium text-slate-500">{question.questionEn}</span>
+                          </summary>
+                          <div className="mt-4 grid gap-2 border-t border-slate-100 pt-4 text-sm leading-6 md:grid-cols-2 md:gap-6">
+                            <p className="text-slate-800">{question.answer}</p>
+                            <p className="text-slate-500">{question.answerEn}</p>
+                          </div>
+                        </details>
+                      ))}
+                    </div>
+                  </section>
+                </div>
+              </article>
+            ))}
+          </section>
+        </>
+      )}
+
+      {!isC1 && (
+        <>
       <section>
         <div className="mb-4 flex items-center gap-2">
           <BookOpen className="h-5 w-5 text-emerald-700" />
@@ -81,6 +188,8 @@ export default function NoteDetailPage() {
       <div className="rounded-lg border border-dashed border-slate-300 bg-slate-50 p-5 text-sm leading-6 text-slate-600">
         公式、例題及試題練習將在下一輪按章節補充。
       </div>
+        </>
+      )}
     </div>
   )
 }
