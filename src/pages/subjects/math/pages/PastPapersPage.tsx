@@ -1,14 +1,15 @@
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { ArrowLeft, BookCheck, FileText, Lightbulb } from 'lucide-react';
+import { ArrowLeft, BookCheck, Download, FileText, Lightbulb } from 'lucide-react';
 import { Card } from '../components/UI';
 import { Button } from '../components/UI/Button';
-import { PAST_PAPER_YEARS } from '../constants/curriculum';
+import { AVAILABLE_PAST_PAPERS, PAST_PAPER_YEARS } from '../constants/curriculum';
 
 export default function PastPapersPage() {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const view = searchParams.get('view') === 'solutions' ? 'solutions' : 'papers';
   const isSolutions = view === 'solutions';
+  const availablePaperByYear = new Map(AVAILABLE_PAST_PAPERS.map((paper) => [paper.year, paper]));
 
   return (
     <div className="max-w-6xl mx-auto space-y-8">
@@ -23,7 +24,7 @@ export default function PastPapersPage() {
       <section>
         <h1 className="text-3xl md:text-4xl font-bold text-gray-950 mb-3">HKDSE 数学真题</h1>
         <p className="text-gray-600 text-lg">
-          分为纯试卷练习与试卷详细解析。当前已上线资源目录，原卷与逐题解析将按年份陆续上传。
+          分为纯试卷练习与试卷详细解析。2012 Paper 2 已上线，其余原卷与逐题解析将按年份陆续上传。
         </p>
       </section>
 
@@ -50,35 +51,65 @@ export default function PastPapersPage() {
         <div className="flex items-start gap-3">
           <Lightbulb className="w-5 h-5 text-amber-700 flex-shrink-0 mt-0.5" />
           <p className="text-amber-900 text-sm leading-relaxed">
-            首批年份试卷与逐题解析正在整理中。完成审核后，将在对应年份开放纯试卷及详细解析。
+            已上线试卷可在线预览、下载或开启计时练习。详细解析完成审核后，将在对应年份开放。
           </p>
         </div>
       </Card>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {PAST_PAPER_YEARS.map((year) => (
-          <Card key={year} className="p-5">
-            <div className="flex items-start justify-between gap-4 mb-5">
-              <div>
-                <p className="text-sm text-gray-500">HKDSE Mathematics</p>
-                <h2 className="text-2xl font-bold text-gray-950">{year}</h2>
+        {PAST_PAPER_YEARS.map((year) => {
+          const availablePaper = availablePaperByYear.get(year);
+
+          return (
+            <Card key={year} className="p-5">
+              <div className="flex items-start justify-between gap-4 mb-5">
+                <div>
+                  <p className="text-sm text-gray-500">HKDSE Mathematics</p>
+                  <div className="flex items-center gap-2">
+                    <h2 className="text-2xl font-bold text-gray-950">{year}</h2>
+                    {!isSolutions && availablePaper && (
+                      <span className="px-2 py-1 rounded bg-emerald-100 text-emerald-700 text-xs font-semibold">
+                        已上线
+                      </span>
+                    )}
+                  </div>
+                </div>
+                {isSolutions ? (
+                  <BookCheck className="w-7 h-7 text-indigo-600" />
+                ) : (
+                  <FileText className="w-7 h-7 text-blue-600" />
+                )}
               </div>
-              {isSolutions ? (
-                <BookCheck className="w-7 h-7 text-indigo-600" />
+              <div className="space-y-2 text-sm text-gray-600 mb-5">
+                <p>卷一：传统题</p>
+                <p className={availablePaper && !isSolutions ? 'font-semibold text-emerald-700' : ''}>
+                  卷二：多项选择题{availablePaper && !isSolutions ? ' · 已上线' : ''}
+                </p>
+                {isSolutions && <p>解析：步骤、考点与失分提示</p>}
+              </div>
+              {!isSolutions && availablePaper ? (
+                <div className="grid grid-cols-[1fr_auto] gap-2">
+                  <Button fullWidth onClick={() => navigate(`/subjects/math/past-papers/${availablePaper.id}`)}>
+                    查看试卷
+                  </Button>
+                  <a
+                    href={availablePaper.pdfUrl}
+                    download
+                    aria-label={`下载 ${availablePaper.title}`}
+                    title="下载试卷"
+                    className="w-11 h-11 inline-flex items-center justify-center rounded-xl bg-white hover:bg-blue-50 text-blue-700 border border-blue-200 transition-colors"
+                  >
+                    <Download className="w-5 h-5" />
+                  </a>
+                </div>
               ) : (
-                <FileText className="w-7 h-7 text-blue-600" />
+                <Button fullWidth variant="secondary" disabled>
+                  {isSolutions ? '详细解析待上传' : '纯试卷待上传'}
+                </Button>
               )}
-            </div>
-            <div className="space-y-2 text-sm text-gray-600 mb-5">
-              <p>卷一：传统题</p>
-              <p>卷二：多项选择题</p>
-              {isSolutions && <p>解析：步骤、考点与失分提示</p>}
-            </div>
-            <Button fullWidth variant="secondary" disabled>
-              {isSolutions ? '详细解析待上传' : '纯试卷待上传'}
-            </Button>
-          </Card>
-        ))}
+            </Card>
+          );
+        })}
       </div>
 
       <section className="grid md:grid-cols-2 gap-5">

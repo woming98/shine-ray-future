@@ -16,6 +16,15 @@ export interface SprintTopic {
   focus: string[];
 }
 
+export interface PastPaper {
+  id: string;
+  year: number;
+  paper: string;
+  title: string;
+  durationMinutes: number;
+  pdfUrl: string;
+}
+
 export const GRADE_COURSES: GradeCourse[] = [
   {
     id: 's1',
@@ -117,4 +126,17 @@ export const SPRINT_TOPICS: SprintTopic[] = [
 
 export const PAST_PAPER_YEARS = Array.from({ length: 14 }, (_, index) => 2025 - index);
 
+export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
+  {
+    id: '2012-paper-2',
+    year: 2012,
+    paper: 'Paper 2',
+    title: '2012 HKDSE Mathematics Paper 2',
+    durationMinutes: 75,
+    pdfUrl: '/dse-math/past-papers/2012-paper-2.pdf',
+  },
+];
+
 export const getGradeCourse = (id?: string) => GRADE_COURSES.find((course) => course.id === id);
+
+export const getPastPaper = (id?: string) => AVAILABLE_PAST_PAPERS.find((paper) => paper.id === id);
