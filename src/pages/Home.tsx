@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {
   GraduationCap, BookOpen, Calculator, ArrowRight,
-  Star, Users, Award, CheckCircle, Quote, ChevronRight, Sparkles, MapPin
+  Star, Users, CheckCircle, Quote, ChevronRight, Sparkles, MapPin
 } from 'lucide-react'
 import DseCountdown from '../components/DseCountdown'
 import ExamSchedule from '../components/ExamSchedule'
@@ -335,17 +335,17 @@ export default function Home() {
                 <span className="gradient-text"> 莘睿未来</span>
               </h2>
               <p className="text-slate-600 text-lg mb-8 leading-relaxed">
-                我们拥有丰富的香港教育资源和专业团队，致力于为每一位学生提供高质量的升学插班与学科学习服务。
+                我们以学生为中心，围绕香港 DSE 全科辅导与内地转港衔接，提供从评估、定制课程到学习追踪与升学指导的一站式支持。
               </p>
 
               {/* 特点列表 */}
               <div className="space-y-4">
                 {[
-                  '深耕香港教育领域5年以上',
-                  '已服务来自45+所香港学校的学生',
-                  '专业测评系统精准定位',
-                  '一对一个性化升学规划',
-                  '全程跟进直至成功入学',
+                  '深度解析 DSE 考纲，覆盖语文、数学、理科及商科 10 大科目',
+                  '港大、中大、科大及海外名校背景师资',
+                  '一对一精讲与 3–6 人精品小组课灵活选择',
+                  '自研教材、模拟试卷与数字学习平台',
+                  '定期测评、错题追踪与全程陪伴服务',
                 ].map((item, index) => (
                   <motion.div
                     key={index}
@@ -371,7 +371,7 @@ export default function Home() {
                 className="mt-10"
               >
                 <Link to="/about" className="btn-primary">
-                  了解更多关于我们
+                  了解莘睿教学体系
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
               </motion.div>
@@ -398,27 +398,27 @@ export default function Home() {
                         <GraduationCap className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <h4 className="text-white font-semibold">专业团队</h4>
-                        <p className="text-white/70 text-sm">资深教育顾问</p>
+                        <h4 className="text-white font-semibold">个性化教学</h4>
+                        <p className="text-white/70 text-sm">按基础与目标定制路线</p>
                       </div>
                     </div>
                     <p className="text-white/80 text-sm">
-                      我们的团队由资深教育专家组成，熟悉香港各类学校的招生要求和特点。
+                      一对一精讲精准补强薄弱环节，精品小组课兼顾互动讨论与稳步提升。
                     </p>
                   </div>
                   
                   <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
                     <div className="flex items-center gap-4 mb-4">
                       <div className="w-12 h-12 bg-accent-500 rounded-xl flex items-center justify-center">
-                        <Award className="w-6 h-6 text-white" />
+                        <BookOpen className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <h4 className="text-white font-semibold">全程陪伴</h4>
-                        <p className="text-white/70 text-sm">从规划到入学</p>
+                        <h4 className="text-white font-semibold">自研学习资源</h4>
+                        <p className="text-white/70 text-sm">教材、题库与进度追踪</p>
                       </div>
                     </div>
                     <p className="text-white/80 text-sm">
-                      凭借丰富经验和专业指导，我们帮助众多学生成功进入理想学校。
+                      结合 DSE 考纲、历届真题与互动学习平台，让知识漏洞和学习进度清晰可见。
                     </p>
                   </div>
                 </div>

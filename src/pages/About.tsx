@@ -13,30 +13,97 @@ export default function About() {
   const { t } = useTranslation()
 
   // 团队成员
-  const team = [
+  const team: Array<{
+    name: string
+    role: string
+    credentials: string
+    strengths: string
+    image?: string
+    avatar?: string
+  }> = [
     {
-      name: '张教授',
-      role: '首席教育顾问',
-      description: '20年香港教育经验，前知名中学校长',
-      avatar: '张'
+      name: 'Fred 尤刚',
+      role: 'DSE 英文老师',
+      credentials: '爱丁堡大学语言学硕士 · 雅思 8.5',
+      strengths: '全英文课堂，熟悉 DSE、A-level 与 IB 体系，擅长插班及名校备考',
+      image: '/images/team/fred.jpg'
     },
     {
-      name: '李博士',
-      role: '学术总监',
-      description: '香港大学教育学博士，专注升学研究',
-      avatar: '李'
+      name: 'Ray 余政睿',
+      role: 'DSE 英文老师',
+      credentials: '香港岭南大学硕士 · 雅思 8 分',
+      strengths: '全英文授课，擅长考试策略，帮助学生应对 DSE 及高考英语',
+      image: '/images/team/ray.jpg'
     },
     {
-      name: '王老师',
-      role: '英语测评专家',
-      description: 'TESOL认证，10年英语教学经验',
-      avatar: '王'
+      name: 'Tia 许雅婷',
+      role: 'DSE 英文 / 西史老师',
+      credentials: '英语专业八级 · 曾任国际学校老师',
+      strengths: '熟悉呈分试、插班叩门及 DSE 全流程，授课温和细心',
+      image: '/images/team/tia.jpg'
     },
     {
-      name: '陈老师',
-      role: '数学教研组长',
-      description: '奥数金牌教练，多年竞赛培训经验',
-      avatar: '陈'
+      name: 'Perri 彭诗睿',
+      role: 'DSE 英文老师',
+      credentials: '香港中文大学硕士 · 浙江大学本科',
+      strengths: '英语专业八级，擅长国际学校及香港学校考试辅导',
+      image: '/images/team/perri.jpg'
+    },
+    {
+      name: 'Richie 郑雍翰',
+      role: 'DSE 英文老师',
+      credentials: '香港城市大学语言学系 · 雅思 7.5',
+      strengths: '语法功底扎实，善于构建英语语法框架与讲解语言逻辑',
+      avatar: '郑'
+    },
+    {
+      name: 'John',
+      role: 'DSE 中文老师',
+      credentials: '华东师范大学文学博士 · 10 年教学经验',
+      strengths: 'DSE 资深中文专家，因材施教，精准把握考试要点',
+      image: '/images/team/john.jpg'
+    },
+    {
+      name: 'Nelson 丘沃铭',
+      role: 'DSE 数学老师',
+      credentials: '滑铁卢大学数学硕士 · 全额奖学金',
+      strengths: '6 年教学经验，熟悉 DSE 与 AMC，擅长举一反三及灵活教学',
+      image: '/images/team/nelson.jpg'
+    },
+    {
+      name: 'Rose 罗时',
+      role: 'DSE 数学老师',
+      credentials: '香港中文大学数学及应用数学系',
+      strengths: '多年全英文授课经验，善于化繁为简，教学严谨细致',
+      avatar: '罗'
+    },
+    {
+      name: 'Logan',
+      role: 'DSE 物理老师',
+      credentials: '美国东北大学硕士 · 武汉大学本科',
+      strengths: '全英文授课，熟悉 HKDSE 体系，擅长中高阶培优教学',
+      image: '/images/team/logan.jpg'
+    },
+    {
+      name: 'Heine 李海宁',
+      role: 'DSE 经济老师',
+      credentials: '清华大学理科硕士 · 5 年教学经验',
+      strengths: '熟悉 DSE、A-level 与 IGCSE，擅长及时发现并补足学习漏洞',
+      image: '/images/team/heine.jpg'
+    },
+    {
+      name: 'Jane 杨静仪',
+      role: 'DSE BAFS 老师',
+      credentials: '香港中文大学会计系 · HKICPA 资格',
+      strengths: 'ACCA 全科通过，深耕 DSE 会计教学，帮助学生建立会计思维',
+      avatar: '杨'
+    },
+    {
+      name: 'Lily 肖敏',
+      role: 'DSE 化学老师',
+      credentials: '厦门大学硕士 · 国家奖学金',
+      strengths: '6 年教学经验，熟悉 DSE、AMC 与 K12，教学严谨细心',
+      image: '/images/team/lily.jpg'
     }
   ]
 
@@ -44,34 +111,34 @@ export default function About() {
   const values = [
     {
       icon: Target,
-      title: '专业精准',
-      description: '深耕香港教育，精准匹配学校'
+      title: '精准备考',
+      description: '深度解析 DSE 考纲，针对性强化高频考点'
     },
     {
       icon: Heart,
-      title: '用心服务',
-      description: '以学生为中心，提供贴心服务'
+      title: '因材施教',
+      description: '以学生为中心，按基础与目标定制学习路线'
     },
     {
       icon: Award,
       title: '追求卓越',
-      description: '不断提升服务质量，追求最佳效果'
+      description: '持续创新教学方法，帮助学生突破学习瓶颈'
     },
     {
       icon: Users,
-      title: '协作共赢',
-      description: '与家长紧密合作，共创美好未来'
+      title: '全程陪伴',
+      description: '从课程规划、学习追踪到升学指导持续跟进'
     }
   ]
 
-  // 发展历程
-  const milestones = [
-    { year: '2021', event: '公司成立于香港' },
-    { year: '2022', event: '服务学生突破1000人' },
-    { year: '2023', event: '推出在线测评系统' },
-    { year: '2024', event: '完善香港升学插班服务' },
-    { year: '2025', event: '服务覆盖大湾区' },
-    { year: '2026', event: '成为行业领先品牌' }
+  // 教学优势
+  const advantages = [
+    { number: '01', title: '深度解析考纲', description: '紧贴 DSE 最新考纲与历届真题，精准把握考试方向。' },
+    { number: '02', title: '名校师资团队', description: '师资来自港大、中大、科大及海外名校，具备丰富 DSE 教学经验。' },
+    { number: '03', title: '个性化定制', description: '根据学生基础与目标，量身定制学习路线并补强薄弱环节。' },
+    { number: '04', title: '成绩追踪管理', description: '通过定期测评、错题追踪与进度管理，让学习成效清晰可见。' },
+    { number: '05', title: '深港教学资源', description: '整合香港校内教材、名校试卷及自研学习资源。' },
+    { number: '06', title: '全程陪伴服务', description: '从插班咨询、课程规划到放榜后升学指导，全程持续跟进。' }
   ]
 
   return (
@@ -88,7 +155,7 @@ export default function About() {
               {t('nav.about')}
             </h1>
             <p className="text-lg text-primary-200 max-w-2xl mx-auto">
-              启迪智慧，照亮未来 — 我们致力于为每一位学生提供最专业的香港升学插班与学科学习服务
+              专注香港 DSE 全科辅导与插班衔接，以定制教学和专业资源陪伴学生稳步成长
             </p>
           </motion.div>
         </div>
@@ -108,16 +175,16 @@ export default function About() {
               </h2>
               <div className="space-y-4 text-slate-600 leading-relaxed">
                 <p>
-                  莘睿未来（Shine Ray Future）成立于2021年，是一家专注于香港升学插班与HKDSE学科学习的教育机构。
-                  我们的名字寓意着"培育莘莘学子，睿智规划未来"。
+                  莘睿未来（Shine Ray Future）专注于香港 DSE 全科辅导与内地转港衔接，
+                  以学生为中心，通过定制课程帮助学生夯实基础、提升成绩并适应香港教育体系。
                 </p>
                 <p>
-                  我们拥有一支由资深教育专家、前学校管理人员和升学顾问组成的专业团队，
-                  深入了解香港各类学校的特点和招生要求，能够为家长和学生提供最精准的择校建议。
+                  课程覆盖英文、中文、数学 Core、M1、M2、物理、化学、生物、经济及 BAFS 共 10 大科目，
+                  支持一对一精讲与 3–6 人精品小组课，并配套自研教材、模拟试卷及数字学习平台。
                 </p>
                 <p>
-                  经过多年发展，我们已累计服务超过1,000名学生，学生来自45+所香港学校，
-                  并建立了良好的服务口碑。
+                  我们已累计服务超过 1,000 名学生，学生来自 45+ 所香港学校。团队通过定期测评、
+                  错题追踪与学习进度管理，为学生提供透明、持续的学习支持。
                 </p>
               </div>
 
@@ -152,14 +219,14 @@ export default function About() {
                 <div className="relative z-10">
                   <h3 className="text-2xl font-bold mb-6">我们的使命</h3>
                   <p className="text-primary-100 mb-8 leading-relaxed">
-                    为每一个追求优质教育的家庭提供专业、透明、高效的一站式升学插班与学科学习服务，
-                    帮助学生找到最适合的教育之路，成就精彩人生。
+                    以专业、创新和用心的教学服务，帮助每位学生建立扎实的学科能力，
+                    激发学习潜能，在 DSE 与升学道路上稳步前进。
                   </p>
                   
-                  <h3 className="text-2xl font-bold mb-6">我们的愿景</h3>
+                  <h3 className="text-2xl font-bold mb-6">我们的教学方式</h3>
                   <p className="text-primary-100 leading-relaxed">
-                    成为大湾区最受信赖的香港升学服务品牌，
-                    让每一位学生都能享受到优质的教育资源。
+                    结合一对一精讲、精品小组课、自研教学资源与香港原版教材，
+                    按学生进度灵活调整课程，让每一次学习都有明确目标和反馈。
                   </p>
                 </div>
               </div>
@@ -202,7 +269,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* 发展历程 */}
+      {/* 教学优势 */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -211,37 +278,25 @@ export default function About() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="section-title mb-4">发展历程</h2>
-            <p className="section-subtitle">我们的成长足迹</p>
+            <h2 className="section-title mb-4">我们的教学优势</h2>
+            <p className="section-subtitle">从考纲研究到学习追踪，为学生提供完整的 DSE 学习支持</p>
           </motion.div>
 
-          <div className="relative">
-            {/* 时间线 */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-primary-200 -translate-x-1/2 hidden md:block" />
-            
-            <div className="space-y-8 md:space-y-0">
-              {milestones.map((milestone, index) => (
-                <motion.div
-                  key={milestone.year}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  className={`md:flex items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
-                >
-                  <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12'}`}>
-                    <div className="card p-6 inline-block">
-                      <div className="text-2xl font-bold text-primary-600 mb-2">{milestone.year}</div>
-                      <div className="text-slate-700">{milestone.event}</div>
-                    </div>
-                  </div>
-                  
-                  {/* 时间点 */}
-                  <div className="hidden md:block w-4 h-4 bg-primary-500 rounded-full border-4 border-white shadow-lg relative z-10" />
-                  
-                  <div className="md:w-1/2" />
-                </motion.div>
-              ))}
-            </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {advantages.map((advantage, index) => (
+              <motion.div
+                key={advantage.number}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.08 }}
+                className="card p-6"
+              >
+                <div className="text-sm font-bold text-primary-500 mb-4">{advantage.number}</div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">{advantage.title}</h3>
+                <p className="text-slate-600 leading-relaxed">{advantage.description}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -256,25 +311,37 @@ export default function About() {
             className="text-center mb-16"
           >
             <h2 className="section-title mb-4">专业团队</h2>
-            <p className="section-subtitle">资深教育专家为您服务</p>
+            <p className="section-subtitle">名校背景与丰富 DSE 教学经验，为每位学生提供针对性指导</p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {team.map((member, index) => (
               <motion.div
                 key={member.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="card p-6 text-center hover:-translate-y-2 transition-all"
+                transition={{ delay: (index % 6) * 0.06 }}
+                className="card p-5 flex items-start gap-4 hover:-translate-y-1 transition-all"
               >
-                <div className="w-20 h-20 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-white">{member.avatar}</span>
+                {member.image ? (
+                  <img
+                    src={member.image}
+                    alt={`${member.name}老师`}
+                    className="w-20 h-20 rounded-full object-cover flex-shrink-0 border-2 border-primary-100"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="w-20 h-20 bg-gradient-to-br from-primary-500 to-primary-700 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-2xl font-bold text-white">{member.avatar}</span>
+                  </div>
+                )}
+                <div className="min-w-0">
+                  <h3 className="text-lg font-bold text-slate-900 mb-1">{member.name}</h3>
+                  <p className="text-primary-600 text-sm font-medium mb-2">{member.role}</p>
+                  <p className="text-slate-700 text-sm font-medium mb-2 leading-relaxed">{member.credentials}</p>
+                  <p className="text-slate-500 text-sm leading-relaxed">{member.strengths}</p>
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-1">{member.name}</h3>
-                <p className="text-primary-600 text-sm font-medium mb-2">{member.role}</p>
-                <p className="text-slate-500 text-sm">{member.description}</p>
               </motion.div>
             ))}
           </div>
