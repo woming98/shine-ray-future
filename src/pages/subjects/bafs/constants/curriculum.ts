@@ -26,7 +26,7 @@ export const BAFS_STRANDS: BAFSStrand[] = [
     name: '會計學習線',
     nameEn: 'Accounting Strand',
     description: '由會計角色與記錄開始，逐步掌握財務報表、企業會計及財務分析。',
-    chapters: 36,
+    chapters: 37,
     levels: [
       {
         id: 'accounting-foundation',
@@ -44,7 +44,7 @@ export const BAFS_STRANDS: BAFSStrand[] = [
         code: 'A1–A5',
         title: '會計原理與記錄',
         titleEn: 'Accounting Principles & Records',
-        chapters: 11,
+        chapters: 12,
         description: '理解會計用途、會計循環及日常交易記錄。',
         topics: ['會計的目的與角色', '會計循環', '交易記錄與分類'],
       },
@@ -122,7 +122,7 @@ export const BAFS_STRANDS: BAFSStrand[] = [
 ]
 
 export const BAFS_SOURCE_SUMMARY = {
-  lessonPlans: 71,
+  lessonPlans: 72,
   textbookFiles: 28,
   sourceBooks: 8,
 }

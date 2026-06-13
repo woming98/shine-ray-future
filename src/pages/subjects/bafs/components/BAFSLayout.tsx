@@ -2,6 +2,7 @@ import { ReactNode, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import {
   ArrowLeft,
+  BookMarked,
   BookOpen,
   Briefcase,
   FileText,
@@ -20,6 +21,7 @@ const navItems = [
   { path: '/subjects/bafs', label: '學習中心', icon: Home, exact: true },
   { path: '/subjects/bafs/strand/accounting', label: '會計學習線', icon: Receipt },
   { path: '/subjects/bafs/strand/business', label: '商業管理線', icon: Briefcase },
+  { path: '/subjects/bafs/notes', label: '章節筆記', icon: BookMarked },
   { path: '/subjects/bafs/resources', label: '課程資源', icon: Library },
   { path: '/subjects/bafs/past-papers', label: 'HKDSE 真題', icon: FileText },
 ]

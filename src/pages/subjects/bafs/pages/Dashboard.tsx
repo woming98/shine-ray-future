@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import {
   ArrowRight,
+  BookMarked,
   Briefcase,
   CheckCircle2,
   FileText,
@@ -94,7 +95,17 @@ export default function Dashboard() {
         </div>
       </section>
 
-      <section className="grid gap-4 md:grid-cols-2">
+      <section className="grid gap-4 md:grid-cols-3">
+        <Link
+          to="/subjects/bafs/notes"
+          className="flex items-start gap-4 rounded-lg border border-slate-200 bg-white p-5 hover:border-emerald-700/30"
+        >
+          <BookMarked className="h-5 w-5 flex-shrink-0 text-emerald-700" />
+          <div>
+            <h3 className="font-bold text-slate-950">章節筆記</h3>
+            <p className="mt-1 text-sm leading-6 text-slate-500">查看每個部分的導讀、重點及完成檢查。</p>
+          </div>
+        </Link>
         <Link
           to="/subjects/bafs/resources"
           className="flex items-start gap-4 rounded-lg border border-slate-200 bg-white p-5 hover:border-emerald-700/30"

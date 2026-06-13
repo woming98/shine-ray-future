@@ -1,6 +1,7 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
-import { ArrowRight, BookOpen, CheckCircle2, Clock3 } from 'lucide-react'
+import { ArrowRight, BookMarked, BookOpen, CheckCircle2, Clock3 } from 'lucide-react'
 import { BAFS_STRANDS, BAFSStrandId } from '../constants/curriculum'
+import { BAFS_NOTE_PARTS } from '../constants/notes'
 
 export default function StrandPage() {
   const { strandId } = useParams<{ strandId: BAFSStrandId }>()
@@ -15,7 +16,8 @@ export default function StrandPage() {
       <header className="border-b border-slate-200 pb-6">
         <div className="mb-3 flex flex-wrap items-center gap-2">
           <span className="rounded bg-emerald-100 px-2.5 py-1 text-xs font-semibold text-emerald-800">課程框架已上線</span>
-          <span className="rounded bg-amber-100 px-2.5 py-1 text-xs font-semibold text-amber-800">教材內容整理中</span>
+          <span className="rounded bg-emerald-100 px-2.5 py-1 text-xs font-semibold text-emerald-800">章節筆記已上線</span>
+          <span className="rounded bg-amber-100 px-2.5 py-1 text-xs font-semibold text-amber-800">例題練習整理中</span>
         </div>
         <h1 className="text-3xl font-bold text-slate-950">{strand.name}</h1>
         <p className="mt-1 text-sm font-medium text-slate-400">{strand.nameEn}</p>
@@ -23,44 +25,65 @@ export default function StrandPage() {
       </header>
 
       <div className="grid gap-4">
-        {strand.levels.map((level, index) => (
-          <article key={level.id} className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-            <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
-              <div className="flex gap-4">
-                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-emerald-950 text-sm font-bold text-amber-400">
-                  {index + 1}
-                </div>
-                <div>
-                  <div className="flex flex-wrap items-center gap-2">
-                    <h2 className="text-lg font-bold text-slate-950">{level.title}</h2>
-                    <span className="rounded bg-slate-100 px-2 py-1 text-xs font-semibold text-slate-600">{level.code}</span>
+        {strand.levels.map((level, index) => {
+          const notes = BAFS_NOTE_PARTS.filter((part) => part.strand === strand.id && part.sourceBook === level.book)
+          return (
+            <article key={level.id} className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+              <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
+                <div className="flex gap-4">
+                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-emerald-950 text-sm font-bold text-amber-400">
+                    {index + 1}
                   </div>
-                  <p className="mt-1 text-xs font-medium text-slate-400">{level.titleEn}</p>
-                  <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600">{level.description}</p>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {level.topics.map((topic) => (
-                      <span key={topic} className="rounded border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs text-slate-600">
-                        {topic}
-                      </span>
-                    ))}
+                  <div>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <h2 className="text-lg font-bold text-slate-950">{level.title}</h2>
+                      <span className="rounded bg-slate-100 px-2 py-1 text-xs font-semibold text-slate-600">{level.code}</span>
+                    </div>
+                    <p className="mt-1 text-xs font-medium text-slate-400">{level.titleEn}</p>
+                    <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600">{level.description}</p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {level.topics.map((topic) => (
+                        <span key={topic} className="rounded border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs text-slate-600">
+                          {topic}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div className="min-w-44 rounded-md border border-slate-200 bg-slate-50 p-4">
+                  <p className="text-xs font-medium text-slate-400">來源教材</p>
+                  <p className="mt-1 text-sm font-bold text-slate-800">{level.book}</p>
+                  <div className="mt-3 flex items-center gap-2 text-xs font-medium text-emerald-800">
+                    <CheckCircle2 className="h-4 w-4" />
+                    {level.chapters} 個章節框架
+                  </div>
+                  <div className="mt-2 flex items-center gap-2 text-xs font-medium text-amber-800">
+                    <Clock3 className="h-4 w-4" />
+                    課程內容整理中
                   </div>
                 </div>
               </div>
-              <div className="min-w-44 rounded-md border border-slate-200 bg-slate-50 p-4">
-                <p className="text-xs font-medium text-slate-400">來源教材</p>
-                <p className="mt-1 text-sm font-bold text-slate-800">{level.book}</p>
-                <div className="mt-3 flex items-center gap-2 text-xs font-medium text-emerald-800">
-                  <CheckCircle2 className="h-4 w-4" />
-                  {level.chapters} 個章節框架
+              <div className="mt-5 border-t border-slate-100 pt-4">
+                <div className="mb-3 flex items-center gap-2 text-xs font-semibold text-slate-500">
+                  <BookMarked className="h-4 w-4 text-emerald-700" />
+                  本階段筆記
                 </div>
-                <div className="mt-2 flex items-center gap-2 text-xs font-medium text-amber-800">
-                  <Clock3 className="h-4 w-4" />
-                  課程內容整理中
+                <div className="flex flex-wrap gap-2">
+                  {notes.map((note) => (
+                    <Link
+                      key={note.id}
+                      to={`/subjects/bafs/notes/${note.strand}/${note.id}`}
+                      className="inline-flex items-center gap-2 rounded-md border border-emerald-200 bg-emerald-50 px-3 py-2 text-xs font-semibold text-emerald-900 hover:border-emerald-500"
+                    >
+                      <span className="font-bold">{note.code}</span>
+                      {note.title}
+                    </Link>
+                  ))}
                 </div>
               </div>
-            </div>
-          </article>
-        ))}
+            </article>
+          )
+        })}
       </div>
 
       <Link

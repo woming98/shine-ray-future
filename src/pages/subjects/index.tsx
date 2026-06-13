@@ -127,7 +127,7 @@ export default function SubjectHub() {
       iconColor: 'text-emerald-700',
       status: 'active',
       description: '會計及商業管理課程框架與學習資源',
-      features: ['A1–A12會計單元', '商業管理', '教材目錄', '真題專區'],
+      features: ['A1–A12會計單元', '商業管理', '章節筆記', '真題專區'],
     },
   ]
 
