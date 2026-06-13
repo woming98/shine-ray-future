@@ -2,12 +2,18 @@ import { Link, Navigate, useParams } from 'react-router-dom'
 import { ArrowLeft, BookOpen, CheckCircle2, HelpCircle, Languages, Lightbulb, ListChecks } from 'lucide-react'
 import { BAFSStrandId } from '../constants/curriculum'
 import { C1_DETAILED_CHAPTERS } from '../constants/c1Notes'
+import { C2_DETAILED_CHAPTERS } from '../constants/c2Notes'
 import { getNotePart } from '../constants/notes'
 
 export default function NoteDetailPage() {
   const { strandId, partId } = useParams<{ strandId: BAFSStrandId; partId: string }>()
   const part = strandId && partId ? getNotePart(strandId, partId) : undefined
-  const isC1 = part?.code === 'C1'
+  const detailedChapters = part?.code === 'C1'
+    ? C1_DETAILED_CHAPTERS
+    : part?.code === 'C2'
+      ? C2_DETAILED_CHAPTERS
+      : []
+  const hasDetailedNotes = detailedChapters.length > 0
 
   if (!part) {
     return <Navigate to="/subjects/bafs/notes" replace />
@@ -22,14 +28,14 @@ export default function NoteDetailPage() {
         </Link>
         <div className="mt-5 flex flex-wrap items-center gap-2">
           <span className="rounded bg-emerald-950 px-2.5 py-1 text-xs font-bold text-amber-400">{part.code}</span>
-          <span className="rounded bg-emerald-100 px-2.5 py-1 text-xs font-semibold text-emerald-800">{isC1 ? '完整雙語筆記' : '第一版筆記'}</span>
+          <span className="rounded bg-emerald-100 px-2.5 py-1 text-xs font-semibold text-emerald-800">{hasDetailedNotes ? '完整雙語筆記' : '第一版筆記'}</span>
         </div>
         <h1 className="mt-3 text-3xl font-bold text-slate-950">{part.title}</h1>
         <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-600">{part.description}</p>
         <p className="mt-2 text-xs font-medium text-slate-400">來源：{part.sourceBook}</p>
       </header>
 
-      {isC1 && (
+      {hasDetailedNotes && (
         <>
           <section className="rounded-lg border border-emerald-200 bg-emerald-50 p-5">
             <div className="flex items-center gap-2 text-emerald-950">
@@ -45,7 +51,7 @@ export default function NoteDetailPage() {
           </section>
 
           <section className="space-y-8">
-            {C1_DETAILED_CHAPTERS.map((chapter) => (
+            {detailedChapters.map((chapter) => (
               <article key={chapter.id} className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
                 <div className="border-b border-emerald-900/10 bg-emerald-950 px-5 py-5 text-white sm:px-6">
                   <p className="text-xs font-bold uppercase text-amber-400">Chapter {chapter.number}</p>
@@ -132,7 +138,7 @@ export default function NoteDetailPage() {
         </>
       )}
 
-      {!isC1 && (
+      {!hasDetailedNotes && (
         <>
       <section>
         <div className="mb-4 flex items-center gap-2">

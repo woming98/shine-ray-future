@@ -137,7 +137,7 @@ export const C1_DETAILED_CHAPTERS: C1DetailedChapter[] = [
     ],
     examTips: [
       {
-        zh: '分析外部因素時，要写出完整因果鏈：「因素改變 → 企業成本或需求改變 → 決策或表現受到影響」。',
+        zh: '分析外部因素時，要寫出完整因果鏈：「因素改變 → 企業成本或需求改變 → 決策或表現受到影響」。',
         en: 'When analysing an external factor, show a complete chain: change in factor → change in cost or demand → effect on business decision or performance.',
       },
       {
