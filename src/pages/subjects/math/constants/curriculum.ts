@@ -23,6 +23,7 @@ export interface PastPaper {
   title: string;
   durationMinutes: number;
   pdfUrl: string;
+  solutionAvailable: boolean;
 }
 
 export const GRADE_COURSES: GradeCourse[] = [
@@ -128,12 +129,13 @@ export const PAST_PAPER_YEARS = Array.from({ length: 14 }, (_, index) => 2025 - 
 
 export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
   {
-    id: '2012-paper-2',
-    year: 2012,
+    id: '2023-paper-2',
+    year: 2023,
     paper: 'Paper 2',
-    title: '2012 HKDSE Mathematics Paper 2',
+    title: '2023 HKDSE Mathematics Paper 2',
     durationMinutes: 75,
-    pdfUrl: '/dse-math/past-papers/2012-paper-2.pdf',
+    pdfUrl: '/dse-math/past-papers/2023-paper-2.pdf',
+    solutionAvailable: true,
   },
 ];
 

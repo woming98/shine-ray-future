@@ -6,6 +6,7 @@ import {
   Download,
   ExternalLink,
   FileQuestion,
+  ListChecks,
   Pause,
   Play,
   RotateCcw,
@@ -162,10 +163,18 @@ export default function PastPaperDetailPage() {
       </section>
 
       <Card className="p-5 bg-indigo-50 border-indigo-200" hover={false}>
-        <h2 className="font-bold text-indigo-950 mb-1">试卷详细解析</h2>
-        <p className="text-sm text-indigo-800">
-          本卷逐题解析正在整理中，上线后可从真题目录的“试卷详细解析”栏目进入。
-        </p>
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div>
+            <h2 className="font-bold text-indigo-950 mb-1">试卷详细解析已上线</h2>
+            <p className="text-sm text-indigo-800">完成练习后，可逐题核对答案、计算步骤与考点。</p>
+          </div>
+          <Button
+            onClick={() => navigate(`/subjects/math/past-papers/${paper.id}/solutions`)}
+            icon={<ListChecks className="w-4 h-4" />}
+          >
+            查看逐题解析
+          </Button>
+        </div>
       </Card>
     </div>
   );

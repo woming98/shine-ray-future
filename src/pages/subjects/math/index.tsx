@@ -16,6 +16,7 @@ import GradeCoursesPage from './pages/GradeCoursesPage';
 import SprintPage from './pages/SprintPage';
 import PastPapersPage from './pages/PastPapersPage';
 import PastPaperDetailPage from './pages/PastPaperDetailPage';
+import PastPaperSolutionsPage from './pages/PastPaperSolutionsPage';
 
 // Math 模塊主組件
 export default function MathModule() {
@@ -34,6 +35,7 @@ export default function MathModule() {
         <Route path="/sprint" element={<SprintPage />} />
         <Route path="/past-papers" element={<PastPapersPage />} />
         <Route path="/past-papers/:paperId" element={<PastPaperDetailPage />} />
+        <Route path="/past-papers/:paperId/solutions" element={<PastPaperSolutionsPage />} />
       </Routes>
     </MathLayout>
   );

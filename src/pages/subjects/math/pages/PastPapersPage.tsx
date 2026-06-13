@@ -24,7 +24,7 @@ export default function PastPapersPage() {
       <section>
         <h1 className="text-3xl md:text-4xl font-bold text-gray-950 mb-3">HKDSE 数学真题</h1>
         <p className="text-gray-600 text-lg">
-          分为纯试卷练习与试卷详细解析。2012 Paper 2 已上线，其余原卷与逐题解析将按年份陆续上传。
+          分为纯试卷练习与试卷详细解析。2023 Paper 2 试卷及逐题解析已上线。
         </p>
       </section>
 
@@ -51,7 +51,7 @@ export default function PastPapersPage() {
         <div className="flex items-start gap-3">
           <Lightbulb className="w-5 h-5 text-amber-700 flex-shrink-0 mt-0.5" />
           <p className="text-amber-900 text-sm leading-relaxed">
-            已上线试卷可在线预览、下载或开启计时练习。详细解析完成审核后，将在对应年份开放。
+            已上线试卷可在线预览、下载或开启计时练习；解析页提供答案总表、计算步骤与考点说明。
           </p>
         </div>
       </Card>
@@ -67,7 +67,7 @@ export default function PastPapersPage() {
                   <p className="text-sm text-gray-500">HKDSE Mathematics</p>
                   <div className="flex items-center gap-2">
                     <h2 className="text-2xl font-bold text-gray-950">{year}</h2>
-                    {!isSolutions && availablePaper && (
+                    {availablePaper && (!isSolutions || availablePaper.solutionAvailable) && (
                       <span className="px-2 py-1 rounded bg-emerald-100 text-emerald-700 text-xs font-semibold">
                         已上线
                       </span>
@@ -85,9 +85,21 @@ export default function PastPapersPage() {
                 <p className={availablePaper && !isSolutions ? 'font-semibold text-emerald-700' : ''}>
                   卷二：多项选择题{availablePaper && !isSolutions ? ' · 已上线' : ''}
                 </p>
-                {isSolutions && <p>解析：步骤、考点与失分提示</p>}
+                {isSolutions && (
+                  <p className={availablePaper?.solutionAvailable ? 'font-semibold text-emerald-700' : ''}>
+                    解析：步骤、考点与关键判断
+                    {availablePaper?.solutionAvailable ? ' · 已上线' : ''}
+                  </p>
+                )}
               </div>
-              {!isSolutions && availablePaper ? (
+              {isSolutions && availablePaper?.solutionAvailable ? (
+                <Button
+                  fullWidth
+                  onClick={() => navigate(`/subjects/math/past-papers/${availablePaper.id}/solutions`)}
+                >
+                  查看逐题解析
+                </Button>
+              ) : !isSolutions && availablePaper ? (
                 <div className="grid grid-cols-[1fr_auto] gap-2">
                   <Button fullWidth onClick={() => navigate(`/subjects/math/past-papers/${availablePaper.id}`)}>
                     查看试卷
