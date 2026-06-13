@@ -24,7 +24,7 @@ export default function PastPapersPage() {
       <section>
         <h1 className="text-3xl md:text-4xl font-bold text-gray-950 mb-3">HKDSE 数学真题</h1>
         <p className="text-gray-600 text-lg">
-          分为纯试卷练习与试卷详细解析。2022、2023 Paper 2 试卷及逐题解析已上线。
+          分为纯试卷练习与试卷详细解析。2021 至 2023 Paper 2 试卷及逐题解析已上线。
         </p>
       </section>
 
