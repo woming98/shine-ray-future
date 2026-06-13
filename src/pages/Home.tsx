@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {
   GraduationCap, BookOpen, Calculator, ArrowRight,
-  Star, Users, CheckCircle, Quote, ChevronRight, Sparkles, MapPin
+  Star, Users, CheckCircle, ChevronRight, Sparkles, MapPin
 } from 'lucide-react'
 import DseCountdown from '../components/DseCountdown'
 import ExamSchedule from '../components/ExamSchedule'
@@ -52,28 +52,6 @@ export default function Home() {
     { value: '1000+', label: '累计服务学生', icon: Users },
     { value: '15+', label: '香港地区覆盖', icon: MapPin },
     { value: '5年', label: '专业经验', icon: Star },
-  ]
-
-  // 成功案例
-  const testimonials = [
-    {
-      content: '感谢莘睿未来的专业服务，孩子成功进入了理想的国际学校。老师们非常耐心，给了我们很多有价值的建议。',
-      author: '张女士',
-      role: '小六家长',
-      avatar: '张',
-    },
-    {
-      content: '英文测试系统非常专业，帮助我们准确评估了孩子的水平，针对性地进行备考，最终取得了满意的成绩。',
-      author: '李先生',
-      role: '中二家长',
-      avatar: '李',
-    },
-    {
-      content: '从咨询到入学，全程有专人跟进，服务非常周到。特别是学校推荐很精准，节省了我们很多时间。',
-      author: '王女士',
-      role: '中一家长',
-      avatar: '王',
-    },
   ]
 
   // 动画变体
@@ -425,67 +403,6 @@ export default function Home() {
               </div>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* ===== 家长好评 Testimonials Section ===== */}
-      <section className="py-24 md:py-32 bg-gradient-to-br from-primary-50 via-white to-accent-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* 标题 */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="section-title mb-4">{t('home.testimonials')}</h2>
-            <p className="section-subtitle">
-              听听家长们怎么说
-            </p>
-          </motion.div>
-
-          {/* 评价卡片 */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid md:grid-cols-3 gap-8"
-          >
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="card p-8 relative"
-              >
-                {/* 引号装饰 */}
-                <Quote className="absolute top-6 right-6 w-10 h-10 text-primary-100" />
-                
-                {/* 评价内容 */}
-                <p className="text-slate-600 mb-6 leading-relaxed relative z-10">
-                  "{testimonial.content}"
-                </p>
-                
-                {/* 用户信息 */}
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center">
-                    <span className="text-white font-semibold">{testimonial.avatar}</span>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-slate-900">{testimonial.author}</div>
-                    <div className="text-sm text-slate-500">{testimonial.role}</div>
-                  </div>
-                </div>
-
-                {/* 星级评分 */}
-                <div className="flex gap-1 mt-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-accent-400 text-accent-400" />
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
         </div>
       </section>
 
