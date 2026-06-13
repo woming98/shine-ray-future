@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {
   GraduationCap, BookOpen, Calculator, ArrowRight,
-  Star, Users, Award, CheckCircle, Quote, ChevronRight, Sparkles
+  Star, Users, Award, CheckCircle, Quote, ChevronRight, Sparkles, MapPin
 } from 'lucide-react'
 import DseCountdown from '../components/DseCountdown'
 import ExamSchedule from '../components/ExamSchedule'
@@ -48,9 +48,9 @@ export default function Home() {
 
   // 统计数据
   const stats = [
-    { value: '500+', label: '合作学校', icon: GraduationCap },
-    { value: '10000+', label: '服务学生', icon: Users },
-    { value: '98%', label: '成功率', icon: Award },
+    { value: '45+所', label: '已服务香港学校学生', icon: GraduationCap },
+    { value: '1000+', label: '累计服务学生', icon: Users },
+    { value: '15+', label: '香港地区覆盖', icon: MapPin },
     { value: '5年', label: '专业经验', icon: Star },
   ]
 
@@ -342,7 +342,7 @@ export default function Home() {
               <div className="space-y-4">
                 {[
                   '深耕香港教育领域5年以上',
-                  '与500+香港学校建立合作关系',
+                  '已服务来自45+所香港学校的学生',
                   '专业测评系统精准定位',
                   '一对一个性化升学规划',
                   '全程跟进直至成功入学',
@@ -413,8 +413,8 @@ export default function Home() {
                         <Award className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <h4 className="text-white font-semibold">高成功率</h4>
-                        <p className="text-white/70 text-sm">98%入学成功</p>
+                        <h4 className="text-white font-semibold">全程陪伴</h4>
+                        <p className="text-white/70 text-sm">从规划到入学</p>
                       </div>
                     </div>
                     <p className="text-white/80 text-sm">

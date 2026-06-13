@@ -69,7 +69,7 @@ export default function About() {
     { year: '2021', event: '公司成立于香港' },
     { year: '2022', event: '服务学生突破1000人' },
     { year: '2023', event: '推出在线测评系统' },
-    { year: '2024', event: '合作学校达500所' },
+    { year: '2024', event: '完善香港升学插班服务' },
     { year: '2025', event: '服务覆盖大湾区' },
     { year: '2026', event: '成为行业领先品牌' }
   ]
@@ -116,24 +116,24 @@ export default function About() {
                   深入了解香港各类学校的特点和招生要求，能够为家长和学生提供最精准的择校建议。
                 </p>
                 <p>
-                  经过多年发展，我们已成功帮助超过10,000名学生顺利进入心仪的香港学校，
-                  建立了良好的口碑和广泛的合作网络。
+                  经过多年发展，我们已累计服务超过1,000名学生，学生来自45+所香港学校，
+                  并建立了良好的服务口碑。
                 </p>
               </div>
 
               {/* 数据统计 */}
               <div className="grid grid-cols-3 gap-6 mt-8">
                 <div className="text-center p-4 bg-primary-50 rounded-xl">
-                  <div className="text-3xl font-bold text-primary-600 mb-1">500+</div>
-                  <div className="text-sm text-slate-600">合作学校</div>
+                  <div className="text-3xl font-bold text-primary-600 mb-1">45+所</div>
+                  <div className="text-sm text-slate-600">已服务香港学校学生</div>
                 </div>
                 <div className="text-center p-4 bg-primary-50 rounded-xl">
-                  <div className="text-3xl font-bold text-primary-600 mb-1">10000+</div>
-                  <div className="text-sm text-slate-600">服务学生</div>
+                  <div className="text-3xl font-bold text-primary-600 mb-1">1000+</div>
+                  <div className="text-sm text-slate-600">累计服务学生</div>
                 </div>
                 <div className="text-center p-4 bg-primary-50 rounded-xl">
-                  <div className="text-3xl font-bold text-primary-600 mb-1">98%</div>
-                  <div className="text-sm text-slate-600">成功率</div>
+                  <div className="text-3xl font-bold text-primary-600 mb-1">5年</div>
+                  <div className="text-sm text-slate-600">专业经验</div>
                 </div>
               </div>
             </motion.div>
