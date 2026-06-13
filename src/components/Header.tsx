@@ -92,7 +92,7 @@ export default function Header() {
         { path: '/subjects/m2', label: 'M2', icon: Sigma, status: 'coming' },
         { path: '/subjects/chemistry', label: '化學', icon: FlaskConical, status: 'coming' },
         { path: '/subjects/economics', label: '經濟', icon: TrendingUp, status: 'coming' },
-        { path: '/subjects/bafs', label: '會計', icon: Receipt, status: 'coming' },
+        { path: '/subjects/bafs', label: '會計', icon: Receipt, description: 'BAFS課程框架與資源', status: 'active' },
       ]
     },
     {

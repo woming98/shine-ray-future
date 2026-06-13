@@ -37,7 +37,7 @@ const BiologyModule = lazy(() => import('./pages/subjects/biology/index'))
 const MathModule = lazy(() => import('./pages/subjects/math/index'))
 const ChemistrySubject = lazy(() => import('./pages/subjects/Chemistry'))
 const EconomicsSubject = lazy(() => import('./pages/subjects/Economics'))
-const BAFSSubject = lazy(() => import('./pages/subjects/BAFS'))
+const BAFSModule = lazy(() => import('./pages/subjects/bafs/index'))
 
 // 升学信息模块
 const UniversityHub = lazy(() => import('./pages/university/index'))
@@ -78,6 +78,7 @@ function App() {
           <Route path="subjects/math/*" element={<RequireAuth><MathModule /></RequireAuth>} />
           <Route path="subjects/m2/*" element={<RequireAuth><M2Module /></RequireAuth>} />
           <Route path="subjects/english/*" element={<RequireAuth><EnglishModule /></RequireAuth>} />
+          <Route path="subjects/bafs/*" element={<RequireAuth><BAFSModule /></RequireAuth>} />
           
           {/* 学科学习模块 */}
           <Route path="subjects" element={<RequireAuthOutlet />}>
@@ -89,7 +90,6 @@ function App() {
             {/* <Route path="m2" element={<M2Subject />} /> */}
             <Route path="chemistry" element={<ChemistrySubject />} />
             <Route path="economics" element={<EconomicsSubject />} />
-            <Route path="bafs" element={<BAFSSubject />} />
           </Route>
           
           {/* 升学信息模块 */}

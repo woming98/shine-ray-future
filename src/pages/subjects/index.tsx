@@ -122,11 +122,12 @@ export default function SubjectHub() {
       name: '會計',
       nameEn: 'BAFS',
       icon: Receipt,
-      color: 'from-slate-500 to-gray-500',
-      bgColor: 'bg-slate-100',
-      iconColor: 'text-slate-500',
-      status: 'coming',
-      description: '企業、會計與財務概論',
+      color: 'from-emerald-700 to-teal-700',
+      bgColor: 'bg-emerald-50',
+      iconColor: 'text-emerald-700',
+      status: 'active',
+      description: '會計及商業管理課程框架與學習資源',
+      features: ['A1–A12會計單元', '商業管理', '教材目錄', '真題專區'],
     },
   ]
 
