@@ -8,6 +8,7 @@ import { B3_DETAILED_CHAPTERS } from '../src/pages/subjects/bafs/constants/b3Not
 import { A6_DETAILED_CHAPTERS } from '../src/pages/subjects/bafs/constants/a6Notes'
 import { A7_DETAILED_CHAPTERS } from '../src/pages/subjects/bafs/constants/a7Notes'
 import { A8_DETAILED_CHAPTERS } from '../src/pages/subjects/bafs/constants/a8Notes'
+import { A9_DETAILED_CHAPTERS } from '../src/pages/subjects/bafs/constants/a9Notes'
 import { C1DetailedChapter, C1_DETAILED_CHAPTERS } from '../src/pages/subjects/bafs/constants/c1Notes'
 import { C2_DETAILED_CHAPTERS } from '../src/pages/subjects/bafs/constants/c2Notes'
 import { C3_DETAILED_CHAPTERS } from '../src/pages/subjects/bafs/constants/c3Notes'
@@ -31,6 +32,7 @@ const noteSets: Array<{
   { strand: 'accounting', partId: 'accounting-a6', chapters: A6_DETAILED_CHAPTERS },
   { strand: 'accounting', partId: 'accounting-a7', chapters: A7_DETAILED_CHAPTERS },
   { strand: 'accounting', partId: 'accounting-a8', chapters: A8_DETAILED_CHAPTERS },
+  { strand: 'accounting', partId: 'accounting-a9', chapters: A9_DETAILED_CHAPTERS },
 ]
 
 const escapeHtml = (value: string) =>
