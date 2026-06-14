@@ -5,6 +5,7 @@ import { join, resolve } from 'node:path'
 import { B1_DETAILED_CHAPTERS } from '../src/pages/subjects/bafs/constants/b1Notes'
 import { B2_DETAILED_CHAPTERS } from '../src/pages/subjects/bafs/constants/b2Notes'
 import { B3_DETAILED_CHAPTERS } from '../src/pages/subjects/bafs/constants/b3Notes'
+import { A1_DETAILED_CHAPTERS } from '../src/pages/subjects/bafs/constants/a1Notes'
 import { A2_DETAILED_CHAPTERS } from '../src/pages/subjects/bafs/constants/a2Notes'
 import { A3_DETAILED_CHAPTERS } from '../src/pages/subjects/bafs/constants/a3Notes'
 import { A4_DETAILED_CHAPTERS } from '../src/pages/subjects/bafs/constants/a4Notes'
@@ -36,6 +37,7 @@ const noteSets: Array<{
   { strand: 'business', partId: 'business-b1', chapters: B1_DETAILED_CHAPTERS },
   { strand: 'business', partId: 'business-b2', chapters: B2_DETAILED_CHAPTERS },
   { strand: 'business', partId: 'business-b3', chapters: B3_DETAILED_CHAPTERS },
+  { strand: 'accounting', partId: 'accounting-a1', chapters: A1_DETAILED_CHAPTERS },
   { strand: 'accounting', partId: 'accounting-a2', chapters: A2_DETAILED_CHAPTERS },
   { strand: 'accounting', partId: 'accounting-a3', chapters: A3_DETAILED_CHAPTERS },
   { strand: 'accounting', partId: 'accounting-a4', chapters: A4_DETAILED_CHAPTERS },

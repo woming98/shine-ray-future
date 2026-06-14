@@ -7,6 +7,7 @@ import { C3_DETAILED_CHAPTERS } from '../constants/c3Notes'
 import { B1_DETAILED_CHAPTERS } from '../constants/b1Notes'
 import { B2_DETAILED_CHAPTERS } from '../constants/b2Notes'
 import { B3_DETAILED_CHAPTERS } from '../constants/b3Notes'
+import { A1_DETAILED_CHAPTERS } from '../constants/a1Notes'
 import { A2_DETAILED_CHAPTERS } from '../constants/a2Notes'
 import { A3_DETAILED_CHAPTERS } from '../constants/a3Notes'
 import { A4_DETAILED_CHAPTERS } from '../constants/a4Notes'
@@ -35,31 +36,33 @@ export default function NoteDetailPage() {
             ? B2_DETAILED_CHAPTERS
             : part?.code === 'B3'
               ? B3_DETAILED_CHAPTERS
-              : part?.code === 'A2'
-                ? A2_DETAILED_CHAPTERS
-                : part?.code === 'A3'
-                  ? A3_DETAILED_CHAPTERS
-                  : part?.code === 'A4'
-                    ? A4_DETAILED_CHAPTERS
-                    : part?.code === 'A5'
-                      ? A5_DETAILED_CHAPTERS
-                      : part?.code === 'A6'
-                        ? A6_DETAILED_CHAPTERS
-                        : part?.code === 'A7'
-                          ? A7_DETAILED_CHAPTERS
-                          : part?.code === 'A8'
-                            ? A8_DETAILED_CHAPTERS
-                            : part?.code === 'A9'
-                              ? A9_DETAILED_CHAPTERS
-                              : part?.code === 'A10'
-                                ? A10_DETAILED_CHAPTERS
-                                : part?.code === 'A11'
-                                  ? A11_DETAILED_CHAPTERS
-                                  : part?.code === 'A12'
-                                    ? A12_DETAILED_CHAPTERS
-                                    : []
+              : part?.code === 'A1'
+                ? A1_DETAILED_CHAPTERS
+                : part?.code === 'A2'
+                  ? A2_DETAILED_CHAPTERS
+                  : part?.code === 'A3'
+                    ? A3_DETAILED_CHAPTERS
+                    : part?.code === 'A4'
+                      ? A4_DETAILED_CHAPTERS
+                      : part?.code === 'A5'
+                        ? A5_DETAILED_CHAPTERS
+                        : part?.code === 'A6'
+                          ? A6_DETAILED_CHAPTERS
+                          : part?.code === 'A7'
+                            ? A7_DETAILED_CHAPTERS
+                            : part?.code === 'A8'
+                              ? A8_DETAILED_CHAPTERS
+                              : part?.code === 'A9'
+                                ? A9_DETAILED_CHAPTERS
+                                : part?.code === 'A10'
+                                  ? A10_DETAILED_CHAPTERS
+                                  : part?.code === 'A11'
+                                    ? A11_DETAILED_CHAPTERS
+                                    : part?.code === 'A12'
+                                      ? A12_DETAILED_CHAPTERS
+                                      : []
   const hasDetailedNotes = detailedChapters.length > 0
-  const hasDownloadablePdf = ['C1', 'C2', 'C3', 'B1', 'B2', 'B3', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'A9', 'A10', 'A11', 'A12'].includes(part?.code ?? '')
+  const hasDownloadablePdf = ['C1', 'C2', 'C3', 'B1', 'B2', 'B3', 'A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'A9', 'A10', 'A11', 'A12'].includes(part?.code ?? '')
 
   if (!part) {
     return <Navigate to="/subjects/bafs/notes" replace />
