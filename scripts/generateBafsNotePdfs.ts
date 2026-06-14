@@ -6,6 +6,7 @@ import { B1_DETAILED_CHAPTERS } from '../src/pages/subjects/bafs/constants/b1Not
 import { B2_DETAILED_CHAPTERS } from '../src/pages/subjects/bafs/constants/b2Notes'
 import { B3_DETAILED_CHAPTERS } from '../src/pages/subjects/bafs/constants/b3Notes'
 import { A6_DETAILED_CHAPTERS } from '../src/pages/subjects/bafs/constants/a6Notes'
+import { A7_DETAILED_CHAPTERS } from '../src/pages/subjects/bafs/constants/a7Notes'
 import { C1DetailedChapter, C1_DETAILED_CHAPTERS } from '../src/pages/subjects/bafs/constants/c1Notes'
 import { C2_DETAILED_CHAPTERS } from '../src/pages/subjects/bafs/constants/c2Notes'
 import { C3_DETAILED_CHAPTERS } from '../src/pages/subjects/bafs/constants/c3Notes'
@@ -27,6 +28,7 @@ const noteSets: Array<{
   { strand: 'business', partId: 'business-b2', chapters: B2_DETAILED_CHAPTERS },
   { strand: 'business', partId: 'business-b3', chapters: B3_DETAILED_CHAPTERS },
   { strand: 'accounting', partId: 'accounting-a6', chapters: A6_DETAILED_CHAPTERS },
+  { strand: 'accounting', partId: 'accounting-a7', chapters: A7_DETAILED_CHAPTERS },
 ]
 
 const escapeHtml = (value: string) =>
