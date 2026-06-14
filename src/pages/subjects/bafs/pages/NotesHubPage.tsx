@@ -40,7 +40,7 @@ export default function NotesHubPage() {
                     </div>
                     <span className="inline-flex items-center gap-1 text-xs font-medium text-emerald-700">
                       <CheckCircle2 className="h-3.5 w-3.5" />
-                      {['C1', 'C2', 'C3', 'B1', 'B2', 'B3', 'A4', 'A5', 'A6', 'A7', 'A8', 'A9', 'A10', 'A11', 'A12'].includes(part.code) ? '完整雙語筆記' : '筆記已上線'}
+                      {['C1', 'C2', 'C3', 'B1', 'B2', 'B3', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'A9', 'A10', 'A11', 'A12'].includes(part.code) ? '完整雙語筆記' : '筆記已上線'}
                     </span>
                   </div>
                   <h3 className="mt-4 font-bold text-slate-900 group-hover:text-emerald-800">{part.title}</h3>
