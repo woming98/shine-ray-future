@@ -2,6 +2,7 @@ import { Link, Navigate, useParams } from 'react-router-dom'
 import { ArrowLeft, BookOpen, CheckCircle2, Download, HelpCircle, Languages, Lightbulb, ListChecks, Printer } from 'lucide-react'
 import { BAFSStrandId } from '../constants/curriculum'
 import { C1_DETAILED_CHAPTERS } from '../constants/c1Notes'
+import { C21_DETAILED_CHAPTERS } from '../constants/c21Notes'
 import { C2_DETAILED_CHAPTERS } from '../constants/c2Notes'
 import { C3_DETAILED_CHAPTERS } from '../constants/c3Notes'
 import { B1_DETAILED_CHAPTERS } from '../constants/b1Notes'
@@ -32,6 +33,8 @@ export default function NoteDetailPage() {
   const part = strandId && partId ? getNotePart(strandId, partId) : undefined
   const detailedChapters = part?.code === 'C1'
     ? C1_DETAILED_CHAPTERS
+    : part?.code === 'C2.1'
+      ? C21_DETAILED_CHAPTERS
     : part?.code === 'C2'
       ? C2_DETAILED_CHAPTERS
       : part?.code === 'C3'
@@ -80,7 +83,7 @@ export default function NoteDetailPage() {
                                                   ? A12_DETAILED_CHAPTERS
                                                   : []
   const hasDetailedNotes = detailedChapters.length > 0
-  const hasDownloadablePdf = ['C1', 'C2', 'C3', 'B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'B9', 'A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'A9', 'A10', 'A11', 'A12'].includes(part?.code ?? '')
+  const hasDownloadablePdf = ['C1', 'C2.1', 'C2', 'C3', 'B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'B9', 'A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'A9', 'A10', 'A11', 'A12'].includes(part?.code ?? '')
 
   if (!part) {
     return <Navigate to="/subjects/bafs/notes" replace />
