@@ -10,6 +10,7 @@ import { B5_DETAILED_CHAPTERS } from '../src/pages/subjects/bafs/constants/b5Not
 import { B6_DETAILED_CHAPTERS } from '../src/pages/subjects/bafs/constants/b6Notes'
 import { B7_DETAILED_CHAPTERS } from '../src/pages/subjects/bafs/constants/b7Notes'
 import { B8_DETAILED_CHAPTERS } from '../src/pages/subjects/bafs/constants/b8Notes'
+import { B9_DETAILED_CHAPTERS } from '../src/pages/subjects/bafs/constants/b9Notes'
 import { A1_DETAILED_CHAPTERS } from '../src/pages/subjects/bafs/constants/a1Notes'
 import { A2_DETAILED_CHAPTERS } from '../src/pages/subjects/bafs/constants/a2Notes'
 import { A3_DETAILED_CHAPTERS } from '../src/pages/subjects/bafs/constants/a3Notes'
@@ -47,6 +48,7 @@ const noteSets: Array<{
   { strand: 'business', partId: 'business-b6', chapters: B6_DETAILED_CHAPTERS },
   { strand: 'business', partId: 'business-b7', chapters: B7_DETAILED_CHAPTERS },
   { strand: 'business', partId: 'business-b8', chapters: B8_DETAILED_CHAPTERS },
+  { strand: 'business', partId: 'business-b9', chapters: B9_DETAILED_CHAPTERS },
   { strand: 'accounting', partId: 'accounting-a1', chapters: A1_DETAILED_CHAPTERS },
   { strand: 'accounting', partId: 'accounting-a2', chapters: A2_DETAILED_CHAPTERS },
   { strand: 'accounting', partId: 'accounting-a3', chapters: A3_DETAILED_CHAPTERS },
