@@ -11,6 +11,7 @@ import { A6_DETAILED_CHAPTERS } from '../constants/a6Notes'
 import { A7_DETAILED_CHAPTERS } from '../constants/a7Notes'
 import { A8_DETAILED_CHAPTERS } from '../constants/a8Notes'
 import { A9_DETAILED_CHAPTERS } from '../constants/a9Notes'
+import { A10_DETAILED_CHAPTERS } from '../constants/a10Notes'
 import { getNotePart } from '../constants/notes'
 
 export default function NoteDetailPage() {
@@ -36,9 +37,11 @@ export default function NoteDetailPage() {
                     ? A8_DETAILED_CHAPTERS
                     : part?.code === 'A9'
                       ? A9_DETAILED_CHAPTERS
-                      : []
+                      : part?.code === 'A10'
+                        ? A10_DETAILED_CHAPTERS
+                        : []
   const hasDetailedNotes = detailedChapters.length > 0
-  const hasDownloadablePdf = ['C1', 'C2', 'C3', 'B1', 'B2', 'B3', 'A6', 'A7', 'A8', 'A9'].includes(part?.code ?? '')
+  const hasDownloadablePdf = ['C1', 'C2', 'C3', 'B1', 'B2', 'B3', 'A6', 'A7', 'A8', 'A9', 'A10'].includes(part?.code ?? '')
 
   if (!part) {
     return <Navigate to="/subjects/bafs/notes" replace />
