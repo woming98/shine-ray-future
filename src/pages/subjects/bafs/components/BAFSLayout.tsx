@@ -36,7 +36,7 @@ export default function BAFSLayout({ children }: BAFSLayoutProps) {
 
   return (
     <div className="min-h-screen bg-[#f5f7f6] text-slate-900">
-      <div className="fixed top-16 md:top-20 left-0 right-0 z-40 h-14 border-b border-emerald-900/10 bg-white/95 backdrop-blur">
+      <div className="fixed top-16 md:top-20 left-0 right-0 z-40 h-14 border-b border-emerald-900/10 bg-white/95 backdrop-blur print:hidden">
         <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-4">
           <div className="flex items-center gap-2 sm:gap-4">
             <button
@@ -76,7 +76,7 @@ export default function BAFSLayout({ children }: BAFSLayoutProps) {
       <aside
         className={`fixed bottom-0 left-0 top-[120px] md:top-[136px] z-50 w-64 border-r border-emerald-900/10 bg-white transition-transform lg:translate-x-0 ${
           sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-        }`}
+        } print:hidden`}
       >
         <div className="flex h-14 items-center justify-between border-b border-slate-100 px-5 lg:hidden">
           <span className="text-sm font-bold text-emerald-950">會計學習目錄</span>
@@ -119,8 +119,8 @@ export default function BAFSLayout({ children }: BAFSLayoutProps) {
         </nav>
       </aside>
 
-      <main className="min-h-screen pt-[120px] md:pt-[136px] lg:pl-64">
-        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 lg:py-8">{children}</div>
+      <main className="min-h-screen pt-[120px] md:pt-[136px] lg:pl-64 print:min-h-0 print:pt-0 print:pl-0">
+        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 lg:py-8 print:max-w-none print:p-0">{children}</div>
       </main>
     </div>
   )

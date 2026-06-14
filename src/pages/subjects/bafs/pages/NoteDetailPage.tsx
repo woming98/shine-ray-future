@@ -1,5 +1,5 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
-import { ArrowLeft, BookOpen, CheckCircle2, HelpCircle, Languages, Lightbulb, ListChecks } from 'lucide-react'
+import { ArrowLeft, BookOpen, CheckCircle2, Download, HelpCircle, Languages, Lightbulb, ListChecks, Printer } from 'lucide-react'
 import { BAFSStrandId } from '../constants/curriculum'
 import { C1_DETAILED_CHAPTERS } from '../constants/c1Notes'
 import { C2_DETAILED_CHAPTERS } from '../constants/c2Notes'
@@ -8,6 +8,7 @@ import { B1_DETAILED_CHAPTERS } from '../constants/b1Notes'
 import { B2_DETAILED_CHAPTERS } from '../constants/b2Notes'
 import { B3_DETAILED_CHAPTERS } from '../constants/b3Notes'
 import { getNotePart } from '../constants/notes'
+import { downloadDetailedNotes } from '../utils/noteDownload'
 
 export default function NoteDetailPage() {
   const { strandId, partId } = useParams<{ strandId: BAFSStrandId; partId: string }>()
@@ -32,9 +33,9 @@ export default function NoteDetailPage() {
   }
 
   return (
-    <div className="space-y-7">
+    <div className="bafs-note-print-root space-y-7">
       <header className="border-b border-slate-200 pb-6">
-        <Link to="/subjects/bafs/notes" className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-800 hover:text-emerald-950">
+        <Link to="/subjects/bafs/notes" className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-800 hover:text-emerald-950 print:hidden">
           <ArrowLeft className="h-4 w-4" />
           返回章節筆記
         </Link>
@@ -45,6 +46,26 @@ export default function NoteDetailPage() {
         <h1 className="mt-3 text-3xl font-bold text-slate-950">{part.title}</h1>
         <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-600">{part.description}</p>
         <p className="mt-2 text-xs font-medium text-slate-400">來源：{part.sourceBook}</p>
+        {hasDetailedNotes && (
+          <div className="mt-5 flex flex-wrap gap-2 print:hidden">
+            <button
+              type="button"
+              onClick={() => downloadDetailedNotes(part, detailedChapters)}
+              className="inline-flex min-h-10 items-center justify-center gap-2 rounded-md bg-emerald-800 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-emerald-900"
+            >
+              <Download className="h-4 w-4" />
+              下載雙語筆記
+            </button>
+            <button
+              type="button"
+              onClick={() => window.print()}
+              className="inline-flex min-h-10 items-center justify-center gap-2 rounded-md border border-emerald-200 bg-white px-4 py-2 text-sm font-semibold text-emerald-800 transition-colors hover:bg-emerald-50"
+            >
+              <Printer className="h-4 w-4" />
+              打印 / 存為 PDF
+            </button>
+          </div>
+        )}
       </header>
 
       {hasDetailedNotes && (
@@ -64,7 +85,7 @@ export default function NoteDetailPage() {
 
           <section className="space-y-8">
             {detailedChapters.map((chapter) => (
-              <article key={chapter.id} className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
+              <article key={chapter.id} className="bafs-note-print-chapter overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
                 <div className="border-b border-emerald-900/10 bg-emerald-950 px-5 py-5 text-white sm:px-6">
                   <p className="text-xs font-bold uppercase text-amber-400">Chapter {chapter.number}</p>
                   <h2 className="mt-2 text-xl font-bold">{chapter.title}</h2>

@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@media print {
+  @page {
+    margin: 14mm;
+  }
+
+  .bafs-note-print-root {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .bafs-note-print-chapter {
+    break-before: page;
+    box-shadow: none !important;
+  }
+
+  .bafs-note-print-root details > :not(summary) {
+    display: block !important;
+  }
+}
+
 /* 自定义基础样式 */
 @layer base {
   html {
