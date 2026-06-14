@@ -9,6 +9,7 @@ import { B2_DETAILED_CHAPTERS } from '../constants/b2Notes'
 import { B3_DETAILED_CHAPTERS } from '../constants/b3Notes'
 import { A6_DETAILED_CHAPTERS } from '../constants/a6Notes'
 import { A7_DETAILED_CHAPTERS } from '../constants/a7Notes'
+import { A8_DETAILED_CHAPTERS } from '../constants/a8Notes'
 import { getNotePart } from '../constants/notes'
 
 export default function NoteDetailPage() {
@@ -30,8 +31,11 @@ export default function NoteDetailPage() {
                 ? A6_DETAILED_CHAPTERS
                 : part?.code === 'A7'
                   ? A7_DETAILED_CHAPTERS
-                  : []
+                  : part?.code === 'A8'
+                    ? A8_DETAILED_CHAPTERS
+                    : []
   const hasDetailedNotes = detailedChapters.length > 0
+  const hasDownloadablePdf = ['C1', 'C2', 'C3', 'B1', 'B2', 'B3', 'A6', 'A7'].includes(part?.code ?? '')
 
   if (!part) {
     return <Navigate to="/subjects/bafs/notes" replace />
@@ -53,14 +57,16 @@ export default function NoteDetailPage() {
         <p className="mt-2 text-xs font-medium text-slate-400">來源：{part.sourceBook}</p>
         {hasDetailedNotes && (
           <div className="mt-5 flex flex-wrap gap-2 print:hidden">
-            <a
-              href={`/bafs/notes/${part.code.toLowerCase()}-bilingual-notes.pdf`}
-              download
-              className="inline-flex min-h-10 items-center justify-center gap-2 rounded-md bg-emerald-800 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-emerald-900"
-            >
-              <Download className="h-4 w-4" />
-              下載雙語筆記 PDF
-            </a>
+            {hasDownloadablePdf && (
+              <a
+                href={`/bafs/notes/${part.code.toLowerCase()}-bilingual-notes.pdf`}
+                download
+                className="inline-flex min-h-10 items-center justify-center gap-2 rounded-md bg-emerald-800 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-emerald-900"
+              >
+                <Download className="h-4 w-4" />
+                下載雙語筆記 PDF
+              </a>
+            )}
             <button
               type="button"
               onClick={() => window.print()}
