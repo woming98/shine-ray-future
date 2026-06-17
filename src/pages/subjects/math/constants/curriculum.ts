@@ -182,6 +182,15 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     pdfUrl: '/dse-math/past-papers/2021-paper-2.pdf',
     solutionAvailable: true,
   },
+  {
+    id: '2020-paper-2',
+    year: 2020,
+    paper: 'Paper 2',
+    title: '2020 HKDSE Mathematics Paper 2',
+    durationMinutes: 75,
+    pdfUrl: '/dse-math/past-papers/2020-paper-2.pdf',
+    solutionAvailable: false,
+  },
 ];
 
 export const getGradeCourse = (id?: string) => GRADE_COURSES.find((course) => course.id === id);
