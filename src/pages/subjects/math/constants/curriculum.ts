@@ -138,6 +138,15 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     solutionAvailable: false,
   },
   {
+    id: '2025-paper-2',
+    year: 2025,
+    paper: 'Paper 2',
+    title: '2025 HKDSE Mathematics Paper 2',
+    durationMinutes: 75,
+    pdfUrl: '/dse-math/past-papers/2025-paper-2.pdf',
+    solutionAvailable: false,
+  },
+  {
     id: '2023-paper-2',
     year: 2023,
     paper: 'Paper 2',
