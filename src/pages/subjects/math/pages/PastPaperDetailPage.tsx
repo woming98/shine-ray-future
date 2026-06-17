@@ -22,6 +22,7 @@ export default function PastPaperDetailPage() {
   const initialSeconds = (paper?.durationMinutes ?? 75) * 60;
   const [timeLeft, setTimeLeft] = useState(initialSeconds);
   const [isRunning, setIsRunning] = useState(false);
+  const hasSolution = paper?.solutionAvailable ?? false;
 
   useEffect(() => {
     if (!isRunning || timeLeft <= 0) {
@@ -148,7 +149,9 @@ export default function PastPaperDetailPage() {
         <div className="px-4 py-3 border-b border-blue-100 flex items-center justify-between gap-3">
           <div>
             <h2 className="font-bold text-gray-950">在线试卷</h2>
-            <p className="text-sm text-gray-500">详细解析正在整理中</p>
+            <p className="text-sm text-gray-500">
+              {hasSolution ? '完成后可跳转查看逐题解析' : '详细解析正在整理中'}
+            </p>
           </div>
           <span className="text-sm font-medium text-blue-700">{paper.paper}</span>
         </div>
@@ -162,18 +165,31 @@ export default function PastPaperDetailPage() {
         </div>
       </section>
 
-      <Card className="p-5 bg-indigo-50 border-indigo-200" hover={false}>
+      <Card
+        className={`p-5 ${hasSolution ? 'bg-indigo-50 border-indigo-200' : 'bg-amber-50 border-amber-200'}`}
+        hover={false}
+      >
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
-            <h2 className="font-bold text-indigo-950 mb-1">试卷详细解析已上线</h2>
-            <p className="text-sm text-indigo-800">完成练习后，可逐题核对答案、计算步骤与考点。</p>
+            <h2 className={`font-bold mb-1 ${hasSolution ? 'text-indigo-950' : 'text-amber-950'}`}>
+              {hasSolution ? '试卷详细解析已上线' : '试卷详细解析整理中'}
+            </h2>
+            <p className={`text-sm ${hasSolution ? 'text-indigo-800' : 'text-amber-800'}`}>
+              {hasSolution ? '完成练习后，可逐题核对答案、计算步骤与考点。' : '当前可先在线查看或下载纯试卷。'}
+            </p>
           </div>
-          <Button
-            onClick={() => navigate(`/subjects/math/past-papers/${paper.id}/solutions`)}
-            icon={<ListChecks className="w-4 h-4" />}
-          >
-            查看逐题解析
-          </Button>
+          {hasSolution ? (
+            <Button
+              onClick={() => navigate(`/subjects/math/past-papers/${paper.id}/solutions`)}
+              icon={<ListChecks className="w-4 h-4" />}
+            >
+              查看逐题解析
+            </Button>
+          ) : (
+            <Button variant="secondary" disabled>
+              解析待上传
+            </Button>
+          )}
         </div>
       </Card>
     </div>

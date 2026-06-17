@@ -125,9 +125,18 @@ export const SPRINT_TOPICS: SprintTopic[] = [
   },
 ];
 
-export const PAST_PAPER_YEARS = Array.from({ length: 14 }, (_, index) => 2025 - index);
+export const PAST_PAPER_YEARS = Array.from({ length: 15 }, (_, index) => 2026 - index);
 
 export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
+  {
+    id: '2026-paper-2',
+    year: 2026,
+    paper: 'Paper 2',
+    title: '2026 HKDSE Mathematics Paper 2',
+    durationMinutes: 75,
+    pdfUrl: '/dse-math/past-papers/2026-paper-2.pdf',
+    solutionAvailable: false,
+  },
   {
     id: '2023-paper-2',
     year: 2023,
