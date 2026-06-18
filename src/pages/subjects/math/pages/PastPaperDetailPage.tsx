@@ -23,6 +23,7 @@ export default function PastPaperDetailPage() {
   const [timeLeft, setTimeLeft] = useState(initialSeconds);
   const [isRunning, setIsRunning] = useState(false);
   const hasSolution = paper?.solutionAvailable ?? false;
+  const solutionDraft = paper?.solutionStatus === 'draft';
   const solutionPending = paper?.solutionStatus === 'reviewing';
 
   useEffect(() => {
@@ -151,7 +152,7 @@ export default function PastPaperDetailPage() {
           <div>
             <h2 className="font-bold text-gray-950">在线试卷</h2>
             <p className="text-sm text-gray-500">
-              {hasSolution ? '完成后可跳转查看逐题解析' : paper.solutionNote}
+              {hasSolution ? (solutionDraft ? paper.solutionNote : '完成后可跳转查看逐题解析') : paper.solutionNote}
             </p>
           </div>
           <span className="text-sm font-medium text-blue-700">{paper.paper}</span>
@@ -173,10 +174,14 @@ export default function PastPaperDetailPage() {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
             <h2 className={`font-bold mb-1 ${hasSolution ? 'text-indigo-950' : 'text-amber-950'}`}>
-              {hasSolution ? '试卷详细解析已上线' : '试卷详细解析核对中'}
+              {hasSolution ? (solutionDraft ? '试卷详细解析初稿已上线' : '试卷详细解析已上线') : '试卷详细解析核对中'}
             </h2>
             <p className={`text-sm ${hasSolution ? 'text-indigo-800' : 'text-amber-800'}`}>
-              {hasSolution ? '完成练习后，可逐题核对答案、计算步骤与考点。' : paper.solutionNote}
+              {hasSolution
+                ? solutionDraft
+                  ? paper.solutionNote
+                  : '完成练习后，可逐题核对答案、计算步骤与考点。'
+                : paper.solutionNote}
             </p>
           </div>
           {hasSolution ? (
@@ -184,7 +189,7 @@ export default function PastPaperDetailPage() {
               onClick={() => navigate(`/subjects/math/past-papers/${paper.id}/solutions`)}
               icon={<ListChecks className="w-4 h-4" />}
             >
-              查看逐题解析
+              {solutionDraft ? '查看解析初稿' : '查看逐题解析'}
             </Button>
           ) : (
             <Button variant="secondary" disabled>

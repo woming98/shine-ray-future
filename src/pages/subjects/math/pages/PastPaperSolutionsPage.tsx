@@ -13,6 +13,7 @@ export default function PastPaperSolutionsPage() {
   const { paperId } = useParams();
   const paper = getPastPaper(paperId);
   const paperSolutions = paperId ? PAST_PAPER_SOLUTIONS[paperId] ?? [] : [];
+  const solutionDraft = paper?.solutionStatus === 'draft';
   const [section, setSection] = useState<SectionFilter>('all');
 
   const solutions = useMemo(() => {
@@ -76,13 +77,21 @@ export default function PastPaperSolutionsPage() {
       <section className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5">
         <div>
           <div className="flex items-center gap-2 mb-3">
-            <span className="px-2.5 py-1 rounded bg-emerald-100 text-emerald-700 text-xs font-semibold">
-              逐题解析已上线
+            <span
+              className={`px-2.5 py-1 rounded text-xs font-semibold ${
+                solutionDraft ? 'bg-indigo-100 text-indigo-700' : 'bg-emerald-100 text-emerald-700'
+              }`}
+            >
+              {solutionDraft ? '解析初稿待核对' : '逐题解析已上线'}
             </span>
             <span className="text-sm text-gray-500">共 45 题</span>
           </div>
           <h1 className="text-3xl md:text-4xl font-bold text-gray-950 mb-2">{paper.year} Paper 2 详细解析</h1>
-          <p className="text-gray-600">莘睿参考答案，包含关键步骤、考点与判断依据。</p>
+          <p className="text-gray-600">
+            {solutionDraft
+              ? '莘睿参考答案初稿，包含关键步骤、考点与判断依据，等待人工核对。'
+              : '莘睿参考答案，包含关键步骤、考点与判断依据。'}
+          </p>
         </div>
         <Button
           variant="secondary"
@@ -97,7 +106,9 @@ export default function PastPaperSolutionsPage() {
         <div className="flex items-start gap-3">
           <Lightbulb className="w-5 h-5 text-amber-700 flex-shrink-0 mt-0.5" />
           <p className="text-sm text-amber-900 leading-relaxed">
-            建议先完成整份试卷，再查看答案。几何题可同时打开在线试卷，对照原图理解角度与面积关系。
+            {solutionDraft
+              ? '本页为解析初稿，建议先完成整份试卷，再逐题人工核对答案与步骤。几何题可同时打开在线试卷，对照原图理解。'
+              : '建议先完成整份试卷，再查看答案。几何题可同时打开在线试卷，对照原图理解角度与面积关系。'}
           </p>
         </div>
       </Card>

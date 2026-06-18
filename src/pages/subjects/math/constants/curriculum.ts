@@ -16,7 +16,7 @@ export interface SprintTopic {
   focus: string[];
 }
 
-export type PastPaperSolutionStatus = 'available' | 'reviewing';
+export type PastPaperSolutionStatus = 'available' | 'draft' | 'reviewing';
 
 export interface PastPaper {
   id: string;
@@ -132,7 +132,7 @@ export const SPRINT_TOPICS: SprintTopic[] = [
 export const PAST_PAPER_YEARS = Array.from({ length: 15 }, (_, index) => 2026 - index);
 
 const AVAILABLE_SOLUTION_NOTE = '答案总表、计算步骤与考点说明已上线。';
-const REVIEWING_SOLUTION_NOTE = '题目 PDF 已上线，答案总表与逐题解析待人工核对后发布。';
+const DRAFT_SOLUTION_NOTE = '答案与逐题解析为初稿，等待人工核对。';
 
 export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
   {
@@ -142,9 +142,9 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     title: '2026 HKDSE Mathematics Paper 2',
     durationMinutes: 75,
     pdfUrl: '/dse-math/past-papers/2026-paper-2.pdf',
-    solutionAvailable: false,
-    solutionStatus: 'reviewing',
-    solutionNote: REVIEWING_SOLUTION_NOTE,
+    solutionAvailable: true,
+    solutionStatus: 'draft',
+    solutionNote: DRAFT_SOLUTION_NOTE,
   },
   {
     id: '2025-paper-2',
@@ -153,9 +153,9 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     title: '2025 HKDSE Mathematics Paper 2',
     durationMinutes: 75,
     pdfUrl: '/dse-math/past-papers/2025-paper-2.pdf',
-    solutionAvailable: false,
-    solutionStatus: 'reviewing',
-    solutionNote: REVIEWING_SOLUTION_NOTE,
+    solutionAvailable: true,
+    solutionStatus: 'draft',
+    solutionNote: DRAFT_SOLUTION_NOTE,
   },
   {
     id: '2024-paper-2',
@@ -164,9 +164,9 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     title: '2024 HKDSE Mathematics Paper 2',
     durationMinutes: 75,
     pdfUrl: '/dse-math/past-papers/2024-paper-2.pdf',
-    solutionAvailable: false,
-    solutionStatus: 'reviewing',
-    solutionNote: REVIEWING_SOLUTION_NOTE,
+    solutionAvailable: true,
+    solutionStatus: 'draft',
+    solutionNote: DRAFT_SOLUTION_NOTE,
   },
   {
     id: '2023-paper-2',
@@ -208,9 +208,9 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     title: '2020 HKDSE Mathematics Paper 2',
     durationMinutes: 75,
     pdfUrl: '/dse-math/past-papers/2020-paper-2.pdf',
-    solutionAvailable: false,
-    solutionStatus: 'reviewing',
-    solutionNote: REVIEWING_SOLUTION_NOTE,
+    solutionAvailable: true,
+    solutionStatus: 'draft',
+    solutionNote: DRAFT_SOLUTION_NOTE,
   },
 ];
 
