@@ -16,6 +16,8 @@ export interface SprintTopic {
   focus: string[];
 }
 
+export type PastPaperSolutionStatus = 'available' | 'reviewing';
+
 export interface PastPaper {
   id: string;
   year: number;
@@ -24,6 +26,8 @@ export interface PastPaper {
   durationMinutes: number;
   pdfUrl: string;
   solutionAvailable: boolean;
+  solutionStatus: PastPaperSolutionStatus;
+  solutionNote: string;
 }
 
 export const GRADE_COURSES: GradeCourse[] = [
@@ -127,6 +131,9 @@ export const SPRINT_TOPICS: SprintTopic[] = [
 
 export const PAST_PAPER_YEARS = Array.from({ length: 15 }, (_, index) => 2026 - index);
 
+const AVAILABLE_SOLUTION_NOTE = '答案总表、计算步骤与考点说明已上线。';
+const REVIEWING_SOLUTION_NOTE = '题目 PDF 已上线，答案总表与逐题解析待人工核对后发布。';
+
 export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
   {
     id: '2026-paper-2',
@@ -136,6 +143,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 75,
     pdfUrl: '/dse-math/past-papers/2026-paper-2.pdf',
     solutionAvailable: false,
+    solutionStatus: 'reviewing',
+    solutionNote: REVIEWING_SOLUTION_NOTE,
   },
   {
     id: '2025-paper-2',
@@ -145,6 +154,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 75,
     pdfUrl: '/dse-math/past-papers/2025-paper-2.pdf',
     solutionAvailable: false,
+    solutionStatus: 'reviewing',
+    solutionNote: REVIEWING_SOLUTION_NOTE,
   },
   {
     id: '2024-paper-2',
@@ -154,6 +165,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 75,
     pdfUrl: '/dse-math/past-papers/2024-paper-2.pdf',
     solutionAvailable: false,
+    solutionStatus: 'reviewing',
+    solutionNote: REVIEWING_SOLUTION_NOTE,
   },
   {
     id: '2023-paper-2',
@@ -163,6 +176,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 75,
     pdfUrl: '/dse-math/past-papers/2023-paper-2.pdf',
     solutionAvailable: true,
+    solutionStatus: 'available',
+    solutionNote: AVAILABLE_SOLUTION_NOTE,
   },
   {
     id: '2022-paper-2',
@@ -172,6 +187,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 75,
     pdfUrl: '/dse-math/past-papers/2022-paper-2.pdf',
     solutionAvailable: true,
+    solutionStatus: 'available',
+    solutionNote: AVAILABLE_SOLUTION_NOTE,
   },
   {
     id: '2021-paper-2',
@@ -181,6 +198,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 75,
     pdfUrl: '/dse-math/past-papers/2021-paper-2.pdf',
     solutionAvailable: true,
+    solutionStatus: 'available',
+    solutionNote: AVAILABLE_SOLUTION_NOTE,
   },
   {
     id: '2020-paper-2',
@@ -190,6 +209,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 75,
     pdfUrl: '/dse-math/past-papers/2020-paper-2.pdf',
     solutionAvailable: false,
+    solutionStatus: 'reviewing',
+    solutionNote: REVIEWING_SOLUTION_NOTE,
   },
 ];
 

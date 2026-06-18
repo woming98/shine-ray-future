@@ -4,12 +4,43 @@ import { Card } from '../components/UI';
 import { Button } from '../components/UI/Button';
 import { AVAILABLE_PAST_PAPERS, PAST_PAPER_YEARS } from '../constants/curriculum';
 
+const formatYearRanges = (years: number[]) => {
+  if (years.length === 0) {
+    return '暂无';
+  }
+
+  const ranges: string[] = [];
+  const sortedYears = [...years].sort((a, b) => a - b);
+  let start = sortedYears[0];
+  let end = sortedYears[0];
+
+  sortedYears.slice(1).forEach((year) => {
+    if (year === end + 1) {
+      end = year;
+      return;
+    }
+    ranges.push(start === end ? `${start}` : `${start} 至 ${end}`);
+    start = year;
+    end = year;
+  });
+  ranges.push(start === end ? `${start}` : `${start} 至 ${end}`);
+
+  return ranges.join('、');
+};
+
 export default function PastPapersPage() {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const view = searchParams.get('view') === 'solutions' ? 'solutions' : 'papers';
   const isSolutions = view === 'solutions';
   const availablePaperByYear = new Map(AVAILABLE_PAST_PAPERS.map((paper) => [paper.year, paper]));
+  const uploadedPaperYears = AVAILABLE_PAST_PAPERS.map((paper) => paper.year);
+  const availableSolutionYears = AVAILABLE_PAST_PAPERS.filter((paper) => paper.solutionAvailable).map(
+    (paper) => paper.year,
+  );
+  const reviewingSolutionYears = AVAILABLE_PAST_PAPERS.filter((paper) => paper.solutionStatus === 'reviewing').map(
+    (paper) => paper.year,
+  );
 
   return (
     <div className="max-w-6xl mx-auto space-y-8">
@@ -24,7 +55,8 @@ export default function PastPapersPage() {
       <section>
         <h1 className="text-3xl md:text-4xl font-bold text-gray-950 mb-3">HKDSE 数学真题</h1>
         <p className="text-gray-600 text-lg">
-          分为纯试卷练习与试卷详细解析。2020 至 2026 Paper 2 试卷已上线，2021 至 2023 逐题解析已上线。
+          已上线试卷：{formatYearRanges(uploadedPaperYears)} Paper 2；逐题解析：
+          {formatYearRanges(availableSolutionYears)}；解析核对中：{formatYearRanges(reviewingSolutionYears)}。
         </p>
       </section>
 
@@ -67,9 +99,19 @@ export default function PastPapersPage() {
                   <p className="text-sm text-gray-500">HKDSE Mathematics</p>
                   <div className="flex items-center gap-2">
                     <h2 className="text-2xl font-bold text-gray-950">{year}</h2>
-                    {availablePaper && (!isSolutions || availablePaper.solutionAvailable) && (
+                    {availablePaper && !isSolutions && (
                       <span className="px-2 py-1 rounded bg-emerald-100 text-emerald-700 text-xs font-semibold">
                         已上线
+                      </span>
+                    )}
+                    {availablePaper?.solutionAvailable && isSolutions && (
+                      <span className="px-2 py-1 rounded bg-emerald-100 text-emerald-700 text-xs font-semibold">
+                        已上线
+                      </span>
+                    )}
+                    {availablePaper?.solutionStatus === 'reviewing' && isSolutions && (
+                      <span className="px-2 py-1 rounded bg-amber-100 text-amber-700 text-xs font-semibold">
+                        核对中
                       </span>
                     )}
                   </div>
@@ -86,9 +128,20 @@ export default function PastPapersPage() {
                   卷二：多项选择题{availablePaper && !isSolutions ? ' · 已上线' : ''}
                 </p>
                 {isSolutions && (
-                  <p className={availablePaper?.solutionAvailable ? 'font-semibold text-emerald-700' : ''}>
-                    解析：步骤、考点与关键判断
-                    {availablePaper?.solutionAvailable ? ' · 已上线' : ''}
+                  <p
+                    className={
+                      availablePaper?.solutionAvailable
+                        ? 'font-semibold text-emerald-700'
+                        : availablePaper?.solutionStatus === 'reviewing'
+                          ? 'font-semibold text-amber-700'
+                          : ''
+                    }
+                  >
+                    {availablePaper?.solutionAvailable
+                      ? '解析：步骤、考点与关键判断 · 已上线'
+                      : availablePaper?.solutionStatus === 'reviewing'
+                        ? '解析：答案总表与逐题解析 · 核对中'
+                        : '解析：详细解析待上传'}
                   </p>
                 )}
               </div>
@@ -116,7 +169,11 @@ export default function PastPapersPage() {
                 </div>
               ) : (
                 <Button fullWidth variant="secondary" disabled>
-                  {isSolutions ? '详细解析待上传' : '纯试卷待上传'}
+                  {isSolutions && availablePaper?.solutionStatus === 'reviewing'
+                    ? '解析核对中'
+                    : isSolutions
+                      ? '详细解析待上传'
+                      : '纯试卷待上传'}
                 </Button>
               )}
             </Card>

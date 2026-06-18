@@ -38,12 +38,26 @@ export default function PastPaperSolutionsPage() {
   };
 
   if (!paper || !paper.solutionAvailable) {
+    const isReviewing = paper?.solutionStatus === 'reviewing';
+
     return (
       <div className="max-w-3xl mx-auto py-12">
         <Card className="p-8 text-center" hover={false}>
           <BookCheck className="w-12 h-12 text-blue-600 mx-auto mb-4" />
-          <h1 className="text-2xl font-bold text-gray-950 mb-2">该试卷解析尚未上线</h1>
-          <Button onClick={() => navigate('/subjects/math/past-papers?view=solutions')}>返回解析目录</Button>
+          <h1 className="text-2xl font-bold text-gray-950 mb-2">
+            {isReviewing ? '该试卷解析正在核对' : '该试卷解析尚未上线'}
+          </h1>
+          <p className="text-gray-600 mb-6">
+            {paper?.solutionNote ?? '请返回解析目录查看已上线的逐题解析。'}
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-2">
+            {paper && (
+              <Button variant="secondary" onClick={() => navigate(`/subjects/math/past-papers/${paper.id}`)}>
+                返回在线试卷
+              </Button>
+            )}
+            <Button onClick={() => navigate('/subjects/math/past-papers?view=solutions')}>返回解析目录</Button>
+          </div>
         </Card>
       </div>
     );

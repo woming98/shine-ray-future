@@ -23,6 +23,7 @@ export default function PastPaperDetailPage() {
   const [timeLeft, setTimeLeft] = useState(initialSeconds);
   const [isRunning, setIsRunning] = useState(false);
   const hasSolution = paper?.solutionAvailable ?? false;
+  const solutionPending = paper?.solutionStatus === 'reviewing';
 
   useEffect(() => {
     if (!isRunning || timeLeft <= 0) {
@@ -150,7 +151,7 @@ export default function PastPaperDetailPage() {
           <div>
             <h2 className="font-bold text-gray-950">在线试卷</h2>
             <p className="text-sm text-gray-500">
-              {hasSolution ? '完成后可跳转查看逐题解析' : '详细解析正在整理中'}
+              {hasSolution ? '完成后可跳转查看逐题解析' : paper.solutionNote}
             </p>
           </div>
           <span className="text-sm font-medium text-blue-700">{paper.paper}</span>
@@ -172,10 +173,10 @@ export default function PastPaperDetailPage() {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
             <h2 className={`font-bold mb-1 ${hasSolution ? 'text-indigo-950' : 'text-amber-950'}`}>
-              {hasSolution ? '试卷详细解析已上线' : '试卷详细解析整理中'}
+              {hasSolution ? '试卷详细解析已上线' : '试卷详细解析核对中'}
             </h2>
             <p className={`text-sm ${hasSolution ? 'text-indigo-800' : 'text-amber-800'}`}>
-              {hasSolution ? '完成练习后，可逐题核对答案、计算步骤与考点。' : '当前可先在线查看或下载纯试卷。'}
+              {hasSolution ? '完成练习后，可逐题核对答案、计算步骤与考点。' : paper.solutionNote}
             </p>
           </div>
           {hasSolution ? (
@@ -187,7 +188,7 @@ export default function PastPaperDetailPage() {
             </Button>
           ) : (
             <Button variant="secondary" disabled>
-              解析待上传
+              {solutionPending ? '解析核对中' : '解析待上传'}
             </Button>
           )}
         </div>
