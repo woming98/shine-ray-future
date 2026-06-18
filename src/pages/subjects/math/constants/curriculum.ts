@@ -212,6 +212,17 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     solutionStatus: 'draft',
     solutionNote: DRAFT_SOLUTION_NOTE,
   },
+  {
+    id: '2019-paper-2',
+    year: 2019,
+    paper: 'Paper 2',
+    title: '2019 HKDSE Mathematics Paper 2',
+    durationMinutes: 75,
+    pdfUrl: '/dse-math/past-papers/2019-paper-2.pdf',
+    solutionAvailable: true,
+    solutionStatus: 'draft',
+    solutionNote: DRAFT_SOLUTION_NOTE,
+  },
 ];
 
 export const getGradeCourse = (id?: string) => GRADE_COURSES.find((course) => course.id === id);
