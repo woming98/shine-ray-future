@@ -81,12 +81,6 @@ export default function PastPapersPage() {
   const availableSolutionYears = AVAILABLE_PAST_PAPERS.filter(
     (paper) => paper.solutionAvailable && paper.solutionStatus === 'available',
   ).map((paper) => paper.year);
-  const draftSolutionYears = AVAILABLE_PAST_PAPERS.filter(
-    (paper) => paper.solutionAvailable && paper.solutionStatus === 'draft',
-  ).map((paper) => paper.year);
-  const reviewingSolutionYears = AVAILABLE_PAST_PAPERS.filter(
-    (paper) => paper.solutionStatus === 'reviewing',
-  ).map((paper) => paper.year);
 
   return (
     <div className="max-w-6xl mx-auto space-y-8">
@@ -103,8 +97,7 @@ export default function PastPapersPage() {
         <p className="text-gray-600 text-lg">
           已上线试卷：{formatYearRanges(uploadedPaperYears)}；Paper 1：{formatYearRanges(uploadedPaper1Years)}；Paper
           2：{formatYearRanges(uploadedPaper2Years)}；正式解析：
-          {formatYearRanges(availableSolutionYears)}；解析初稿：{formatYearRanges(draftSolutionYears)}；解析核对中：
-          {formatYearRanges(reviewingSolutionYears)}。
+          {formatYearRanges(availableSolutionYears)}。
         </p>
       </section>
 

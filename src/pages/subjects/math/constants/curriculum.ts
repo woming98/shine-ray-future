@@ -132,8 +132,6 @@ export const SPRINT_TOPICS: SprintTopic[] = [
 export const PAST_PAPER_YEARS = Array.from({ length: 15 }, (_, index) => 2026 - index);
 
 const AVAILABLE_SOLUTION_NOTE = '答案总表、计算步骤与考点说明已上线。';
-const DRAFT_SOLUTION_NOTE = '答案与逐题解析为初稿，等待人工核对。';
-const PENDING_SOLUTION_NOTE = '详细解析待上传。';
 
 export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
   {
@@ -143,9 +141,9 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     title: '2026 HKDSE Mathematics Paper 1',
     durationMinutes: 135,
     pdfUrl: '/dse-math/past-papers/2026-paper-1.pdf',
-    solutionAvailable: false,
-    solutionStatus: 'pending',
-    solutionNote: PENDING_SOLUTION_NOTE,
+    solutionAvailable: true,
+    solutionStatus: 'available',
+    solutionNote: AVAILABLE_SOLUTION_NOTE,
   },
   {
     id: '2026-paper-2',
@@ -155,8 +153,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 75,
     pdfUrl: '/dse-math/past-papers/2026-paper-2.pdf',
     solutionAvailable: true,
-    solutionStatus: 'draft',
-    solutionNote: DRAFT_SOLUTION_NOTE,
+    solutionStatus: 'available',
+    solutionNote: AVAILABLE_SOLUTION_NOTE,
   },
   {
     id: '2025-paper-1',
@@ -166,8 +164,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 135,
     pdfUrl: '/dse-math/past-papers/2025-paper-1.pdf',
     solutionAvailable: true,
-    solutionStatus: 'draft',
-    solutionNote: DRAFT_SOLUTION_NOTE,
+    solutionStatus: 'available',
+    solutionNote: AVAILABLE_SOLUTION_NOTE,
   },
   {
     id: '2025-paper-2',
@@ -177,8 +175,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 75,
     pdfUrl: '/dse-math/past-papers/2025-paper-2.pdf',
     solutionAvailable: true,
-    solutionStatus: 'draft',
-    solutionNote: DRAFT_SOLUTION_NOTE,
+    solutionStatus: 'available',
+    solutionNote: AVAILABLE_SOLUTION_NOTE,
   },
   {
     id: '2024-paper-1',
@@ -188,8 +186,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 135,
     pdfUrl: '/dse-math/past-papers/2024-paper-1.pdf',
     solutionAvailable: true,
-    solutionStatus: 'draft',
-    solutionNote: DRAFT_SOLUTION_NOTE,
+    solutionStatus: 'available',
+    solutionNote: AVAILABLE_SOLUTION_NOTE,
   },
   {
     id: '2024-paper-2',
@@ -199,8 +197,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 75,
     pdfUrl: '/dse-math/past-papers/2024-paper-2.pdf',
     solutionAvailable: true,
-    solutionStatus: 'draft',
-    solutionNote: DRAFT_SOLUTION_NOTE,
+    solutionStatus: 'available',
+    solutionNote: AVAILABLE_SOLUTION_NOTE,
   },
   {
     id: '2023-paper-1',
@@ -210,8 +208,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 135,
     pdfUrl: '/dse-math/past-papers/2023-paper-1.pdf',
     solutionAvailable: true,
-    solutionStatus: 'draft',
-    solutionNote: DRAFT_SOLUTION_NOTE,
+    solutionStatus: 'available',
+    solutionNote: AVAILABLE_SOLUTION_NOTE,
   },
   {
     id: '2023-paper-2',
@@ -232,8 +230,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 135,
     pdfUrl: '/dse-math/past-papers/2022-paper-1.pdf',
     solutionAvailable: true,
-    solutionStatus: 'draft',
-    solutionNote: DRAFT_SOLUTION_NOTE,
+    solutionStatus: 'available',
+    solutionNote: AVAILABLE_SOLUTION_NOTE,
   },
   {
     id: '2022-paper-2',
@@ -254,8 +252,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 135,
     pdfUrl: '/dse-math/past-papers/2021-paper-1.pdf',
     solutionAvailable: true,
-    solutionStatus: 'draft',
-    solutionNote: DRAFT_SOLUTION_NOTE,
+    solutionStatus: 'available',
+    solutionNote: AVAILABLE_SOLUTION_NOTE,
   },
   {
     id: '2021-paper-2',
@@ -276,8 +274,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 135,
     pdfUrl: '/dse-math/past-papers/2020-paper-1.pdf',
     solutionAvailable: true,
-    solutionStatus: 'draft',
-    solutionNote: DRAFT_SOLUTION_NOTE,
+    solutionStatus: 'available',
+    solutionNote: AVAILABLE_SOLUTION_NOTE,
   },
   {
     id: '2020-paper-2',
@@ -287,8 +285,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 75,
     pdfUrl: '/dse-math/past-papers/2020-paper-2.pdf',
     solutionAvailable: true,
-    solutionStatus: 'draft',
-    solutionNote: DRAFT_SOLUTION_NOTE,
+    solutionStatus: 'available',
+    solutionNote: AVAILABLE_SOLUTION_NOTE,
   },
   {
     id: '2019-paper-1',
@@ -298,8 +296,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 135,
     pdfUrl: '/dse-math/past-papers/2019-paper-1.pdf',
     solutionAvailable: true,
-    solutionStatus: 'draft',
-    solutionNote: DRAFT_SOLUTION_NOTE,
+    solutionStatus: 'available',
+    solutionNote: AVAILABLE_SOLUTION_NOTE,
   },
   {
     id: '2019-paper-2',
@@ -309,8 +307,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 75,
     pdfUrl: '/dse-math/past-papers/2019-paper-2.pdf',
     solutionAvailable: true,
-    solutionStatus: 'draft',
-    solutionNote: DRAFT_SOLUTION_NOTE,
+    solutionStatus: 'available',
+    solutionNote: AVAILABLE_SOLUTION_NOTE,
   },
   {
     id: '2018-paper-1',
@@ -320,8 +318,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 135,
     pdfUrl: '/dse-math/past-papers/2018-paper-1.pdf',
     solutionAvailable: true,
-    solutionStatus: 'draft',
-    solutionNote: DRAFT_SOLUTION_NOTE,
+    solutionStatus: 'available',
+    solutionNote: AVAILABLE_SOLUTION_NOTE,
   },
   {
     id: '2018-paper-2',
@@ -331,8 +329,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 75,
     pdfUrl: '/dse-math/past-papers/2018-paper-2.pdf',
     solutionAvailable: true,
-    solutionStatus: 'draft',
-    solutionNote: DRAFT_SOLUTION_NOTE,
+    solutionStatus: 'available',
+    solutionNote: AVAILABLE_SOLUTION_NOTE,
   },
   {
     id: '2017-paper-1',
@@ -342,8 +340,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 135,
     pdfUrl: '/dse-math/past-papers/2017-paper-1.pdf',
     solutionAvailable: true,
-    solutionStatus: 'draft',
-    solutionNote: DRAFT_SOLUTION_NOTE,
+    solutionStatus: 'available',
+    solutionNote: AVAILABLE_SOLUTION_NOTE,
   },
   {
     id: '2017-paper-2',
@@ -353,8 +351,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 75,
     pdfUrl: '/dse-math/past-papers/2017-paper-2.pdf',
     solutionAvailable: true,
-    solutionStatus: 'draft',
-    solutionNote: DRAFT_SOLUTION_NOTE,
+    solutionStatus: 'available',
+    solutionNote: AVAILABLE_SOLUTION_NOTE,
   },
   {
     id: '2016-paper-1',
@@ -364,8 +362,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 135,
     pdfUrl: '/dse-math/past-papers/2016-paper-1.pdf',
     solutionAvailable: true,
-    solutionStatus: 'draft',
-    solutionNote: DRAFT_SOLUTION_NOTE,
+    solutionStatus: 'available',
+    solutionNote: AVAILABLE_SOLUTION_NOTE,
   },
   {
     id: '2016-paper-2',
@@ -375,8 +373,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 75,
     pdfUrl: '/dse-math/past-papers/2016-paper-2.pdf',
     solutionAvailable: true,
-    solutionStatus: 'draft',
-    solutionNote: DRAFT_SOLUTION_NOTE,
+    solutionStatus: 'available',
+    solutionNote: AVAILABLE_SOLUTION_NOTE,
   },
   {
     id: '2015-paper-1',
@@ -386,8 +384,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 135,
     pdfUrl: '/dse-math/past-papers/2015-paper-1.pdf',
     solutionAvailable: true,
-    solutionStatus: 'draft',
-    solutionNote: DRAFT_SOLUTION_NOTE,
+    solutionStatus: 'available',
+    solutionNote: AVAILABLE_SOLUTION_NOTE,
   },
   {
     id: '2015-paper-2',
@@ -397,8 +395,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 75,
     pdfUrl: '/dse-math/past-papers/2015-paper-2.pdf',
     solutionAvailable: true,
-    solutionStatus: 'draft',
-    solutionNote: DRAFT_SOLUTION_NOTE,
+    solutionStatus: 'available',
+    solutionNote: AVAILABLE_SOLUTION_NOTE,
   },
   {
     id: '2014-paper-1',
@@ -408,8 +406,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 135,
     pdfUrl: '/dse-math/past-papers/2014-paper-1.pdf',
     solutionAvailable: true,
-    solutionStatus: 'draft',
-    solutionNote: DRAFT_SOLUTION_NOTE,
+    solutionStatus: 'available',
+    solutionNote: AVAILABLE_SOLUTION_NOTE,
   },
   {
     id: '2014-paper-2',
@@ -419,8 +417,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 75,
     pdfUrl: '/dse-math/past-papers/2014-paper-2.pdf',
     solutionAvailable: true,
-    solutionStatus: 'draft',
-    solutionNote: DRAFT_SOLUTION_NOTE,
+    solutionStatus: 'available',
+    solutionNote: AVAILABLE_SOLUTION_NOTE,
   },
   {
     id: '2013-paper-1',
@@ -430,8 +428,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 135,
     pdfUrl: '/dse-math/past-papers/2013-paper-1.pdf',
     solutionAvailable: true,
-    solutionStatus: 'draft',
-    solutionNote: DRAFT_SOLUTION_NOTE,
+    solutionStatus: 'available',
+    solutionNote: AVAILABLE_SOLUTION_NOTE,
   },
   {
     id: '2013-paper-2',
@@ -441,8 +439,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 75,
     pdfUrl: '/dse-math/past-papers/2013-paper-2.pdf',
     solutionAvailable: true,
-    solutionStatus: 'draft',
-    solutionNote: DRAFT_SOLUTION_NOTE,
+    solutionStatus: 'available',
+    solutionNote: AVAILABLE_SOLUTION_NOTE,
   },
   {
     id: '2012-paper-1',
@@ -452,8 +450,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 135,
     pdfUrl: '/dse-math/past-papers/2012-paper-1.pdf',
     solutionAvailable: true,
-    solutionStatus: 'draft',
-    solutionNote: DRAFT_SOLUTION_NOTE,
+    solutionStatus: 'available',
+    solutionNote: AVAILABLE_SOLUTION_NOTE,
   },
   {
     id: '2012-paper-2',
@@ -463,8 +461,8 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     durationMinutes: 75,
     pdfUrl: '/dse-math/past-papers/2012-paper-2.pdf',
     solutionAvailable: true,
-    solutionStatus: 'draft',
-    solutionNote: DRAFT_SOLUTION_NOTE,
+    solutionStatus: 'available',
+    solutionNote: AVAILABLE_SOLUTION_NOTE,
   },
 ];
 
