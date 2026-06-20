@@ -247,6 +247,17 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     solutionNote: AVAILABLE_SOLUTION_NOTE,
   },
   {
+    id: '2021-paper-1',
+    year: 2021,
+    paper: 'Paper 1',
+    title: '2021 HKDSE Mathematics Paper 1',
+    durationMinutes: 135,
+    pdfUrl: '/dse-math/past-papers/2021-paper-1.pdf',
+    solutionAvailable: true,
+    solutionStatus: 'draft',
+    solutionNote: DRAFT_SOLUTION_NOTE,
+  },
+  {
     id: '2021-paper-2',
     year: 2021,
     paper: 'Paper 2',
