@@ -203,6 +203,17 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     solutionNote: DRAFT_SOLUTION_NOTE,
   },
   {
+    id: '2023-paper-1',
+    year: 2023,
+    paper: 'Paper 1',
+    title: '2023 HKDSE Mathematics Paper 1',
+    durationMinutes: 135,
+    pdfUrl: '/dse-math/past-papers/2023-paper-1.pdf',
+    solutionAvailable: true,
+    solutionStatus: 'draft',
+    solutionNote: DRAFT_SOLUTION_NOTE,
+  },
+  {
     id: '2023-paper-2',
     year: 2023,
     paper: 'Paper 2',
