@@ -16,7 +16,7 @@ export interface SprintTopic {
   focus: string[];
 }
 
-export type PastPaperSolutionStatus = 'available' | 'draft' | 'reviewing';
+export type PastPaperSolutionStatus = 'available' | 'draft' | 'reviewing' | 'pending';
 
 export interface PastPaper {
   id: string;
@@ -133,8 +133,20 @@ export const PAST_PAPER_YEARS = Array.from({ length: 15 }, (_, index) => 2026 - 
 
 const AVAILABLE_SOLUTION_NOTE = '答案总表、计算步骤与考点说明已上线。';
 const DRAFT_SOLUTION_NOTE = '答案与逐题解析为初稿，等待人工核对。';
+const PENDING_SOLUTION_NOTE = '详细解析待上传。';
 
 export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
+  {
+    id: '2026-paper-1',
+    year: 2026,
+    paper: 'Paper 1',
+    title: '2026 HKDSE Mathematics Paper 1',
+    durationMinutes: 135,
+    pdfUrl: '/dse-math/past-papers/2026-paper-1.pdf',
+    solutionAvailable: false,
+    solutionStatus: 'pending',
+    solutionNote: PENDING_SOLUTION_NOTE,
+  },
   {
     id: '2026-paper-2',
     year: 2026,

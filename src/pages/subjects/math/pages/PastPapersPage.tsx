@@ -2,7 +2,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { ArrowLeft, BookCheck, Download, FileText, Lightbulb } from 'lucide-react';
 import { Card } from '../components/UI';
 import { Button } from '../components/UI/Button';
-import { AVAILABLE_PAST_PAPERS, PAST_PAPER_YEARS } from '../constants/curriculum';
+import { AVAILABLE_PAST_PAPERS, PAST_PAPER_YEARS, type PastPaper } from '../constants/curriculum';
 
 const formatYearRanges = (years: number[]) => {
   if (years.length === 0) {
@@ -10,7 +10,7 @@ const formatYearRanges = (years: number[]) => {
   }
 
   const ranges: string[] = [];
-  const sortedYears = [...years].sort((a, b) => a - b);
+  const sortedYears = [...new Set(years)].sort((a, b) => a - b);
   let start = sortedYears[0];
   let end = sortedYears[0];
 
@@ -28,22 +28,65 @@ const formatYearRanges = (years: number[]) => {
   return ranges.join('、');
 };
 
+const paperOrder = (paper: PastPaper) => (paper.paper === 'Paper 1' ? 1 : paper.paper === 'Paper 2' ? 2 : 99);
+
+const paperLabel = (paper: PastPaper) => (paper.paper === 'Paper 1' ? '卷一：传统题' : '卷二：多项选择题');
+
+const solutionLabel = (paper: PastPaper) => {
+  if (paper.solutionAvailable && paper.solutionStatus === 'available') {
+    return '解析：步骤、考点与关键判断 · 已上线';
+  }
+  if (paper.solutionAvailable && paper.solutionStatus === 'draft') {
+    return '解析：答案与逐题说明 · 初稿待核对';
+  }
+  if (paper.solutionStatus === 'reviewing') {
+    return '解析：答案总表与逐题解析 · 核对中';
+  }
+  return '解析：详细解析待上传';
+};
+
+const solutionClassName = (paper?: PastPaper) => {
+  if (!paper) {
+    return '';
+  }
+  if (paper.solutionAvailable && paper.solutionStatus === 'draft') {
+    return 'font-semibold text-indigo-700';
+  }
+  if (paper.solutionAvailable && paper.solutionStatus === 'available') {
+    return 'font-semibold text-emerald-700';
+  }
+  if (paper.solutionStatus === 'reviewing') {
+    return 'font-semibold text-amber-700';
+  }
+  return '';
+};
+
 export default function PastPapersPage() {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const view = searchParams.get('view') === 'solutions' ? 'solutions' : 'papers';
   const isSolutions = view === 'solutions';
-  const availablePaperByYear = new Map(AVAILABLE_PAST_PAPERS.map((paper) => [paper.year, paper]));
+  const availablePapersByYear = AVAILABLE_PAST_PAPERS.reduce((map, paper) => {
+    const papers = map.get(paper.year) ?? [];
+    map.set(paper.year, [...papers, paper].sort((a, b) => paperOrder(a) - paperOrder(b)));
+    return map;
+  }, new Map<number, PastPaper[]>());
   const uploadedPaperYears = AVAILABLE_PAST_PAPERS.map((paper) => paper.year);
-  const availableSolutionYears = AVAILABLE_PAST_PAPERS.filter((paper) => paper.solutionStatus === 'available').map(
+  const uploadedPaper1Years = AVAILABLE_PAST_PAPERS.filter((paper) => paper.paper === 'Paper 1').map(
     (paper) => paper.year,
   );
-  const draftSolutionYears = AVAILABLE_PAST_PAPERS.filter((paper) => paper.solutionStatus === 'draft').map(
+  const uploadedPaper2Years = AVAILABLE_PAST_PAPERS.filter((paper) => paper.paper === 'Paper 2').map(
     (paper) => paper.year,
   );
-  const reviewingSolutionYears = AVAILABLE_PAST_PAPERS.filter((paper) => paper.solutionStatus === 'reviewing').map(
-    (paper) => paper.year,
-  );
+  const availableSolutionYears = AVAILABLE_PAST_PAPERS.filter(
+    (paper) => paper.solutionAvailable && paper.solutionStatus === 'available',
+  ).map((paper) => paper.year);
+  const draftSolutionYears = AVAILABLE_PAST_PAPERS.filter(
+    (paper) => paper.solutionAvailable && paper.solutionStatus === 'draft',
+  ).map((paper) => paper.year);
+  const reviewingSolutionYears = AVAILABLE_PAST_PAPERS.filter(
+    (paper) => paper.solutionStatus === 'reviewing',
+  ).map((paper) => paper.year);
 
   return (
     <div className="max-w-6xl mx-auto space-y-8">
@@ -58,7 +101,8 @@ export default function PastPapersPage() {
       <section>
         <h1 className="text-3xl md:text-4xl font-bold text-gray-950 mb-3">HKDSE 数学真题</h1>
         <p className="text-gray-600 text-lg">
-          已上线试卷：{formatYearRanges(uploadedPaperYears)} Paper 2；正式解析：
+          已上线试卷：{formatYearRanges(uploadedPaperYears)}；Paper 1：{formatYearRanges(uploadedPaper1Years)}；Paper
+          2：{formatYearRanges(uploadedPaper2Years)}；正式解析：
           {formatYearRanges(availableSolutionYears)}；解析初稿：{formatYearRanges(draftSolutionYears)}；解析核对中：
           {formatYearRanges(reviewingSolutionYears)}。
         </p>
@@ -94,7 +138,14 @@ export default function PastPapersPage() {
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {PAST_PAPER_YEARS.map((year) => {
-          const availablePaper = availablePaperByYear.get(year);
+          const availablePapers = availablePapersByYear.get(year) ?? [];
+          const paper1 = availablePapers.find((paper) => paper.paper === 'Paper 1');
+          const paper2 = availablePapers.find((paper) => paper.paper === 'Paper 2');
+          const solutionPapers = availablePapers.filter((paper) => paper.solutionAvailable);
+          const primarySolution =
+            solutionPapers.find((paper) => paper.solutionStatus === 'available') ??
+            solutionPapers.find((paper) => paper.solutionStatus === 'draft') ??
+            availablePapers.find((paper) => paper.solutionStatus === 'reviewing');
 
           return (
             <Card key={year} className="p-5">
@@ -103,22 +154,22 @@ export default function PastPapersPage() {
                   <p className="text-sm text-gray-500">HKDSE Mathematics</p>
                   <div className="flex items-center gap-2">
                     <h2 className="text-2xl font-bold text-gray-950">{year}</h2>
-                    {availablePaper && !isSolutions && (
+                    {availablePapers.length > 0 && !isSolutions && (
                       <span className="px-2 py-1 rounded bg-emerald-100 text-emerald-700 text-xs font-semibold">
                         已上线
                       </span>
                     )}
-                    {availablePaper?.solutionStatus === 'available' && isSolutions && (
+                    {primarySolution?.solutionStatus === 'available' && isSolutions && (
                       <span className="px-2 py-1 rounded bg-emerald-100 text-emerald-700 text-xs font-semibold">
                         已上线
                       </span>
                     )}
-                    {availablePaper?.solutionStatus === 'draft' && isSolutions && (
+                    {primarySolution?.solutionStatus === 'draft' && isSolutions && (
                       <span className="px-2 py-1 rounded bg-indigo-100 text-indigo-700 text-xs font-semibold">
                         初稿
                       </span>
                     )}
-                    {availablePaper?.solutionStatus === 'reviewing' && isSolutions && (
+                    {primarySolution?.solutionStatus === 'reviewing' && isSolutions && (
                       <span className="px-2 py-1 rounded bg-amber-100 text-amber-700 text-xs font-semibold">
                         核对中
                       </span>
@@ -132,57 +183,60 @@ export default function PastPapersPage() {
                 )}
               </div>
               <div className="space-y-2 text-sm text-gray-600 mb-5">
-                <p>卷一：传统题</p>
-                <p className={availablePaper && !isSolutions ? 'font-semibold text-emerald-700' : ''}>
-                  卷二：多项选择题{availablePaper && !isSolutions ? ' · 已上线' : ''}
+                <p className={paper1 && !isSolutions ? 'font-semibold text-emerald-700' : ''}>
+                  卷一：传统题{paper1 && !isSolutions ? ' · 已上线' : ''}
+                </p>
+                <p className={paper2 && !isSolutions ? 'font-semibold text-emerald-700' : ''}>
+                  卷二：多项选择题{paper2 && !isSolutions ? ' · 已上线' : ''}
                 </p>
                 {isSolutions && (
-                  <p
-                    className={
-                      availablePaper?.solutionAvailable
-                        ? availablePaper.solutionStatus === 'draft'
-                          ? 'font-semibold text-indigo-700'
-                          : 'font-semibold text-emerald-700'
-                        : availablePaper?.solutionStatus === 'reviewing'
-                          ? 'font-semibold text-amber-700'
-                          : ''
-                    }
-                  >
-                    {availablePaper?.solutionStatus === 'available'
-                      ? '解析：步骤、考点与关键判断 · 已上线'
-                      : availablePaper?.solutionStatus === 'draft'
-                        ? '解析：答案与逐题说明 · 初稿待核对'
-                      : availablePaper?.solutionStatus === 'reviewing'
-                        ? '解析：答案总表与逐题解析 · 核对中'
-                        : '解析：详细解析待上传'}
-                  </p>
+                  <div className="space-y-1">
+                    {(['Paper 1', 'Paper 2'] as const).map((paperName) => {
+                      const paper = availablePapers.find((item) => item.paper === paperName);
+                      return (
+                        <p key={paperName} className={solutionClassName(paper)}>
+                          {paperName === 'Paper 1' ? '卷一' : '卷二'}：{paper ? solutionLabel(paper) : '解析：详细解析待上传'}
+                        </p>
+                      );
+                    })}
+                  </div>
                 )}
               </div>
-              {isSolutions && availablePaper?.solutionAvailable ? (
-                <Button
-                  fullWidth
-                  onClick={() => navigate(`/subjects/math/past-papers/${availablePaper.id}/solutions`)}
-                >
-                  {availablePaper.solutionStatus === 'draft' ? '查看解析初稿' : '查看逐题解析'}
-                </Button>
-              ) : !isSolutions && availablePaper ? (
-                <div className="grid grid-cols-[1fr_auto] gap-2">
-                  <Button fullWidth onClick={() => navigate(`/subjects/math/past-papers/${availablePaper.id}`)}>
-                    查看试卷
-                  </Button>
-                  <a
-                    href={availablePaper.pdfUrl}
-                    download
-                    aria-label={`下载 ${availablePaper.title}`}
-                    title="下载试卷"
-                    className="w-11 h-11 inline-flex items-center justify-center rounded-xl bg-white hover:bg-blue-50 text-blue-700 border border-blue-200 transition-colors"
-                  >
-                    <Download className="w-5 h-5" />
-                  </a>
+              {isSolutions && solutionPapers.length > 0 ? (
+                <div className="space-y-2">
+                  {solutionPapers.map((paper) => (
+                    <Button
+                      key={paper.id}
+                      fullWidth
+                      onClick={() => navigate(`/subjects/math/past-papers/${paper.id}/solutions`)}
+                    >
+                      {paper.paper === 'Paper 1' ? '查看卷一解析' : '查看卷二解析'}
+                      {paper.solutionStatus === 'draft' ? '初稿' : ''}
+                    </Button>
+                  ))}
+                </div>
+              ) : !isSolutions && availablePapers.length > 0 ? (
+                <div className="space-y-2">
+                  {availablePapers.map((paper) => (
+                    <div key={paper.id} className="grid grid-cols-[1fr_auto] gap-2">
+                      <Button fullWidth onClick={() => navigate(`/subjects/math/past-papers/${paper.id}`)}>
+                        查看{paperLabel(paper)}
+                      </Button>
+                      <a
+                        href={paper.pdfUrl}
+                        download
+                        aria-label={`下载 ${paper.title}`}
+                        title="下载试卷"
+                        className="w-11 h-11 inline-flex items-center justify-center rounded-xl bg-white hover:bg-blue-50 text-blue-700 border border-blue-200 transition-colors"
+                      >
+                        <Download className="w-5 h-5" />
+                      </a>
+                    </div>
+                  ))}
                 </div>
               ) : (
                 <Button fullWidth variant="secondary" disabled>
-                  {isSolutions && availablePaper?.solutionStatus === 'reviewing'
+                  {isSolutions && primarySolution?.solutionStatus === 'reviewing'
                     ? '解析核对中'
                     : isSolutions
                       ? '详细解析待上传'

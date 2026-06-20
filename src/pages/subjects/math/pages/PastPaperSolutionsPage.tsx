@@ -86,7 +86,9 @@ export default function PastPaperSolutionsPage() {
             </span>
             <span className="text-sm text-gray-500">共 45 题</span>
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-950 mb-2">{paper.year} Paper 2 详细解析</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-950 mb-2">
+            {paper.year} {paper.paper} 详细解析
+          </h1>
           <p className="text-gray-600">
             {solutionDraft
               ? '莘睿参考答案初稿，包含关键步骤、考点与判断依据，等待人工核对。'

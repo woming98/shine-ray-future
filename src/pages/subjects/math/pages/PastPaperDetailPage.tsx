@@ -122,7 +122,7 @@ export default function PastPaperDetailPage() {
               <Clock3 className="w-5 h-5" />
             </div>
             <div>
-              <p className="text-sm text-gray-500">Paper 2 建议作答时间</p>
+              <p className="text-sm text-gray-500">{paper.paper} 建议作答时间</p>
               <p
                 className={`text-2xl font-bold tabular-nums ${
                   timeLeft === 0 ? 'text-red-600' : 'text-gray-950'
@@ -174,7 +174,13 @@ export default function PastPaperDetailPage() {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
             <h2 className={`font-bold mb-1 ${hasSolution ? 'text-indigo-950' : 'text-amber-950'}`}>
-              {hasSolution ? (solutionDraft ? '试卷详细解析初稿已上线' : '试卷详细解析已上线') : '试卷详细解析核对中'}
+              {hasSolution
+                ? solutionDraft
+                  ? '试卷详细解析初稿已上线'
+                  : '试卷详细解析已上线'
+                : solutionPending
+                  ? '试卷详细解析核对中'
+                  : '试卷详细解析尚未上线'}
             </h2>
             <p className={`text-sm ${hasSolution ? 'text-indigo-800' : 'text-amber-800'}`}>
               {hasSolution
