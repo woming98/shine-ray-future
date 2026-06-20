@@ -25,6 +25,7 @@ export default function PastPaperDetailPage() {
   const hasSolution = paper?.solutionAvailable ?? false;
   const solutionDraft = paper?.solutionStatus === 'draft';
   const solutionPending = paper?.solutionStatus === 'reviewing';
+  const imagePages = paper?.imagePages ?? [];
 
   useEffect(() => {
     if (!isRunning || timeLeft <= 0) {
@@ -157,13 +158,31 @@ export default function PastPaperDetailPage() {
           </div>
           <span className="text-sm font-medium text-blue-700">{paper.paper}</span>
         </div>
-        <iframe
-          src={`${paper.pdfUrl}#toolbar=1&navpanes=0`}
-          title={paper.title}
-          className="w-full h-[70vh] min-h-[560px] bg-gray-100"
-        />
+        {imagePages.length > 0 ? (
+          <div className="bg-gray-100 px-3 py-5 sm:px-5 space-y-5 max-h-[78vh] min-h-[560px] overflow-y-auto">
+            {imagePages.map((imageUrl, index) => (
+              <figure key={imageUrl} className="mx-auto max-w-4xl">
+                <img
+                  src={imageUrl}
+                  alt={`${paper.title} 第 ${index + 1} 页`}
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  className="w-full h-auto bg-white border border-gray-200 shadow-sm"
+                />
+                <figcaption className="mt-2 text-center text-xs text-gray-500">
+                  第 {index + 1} / {imagePages.length} 页
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        ) : (
+          <iframe
+            src={`${paper.pdfUrl}#toolbar=1&navpanes=0`}
+            title={paper.title}
+            className="w-full h-[70vh] min-h-[560px] bg-gray-100"
+          />
+        )}
         <div className="px-4 py-3 border-t border-blue-100 text-sm text-gray-500">
-          如浏览器无法显示 PDF，请使用“新窗口查看”或“下载试卷”。
+          如在线试卷无法显示，请使用“新窗口查看”或“下载试卷”。
         </div>
       </section>
 

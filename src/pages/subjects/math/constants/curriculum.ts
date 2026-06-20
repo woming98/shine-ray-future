@@ -25,6 +25,7 @@ export interface PastPaper {
   title: string;
   durationMinutes: number;
   pdfUrl: string;
+  imagePages?: string[];
   solutionAvailable: boolean;
   solutionStatus: PastPaperSolutionStatus;
   solutionNote: string;
@@ -132,6 +133,11 @@ export const SPRINT_TOPICS: SprintTopic[] = [
 export const PAST_PAPER_YEARS = Array.from({ length: 15 }, (_, index) => 2026 - index);
 
 const AVAILABLE_SOLUTION_NOTE = '答案总表、计算步骤与考点说明已上线。';
+const makePaperImagePages = (paperId: string, pageCount: number) =>
+  Array.from({ length: pageCount }, (_, index) => {
+    const pageNumber = (index + 1).toString().padStart(2, '0');
+    return `/dse-math/past-papers/${paperId}-pages/page-${pageNumber}.jpg`;
+  });
 
 export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
   {
@@ -152,6 +158,7 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     title: '2026 HKDSE Mathematics Paper 2',
     durationMinutes: 75,
     pdfUrl: '/dse-math/past-papers/2026-paper-2.pdf',
+    imagePages: makePaperImagePages('2026-paper-2', 14),
     solutionAvailable: true,
     solutionStatus: 'available',
     solutionNote: AVAILABLE_SOLUTION_NOTE,
