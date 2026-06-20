@@ -7,6 +7,7 @@ import {
 } from 'lucide-react'
 import DseCountdown from '../components/DseCountdown'
 import ExamSchedule from '../components/ExamSchedule'
+import { DSE_EXAM_YEAR } from '../data/dseSchedule'
 
 /**
  * 首页组件
@@ -210,7 +211,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="section-title mb-4">DSE 2026 考試資訊</h2>
+            <h2 className="section-title mb-4">DSE {DSE_EXAM_YEAR} 考試資訊</h2>
             <p className="section-subtitle">
               掌握考試時間，提前做好準備
             </p>

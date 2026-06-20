@@ -6,7 +6,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Calendar, Clock } from 'lucide-react'
-import { DSE_EXAM_DATE } from '../data/dseSchedule2026'
+import { DSE_EXAM_DATE, DSE_EXAM_FIRST_DATE_LABEL, DSE_EXAM_YEAR } from '../data/dseSchedule'
 
 interface TimeLeft {
   days: number
@@ -56,7 +56,7 @@ export default function DseCountdown() {
   if (timeLeft.total <= 0) {
     return (
       <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-3xl p-8 text-center text-white">
-        <div className="text-2xl font-bold mb-2">DSE 2026 考試進行中</div>
+        <div className="text-2xl font-bold mb-2">DSE {DSE_EXAM_YEAR} 考試進行中</div>
         <p className="text-emerald-100">祝各位考生考試順利！</p>
       </div>
     )
@@ -75,8 +75,8 @@ export default function DseCountdown() {
             <Calendar className="w-5 h-5 text-accent-400" />
           </div>
           <div>
-            <h3 className="text-lg font-bold">DSE 2026 倒計時</h3>
-            <p className="text-sm text-primary-200">首日考試：2026年4月8日</p>
+            <h3 className="text-lg font-bold">DSE {DSE_EXAM_YEAR} 倒計時</h3>
+            <p className="text-sm text-primary-200">首日考試：{DSE_EXAM_FIRST_DATE_LABEL}</p>
           </div>
         </div>
 

@@ -1,12 +1,18 @@
 /**
  * DSE 考试时间表组件
- * 展示 2026 年 DSE 各科目考试时间安排
+ * 展示当前 HKDSE 各科目考试时间安排
  */
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Calendar, ChevronDown, ChevronUp, Clock, Star } from 'lucide-react'
-import { dseSchedule2026, CORE_SUBJECTS, type ExamDay } from '../data/dseSchedule2026'
+import {
+  CORE_SUBJECTS,
+  DSE_EXAM_SOURCE_URL,
+  DSE_EXAM_YEAR,
+  dseSchedule,
+  type ExamDay,
+} from '../data/dseSchedule'
 
 export default function ExamSchedule() {
   const [expandedDays, setExpandedDays] = useState<string[]>([])
@@ -27,7 +33,7 @@ export default function ExamSchedule() {
   }
 
   // 显示的考试日期
-  const displayDays = showAll ? dseSchedule2026 : dseSchedule2026.slice(0, 6)
+  const displayDays = showAll ? dseSchedule : dseSchedule.slice(0, 6)
 
   return (
     <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
@@ -38,8 +44,8 @@ export default function ExamSchedule() {
             <Calendar className="w-5 h-5" />
           </div>
           <div>
-            <h3 className="text-lg font-bold">DSE 2026 考試時間表</h3>
-            <p className="text-sm text-primary-100">共 {dseSchedule2026.length} 個考試日</p>
+            <h3 className="text-lg font-bold">DSE {DSE_EXAM_YEAR} 考試時間表</h3>
+            <p className="text-sm text-primary-100">共 {dseSchedule.length} 個考試日</p>
           </div>
         </div>
       </div>
@@ -61,6 +67,9 @@ export default function ExamSchedule() {
         {displayDays.map((day: ExamDay, index: number) => {
           const isExpanded = expandedDays.includes(day.date)
           const hasCore = day.sessions.some(s => isCoreSubject(s.subject))
+          const [monthText, dayText = ''] = day.dateZh.split('月')
+          const dateBadgeMonth = `${monthText}月`
+          const dateBadgeDay = dayText.replace('日', '')
 
           return (
             <motion.div
@@ -79,10 +88,10 @@ export default function ExamSchedule() {
                     hasCore ? 'bg-primary-100' : 'bg-slate-100'
                   }`}>
                     <span className={`text-xs ${hasCore ? 'text-primary-600' : 'text-slate-500'}`}>
-                      {day.dateZh.slice(0, 2)}
+                      {dateBadgeMonth}
                     </span>
                     <span className={`text-lg font-bold ${hasCore ? 'text-primary-700' : 'text-slate-700'}`}>
-                      {day.dateZh.slice(2, 4)}
+                      {dateBadgeDay}
                     </span>
                   </div>
                   <div>
@@ -159,7 +168,7 @@ export default function ExamSchedule() {
       </div>
 
       {/* 展开更多按钮 */}
-      {dseSchedule2026.length > 6 && (
+      {dseSchedule.length > 6 && (
         <div className="px-6 py-4 border-t border-slate-100">
           <button
             onClick={() => setShowAll(!showAll)}
@@ -168,9 +177,17 @@ export default function ExamSchedule() {
             {showAll ? (
               <>收起 <ChevronUp className="w-4 h-4" /></>
             ) : (
-              <>查看全部 {dseSchedule2026.length} 個考試日 <ChevronDown className="w-4 h-4" /></>
+              <>查看全部 {dseSchedule.length} 個考試日 <ChevronDown className="w-4 h-4" /></>
             )}
           </button>
+          <a
+            href={DSE_EXAM_SOURCE_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-2 block text-center text-xs text-slate-400 hover:text-primary-600"
+          >
+            資料來源：香港考試及評核局
+          </a>
         </div>
       )}
     </div>
