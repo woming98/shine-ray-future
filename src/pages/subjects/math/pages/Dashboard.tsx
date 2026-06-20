@@ -95,12 +95,12 @@ export default function Dashboard() {
 
           <Card className="p-6">
             <FileText className="w-8 h-8 text-indigo-600 mb-5" />
-            <h3 className="text-xl font-bold text-gray-950 mb-2">HKDSE 纯试卷</h3>
+            <h3 className="text-xl font-bold text-gray-950 mb-2">HKDSE 官方试卷配套</h3>
             <p className="text-gray-600 text-sm leading-relaxed mb-6">
-              按年份整理卷一与卷二，适合限时模拟和考前演练。
+              不公开原卷；提供按年份整理的答题卡、计时练习与解析入口。
             </p>
             <Button fullWidth variant="secondary" onClick={() => navigate('/subjects/math/past-papers?view=papers')}>
-              查看纯试卷目录
+              查看配套练习目录
             </Button>
           </Card>
 

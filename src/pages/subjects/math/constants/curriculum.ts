@@ -24,8 +24,6 @@ export interface PastPaper {
   paper: string;
   title: string;
   durationMinutes: number;
-  pdfUrl: string;
-  imagePages?: string[];
   solutionAvailable: boolean;
   solutionStatus: PastPaperSolutionStatus;
   solutionNote: string;
@@ -132,12 +130,9 @@ export const SPRINT_TOPICS: SprintTopic[] = [
 
 export const PAST_PAPER_YEARS = Array.from({ length: 15 }, (_, index) => 2026 - index);
 
+export const HKEAA_PAST_PAPER_SOURCE_URL = 'https://www.hkeaa.edu.hk/en/resources/publications/qps/';
+
 const AVAILABLE_SOLUTION_NOTE = '答案总表、计算步骤与考点说明已上线。';
-const makePaperImagePages = (paperId: string, pageCount: number) =>
-  Array.from({ length: pageCount }, (_, index) => {
-    const pageNumber = (index + 1).toString().padStart(2, '0');
-    return `/dse-math/past-papers/${paperId}-pages/page-${pageNumber}.jpg`;
-  });
 
 export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
   {
@@ -146,7 +141,6 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     paper: 'Paper 1',
     title: '2026 HKDSE Mathematics Paper 1',
     durationMinutes: 135,
-    pdfUrl: '/dse-math/past-papers/2026-paper-1.pdf',
     solutionAvailable: true,
     solutionStatus: 'available',
     solutionNote: AVAILABLE_SOLUTION_NOTE,
@@ -157,8 +151,6 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     paper: 'Paper 2',
     title: '2026 HKDSE Mathematics Paper 2',
     durationMinutes: 75,
-    pdfUrl: '/dse-math/past-papers/2026-paper-2.pdf',
-    imagePages: makePaperImagePages('2026-paper-2', 14),
     solutionAvailable: true,
     solutionStatus: 'available',
     solutionNote: AVAILABLE_SOLUTION_NOTE,
@@ -169,7 +161,6 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     paper: 'Paper 1',
     title: '2025 HKDSE Mathematics Paper 1',
     durationMinutes: 135,
-    pdfUrl: '/dse-math/past-papers/2025-paper-1.pdf',
     solutionAvailable: true,
     solutionStatus: 'available',
     solutionNote: AVAILABLE_SOLUTION_NOTE,
@@ -180,7 +171,6 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     paper: 'Paper 2',
     title: '2025 HKDSE Mathematics Paper 2',
     durationMinutes: 75,
-    pdfUrl: '/dse-math/past-papers/2025-paper-2.pdf',
     solutionAvailable: true,
     solutionStatus: 'available',
     solutionNote: AVAILABLE_SOLUTION_NOTE,
@@ -191,7 +181,6 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     paper: 'Paper 1',
     title: '2024 HKDSE Mathematics Paper 1',
     durationMinutes: 135,
-    pdfUrl: '/dse-math/past-papers/2024-paper-1.pdf',
     solutionAvailable: true,
     solutionStatus: 'available',
     solutionNote: AVAILABLE_SOLUTION_NOTE,
@@ -202,7 +191,6 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     paper: 'Paper 2',
     title: '2024 HKDSE Mathematics Paper 2',
     durationMinutes: 75,
-    pdfUrl: '/dse-math/past-papers/2024-paper-2.pdf',
     solutionAvailable: true,
     solutionStatus: 'available',
     solutionNote: AVAILABLE_SOLUTION_NOTE,
@@ -213,7 +201,6 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     paper: 'Paper 1',
     title: '2023 HKDSE Mathematics Paper 1',
     durationMinutes: 135,
-    pdfUrl: '/dse-math/past-papers/2023-paper-1.pdf',
     solutionAvailable: true,
     solutionStatus: 'available',
     solutionNote: AVAILABLE_SOLUTION_NOTE,
@@ -224,7 +211,6 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     paper: 'Paper 2',
     title: '2023 HKDSE Mathematics Paper 2',
     durationMinutes: 75,
-    pdfUrl: '/dse-math/past-papers/2023-paper-2.pdf',
     solutionAvailable: true,
     solutionStatus: 'available',
     solutionNote: AVAILABLE_SOLUTION_NOTE,
@@ -235,7 +221,6 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     paper: 'Paper 1',
     title: '2022 HKDSE Mathematics Paper 1',
     durationMinutes: 135,
-    pdfUrl: '/dse-math/past-papers/2022-paper-1.pdf',
     solutionAvailable: true,
     solutionStatus: 'available',
     solutionNote: AVAILABLE_SOLUTION_NOTE,
@@ -246,7 +231,6 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     paper: 'Paper 2',
     title: '2022 HKDSE Mathematics Paper 2',
     durationMinutes: 75,
-    pdfUrl: '/dse-math/past-papers/2022-paper-2.pdf',
     solutionAvailable: true,
     solutionStatus: 'available',
     solutionNote: AVAILABLE_SOLUTION_NOTE,
@@ -257,7 +241,6 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     paper: 'Paper 1',
     title: '2021 HKDSE Mathematics Paper 1',
     durationMinutes: 135,
-    pdfUrl: '/dse-math/past-papers/2021-paper-1.pdf',
     solutionAvailable: true,
     solutionStatus: 'available',
     solutionNote: AVAILABLE_SOLUTION_NOTE,
@@ -268,7 +251,6 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     paper: 'Paper 2',
     title: '2021 HKDSE Mathematics Paper 2',
     durationMinutes: 75,
-    pdfUrl: '/dse-math/past-papers/2021-paper-2.pdf',
     solutionAvailable: true,
     solutionStatus: 'available',
     solutionNote: AVAILABLE_SOLUTION_NOTE,
@@ -279,7 +261,6 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     paper: 'Paper 1',
     title: '2020 HKDSE Mathematics Paper 1',
     durationMinutes: 135,
-    pdfUrl: '/dse-math/past-papers/2020-paper-1.pdf',
     solutionAvailable: true,
     solutionStatus: 'available',
     solutionNote: AVAILABLE_SOLUTION_NOTE,
@@ -290,7 +271,6 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     paper: 'Paper 2',
     title: '2020 HKDSE Mathematics Paper 2',
     durationMinutes: 75,
-    pdfUrl: '/dse-math/past-papers/2020-paper-2.pdf',
     solutionAvailable: true,
     solutionStatus: 'available',
     solutionNote: AVAILABLE_SOLUTION_NOTE,
@@ -301,7 +281,6 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     paper: 'Paper 1',
     title: '2019 HKDSE Mathematics Paper 1',
     durationMinutes: 135,
-    pdfUrl: '/dse-math/past-papers/2019-paper-1.pdf',
     solutionAvailable: true,
     solutionStatus: 'available',
     solutionNote: AVAILABLE_SOLUTION_NOTE,
@@ -312,7 +291,6 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     paper: 'Paper 2',
     title: '2019 HKDSE Mathematics Paper 2',
     durationMinutes: 75,
-    pdfUrl: '/dse-math/past-papers/2019-paper-2.pdf',
     solutionAvailable: true,
     solutionStatus: 'available',
     solutionNote: AVAILABLE_SOLUTION_NOTE,
@@ -323,7 +301,6 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     paper: 'Paper 1',
     title: '2018 HKDSE Mathematics Paper 1',
     durationMinutes: 135,
-    pdfUrl: '/dse-math/past-papers/2018-paper-1.pdf',
     solutionAvailable: true,
     solutionStatus: 'available',
     solutionNote: AVAILABLE_SOLUTION_NOTE,
@@ -334,7 +311,6 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     paper: 'Paper 2',
     title: '2018 HKDSE Mathematics Paper 2',
     durationMinutes: 75,
-    pdfUrl: '/dse-math/past-papers/2018-paper-2.pdf',
     solutionAvailable: true,
     solutionStatus: 'available',
     solutionNote: AVAILABLE_SOLUTION_NOTE,
@@ -345,7 +321,6 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     paper: 'Paper 1',
     title: '2017 HKDSE Mathematics Paper 1',
     durationMinutes: 135,
-    pdfUrl: '/dse-math/past-papers/2017-paper-1.pdf',
     solutionAvailable: true,
     solutionStatus: 'available',
     solutionNote: AVAILABLE_SOLUTION_NOTE,
@@ -356,7 +331,6 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     paper: 'Paper 2',
     title: '2017 HKDSE Mathematics Paper 2',
     durationMinutes: 75,
-    pdfUrl: '/dse-math/past-papers/2017-paper-2.pdf',
     solutionAvailable: true,
     solutionStatus: 'available',
     solutionNote: AVAILABLE_SOLUTION_NOTE,
@@ -367,7 +341,6 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     paper: 'Paper 1',
     title: '2016 HKDSE Mathematics Paper 1',
     durationMinutes: 135,
-    pdfUrl: '/dse-math/past-papers/2016-paper-1.pdf',
     solutionAvailable: true,
     solutionStatus: 'available',
     solutionNote: AVAILABLE_SOLUTION_NOTE,
@@ -378,7 +351,6 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     paper: 'Paper 2',
     title: '2016 HKDSE Mathematics Paper 2',
     durationMinutes: 75,
-    pdfUrl: '/dse-math/past-papers/2016-paper-2.pdf',
     solutionAvailable: true,
     solutionStatus: 'available',
     solutionNote: AVAILABLE_SOLUTION_NOTE,
@@ -389,7 +361,6 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     paper: 'Paper 1',
     title: '2015 HKDSE Mathematics Paper 1',
     durationMinutes: 135,
-    pdfUrl: '/dse-math/past-papers/2015-paper-1.pdf',
     solutionAvailable: true,
     solutionStatus: 'available',
     solutionNote: AVAILABLE_SOLUTION_NOTE,
@@ -400,7 +371,6 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     paper: 'Paper 2',
     title: '2015 HKDSE Mathematics Paper 2',
     durationMinutes: 75,
-    pdfUrl: '/dse-math/past-papers/2015-paper-2.pdf',
     solutionAvailable: true,
     solutionStatus: 'available',
     solutionNote: AVAILABLE_SOLUTION_NOTE,
@@ -411,7 +381,6 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     paper: 'Paper 1',
     title: '2014 HKDSE Mathematics Paper 1',
     durationMinutes: 135,
-    pdfUrl: '/dse-math/past-papers/2014-paper-1.pdf',
     solutionAvailable: true,
     solutionStatus: 'available',
     solutionNote: AVAILABLE_SOLUTION_NOTE,
@@ -422,7 +391,6 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     paper: 'Paper 2',
     title: '2014 HKDSE Mathematics Paper 2',
     durationMinutes: 75,
-    pdfUrl: '/dse-math/past-papers/2014-paper-2.pdf',
     solutionAvailable: true,
     solutionStatus: 'available',
     solutionNote: AVAILABLE_SOLUTION_NOTE,
@@ -433,7 +401,6 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     paper: 'Paper 1',
     title: '2013 HKDSE Mathematics Paper 1',
     durationMinutes: 135,
-    pdfUrl: '/dse-math/past-papers/2013-paper-1.pdf',
     solutionAvailable: true,
     solutionStatus: 'available',
     solutionNote: AVAILABLE_SOLUTION_NOTE,
@@ -444,7 +411,6 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     paper: 'Paper 2',
     title: '2013 HKDSE Mathematics Paper 2',
     durationMinutes: 75,
-    pdfUrl: '/dse-math/past-papers/2013-paper-2.pdf',
     solutionAvailable: true,
     solutionStatus: 'available',
     solutionNote: AVAILABLE_SOLUTION_NOTE,
@@ -455,7 +421,6 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     paper: 'Paper 1',
     title: '2012 HKDSE Mathematics Paper 1',
     durationMinutes: 135,
-    pdfUrl: '/dse-math/past-papers/2012-paper-1.pdf',
     solutionAvailable: true,
     solutionStatus: 'available',
     solutionNote: AVAILABLE_SOLUTION_NOTE,
@@ -466,7 +431,6 @@ export const AVAILABLE_PAST_PAPERS: PastPaper[] = [
     paper: 'Paper 2',
     title: '2012 HKDSE Mathematics Paper 2',
     durationMinutes: 75,
-    pdfUrl: '/dse-math/past-papers/2012-paper-2.pdf',
     solutionAvailable: true,
     solutionStatus: 'available',
     solutionNote: AVAILABLE_SOLUTION_NOTE,

@@ -62,7 +62,7 @@ export default function PastPaperSolutionsPage() {
           <div className="flex flex-col sm:flex-row justify-center gap-2">
             {paper && (
               <Button variant="secondary" onClick={() => navigate(`/subjects/math/past-papers/${paper.id}`)}>
-                返回在线试卷
+                返回配套练习
               </Button>
             )}
             <Button onClick={() => navigate('/subjects/math/past-papers?view=solutions')}>返回解析目录</Button>
@@ -109,7 +109,7 @@ export default function PastPaperSolutionsPage() {
             onClick={() => navigate(`/subjects/math/past-papers/${paper.id}`)}
             icon={<FileText className="w-4 h-4" />}
           >
-            返回在线试卷
+            返回配套练习
           </Button>
         </section>
 
@@ -118,8 +118,8 @@ export default function PastPaperSolutionsPage() {
             <Lightbulb className="w-5 h-5 text-amber-700 flex-shrink-0 mt-0.5" />
             <p className="text-sm text-amber-900 leading-relaxed">
               {solutionDraft
-                ? '本页为 Paper 1 长答题解析初稿，建议先完成整份试卷，再逐题人工核对答案、单位与书写步骤。'
-                : '建议先完成整份试卷，再查看答案。长题可同时打开在线试卷，对照原题条件理解步骤。'}
+                ? '本页为 Paper 1 长答题解析初稿，建议先完成官方或授权原卷，再逐题人工核对答案、单位与书写步骤。'
+                : '建议先完成官方或授权原卷，再查看答案。长题请对照手上的原题条件理解步骤。'}
             </p>
           </div>
         </Card>
@@ -235,7 +235,7 @@ export default function PastPaperSolutionsPage() {
           onClick={() => navigate(`/subjects/math/past-papers/${paper.id}`)}
           icon={<FileText className="w-4 h-4" />}
         >
-          返回在线试卷
+          返回配套练习
         </Button>
       </section>
 
@@ -244,8 +244,8 @@ export default function PastPaperSolutionsPage() {
           <Lightbulb className="w-5 h-5 text-amber-700 flex-shrink-0 mt-0.5" />
           <p className="text-sm text-amber-900 leading-relaxed">
             {solutionDraft
-              ? '本页为解析初稿，建议先完成整份试卷，再逐题人工核对答案与步骤。几何题可同时打开在线试卷，对照原图理解。'
-              : '建议先完成整份试卷，再查看答案。几何题可同时打开在线试卷，对照原图理解角度与面积关系。'}
+              ? '本页为解析初稿，建议先完成官方或授权原卷，再逐题人工核对答案与步骤。几何题请对照手上的原图理解。'
+              : '建议先完成官方或授权原卷，再查看答案。几何题请对照手上的原图理解角度与面积关系。'}
           </p>
         </div>
       </Card>
