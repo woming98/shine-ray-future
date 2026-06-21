@@ -25,7 +25,7 @@ interface CalculatorProgram {
   subtitle: string;
   category: string;
   difficulty: '入门' | '核心' | '高频';
-  icon: 'quadratic' | 'coordinate' | 'triangle';
+  icon: 'quadratic' | 'coordinate' | 'triangle' | 'system' | 'line' | 'distance' | 'sequence';
   formula: string;
   examUses: string[];
   inputOrder: string[];
@@ -173,6 +173,172 @@ const programs: CalculatorProgram[] = [
     },
     pitfalls: ['必须确认 calculator 在 DEG，不可在 RAD。', 'C 必须是两条输入边之间的夹角。', '若题目给的是非夹角，不能直接用这个 program。'],
   },
+  {
+    id: 'simultaneous-equations-2x2',
+    title: 'Simultaneous Equations 2x2',
+    subtitle: '二元一次联立方程快速求解',
+    category: 'Algebra / Coordinate Geometry',
+    difficulty: '高频',
+    icon: 'system',
+    formula: '\\begin{cases}ax+by=c\\\\dx+ey=f\\end{cases}\\quad x=\\frac{ce-bf}{ae-bd},\\ y=\\frac{af-cd}{ae-bd}',
+    examUses: ['联立方程', '两直线交点', '坐标几何', 'Paper 2 选项验证'],
+    inputOrder: ['A = a', 'B = b', 'C = c', 'D = d', 'E = e', 'F = f'],
+    outputOrder: ['第一行：x', '第二行：y'],
+    programLines: {
+      'fx-50FH II': [
+        '?→A',
+        '?→B',
+        '?→C',
+        '?→D',
+        '?→E',
+        '?→F',
+        'A×E-B×D→X',
+        '(C×E-B×F)÷X◢',
+        '(A×F-C×D)÷X',
+      ],
+      'fx-3650P II': [
+        '?→A',
+        '?→B',
+        '?→C',
+        '?→D',
+        '?→E',
+        '?→F',
+        'A×E-B×D→X',
+        '(C×E-B×F)÷X◢',
+        '(A×F-C×D)÷X',
+      ],
+    },
+    example: {
+      question: 'x + y = 5, x - y = 1',
+      inputs: ['A = 1', 'B = 1', 'C = 5', 'D = 1', 'E = -1', 'F = 1'],
+      expected: '3, 2',
+      check: '输出 x = 3, y = 2。坐标几何交点题也可先化成这个形式。',
+    },
+    pitfalls: ['分母 ae - bd = 0 时，两条线平行或重合，program 会除以 0。', '等式右边必须放在 c 和 f，不要把常数留在左边。', '若题目是一般式 ax + by + c = 0，要先转成 ax + by = -c。'],
+  },
+  {
+    id: 'line-intersection',
+    title: 'Line Intersection',
+    subtitle: '两条一般式直线求交点',
+    category: 'Coordinate Geometry',
+    difficulty: '高频',
+    icon: 'line',
+    formula: '\\begin{cases}a_1x+b_1y+c_1=0\\\\a_2x+b_2y+c_2=0\\end{cases}\\quad x=\\frac{b_1c_2-c_1b_2}{a_1b_2-b_1a_2},\\ y=\\frac{c_1a_2-a_1c_2}{a_1b_2-b_1a_2}',
+    examUses: ['直线交点', '圆与直线题', '轨迹与中线', 'Paper 2 坐标题'],
+    inputOrder: ['A = a1', 'B = b1', 'C = c1', 'D = a2', 'E = b2', 'F = c2'],
+    outputOrder: ['第一行：intersection x-coordinate', '第二行：intersection y-coordinate'],
+    programLines: {
+      'fx-50FH II': [
+        '?→A',
+        '?→B',
+        '?→C',
+        '?→D',
+        '?→E',
+        '?→F',
+        'A×E-B×D→X',
+        '(B×F-C×E)÷X◢',
+        '(C×D-A×F)÷X',
+      ],
+      'fx-3650P II': [
+        '?→A',
+        '?→B',
+        '?→C',
+        '?→D',
+        '?→E',
+        '?→F',
+        'A×E-B×D→X',
+        '(B×F-C×E)÷X◢',
+        '(C×D-A×F)÷X',
+      ],
+    },
+    example: {
+      question: 'x + y - 5 = 0 and x - y - 1 = 0',
+      inputs: ['A = 1', 'B = 1', 'C = -5', 'D = 1', 'E = -1', 'F = -1'],
+      expected: '3, 2',
+      check: '交点是 (3, 2)。这比先移项再联立更适合一般式直线题。',
+    },
+    pitfalls: ['两条直线必须输入为 ax + by + c = 0。', '若 a1b2 - b1a2 = 0，代表两线平行或重合。', '不要把 y = mx + c 直接输入，要先改成 mx - y + c = 0。'],
+  },
+  {
+    id: 'point-to-line-distance',
+    title: 'Point to Line Distance',
+    subtitle: '点到直线距离与有向代入值',
+    category: 'Coordinate Geometry',
+    difficulty: '高频',
+    icon: 'distance',
+    formula: 'd=\\frac{\\left|ax_1+by_1+c\\right|}{\\sqrt{a^2+b^2}}',
+    examUses: ['平行线距离', '圆切线判断', '点到直线最短距离', '坐标几何证明'],
+    inputOrder: ['A = x1', 'B = y1', 'C = line a', 'D = line b', 'E = line c'],
+    outputOrder: ['第一行：ax1 + by1 + c 的有向值', '第二行：点到直线距离'],
+    programLines: {
+      'fx-50FH II': [
+        '?→A',
+        '?→B',
+        '?→C',
+        '?→D',
+        '?→E',
+        'C×A+D×B+E→X',
+        'X◢',
+        'Abs(X)÷√(C^2+D^2)',
+      ],
+      'fx-3650P II': [
+        '?→A',
+        '?→B',
+        '?→C',
+        '?→D',
+        '?→E',
+        'C×A+D×B+E→X',
+        'X◢',
+        'Abs(X)÷√(C^2+D^2)',
+      ],
+    },
+    example: {
+      question: 'Point P(3, 4), line 3x + 4y - 10 = 0',
+      inputs: ['A = 3', 'B = 4', 'C = 3', 'D = 4', 'E = -10'],
+      expected: '15, 3',
+      check: '有向值为 15，距离为 3。若是圆切线题，距离等于半径即可判断相切。',
+    },
+    pitfalls: ['直线必须输入为 ax + by + c = 0。', '第一行不是距离，是保留符号的代入值，可用来判断点在线的哪一边。', '若 a 和 b 同时为 0，直线无效。'],
+  },
+  {
+    id: 'sequence-toolkit',
+    title: 'Sequence Toolkit',
+    subtitle: '等差与等比数列第 n 项及前 n 项和',
+    category: 'Sequences',
+    difficulty: '高频',
+    icon: 'sequence',
+    formula: 'a_n=a_1+(n-1)d,\\ S_n=\\frac{n}{2}\\left(2a_1+(n-1)d\\right),\\ T_n=a_1r^{n-1},\\ G_n=\\frac{a_1(r^n-1)}{r-1}',
+    examUses: ['等差数列', '等比数列', '增长模型', 'Paper 1 长题验算'],
+    inputOrder: ['A = first term', 'B = common difference d 或 common ratio r', 'C = n'],
+    outputOrder: ['第一行：Arithmetic nth term', '第二行：Arithmetic sum', '第三行：Geometric nth term', '第四行：Geometric sum'],
+    programLines: {
+      'fx-50FH II': [
+        '?→A',
+        '?→B',
+        '?→C',
+        'A+(C-1)×B◢',
+        'C×(2×A+(C-1)×B)÷2◢',
+        'A×B^(C-1)◢',
+        'A×(B^C-1)÷(B-1)',
+      ],
+      'fx-3650P II': [
+        '?→A',
+        '?→B',
+        '?→C',
+        'A+(C-1)×B◢',
+        'C×(2×A+(C-1)×B)÷2◢',
+        'A×B^(C-1)◢',
+        'A×(B^C-1)÷(B-1)',
+      ],
+    },
+    example: {
+      question: '2, 5, 8, 11, ... find T10 and S10',
+      inputs: ['A = 2', 'B = 3', 'C = 10'],
+      expected: '29, 155, 39366, 59048',
+      check: '这是等差题，只取前两行：第 10 项为 29，前 10 项和为 155。后两行是把 B 当作公比时的等比结果。',
+    },
+    pitfalls: ['等差题把 B 当作 d，等比题把 B 当作 r。', '若等比公比 r = 1，第四行会除以 0；这时总和应为 n × first term。', '题目若从第 0 项开始，要先改回以 first term 为第 1 项的表示。'],
+  },
 ];
 
 const ruleChecks = [
@@ -182,7 +348,7 @@ const ruleChecks = [
   '考试前用简单数据测试每个 program，确认角度模式和小数/分数显示。',
 ];
 
-const nextPrograms = ['Simultaneous Equations', 'Arithmetic / Geometric Sequence', 'Statistics SD and z-score', 'Mensuration Volume Pack', 'nCr / nPr Counting'];
+const nextPrograms = ['Statistics SD and z-score', 'Circle Toolkit', 'Line Equation from Two Points', 'Mensuration Volume Pack', 'nCr / nPr Counting'];
 
 function Formula({ tex }: { tex: string }) {
   return (
@@ -204,6 +370,12 @@ function getProgramIcon(icon: CalculatorProgram['icon']) {
   }
   if (icon === 'triangle') {
     return <Triangle className="h-6 w-6" />;
+  }
+  if (icon === 'sequence' || icon === 'system') {
+    return <ListChecks className="h-6 w-6" />;
+  }
+  if (icon === 'line' || icon === 'distance') {
+    return <Gauge className="h-6 w-6" />;
   }
   return <Calculator className="h-6 w-6" />;
 }
@@ -249,7 +421,7 @@ export default function CalculatorPage() {
           </p>
           <div className="mt-7 grid gap-3 sm:grid-cols-3">
             {[
-              ['3 个', '首发高频 program'],
+              [`${programs.length} 个`, '高频 program'],
               ['2 款', 'DSE 常见机型'],
               ['Paper 1/2', '验算与提速场景'],
             ].map(([value, label]) => (
