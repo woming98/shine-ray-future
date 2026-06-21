@@ -7,6 +7,7 @@ import {
   BookOpen,
   Calculator,
   FileText,
+  Shapes,
   Target,
   Zap,
 } from 'lucide-react';
@@ -16,6 +17,7 @@ import { GRADE_COURSES } from '../constants/curriculum';
 
 export default function Dashboard() {
   const navigate = useNavigate();
+  const similarAreaTopicPath = '/dse-math/topics/similar-area/';
 
   return (
     <div className="max-w-7xl mx-auto space-y-12">
@@ -38,6 +40,9 @@ export default function Dashboard() {
           </Button>
           <Button variant="secondary" onClick={() => navigate('/subjects/math/calculator')}>
             计数机 Program
+          </Button>
+          <Button variant="secondary" onClick={() => { window.location.href = similarAreaTopicPath; }}>
+            专题一：相似和等高面积
           </Button>
         </div>
       </motion.section>
@@ -126,15 +131,26 @@ export default function Dashboard() {
           <h2 className="text-2xl font-bold text-gray-950 mb-2">学习工具</h2>
           <p className="text-gray-600">使用现有题库与学习记录功能进行日常训练。</p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-6 gap-4">
           {[
             { title: '智能练习', description: '按年级、课题与难度练习', icon: BookOpen, path: '/subjects/math/practice' },
             { title: '计数机教程', description: 'fx-50FH II / fx-3650P II program', icon: Calculator, path: '/subjects/math/calculator' },
+            { title: '几何专题', description: '相似、等高与面积倍率', icon: Shapes, path: similarAreaTopicPath },
             { title: 'MC 提速', description: '卷二计时与快解技巧', icon: Zap, path: '/subjects/math/mc' },
             { title: '错题本', description: '集中复盘错误题目', icon: FileText, path: '/subjects/math/wrong-answers' },
             { title: '学习报告', description: '查看正确率与学习进度', icon: BarChart3, path: '/subjects/math/report' },
           ].map((tool) => (
-            <Card key={tool.title} className="p-5 cursor-pointer" onClick={() => navigate(tool.path)}>
+            <Card
+              key={tool.title}
+              className="p-5 cursor-pointer"
+              onClick={() => {
+                if (tool.path.startsWith('/dse-math/')) {
+                  window.location.href = tool.path;
+                  return;
+                }
+                navigate(tool.path);
+              }}
+            >
               <tool.icon className="w-6 h-6 text-blue-600 mb-4" />
               <h3 className="font-bold text-gray-950 mb-1">{tool.title}</h3>
               <p className="text-sm text-gray-600">{tool.description}</p>
