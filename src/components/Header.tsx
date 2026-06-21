@@ -86,7 +86,7 @@ export default function Header() {
         },
         { path: '/subjects/biology', label: '生物', icon: Microscope, description: '3D細胞模型', status: 'coming' },
         { path: '/subjects/english', label: '英文', icon: BookOpen, status: 'coming' },
-        { path: '/subjects/math', label: '數學', icon: Calculator, description: '中一至中六及DSE真題', status: 'active' },
+        { path: '/subjects/math', label: '數學', icon: Calculator, description: '課程、計數機及DSE配套', status: 'active' },
         { path: '/subjects/chinese', label: '語文', icon: Languages, status: 'coming' },
         { path: '/subjects/m1', label: 'M1', icon: Sigma, status: 'coming' },
         { path: '/subjects/m2', label: 'M2', icon: Sigma, status: 'coming' },

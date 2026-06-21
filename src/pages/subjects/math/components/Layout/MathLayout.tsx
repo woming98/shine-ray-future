@@ -190,6 +190,13 @@ export function MathLayout({ children }: MathLayoutProps) {
                       <span>MC 提速專區</span>
                     </button>
                     <button
+                      onClick={() => { navigate('/subjects/math/calculator'); setSidebarOpen(false); }}
+                      className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-blue-700 hover:text-blue-800 hover:bg-blue-100 transition-all duration-200 border border-transparent hover:border-blue-200/50"
+                    >
+                      <span>⌨️</span>
+                      <span>計數機 Program</span>
+                    </button>
+                    <button
                       onClick={() => { navigate('/subjects/math/geometry'); setSidebarOpen(false); }}
                       className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-blue-700 hover:text-blue-800 hover:bg-blue-100 transition-all duration-200 border border-transparent hover:border-blue-200/50"
                     >

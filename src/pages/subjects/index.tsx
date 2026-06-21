@@ -34,8 +34,8 @@ export default function SubjectHub() {
       bgColor: 'bg-blue-50',
       iconColor: 'text-blue-500',
       status: 'active',
-      description: '中一至中六課程、專題衝刺及HKDSE試卷配套',
-      features: ['分級課程', '專題衝刺', '答題卡', '詳細解析'],
+      description: '中一至中六課程、計數機教程及HKDSE試卷配套',
+      features: ['分級課程', '計數機教程', '答題卡', '詳細解析'],
     },
     {
       id: 'chinese',
