@@ -18,6 +18,7 @@ import PastPapersPage from './pages/PastPapersPage';
 import PastPaperDetailPage from './pages/PastPaperDetailPage';
 import PastPaperSolutionsPage from './pages/PastPaperSolutionsPage';
 import CalculatorPage from './pages/CalculatorPage';
+import SimilarAreaTopicPage from './pages/SimilarAreaTopicPage';
 
 // Math 模塊主組件
 export default function MathModule() {
@@ -34,6 +35,7 @@ export default function MathModule() {
         <Route path="/wrong-answers" element={<WrongAnswersPage />} />
         <Route path="/grade/:gradeId" element={<GradeCoursesPage />} />
         <Route path="/sprint" element={<SprintPage />} />
+        <Route path="/similar-area" element={<SimilarAreaTopicPage />} />
         <Route path="/calculator" element={<CalculatorPage />} />
         <Route path="/past-papers" element={<PastPapersPage />} />
         <Route path="/past-papers/:paperId" element={<PastPaperDetailPage />} />

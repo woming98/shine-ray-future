@@ -1,0 +1,767 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>專題一：相似和等高做面積</title>
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #667085;
+      --line: #d7deea;
+      --blue: #2563eb;
+      --blue-soft: #eaf2ff;
+      --green: #0f766e;
+      --green-soft: #e8f7f4;
+      --amber: #a16207;
+      --amber-soft: #fff6db;
+      --paper: #ffffff;
+      --bg: #f5f7fb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "Noto Sans SC", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.65;
+    }
+
+    main {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 56px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      font-size: 36px;
+    }
+
+    h2 {
+      font-size: 24px;
+    }
+
+    h3 {
+      font-size: 18px;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .hero,
+    .panel,
+    .answer-strip {
+      border: 1px solid var(--line);
+      background: var(--paper);
+      border-radius: 8px;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+    }
+
+    .hero {
+      padding: 28px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 360px;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .tag.green {
+      background: var(--green-soft);
+      color: var(--green);
+    }
+
+    .hero p {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 720px;
+    }
+
+    .quick-result {
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      background: #f8fbff;
+      padding: 18px;
+    }
+
+    .quick-result .label {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .quick-result .value {
+      margin-top: 6px;
+      color: var(--blue);
+      font-size: 34px;
+      font-weight: 800;
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .two-col {
+      grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+      align-items: start;
+    }
+
+    .panel {
+      padding: 22px;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .problem-box {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcff;
+      padding: 16px;
+      color: #243045;
+    }
+
+    .diagram-wrap {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+      padding: 14px;
+      overflow: auto;
+    }
+
+    svg {
+      display: block;
+      width: 100%;
+      min-width: 520px;
+      height: auto;
+    }
+
+    .svg-label {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 20px;
+      font-style: italic;
+      fill: #111827;
+    }
+
+    .caption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .steps {
+      counter-reset: step;
+      display: grid;
+      gap: 12px;
+    }
+
+    .step {
+      counter-increment: step;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+      padding: 14px 14px 14px 54px;
+      position: relative;
+    }
+
+    .step::before {
+      content: counter(step);
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 7px;
+      background: var(--blue);
+      color: #ffffff;
+      font-weight: 800;
+    }
+
+    .math {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+      color: #111827;
+    }
+
+    .answer-strip {
+      margin-top: 18px;
+      padding: 18px 22px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: var(--green-soft);
+      border-color: #99d9cf;
+    }
+
+    .answer-strip strong {
+      color: var(--green);
+      font-size: 22px;
+    }
+
+    .knowledge-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .knowledge-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+      padding: 14px;
+    }
+
+    .knowledge-card .num {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      display: grid;
+      place-items: center;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .note {
+      border-left: 4px solid var(--amber);
+      background: var(--amber-soft);
+      border-radius: 8px;
+      padding: 14px 16px;
+      color: #563c06;
+    }
+
+    .practice-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .practice {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+      padding: 16px;
+    }
+
+    .practice-grid {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+    }
+
+    .mini-diagram {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcff;
+      padding: 8px;
+      overflow: hidden;
+      width: min(300px, 100%);
+      margin: 8px 0 12px;
+    }
+
+    .mini-diagram svg {
+      min-width: 0;
+    }
+
+    .mini-label {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14px;
+      font-style: italic;
+      fill: #111827;
+    }
+
+    .mini-ratio {
+      fill: #2563eb;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .practice-title {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .practice-title span {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    details {
+      margin-top: 10px;
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+    }
+
+    summary {
+      cursor: pointer;
+      color: var(--blue);
+      font-weight: 700;
+    }
+
+    .formula-box {
+      margin-top: 12px;
+      border: 1px dashed #9bb7e8;
+      border-radius: 8px;
+      background: #f8fbff;
+      padding: 12px;
+    }
+
+    @media (max-width: 900px) {
+      main {
+        width: min(100% - 20px, 720px);
+        padding-top: 18px;
+      }
+
+      .hero,
+      .two-col,
+      .knowledge-grid,
+      .practice-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+      }
+
+      main {
+        width: 100%;
+        padding: 0;
+      }
+
+      .hero,
+      .panel,
+      .answer-strip {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div>
+        <div class="tag-row">
+          <span class="tag">專題一</span>
+          <span class="tag green">相似與等高面積</span>
+        </div>
+        <h1>相似和等高做面積</h1>
+        <p>
+          本頁用一道平行四邊形題示範：遇到比例線段和面積，不要先追角度或計算邊長；
+          先找「同高」，把線段比直接轉成面積比。
+        </p>
+      </div>
+      <div class="quick-result">
+        <div class="label">本題答案</div>
+        <div class="value">14 cm²</div>
+        <p>選 B。關鍵是先追面積倍率，而不是逐段求長度。</p>
+      </div>
+    </section>
+
+    <section class="grid two-col">
+      <article class="panel">
+        <div class="panel-header">
+          <h2>題目重述</h2>
+        </div>
+        <div class="problem-box">
+          <p>
+            如圖，<span class="math">ABCD</span> 是平行四邊形，<span class="math">F</span> 在
+            <span class="math">DC</span> 上，<span class="math">G</span> 在
+            <span class="math">AD</span> 的延長線上。
+          </p>
+          <p>
+            已知 <span class="math">DF:FC = 3:4</span>，
+            <span class="math">AD:DG = 1:1</span>，且
+            <span class="math">[△DFG] = 3 cm²</span>。求平行四邊形
+            <span class="math">ABCD</span> 的面積。
+          </p>
+        </div>
+        <div class="diagram-wrap" aria-label="平行四邊形與三角形面積關係圖">
+          <svg viewBox="0 0 660 395" role="img">
+            <defs>
+              <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"></path>
+              </marker>
+            </defs>
+            <polygon points="90,340 470,340 600,180 220,180" fill="#f8fbff" stroke="#172033" stroke-width="3"></polygon>
+            <polygon points="220,180 382.86,180 350,20" fill="#dff6ef" stroke="#0f766e" stroke-width="3"></polygon>
+            <line x1="90" y1="340" x2="350" y2="20" stroke="#172033" stroke-width="3"></line>
+            <line x1="350" y1="20" x2="415.71" y2="340" stroke="#172033" stroke-width="3"></line>
+            <line x1="220" y1="180" x2="600" y2="180" stroke="#172033" stroke-width="3"></line>
+            <line x1="382.86" y1="180" x2="415.71" y2="340" stroke="#172033" stroke-width="3"></line>
+
+            <text class="svg-label" x="64" y="366">A</text>
+            <text class="svg-label" x="482" y="366">B</text>
+            <text class="svg-label" x="612" y="185">C</text>
+            <text class="svg-label" x="196" y="176">D</text>
+            <text class="svg-label" x="390" y="176">F</text>
+            <text class="svg-label" x="410" y="366">E</text>
+            <text class="svg-label" x="359" y="42">G</text>
+
+            <path d="M242 218 L363 218" stroke="#2563eb" stroke-width="3" marker-end="url(#arrow-blue)"></path>
+            <path d="M405 218 L578 218" stroke="#2563eb" stroke-width="3" marker-end="url(#arrow-blue)"></path>
+            <rect x="265" y="228" width="80" height="26" rx="5" fill="#ffffff"></rect>
+            <rect x="450" y="228" width="80" height="26" rx="5" fill="#ffffff"></rect>
+            <text x="277" y="247" fill="#2563eb" font-size="15" font-weight="800">DF = 3份</text>
+            <text x="462" y="247" fill="#2563eb" font-size="15" font-weight="800">FC = 4份</text>
+
+            <path d="M62 318 L192 158" stroke="#0f766e" stroke-width="3"></path>
+            <path d="M203 148 L333 8" stroke="#0f766e" stroke-width="3"></path>
+            <line x1="146" y1="260" x2="166" y2="276" stroke="#0f766e" stroke-width="3"></line>
+            <line x1="276" y1="100" x2="296" y2="116" stroke="#0f766e" stroke-width="3"></line>
+            <rect x="93" y="246" width="35" height="24" rx="5" fill="#ffffff"></rect>
+            <rect x="250" y="83" width="35" height="24" rx="5" fill="#ffffff"></rect>
+            <text x="101" y="264" fill="#0f766e" font-size="14" font-weight="800">AD</text>
+            <text x="257" y="101" fill="#0f766e" font-size="14" font-weight="800">DG</text>
+            <text x="162" y="128" fill="#0f766e" font-size="13" font-weight="800">AD = DG</text>
+
+            <rect x="270" y="112" width="116" height="30" rx="6" fill="#ffffff" opacity="0.92"></rect>
+            <text x="282" y="133" fill="#0f766e" font-size="16" font-weight="800">[△DFG] = 3</text>
+          </svg>
+          <p class="caption">綠色三角形是已知面積，核心是把它放大到 △DCG，再轉到 △ADC。</p>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-header">
+          <h2>解題步驟</h2>
+        </div>
+        <div class="steps">
+          <section class="step">
+            <h3>先寫「目標 ÷ 已知」的倍率鏈</h3>
+            <p>
+              題目給的是 <span class="math">[△DFG]</span>，要的是
+              <span class="math">[ABCD]</span>。不要逐段求邊長，直接追面積倍數；
+              其中 <span class="math">2</span> 來自
+              <span class="math">[ABCD] = 2[△ADC]</span>：
+            </p>
+            <p class="math">
+              [ABCD] ÷ [△DFG]
+              = 2 × ([△ADC] ÷ [△DCG]) × ([△DCG] ÷ [△DFG])
+            </p>
+          </section>
+
+          <section class="step">
+            <h3>把兩個同高比例直接代入</h3>
+            <p>
+              <span class="math">DF:FC = 3:4</span>，所以
+              <span class="math">DC:DF = 7:3</span>。
+              <span class="math">△DCG</span> 和 <span class="math">△DFG</span>
+              同高，因此 <span class="math">[△DCG] ÷ [△DFG] = 7 ÷ 3</span>。
+            </p>
+            <p>
+              又因為 <span class="math">AD:DG = 1:1</span>，
+              <span class="math">△ADC</span> 和 <span class="math">△DCG</span>
+              以同一直線上的 <span class="math">AD</span>、<span class="math">DG</span>
+              為底，同高，所以 <span class="math">[△ADC] ÷ [△DCG] = 1</span>。
+            </p>
+          </section>
+
+          <section class="step">
+            <h3>最後只乘一次</h3>
+            <p class="math">
+              [ABCD] ÷ [△DFG] = 2 × 1 × 7 ÷ 3 = 14 ÷ 3
+            </p>
+            <p class="math">
+              [ABCD] = 3 × 14 ÷ 3 = 14 cm²
+            </p>
+          </section>
+        </div>
+
+        <div class="answer-strip">
+          <span>因此平行四邊形 <span class="math">ABCD</span> 的面積是</span>
+          <strong>14 cm²</strong>
+        </div>
+      </article>
+    </section>
+
+    <section class="grid">
+      <article class="panel">
+        <div class="panel-header">
+          <h2>本題知識點</h2>
+        </div>
+        <div class="knowledge-grid">
+          <div class="knowledge-card">
+            <div class="num">1</div>
+            <h3>同高看底</h3>
+            <p>兩個三角形高相同，面積比等於底邊比。</p>
+          </div>
+          <div class="knowledge-card">
+            <div class="num">2</div>
+            <h3>同一直線上的底</h3>
+            <p>底邊在同一直線上時，常可共用同一個垂直高。</p>
+          </div>
+          <div class="knowledge-card">
+            <div class="num">3</div>
+            <h3>不用追干擾點</h3>
+            <p>本題不需要找 E，也不需要知道 EF 的長度。</p>
+          </div>
+          <div class="knowledge-card">
+            <div class="num">4</div>
+            <h3>平行四邊形減半</h3>
+            <p>任一對角線把平行四邊形分成兩個等面積三角形。</p>
+          </div>
+        </div>
+        <div class="formula-box">
+          <h3>同類題通用公式</h3>
+          <p>
+            若 <span class="math">DF:FC = m:n</span>，
+            <span class="math">AD:DG = p:q</span>，
+            且 <span class="math">[△DFG] = T</span>，則
+          </p>
+          <p class="math">[ABCD] = 2 × (p ÷ q) × T × (m+n) ÷ m</p>
+        </div>
+        <div class="note">
+          DSE 快解方向：看到「一點在邊上 + 面積已知 + 線段比例」，先問自己：
+          哪兩個三角形共高？能否把小三角形按底邊比例放大？
+        </div>
+      </article>
+    </section>
+
+    <section class="grid">
+      <article class="panel">
+        <div class="panel-header">
+          <h2>變式練習</h2>
+        </div>
+        <div class="practice-list">
+          <section class="practice">
+            <div class="practice-title">
+              <h3>練習 1</h3>
+              <span>三角形分底</span>
+            </div>
+            <div class="mini-diagram">
+              <svg viewBox="0 0 340 210" role="img" aria-label="練習 1 圖">
+                <polygon points="170,25 45,175 300,175" fill="#f8fbff" stroke="#172033" stroke-width="3"></polygon>
+                <polygon points="170,25 130,175 172.5,175" fill="#dff6ef" stroke="#0f766e" stroke-width="3"></polygon>
+                <line x1="130" y1="175" x2="170" y2="25" stroke="#172033" stroke-width="2"></line>
+                <line x1="172.5" y1="175" x2="170" y2="25" stroke="#172033" stroke-width="2"></line>
+                <text class="mini-label" x="171" y="20">A</text>
+                <text class="mini-label" x="35" y="194">B</text>
+                <text class="mini-label" x="305" y="194">C</text>
+                <text class="mini-label" x="124" y="194">D</text>
+                <text class="mini-label" x="172" y="194">E</text>
+                <text class="mini-ratio" x="90" y="156">2</text>
+                <text class="mini-ratio" x="145" y="156">1</text>
+                <text class="mini-ratio" x="232" y="156">3</text>
+                <text class="mini-ratio" x="194" y="54">[ABC] = 36</text>
+              </svg>
+            </div>
+            <p>
+              在 <span class="math">△ABC</span> 中，<span class="math">D,E</span>
+              在 <span class="math">BC</span> 上，且
+              <span class="math">BD:DE:EC = 2:1:3</span>。
+              已知 <span class="math">[△ABC] = 36 cm²</span>，求
+              <span class="math">[△ADE]</span>。
+            </p>
+            <details>
+              <summary>顯示答案</summary>
+              <p class="math">DE:BC = 1:(2+1+3) = 1:6</p>
+              <p class="math">[△ADE] = 36 × 1 ÷ 6 = 6 cm²。</p>
+            </details>
+          </section>
+
+          <section class="practice">
+            <div class="practice-title">
+              <h3>練習 2</h3>
+              <span>相似面積平方比</span>
+            </div>
+            <div class="mini-diagram">
+              <svg viewBox="0 0 340 220" role="img" aria-label="練習 2 圖">
+                <polygon points="75,70 160,70 247.5,175 35,175" fill="#f8fbff" stroke="#172033" stroke-width="3"></polygon>
+                <polygon points="75,70 160,70 124.3,100" fill="#dff6ef" stroke="#0f766e" stroke-width="2"></polygon>
+                <polygon points="35,175 247.5,175 124.3,100" fill="#fff6db" stroke="#a16207" stroke-width="2"></polygon>
+                <line x1="75" y1="70" x2="247.5" y2="175" stroke="#172033" stroke-width="2"></line>
+                <line x1="160" y1="70" x2="35" y2="175" stroke="#172033" stroke-width="2"></line>
+                <text class="mini-label" x="63" y="64">A</text>
+                <text class="mini-label" x="164" y="64">B</text>
+                <text class="mini-label" x="252" y="194">C</text>
+                <text class="mini-label" x="22" y="194">D</text>
+                <text class="mini-label" x="128" y="96">O</text>
+                <text class="mini-ratio" x="79" y="53">AB:CD = 2:5</text>
+                <text class="mini-ratio" x="122" y="82">[AOB] = 8</text>
+              </svg>
+            </div>
+            <p>
+              梯形 <span class="math">ABCD</span> 中，
+              <span class="math">AB ∥ CD</span>，對角線交於
+              <span class="math">O</span>。若
+              <span class="math">AB:CD = 2:5</span>，且
+              <span class="math">[△AOB] = 8 cm²</span>，求
+              <span class="math">[△COD]</span>。
+            </p>
+            <details>
+              <summary>顯示答案</summary>
+              <p class="math">△AOB ∼ △COD，邊長比 = 2:5</p>
+              <p class="math">面積比 = 2²:5² = 4:25</p>
+              <p class="math">[△COD] = 8 × 25 ÷ 4 = 50 cm²。</p>
+            </details>
+          </section>
+
+          <section class="practice">
+            <div class="practice-title">
+              <h3>練習 3</h3>
+              <span>平行線放大</span>
+            </div>
+            <div class="mini-diagram">
+              <svg viewBox="0 0 340 220" role="img" aria-label="練習 3 圖">
+                <polygon points="170,25 50,175 290,175" fill="#f8fbff" stroke="#172033" stroke-width="3"></polygon>
+                <polygon points="170,25 122,85 218,85" fill="#dff6ef" stroke="#0f766e" stroke-width="3"></polygon>
+                <line x1="122" y1="85" x2="218" y2="85" stroke="#0f766e" stroke-width="3"></line>
+                <text class="mini-label" x="173" y="22">A</text>
+                <text class="mini-label" x="39" y="194">B</text>
+                <text class="mini-label" x="296" y="194">C</text>
+                <text class="mini-label" x="106" y="87">D</text>
+                <text class="mini-label" x="223" y="87">E</text>
+                <text class="mini-ratio" x="133" y="77">[ADE] = 12</text>
+                <text class="mini-ratio" x="63" y="108">AD:DB = 2:3</text>
+                <text class="mini-ratio" x="197" y="107">DE ∥ BC</text>
+              </svg>
+            </div>
+            <p>
+              在 <span class="math">△ABC</span> 中，
+              <span class="math">D</span> 在 <span class="math">AB</span> 上，
+              <span class="math">E</span> 在 <span class="math">AC</span> 上，
+              <span class="math">DE ∥ BC</span>。若
+              <span class="math">AD:DB = 2:3</span>，且
+              <span class="math">[△ADE] = 12 cm²</span>，求四邊形
+              <span class="math">DBCE</span> 的面積。
+            </p>
+            <details>
+              <summary>顯示答案</summary>
+              <p class="math">AD:AB = 2:5，所以 [△ADE]:[△ABC] = 2²:5² = 4:25</p>
+              <p class="math">[△ABC] = 12 × 25 ÷ 4 = 75</p>
+              <p class="math">[DBCE] = 75 - 12 = 63 cm²。</p>
+            </details>
+          </section>
+
+          <section class="practice">
+            <div class="practice-title">
+              <h3>練習 4</h3>
+              <span>反求底邊比</span>
+            </div>
+            <div class="mini-diagram">
+              <svg viewBox="0 0 340 220" role="img" aria-label="練習 4 圖">
+                <polygon points="170,25 45,175 295,175" fill="#f8fbff" stroke="#172033" stroke-width="3"></polygon>
+                <polygon points="170,25 45,175 138.75,175" fill="#dff6ef" stroke="#0f766e" stroke-width="2"></polygon>
+                <polygon points="170,25 138.75,175 295,175" fill="#fff6db" stroke="#a16207" stroke-width="2"></polygon>
+                <line x1="170" y1="25" x2="138.75" y2="175" stroke="#172033" stroke-width="2"></line>
+                <text class="mini-label" x="173" y="22">A</text>
+                <text class="mini-label" x="34" y="194">B</text>
+                <text class="mini-label" x="300" y="194">C</text>
+                <text class="mini-label" x="136" y="194">D</text>
+                <text class="mini-ratio" x="72" y="129">15</text>
+                <text class="mini-ratio" x="211" y="129">25</text>
+                <text class="mini-ratio" x="107" y="158">BD:DC = ?</text>
+              </svg>
+            </div>
+            <p>
+              在 <span class="math">△ABC</span> 中，
+              <span class="math">D</span> 在 <span class="math">BC</span> 上。
+              已知 <span class="math">[△ABD] = 15 cm²</span>，
+              <span class="math">[△ADC] = 25 cm²</span>。求
+              <span class="math">BD:DC</span>。
+            </p>
+            <details>
+              <summary>顯示答案</summary>
+              <p class="math">△ABD 和 △ADC 共用從 A 到 BC 的高</p>
+              <p class="math">BD:DC = [△ABD]:[△ADC] = 15:25 = 3:5。</p>
+            </details>
+          </section>
+
+          <section class="practice">
+            <div class="practice-title">
+              <h3>練習 5</h3>
+              <span>平行四邊形角落面積</span>
+            </div>
+            <div class="mini-diagram">
+              <svg viewBox="0 0 340 220" role="img" aria-label="練習 5 圖">
+                <polygon points="65,170 285,170 335,50 115,50" fill="#f8fbff" stroke="#172033" stroke-width="3"></polygon>
+                <polygon points="65,170 138.33,170 98.33,90" fill="#dff6ef" stroke="#0f766e" stroke-width="3"></polygon>
+                <line x1="98.33" y1="90" x2="138.33" y2="170" stroke="#172033" stroke-width="2"></line>
+                <text class="mini-label" x="53" y="193">A</text>
+                <text class="mini-label" x="290" y="193">B</text>
+                <text class="mini-label" x="340" y="55">C</text>
+                <text class="mini-label" x="105" y="45">D</text>
+                <text class="mini-label" x="141" y="193">E</text>
+                <text class="mini-label" x="85" y="89">F</text>
+                <text class="mini-ratio" x="113" y="157">AE:EB = 1:2</text>
+                <text class="mini-ratio" x="70" y="112">AF:FD = 2:1</text>
+                <text class="mini-ratio" x="167" y="75">[ABCD] = 54</text>
+              </svg>
+            </div>
+            <p>
+              <span class="math">ABCD</span> 是平行四邊形，
+              <span class="math">E</span> 在 <span class="math">AB</span> 上，
+              <span class="math">F</span> 在 <span class="math">AD</span> 上。
+              已知 <span class="math">AE:EB = 1:2</span>，
+              <span class="math">AF:FD = 2:1</span>，且
+              <span class="math">[ABCD] = 54 cm²</span>。求
+              <span class="math">[△AEF]</span>。
+            </p>
+            <details>
+              <summary>顯示答案</summary>
+              <p class="math">AE/AB = 1/3，AF/AD = 2/3</p>
+              <p class="math">[△AEF] = 1/2 × 1/3 × 2/3 × 54 = 6 cm²。</p>
+            </details>
+          </section>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

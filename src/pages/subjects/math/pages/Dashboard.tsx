@@ -17,7 +17,7 @@ import { GRADE_COURSES } from '../constants/curriculum';
 
 export default function Dashboard() {
   const navigate = useNavigate();
-  const similarAreaTopicPath = '/dse-math/topics/similar-area/';
+  const similarAreaTopicPath = '/subjects/math/similar-area';
 
   return (
     <div className="max-w-7xl mx-auto space-y-12">
@@ -41,7 +41,7 @@ export default function Dashboard() {
           <Button variant="secondary" onClick={() => navigate('/subjects/math/calculator')}>
             计数机 Program
           </Button>
-          <Button variant="secondary" onClick={() => { window.location.href = similarAreaTopicPath; }}>
+          <Button variant="secondary" onClick={() => navigate(similarAreaTopicPath)}>
             专题一：相似和等高面积
           </Button>
         </div>
@@ -144,10 +144,6 @@ export default function Dashboard() {
               key={tool.title}
               className="p-5 cursor-pointer"
               onClick={() => {
-                if (tool.path.startsWith('/dse-math/')) {
-                  window.location.href = tool.path;
-                  return;
-                }
                 navigate(tool.path);
               }}
             >
