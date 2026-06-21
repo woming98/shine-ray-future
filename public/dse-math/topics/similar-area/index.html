@@ -275,6 +275,83 @@
       color: #563c06;
     }
 
+    .topic-map,
+    .model-grid,
+    .example-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .topic-map {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .model-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .map-card,
+    .model-card,
+    .worked-example {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+      padding: 14px;
+    }
+
+    .map-card strong,
+    .model-card strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .map-card span,
+    .model-card span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .worked-example {
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    .worked-example .mini-diagram {
+      margin: 0;
+    }
+
+    .example-body {
+      display: grid;
+      gap: 10px;
+    }
+
+    .flow {
+      border: 1px dashed #9bb7e8;
+      border-radius: 8px;
+      background: #f8fbff;
+      padding: 10px 12px;
+      color: #1d4ed8;
+      font-weight: 800;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      border-radius: 999px;
+      background: var(--green-soft);
+      color: var(--green);
+      padding: 4px 10px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
     .practice-list {
       display: grid;
       gap: 12px;
@@ -364,7 +441,10 @@
       .hero,
       .two-col,
       .knowledge-grid,
-      .practice-grid {
+      .topic-map,
+      .model-grid,
+      .practice-grid,
+      .worked-example {
         grid-template-columns: 1fr;
       }
 
@@ -569,6 +649,182 @@
         <div class="note">
           DSE 快解方向：看到「一點在邊上 + 面積已知 + 線段比例」，先問自己：
           哪兩個三角形共高？能否把小三角形按底邊比例放大？
+        </div>
+      </article>
+    </section>
+
+    <section class="grid">
+      <article class="panel">
+        <div class="panel-header">
+          <h2>PDF 題型地圖</h2>
+        </div>
+        <div class="topic-map">
+          <div class="map-card">
+            <strong>平行四邊形外點</strong>
+            <span>由小三角形出發，經同高和延長線轉到整個平行四邊形。</span>
+          </div>
+          <div class="map-card">
+            <strong>梯形交點</strong>
+            <span>兩條線交於內點，先找相似三角形，再把小面積放大。</span>
+          </div>
+          <div class="map-card">
+            <strong>平行線補面積</strong>
+            <span>已知兩塊小三角形面積時，用底高比例補回梯形。</span>
+          </div>
+          <div class="map-card">
+            <strong>外接三角形</strong>
+            <span>點在邊上，兩條延長線交外點，常用相似三角形串倍率。</span>
+          </div>
+          <div class="map-card">
+            <strong>方格切割</strong>
+            <span>正方形被斜線切成四邊形時，直接設邊長 1 或用坐標。</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-header">
+          <h2>快解模型庫</h2>
+        </div>
+        <div class="model-grid">
+          <div class="model-card">
+            <strong>模型 A：同高看底</strong>
+            <span>兩三角形的頂點到同一直線距離相同，面積比就是底邊比。</span>
+          </div>
+          <div class="model-card">
+            <strong>模型 B：相似平方</strong>
+            <span>由平行線得到相似後，面積比等於邊長比的平方。</span>
+          </div>
+          <div class="model-card">
+            <strong>模型 C：倍率鏈</strong>
+            <span>先寫「目標 ÷ 已知」，把每一步轉換倍率一次過乘起來。</span>
+          </div>
+          <div class="model-card">
+            <strong>模型 D：坐標化</strong>
+            <span>方格、正方形、平行線太多時，設單位長，用面積公式硬拆。</span>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="grid">
+      <article class="panel">
+        <div class="panel-header">
+          <h2>進階例題拆解</h2>
+        </div>
+        <div class="example-grid">
+          <section class="worked-example">
+            <div class="mini-diagram">
+              <svg viewBox="0 0 340 220" role="img" aria-label="梯形交點面積例題圖">
+                <polygon points="50,175 290,175 190,55 110,55" fill="#f8fbff" stroke="#172033" stroke-width="3"></polygon>
+                <polygon points="170,175 290,175 182,103" fill="#dff6ef" stroke="#0f766e" stroke-width="3"></polygon>
+                <line x1="110" y1="55" x2="290" y2="175" stroke="#172033" stroke-width="2"></line>
+                <line x1="190" y1="55" x2="170" y2="175" stroke="#172033" stroke-width="2"></line>
+                <text class="mini-label" x="97" y="51">A</text>
+                <text class="mini-label" x="194" y="51">D</text>
+                <text class="mini-label" x="39" y="194">B</text>
+                <text class="mini-label" x="295" y="194">C</text>
+                <text class="mini-label" x="161" y="194">E</text>
+                <text class="mini-label" x="185" y="101">F</text>
+                <text class="mini-ratio" x="116" y="45">AD:BC = 1:3</text>
+                <text class="mini-ratio" x="207" y="137">[CEF] = 18</text>
+              </svg>
+            </div>
+            <div class="example-body">
+              <div class="pill-row">
+                <span class="pill">梯形交點</span>
+                <span class="pill">中點</span>
+                <span class="pill">倍率鏈</span>
+              </div>
+              <h3>例題 A：由小三角形放大到整個梯形</h3>
+              <p>
+                <span class="math">AD ∥ BC</span>，<span class="math">AD:BC = 1:3</span>，
+                <span class="math">E</span> 是 <span class="math">BC</span> 的中點，
+                <span class="math">AC</span> 與 <span class="math">DE</span> 交於
+                <span class="math">F</span>。若 <span class="math">[△CEF] = 18</span>，
+                求梯形面積。
+              </p>
+              <div class="flow">梯形 ÷ △CEF = 2 × (1+3) × (2×1+3) ÷ 3² = 40 ÷ 9</div>
+              <p class="math">梯形面積 = 18 × 40 ÷ 9 = 80。</p>
+            </div>
+          </section>
+
+          <section class="worked-example">
+            <div class="mini-diagram">
+              <svg viewBox="0 0 340 220" role="img" aria-label="平行線補面積例題圖">
+                <polygon points="40,175 160,175 160,135 40,55" fill="#f8fbff" stroke="#172033" stroke-width="3"></polygon>
+                <polygon points="160,175 320,175 160,135" fill="#dff6ef" stroke="#0f766e" stroke-width="2"></polygon>
+                <polygon points="320,175 160,135 40,55" fill="#fff6db" stroke="#a16207" stroke-width="2"></polygon>
+                <line x1="40" y1="175" x2="320" y2="175" stroke="#172033" stroke-width="3"></line>
+                <line x1="40" y1="55" x2="320" y2="175" stroke="#172033" stroke-width="2"></line>
+                <text class="mini-label" x="30" y="194">A</text>
+                <text class="mini-label" x="154" y="194">B</text>
+                <text class="mini-label" x="324" y="194">C</text>
+                <text class="mini-label" x="164" y="136">D</text>
+                <text class="mini-label" x="30" y="51">E</text>
+                <text class="mini-ratio" x="77" y="163">AB:BC = 3:4</text>
+                <text class="mini-ratio" x="186" y="157">8</text>
+                <text class="mini-ratio" x="215" y="105">10</text>
+              </svg>
+            </div>
+            <div class="example-body">
+              <div class="pill-row">
+                <span class="pill">平行線</span>
+                <span class="pill">補面積</span>
+                <span class="pill">梯形</span>
+              </div>
+              <h3>例題 B：已知兩塊面積，反補梯形</h3>
+              <p>
+                <span class="math">A,B,C</span> 共線，
+                <span class="math">AB:BC = 3:4</span>，
+                <span class="math">AE ∥ BD</span>。
+                若 <span class="math">[△BCD] = 8</span>，
+                <span class="math">[△CDE] = 10</span>，求梯形
+                <span class="math">ABDE</span> 的面積。
+              </p>
+              <div class="flow">設 AB=3、BC=4；由 [BCD]=8 得 BD=4。</div>
+              <p class="math">由 [CDE]=10 可得 AE=12，所以 [ABDE] = (12+4) × 3 ÷ 2 = 24。</p>
+            </div>
+          </section>
+
+          <section class="worked-example">
+            <div class="mini-diagram">
+              <svg viewBox="0 0 340 220" role="img" aria-label="三個正方形切割面積比圖">
+                <rect x="40" y="55" width="70" height="70" fill="#f8fbff" stroke="#172033" stroke-width="3"></rect>
+                <rect x="110" y="55" width="70" height="70" fill="#ffffff" stroke="#172033" stroke-width="3"></rect>
+                <rect x="180" y="55" width="70" height="70" fill="#ffffff" stroke="#172033" stroke-width="3"></rect>
+                <polygon points="110,55 180,55 180,101.7 110,78.3" fill="#dff6ef" stroke="#0f766e" stroke-width="2"></polygon>
+                <polygon points="40,55 40,125 110,125 110,78.3" fill="#fff6db" stroke="#a16207" stroke-width="2"></polygon>
+                <line x1="40" y1="55" x2="250" y2="125" stroke="#172033" stroke-width="3"></line>
+                <text class="mini-label" x="31" y="52">A</text>
+                <text class="mini-label" x="30" y="145">B</text>
+                <text class="mini-label" x="104" y="145">C</text>
+                <text class="mini-label" x="104" y="51">D</text>
+                <text class="mini-label" x="174" y="51">E</text>
+                <text class="mini-label" x="174" y="145">F</text>
+                <text class="mini-label" x="254" y="145">G</text>
+                <text class="mini-label" x="254" y="52">H</text>
+                <text class="mini-label" x="113" y="75">P</text>
+                <text class="mini-label" x="183" y="99">Q</text>
+                <text class="mini-ratio" x="95" y="30">3 個相同正方形</text>
+              </svg>
+            </div>
+            <div class="example-body">
+              <div class="pill-row">
+                <span class="pill">坐標化</span>
+                <span class="pill">方格切割</span>
+                <span class="pill">面積比</span>
+              </div>
+              <h3>例題 C：正方形被斜線切割</h3>
+              <p>
+                三個相同正方形排成一行，連接最左上角至最右下角。
+                斜線切第一、第二條分隔線於 <span class="math">P,Q</span>。
+                求中間上方四邊形與左邊下方四邊形的面積比。
+              </p>
+              <div class="flow">設每個正方形邊長為 1，斜線高度依次為 1、2/3、1/3、0。</div>
+              <p class="math">中間上方 = 1/2，左邊下方 = 5/6，所以面積比 = 3:5。</p>
+            </div>
+          </section>
         </div>
       </article>
     </section>
