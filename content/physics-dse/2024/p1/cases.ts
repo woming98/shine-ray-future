@@ -163,20 +163,24 @@ const energyBalanceSvg = `
 const idealGasSvg = `
 <svg viewBox="0 0 760 360" role="img" aria-label="小气室中的 ideal gas 分子数估算重画图">
   <rect x="0" y="0" width="760" height="360" rx="18" fill="#f8fafc"/>
-  <rect x="70" y="72" width="260" height="205" rx="18" fill="#e0f2fe" stroke="#0284c7" stroke-width="3"/>
+  <rect x="70" y="72" width="250" height="205" rx="18" fill="#e0f2fe" stroke="#0284c7" stroke-width="3"/>
   <g fill="#0369a1">
     <circle cx="112" cy="120" r="4"/><circle cx="154" cy="206" r="3"/><circle cx="204" cy="148" r="4"/>
     <circle cx="257" cy="233" r="3"/><circle cx="292" cy="112" r="4"/><circle cx="128" cy="252" r="3"/>
     <circle cx="225" cy="257" r="4"/><circle cx="304" cy="183" r="3"/><circle cx="176" cy="101" r="3"/>
   </g>
-  <text x="102" y="310" font-size="18" font-weight="700" fill="#075985">1 cm³，极低压</text>
-  <text x="405" y="86" font-size="25" font-weight="800" fill="#0f172a">用 pV = NkT 数 molecule count</text>
-  <text x="405" y="132" font-size="20" fill="#334155">N = pV / kT</text>
-  <text x="405" y="176" font-size="19" fill="#334155">p = 10⁻⁸ Pa</text>
-  <text x="405" y="211" font-size="19" fill="#334155">V = 1 cm³ = 10⁻⁶ m³</text>
-  <text x="405" y="246" font-size="19" fill="#334155">kT ≈ 1.38 × 10⁻²³ × 300</text>
-  <rect x="395" y="278" width="286" height="44" rx="12" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
-  <text x="415" y="307" font-size="20" font-weight="800" fill="#92400e">N ≈ 2.4 × 10⁶ ⇒ 数量级 10⁶</text>
+  <text x="112" y="310" font-size="18" font-weight="700" fill="#075985">同一团气体</text>
+  <path d="M338 174 H402" stroke="#0f172a" stroke-width="3"/>
+  <path d="M402 174 l-12 -8 m12 8 l-12 8" stroke="#0f172a" stroke-width="3" fill="none"/>
+  <text x="405" y="76" font-size="25" font-weight="800" fill="#0f172a">宏观状态翻译成微观计数</text>
+  <rect x="405" y="105" width="108" height="58" rx="12" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="443" y="140" font-size="24" font-weight="800" fill="#1e3a8a">p</text>
+  <rect x="531" y="105" width="108" height="58" rx="12" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="570" y="140" font-size="24" font-weight="800" fill="#166534">V</text>
+  <rect x="468" y="181" width="108" height="58" rx="12" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <text x="508" y="216" font-size="24" font-weight="800" fill="#92400e">T</text>
+  <rect x="405" y="270" width="234" height="48" rx="14" fill="#fee2e2" stroke="#ef4444" stroke-width="2"/>
+  <text x="427" y="301" font-size="20" font-weight="800" fill="#991b1b">N = pV / kT</text>
 </svg>`
 
 const vtAreaSvg = `
@@ -1018,8 +1022,8 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
   {
     slug: 'q03',
     questionNo: 3,
-    title: '低压不等于“没有分子”：用 pV = NkT 数 molecule count',
-    subtitle: '先把气体状态翻译成分子个数，再回到 2024 Q3 的数量级选择。',
+    title: '理想气体的微观计数：从 p、V、T 读出 molecule count',
+    subtitle: '先建立宏观状态到微观分子数的翻译，再处理 DSE 的数量级估算。',
     paper: '2024 Paper 1 Section A',
     topic: '气体定律与动理论（Gas Laws and Kinetic Theory）',
     tags: ['理想气体 ideal gas', '数量级 order of magnitude', 'Boltzmann constant'],
@@ -1030,12 +1034,12 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
     knowledgeSystem: {
       title: '知识专题：用 ideal gas 方程估算分子数数量级',
       bigIdea:
-        '“真空”在日常语言里像是空无一物，但在物理里它通常只是压强很低。只要还有压强、体积和温度，就可以用 pV = NkT 反推里面大约有多少个 molecules。DSE 这类题不追求很多有效数字，而是看你能否选对微观版本的气体方程、换对 SI 单位、守住 10 的幂。',
+        '理想气体题有一条很重要的翻译线：p、V、T 是宏观状态，N 是微观分子数。只要一团气体可以近似看作 ideal gas，就能用 pV = NkT 把看得见的状态量翻译成看不见的 molecule count。DSE 这类题不追求很多有效数字，而是看你能否选对微观版本的气体方程、换对 SI 单位、守住 10 的幂。',
       learningMap: [
-        '第一层：分清 pV = nRT 和 pV = NkT。',
-        '第二层：题目问 molecules，就用 N 和 Boltzmann constant k。',
-        '第三层：所有量先转 SI，尤其是 cm³ 到 m³。',
-        '第四层：按数量级估算，不要被很小的压强吓到。',
+        '第一层：把 p、V、T 看成同一团气体的宏观状态。',
+        '第二层：分清 pV = nRT 和 pV = NkT 两种计数语言。',
+        '第三层：把所有量先转成 SI，尤其是体积和温度。',
+        '第四层：按数量级估算 N，不被极大或极小的数吓乱。',
       ],
       whyItMatters:
         '这类题不是考你背一个孤立公式，而是考你能不能把宏观世界和微观世界接起来。压强、体积、温度是仪器可以描述的状态；分子数是看不见的计数。pV = NkT 的作用，就是把“这团气体处在什么状态”翻译成“里面大约有多少个粒子”。',
@@ -1117,7 +1121,7 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
           points: [
             'n 是 mole 数，配合 gas constant R。',
             'N 是 molecule count，配合 Boltzmann constant k。',
-            '两者通过 N = nNA 连接，但本题直接问分子数，用 pV = NkT 最短。',
+            '两者通过 N = nNA 连接；若目标是实际分子数，用 pV = NkT 最短。',
           ],
         },
         {
@@ -1131,8 +1135,8 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
       ],
       misconceptions: [
         {
-          wrongIdea: '压强是 10^-8 Pa，几乎为零，所以分子数也应该接近 0。',
-          correction: '微观分子数还取决于体积和 kT。很低压仍可能对应百万级分子。',
+          wrongIdea: '压强很低，所以分子数也一定接近 0。',
+          correction: '微观分子数还取决于体积和 kT。低压只说明单位体积的粒子效应弱，不等于总数可以凭直觉判断。',
         },
         {
           wrongIdea: '1 cm³ 很小，所以可以当成 10^-3 m³。',
@@ -1157,7 +1161,7 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
       bridgeToQuestion:
         '现在才回到 2024 Q3。英文题面很短，但它把三个判断藏在一句话里：pressure 是 10⁻⁸ Pa，volume 是 1 cm³，问题问的是 number of air molecules。',
       narrative: {
-        heading: '先把“真空”翻译成一个可计算的气体状态',
+        heading: '先建立宏观状态到微观计数的翻译',
         reasoningHeading: '从单位和数量级慢慢推到答案',
         sidebar: {
           formula: 'pV = NkT',
@@ -1165,20 +1169,20 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
             'p：压强（Pa）；V：体积（m³）；N：分子个数（无单位）；k：Boltzmann constant（J K⁻¹）；T：绝对温度（K）。',
           note: '题目问 molecules，用 N 和 k；题目问 moles，才用 n 和 R。',
           readOrder:
-            '先看题目问 N 还是 n；再把体积和温度转成 SI；最后只抓 10 的幂。',
+            '先分清目标是 N 还是 n；再把体积和温度转成 SI；最后只抓 10 的幂。',
         },
         lead: [
-          '看到 “vacuum” 这个词时，直觉很容易先替你下结论：里面应该几乎没有分子。物理题不能这样读。真空不是一个绝对状态，而是一个压强状态；压强低，只说明单位面积受到的分子撞击效果很小，并不直接告诉你分子个数是多少。',
-          '要把这件事算出来，需要三件量一起出现：pressure、volume、temperature。pressure 和 volume 合在一起给出这团气体的宏观“能量尺度”；temperature 决定每个分子平均热运动的尺度。两边一除，才得到实际的 molecule count。',
-          '因此这题的入口不是“真空很空”，而是“题目问 molecules，所以我要进入 N 的语言”。一旦这个入口选对，后面的工作就只剩单位和数量级。',
+          '气体有两种读法。一种是宏观读法：压强是多少，体积是多少，温度是多少；这些量可以由仪器测量，也可以直接写在题目条件里。另一种是微观读法：这团气体里到底有多少个 molecules。DSE 气体题常考的，就是你能不能在这两种读法之间切换。',
+          '压强不是一个孤立数字。它来自大量分子不断撞击容器壁；温度也不是单纯冷热感觉，而是在描述分子热运动的能量尺度。体积则告诉你这团气体占据多大空间。把 p、V、T 合起来，才足以反推这团气体中大约有多少个分子。',
+          '所以本专题先不急着看某一道题的数字。我们先把桥搭好：宏观状态 p、V、T 在左边，微观计数 N 在右边，中间连接它们的公式就是 pV = NkT。',
         ],
         sections: [
           {
-            title: '一、题目问 molecules，就进入 N 的语言',
+            title: '一、同一团气体，可以用 mole 计，也可以逐个 molecule 计',
             paragraphs: [
               '理想气体方程有两个常见版本。pV = nRT 用 mole 作计数单位；pV = NkT 用一个个 molecule 作计数单位。它们不是两条互相矛盾的定律，而是同一件事的两种语言。',
-              '如果题目问 amount of substance 或 moles，nRT 很自然。但如果题目问 number of molecules，再绕到 mole、再乘 Avogadro constant，就容易把 R、N_A、k 混在一起。更干净的写法是直接用 N。',
-              '所以第一行先写 pV = NkT，再改写成 N = pV/(kT)。从这一刻开始，题目已经不是抽象的“真空题”，而是一个明确的除法：一团气体的 pV，除以每个分子的 kT 尺度。',
+              'mole 是一包一包地数，适合化学和宏观物质的量；molecule count 是一个一个地数，适合问实际粒子个数。两者之间用 Avogadro constant 连接：N = nNA。',
+              '如果目标是 actual number of molecules，最直接的语言就是 N 和 Boltzmann constant k。把 pV = NkT 改写成 N = pV/(kT)，意思很清楚：整团气体的 pV 尺度，除以每个分子的 kT 尺度，得到分子个数。',
             ],
             equations: [
               {
@@ -1213,14 +1217,14 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
                 unitNote: 'Pa·m³ 等于 J，所以 pV 和 kT 都是能量单位，相除后得到纯数量 N。',
               },
             ],
-            note: '这一步最重要的是选 pV = NkT，不是 pV = nRT。',
+            note: '先决定计数语言，再写公式。目标是 molecule count，就用 N 和 k。',
           },
           {
-            title: '二、单位换算决定数量级',
+            title: '二、数量级题真正先考单位纪律',
             paragraphs: [
-              '这题真正的危险不在 10⁻⁸ Pa，而在 1 cm³。长度从 cm 到 m 是 10⁻²；体积却不是 10⁻²，而是三条长度一起换算，所以要立方。',
-              '因此 1 cm³ = (10⁻² m)³ = 10⁻⁶ m³。这个 10⁻⁶ 如果写成 10⁻³，答案会立刻大一千倍；如果直接把 cm³ 当 m³，答案会大一百万倍。',
-              '温度也一样。room temperature 在气体方程里不能写 25，因为 T 必须是 Kelvin。DSE 估算时取 300 K 就够了。',
+              '气体方程对单位很敏感。p 要用 Pa，V 要用 m³，T 要用 K。只要其中一个量没有进入 SI，后面的数量级就会整体跑偏。',
+              '最容易错的是体积。长度从 cm 到 m 是 10⁻²；体积是三维量，所以换算要立方：1 cm³ = (10⁻² m)³ = 10⁻⁶ m³。这个 10⁻⁶ 如果写成 10⁻³，答案会立刻大一千倍。',
+              '温度也一样。气体方程中的 T 必须是 absolute temperature。日常说 25°C，放进 pV = NkT 前要换成约 300 K。温度差可以用 °C，但这里的 T 不是温度差，而是绝对温度。',
             ],
             equations: [
               {
@@ -1228,7 +1232,7 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
                 symbols: [
                   {
                     symbol: 'cm³',
-                    meaning: '立方厘米，题目给出的小体积单位',
+                    meaning: '立方厘米，常见的小体积单位',
                     unit: 'cm³',
                   },
                   {
@@ -1242,15 +1246,15 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
             ],
           },
           {
-            title: '三、数量级先行，系数随后',
+            title: '三、估算时先处理 10 的幂，再处理系数',
             paragraphs: [
-              '单位摆好后，数字其实很短。pV = 10⁻⁸ × 10⁻⁶ = 10⁻¹⁴ J。另一方面，kT ≈ 1.38 × 10⁻²³ × 300 ≈ 4.1 × 10⁻²¹ J。',
-              '于是 N ≈ 10⁻¹⁴ / (4.1 × 10⁻²¹)。先看 10 的幂：10⁻¹⁴ 除以 10⁻²¹，得到 10⁷；再看系数：1 / 4.1 约是 0.24。所以 N 约为 2.4 × 10⁶。',
-              '这就是 order of magnitude 题的节奏。你不需要把 2.4 算到很多位；你只要知道它稳定落在百万级，选项就已经被筛掉了。',
+              'DSE 的 order of magnitude 题，不是要你把每个有效数字都算得很漂亮。更稳的做法是先把 10 的幂单独处理，再回头看前面的系数会不会把结果推到相邻选项。',
+              '例如 pV 如果落在 10ᵃ，kT 如果落在 10ᵇ，那么 N 的主要数量级就是 10^(a-b)。这一步先把答案的大框架定住。之后再看 1.38、3、4.1 这类系数，判断结果靠近哪一个选项。',
+              '这样做还有一个好处：很小的 pressure、很小的 k、很大的 molecule count 不会在脑中混成一团。你每一步只处理一种东西，错误就容易被拦住。',
             ],
           },
           {
-            title: '四、最后才把 2024 Q3 接上',
+            title: '四、把这套翻译压成考场读题规则',
             questionBrief: {
               title: '2024 DSE Q3 原题英文',
               stem: [
@@ -1280,14 +1284,14 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
               ],
             },
             paragraphs: [
-              '现在读原题就不会慌了。pressure 已经是 SI 单位，temperature 用 room temperature ≈ 300 K，真正要小心的是 1 cm³ 必须变成 10⁻⁶ m³。',
-              '把这些量放进 N = pV/(kT)，得到约 2.4 × 10⁶ molecules。order of magnitude 对应 10⁶，因此 B 留下。',
-              'A 太小，通常是把 “vacuum” 读成“几乎没有分子”的直觉答案。C 和 D 太大，多半来自体积换算或 10 的幂处理失控。DSE 在这里考的不是复杂代数，而是你有没有把宏观状态一步一步翻译成微观计数。',
+              '有了上面的系统，考场读题可以压成三步。第一步，先圈目标量：题目要的是 moles，还是 actual number of molecules？如果是 molecules，未知量就是 N。',
+              '第二步，把宏观状态整理成 SI：pressure 用 Pa，volume 用 m³，temperature 用 K。不要先凭直觉判断“多”或“少”，因为直觉很难同时处理 pV 和 kT。',
+              '第三步，只做数量级除法。先看 pV 的 10 的幂，再看 kT 的 10 的幂，最后处理系数。这样回到任何同类 DSE 题时，解题路径都不会被题面里的极小或极大数字带乱。',
             ],
           },
         ],
         closing: [
-          'Q3 的核心不是气体方程有多陌生，而是你能否在三件事上稳住：molecules 对应 N，cm³ 要转成 10⁻⁶ m³，room temperature 要用约 300 K。三件事都稳，数量级自然落到 10⁶。',
+          '这类题的核心不是气体方程有多陌生，而是你能否在三件事上稳住：molecule count 对应 N，小体积要转成 m³，温度要用 K。三件事都稳，数量级估算就不会散。',
         ],
       },
     },
@@ -1298,7 +1302,7 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
     quickTake:
       '题目问分子数 N，所以用 N = pV/(kT)。p = 10⁻⁸ Pa，V = 10⁻⁶ m³，T 约 300 K，算得 N 约为 2.4 × 10⁶，数量级是 10⁶。',
     diagram: {
-      title: '教学重画图：小气室中的 ideal gas 分子数估算',
+      title: '教学重画图：宏观状态到微观分子数的翻译',
       svg: idealGasSvg,
     },
     model: [
