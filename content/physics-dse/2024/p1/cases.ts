@@ -1051,7 +1051,7 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
           checkpoints: [
             '看到 moles 或 amount of substance：用 n 和 R。',
             '看到 molecules 或 particles：用 N 和 k。',
-            'R 和 k 的关系是 R = N_A k，其中 N_A 是 Avogadro constant。',
+            'R 和 k 的关系是 R = N_A k，也就是 k = R / N_A；k 是把每 mole 的 gas constant 拆到每一个 molecule 身上。',
           ],
         },
         {
@@ -1080,7 +1080,7 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
           name: '微观理想气体方程',
           expression: 'pV = NkT',
           useWhen: '题目要求 actual number of molecules / particles。',
-          watchOut: 'N 不是 mole 数，不能再乘或除 R。',
+          watchOut: 'k = R / N_A，是每个 molecule 对应的 gas constant；N 不是 mole 数，不能再乘或除 R。',
         },
         {
           name: '宏观理想气体方程',
@@ -1120,7 +1120,7 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
           title: 'n 和 N 是两种不同语言',
           points: [
             'n 是 mole 数，配合 gas constant R。',
-            'N 是 molecule count，配合 Boltzmann constant k。',
+            'N 是 molecule count，配合 Boltzmann constant k；k = R / N_A。',
             '两者通过 N = nN_A 连接；N_A 是 Avogadro constant，不是可以和左边 N 约掉的同一个量。',
           ],
         },
@@ -1166,7 +1166,7 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
         sidebar: {
           formula: 'pV = NkT',
           symbols:
-            'p：压强（Pa）；V：体积（m³）；N：分子个数（无单位）；k：Boltzmann constant（J K⁻¹）；T：绝对温度（K）。',
+            'p：压强（Pa）；V：体积（m³）；N：分子个数（无单位）；k：Boltzmann constant（J K⁻¹），也就是 R / N_A；T：绝对温度（K）。',
           note: '题目问 molecules，用 N 和 k；题目问 moles，才用 n 和 R。',
           readOrder:
             '先分清目标是 N 还是 n；再把体积和温度转成 SI；最后只抓 10 的幂。',
@@ -1182,10 +1182,33 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
             paragraphs: [
               '理想气体方程最常见的写法是 pV = nRT。这个版本用 n 来数，n 的单位是 mole。mole 很方便，但它是“一大包一大包”地数，不是逐个粒子数。',
               'Q3 问的是 number of air molecules。这个问法已经把目标说清楚了：它要的是实际分子个数 N。于是公式要换成微观版本 pV = NkT，其中 k 是 Boltzmann constant。',
+              'k 不是另一个需要硬背的神秘数。它其实就是 gas constant R 拆到每一个 molecule 身上的版本。R ≈ 8.31 J mol^-1 K^-1，意思是每 mole、每升高 1 K 对应的能量尺度；一 mole 里有 N_A ≈ 6.02 × 10^23 mol^-1 个 molecules，所以每一个 molecule 分到的那份就是 k = R / N_A。',
+              '把数字除一下：8.31 / (6.02 × 10^23) ≈ 1.38 × 10^-23，所以 k ≈ 1.38 × 10^-23 J K^-1。这个 10^-23 很小，不是因为公式奇怪，而是因为一 mole 里面有 10^23 级别的粒子；把一整 mole 的常数拆到单个 molecule 上，自然会变得非常小。',
               '如果你想从 n 转到 N，也可以用 N = nN_A。这里的 N_A 是 Avogadro constant，读成一个完整常数名，不是 N 乘 A。左边的 N 和右边 N_A 里的 N 不是同一个可约掉的东西。',
               '把 pV = NkT 变形后得到 N = pV/(kT)。这句话可以朴素地理解：整团气体的 pV 尺度，除以每个分子的 kT 尺度，剩下的就是分子个数。',
             ],
             equations: [
+              {
+                expression: 'k = R / N_A',
+                symbols: [
+                  {
+                    symbol: 'k',
+                    meaning: 'Boltzmann constant；单个 molecule 对应的气体常数',
+                    unit: 'J K⁻¹',
+                  },
+                  {
+                    symbol: 'R',
+                    meaning: 'gas constant；一 mole 气体对应的常数',
+                    unit: 'J mol⁻¹ K⁻¹',
+                  },
+                  {
+                    symbol: 'N_A',
+                    meaning: 'Avogadro constant；每 mole 里的粒子个数',
+                    unit: 'mol⁻¹',
+                  },
+                ],
+                unitNote: '理解上记住 k = R / N_A；考场上看到 pV = NkT 时，知道 k 约为 1.38 × 10^-23 J K^-1。',
+              },
               {
                 expression: 'N = pV / kT',
                 symbols: [
@@ -1318,7 +1341,7 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
         points: [
           'pV = nRT 使用的是物质的量 n。',
           'pV = NkT 使用的是分子个数 N。',
-          '题目问 molecules，所以用 Boltzmann constant k，不用 R。',
+          '题目问 molecules，所以用 Boltzmann constant k，不用 R；k = R / N_A。',
         ],
       },
       {
@@ -1333,7 +1356,7 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
     thinkingPath: [
       '先识别未知量是 molecule count，所以写 N = pV/kT。',
       '把 1 cm³ 换算成 SI 单位。',
-      '使用 T ≈ 300 K，k = 1.38 × 10^-23 J K^-1。',
+      '使用 T ≈ 300 K；k = R / N_A ≈ 1.38 × 10^-23 J K^-1，是 R 拆到单个 molecule 后的常数。',
       '先处理 10 的幂，再看前面的系数。',
     ],
     solution: [
