@@ -1754,9 +1754,6 @@ function renderCasePage(caseStudy: PhysicsCaseStudy, allCases: PhysicsCaseStudy[
 
   ${renderFigureZoom(caseStudy)}
 
-  <footer>
-    <div class="shell">莘睿未来原创教学化重构页面；不替代原卷，只帮助学生理解考法。</div>
-  </footer>
 </body>
 </html>`
 }
