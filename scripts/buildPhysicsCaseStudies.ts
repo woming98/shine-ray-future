@@ -1,10 +1,12 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { PHYSICS_DSE_2024_P1_CASES, type PhysicsCaseStudy } from '../content/physics-dse/2024/p1/cases'
+import { copyKatexAssets, renderDisplayFormula, renderInlineMath, renderRichText } from './physicsFormulaRendering'
 
 const outputRoot = path.join(process.cwd(), 'public', 'physics', 'dse-2024')
 const yearIndexHref = '/physics/dse-2024/index.html'
 const paperOneHref = '/physics/dse-2024/p1/index.html'
+const katexCssHref = '/physics/dse-2024/vendor/katex/katex.min.css'
 
 function ensureDir(dir: string) {
   fs.mkdirSync(dir, { recursive: true })
@@ -20,11 +22,11 @@ function escapeHtml(value: string) {
 }
 
 function renderList(items: string[]) {
-  return `<ul>${items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`
+  return `<ul>${items.map((item) => `<li>${renderRichText(item)}</li>`).join('')}</ul>`
 }
 
 function renderParagraphs(items: string[]) {
-  return items.map((item) => `<p>${escapeHtml(item)}</p>`).join('')
+  return items.map((item) => `<p>${renderRichText(item)}</p>`).join('')
 }
 
 function renderTags(tags: string[]) {
@@ -39,7 +41,7 @@ function renderOptionAnalysis(caseStudy: PhysicsCaseStudy) {
           <div class="option-label">${escapeHtml(option.option)}</div>
           <div>
             <strong>${option.verdict === 'correct' ? '正确' : '错误'}</strong>
-            <p>${escapeHtml(option.text)}</p>
+            <p>${renderRichText(option.text)}</p>
           </div>
         </article>
       `
@@ -55,7 +57,7 @@ function renderConceptLadder(caseStudy: PhysicsCaseStudy) {
           <div class="step-index">${index + 1}</div>
           <div>
             <h3>${escapeHtml(item.title)}</h3>
-            <p>${escapeHtml(item.explanation)}</p>
+            <p>${renderRichText(item.explanation)}</p>
             ${renderList(item.checkpoints)}
           </div>
         </article>
@@ -70,9 +72,9 @@ function renderFormulaToolkit(caseStudy: PhysicsCaseStudy) {
       (item) => `
         <article class="formula-item">
           <h3>${escapeHtml(item.name)}</h3>
-          <div class="formula-expression">${escapeHtml(item.expression)}</div>
-          <p><strong>什么时候用：</strong>${escapeHtml(item.useWhen)}</p>
-          <p><strong>小心：</strong>${escapeHtml(item.watchOut)}</p>
+          <div class="formula-expression">${renderDisplayFormula(item.expression)}</div>
+          <p><strong>什么时候用：</strong>${renderRichText(item.useWhen)}</p>
+          <p><strong>小心：</strong>${renderRichText(item.watchOut)}</p>
         </article>
       `
     )
@@ -85,7 +87,7 @@ function renderMicroExamples(caseStudy: PhysicsCaseStudy) {
       (item) => `
         <article class="worked-example">
           <h3>${escapeHtml(item.title)}</h3>
-          <p><strong>题目：</strong>${escapeHtml(item.prompt)}</p>
+          <p><strong>题目：</strong>${renderRichText(item.prompt)}</p>
           ${renderList(item.steps)}
         </article>
       `
@@ -98,8 +100,8 @@ function renderMisconceptions(caseStudy: PhysicsCaseStudy) {
     .map(
       (item) => `
         <article class="misconception">
-          <p><strong>容易误解：</strong>${escapeHtml(item.wrongIdea)}</p>
-          <p><strong>正确理解：</strong>${escapeHtml(item.correction)}</p>
+          <p><strong>容易误解：</strong>${renderRichText(item.wrongIdea)}</p>
+          <p><strong>正确理解：</strong>${renderRichText(item.correction)}</p>
         </article>
       `
     )
@@ -113,21 +115,21 @@ type NarrativeEquation = NonNullable<
 function renderNarrativeEquation(equation: NarrativeEquation) {
   return `
     <div class="equation-card">
-      <div class="equation-line">${escapeHtml(equation.expression)}</div>
+      <div class="equation-line">${renderDisplayFormula(equation.expression)}</div>
       <div class="symbol-table">
         ${equation.symbols
           .map(
             (symbol) => `
               <div class="symbol-row">
-                <span class="symbol-name">${escapeHtml(symbol.symbol)}</span>
-                <span class="symbol-meaning">${escapeHtml(symbol.meaning)}</span>
-                <span class="symbol-unit">${escapeHtml(symbol.unit)}</span>
+                <span class="symbol-name">${renderInlineMath(symbol.symbol)}</span>
+                <span class="symbol-meaning">${renderRichText(symbol.meaning)}</span>
+                <span class="symbol-unit">${renderRichText(symbol.unit)}</span>
               </div>
             `
           )
           .join('')}
       </div>
-      ${equation.unitNote ? `<p class="unit-note">${escapeHtml(equation.unitNote)}</p>` : ''}
+      ${equation.unitNote ? `<p class="unit-note">${renderRichText(equation.unitNote)}</p>` : ''}
     </div>
   `
 }
@@ -139,7 +141,7 @@ function renderNarrativeEquations(
     return section.equations.map(renderNarrativeEquation).join('')
   }
 
-  return section.equation ? `<div class="equation-line">${escapeHtml(section.equation)}</div>` : ''
+  return section.equation ? `<div class="equation-line">${renderDisplayFormula(section.equation)}</div>` : ''
 }
 
 function renderQuestionBrief(
@@ -162,7 +164,7 @@ function renderQuestionBrief(
                   (option) => `
                     <div class="question-option">
                       <span>${escapeHtml(option.label)}</span>
-                      <p>${escapeHtml(option.text)}</p>
+                      <p>${renderRichText(option.text)}</p>
                     </div>
                   `
                 )
@@ -212,9 +214,9 @@ function renderStructuredKnowledge(caseStudy: PhysicsCaseStudy) {
     <section class="panel">
       <h2>先建立知识体系</h2>
       <p><strong>${escapeHtml(getKnowledgeTitle(caseStudy))}</strong></p>
-      <p>${escapeHtml(caseStudy.knowledgeSystem.bigIdea)}</p>
+      <p>${renderRichText(caseStudy.knowledgeSystem.bigIdea)}</p>
       <h3>为什么这个知识点会让人蒙</h3>
-      <p>${escapeHtml(caseStudy.knowledgeSystem.whyItMatters)}</p>
+      <p>${renderRichText(caseStudy.knowledgeSystem.whyItMatters)}</p>
       <h3>学习地图</h3>
       ${renderList(caseStudy.knowledgeSystem.learningMap)}
     </section>
@@ -297,7 +299,7 @@ function renderNarrativeOptionAnalysis(caseStudy: PhysicsCaseStudy) {
           (option) => `
             <p class="option-line ${option.verdict}">
               <strong>${escapeHtml(option.option)} ${option.verdict === 'correct' ? '可以留下' : '不能留下'}：</strong>
-              ${escapeHtml(option.text)}
+              ${renderRichText(option.text)}
             </p>
           `
         )
@@ -316,9 +318,9 @@ function renderNarrativeApplication(caseStudy: PhysicsCaseStudy) {
 
       <section id="exam-brief" class="essay-section">
         <h3>${questionBrief ? '用原题题面回到考场' : '用上面的题目速写来解'}</h3>
-        ${questionBrief ? renderQuestionBrief(questionBrief, 'question-brief exam-question-card') : `<p>${escapeHtml(caseStudy.reconstructedPrompt)}</p>`}
-        <p>${escapeHtml(caseStudy.knowledgeSystem.bridgeToQuestion)}</p>
-        <p>${escapeHtml(caseStudy.researchQuestion)}</p>
+        ${questionBrief ? renderQuestionBrief(questionBrief, 'question-brief exam-question-card') : `<p>${renderRichText(caseStudy.reconstructedPrompt)}</p>`}
+        <p>${renderRichText(caseStudy.knowledgeSystem.bridgeToQuestion)}</p>
+        <p>${renderRichText(caseStudy.researchQuestion)}</p>
       </section>
 
       <section id="exam-reasoning" class="essay-section">
@@ -327,11 +329,11 @@ function renderNarrativeApplication(caseStudy: PhysicsCaseStudy) {
         ${caseStudy.solution
           .map(
             (step) => `
-              <p><strong>${escapeHtml(step.title)}：</strong>${escapeHtml(step.points.join(''))}</p>
+              <p><strong>${escapeHtml(step.title)}：</strong>${renderRichText(step.points.join(''))}</p>
             `
           )
           .join('')}
-        <p class="essay-note">${escapeHtml(caseStudy.quickTake)}</p>
+        <p class="essay-note">${renderRichText(caseStudy.quickTake)}</p>
       </section>
 
       <section id="exam-options" class="essay-section">
@@ -341,8 +343,8 @@ function renderNarrativeApplication(caseStudy: PhysicsCaseStudy) {
 
       <section id="exam-close" class="essay-section">
         <h3>收束成考场上的一句话</h3>
-        <p>${escapeHtml(caseStudy.highScoreReflex)}</p>
-        <p>${escapeHtml(caseStudy.variationDrill.prompt)}</p>
+        <p>${renderRichText(caseStudy.highScoreReflex)}</p>
+        <p>${renderRichText(caseStudy.variationDrill.prompt)}</p>
         ${renderParagraphs(caseStudy.variationDrill.solution)}
       </section>
     </article>
@@ -360,10 +362,10 @@ function renderStructuredApplication(caseStudy: PhysicsCaseStudy) {
         <div class="meta"><span>答对率</span><strong>${escapeHtml(caseStudy.successRate)}</strong></div>
         <div class="meta"><span>建议用时</span><strong>${escapeHtml(caseStudy.timeBudget)}</strong></div>
       </div>
-      <p><strong>为什么引入这道题：</strong>${escapeHtml(caseStudy.knowledgeSystem.bridgeToQuestion)}</p>
-      <p><strong>重构题意：</strong>${escapeHtml(caseStudy.reconstructedPrompt)}</p>
-      <p><strong>研究问题：</strong>${escapeHtml(caseStudy.researchQuestion)}</p>
-      <p><strong>快速结论：</strong>${escapeHtml(caseStudy.quickTake)}</p>
+      <p><strong>为什么引入这道题：</strong>${renderRichText(caseStudy.knowledgeSystem.bridgeToQuestion)}</p>
+      <p><strong>重构题意：</strong>${renderRichText(caseStudy.reconstructedPrompt)}</p>
+      <p><strong>研究问题：</strong>${renderRichText(caseStudy.researchQuestion)}</p>
+      <p><strong>快速结论：</strong>${renderRichText(caseStudy.quickTake)}</p>
     </section>
 
     <section class="panel">
@@ -405,12 +407,12 @@ function renderStructuredApplication(caseStudy: PhysicsCaseStudy) {
 
     <section class="panel">
       <h2>高分反射</h2>
-      <p>${escapeHtml(caseStudy.highScoreReflex)}</p>
+      <p>${renderRichText(caseStudy.highScoreReflex)}</p>
     </section>
 
     <section class="panel">
       <h2>变式练习</h2>
-      <p>${escapeHtml(caseStudy.variationDrill.prompt)}</p>
+      <p>${renderRichText(caseStudy.variationDrill.prompt)}</p>
       ${renderList(caseStudy.variationDrill.solution)}
     </section>
   `
@@ -435,7 +437,7 @@ function renderCaseCard(caseStudy: PhysicsCaseStudy) {
     <a class="case-card" href="${getCaseHref(caseStudy)}">
       <span class="case-number">知识点 ${String(caseStudy.questionNo).padStart(2, '0')}</span>
       <h3>${escapeHtml(getKnowledgeTitle(caseStudy))}</h3>
-      <p>${escapeHtml(caseStudy.knowledgeSystem.bigIdea)}</p>
+      <p>${renderRichText(caseStudy.knowledgeSystem.bigIdea)}</p>
       <div class="mini-meta">
         <span>${escapeHtml(caseStudy.topic)}</span>
         <span>含应用案例</span>
@@ -458,7 +460,7 @@ function renderDefaultHero(caseStudy: PhysicsCaseStudy) {
           ? `<div class="diagram hero-diagram"><div class="diagram-title">${escapeHtml(caseStudy.diagram.title)}</div>${caseStudy.diagram.svg}</div>`
           : ''
       }
-      <p class="subtitle">${escapeHtml(caseStudy.knowledgeSystem.bigIdea)}</p>
+      <p class="subtitle">${renderRichText(caseStudy.knowledgeSystem.bigIdea)}</p>
       <div class="tags">${renderTags(caseStudy.tags)}</div>
     </section>
   `
@@ -594,9 +596,9 @@ function renderNarrativeSidebar(caseStudy: PhysicsCaseStudy) {
         sidebar?.formula
           ? `<section class="reader-note">
               <h2>核心公式</h2>
-              <p class="reader-formula">${escapeHtml(sidebar.formula)}</p>
-              ${sidebar.symbols ? `<p class="reader-symbols">${escapeHtml(sidebar.symbols)}</p>` : ''}
-              ${sidebar.note ? `<p>${escapeHtml(sidebar.note)}</p>` : ''}
+              <p class="reader-formula">${renderDisplayFormula(sidebar.formula)}</p>
+              ${sidebar.symbols ? `<p class="reader-symbols">${renderRichText(sidebar.symbols)}</p>` : ''}
+              ${sidebar.note ? `<p>${renderRichText(sidebar.note)}</p>` : ''}
             </section>`
           : ''
       }
@@ -604,7 +606,7 @@ function renderNarrativeSidebar(caseStudy: PhysicsCaseStudy) {
         sidebar?.readOrder
           ? `<section class="reader-note">
               <h2>读图次序</h2>
-              <p>${escapeHtml(sidebar.readOrder)}</p>
+              <p>${renderRichText(sidebar.readOrder)}</p>
             </section>`
           : ''
       }
@@ -807,10 +809,20 @@ function baseStyles() {
       border-radius: 8px;
       background: #0f172a;
       color: white;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       font-size: 17px;
       font-weight: 900;
       overflow-wrap: anywhere;
+    }
+    .equation-line .katex-display,
+    .formula-expression .katex-display,
+    .reader-formula .katex-display {
+      margin: 0;
+      text-align: left;
+    }
+    .equation-line .katex,
+    .formula-expression .katex,
+    .reader-formula .katex {
+      font-size: 1.08em;
     }
     .equation-card {
       max-width: 820px;
@@ -841,9 +853,11 @@ function baseStyles() {
     }
     .symbol-name {
       color: #0f172a;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       font-weight: 900;
       background: #f1f5f9;
+    }
+    .symbol-name .katex {
+      font-size: 1.04em;
     }
     .symbol-unit {
       color: #475569;
@@ -921,7 +935,6 @@ function baseStyles() {
       background: #0f172a;
       color: white;
       font-weight: 900;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       overflow-wrap: anywhere;
     }
     .misconception {
@@ -1580,7 +1593,6 @@ function baseStyles() {
     }
     .essay-page .reader-formula {
       color: #0f766e;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       font-weight: 900;
     }
     .essay-page .pager {
@@ -1705,6 +1717,7 @@ function renderCasePage(caseStudy: PhysicsCaseStudy, allCases: PhysicsCaseStudy[
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>${escapeHtml(getKnowledgeTitle(caseStudy))} | DSE 物理知识点</title>
+  <link rel="stylesheet" href="${katexCssHref}" />
   <style>${baseStyles()}</style>
 </head>
 <body${bodyClass}>
@@ -1755,6 +1768,7 @@ function renderPaperIndex(cases: PhysicsCaseStudy[]) {
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>2024 DSE 物理 Paper 1 知识专题库</title>
+  <link rel="stylesheet" href="${katexCssHref}" />
   <style>${baseStyles()}</style>
 </head>
 <body>
@@ -1789,6 +1803,7 @@ function renderYearIndex(cases: PhysicsCaseStudy[]) {
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>2024 DSE 物理知识体系与真题考法库</title>
+  <link rel="stylesheet" href="${katexCssHref}" />
   <style>${baseStyles()}</style>
 </head>
 <body>
@@ -1824,6 +1839,7 @@ function writeFile(filePath: string, content: string) {
 
 function build() {
   const cases = PHYSICS_DSE_2024_P1_CASES
+  copyKatexAssets(outputRoot)
   writeFile(path.join(outputRoot, 'index.html'), renderYearIndex(cases))
   writeFile(path.join(outputRoot, 'p1', 'index.html'), renderPaperIndex(cases))
 

@@ -1,8 +1,10 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { PHYSICS_DSE_ARCHIVE, type PhysicsDseQuestionEntry, type PhysicsDseYearArchive } from '../content/physics-dse/archive'
+import { copyKatexAssets, renderRichText } from './physicsFormulaRendering'
 
 const outputRoot = path.join(process.cwd(), 'public', 'physics', 'dse')
+const katexCssHref = '/physics/dse/vendor/katex/katex.min.css'
 
 function ensureDir(dir: string) {
   fs.mkdirSync(dir, { recursive: true })
@@ -45,6 +47,7 @@ function renderShell(title: string, body: string) {
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>${escapeHtml(title)}</title>
+  <link rel="stylesheet" href="${katexCssHref}" />
   <style>${styles()}</style>
 </head>
 <body>
@@ -78,7 +81,7 @@ function renderQuestionCard(year: number, question: PhysicsDseQuestionEntry) {
     <strong>${escapeHtml(title)}</strong>
     <span class="answer">答案 ${escapeHtml(question.answer)}</span>
     ${renderStatus(question)}
-    ${question.focus ? `<p>${escapeHtml(question.focus)}</p>` : '<p>题面与答案 key 已入库，待按 Q1 标准做知识体系讲义。</p>'}
+    ${question.focus ? `<p>${renderRichText(question.focus)}</p>` : '<p>题面与答案 key 已入库，待按 Q1 标准做知识体系讲义。</p>'}
   `
 
   return `<a class="question-card ${question.detailedHref ? 'done-card' : ''}" href="${href}">${inner}</a>`
@@ -141,7 +144,7 @@ function renderYearCard(year: PhysicsDseYearArchive) {
     <a class="year-card" href="${getYearHref(year.year)}">
       <span>${year.year}</span>
       <h2>${year.year} DSE Physics</h2>
-      <p>${escapeHtml(year.summary)}</p>
+      <p>${renderRichText(year.summary)}</p>
       <div class="progress-row">
         <strong>${done}/${year.p1a.questionCount}</strong>
         <span>Paper 1A 完整精讲</span>
@@ -160,7 +163,7 @@ function renderYearPage(year: PhysicsDseYearArchive) {
         <section class="hero compact">
           <p class="eyebrow">${year.year} Archive</p>
           <h1>${year.year} DSE Physics</h1>
-          <p class="subtitle">${escapeHtml(year.summary)}</p>
+          <p class="subtitle">${renderRichText(year.summary)}</p>
           <div class="actions">
             <a href="${getP1aHref(year.year)}">进入 Paper 1A 索引</a>
             <a class="secondary" href="/physics/dse/index.html">返回五年总览</a>
@@ -170,8 +173,8 @@ function renderYearPage(year: PhysicsDseYearArchive) {
         <section class="split">
           <div class="panel">
             <h2>Paper 1A 状态</h2>
-            <p>共 ${year.p1a.questionCount} 题，完整精讲 ${done} 题，答案 key 来源：${escapeHtml(year.p1a.answerKeySource)}。</p>
-            <ul>${year.p1a.notes.map((note) => `<li>${escapeHtml(note)}</li>`).join('')}</ul>
+            <p>共 ${year.p1a.questionCount} 题，完整精讲 ${done} 题，答案 key 来源：${renderRichText(year.p1a.answerKeySource)}。</p>
+            <ul>${year.p1a.notes.map((note) => `<li>${renderRichText(note)}</li>`).join('')}</ul>
           </div>
           <div class="panel">
             <h2>资料来源</h2>
@@ -200,7 +203,7 @@ function renderP1aPage(year: PhysicsDseYearArchive) {
 
         <section class="notice">
           <h2>答案 key 来源</h2>
-          <p>${escapeHtml(year.p1a.answerKeySource)}。OCR 来源的答案 key 已人工检查选项字母；百分比数据暂不作为正式学习内容展示。</p>
+          <p>${renderRichText(year.p1a.answerKeySource)}。OCR 来源的答案 key 已人工检查选项字母；百分比数据暂不作为正式学习内容展示。</p>
         </section>
 
         <section class="question-grid">
@@ -234,12 +237,12 @@ function renderQuestionSourcePage(year: PhysicsDseYearArchive, question: Physics
           <div class="panel">
             <h2>当前状态</h2>
             <p>参考答案：${escapeHtml(question.answer)}。状态：${question.status === 'done' ? '已完成完整精讲' : '题面与答案 key 已入库，等待按 Q1 标准制作讲义'}。</p>
-            ${question.focus ? `<p>已记录知识焦点：${escapeHtml(question.focus)}。</p>` : '<p>正式精讲前需要先复核题面、重画图像、确定知识专题和误区。</p>'}
+            ${question.focus ? `<p>已记录知识焦点：${renderRichText(question.focus)}。</p>` : '<p>正式精讲前需要先复核题面、重画图像、确定知识专题和误区。</p>'}
           </div>
           <div class="panel">
             <h2>来源记录</h2>
-            <p>答案 key 来源：${escapeHtml(year.p1a.answerKeySource)}。</p>
-            <ul>${year.p1a.notes.map((note) => `<li>${escapeHtml(note)}</li>`).join('')}</ul>
+            <p>答案 key 来源：${renderRichText(year.p1a.answerKeySource)}。</p>
+            <ul>${year.p1a.notes.map((note) => `<li>${renderRichText(note)}</li>`).join('')}</ul>
           </div>
         </section>
 
@@ -539,6 +542,7 @@ function styles() {
 }
 
 function generate() {
+  copyKatexAssets(outputRoot)
   writeFile(path.join(outputRoot, 'index.html'), renderIndexPage())
 
   for (const year of PHYSICS_DSE_ARCHIVE) {
