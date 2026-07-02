@@ -1032,61 +1032,61 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
     timeBudget: '90-120 秒',
     difficulty: '延伸题 + 单位换算',
     knowledgeSystem: {
-      title: '知识专题：用 ideal gas 方程估算分子数数量级',
+      title: '知识专题：从气体账本理解 molecule count',
       bigIdea:
-        '看到 vacuum，不要立刻把它想成“里面什么都没有”。物理题里的 vacuum 往往只是压强很低；压强低，仍然可能有大量分子在容器里运动。Q3 要训练的是：不要凭“空不空”的直觉猜，而是用 pV = NkT 把 pressure、volume、temperature 翻译成 molecule count。',
+        '这题表面上在问 vacuum，真正要学的是气体的微观计数。同一团气体可以按 mole 来记，也可以按 molecule 来记；R、N_A、k 不是三块零散的记忆，而是一条账本关系。把这条关系理顺以后，vacuum 只是一个低压条件，不会再把人带偏。',
       learningMap: [
-        '先把 vacuum 理解成低压，而不是完全没有分子。',
-        '再分清题目要的是 molecules，所以未知量是 N。',
-        '接着把 1 cm³ 和 room temperature 放进 SI 单位。',
-        '最后只看数量级，不被 10 的正负幂带乱。',
+        '先建立两套计数语言：mole 和 molecule。',
+        '再把 R、N_A、k 放回同一条关系里。',
+        '然后把 pressure、volume、temperature 转成 SI 单位。',
+        '最后只估数量级，不被小数系数拖住。',
       ],
       whyItMatters:
-        '这道题真正有意思的地方，是它故意用 vacuum 这个词拉你的直觉。很多人会先想“真空里面应该没多少东西”，然后忘了题目已经给了可计算的压强和体积。理想气体方程在这里不是背诵公式，而是把这种模糊直觉压回可计算的量。',
+        '很多气体题做错，不是因为公式没背，而是因为没有先问清楚：我到底是在数 mole，还是在数一个个 molecule？一旦这个问题清楚，公式选择、常数选择和单位换算都会自然排队。',
       conceptLadder: [
         {
-          title: '先别急着算，先看题目到底在数什么',
+          title: '先决定用哪本账',
           explanation:
-            '同一团气体，可以用 mole 来数，也可以一个 molecule 一个 molecule 地数。pV = nRT 用的是 n；pV = NkT 用的是 N。Q3 问 number of air molecules，不是在问多少 mole，所以一开始就该走 N 和 k 这一条线。',
+            'mole 是一大包一大包地数，molecule 是一个一个地数。两种说法指向同一团气体，只是计数尺度不同。题目一旦说 number of air molecules，未知量就不是 n，而是 N。',
           checkpoints: [
-            '看到 moles 或 amount of substance：用 n 和 R。',
-            '看到 molecules 或 particles：用 N 和 k。',
-            'R 和 k 的关系是 R = N_A k，也就是 k = R / N_A；k 是把每 mole 的 gas constant 拆到每一个 molecule 身上。',
+            'moles / amount of substance：未知量通常是 n。',
+            'molecules / particles：未知量通常是 N。',
+            '两种计数用 N = nN_A 连接。',
           ],
         },
         {
-          title: '小体积最容易把人骗走',
+          title: '把 R 和 k 放回同一条关系',
           explanation:
-            '这题的 pressure 已经是 Pa，看起来很友好；真正危险的是 1 cm³。长度从 cm 到 m 要乘 10^-2，体积要立方，所以 1 cm³ 是 10^-6 m³。少了这个立方，答案会直接跳到别的选项。',
+            'R 是每 mole 的气体常数，k 是每个 molecule 的那一小份。一 mole 里面有 N_A 个 particles，所以 k = R / N_A。k 的 10^-23 不是凭空冒出来的，而是被 10^23 级别的粒子数除小的。',
           checkpoints: [
-            '1 cm = 10^-2 m。',
-            '1 cm³ = (10^-2)^3 m³ = 10^-6 m³。',
-            '室温用约 300 K，不用 25°C。',
+            'R ≈ 8.31 J mol^-1 K^-1，是 per mole。',
+            'N_A ≈ 6.02 × 10^23 mol^-1，是每 mole 有多少个 particles。',
+            'k = R / N_A，是 per molecule。',
           ],
         },
         {
-          title: '最后算的是数量级，不是漂亮小数',
+          title: '数量级题先管单位，再管系数',
           explanation:
-            'DSE 这里不是要你把每个有效数字磨到很准，而是要你知道答案大概落在哪个 10 的幂。先把 pV 和 kT 的 10 次幂分开处理，前面的 1.38 和 300 只是最后用来判断靠近哪个选项。',
+            'DSE 这题的选项隔着数量级，不需要把有效数字磨得很细。真正会把答案推远的，是把 1 cm³ 换错，或者把 room temperature 当成 25 直接代入。',
           checkpoints: [
-            '先算 pV 的 10 次幂。',
-            '再算 kT 的 10 次幂。',
-            '最后相除，选择最近数量级。',
+            '1 cm³ = 10^-6 m³。',
+            'room temperature 取约 300 K。',
+            '先估 10 的幂，再看系数靠近哪个选项。',
           ],
         },
       ],
       formulaToolkit: [
         {
-          name: '微观理想气体方程',
-          expression: 'pV = NkT',
-          useWhen: '题目要求 actual number of molecules / particles。',
-          watchOut: 'k = R / N_A，是每个 molecule 对应的 gas constant；N 不是 mole 数，不能再乘或除 R。',
+          name: '计数桥',
+          expression: 'N = nN_A',
+          useWhen: '要把 mole 数换成 molecules / particles。',
+          watchOut: 'N_A 是 Avogadro constant，不是 N 乘 A，也不能和左边 N 约掉。',
         },
         {
-          name: '宏观理想气体方程',
-          expression: 'pV = nRT',
-          useWhen: '题目要求 mole 数 n，或给的是 molar amount。',
-          watchOut: '如果最终要 molecules，还需要 N = nN_A；这里 N_A 是一个整体常数符号。',
+          name: '微观气体方程',
+          expression: 'pV = NkT',
+          useWhen: '题目直接要求 actual number of molecules / particles。',
+          watchOut: 'k = R / N_A；它是 R 拆到单个 molecule 后的常数。',
         },
         {
           name: '体积换算',
@@ -1097,39 +1097,39 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
       ],
       microExamples: [
         {
-          title: '小算一下 1：先选公式',
-          prompt: '题目问 300 K、某体积内有多少 molecules，应选 pV = nRT 还是 pV = NkT？',
+          title: '小想一下 1：先定账本',
+          prompt: '题目说 number of molecules，这句话已经告诉你什么？',
           steps: [
-            '关键词是 molecules，不是 moles。',
-            '所以未知量是 N。',
-            '选 pV = NkT。',
+            '它要的是一个一个 molecule 的数量。',
+            '未知量应写成 N，不是 n。',
+            '后面只是在用 p、V、T 把 N 算出来。',
           ],
         },
         {
-          title: '小算一下 2：只看 10 的幂',
-          prompt: '若 pV = 10^-15，kT ≈ 4 × 10^-21，则 N 的数量级是多少？',
+          title: '小想一下 2：k 为什么这么小',
+          prompt: '为什么 k 会是 10^-23 级别，而 R 是 8.31？',
           steps: [
-            'N = pV/kT ≈ 10^-15 / (4 × 10^-21)。',
-            '先看 10 的幂：10^6。',
-            '系数约 1/4，所以 N ≈ 2.5 × 10^5，最接近 10^5 或 10^6 要看选项距离。',
+            'R 是一 mole 气体的常数。',
+            '一 mole 有 6.02 × 10^23 个 particles。',
+            '把 R 除给每一个 particle，k 自然会变成 10^-23 级别。',
           ],
         },
       ],
       coreExplanations: [
         {
-          title: 'n 和 N 是两种不同语言',
+          title: '常数不用背散',
           points: [
-            'n 是 mole 数，配合 gas constant R。',
-            'N 是 molecule count，配合 Boltzmann constant k；k = R / N_A。',
-            '两者通过 N = nN_A 连接；N_A 是 Avogadro constant，不是可以和左边 N 约掉的同一个量。',
+            'R：每 mole 的气体常数。',
+            'N_A：每 mole 里有多少个 particles。',
+            'k：R 除以 N_A 后，落到单个 molecule 身上的份额。',
           ],
         },
         {
-          title: '数量级题的关键是单位',
+          title: '计算只抓三件事',
           points: [
-            '1 cm³ = 10^-6 m³，不是 10^-3 m³。',
-            '室温不能用 25，而要用约 300 K。',
-            '计算时先合并 10 的幂，再处理 1.38 和 300 这类系数。',
+            'pressure 已经是 Pa，可以直接用。',
+            'volume 必须从 cm³ 变成 m³。',
+            'temperature 必须用 Kelvin，室温取约 300 K。',
           ],
         },
       ],
@@ -1150,42 +1150,72 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
       dsePatterns: [
         '给低压和小体积，问分子数数量级。',
         '在选项中放 10^4、10^6、10^8、10^12，专门考单位换算。',
-        '把 pV = nRT 和 pV = NkT 混在同一章，考你识别题目问的是 mole 还是 molecules。',
+        '把 mole 和 molecules 放在同一章，考你能不能选对计数尺度。',
       ],
       masteryChecklist: [
         '我能分清 n 和 N，R 和 k。',
+        '我知道 k = R / N_A，不把 k 当成孤立常数。',
         '我能把 cm³ 正确换成 m³。',
         '我能用 300 K 代表室温。',
         '我能先算 10 的幂，再估算系数，快速得到数量级。',
       ],
       bridgeToQuestion:
-        '回到 2024 Q3 时，不要被 vacuum 这个词带走。题目真正给你的，是 p = 10⁻⁸ Pa、V = 1 cm³、room temperature，以及一句关键要求：number of air molecules。',
+        '回到 2024 Q3 时，先别被 vacuum 这个词牵着走。题目真正给的是一组可计算的状态：p = 10⁻⁸ Pa、V = 1 cm³、room temperature，以及目标量 number of air molecules。',
       narrative: {
-        heading: '先把 vacuum 的直觉拆开',
-        reasoningHeading: '把“很空”翻译成一个 molecule count',
+        heading: '先把气体当成一套账本',
+        reasoningHeading: '从低压、体积和温度估出 molecules',
         sidebar: {
           formula: 'pV = NkT',
           symbols:
             'p：压强（Pa）；V：体积（m³）；N：分子个数（无单位）；k：Boltzmann constant（J K⁻¹），也就是 R / N_A；T：绝对温度（K）。',
-          note: '题目问 molecules，用 N 和 k；题目问 moles，才用 n 和 R。',
+          note: '题目问 molecules，就走 N 和 k；k 可以由 R / N_A 理解，不是另一条孤立公式。',
           readOrder:
-            '先分清目标是 N 还是 n；再把体积和温度转成 SI；最后只抓 10 的幂。',
+            '先定计数尺度；再处理单位；最后估数量级。',
         },
         lead: [
-          '这道题一开始最容易被 “vacuum” 这个词骗到。日常语言里，真空听起来像“什么都没有”；但考试里的 vacuum 通常只是说压强很低。低压不是零压，更不是没有分子。',
-          '压强低，意思是分子撞击容器壁造成的平均效果很弱。可是只要体积还不是零、温度还不是绝对零度，里面就仍然有分子在乱跑。问题只是：到底有多少？这个数字不能靠感觉猜，要靠 p、V、T 算出来。',
-          '所以 Q3 的核心不是“真空到底空不空”，而是把一个看得见的宏观状态翻译成一个看不见的 molecule count。做这个翻译时，用的公式就是 pV = NkT。',
+          '这道题不要从 “vacuum” 这个词开始想。日常语言里的真空，好像接近“什么都没有”；但物理题里的 vacuum 通常只是压强很低。低压不是零压，也不等于没有分子。',
+          '更好的入口，是把气体看成一本账：一边记录我们能测到的宏观量，例如 pressure、volume、temperature；另一边记录看不见的微观数量，也就是里面到底有多少 molecules。',
+          'Q3 的任务，就是把这两边接起来。只要账本接对，后面的计算其实很短。',
         ],
         sections: [
           {
-            title: '一、moles 和 molecules，差一个计数尺度',
+            title: '一、先问清楚：我在数 mole，还是数 molecule？',
             paragraphs: [
-              '理想气体方程最常见的写法是 pV = nRT。这个版本用 n 来数，n 的单位是 mole。mole 很方便，但它是“一大包一大包”地数，不是逐个粒子数。',
-              'Q3 问的是 number of air molecules。这个问法已经把目标说清楚了：它要的是实际分子个数 N。于是公式要换成微观版本 pV = NkT，其中 k 是 Boltzmann constant。',
-              'k 不是另一个需要硬背的神秘数。它其实就是 gas constant R 拆到每一个 molecule 身上的版本。R ≈ 8.31 J mol^-1 K^-1，意思是每 mole、每升高 1 K 对应的能量尺度；一 mole 里有 N_A ≈ 6.02 × 10^23 mol^-1 个 molecules，所以每一个 molecule 分到的那份就是 k = R / N_A。',
-              '把数字除一下：8.31 / (6.02 × 10^23) ≈ 1.38 × 10^-23，所以 k ≈ 1.38 × 10^-23 J K^-1。这个 10^-23 很小，不是因为公式奇怪，而是因为一 mole 里面有 10^23 级别的粒子；把一整 mole 的常数拆到单个 molecule 上，自然会变得非常小。',
-              '如果你想从 n 转到 N，也可以用 N = nN_A。这里的 N_A 是 Avogadro constant，读成一个完整常数名，不是 N 乘 A。左边的 N 和右边 N_A 里的 N 不是同一个可约掉的东西。',
-              '把 pV = NkT 变形后得到 N = pV/(kT)。这句话可以朴素地理解：整团气体的 pV 尺度，除以每个分子的 kT 尺度，剩下的就是分子个数。',
+              '理想气体题有两种记法。第一种是按 mole 记，用 n；第二种是按 molecule 记，用 N。它们不是两套物理，只是同一团气体的两种计数尺度。',
+              'Q3 的英文问法是 number of air molecules。到这里，其实路线已经定了：最后要的是 N，不是 n。你可以先用 mole 算再转换，也可以直接用微观版本的气体方程；但心里要清楚，目标是一个个 molecules 的数量。',
+              'N 和 n 之间用 Avogadro constant 连接：1 mole 里有 N_A 个 particles，所以 N = nN_A。这里 N_A 要当成一个完整常数名，不是 N 乘 A，也不能和左边的 N 约掉。',
+            ],
+            equations: [
+              {
+                expression: 'N = nN_A',
+                symbols: [
+                  {
+                    symbol: 'N',
+                    meaning: '实际分子个数（number of molecules）',
+                    unit: '无单位，是计数值',
+                  },
+                  {
+                    symbol: 'n',
+                    meaning: '物质的量（amount of substance）',
+                    unit: 'mol',
+                  },
+                  {
+                    symbol: 'N_A',
+                    meaning: 'Avogadro constant；每 mole 里的粒子个数',
+                    unit: 'mol⁻¹',
+                  },
+                ],
+                unitNote: '这条式子只是在换计数单位：mole 乘上每 mole 的粒子数，就得到 particles 的个数。',
+              },
+            ],
+            note: '先定账本，再写公式。题目问 molecules，整题都围绕 N 展开。',
+          },
+          {
+            title: '二、k 不是新负担，而是 R 分到单个 molecule 上',
+            paragraphs: [
+              '你已经知道 R 是 gas constant。它的单位是 J mol^-1 K^-1，意思是它按每 mole 来记账。可是现在题目要一个个 molecule 的数量，常数也要跟着换成每个 molecule 的尺度。',
+              '一 mole 里有 N_A ≈ 6.02 × 10^23 mol^-1 个 particles。因此，把每 mole 的 R 平均分到每一个 particle 身上，就得到 k = R / N_A。用 R ≈ 8.31 J mol^-1 K^-1 去除，k 就是约 1.38 × 10^-23 J K^-1。',
+              '所以这几个常数的记法可以很朴素：R 是一大包的版本，k 是拆成单个 particle 的版本，N_A 是中间的换算桥。理解这条线，比单独背三个数字更稳。',
             ],
             equations: [
               {
@@ -1207,8 +1237,18 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
                     unit: 'mol⁻¹',
                   },
                 ],
-                unitNote: '理解上记住 k = R / N_A；考场上看到 pV = NkT 时，知道 k 约为 1.38 × 10^-23 J K^-1。',
+                unitNote: 'DSE 里数值通常可从 data list 取得；更重要的是知道 R、N_A、k 的关系和使用场景。',
               },
+            ],
+          },
+          {
+            title: '三、为什么 vacuum 仍然能有很多 molecules？',
+            paragraphs: [
+              '压强来自分子撞击容器壁的平均效果。vacuum 的压强很低，说明撞击效果很弱；但“很弱”不是“没有”。只要体积不是零，温度也不是绝对零度，里面仍然可以有大量分子。',
+              '这就是微观气体方程有用的地方。pV 描述整团气体的宏观状态；kT 可以看成单个 molecule 对应的温度尺度。整团气体的量除以单个 molecule 的量，剩下来的就是 molecule count。',
+              '所以这题不是在哲学上讨论“真空空不空”，而是在计算：在这么低的 pressure、这么小的 volume、room temperature 下，分子个数落在哪个数量级。',
+            ],
+            equations: [
               {
                 expression: 'N = pV / kT',
                 symbols: [
@@ -1241,18 +1281,17 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
                 unitNote: 'Pa·m³ 等于 J，所以 pV 和 kT 都是能量单位，相除后得到纯数量 N。',
               },
             ],
-            note: '先看题目要数什么，再决定公式。题目要 molecules，就直接进入 N 和 k。',
           },
           {
-            title: '二、1 cm³ 这一步，比公式本身更容易错',
+            title: '四、这题真正危险的是单位，不是公式',
             paragraphs: [
-              '公式写对以后，真正的分水岭反而是单位。p 要用 Pa，V 要用 m³，T 要用 K。Q3 的 pressure 已经给成 10⁻⁸ Pa，最危险的量是 volume。',
-              '1 cm³ 看起来很小，于是很多人会下意识写成 10⁻³ m³。这个错法很自然，但它把“厘米到米”的长度换算当成了体积换算。体积有三条长度边，所以要立方：1 cm³ = (10⁻² m)³ = 10⁻⁶ m³。',
-              'room temperature 也不能写 25。气体方程里的 T 是 absolute temperature，要用 Kelvin。室温粗略取 300 K 就够了；这题问 order of magnitude，不需要纠结 298 K 还是 300 K。',
+              '公式确定以后，最容易失分的地方反而很朴素：单位。pressure 已经给成 Pa，可以直接用；volume 给的是 1 cm³，必须换成 m³；temperature 说的是 room temperature，要用 Kelvin。',
+              '1 cm³ 不是 10^-3 m³。厘米到米是一条长度的换算，体积有三条边，所以要立方：1 cm³ = 10^-6 m³。这个地方一错，答案会差一千倍。',
+              'room temperature 也不要代 25。气体方程里的 T 是 absolute temperature，室温取 300 K 就足够。题目问的是 order of magnitude，不需要纠结 298 K 还是 300 K。',
             ],
             equations: [
               {
-                expression: '1 cm³ = 10⁻⁶ m³',
+                expression: '1 cm³ = 10^-6 m³',
                 symbols: [
                   {
                     symbol: 'cm³',
@@ -1270,15 +1309,7 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
             ],
           },
           {
-            title: '三、先把 10 的幂算清楚，系数最后再管',
-            paragraphs: [
-              '这题的数字看起来很夸张：10⁻⁸、10⁻⁶、10⁻²³ 同时出现，很容易在脑中搅成一团。我的建议是先别碰小数系数，只处理 10 的幂。',
-              'pV 的数量级是 10⁻⁸ × 10⁻⁶ = 10⁻¹⁴。kT 的数量级大约是 10⁻²³ × 10² = 10⁻²¹。于是 N 大概是 10⁻¹⁴ / 10⁻²¹，也就是 10⁷ 附近。',
-              '接着才看系数。kT 不是 1 × 10⁻²¹，而是约 4.1 × 10⁻²¹，所以 N 会从 10⁷ 被拉低到几百万，最接近 10⁶。这样算，答案不是硬背出来的，而是被数量级一步步挤出来的。',
-            ],
-          },
-          {
-            title: '四、现在再回到原题，vacuum 只是一个低压条件',
+            title: '五、现在回到原题：低压，不等于零分子',
             questionBrief: {
               title: '2024 DSE Q3 原题英文',
               stem: [
@@ -1304,72 +1335,75 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
                 },
               ],
               points: [
-                '这里的 “vacuum” 不是答案线索，而是一个低压条件；真正要读的是 p、V、T 和 molecules。',
+                '这里的 “vacuum” 只是低压条件；真正要读的是 p、V、T 和 molecules。',
               ],
             },
             paragraphs: [
-              '现在看题面，其实信息很少。它告诉你 pressure about 10⁻⁸ Pa，volume 是 1 cm³，temperature 是 room temperature，然后问 number of air molecules。只要抓住 molecules，未知量就是 N。',
-              '于是写 N = pV/(kT)。体积先改成 10⁻⁶ m³，室温取 300 K。pV 是 10⁻¹⁴；kT 约 4.1 × 10⁻²¹。',
-              '相除得到 N 约 2.4 × 10⁶。所以这个 vacuum 在 1 cm³ 里仍然有百万级分子，并不矛盾；它只是比普通空气稀薄很多，不是数学意义上的 empty space。',
+              '现在看题面，信息其实很干净：pressure about 10^-8 Pa，volume 是 1 cm³，temperature 是 room temperature，目标是 number of air molecules。',
+              '体积换成 10^-6 m³，室温取 300 K。于是 pV 的数量级是 10^-8 × 10^-6 = 10^-14；kT 约为 1.38 × 10^-23 × 300，也就是 4.1 × 10^-21。',
+              '两者相除，N 约为 2.4 × 10^6。答案的数量级是 10^6，也就是 B。这个结论并不反直觉：它只是说明“最好的 vacuum”仍然可以在 1 cm³ 里留下百万级 molecules。',
             ],
           },
         ],
         closing: [
-          '以后再看到 vacuum 题，先提醒自己一句：低压不是零分子。题目如果问 molecules，就用 pV = NkT；体积进 m³，温度进 K，再把 10 的幂安静地除完。',
+          '以后再看到类似题，先不要被形容词牵走。问 molecules，就先把气体账本切到 N；看到 k，就想起 k = R / N_A；单位进 SI，数量级自然会落出来。',
         ],
       },
     },
     reconstructedPrompt:
       'The best vacuum attained in the laboratory has a pressure of about 10⁻⁸ Pa. Estimate the order of magnitude of the number of air molecules in 1 cm³ of such ‘vacuum’ at room temperature. A. 10⁴ B. 10⁶ C. 10⁸ D. 10¹².',
     researchQuestion:
-      '为什么明明叫 vacuum，1 cm³ 里却仍然可以算出百万级 molecules？',
+      '为什么一个叫 vacuum 的空间，仍然可以有百万级 molecules？',
     quickTake:
-      'vacuum 只是低压，不是零分子。题目问 molecules，所以用 N = pV/(kT)：p = 10⁻⁸ Pa，V = 10⁻⁶ m³，T 约 300 K，算得 N 约为 2.4 × 10⁶，数量级是 10⁶。',
+      'vacuum 只是低压，不是零分子。题目问 molecules，所以目标是 N；k 可理解为 R / N_A。把 1 cm³ 换成 10⁻⁶ m³，室温取 300 K，估得 N 约为 2.4 × 10⁶，数量级是 10⁶。',
     diagram: {
       title: '教学重画图：宏观状态到微观分子数的翻译',
       svg: idealGasSvg,
     },
     model: [
-      '要求分子数时，用 pV = NkT，而不是 pV = nRT。',
-      'N 代表实际 molecule count。',
-      '室温可以近似为 300 K。',
+      '题目问 molecules，未知量是 N。',
+      'k = R / N_A，是 R 拆到单个 molecule 后的版本。',
       '1 cm³ 必须换算成 10^-6 m³。',
+      '室温可以近似为 300 K。',
     ],
     prerequisiteRecovery: [
       {
-        title: '气体方程的两个版本',
+        title: '气体的两本账',
         points: [
-          'pV = nRT 使用的是物质的量 n。',
-          'pV = NkT 使用的是分子个数 N。',
-          '题目问 molecules，所以用 Boltzmann constant k，不用 R；k = R / N_A。',
+          '按 mole 记账时，用 n 和 R。',
+          '按 molecule 记账时，用 N 和 k。',
+          '两套账通过 N = nN_A 和 k = R / N_A 连起来。',
         ],
       },
       {
-        title: '数量级思维',
+        title: '数量级顺序',
         points: [
-          '这类题不需要追求精确有效数字。',
-          '关键是把 10 的幂处理干净。',
-          '估算后选择最接近的数量级选项。',
+          '先把 cm³、room temperature 这些单位处理好。',
+          '再估 pV 和 kT 的 10 的幂。',
+          '最后选最接近的数量级，不追求漂亮小数。',
         ],
       },
     ],
     thinkingPath: [
-      '先识别未知量是 molecule count，所以写 N = pV/kT。',
-      '把 1 cm³ 换算成 SI 单位。',
-      '使用 T ≈ 300 K；k = R / N_A ≈ 1.38 × 10^-23 J K^-1，是 R 拆到单个 molecule 后的常数。',
-      '先处理 10 的幂，再看前面的系数。',
+      '题目问 number of air molecules，所以目标量是 N。',
+      '把 1 cm³ 换成 10^-6 m³，room temperature 取约 300 K。',
+      '用 k = R / N_A 理解 Boltzmann constant，数值约 1.38 × 10^-23 J K^-1。',
+      '估出 N 约为 2.4 × 10^6，数量级是 10^6。',
     ],
     solution: [
       {
-        title: '第 1 步：代入 SI 单位',
+        title: '第 1 步：把单位和常数摆正',
         points: [
-          'pV = 10^-8 × 10^-6 = 10^-14。',
-          'kT ≈ 1.38 × 10^-23 × 300 ≈ 4.1 × 10^-21。',
+          '题目问 molecules，所以使用 N。',
+          '1 cm³ = 10^-6 m³，room temperature ≈ 300 K。',
+          'k = R / N_A ≈ 1.38 × 10^-23 J K^-1。',
         ],
       },
       {
-        title: '第 2 步：处理 10 的幂',
+        title: '第 2 步：估数量级',
         points: [
+          'pV = 10^-8 × 10^-6 = 10^-14。',
+          'kT ≈ 1.38 × 10^-23 × 300 ≈ 4.1 × 10^-21。',
           'N ≈ 10^-14 / 4.1 × 10^-21。',
           'N ≈ 2.4 × 10^6 molecules。',
           '所以数量级是 10^6。',
@@ -1399,7 +1433,8 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
       },
     ],
     markingPoints: [
-      '使用 pV = NkT。',
+      '识别题目要求 molecule count。',
+      '理解 k = R / N_A，并使用微观计数。',
       '把 1 cm³ 换算为 10^-6 m³。',
       '室温取约 300 K。',
       '按最接近的数量级作答。',
@@ -1411,7 +1446,7 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
       '过度追求精确计算，反而丢掉 10 的幂。',
     ],
     highScoreReflex:
-      '看到 vacuum 先别凭感觉猜空不空；题目问 molecules，就用 pV = NkT 算 N。',
+      '看到 vacuum 先别凭感觉猜空不空；题目问 molecules，就先切到 N 这本账。',
     variationDrill: {
       prompt:
         '一个 2 cm³ 容器在 300 K 时压强为 10^-7 Pa。估算其中 molecule count 的数量级。',
