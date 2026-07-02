@@ -865,32 +865,32 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
           {
             title: '四、把 2024 Q2 放回这次能量比较',
             questionBrief: {
-              title: '考场读题记录',
+              title: '2024 DSE Q2 原题英文',
               stem: [
-                '题目给暖水和 0°C 的冰混合，并给出水的 specific heat capacity 与冰的 specific latent heat of fusion。',
-                '真正要判断的不是“平均以后几度”，而是暖水释放的热量够不够熔化全部冰。',
-                '选项围绕最终温度设置：低于 0°C、等于 0°C、高于 0°C，以及一种平均温度式的干扰判断。',
+                'If 0.5 kg of water at 50 °C is mixed with 2.0 kg of ice at 0 °C, what is the final temperature of the mixture ?',
+                'Given: specific heat capacity of water = 4200 J kg⁻¹ °C⁻¹',
+                'specific latent heat of fusion of ice = 3.34 × 10⁵ J kg⁻¹',
               ],
               options: [
                 {
                   label: 'A',
-                  text: '最终温度低于 0°C。',
+                  text: '−54 °C',
                 },
                 {
                   label: 'B',
-                  text: '最终温度为 0°C。',
+                  text: '0 °C',
                 },
                 {
                   label: 'C',
-                  text: '最终温度高于 0°C。',
+                  text: '10 °C',
                 },
                 {
                   label: 'D',
-                  text: '按普通混合温度直觉得到的干扰结果。',
+                  text: '25 °C',
                 },
               ],
               points: [
-                '本题的关键不是算最终温度，而是先证明冰没有全部熔化。',
+                '这一题的英文问法很短，但关键不是直接算平均温度，而是先证明 ice 没有全部熔化。',
               ],
             },
             paragraphs: [
@@ -908,7 +908,7 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
       },
     },
     reconstructedPrompt:
-      '一定质量的暖水与更大质量、温度为 0°C 的冰混合。题目给出水的 c 和冰的熔解潜热，要求判断最终温度。',
+      'If 0.5 kg of water at 50 °C is mixed with 2.0 kg of ice at 0 °C, what is the final temperature of the mixture ? Given: specific heat capacity of water = 4200 J kg⁻¹ °C⁻¹; specific latent heat of fusion of ice = 3.34 × 10⁵ J kg⁻¹. A. −54 °C B. 0 °C C. 10 °C D. 25 °C.',
     researchQuestion:
       '在计算最终温度之前，暖水释放的热量是否足够把所有冰熔化？',
     quickTake:
