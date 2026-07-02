@@ -143,14 +143,15 @@ function renderNarrativeEquations(
 }
 
 function renderQuestionBrief(
-  brief?: NonNullable<PhysicsCaseStudy['knowledgeSystem']['narrative']>['sections'][number]['questionBrief']
+  brief?: NonNullable<PhysicsCaseStudy['knowledgeSystem']['narrative']>['sections'][number]['questionBrief'],
+  className = 'question-brief'
 ) {
   if (!brief) {
     return ''
   }
 
   return `
-    <aside class="question-brief">
+    <aside class="${className}">
       <h4>${escapeHtml(brief.title)}</h4>
       ${brief.stem?.length ? `<div class="question-stem">${renderParagraphs(brief.stem)}</div>` : ''}
       ${
@@ -172,6 +173,10 @@ function renderQuestionBrief(
       ${brief.points?.length ? renderList(brief.points) : ''}
     </aside>
   `
+}
+
+function getNarrativeQuestionBrief(caseStudy: PhysicsCaseStudy) {
+  return caseStudy.knowledgeSystem.narrative?.sections.find((section) => section.questionBrief)?.questionBrief
 }
 
 function renderNarrativeKnowledge(caseStudy: PhysicsCaseStudy) {
@@ -303,14 +308,16 @@ function renderNarrativeOptionAnalysis(caseStudy: PhysicsCaseStudy) {
 }
 
 function renderNarrativeApplication(caseStudy: PhysicsCaseStudy) {
+  const questionBrief = getNarrativeQuestionBrief(caseStudy)
+
   return `
     <article class="panel essay">
       <h2>把这套读法放回考场</h2>
       <p class="source-line">${escapeHtml(caseStudy.paper)} · Q${caseStudy.questionNo} · 建议 ${escapeHtml(caseStudy.timeBudget)} · 参考答案 ${escapeHtml(caseStudy.answer)}</p>
 
       <section id="exam-brief" class="essay-section">
-        <h3>用上面的题目速写来解</h3>
-        <p>${escapeHtml(caseStudy.reconstructedPrompt)}</p>
+        <h3>${questionBrief ? '用原题题面回到考场' : '用上面的题目速写来解'}</h3>
+        ${questionBrief ? renderQuestionBrief(questionBrief, 'question-brief exam-question-card') : `<p>${escapeHtml(caseStudy.reconstructedPrompt)}</p>`}
         <p>${escapeHtml(caseStudy.knowledgeSystem.bridgeToQuestion)}</p>
         <p>${escapeHtml(caseStudy.researchQuestion)}</p>
       </section>
@@ -1316,6 +1323,79 @@ function baseStyles() {
       color: #344054;
       font-size: 16px;
       line-height: 1.72;
+    }
+    .essay-page .exam-question-card {
+      max-width: 860px;
+      margin: 20px 0 26px;
+      padding: 0;
+      border: 1px solid #d7dee8;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.92);
+      overflow: hidden;
+      box-shadow: 0 14px 34px rgba(17, 24, 39, 0.06);
+    }
+    .essay-page .exam-question-card h4 {
+      margin: 0;
+      padding: 14px 18px;
+      border-bottom: 1px solid #d7dee8;
+      background: #f7f9fb;
+      color: #111827;
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+    }
+    .essay-page .exam-question-card .question-stem {
+      padding: 18px 20px 14px;
+    }
+    .essay-page .exam-question-card .question-stem p {
+      max-width: none;
+      margin: 0 0 10px;
+      color: #202b3d;
+      font-size: 17px;
+      line-height: 1.72;
+    }
+    .essay-page .exam-question-card .question-stem p:last-child {
+      margin-bottom: 0;
+      font-weight: 760;
+    }
+    .essay-page .exam-question-card .question-options {
+      margin: 0;
+      border-top: 1px solid #e1e6ee;
+    }
+    .essay-page .exam-question-card .question-option {
+      grid-template-columns: 38px minmax(0, 1fr);
+      gap: 14px;
+      padding: 14px 20px;
+      border-bottom: 1px solid #e1e6ee;
+      background: #ffffff;
+    }
+    .essay-page .exam-question-card .question-option:nth-child(even) {
+      background: #fafbfd;
+    }
+    .essay-page .exam-question-card .question-option span {
+      width: 30px;
+      height: 30px;
+      border-radius: 7px;
+      background: #111827;
+      color: #ffffff;
+      font-size: 14px;
+    }
+    .essay-page .exam-question-card .question-option p {
+      max-width: none;
+      color: #202b3d;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+    .essay-page .exam-question-card ul {
+      margin: 0;
+      padding: 14px 20px 16px 42px;
+      border-top: 1px solid #e1e6ee;
+      background: #fffaf0;
+    }
+    .essay-page .exam-question-card li {
+      color: #6b3d0f;
+      font-size: 15px;
+      line-height: 1.7;
     }
     .essay-page .essay-closing {
       margin-top: 46px;
