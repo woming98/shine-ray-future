@@ -195,7 +195,6 @@ function renderNarrativeKnowledge(caseStudy: PhysicsCaseStudy) {
           (section, index) => `
             <section id="concept-${index + 1}" class="essay-section">
               <h3>${escapeHtml(section.title)}</h3>
-              ${renderQuestionBrief(section.questionBrief)}
               ${renderParagraphs(section.paragraphs)}
               ${renderNarrativeEquations(section)}
               ${section.note ? `<p class="essay-note">${escapeHtml(section.note)}</p>` : ''}
