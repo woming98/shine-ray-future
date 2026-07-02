@@ -1309,7 +1309,7 @@ function baseStyles() {
       border-radius: 0;
       background: transparent;
     }
-    .essay-page .question-option span {
+    .essay-page .question-option > span {
       display: grid;
       place-items: center;
       width: 24px;
@@ -1384,7 +1384,7 @@ function baseStyles() {
     .essay-page .exam-question-card .question-option:nth-child(even) {
       background: #fafbfd;
     }
-    .essay-page .exam-question-card .question-option span {
+    .essay-page .exam-question-card .question-option > span {
       width: 30px;
       height: 30px;
       border-radius: 7px;
