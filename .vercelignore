@@ -1,17 +1,12 @@
-.DS_Store
+.git/
+.vercel/
 node_modules/
 dist/
-.env
-.env.*
-*.log
-.vite/
-coverage/
-venv/
-__pycache__/
-.vercel/
 .tmp/
+.DS_Store
+*.log
 
-# Local source materials and generated static study pages
+# Local source materials
 DSE 物理/
 DSE数学/
 DSE會計/
@@ -19,5 +14,7 @@ DSE會計/
 莘睿未來 - 專業定制香港DSE課程.pdf
 dse2020-p1.png
 dse2024-p1.png
+
+# Generated during npm run build
 public/physics/dse/
 public/physics/dse-2024/
