@@ -1484,8 +1484,8 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
   {
     slug: 'q04',
     questionNo: 4,
-    title: '速度-时间图面积：用单位识别 displacement',
-    subtitle: '这题表面问阴影面积，本质考运动图像的物理意义。',
+    title: '速度-时间图面积：从累积量理解 displacement',
+    subtitle: '先把 slope 和 area 的读图逻辑讲清楚，再回到 2024 Q4 的阴影面积。',
     paper: '2024 Paper 1 Section A',
     topic: '力与运动（Force and Motion）',
     tags: ['速度-时间图 velocity-time graph', '位移 displacement', '图像面积 graph area'],
@@ -1494,104 +1494,104 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
     timeBudget: '30-45 秒',
     difficulty: '核心反射题',
     knowledgeSystem: {
-      title: '知识专题：运动图像的斜率和面积分别代表什么',
+      title: '知识专题：运动图像先分清 slope 和 area',
       bigIdea:
-        '运动图像题的核心不是画得直还是弯，而是先问“这题要斜率还是面积”。纵轴量乘横轴量给面积的单位；纵轴量除以横轴量给斜率的单位。单位一出来，物理量就基本确定。',
+        '运动图像不是先背一张表，而是先分清你在图上做什么动作。看 slope，是在问“变化得多快”；看 area，是在问“累积了多少”。Q4 的核心就是把 velocity-time graph 下方的 shaded area 读成一段段 displacement 的累加。',
       learningMap: [
-        '第一层：s-t graph 的斜率是 velocity。',
-        '第二层：v-t graph 的斜率是 acceleration。',
-        '第三层：v-t graph 的面积是 displacement。',
-        '第四层：a-t graph 的面积是 change in velocity。',
+        '先把图像操作分成 slope 和 area。',
+        '再用纵轴单位和横轴单位判断物理量。',
+        '接着理解 v-t 面积为什么是 displacement。',
+        '最后区分 displacement 和 distance travelled 的边界。',
       ],
       whyItMatters:
-        '运动图像题看起来很多：s-t、v-t、a-t，直线、曲线、阴影、切线。但它们其实只有两个动作：看斜率，或者看面积。你只要建立“图像操作 → 单位 → 物理量”的系统，就不用死背每一种图。',
+        '很多人做运动图像题时，会被曲线形状、阴影位置、选项里的熟悉单词带走。其实图像先不问“像什么”，先问“我正在取 slope 还是取 area”。这个顺序一旦稳定，s-t、v-t、a-t 图都能用同一套方法读。',
       conceptLadder: [
         {
-          title: '先认清图像操作：斜率还是面积',
+          title: '先看图像操作，而不是先看选项',
           explanation:
-            '斜率是纵轴量除以横轴量，表示“变化率”；面积是纵轴量乘以横轴量，表示“累积量”。题目画切线通常考斜率；题目涂阴影通常考面积。',
+            'slope 是纵轴量除以横轴量，所以它描述变化率；area 是纵轴量乘以横轴量，所以它描述累积量。题目画切线，通常在问 slope；题目涂阴影，通常在问 area。',
           checkpoints: [
             '切线、gradient、slope：多半问变化率。',
             'shaded area、area under graph：多半问累积量。',
-            '先判断操作，再看坐标轴。',
+            '先判断操作，再读坐标轴单位。',
           ],
         },
         {
-          title: '再用单位把物理量钉死',
+          title: '再用单位把物理量钉住',
           explanation:
-            '单位是最可靠的防错工具。v-t 图面积的单位是 (m s^-1) × s = m；m 对应位移或路程，不可能是 acceleration 或 momentum。',
+            '单位是最可靠的防错工具。v-t 图面积的单位是 (m s^-1) × s = m。m 是长度单位，因此不可能是 acceleration，也不可能是 momentum；选项会被单位先筛掉一大半。',
           checkpoints: [
-            'v-t 面积：m。',
-            'v-t 斜率：m s^-2。',
-            'a-t 面积：m s^-1。',
+            'v-t graph 的 area：m。',
+            'v-t graph 的 slope：m s^-2。',
+            'a-t graph 的 area：m s^-1。',
           ],
         },
         {
-          title: '最后区分 displacement 和 distance',
+          title: '最后再区分 displacement 和 distance travelled',
           explanation:
-            '如果速度一直为正，v-t 面积既是 displacement，也等于 distance travelled。如果图像有负速度区域，位移要带符号，路程要取面积绝对值相加。',
+            'v-t 面积严格先代表 displacement，因为 velocity 是有方向的量。若速度一直为正，displacement 的大小才等于 distance travelled；若图像有负速度区域，displacement 可以互相抵消，但 distance travelled 要把大小相加。',
           checkpoints: [
             '全在时间轴上方：面积为正。',
             '有下方区域：位移可能抵消。',
-            'DSE MC 常先考最基本的物理量名称。',
+            '基础 MC 题通常先考 displacement 这个物理量名称。',
           ],
         },
       ],
       formulaToolkit: [
         {
-          name: '速度定义',
+          name: '速度定义的微小形式',
           expression: 'v = ds/dt',
-          useWhen: '需要解释为什么 v-t 面积是 displacement。',
-          watchOut: '这是瞬时关系，曲线下方要用很多小面积累加。',
+          useWhen: '要解释为什么 velocity-time graph 的面积会变成 displacement。',
+          watchOut: 'v 是一瞬间的速度；曲线下面积可以看成很多小段 v dt 累加。',
         },
         {
-          name: 'v-t 面积',
-          expression: 'area = ∫v dt',
+          name: 'v-t 图面积',
+          expression: 'displacement = ∫v dt',
           useWhen: '速度-时间图下方有阴影。',
-          watchOut: '若速度为负，面积带方向，代表 signed displacement。',
+          watchOut: '如果速度为负，面积带符号，代表 signed displacement。',
         },
         {
-          name: '单位判断',
-          expression: '(m s^-1)(s) = m',
+          name: '单位检查',
+          expression: '(m s^-1) × s = m',
           useWhen: '选择题问 shaded area 代表什么。',
-          watchOut: '看到 m 只能说明是位移/路程类，还要结合速度正负判断。',
+          watchOut: 'm 只能说明是长度类物理量；再根据 velocity 带方向，优先判断为 displacement。',
         },
       ],
       microExamples: [
         {
-          title: '微型例题 1：v-t 图的斜率',
-          prompt: '一张 velocity-time graph 的某点切线斜率单位是什么？代表什么？',
+          title: '小想一下 1：同一张 v-t 图，slope 和 area 问的不是同一件事',
+          prompt: 'velocity-time graph 上画一条切线，和涂一块阴影，分别在问什么？',
           steps: [
-            '斜率单位 = (m s^-1)/s = m s^-2。',
-            'm s^-2 是 acceleration。',
-            '所以 v-t 图斜率代表 acceleration。',
+            '切线斜率：velocity 变化得多快，所以是 acceleration。',
+            '阴影面积：velocity 在一段时间内累积了多少，所以是 displacement。',
+            '先看题目让你做的图像动作，再看选项。',
           ],
         },
         {
-          title: '微型例题 2：a-t 图的面积',
-          prompt: '一张 acceleration-time graph 下方阴影面积单位是什么？代表什么？',
+          title: '小想一下 2：单位先筛选',
+          prompt: 'velocity-time graph 的 shaded area 单位为什么？',
           steps: [
-            '面积单位 = (m s^-2)(s) = m s^-1。',
-            'm s^-1 是 velocity 的单位。',
-            '所以 a-t 图面积代表 change in velocity。',
+            '纵轴 velocity 的单位是 m s^-1。',
+            '横轴 time 的单位是 s。',
+            '面积单位是 (m s^-1) × s = m，只可能落在长度类物理量。',
           ],
         },
       ],
       coreExplanations: [
         {
-          title: '面积本质上是在做累加',
+          title: '面积不是装饰，是累积',
           points: [
-            'v = ds/dt，所以 ds = vdt。',
-            'v-t 图下每一条很薄的竖条面积都是一小段 displacement。',
-            '把所有小面积加起来，就是总 displacement。',
+            '在一小段时间 dt 里，位移小量是 ds = v dt。',
+            'v-t 图下每一条窄竖条的面积，就是这一小段 displacement。',
+            '把所有小面积连续累加，得到整段 displacement。',
           ],
         },
         {
-          title: '用单位快速防错',
+          title: '单位比口诀更稳',
           points: [
             'v-t 面积单位：(m s^-1)(s) = m。',
-            'm 对应 displacement 或 distance，而不是 acceleration。',
-            '若图像在时间轴下方，面积带符号，对应位移方向；本题阴影在正速度区域，直接选 displacement。',
+            'acceleration 是 m s^-2，change of velocity 是 m s^-1，momentum 是 kg m s^-1，都不是 m。',
+            'm 说明它是长度类物理量；再因为 velocity 带方向，严格名称是 displacement。',
           ],
         },
       ],
@@ -1617,32 +1617,40 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
       masteryChecklist: [
         '我能先判断题目在问 slope 还是 area。',
         '我能用单位判断 v-t 面积、v-t 斜率、a-t 面积。',
-        '我能解释为什么 v-t 面积来自 ds = vdt。',
+        '我能解释为什么 v-t 面积来自 ds = v dt。',
         '我能区分 displacement 和 distance travelled 的条件。',
       ],
       bridgeToQuestion:
-        '2024 Q4 是最典型的运动图像基础题。只要先按知识体系判断“v-t 面积”，就不需要被阴影形状分散注意力。',
+        '回到 2024 Q4 时，先不要看选项里哪个词熟。题目问 shaded area，图是 velocity-time graph，所以先用 area = velocity × time 读出单位，再选 displacement。',
       narrative: {
-        heading: '先问图像在做什么，再问它代表什么',
+        heading: '先把运动图像看成两个动作',
         sidebar: {
-          formula: 'area under v-t graph = ∫v dt = displacement',
+          formula: 'displacement = ∫v dt',
           symbols:
-            'v：速度（m s⁻¹）；t：时间（s）；dt：很小一段时间（s）；∫v dt：把每一小段位移累加起来，单位为 m。',
+            's：位移（m）；v：速度（m s⁻¹）；t：时间（s）；dt：很小一段时间（s）；∫v dt：把每一小段位移连续累加，单位为 m。',
           note: 'v-t 图的斜率是 acceleration；v-t 图下方面积是 displacement。',
           readOrder:
-            '先分清题目问斜率还是面积；再用纵轴单位乘横轴单位；最后对应物理量。',
+            '先看题目问 slope 还是 area；再读纵轴和横轴单位；最后对应物理量。',
         },
         lead: [
-          '运动图像题看起来种类很多，其实最先要问的只有一句：题目要你看斜率，还是看面积？如果问 gradient，那是在比较变化率；如果问 shaded area，那是在累加纵轴量。',
-          '2024 Q4 的图像是 velocity-time graph，并且题目盯着阴影面积。到这里，答案已经快出来了：面积的单位是 velocity × time，也就是 (m s^-1) × s = m。',
+          '运动图像最容易让人乱，是因为大家一上来就背 s-t、v-t、a-t 的结果。更稳的入口，是先问自己：我正在看 slope，还是看 area？',
+          'slope 是纵轴量除以横轴量，所以读的是变化率；area 是纵轴量乘以横轴量，所以读的是累积量。这个动作分清楚，图像再弯也不乱。',
         ],
         sections: [
           {
-            title: '一、阴影面积不是装饰，它在累加很多小位移',
+            title: '一、slope 和 area 问的不是同一件事',
             paragraphs: [
-              '如果某一小段时间里速度近似不变，那么这一小段位移就是 velocity × time。图像上看，它就是一条很窄的小长方形面积。',
-              '曲线下方的阴影可以想成许多很窄的小长方形相加。每一条都是一小段 displacement，全部加起来就是总 displacement。',
-              '这就是为什么曲线形状不需要吓人。只要横轴是 time，纵轴是 velocity，下方面积就对应位移累加。',
+              '一张图可以被问出两种完全不同的问题。若题目问 gradient、slope 或切线斜率，它在问纵轴量相对于横轴量变化得多快。若题目问 shaded area 或 area under graph，它在问纵轴量在一段横轴范围内累积了多少。',
+              '所以读运动图像时，不要先盯着选项里的熟词。先看题目让你做的动作：取 slope，还是取 area。动作不同，物理量就不同。',
+              '在 velocity-time graph 里，slope 会给 acceleration；area 会给 displacement。它们都出现在同一张图上，但它们不是同一件事。',
+            ],
+          },
+          {
+            title: '二、为什么 v-t 图面积是 displacement',
+            paragraphs: [
+              '把时间切得很细。在很短一段时间 dt 内，如果速度近似为 v，这一小段位移就是 ds = v dt。',
+              '画在 v-t graph 上，这个 v dt 正好是一条很窄的竖条面积：高度是 velocity，宽度是 time interval。曲线下方那一整块阴影，就是把这些小竖条的面积连续加起来。',
+              '因此曲线不需要拆成三角形或长方形才可以理解。只要纵轴是 velocity，横轴是 time，下方面积就对应 displacement 的累积。',
             ],
             equations: [
               {
@@ -1650,28 +1658,28 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
                 symbols: [
                   {
                     symbol: 'ds',
-                    meaning: '很小一段位移',
+                    meaning: '很小一段 displacement',
                     unit: 'm',
                   },
                   {
                     symbol: 'v',
-                    meaning: '这一瞬间或这一小段内的速度',
+                    meaning: '这一瞬间或这一小段内的 velocity',
                     unit: 'm s⁻¹',
                   },
                   {
                     symbol: 'dt',
-                    meaning: '很小一段时间',
+                    meaning: '很小一段 time interval',
                     unit: 's',
                   },
                 ],
-                unitNote: 'm s⁻¹ 乘 s 得到 m，所以每一个小面积都是位移单位。',
+                unitNote: 'm s⁻¹ 乘 s 得到 m，所以每条窄竖条面积都有位移单位。',
               },
               {
-                expression: 'area = ∫v dt',
+                expression: 'displacement = ∫v dt',
                 symbols: [
                   {
-                    symbol: 'area',
-                    meaning: 'v-t 图曲线下方的面积',
+                    symbol: 's',
+                    meaning: '整段 displacement，从起点到终点的位置变化，带方向',
                     unit: 'm',
                   },
                   {
@@ -1695,82 +1703,112 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
             ],
           },
           {
-            title: '二、单位会把错误选项排掉',
+            title: '三、单位会先排掉 acceleration 和 momentum',
             paragraphs: [
-              'v-t 面积的单位是 m。这个单位不可能对应 acceleration，因为 acceleration 的单位是 m s^-2；也不可能对应 momentum，因为 momentum 还需要 mass，单位是 kg m s^-1。',
-              '所以一看到题目问 velocity-time graph 的 shaded area，就先把单位写出来。单位一写，选项里很多看似熟悉的物理量会自动出局。',
-              '这一步比记口诀可靠。口诀容易和 a-t 图、s-t 图混在一起；单位不会混。',
+              'v-t graph 的面积单位来自纵轴乘横轴：velocity 的单位是 m s^-1，time 的单位是 s，相乘得到 m。',
+              '这个单位已经排掉不少东西。acceleration 的单位是 m s^-2；change of velocity 的单位是 m s^-1；momentum 的单位是 kg m s^-1。它们都不是 m。',
+              '剩下的问题是：m 代表 displacement 还是 distance travelled？因为 v-t graph 用的是 velocity，而 velocity 本身带方向，所以面积严格先代表 displacement。',
+            ],
+            equations: [
+              {
+                expression: '(m s^-1) × s = m',
+                symbols: [
+                  {
+                    symbol: 'm s^-1',
+                    meaning: 'velocity 的单位',
+                    unit: 'm s⁻¹',
+                  },
+                  {
+                    symbol: 's',
+                    meaning: 'time 的单位',
+                    unit: 's',
+                  },
+                  {
+                    symbol: 'm',
+                    meaning: '长度或位移单位',
+                    unit: 'm',
+                  },
+                ],
+                unitNote: '单位只能先告诉你它是长度类物理量；再结合 velocity 带方向，才能把名称定为 displacement。',
+              },
             ],
           },
           {
-            title: '三、displacement 和 distance 要看速度有没有变号',
+            title: '四、displacement 和 distance 的边界',
             paragraphs: [
               '严格说，v-t 图面积先代表 displacement，因为 velocity 本身带方向。若图像有一部分在时间轴下方，那部分面积会带负号，可以抵消上方的正面积。',
-              '如果整段速度都为正，displacement 的大小就等于 distance travelled。很多基础选择题会直接问面积代表什么物理量，此时优先回答 displacement。',
-              '这一区分不是本题最难的地方，但它能防止你以后遇到负速度图像时把 distance 和 displacement 混在一起。',
+              '如果整段速度都为正，displacement 的大小才等于 distance travelled。若速度有正有负，distance travelled 要把路程大小相加，而 displacement 会按方向相互抵消。',
+              'DSE 在选择题里问 physical quantity 时，通常要你先给出严格名称。看见 velocity-time graph 的 area，第一反应应当是 displacement。',
             ],
           },
           {
-            title: '四、把 2024 Q4 放回阴影面积',
+            title: '五、回到 2024 Q4：只看 shaded area 的物理意义',
             questionBrief: {
-              title: '考场读题记录',
+              title: '2024 DSE Q4 原题英文',
               stem: [
-                '题目给 velocity-time graph，并标出曲线下方某一块 shaded area。',
-                '它问这块阴影面积代表什么 physical quantity。',
-                '选项混入 acceleration、change of velocity、momentum、displacement 等熟悉词，真正要做的是先判断面积单位。',
+                'What physical quantity does the shaded area represent in the above velocity-time (v-t) graph ?',
               ],
               options: [
                 {
                   label: 'A',
-                  text: 'acceleration：这是 v-t 图斜率，不是面积。',
+                  text: 'acceleration',
                 },
                 {
                   label: 'B',
-                  text: 'change of velocity：这是 a-t 图面积对应的量。',
+                  text: 'change of velocity',
                 },
                 {
                   label: 'C',
-                  text: 'momentum：需要质量信息，图中没有。',
+                  text: 'momentum',
                 },
                 {
                   label: 'D',
-                  text: 'displacement：v-t 图下面积的物理意义。',
+                  text: 'displacement',
                 },
               ],
               points: [
-                '本题答案来自图像操作：velocity × time = displacement。',
+                '图像纵轴是 v，横轴是 t；题目问 shaded area，所以读成 velocity × time 的累积。',
               ],
             },
             paragraphs: [
-              '回到题目，阴影面积就是 v × t 的累加，单位为 metre，因此选 displacement。',
-              '这题容易被做得过快。快没有问题，但要快在正确的位置：先认出 shaded area，再看坐标轴单位，而不是看到 velocity 就随手联想到别的运动量。',
+              '这题没有给数字，说明它不是要你计算面积大小，而是要你说出面积的物理意义。',
+              'v-t graph 下方的 shaded area：单位是 m，且 velocity 带方向，所以物理量是 displacement。',
+              'A 是 v-t graph 的 slope；B 是 a-t graph 的 area；C 需要 mass。它们都不是这块 shaded area 的意义。',
             ],
           },
         ],
         closing: [
-          'Q4 的标准反射是：运动图像先问 slope 还是 area。v-t graph 的 slope 是 acceleration，area 是 displacement。这个反射建立起来，类似题目基本都能在半分钟内稳定拿下。',
+          '以后再看运动图像，先别背答案表。先问 slope 还是 area：slope 读变化率，area 读累积量。Q4 只是这个规则在 v-t graph 上最直接的一次出现。',
         ],
       },
     },
     reconstructedPrompt:
-      '题目给出一张 velocity-time graph，并把曲线下方某一区域涂阴影，要求判断该阴影面积代表什么物理量。',
+      'What physical quantity does the shaded area represent in the above velocity-time (v-t) graph ? A. acceleration B. change of velocity C. momentum D. displacement.',
     researchQuestion:
-      '为什么 v-t 图下的面积代表 displacement，即使曲线不是简单三角形或长方形？',
+      '为什么 velocity-time graph 下方的 shaded area 代表 displacement？',
     quickTake:
-      'velocity-time graph 下的面积是 displacement，因为 velocity × time 的单位是 metre。',
+      'v-t graph 的 shaded area 是 velocity 对 time 的累积；单位是 (m s^-1) × s = m，且 velocity 带方向，所以对应 displacement。',
     diagram: {
       title: '教学重画图：v(t) 下方阴影面积就是积分',
       svg: vtAreaSvg,
     },
     model: [
-      '速度是位移对时间的变化率：v = ds/dt。',
-      '变形得到 ds = v dt。',
-      '把所有很小的 v dt 条带加起来，就是总 displacement。',
-      '如果速度始终为正，这个阴影面积也等于 distance travelled。',
+      'velocity 表示 displacement 随 time 的变化率：v = ds/dt。',
+      '移项得到 ds = v dt，意思是一小段时间里的位移小量。',
+      'v-t graph 下每条窄竖条面积都是 v dt。',
+      '把所有窄竖条累加，得到总 displacement；若速度一直为正，它的大小才等于 distance travelled。',
     ],
     prerequisiteRecovery: [
       {
-        title: '运动图像意义表',
+        title: 'slope 和 area 的分工',
+        points: [
+          'slope = 纵轴量 / 横轴量，读变化率。',
+          'area = 纵轴量 × 横轴量，读累积量。',
+          '题目问 gradient/slope 时不要用面积规则；题目问 shaded area 时不要用斜率规则。',
+        ],
+      },
+      {
+        title: '三张运动图像的常用结果',
         points: [
           's-t graph 的斜率给 velocity。',
           'v-t graph 的斜率给 acceleration。',
@@ -1780,24 +1818,24 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
       },
     ],
     thinkingPath: [
-      '先看坐标轴：纵轴是 v，横轴是 t。',
-      '阴影面积意味着纵轴量乘横轴量。',
-      '单位是 (m s^-1) × s = m。',
-      '单位为 metre 的运动量是 displacement。',
+      '原题问的是 shaded area，不是 slope。',
+      '图像是 velocity-time graph，所以面积等于 velocity 对 time 的累积。',
+      '面积单位是 (m s^-1) × s = m。',
+      'velocity 是有方向的量，因此这块面积对应 displacement。',
     ],
     solution: [
       {
-        title: '第 1 步：用单位判断',
+        title: '第 1 步：先看题目动作',
         points: [
-          '面积 = velocity × time。',
-          '单位 = m s^-1 × s = m。',
+          '题目说 shaded area，所以现在看的是 area，不是 slope。',
+          'v-t graph 的 slope 才会给 acceleration。',
         ],
       },
       {
-        title: '第 2 步：说出对应物理量',
+        title: '第 2 步：用单位和方向定名',
         points: [
-          'metre 是 displacement 的单位。',
-          '所以阴影面积代表 displacement。',
+          'area = velocity × time，单位是 (m s^-1) × s = m。',
+          'velocity 带方向，所以面积代表 displacement，而不是只说 distance。',
         ],
       },
     ],
@@ -1810,31 +1848,32 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
       {
         option: 'B',
         verdict: 'wrong',
-        text: 'change of velocity 是 a-t graph 下方面积代表的量。',
+        text: 'change of velocity 是 a-t graph 下方面积代表的量；在 v-t graph 里，area 不会给 velocity change。',
       },
       {
         option: 'C',
         verdict: 'wrong',
-        text: 'momentum 需要 mass × velocity，但图中没有质量信息。',
+        text: 'momentum 需要 mass × velocity，单位是 kg m s^-1；这里的面积单位只是 m。',
       },
       {
         option: 'D',
         verdict: 'correct',
-        text: 'v-t 图阴影面积单位为 metre，代表 displacement。',
+        text: 'v-t graph 的 shaded area 是 velocity 对 time 的累积，代表 displacement。',
       },
     ],
     markingPoints: [
+      '识别题目问 shaded area，而不是 slope。',
       '识别图像是 velocity-time graph。',
-      '把 v-t graph 下方面积对应到 displacement。',
-      '不要把面积和斜率混淆。',
+      '用 (m s^-1) × s = m 判断它是位移类物理量。',
+      '用 velocity 带方向说明答案是 displacement。',
     ],
     traps: [
-      '看到曲线就以为规则变了。规则没有变。',
-      '因为图上有 v 和 t 就误选 acceleration。',
-      '因为纵轴有 velocity 就联想到 momentum。',
+      '把 v-t graph 的 slope 规则误用到 shaded area 上。',
+      '看到 change of velocity 觉得熟，却忘了那是 a-t graph 的 area。',
+      '看到 velocity 就联想到 momentum，但 momentum 还需要 mass。',
     ],
     highScoreReflex:
-      '遇到运动图像，先问“考斜率还是面积？”，再用单位确认。',
+      '遇到运动图像，先问“考 slope 还是 area？”；如果是 v-t area，立刻想 displacement。',
     variationDrill: {
       prompt:
         '在 acceleration-time graph 中，曲线下方阴影面积代表什么物理量？',
