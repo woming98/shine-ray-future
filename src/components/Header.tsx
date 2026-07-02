@@ -16,6 +16,8 @@ import {
 } from 'lucide-react'
 
 // 导航配置类型
+type NavChildStatus = 'active' | 'pilot' | 'coming'
+
 interface NavItem {
   path?: string
   label: string
@@ -25,7 +27,7 @@ interface NavItem {
     label: string
     icon: React.ElementType
     description?: string
-    status?: 'active' | 'coming'
+    status?: NavChildStatus
   }[]
 }
 
@@ -67,9 +69,9 @@ export default function Header() {
       label: '插班',
       icon: GraduationCap,
       children: [
-        { path: '/admission/rankings', label: '學校榜單', icon: Trophy, description: 'DSE 成績 TOP50' },
-        { path: '/admission/info', label: '插班資訊', icon: FileText, description: '申請流程指南' },
-        { path: '/admission/test', label: '入學測試', icon: ClipboardCheck, description: '英文/數學評估' },
+        { path: '/admission/rankings', label: '择校参考', icon: Trophy, description: 'DSE 表现参考' },
+        { path: '/admission/info', label: '插班流程', icon: FileText, description: '申請流程指南' },
+        { path: '/admission/test', label: '英数测评', icon: ClipboardCheck, description: '英文/數學評估' },
       ]
     },
     {
@@ -84,12 +86,12 @@ export default function Header() {
           description: '互動學習平台',
           status: 'active',
         },
-        { path: '/subjects/biology', label: '生物', icon: Microscope, description: '3D細胞模型', status: 'coming' },
-        { path: '/subjects/english', label: '英文', icon: BookOpen, status: 'coming' },
+        { path: '/subjects/biology', label: '生物', icon: Microscope, description: '3D細胞模型', status: 'pilot' },
+        { path: '/subjects/english', label: '英文', icon: BookOpen, status: 'pilot' },
         { path: '/subjects/math', label: '數學', icon: Calculator, description: '課程、計數機及DSE配套', status: 'active' },
         { path: '/subjects/chinese', label: '語文', icon: Languages, status: 'coming' },
         { path: '/subjects/m1', label: 'M1', icon: Sigma, status: 'coming' },
-        { path: '/subjects/m2', label: 'M2', icon: Sigma, status: 'coming' },
+        { path: '/subjects/m2', label: 'M2', icon: Sigma, status: 'pilot' },
         { path: '/subjects/chemistry', label: '化學', icon: FlaskConical, status: 'coming' },
         { path: '/subjects/economics', label: '經濟', icon: TrendingUp, status: 'coming' },
         { path: '/subjects/bafs', label: '會計', icon: Receipt, description: 'BAFS課程框架與資源', status: 'active' },
@@ -124,6 +126,13 @@ export default function Header() {
     if (path) return location.pathname === path
     if (children) return children.some(child => location.pathname.startsWith(child.path))
     return false
+  }
+
+  const isUnavailable = (status?: NavChildStatus) => status === 'coming' || status === 'pilot'
+  const getStatusLabel = (status?: NavChildStatus) => {
+    if (status === 'pilot') return '内测中'
+    if (status === 'coming') return '排期中'
+    return null
   }
 
   return (
@@ -205,10 +214,10 @@ export default function Header() {
                               <Link
                                 key={child.path}
                                 to={child.path}
-                                aria-disabled={child.status === 'coming'}
+                                aria-disabled={isUnavailable(child.status)}
                                 onClick={(e) => {
                                   setOpenDropdown(null)
-                                  if (child.status === 'coming') {
+                                  if (isUnavailable(child.status)) {
                                     e.preventDefault()
                                     navigate('/subjects')
                                   }
@@ -216,19 +225,19 @@ export default function Header() {
                                 className={`flex items-start gap-3 px-3 py-2.5 rounded-xl transition-colors ${
                                   location.pathname === child.path
                                     ? 'bg-primary-50 text-primary-600'
-                                    : child.status === 'coming'
+                                    : isUnavailable(child.status)
                                       ? 'text-slate-400 bg-slate-50 cursor-not-allowed'
                                       : 'text-slate-600 hover:bg-slate-50'
-                                } ${child.status === 'coming' ? 'pointer-events-auto' : ''}`}
+                                } ${isUnavailable(child.status) ? 'pointer-events-auto' : ''}`}
                               >
                                 <child.icon size={18} className="mt-0.5 flex-shrink-0" />
                                 <div>
                                   <div className="font-medium text-sm flex items-center gap-2">
                                     {child.label}
-                                    {child.status === 'coming' && (
+                                    {getStatusLabel(child.status) && (
                                       <span className="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-full bg-slate-200 text-slate-600">
                                         <Lock size={10} />
-                                        未上线
+                                        {getStatusLabel(child.status)}
                                       </span>
                                     )}
                                   </div>
@@ -326,7 +335,7 @@ export default function Header() {
               }`}
             >
               <Crown size={16} />
-              會員中心
+              学习中心
             </Link>
 
             {/* 移动端菜单按钮 */}
@@ -383,10 +392,10 @@ export default function Header() {
                           <Link
                             key={child.path}
                             to={child.path}
-                            aria-disabled={child.status === 'coming'}
+                            aria-disabled={isUnavailable(child.status)}
                             onClick={(e) => {
                               setIsMobileMenuOpen(false)
-                              if (child.status === 'coming') {
+                              if (isUnavailable(child.status)) {
                                 e.preventDefault()
                                 navigate('/subjects')
                               }
@@ -394,7 +403,7 @@ export default function Header() {
                             className={`flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all ${
                               location.pathname === child.path
                                 ? 'bg-primary-50 text-primary-600'
-                                : child.status === 'coming'
+                                : isUnavailable(child.status)
                                   ? 'text-slate-400 bg-slate-50 cursor-not-allowed'
                                   : 'text-slate-600 hover:bg-slate-50'
                             }`}
@@ -402,10 +411,10 @@ export default function Header() {
                             <child.icon size={18} />
                             <span className="flex items-center gap-2">
                               {child.label}
-                              {child.status === 'coming' && (
+                              {getStatusLabel(child.status) && (
                                 <span className="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-full bg-slate-200 text-slate-600">
                                   <Lock size={10} />
-                                  未上线
+                                  {getStatusLabel(child.status)}
                                 </span>
                               )}
                             </span>
@@ -440,7 +449,7 @@ export default function Header() {
                 className="flex items-center gap-3 px-4 py-3 mt-4 bg-primary-600 text-white rounded-xl font-medium"
               >
                 <Crown size={20} />
-                會員中心
+                学习中心
               </Link>
             </nav>
           </motion.div>

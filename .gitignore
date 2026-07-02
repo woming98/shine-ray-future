@@ -8,3 +8,15 @@ dist/
 coverage/
 venv/
 __pycache__/
+.tmp/
+
+# Local source materials and generated static study pages
+DSE 物理/
+DSE数学/
+DSE會計/
+莘睿未来 - 专业定制香港DSE课程.pdf
+莘睿未來 - 專業定制香港DSE課程.pdf
+dse2020-p1.png
+dse2024-p1.png
+public/physics/dse/
+public/physics/dse-2024/

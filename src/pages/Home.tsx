@@ -1,9 +1,8 @@
-import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {
   GraduationCap, BookOpen, Calculator, ArrowRight,
-  Star, Users, CheckCircle, ChevronRight, Sparkles, MapPin
+  Star, Users, CheckCircle, ChevronRight, Sparkles, ClipboardCheck
 } from 'lucide-react'
 import DseCountdown from '../components/DseCountdown'
 import ExamSchedule from '../components/ExamSchedule'
@@ -14,34 +13,37 @@ import { DSE_EXAM_YEAR } from '../data/dseSchedule'
  * 展示品牌形象、DSE信息、核心服务和成功案例
  */
 export default function Home() {
-  const { t } = useTranslation()
-
   // 核心服务数据
   const services = [
     {
       icon: GraduationCap,
-      title: '插班服務',
-      description: '香港學校榜單、插班資訊、入學測試一站式服務',
+      title: '香港插班规划',
+      description: '用学校榜单、申请节奏和材料清单，帮家长先判断目标学校与申请路径。',
       link: '/admission',
-      color: 'from-blue-500 to-blue-600',
       bgColor: 'bg-blue-50',
       iconColor: 'text-blue-500',
     },
     {
-      icon: BookOpen,
-      title: '學科學習',
-      description: 'DSE 各科目互動學習平台，助您高效備考',
-      link: '/subjects',
-      color: 'from-emerald-500 to-emerald-600',
+      icon: ClipboardCheck,
+      title: 'DSE 衔接测评',
+      description: '通过英文与数学入学测评，定位学生与香港课程之间的知识差距。',
+      link: '/admission/test',
       bgColor: 'bg-emerald-50',
       iconColor: 'text-emerald-500',
     },
     {
+      icon: BookOpen,
+      title: 'DSE 全科辅导',
+      description: '以一对一和 3-6 人小班课配合平台题库、错题本与学习进度追踪。',
+      link: '/subjects',
+      bgColor: 'bg-purple-50',
+      iconColor: 'text-purple-500',
+    },
+    {
       icon: Calculator,
-      title: '升學信息',
-      description: 'JUPAS 計分規則、專業錄取要求全面指南',
+      title: 'JUPAS 升学规划',
+      description: '结合 JUPAS 计分、专业要求和目标院校，提前制定选科与冲刺策略。',
       link: '/university',
-      color: 'from-purple-500 to-purple-600',
       bgColor: 'bg-purple-50',
       iconColor: 'text-purple-500',
     },
@@ -51,8 +53,15 @@ export default function Home() {
   const stats = [
     { value: '45+所', label: '已服务香港学校学生', icon: GraduationCap },
     { value: '1000+', label: '累计服务学生', icon: Users },
-    { value: '15+', label: '香港地区覆盖', icon: MapPin },
-    { value: '5年', label: '专业经验', icon: Star },
+    { value: '10科', label: 'DSE 科目规划覆盖', icon: BookOpen },
+    { value: '4步', label: '测评到跟进闭环', icon: Star },
+  ]
+
+  const processSteps = [
+    { label: '免费初筛', detail: '确认年级、目标学校与当前课程体系' },
+    { label: '英数测评', detail: '用入学测试定位知识断点和语言短板' },
+    { label: '学习方案', detail: '匹配一对一或 3-6 人小班课路线' },
+    { label: '进度追踪', detail: '用平台记录题库、错题和阶段反馈' },
   ]
 
   // 动画变体
@@ -104,7 +113,7 @@ export default function Home() {
             className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-8"
           >
             <Sparkles className="w-4 h-4 text-accent-400" />
-            <span className="text-white/90 text-sm font-medium">{t('home.slogan')}</span>
+            <span className="text-white/90 text-sm font-medium">香港插班 · DSE 衔接 · 全科辅导</span>
           </motion.div>
 
           {/* 主标题 */}
@@ -114,9 +123,9 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6"
           >
-            <span className="block">{t('home.heroTitlePart1')}</span>
+            <span className="block">先测清差距</span>
             <span className="block mt-2 bg-gradient-to-r from-accent-300 via-accent-400 to-accent-500 bg-clip-text text-transparent">
-              {t('home.heroTitlePart2')}
+              再规划香港升学路径
             </span>
           </motion.h1>
 
@@ -127,7 +136,7 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg sm:text-xl text-primary-100/80 max-w-3xl mx-auto mb-10 leading-relaxed"
           >
-            {t('home.heroSubtitle')}
+            莘睿未来为内地转港与 DSE 备考家庭提供插班咨询、英文/数学衔接测评、DSE 全科辅导和可追踪的数字学习平台。
           </motion.p>
 
           {/* CTA 按钮 */}
@@ -138,17 +147,17 @@ export default function Home() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <Link
-              to="/admission"
+              to="/admission/test"
               className="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-accent-500 to-accent-600 text-white font-semibold rounded-xl shadow-lg shadow-accent-500/30 hover:shadow-xl hover:shadow-accent-500/40 transform hover:-translate-y-1 transition-all duration-300"
             >
-              插班服務
+              开始英数测评
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
-              to="/subjects"
+              to="/admission"
               className="group inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl border border-white/20 hover:bg-white/20 transform hover:-translate-y-1 transition-all duration-300"
             >
-              學科學習
+              查看插班路径
               <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>
@@ -213,7 +222,7 @@ export default function Home() {
           >
             <h2 className="section-title mb-4">DSE {DSE_EXAM_YEAR} 考試資訊</h2>
             <p className="section-subtitle">
-              掌握考試時間，提前做好準備
+              使用官方考试时间作为长期备考节奏参考，提前安排课程与冲刺节点
             </p>
           </motion.div>
 
@@ -249,9 +258,9 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="section-title mb-4">{t('home.featuredServices')}</h2>
+            <h2 className="section-title mb-4">从获客测评到课程交付</h2>
             <p className="section-subtitle">
-              专业团队为您提供全方位的香港升学插班与学科学习服务
+              先用测评和择校信息降低决策成本，再用课程与学习平台持续跟进
             </p>
           </motion.div>
 
@@ -261,7 +270,7 @@ export default function Home() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid md:grid-cols-3 gap-8"
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {services.map((service, index) => (
               <motion.div key={index} variants={itemVariants}>
@@ -301,6 +310,25 @@ export default function Home() {
       {/* ===== 为什么选择我们 Why Choose Us ===== */}
       <section className="py-24 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-16"
+          >
+            <div className="grid md:grid-cols-4 gap-4">
+              {processSteps.map((step, index) => (
+                <div key={step.label} className="bg-slate-50 border border-slate-100 rounded-2xl p-5">
+                  <div className="w-9 h-9 rounded-xl bg-primary-100 text-primary-700 flex items-center justify-center font-bold mb-4">
+                    {index + 1}
+                  </div>
+                  <h3 className="font-bold text-slate-900 mb-2">{step.label}</h3>
+                  <p className="text-sm leading-6 text-slate-600">{step.detail}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* 左侧内容 */}
             <motion.div
@@ -314,17 +342,17 @@ export default function Home() {
                 <span className="gradient-text"> 莘睿未来</span>
               </h2>
               <p className="text-slate-600 text-lg mb-8 leading-relaxed">
-                我们以学生为中心，围绕香港 DSE 全科辅导与内地转港衔接，提供从评估、定制课程到学习追踪与升学指导的一站式支持。
+                我们把“插班咨询”和“DSE 学科辅导”连在一起：先判断学校与课程差距，再安排可落地的衔接训练和阶段反馈。
               </p>
 
               {/* 特点列表 */}
               <div className="space-y-4">
                 {[
-                  '深度解析 DSE 考纲，覆盖语文、数学、理科及商科 10 大科目',
+                  '围绕香港插班常见英数入学测评建立诊断入口',
                   '港大、中大、科大及海外名校背景师资',
                   '一对一精讲与 3–6 人精品小组课灵活选择',
-                  '自研教材、模拟试卷与数字学习平台',
-                  '定期测评、错题追踪与全程陪伴服务',
+                  '数学、物理、BAFS 等学科平台已可用于日常训练',
+                  '定期测评、错题追踪与阶段学习反馈',
                 ].map((item, index) => (
                   <motion.div
                     key={index}
@@ -426,21 +454,21 @@ export default function Home() {
               <span className="text-accent-400">香港求学之路</span>了吗？
             </h2>
             <p className="text-xl text-primary-200 mb-10 max-w-2xl mx-auto">
-              立即联系我们，获取免费咨询，让专业团队为您规划最佳方案
+              先完成一次英数衔接测评，再由顾问和学科老师给出插班与 DSE 备考建议
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
-                to="/user"
+                to="/admission/test"
                 className="group inline-flex items-center gap-2 px-8 py-4 bg-accent-500 text-white font-semibold rounded-xl shadow-lg shadow-accent-500/30 hover:bg-accent-600 transform hover:-translate-y-1 transition-all duration-300"
               >
-                立即諮詢
+                预约测评
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                to="/admission/rankings"
+                to="/about"
                 className="group inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl border border-white/20 hover:bg-white/20 transform hover:-translate-y-1 transition-all duration-300"
               >
-                瀏覽學校榜單
+                联系顾问
               </Link>
             </div>
           </motion.div>

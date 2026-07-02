@@ -1,22 +1,15 @@
 /**
- * 订阅卡片组件
- * 显示订阅计划和购买按钮
+ * 课程权益卡片组件
+ * 显示课程权益和咨询入口
  */
 
 import { motion } from 'framer-motion'
 import { Check, Crown, Sparkles, Zap } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { useSubscription } from '../store/useSubscription'
 
 export default function SubscriptionCard() {
-  const { isPremium, expiresAt, setPremium, cancelSubscription } = useSubscription()
-
-  // 模拟购买订阅
-  const handleSubscribe = () => {
-    const expires = new Date()
-    expires.setMonth(expires.getMonth() + 1)
-    setPremium(true, expires.toISOString())
-    alert('訂閱成功！這是模擬訂閱，實際需要接入支付系統。')
-  }
+  const { isPremium, expiresAt, cancelSubscription } = useSubscription()
 
   // 免费计划功能
   const freeFeatures = [
@@ -101,11 +94,11 @@ export default function SubscriptionCard() {
             <Crown className={`w-6 h-6 ${isPremium ? 'text-white' : 'text-primary-600'}`} />
           </div>
           <h3 className={`text-xl font-bold mb-2 ${isPremium ? 'text-white' : 'text-slate-800'}`}>
-            高級會員
+            课程会员
           </h3>
           <div className={`text-3xl font-bold mb-1 ${isPremium ? 'text-white' : 'text-slate-900'}`}>
-            ¥29.9
-            <span className={`text-base font-normal ${isPremium ? 'text-white/70' : 'text-slate-500'}`}>/月</span>
+            定制
+            <span className={`text-base font-normal ${isPremium ? 'text-white/70' : 'text-slate-500'}`}>方案</span>
           </div>
           {isPremium && expiresAt && (
             <p className="text-sm text-white/80">
@@ -127,22 +120,22 @@ export default function SubscriptionCard() {
           <div className="space-y-3">
             <button className="w-full py-3 bg-white/20 text-white rounded-xl font-medium flex items-center justify-center gap-2 backdrop-blur-sm">
               <Zap className="w-4 h-4" />
-              已訂閱
+              已开通
             </button>
             <button
               onClick={cancelSubscription}
               className="w-full py-2 text-white/80 hover:text-white text-sm transition-colors"
             >
-              取消訂閱
+              取消权益
             </button>
           </div>
         ) : (
-          <button
-            onClick={handleSubscribe}
-            className="w-full py-3 bg-primary-600 text-white rounded-xl font-medium hover:bg-primary-700 transition-colors shadow-lg"
+          <Link
+            to="/admission/test"
+            className="block w-full py-3 bg-primary-600 text-white rounded-xl font-medium hover:bg-primary-700 transition-colors shadow-lg text-center"
           >
-            立即訂閱
-          </button>
+            预约测评与课程方案
+          </Link>
         )}
       </motion.div>
     </div>

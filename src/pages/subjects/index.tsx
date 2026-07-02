@@ -21,9 +21,9 @@ export default function SubjectHub() {
       color: 'from-emerald-500 to-teal-500',
       bgColor: 'bg-emerald-50',
       iconColor: 'text-emerald-500',
-      status: 'coming',
-      description: 'DSE英文科目學習資源',
-      features: ['智能閱讀', 'AI寫作批改', '聽力訓練', '口語對練'],
+      status: 'pilot',
+      description: 'DSE英文阅读、词汇、写作与口语训练内容内测中',
+      features: ['閱讀訓練', '寫作任務', '聽力素材', '詞彙本'],
     },
     {
       id: 'math',
@@ -34,7 +34,7 @@ export default function SubjectHub() {
       bgColor: 'bg-blue-50',
       iconColor: 'text-blue-500',
       status: 'active',
-      description: '中一至中六課程、計數機教程及HKDSE試卷配套',
+      description: '中一至中六课程、计数机教程及 HKDSE 试卷配套',
       features: ['分級課程', '計數機教程', '答題卡', '詳細解析'],
     },
     {
@@ -67,8 +67,8 @@ export default function SubjectHub() {
       color: 'from-fuchsia-500 to-pink-500',
       bgColor: 'bg-fuchsia-50',
       iconColor: 'text-fuchsia-500',
-      status: 'coming',
-      description: '數學延伸部分單元二',
+      status: 'pilot',
+      description: '数学延伸部分单元二，三角函数学习中心内测中',
       features: ['三角函數學習中心', '歷屆試題庫', '知識點解析', '公式推導'],
     },
     {
@@ -80,8 +80,8 @@ export default function SubjectHub() {
       bgColor: 'bg-cyan-50',
       iconColor: 'text-cyan-500',
       status: 'active',
-      description: '八大物理主題互動學習',
-      features: ['互動模擬', '公式計算器', '練習題庫'],
+      description: '八大物理主题、章节练习、错题本和 2021-2025 HKDSE 真题库',
+      features: ['主題學習', '真題庫', '錯題本', '進度追蹤'],
     },
     {
       id: 'chemistry',
@@ -102,8 +102,8 @@ export default function SubjectHub() {
       color: 'from-green-500 to-emerald-500',
       bgColor: 'bg-green-50',
       iconColor: 'text-green-500',
-      status: 'coming',
-      description: '3D細胞模型與虛擬顯微鏡',
+      status: 'pilot',
+      description: '3D细胞模型、虚拟显微镜与生物词汇内容内测中',
       features: ['3D互動', '詞彙學習', '閃卡系統'],
     },
     {
@@ -131,9 +131,11 @@ export default function SubjectHub() {
     },
   ]
 
-  // 分类：已上线 vs 即将推出
+  // 分类：已开放 vs 内测/排期
   const activeSubjects = subjects.filter(s => s.status === 'active')
-  const comingSubjects = subjects.filter(s => s.status === 'coming')
+  const pilotSubjects = subjects.filter(s => s.status === 'pilot')
+  const upcomingSubjects = subjects.filter(s => s.status === 'coming')
+  const plannedSubjects = [...pilotSubjects, ...upcomingSubjects]
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -149,10 +151,10 @@ export default function SubjectHub() {
               <BookOpen className="w-8 h-8 text-white" />
             </div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-              學科學習
+              DSE 全科辅导平台
             </h1>
             <p className="text-lg text-primary-200 max-w-2xl mx-auto">
-              DSE 各科目互動學習平台，助您高效備考
+              已开放数学、物理、BAFS 学习入口；英文、M2、生物等模块按课程交付节奏内测
             </p>
           </motion.div>
         </div>
@@ -163,9 +165,9 @@ export default function SubjectHub() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-8">
             <Sparkles className="w-6 h-6 text-accent-500" />
-            <h2 className="text-2xl font-bold text-slate-800">已上線學科</h2>
+            <h2 className="text-2xl font-bold text-slate-800">首批开放学科</h2>
             <span className="text-sm bg-accent-100 text-accent-700 px-3 py-1 rounded-full">
-              {activeSubjects.length} 個學科
+              {activeSubjects.length} 个学科
             </span>
           </div>
           
@@ -191,7 +193,7 @@ export default function SubjectHub() {
                           {subject.name}
                         </h3>
                         <span className="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">
-                          已上線
+                          已开放
                         </span>
                       </div>
                       <p className="text-sm text-slate-500 mb-2">{subject.nameEn}</p>
@@ -215,25 +217,25 @@ export default function SubjectHub() {
         </div>
       </section>
 
-      {/* 即将推出学科 */}
+      {/* 内测与排期学科 */}
       <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-8">
             <Lock className="w-5 h-5 text-slate-400" />
-            <h2 className="text-2xl font-bold text-slate-800">未上線</h2>
+            <h2 className="text-2xl font-bold text-slate-800">内测与排期</h2>
             <span className="text-sm bg-slate-100 text-slate-600 px-3 py-1 rounded-full">
-              {comingSubjects.length} 個學科
+              {plannedSubjects.length} 个学科
             </span>
           </div>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {comingSubjects.map((subject, index) => (
+            {plannedSubjects.map((subject, index) => (
               <motion.div
                 key={subject.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05 }}
-                className="bg-slate-50 rounded-xl p-5 border border-slate-200 opacity-75"
+                className="bg-slate-50 rounded-xl p-5 border border-slate-200"
               >
                 <div className="flex items-center gap-3 mb-3">
                   <div className={`w-10 h-10 rounded-lg ${subject.bgColor} flex items-center justify-center`}>
@@ -247,7 +249,7 @@ export default function SubjectHub() {
                 <p className="text-sm text-slate-500">{subject.description}</p>
                 <div className="mt-3 text-xs text-slate-400 flex items-center gap-1">
                   <Lock className="w-3 h-3" />
-                  未上線
+                  {subject.status === 'pilot' ? '课程内测中' : '排期中'}
                 </div>
               </motion.div>
             ))}
@@ -255,17 +257,17 @@ export default function SubjectHub() {
         </div>
       </section>
 
-      {/* 订阅提示 */}
+      {/* 课程咨询提示 */}
       <section className="py-12 bg-gradient-to-r from-primary-600 to-primary-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-bold text-white mb-3">解鎖全部學科內容</h2>
-          <p className="text-primary-100 mb-6">訂閱會員，享受完整的學習資源和進度追蹤功能</p>
+          <h2 className="text-2xl font-bold text-white mb-3">想知道孩子该从哪一科开始补？</h2>
+          <p className="text-primary-100 mb-6">先完成英数衔接测评，再由顾问匹配一对一或 3-6 人小班课程方案</p>
           <Link
-            to="/user"
+            to="/admission/test"
             className="inline-flex items-center gap-2 bg-white text-primary-600 px-6 py-3 rounded-xl font-medium hover:bg-primary-50 transition-colors"
           >
             <Sparkles className="w-5 h-5" />
-            了解訂閱方案
+            预约测评与课程方案
           </Link>
         </div>
       </section>

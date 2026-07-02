@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import {
   Mail, Phone,
   Facebook, Instagram, Youtube, MessageCircle,
-  GraduationCap, BookOpen, Calculator, Languages, Sigma, Atom, FlaskConical, Microscope, TrendingUp, Receipt, User
+  GraduationCap, BookOpen, Calculator, Atom, Receipt, User
 } from 'lucide-react'
 
 /**
@@ -14,23 +14,19 @@ export default function Footer() {
   const { t } = useTranslation()
 
   const quickLinks = [
+    { path: '/admission/test', label: '英数测评', icon: BookOpen },
+    { path: '/admission/rankings', label: '择校参考', icon: GraduationCap },
     { path: '/subjects/math', label: '数学', icon: Calculator },
-    { path: '/subjects/english', label: '英语', icon: BookOpen },
-    { path: '/subjects/chinese', label: '语文', icon: Languages },
-    { path: '/subjects/m1', label: 'M1', icon: Sigma },
-    { path: '/subjects/m2', label: 'M2', icon: Sigma },
     { path: '/subjects/physics', label: '物理', icon: Atom },
-    { path: '/subjects/chemistry', label: '化学', icon: FlaskConical },
-    { path: '/subjects/biology', label: '生物', icon: Microscope },
-    { path: '/subjects/economics', label: '经济', icon: TrendingUp },
-    { path: '/subjects/bafs', label: '会计', icon: Receipt },
+    { path: '/subjects/bafs', label: 'BAFS', icon: Receipt },
+    { path: '/university/jupas', label: 'JUPAS', icon: Calculator },
   ]
 
   const serviceLinks = [
     { path: '/admission', label: '插班', icon: GraduationCap },
     { path: '/subjects', label: '学科学习', icon: BookOpen },
     { path: '/university', label: '升学信息', icon: Calculator },
-    { path: '/user', label: '会员中心', icon: User },
+    { path: '/user', label: '学习中心', icon: User },
   ]
 
   const socialLinks = [

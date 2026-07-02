@@ -142,6 +142,30 @@ export default function Dashboard() {
         </div>
       </motion.section>
 
+      {/* DSE 真题研究库 */}
+      <motion.section variants={itemVariants}>
+        <div className="tech-card border border-cyan-400/30 p-6 md:p-7">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
+            <div>
+              <p className="text-cyan-300 text-sm font-bold mb-2">DSE 物理 2021-2025 真题库</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                按知识体系拆解真题
+              </h2>
+              <p className="text-blue-100 max-w-3xl">
+                五年 Paper 1A 已建立题号、答案 key、来源和逐题入口；2024 Q1-Q5 已完成知识专题、重画图、公式单位和选项分析。
+              </p>
+            </div>
+            <a
+              href="/physics/dse/index.html"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-cyan-400 px-5 py-3 font-bold text-slate-950 hover:bg-cyan-300 transition-colors"
+            >
+              查看真题库
+              <ChevronRight className="w-5 h-5" />
+            </a>
+          </div>
+        </div>
+      </motion.section>
+
       {/* 统计卡片 */}
       <motion.section variants={itemVariants}>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -422,4 +446,3 @@ export default function Dashboard() {
     </motion.div>
   );
 }
-

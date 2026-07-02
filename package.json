@@ -6,11 +6,14 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "npm run generate:physics && tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "import:top50": "tsx scripts/importTop50FromCsv.ts",
-    "generate:bafs-pdfs": "tsx scripts/generateBafsNotePdfs.ts"
+    "generate:bafs-pdfs": "tsx scripts/generateBafsNotePdfs.ts",
+    "generate:physics-cases": "tsx scripts/buildPhysicsCaseStudies.ts",
+    "generate:physics-archive": "tsx scripts/buildPhysicsDseArchive.ts",
+    "generate:physics": "npm run generate:physics-cases && npm run generate:physics-archive"
   },
   "dependencies": {
     "@react-three/drei": "^9.120.0",

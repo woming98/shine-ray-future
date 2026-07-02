@@ -12,9 +12,9 @@ export default function AdmissionHub() {
   const modules = [
     {
       id: 'rankings',
-      title: '香港學校榜單',
-      titleEn: 'School Rankings',
-      description: '全港中學 DSE 成績 TOP50 排行榜，助您選擇理想學校',
+      title: '择校参考榜',
+      titleEn: 'School Shortlist',
+      description: '用 DSE 表现、学校官网与公开资料做初步筛选，不把榜单当成唯一录取依据',
       icon: Trophy,
       link: '/admission/rankings',
       color: 'from-amber-500 to-orange-500',
@@ -23,9 +23,9 @@ export default function AdmissionHub() {
     },
     {
       id: 'info',
-      title: '插班資訊',
-      titleEn: 'Transfer Information',
-      description: '香港學校插班申請流程、所需文件及時間規劃',
+      title: '插班流程准备',
+      titleEn: 'Transfer Roadmap',
+      description: '整理申请时间、材料清单、入学测试和面试准备，先把路径排清楚',
       icon: FileText,
       link: '/admission/info',
       color: 'from-blue-500 to-cyan-500',
@@ -34,9 +34,9 @@ export default function AdmissionHub() {
     },
     {
       id: 'test',
-      title: '入學測試',
-      titleEn: 'Admission Tests',
-      description: '英文及數學能力評估，了解學生水平',
+      title: '英数衔接测评',
+      titleEn: 'Readiness Assessment',
+      description: '用英文及数学测评判断课程差距，作为插班备考和 DSE 衔接的起点',
       icon: ClipboardCheck,
       link: '/admission/test',
       color: 'from-emerald-500 to-teal-500',
@@ -79,10 +79,10 @@ export default function AdmissionHub() {
               <GraduationCap className="w-8 h-8 text-white" />
             </div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-              插班服務
+              香港插班与 DSE 衔接
             </h1>
             <p className="text-lg text-primary-200 max-w-2xl mx-auto">
-              專業的香港學校插班服務，助您的孩子順利入讀心儀學校
+              先筛选目标学校，再完成英数诊断，最后匹配一对一或小班课程方案
             </p>
           </motion.div>
         </div>
@@ -123,8 +123,8 @@ export default function AdmissionHub() {
       <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-slate-800 mb-2">快速開始測試</h2>
-            <p className="text-slate-600">選擇測試類型，評估學生能力水平</p>
+            <h2 className="text-2xl font-bold text-slate-800 mb-2">建议先做一次诊断</h2>
+            <p className="text-slate-600">选择英文或数学测评，完整记录和后续报告需要登录保存</p>
           </div>
           <div className="flex flex-wrap justify-center gap-4">
             {testModules.map((test) => (

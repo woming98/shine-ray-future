@@ -1,6 +1,6 @@
 /**
  * 订阅状态管理
- * 使用 localStorage 模拟订阅系统
+ * 暂存课程权益状态；真实支付和授权应由后端/支付系统接入
  */
 
 import { create } from 'zustand'

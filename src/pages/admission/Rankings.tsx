@@ -39,10 +39,10 @@ export default function Rankings() {
               <Trophy className="w-8 h-8 text-white" />
             </div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-              全港中學 DSE 成績 TOP50
+              香港中學 DSE 表现参考 TOP50
             </h1>
             <p className="text-lg text-primary-200 max-w-2xl mx-auto">
-              2026年度香港中學文憑試成績排行榜
+              用公开资料和历年表现辅助择校短名单，不等同学校官方录取机会判断
             </p>
           </motion.div>
         </div>
@@ -55,6 +55,25 @@ export default function Rankings() {
             <p className="text-slate-600">
               共 <span className="font-semibold text-primary-600">{dseTop50.length}</span> 所學校
             </p>
+          </div>
+
+          <div className="mb-6 rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm leading-6 text-amber-900">
+            <p className="font-semibold mb-1">数据口径说明</p>
+            <p>
+              本页作为插班择校的初步参考，站内指标来自已整理的公开学校资料和历史 DSE 表现数据。
+              截至 2026 年 7 月 1 日，2026 HKDSE 成绩仍未正式放榜；HKEAA 公布的 2026
+              年成绩发布日期为 2026 年 7 月 15 日（暂定）。正式申请仍需以学校官网、招生办公室和
+              HKEAA 最新公告为准。
+            </p>
+            <a
+              href="https://www.hkeaa.edu.hk/en/hkdse/event_timetable/"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-2 inline-flex items-center gap-1 font-medium text-amber-800 underline underline-offset-2"
+            >
+              查看 HKEAA 重要日期
+              <ExternalLink className="h-3.5 w-3.5" />
+            </a>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
