@@ -488,32 +488,32 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
           {
             title: '四、把 2024 Q1 放回这张图',
             questionBrief: {
-              title: '考场读题记录',
+              title: '2024 DSE Q1 原题英文',
               stem: [
-                '题目给两种等质量物质 P 和 Q。起点相同：温度都是 T1，状态都是 solid。',
-                '图像横轴是 energy transferred，纵轴是 temperature。实线读 P，虚线读 Q。题目要选出一条由图像必然支持的判断。',
-                '这时不要先猜答案。先把四个选项翻译成四个读图任务：熔点、熔化潜热、固态比热容、T2 时的状态。',
+                'Substance P and Q are of the same mass and both are solids at temperature T₁.',
+                'The graph below shows the variation of temperature of the substances with energy transferred.',
+                'Which statement below is correct ?',
               ],
               options: [
                 {
                   label: 'A',
-                  text: 'melting point：看平台所在高度。',
+                  text: 'P has a higher melting point than Q.',
                 },
                 {
                   label: 'B',
-                  text: 'specific latent heat of fusion：看熔化平台的横向长度。',
+                  text: 'The specific latent heat of fusion of P is smaller than that of Q.',
                 },
                 {
                   label: 'C',
-                  text: 'specific heat capacity of solid：看熔化前斜线段的斜率。',
+                  text: 'The specific heat capacity of solid P is greater than that of solid Q.',
                 },
                 {
                   label: 'D',
-                  text: 'state at T2：只能根据图上已经出现的相变阶段判断。',
+                  text: 'At temperature T₂, P is gas while Q is solid.',
                 },
               ],
               points: [
-                '这一题真正可直接读出的，是 solid heating section 的斜率差异。',
+                '上方教学图是对原题图像的重画，用来配合这段英文原题阅读。',
               ],
             },
             paragraphs: [
@@ -529,7 +529,7 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
       },
     },
     reconstructedPrompt:
-      '两个等质量固体从同一温度开始受热。题目给出温度-输入能量图，曲线的升温斜率和熔化平台不同，要求判断关于熔点、潜热和比热容的哪句话必然成立。',
+      'Substance P and Q are of the same mass and both are solids at temperature T₁. The graph below shows the variation of temperature of the substances with energy transferred. Which statement below is correct ? A. P has a higher melting point than Q. B. The specific latent heat of fusion of P is smaller than that of Q. C. The specific heat capacity of solid P is greater than that of solid Q. D. At temperature T₂, P is gas while Q is solid.',
     researchQuestion:
       '这道题真正追问的是：当纵轴是温度、横轴是输入能量时，曲线的斜率究竟在反映什么物理量。',
     quickTake:
