@@ -1067,10 +1067,10 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
         {
           title: '数量级题先管单位，再管系数',
           explanation:
-            'DSE 这题的选项隔着数量级，不需要把有效数字磨得很细。真正会把答案推远的，是把 1 cm³ 换错，或者把 room temperature 当成 25 直接代入。',
+            'DSE 这题的选项隔着数量级，不需要把有效数字磨得很细。真正会把答案推远的，是把 1 cm³ 换错，或者把 room temperature 当成 25 直接代入。气体方程里的 T 必须是 Kelvin；室温约 20°C 到 25°C，也就是约 293 K 到 298 K，估算时取 300 K。',
           checkpoints: [
             '1 cm³ = 10^-6 m³。',
-            'room temperature 取约 300 K。',
+            'room temperature 不是要背 300 K，而是由 20°C 到 25°C 转成 Kelvin 后近似得到。',
             '先估 10 的幂，再看系数靠近哪个选项。',
           ],
         },
@@ -1129,7 +1129,7 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
           points: [
             'pressure 已经是 Pa，可以直接用。',
             'volume 必须从 cm³ 变成 m³。',
-            'temperature 必须用 Kelvin，室温取约 300 K。',
+            'temperature 必须用 Kelvin；room temperature 约 20°C 到 25°C，所以取约 300 K。',
           ],
         },
       ],
@@ -1144,7 +1144,7 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
         },
         {
           wrongIdea: '室温就是 25，直接代入 T = 25。',
-          correction: '气体方程必须用 Kelvin，室温近似 300 K。',
+          correction: '气体方程必须用 Kelvin。25°C 约等于 298 K，order of magnitude 题里近似为 300 K。',
         },
       ],
       dsePatterns: [
@@ -1156,7 +1156,7 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
         '我能分清 n 和 N，R 和 k。',
         '我知道 k = R / N_A，不把 k 当成孤立常数。',
         '我能把 cm³ 正确换成 m³。',
-        '我能用 300 K 代表室温。',
+        '我知道 room temperature 为什么可以取 300 K。',
         '我能先算 10 的幂，再估算系数，快速得到数量级。',
       ],
       bridgeToQuestion:
@@ -1287,7 +1287,8 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
             paragraphs: [
               '公式确定以后，最容易失分的地方反而很朴素：单位。pressure 已经给成 Pa，可以直接用；volume 给的是 1 cm³，必须换成 m³；temperature 说的是 room temperature，要用 Kelvin。',
               '1 cm³ 不是 10^-3 m³。厘米到米是一条长度的换算，体积有三条边，所以要立方：1 cm³ = 10^-6 m³。这个地方一错，答案会差一千倍。',
-              'room temperature 也不要代 25。气体方程里的 T 是 absolute temperature，室温取 300 K 就足够。题目问的是 order of magnitude，不需要纠结 298 K 还是 300 K。',
+              'room temperature 也不要代 25。摄氏温度要先转成 Kelvin：T(K) = t(°C) + 273。一般室温大约是 20 °C 到 25 °C，也就是 293 K 到 298 K。题目问的是 order of magnitude，所以取 T ≈ 300 K 就足够。',
+              '这里的大写 K 是 kelvin 这个温度单位；前面公式里的小写 k 才是 Boltzmann constant。一个是单位，一个是常数，读题时要分开。',
             ],
             equations: [
               {
@@ -1305,6 +1306,27 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
                   },
                 ],
                 unitNote: '错成 10⁻³ m³，答案会大一千倍；错成 1 m³，答案会更离谱。',
+              },
+              {
+                expression: 'T(K) = t(°C) + 273',
+                symbols: [
+                  {
+                    symbol: 'T',
+                    meaning: 'absolute temperature，气体方程里使用的温度',
+                    unit: 'K（kelvin）',
+                  },
+                  {
+                    symbol: 't',
+                    meaning: '摄氏温度',
+                    unit: '°C',
+                  },
+                  {
+                    symbol: '273',
+                    meaning: '摄氏温标和 Kelvin 温标之间的近似差值',
+                    unit: 'K',
+                  },
+                ],
+                unitNote: 'room temperature 通常约 20 °C 到 25 °C，因此约为 293 K 到 298 K；数量级估算时取 300 K。',
               },
             ],
           },
@@ -1340,7 +1362,7 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
             },
             paragraphs: [
               '现在看题面，信息其实很干净：pressure about 10^-8 Pa，volume 是 1 cm³，temperature 是 room temperature，目标是 number of air molecules。',
-              '体积换成 10^-6 m³，室温取 300 K。于是 pV 的数量级是 10^-8 × 10^-6 = 10^-14；kT 约为 1.38 × 10^-23 × 300，也就是 4.1 × 10^-21。',
+              '体积换成 10^-6 m³；room temperature 由 20 °C 到 25 °C 转成 Kelvin 后约为 300 K。于是 pV 的数量级是 10^-8 × 10^-6 = 10^-14；kT 约为 1.38 × 10^-23 × 300，也就是 4.1 × 10^-21。',
               '两者相除，N 约为 2.4 × 10^6。答案的数量级是 10^6，也就是 B。这个结论并不反直觉：它只是说明“最好的 vacuum”仍然可以在 1 cm³ 里留下百万级 molecules。',
             ],
           },
@@ -1355,7 +1377,7 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
     researchQuestion:
       '为什么一个叫 vacuum 的空间，仍然可以有百万级 molecules？',
     quickTake:
-      'vacuum 只是低压，不是零分子。题目问 molecules，所以目标是 N；k 可理解为 R / N_A。把 1 cm³ 换成 10⁻⁶ m³，室温取 300 K，估得 N 约为 2.4 × 10⁶，数量级是 10⁶。',
+      'vacuum 只是低压，不是零分子。题目问 molecules，所以目标是 N；k 可理解为 R / N_A。把 1 cm³ 换成 10⁻⁶ m³，room temperature 由摄氏室温转成 Kelvin 后约取 300 K，估得 N 约为 2.4 × 10⁶，数量级是 10⁶。',
     diagram: {
       title: '教学重画图：宏观状态到微观分子数的翻译',
       svg: idealGasSvg,
@@ -1364,7 +1386,7 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
       '题目问 molecules，未知量是 N。',
       'k = R / N_A，是 R 拆到单个 molecule 后的版本。',
       '1 cm³ 必须换算成 10^-6 m³。',
-      '室温可以近似为 300 K。',
+      'room temperature 约 20°C 到 25°C，换成 Kelvin 后可近似为 300 K。',
     ],
     prerequisiteRecovery: [
       {
@@ -1379,6 +1401,7 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
         title: '数量级顺序',
         points: [
           '先把 cm³、room temperature 这些单位处理好。',
+          'room temperature 不是直接代 20 或 25，而是转成 Kelvin 后近似 300 K。',
           '再估 pV 和 kT 的 10 的幂。',
           '最后选最接近的数量级，不追求漂亮小数。',
         ],
@@ -1386,7 +1409,7 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
     ],
     thinkingPath: [
       '题目问 number of air molecules，所以目标量是 N。',
-      '把 1 cm³ 换成 10^-6 m³，room temperature 取约 300 K。',
+      '把 1 cm³ 换成 10^-6 m³；room temperature 约 20°C 到 25°C，转成 Kelvin 后取约 300 K。',
       '用 k = R / N_A 理解 Boltzmann constant，数值约 1.38 × 10^-23 J K^-1。',
       '估出 N 约为 2.4 × 10^6，数量级是 10^6。',
     ],
@@ -1395,7 +1418,8 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
         title: '第 1 步：把单位和常数摆正',
         points: [
           '题目问 molecules，所以使用 N。',
-          '1 cm³ = 10^-6 m³，room temperature ≈ 300 K。',
+          '1 cm³ = 10^-6 m³。',
+          'room temperature 约 20°C 到 25°C，换成 Kelvin 后取 T ≈ 300 K。',
           'k = R / N_A ≈ 1.38 × 10^-23 J K^-1。',
         ],
       },
