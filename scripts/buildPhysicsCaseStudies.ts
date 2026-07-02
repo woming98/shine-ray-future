@@ -322,7 +322,7 @@ function renderNarrativeApplication(caseStudy: PhysicsCaseStudy) {
       </section>
 
       <section id="exam-reasoning" class="essay-section">
-        <h3>从图像慢慢推到答案</h3>
+        <h3>${escapeHtml(caseStudy.knowledgeSystem.narrative?.reasoningHeading ?? '从图像慢慢推到答案')}</h3>
         ${renderParagraphs(caseStudy.thinkingPath)}
         ${caseStudy.solution
           .map(
