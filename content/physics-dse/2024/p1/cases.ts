@@ -1051,7 +1051,7 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
           checkpoints: [
             '看到 moles 或 amount of substance：用 n 和 R。',
             '看到 molecules 或 particles：用 N 和 k。',
-            'R 和 k 的关系是 R = NA k。',
+            'R 和 k 的关系是 R = N_A k，其中 N_A 是 Avogadro constant。',
           ],
         },
         {
@@ -1086,7 +1086,7 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
           name: '宏观理想气体方程',
           expression: 'pV = nRT',
           useWhen: '题目要求 mole 数 n，或给的是 molar amount。',
-          watchOut: '如果最终要 molecules，还需要 N = nNA。',
+          watchOut: '如果最终要 molecules，还需要 N = nN_A；这里 N_A 是一个整体常数符号。',
         },
         {
           name: '体积换算',
@@ -1121,7 +1121,7 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
           points: [
             'n 是 mole 数，配合 gas constant R。',
             'N 是 molecule count，配合 Boltzmann constant k。',
-            '两者通过 N = nNA 连接；若目标是实际分子数，用 pV = NkT 最短。',
+            '两者通过 N = nN_A 连接；N_A 是 Avogadro constant，不是可以和左边 N 约掉的同一个量。',
           ],
         },
         {
@@ -1181,7 +1181,8 @@ export const PHYSICS_DSE_2024_P1_CASES: PhysicsCaseStudy[] = [
             title: '一、同一团气体，可以用 mole 计，也可以逐个 molecule 计',
             paragraphs: [
               '理想气体方程有两个常见版本。pV = nRT 用 mole 作计数单位；pV = NkT 用一个个 molecule 作计数单位。它们不是两条互相矛盾的定律，而是同一件事的两种语言。',
-              'mole 是一包一包地数，适合化学和宏观物质的量；molecule count 是一个一个地数，适合问实际粒子个数。两者之间用 Avogadro constant 连接：N = nNA。',
+              'mole 是一包一包地数，适合化学和宏观物质的量；molecule count 是一个一个地数，适合问实际粒子个数。两者之间用 Avogadro constant 连接：N = nN_A。',
+              '这里特别容易误会：左边的 N 是 molecule count；右边的 N_A 是一个完整常数名，读作 Avogadro constant，数值约为 6.02 × 10^23 mol⁻¹。N_A 不是 N 乘 A，所以不能把等式两边的 N 约掉。',
               '如果目标是 actual number of molecules，最直接的语言就是 N 和 Boltzmann constant k。把 pV = NkT 改写成 N = pV/(kT)，意思很清楚：整团气体的 pV 尺度，除以每个分子的 kT 尺度，得到分子个数。',
             ],
             equations: [
