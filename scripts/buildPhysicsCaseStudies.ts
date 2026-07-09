@@ -1,12 +1,43 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { PHYSICS_DSE_2024_P1_CASES, type PhysicsCaseStudy } from '../content/physics-dse/2024/p1/cases'
+import { PHYSICS_DSE_2025_P1_CASES } from '../content/physics-dse/2025/p1/cases'
 import { copyKatexAssets, renderDisplayFormula, renderInlineMath, renderRichText } from './physicsFormulaRendering'
 
-const outputRoot = path.join(process.cwd(), 'public', 'physics', 'dse-2024')
-const yearIndexHref = '/physics/dse-2024/index.html'
-const paperOneHref = '/physics/dse-2024/p1/index.html'
-const katexCssHref = '/physics/dse-2024/vendor/katex/katex.min.css'
+interface BuildTarget {
+  year: number
+  cases: PhysicsCaseStudy[]
+  paperIndexSubtitle: string
+}
+
+const buildTargets: BuildTarget[] = [
+  {
+    year: 2024,
+    cases: PHYSICS_DSE_2024_P1_CASES,
+    paperIndexSubtitle:
+      '先按知识点建立理解，再用后半段案例验证考法。当前前 5 个专题覆盖热学、相变、气体、运动图像和力学接触力。',
+  },
+  {
+    year: 2025,
+    cases: PHYSICS_DSE_2025_P1_CASES,
+    paperIndexSubtitle:
+      '2025 Paper 1 专题会逐题扩展。当前先完成 Q13 平面镜成像，沿用 2024 Q1 的讲义化页面结构。',
+  },
+]
+
+let activeYear = buildTargets[0].year
+let outputRoot = path.join(process.cwd(), 'public', 'physics', `dse-${activeYear}`)
+let yearIndexHref = `/physics/dse-${activeYear}/index.html`
+let paperOneHref = `/physics/dse-${activeYear}/p1/index.html`
+let katexCssHref = `/physics/dse-${activeYear}/vendor/katex/katex.min.css`
+
+function setBuildTarget(target: BuildTarget) {
+  activeYear = target.year
+  outputRoot = path.join(process.cwd(), 'public', 'physics', `dse-${activeYear}`)
+  yearIndexHref = `/physics/dse-${activeYear}/index.html`
+  paperOneHref = `/physics/dse-${activeYear}/p1/index.html`
+  katexCssHref = `/physics/dse-${activeYear}/vendor/katex/katex.min.css`
+}
 
 function ensureDir(dir: string) {
   fs.mkdirSync(dir, { recursive: true })
@@ -425,7 +456,7 @@ function renderApplicationBody(caseStudy: PhysicsCaseStudy) {
 }
 
 function getCaseHref(caseStudy: PhysicsCaseStudy) {
-  return `/physics/dse-2024/p1/${caseStudy.slug}/index.html`
+  return `/physics/dse-${activeYear}/p1/${caseStudy.slug}/index.html`
 }
 
 function getKnowledgeTitle(caseStudy: PhysicsCaseStudy) {
@@ -1723,11 +1754,11 @@ function renderCasePage(caseStudy: PhysicsCaseStudy, allCases: PhysicsCaseStudy[
 <body${bodyClass}>
   <header class="topbar">
     <div class="shell topbar-inner">
-      <a class="brand" href="${yearIndexHref}">2024 DSE 物理知识专题库</a>
+      <a class="brand" href="${yearIndexHref}">${activeYear} DSE 物理知识专题库</a>
       <nav class="nav-links">
         <a href="/subjects/physics">返回物理学习中心</a>
-        <a href="${yearIndexHref}">2024 总览</a>
-        <a href="${paperOneHref}">Paper 1 样板</a>
+        <a href="${yearIndexHref}">${activeYear} 总览</a>
+        <a href="${paperOneHref}">Paper 1 专题</a>
       </nav>
     </div>
   </header>
@@ -1758,23 +1789,25 @@ function renderCasePage(caseStudy: PhysicsCaseStudy, allCases: PhysicsCaseStudy[
 </html>`
 }
 
-function renderPaperIndex(cases: PhysicsCaseStudy[]) {
+function renderPaperIndex(target: BuildTarget) {
+  const cases = target.cases
+
   return `<!doctype html>
 <html lang="zh-Hans">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>2024 DSE 物理 Paper 1 知识专题库</title>
+  <title>${activeYear} DSE 物理 Paper 1 知识专题库</title>
   <link rel="stylesheet" href="${katexCssHref}" />
   <style>${baseStyles()}</style>
 </head>
 <body>
   <header class="topbar">
     <div class="shell topbar-inner">
-      <a class="brand" href="${yearIndexHref}">2024 DSE 物理知识专题库</a>
+      <a class="brand" href="${yearIndexHref}">${activeYear} DSE 物理知识专题库</a>
       <nav class="nav-links">
         <a href="/subjects/physics">返回物理学习中心</a>
-        <a href="${yearIndexHref}">2024 总览</a>
+        <a href="${yearIndexHref}">${activeYear} 总览</a>
       </nav>
     </div>
   </header>
@@ -1782,13 +1815,13 @@ function renderPaperIndex(cases: PhysicsCaseStudy[]) {
     <section class="hero">
       <span class="eyebrow">知识体系样板</span>
       <h1>Paper 1 知识专题库</h1>
-      <p class="subtitle">先按知识点建立理解，再用后半段案例验证考法。当前前 5 个专题覆盖热学、相变、气体、运动图像和力学接触力。</p>
+      <p class="subtitle">${escapeHtml(target.paperIndexSubtitle)}</p>
     </section>
     <section class="case-grid">
       ${cases.map(renderCaseCard).join('')}
     </section>
   </main>
-  <footer><div class="shell">新增题目请维护 content/physics-dse/2024/p1/cases.ts，然后重新运行生成器。</div></footer>
+  <footer><div class="shell">新增题目请维护 content/physics-dse/${activeYear}/p1/cases.ts，然后重新运行生成器。</div></footer>
 </body>
 </html>`
 }
@@ -1799,7 +1832,7 @@ function renderYearIndex(cases: PhysicsCaseStudy[]) {
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>2024 DSE 物理知识体系与真题考法库</title>
+  <title>${activeYear} DSE 物理知识体系与真题考法库</title>
   <link rel="stylesheet" href="${katexCssHref}" />
   <style>${baseStyles()}</style>
 </head>
@@ -1809,14 +1842,14 @@ function renderYearIndex(cases: PhysicsCaseStudy[]) {
       <a class="brand" href="/subjects/physics">Shine Ray Future · Physics</a>
       <nav class="nav-links">
         <a href="/subjects/physics">返回物理学习中心</a>
-        <a href="${paperOneHref}">Paper 1 样板</a>
+        <a href="${paperOneHref}">Paper 1 专题</a>
       </nav>
     </div>
   </header>
   <main class="shell">
     <section class="hero">
       <span class="eyebrow">DSE 物理知识体系与真题考法库</span>
-      <h1>DSE 物理知识点样板库</h1>
+      <h1>${activeYear} DSE 物理知识点样板库</h1>
       <p class="subtitle">不是从题目开始讲，而是先建立知识系统：概念、公式、图像语言、常见误解和迁移方法都先讲清楚，再把应用案例放到后面做验证。</p>
       <p><a class="primary-link" href="${paperOneHref}">进入知识点样板</a></p>
     </section>
@@ -1834,11 +1867,12 @@ function writeFile(filePath: string, content: string) {
   fs.writeFileSync(filePath, content, 'utf8')
 }
 
-function build() {
-  const cases = PHYSICS_DSE_2024_P1_CASES
+function buildTarget(target: BuildTarget) {
+  setBuildTarget(target)
+  const cases = target.cases
   copyKatexAssets(outputRoot)
   writeFile(path.join(outputRoot, 'index.html'), renderYearIndex(cases))
-  writeFile(path.join(outputRoot, 'p1', 'index.html'), renderPaperIndex(cases))
+  writeFile(path.join(outputRoot, 'p1', 'index.html'), renderPaperIndex(target))
 
   for (const caseStudy of cases) {
     writeFile(
@@ -1847,7 +1881,13 @@ function build() {
     )
   }
 
-  console.log(`Generated ${cases.length} physics case studies in ${outputRoot}`)
+  console.log(`Generated ${cases.length} physics case studies for ${activeYear} in ${outputRoot}`)
+}
+
+function build() {
+  for (const target of buildTargets) {
+    buildTarget(target)
+  }
 }
 
 build()

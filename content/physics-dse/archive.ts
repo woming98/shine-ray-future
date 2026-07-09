@@ -105,6 +105,13 @@ const focus2025: Record<number, string> = {
   33: 'mass-energy relation：fusion energy release 与 mass defect',
 }
 
+const detailed2025: Record<number, Omit<PhysicsDseQuestionEntry, 'no' | 'answer' | 'status'>> = {
+  13: {
+    detailedHref: '/physics/dse-2025/p1/q13/index.html',
+    focus: focus2025[13],
+  },
+}
+
 export const PHYSICS_DSE_ARCHIVE: PhysicsDseYearArchive[] = [
   {
     year: 2021,
@@ -240,7 +247,7 @@ export const PHYSICS_DSE_ARCHIVE: PhysicsDseYearArchive[] = [
   },
   {
     year: 2025,
-    summary: '合并 report PDF 可直接抽取 Paper 1A 题面与答案表；答案 key 已入库，适合作为下一批精讲优先年份。',
+    summary: '合并 report PDF 可直接抽取 Paper 1A 题面与答案表；Q13 平面镜成像已完成完整精讲，其余题目答案 key 已入库。',
     sources: [
       {
         label: '2025 DSE PHY.pdf',
@@ -253,11 +260,12 @@ export const PHYSICS_DSE_ARCHIVE: PhysicsDseYearArchive[] = [
       questionCount: 33,
       answerKeySource: '2025 report PDF 第 55 页文本抽取',
       notes: [
-        '2025 Paper 1A 题面文本可抽取，后续可优先批量转为讲义页。',
+        'Q13 已完成知识体系讲义、重画图、题目注记和选项分析。',
+        '2025 Paper 1A 题面文本可抽取，后续可继续批量转为讲义页。',
         '公开页面仍使用题意记录和原创讲解，不整段复制英文原题。',
       ],
       questions: withQuestionFocus(
-        answers('C D B C C C C A D A B A B D B B A D C D C D D A C B A A B A B B D'),
+        answers('C D B C C C C A D A B A B D B B A D C D C D D A C B A A B A B B D', detailed2025),
         focus2025
       ),
     },
