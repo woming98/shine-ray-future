@@ -85,6 +85,7 @@ export interface PhysicsCaseStudy {
   diagram?: {
     title: string
     svg: string
+    deferInHero?: boolean
   }
   model: string[]
   prerequisiteRecovery: Array<{

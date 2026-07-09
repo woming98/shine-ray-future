@@ -212,6 +212,10 @@ function getNarrativeQuestionBrief(caseStudy: PhysicsCaseStudy) {
   return caseStudy.knowledgeSystem.narrative?.sections.find((section) => section.questionBrief)?.questionBrief
 }
 
+function shouldDeferNarrativeFigure(caseStudy: PhysicsCaseStudy) {
+  return Boolean(caseStudy.knowledgeSystem.narrative && caseStudy.diagram?.deferInHero)
+}
+
 function renderNarrativeKnowledge(caseStudy: PhysicsCaseStudy) {
   const narrative = caseStudy.knowledgeSystem.narrative
 
@@ -341,6 +345,7 @@ function renderNarrativeOptionAnalysis(caseStudy: PhysicsCaseStudy) {
 
 function renderNarrativeApplication(caseStudy: PhysicsCaseStudy) {
   const questionBrief = getNarrativeQuestionBrief(caseStudy)
+  const deferredFigure = shouldDeferNarrativeFigure(caseStudy) ? renderDeferredExamFigure(caseStudy) : ''
 
   return `
     <article class="panel essay">
@@ -350,6 +355,7 @@ function renderNarrativeApplication(caseStudy: PhysicsCaseStudy) {
       <section id="exam-brief" class="essay-section">
         <h3>${questionBrief ? '用原题题面回到考场' : '用上面的题目速写来解'}</h3>
         ${questionBrief ? renderQuestionBrief(questionBrief, 'question-brief exam-question-card') : `<p>${renderRichText(caseStudy.reconstructedPrompt)}</p>`}
+        ${deferredFigure}
         <p>${renderRichText(caseStudy.knowledgeSystem.bridgeToQuestion)}</p>
         <p>${renderRichText(caseStudy.researchQuestion)}</p>
       </section>
@@ -379,6 +385,24 @@ function renderNarrativeApplication(caseStudy: PhysicsCaseStudy) {
         ${renderParagraphs(caseStudy.variationDrill.solution)}
       </section>
     </article>
+  `
+}
+
+function renderDeferredExamFigure(caseStudy: PhysicsCaseStudy) {
+  if (!caseStudy.diagram) {
+    return ''
+  }
+
+  const zoomId = getFigureZoomId(caseStudy)
+
+  return `
+    <figure class="exam-figure-block">
+      <div class="diagram">${caseStudy.diagram.svg}</div>
+      <figcaption>
+        <span>${escapeHtml(caseStudy.diagram.title)}</span>
+        <label class="figure-zoom-button" for="${escapeHtml(zoomId)}">放大图</label>
+      </figcaption>
+    </figure>
   `
 }
 
@@ -513,7 +537,7 @@ function renderNarrativeHero(caseStudy: PhysicsCaseStudy) {
         <div class="tags">${renderTags(caseStudy.tags)}</div>
       </div>
       ${
-        caseStudy.diagram
+        caseStudy.diagram && !shouldDeferNarrativeFigure(caseStudy)
           ? `<figure class="hero-figure">
               <div class="diagram">${caseStudy.diagram.svg}</div>
               <figcaption><span>Figure 1</span>${escapeHtml(caseStudy.diagram.title)}</figcaption>
@@ -555,7 +579,7 @@ function renderStructuredSidebar(allCases: PhysicsCaseStudy[]) {
 }
 
 function renderMobileReferenceFigure(caseStudy: PhysicsCaseStudy) {
-  if (!caseStudy.diagram || !caseStudy.knowledgeSystem.narrative) {
+  if (!caseStudy.diagram || !caseStudy.knowledgeSystem.narrative || shouldDeferNarrativeFigure(caseStudy)) {
     return ''
   }
 
@@ -611,7 +635,7 @@ function renderNarrativeSidebar(caseStudy: PhysicsCaseStudy) {
   return `
     <aside class="sidebar essay-sidebar">
       ${
-        caseStudy.diagram
+        caseStudy.diagram && !shouldDeferNarrativeFigure(caseStudy)
           ? `<figure class="sidebar-reference">
               <div class="sidebar-figure-frame">${caseStudy.diagram.svg}</div>
               <figcaption>${escapeHtml(caseStudy.diagram.title)}</figcaption>
@@ -1451,6 +1475,34 @@ function baseStyles() {
       color: #6b3d0f;
       font-size: 15px;
       line-height: 1.7;
+    }
+    .essay-page .exam-figure-block {
+      max-width: 860px;
+      margin: 20px 0 26px;
+    }
+    .essay-page .exam-figure-block .diagram {
+      margin: 0;
+      padding: 14px;
+      border: 1px solid #d7dee8;
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: 0 14px 34px rgba(17, 24, 39, 0.06);
+    }
+    .essay-page .exam-figure-block figcaption {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+      color: #475467;
+      font-size: 14px;
+      line-height: 1.55;
+      font-weight: 760;
+    }
+    .essay-page .exam-figure-block .figure-zoom-button {
+      margin-top: 0;
+      flex: 0 0 auto;
     }
     .essay-page .essay-closing {
       margin-top: 46px;
