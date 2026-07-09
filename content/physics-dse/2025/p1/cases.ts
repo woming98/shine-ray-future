@@ -1,72 +1,11 @@
 import type { PhysicsCaseStudy } from '../../2024/p1/cases'
 
 const planeMirrorImagesSvg = `
-<svg viewBox="0 0 760 430" role="img" aria-label="Two inclined plane mirrors and possible image positions P, Q and R">
-  <defs>
-    <pattern id="mirrorMinorGrid" width="12" height="12" patternUnits="userSpaceOnUse">
-      <path d="M12 0H0V12" fill="none" stroke="#cbd5e1" stroke-width="0.9"/>
-    </pattern>
-    <pattern id="mirrorMajorGrid" width="60" height="60" patternUnits="userSpaceOnUse">
-      <rect width="60" height="60" fill="url(#mirrorMinorGrid)"/>
-      <path d="M60 0H0V60" fill="none" stroke="#64748b" stroke-width="1.7"/>
-    </pattern>
-    <marker id="mirrorArrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-      <path d="M0 0L8 4L0 8Z" fill="#2563eb"/>
-    </marker>
-  </defs>
-
-  <rect x="38" y="24" width="684" height="382" rx="18" fill="#f8fafc"/>
-  <rect x="60" y="42" width="640" height="330" fill="url(#mirrorMajorGrid)" stroke="#0f172a" stroke-width="3"/>
-
-  <g stroke="#94a3b8" stroke-width="2" stroke-dasharray="8 8" opacity="0.72">
-    <line x1="250" y1="322" x2="500" y2="72"/>
-    <line x1="395" y1="207" x2="590" y2="402"/>
-    <line x1="250" y1="322" x2="395" y2="177"/>
-  </g>
-
-  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="395" y1="177" x2="500" y2="72" stroke="#111827" stroke-width="8"/>
-    <line x1="395" y1="207" x2="500" y2="312" stroke="#111827" stroke-width="8"/>
-    <g stroke="#111827" stroke-width="2.4">
-      <line x1="386" y1="167" x2="405" y2="186"/>
-      <line x1="400" y1="153" x2="419" y2="172"/>
-      <line x1="414" y1="139" x2="433" y2="158"/>
-      <line x1="428" y1="125" x2="447" y2="144"/>
-      <line x1="386" y1="217" x2="405" y2="198"/>
-      <line x1="400" y1="231" x2="419" y2="212"/>
-      <line x1="414" y1="245" x2="433" y2="226"/>
-      <line x1="428" y1="259" x2="447" y2="240"/>
-    </g>
-  </g>
-
-  <g stroke="#2563eb" stroke-width="3" stroke-dasharray="0" fill="none" opacity="0.85">
-    <path d="M560 142 L445 257 L330 372" marker-end="url(#mirrorArrow)"/>
-    <path d="M330 372 L265 307 L200 242" marker-end="url(#mirrorArrow)"/>
-  </g>
-
-  <g font-family="Georgia, 'Times New Roman', serif" font-weight="800">
-    <circle cx="560" cy="142" r="8" fill="#111827"/>
-    <text x="575" y="132" font-size="34" fill="#111827">O</text>
-
-    <circle cx="330" cy="42" r="8" fill="#111827"/>
-    <text x="306" y="35" font-size="34" fill="#111827">P</text>
-
-    <circle cx="200" cy="242" r="8" fill="#111827"/>
-    <text x="174" y="232" font-size="34" fill="#111827">Q</text>
-
-    <circle cx="330" cy="372" r="8" fill="#111827"/>
-    <text x="306" y="365" font-size="34" fill="#111827">R</text>
-
-    <text x="410" y="140" font-size="30" fill="#111827">M<tspan font-size="19" baseline-shift="sub">1</tspan></text>
-    <text x="410" y="283" font-size="30" fill="#111827">M<tspan font-size="19" baseline-shift="sub">2</tspan></text>
-  </g>
-
-  <g font-family="Inter, ui-sans-serif, system-ui, sans-serif">
-    <rect x="78" y="64" width="230" height="76" rx="12" fill="#eff6ff" stroke="#bfdbfe"/>
-    <text x="96" y="94" font-size="17" font-weight="800" fill="#1e3a8a">读图顺序</text>
-    <text x="96" y="120" font-size="15" fill="#1e40af">先把 O 对 M2 反射到 R，再把 R 对 M1 反射到 Q。</text>
-  </g>
-</svg>`
+<img
+  class="exam-diagram-image"
+  src="/physics/dse-2025/p1/q13/q13-diagram.png"
+  alt="2025 DSE Physics Q13 diagram showing two plane mirrors and possible image positions P, Q and R"
+/>`
 
 export const PHYSICS_DSE_2025_P1_CASES: PhysicsCaseStudy[] = [
   {
@@ -293,7 +232,7 @@ export const PHYSICS_DSE_2025_P1_CASES: PhysicsCaseStudy[] = [
                 },
               ],
               points: [
-                '上方教学图是按原题格纸重画，并加入淡色构图线帮助判断。',
+                '上方图只裁出真题中的镜面格纸图，题面文字和选项仍以文本方式呈现。',
               ],
             },
             paragraphs: [
@@ -314,7 +253,7 @@ export const PHYSICS_DSE_2025_P1_CASES: PhysicsCaseStudy[] = [
     quickTake:
       'R 是 O 关于 M2 的一次镜像；Q 是 R 关于 M1 的二次镜像。P 不是 O 或 R 关于任何镜面的对称点，所以不能成像。',
     diagram: {
-      title: '教学重画图：M2 形成 R，M2 后再经 M1 形成 Q',
+      title: '真题图：两块平面镜与候选像位置',
       svg: planeMirrorImagesSvg,
     },
     model: [

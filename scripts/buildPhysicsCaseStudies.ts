@@ -559,7 +559,7 @@ function renderMobileReferenceFigure(caseStudy: PhysicsCaseStudy) {
     return ''
   }
 
-  const mobileTitle = caseStudy.diagram.title.replace(/^教学重画图：/, '')
+  const mobileTitle = caseStudy.diagram.title.replace(/^(教学重画图|真题图)：/, '')
 
   return `
     <details class="mobile-figure-dock" open>
@@ -782,7 +782,19 @@ function baseStyles() {
       color: #1e293b;
       background: #f1f5f9;
     }
-    .diagram svg { width: 100%; height: auto; display: block; }
+    .diagram svg,
+    .diagram img,
+    .sidebar-figure-frame img,
+    .mobile-figure-frame img,
+    .figure-modal-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .exam-diagram-image {
+      background: #ffffff;
+      object-fit: contain;
+    }
     .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; }
     .tag {
       border: 1px solid #bfdbfe;
@@ -1867,6 +1879,23 @@ function writeFile(filePath: string, content: string) {
   fs.writeFileSync(filePath, content, 'utf8')
 }
 
+function copyCaseAssets(year: number, slug: string) {
+  const sourceDir = path.join(process.cwd(), 'content', 'physics-dse', String(year), 'p1', 'assets')
+
+  if (!fs.existsSync(sourceDir)) {
+    return
+  }
+
+  const targetDir = path.join(outputRoot, 'p1', slug)
+  ensureDir(targetDir)
+
+  for (const entry of fs.readdirSync(sourceDir, { withFileTypes: true })) {
+    if (entry.isFile() && entry.name.startsWith(`${slug}-`)) {
+      fs.copyFileSync(path.join(sourceDir, entry.name), path.join(targetDir, entry.name))
+    }
+  }
+}
+
 function buildTarget(target: BuildTarget) {
   setBuildTarget(target)
   const cases = target.cases
@@ -1879,6 +1908,7 @@ function buildTarget(target: BuildTarget) {
       path.join(outputRoot, 'p1', caseStudy.slug, 'index.html'),
       renderCasePage(caseStudy, cases)
     )
+    copyCaseAssets(target.year, caseStudy.slug)
   }
 
   console.log(`Generated ${cases.length} physics case studies for ${activeYear} in ${outputRoot}`)
